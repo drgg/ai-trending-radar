@@ -1,0 +1,14 @@
+{
+  "placeholder": true,
+  "is_ai_product": true,
+  "category": "其他",
+  "positioning": "Gemma 4 26B-A4B inference in ~2 GB of RAM on any M-series MacBook",
+  "features": "",
+  "highlights": "",
+  "audience": "",
+  "quickstart": "",
+  "risks": [],
+  "readme_sha": "45cd3d182820e20e43ac90669233d01d96248f5e",
+  "generated_at": "2026-09-19",
+  "model": null
+}

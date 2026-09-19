@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 热门项目周报</title>
+<meta name="description" content="GitHub 近 90 天新建、星数超过 5000 的 AI 项目，每周自动更新">
+<style>
+:root{
+  --bg:#f7f7f5;--surface:#fff;--text:#1d1d1b;--muted:#6b6b66;--border:#e4e4df;
+  --accent:#2f5bd3;--accent-soft:#e8eefc;--good:#1f7a4d;--good-soft:#e5f4ec;
+  --warn:#9a5b00;--warn-soft:#fbf1df;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141413;--surface:#1e1e1c;--text:#ececea;--muted:#a09f99;--border:#33332f;
+  --accent:#8aa8ff;--accent-soft:#232c45;--good:#6fd3a0;--good-soft:#1b3328;
+  --warn:#f0b35a;--warn-soft:#3a2d17;
+}}
+:root[data-theme="dark"]{
+  --bg:#141413;--surface:#1e1e1c;--text:#ececea;--muted:#a09f99;--border:#33332f;
+  --accent:#8aa8ff;--accent-soft:#232c45;--good:#6fd3a0;--good-soft:#1b3328;
+  --warn:#f0b35a;--warn-soft:#3a2d17;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:32px 16px 64px}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+header h1{font-size:26px;margin:0 0 4px}
+.meta{color:var(--muted);font-size:13px}
+nav.cats{display:flex;flex-wrap:wrap;gap:6px;margin:20px 0}
+nav.cats a{font-size:13px;padding:3px 10px;border:1px solid var(--border);border-radius:999px;background:var(--surface);color:var(--text)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin:16px 0}
+.panel h2{font-size:16px;margin:0 0 10px}
+.changes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.changes h3{font-size:13px;color:var(--muted);margin:0 0 6px;font-weight:600}
+.changes ul,.panel ul{margin:0;padding-left:18px}
+section.cat>h2{font-size:19px;margin:36px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin:12px 0}
+.card-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.card-head h3{font-size:17px;margin:0;word-break:break-all}
+.stars{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px}
+.badge{font-size:12px;padding:1px 8px;border-radius:999px}
+.badge.new{background:var(--accent-soft);color:var(--accent)}
+.badge.up{background:var(--good-soft);color:var(--good)}
+.sub{color:var(--muted);font-size:12.5px;margin:2px 0 8px}
+dl{margin:0;display:grid;grid-template-columns:5em 1fr;gap:4px 12px}
+dt{color:var(--muted);font-size:13.5px}dd{margin:0}
+.risks{margin:10px 0 0;padding:8px 12px;border-radius:8px;background:var(--warn-soft);color:var(--warn);font-size:13.5px;list-style:none}
+.risks li::before{content:"⚠ "}
+details{margin-top:28px;color:var(--muted)}
+footer{margin-top:40px;color:var(--muted);font-size:12.5px}
+@media (max-width:560px){dl{grid-template-columns:1fr}dt{margin-top:6px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>GitHub AI 热门项目周报</h1>
+  <div class="meta">
+    近 90 天新建 · Stars &gt; 5,000 · 共 27 个项目 · 快照 2026-09-19
+    
+     · <strong>dry-run 预览（介绍为占位）</strong>
+  </div>
+</header>
+
+<nav class="cats"><a href="#cat-1">其他 · 27</a></nav>
+
+<div class="panel">
+  <h2>本期变化</h2>
+  <p>这是首期，下周起显示与上一期的对比。</p>
+</div>
+
+<div class="panel"><h2>趋势小结</h2><ul><li>（dry-run 模式，未生成趋势小结）</li></ul></div>
+
+
+<section class="cat" id="cat-1">
+  <h2>其他</h2>
+  
+  <article class="card" id="xai-org/grok-build">
+    <div class="card-head">
+      <h3><a href="https://github.com/xai-org/grok-build">xai-org/grok-build</a></h3>
+      <span class="stars">★ 26,872</span>
+      
+      
+    </div>
+    <div class="sub">Rust · Apache-2.0 · 创建于 2026-07-14 · 最近更新 2026-09-17</div>
+    <dl>
+      
+      <dt>定位</dt><dd>SpaceXAI&#39;s coding agent harness and TUI. Fullscreen, mouse interactive, extensible.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="guillaumemeyer/watermarks-remover">
+    <div class="card-head">
+      <h3><a href="https://github.com/guillaumemeyer/watermarks-remover">guillaumemeyer/watermarks-remover</a></h3>
+      <span class="stars">★ 22,332</span>
+      
+      
+    </div>
+    <div class="sub">Python · MIT · 创建于 2026-08-11 · 最近更新 2026-09-16 · <a href="https://github.com/guillaumemeyer/watermarks-remover">主页</a></div>
+    <dl>
+      
+      <dt>定位</dt><dd>A privacy-first app that strips AI watermarks from content you own.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="langchain-ai/openwiki">
+    <div class="card-head">
+      <h3><a href="https://github.com/langchain-ai/openwiki">langchain-ai/openwiki</a></h3>
+      <span class="stars">★ 16,632</span>
+      
+      
+    </div>
+    <div class="sub">TypeScript · MIT · 创建于 2026-06-22 · 最近更新 2026-09-18</div>
+    <dl>
+      
+      <dt>定位</dt><dd>OpenWiki is a CLI that writes and maintains agent documentation for your codebase.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="yc-software/qm">
+    <div class="card-head">
+      <h3><a href="https://github.com/yc-software/qm">yc-software/qm</a></h3>
+      <span class="stars">★ 15,159</span>
+      
+      
+    </div>
+    <div class="sub">TypeScript · MIT · 创建于 2026-07-29 · 最近更新 2026-09-19 · <a href="https://x.com/qm__dev">主页</a></div>
+    <dl>
+      
+      <dt>定位</dt><dd>Multiplayer agent harness for work.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="trycompai/crm">
+    <div class="card-head">
+      <h3><a href="https://github.com/trycompai/crm">trycompai/crm</a></h3>
+      <span class="stars">★ 10,627</span>
+      
+      
+    </div>
+    <div class="sub">TypeScript · MIT · 创建于 2026-07-31 · 最近更新 2026-09-11 · <a href="https://trycrm.ai">主页</a></div>
+    <dl>
+      
+      <dt>定位</dt><dd>Comp AI CRM is an open source, CRM designed for AI agents. Agentic-first CRM.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="petergyang/no-ai-slop">
+    <div class="card-head">
+      <h3><a href="https://github.com/petergyang/no-ai-slop">petergyang/no-ai-slop</a></h3>
+      <span class="stars">★ 10,594</span>
+      
+      
+    </div>
+    <div class="sub">Python · MIT · 创建于 2026-07-07 · 最近更新 2026-09-02 · <a href="https://creatoreconomy.so/p/use-my-no-ai-slop-skill-to-remove-20-ai-slop-patterns">主页</a></div>
+    <dl>
+      
+      <dt>定位</dt><dd>Removes 20+ patterns of AI slop from any piece of writing.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="hypit-ai/hypit">
+    <div class="card-head">
+      <h3><a href="https://github.com/hypit-ai/hypit">hypit-ai/hypit</a></h3>
+      <span class="stars">★ 10,293</span>
+      
+      
+    </div>
+    <div class="sub">TypeScript · NOASSERTION · 创建于 2026-07-29 · 最近更新 2026-09-19 · <a href="https://hypit.ai">主页</a></div>
+    <dl>
+      
+      <dt>定位</dt><dd>Clone any viral video with AI agents. Not just a script, the whole workflow: swap the face, the words, the B-roll, ship 100 variants in one command, and get your 100M views.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    <ul class="risks"><li>许可证未声明或非标准，商用前请确认授权</li></ul>
+  </article>
+  
+  <article class="card" id="miuuyy/codex-chatgpt-web">
+    <div class="card-head">
+      <h3><a href="https://github.com/miuuyy/codex-chatgpt-web">miuuyy/codex-chatgpt-web</a></h3>
+      <span class="stars">★ 9,449</span>
+      
+      
+    </div>
+    <div class="sub">TypeScript · MIT · 创建于 2026-07-26 · 最近更新 2026-09-19</div>
+    <dl>
+      
+      <dt>定位</dt><dd>Use ChatGPT Web (including Pro) as a native model in Codex — with context, tools, streaming and images, without using Codex quota.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="Vincentwei1021/video-shotcraft">
+    <div class="card-head">
+      <h3><a href="https://github.com/Vincentwei1021/video-shotcraft">Vincentwei1021/video-shotcraft</a></h3>
+      <span class="stars">★ 8,967</span>
+      
+      
+    </div>
+    <div class="sub">TypeScript · Apache-2.0 · 创建于 2026-07-19 · 最近更新 2026-09-09 · <a href="https://vincentwei1021.github.io/video-shotcraft/">主页</a></div>
+    <dl>
+      
+      <dt>定位</dt><dd>AI video skill for Claude Code &amp; Codex — cinematic product videos with Remotion: 152 shot recipe cards, 209 motion previews, a production-ready template</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="trailhq/Graft">
+    <div class="card-head">
+      <h3><a href="https://github.com/trailhq/Graft">trailhq/Graft</a></h3>
+      <span class="stars">★ 8,618</span>
+      
+      
+    </div>
+    <div class="sub">TypeScript · MIT · 创建于 2026-07-03 · 最近更新 2026-09-18 · <a href="https://graft.nanonets.ai">主页</a></div>
+    <dl>
+      
+      <dt>定位</dt><dd>Turbocharge Claude Code, Cursor, Codex, Gemini &amp; every coding agent: faster, cheaper, with contextual understanding specific to your codebase.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="deeplethe/utopia">
+    <div class="card-head">
+      <h3><a href="https://github.com/deeplethe/utopia">deeplethe/utopia</a></h3>
+      <span class="stars">★ 8,525</span>
+      
+      
+    </div>
+    <div class="sub">Rust · Apache-2.0 · 创建于 2026-08-07 · 最近更新 2026-09-19</div>
+    <dl>
+      
+      <dt>定位</dt><dd>World&#39;s first open-source enterprise world model.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="MDX-Tom/gpt-instruct">
+    <div class="card-head">
+      <h3><a href="https://github.com/MDX-Tom/gpt-instruct">MDX-Tom/gpt-instruct</a></h3>
+      <span class="stars">★ 8,495</span>
+      
+      
+    </div>
+    <div class="sub">Python · MIT · 创建于 2026-07-11 · 最近更新 2026-09-07 · <a href="https://mdx-tom.github.io/gpt-instruct/">主页</a></div>
+    <dl>
+      
+      <dt>定位</dt><dd>A Codex jailbreak prompt and test pack for gpt. 针对 gpt 系列的 Codex 破甲提示词与测试包。</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="unicity-aos/aos-ce">
+    <div class="card-head">
+      <h3><a href="https://github.com/unicity-aos/aos-ce">unicity-aos/aos-ce</a></h3>
+      <span class="stars">★ 8,463</span>
+      
+      
+    </div>
+    <div class="sub">Rust · Apache-2.0 · 创建于 2026-07-12 · 最近更新 2026-09-18</div>
+    <dl>
+      
+      <dt>定位</dt><dd>AOS Community Edition: the open agent operating system.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    <ul class="risks"><li>fork/star 比例异常（21/8463），热度可能有水分</li></ul>
+  </article>
+  
+  <article class="card" id="FareedKhan-dev/kimi-k3-in-c">
+    <div class="card-head">
+      <h3><a href="https://github.com/FareedKhan-dev/kimi-k3-in-c">FareedKhan-dev/kimi-k3-in-c</a></h3>
+      <span class="stars">★ 8,054</span>
+      
+      
+    </div>
+    <div class="sub">C · Apache-2.0 · 创建于 2026-08-01 · 最近更新 2026-09-10 · <a href="https://medium.com/@fareedkhandev/building-kimi-k3-in-c-to-run-a-2-8t-model-on-consumer-hardware-a5792cbf3b59">主页</a></div>
+    <dl>
+      
+      <dt>定位</dt><dd>A 2.78-trillion-parameter Kimi K3 running inference on a single CPU in 8.24 GB of RAM. Portable C99: no BLAS, no framework, no GPU.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="google/artemis">
+    <div class="card-head">
+      <h3><a href="https://github.com/google/artemis">google/artemis</a></h3>
+      <span class="stars">★ 7,957</span>
+      
+      
+    </div>
+    <div class="sub">Python · Apache-2.0 · 创建于 2026-08-13 · 最近更新 2026-09-12</div>
+    <dl>
+      
+      <dt>定位</dt><dd>ARTEMIS turns natural-language instructions into reliable Android automation. It automates end-to-end workflows, captures logs, and integrates seamlessly with AI coding assistants such as Antigravity, Codex, and Claude Code.  It also achieves 99%+ success rate on AndroidWorld Benchmark.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="dataelement/dsh-desktop">
+    <div class="card-head">
+      <h3><a href="https://github.com/dataelement/dsh-desktop">dataelement/dsh-desktop</a></h3>
+      <span class="stars">★ 7,525</span>
+      
+      
+    </div>
+    <div class="sub">TypeScript · MIT · 创建于 2026-08-13 · 最近更新 2026-09-18 · <a href="https://dshdesktop.com">主页</a></div>
+    <dl>
+      
+      <dt>定位</dt><dd>DSHDesktop：DeepSeek Harness Desktop / DeepSeek Harness 桌面版</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="genspark-ai/genoffice">
+    <div class="card-head">
+      <h3><a href="https://github.com/genspark-ai/genoffice">genspark-ai/genoffice</a></h3>
+      <span class="stars">★ 7,187</span>
+      
+      
+    </div>
+    <div class="sub">TypeScript · Apache-2.0 · 创建于 2026-07-31 · 最近更新 2026-09-18 · <a href="https://genoffice.ai/">主页</a></div>
+    <dl>
+      
+      <dt>定位</dt><dd>Free, open-source AI Office suite: Docs, Sheets, Slides, PDF, Markdown and HTML editors with a built-in AI agent, plus a `genoffice` CLI and agent skill so Claude Code, Codex and Cursor can create and edit real .docx/.xlsx/.pptx files locally. Bring your own key. macOS, Windows &amp; Linux.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="jakubkrehel/skills">
+    <div class="card-head">
+      <h3><a href="https://github.com/jakubkrehel/skills">jakubkrehel/skills</a></h3>
+      <span class="stars">★ 6,898</span>
+      
+      
+    </div>
+    <div class="sub">Markdown · MIT · 创建于 2026-07-10 · 最近更新 2026-08-29 · <a href="https://jakub.kr/skills">主页</a></div>
+    <dl>
+      
+      <dt>定位</dt><dd>A collection of agent skills that help you build great interfaces.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="drumih/turbo-fieldfare">
+    <div class="card-head">
+      <h3><a href="https://github.com/drumih/turbo-fieldfare">drumih/turbo-fieldfare</a></h3>
+      <span class="stars">★ 6,774</span>
+      
+      
+    </div>
+    <div class="sub">Swift · Apache-2.0 · 创建于 2026-07-17 · 最近更新 2026-09-18</div>
+    <dl>
+      
+      <dt>定位</dt><dd>Gemma 4 26B-A4B inference in ~2 GB of RAM on any M-series MacBook</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="elder-plinius/T3MP3ST">
+    <div class="card-head">
+      <h3><a href="https://github.com/elder-plinius/T3MP3ST">elder-plinius/T3MP3ST</a></h3>
+      <span class="stars">★ 6,188</span>
+      
+      
+    </div>
+    <div class="sub">TypeScript · AGPL-3.0 · 创建于 2026-07-02 · 最近更新 2026-09-08</div>
+    <dl>
+      
+      <dt>定位</dt><dd>autonomous red teaming platform; multi-agent offensive-security meta-harness</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="oomol-lab/open-connector">
+    <div class="card-head">
+      <h3><a href="https://github.com/oomol-lab/open-connector">oomol-lab/open-connector</a></h3>
+      <span class="stars">★ 5,811</span>
+      
+      
+    </div>
+    <div class="sub">TypeScript · Apache-2.0 · 创建于 2026-06-29 · 最近更新 2026-09-19 · <a href="https://oomol.com">主页</a></div>
+    <dl>
+      
+      <dt>定位</dt><dd>Open-source auth gateway connecting 1500+ SaaS providers to AI agents through SDK, CLI, MCP, HTTP, and OpenAPI.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="truefoundry/trueforge">
+    <div class="card-head">
+      <h3><a href="https://github.com/truefoundry/trueforge">truefoundry/trueforge</a></h3>
+      <span class="stars">★ 5,782</span>
+      
+      
+    </div>
+    <div class="sub">TypeScript · MIT · 创建于 2026-07-23 · 最近更新 2026-09-18 · <a href="https://trueforge.dev">主页</a></div>
+    <dl>
+      
+      <dt>定位</dt><dd>The open-source agent harness - the runtime layer that turns an LLM into a working agent.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="larashero3-dotcom/lieflat-charts">
+    <div class="card-head">
+      <h3><a href="https://github.com/larashero3-dotcom/lieflat-charts">larashero3-dotcom/lieflat-charts</a></h3>
+      <span class="stars">★ 5,547</span>
+      
+      
+    </div>
+    <div class="sub">HTML · NOASSERTION · 创建于 2026-07-16 · 最近更新 2026-09-05</div>
+    <dl>
+      
+      <dt>定位</dt><dd>Data visualization Skill for AI Agents, turning data into polished, interactive HTML charts. 面向 AI Agents 的数据可视化 Skill，将数据快速生成精致、可交互的 HTML 图表。</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    <ul class="risks"><li>许可证未声明或非标准，商用前请确认授权</li></ul>
+  </article>
+  
+  <article class="card" id="XiaoDuoYa/codex-with-chatgpt">
+    <div class="card-head">
+      <h3><a href="https://github.com/XiaoDuoYa/codex-with-chatgpt">XiaoDuoYa/codex-with-chatgpt</a></h3>
+      <span class="stars">★ 5,480</span>
+      
+      
+    </div>
+    <div class="sub">TypeScript · MIT · 创建于 2026-08-28 · 最近更新 2026-09-13</div>
+    <dl>
+      
+      <dt>定位</dt><dd>ChatGPT thinks. Codex works. Use ChatGPT as the planning brain while keeping the Codex harness.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="Tencent/BrowserSkill">
+    <div class="card-head">
+      <h3><a href="https://github.com/Tencent/BrowserSkill">Tencent/BrowserSkill</a></h3>
+      <span class="stars">★ 5,443</span>
+      
+      
+    </div>
+    <div class="sub">TypeScript · MIT · 创建于 2026-06-22 · 最近更新 2026-09-18</div>
+    <dl>
+      
+      <dt>定位</dt><dd>Let AI agents use your real, logged-in browser without interrupting your work. CLI + extension for browser automation across any shell-capable AI agent.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="s1dashu/ip-as-logo-skill">
+    <div class="card-head">
+      <h3><a href="https://github.com/s1dashu/ip-as-logo-skill">s1dashu/ip-as-logo-skill</a></h3>
+      <span class="stars">★ 5,332</span>
+      
+      
+    </div>
+    <div class="sub">— · MIT · 创建于 2026-08-18 · 最近更新 2026-08-22 · <a href="https://ipaslogo.com">主页</a></div>
+    <dl>
+      
+      <dt>定位</dt><dd>A compact Agent Skill for highly simplified, rounded, subtly neo-skeuomorphic IP mascot logos.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+  <article class="card" id="CopilotKit/OpenBot">
+    <div class="card-head">
+      <h3><a href="https://github.com/CopilotKit/OpenBot">CopilotKit/OpenBot</a></h3>
+      <span class="stars">★ 5,142</span>
+      
+      
+    </div>
+    <div class="sub">TypeScript · MIT · 创建于 2026-08-17 · 最近更新 2026-09-19 · <a href="https://www.copilotkit.ai/openbot">主页</a></div>
+    <dl>
+      
+      <dt>定位</dt><dd>Open-source AI coworkers that each get a computer of their own: a browser, files and tools, with every action decided before it happens and recorded after. Bring any AG-UI agent.</dd>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </dl>
+    
+    
+  </article>
+  
+</section>
+
+
+
+
+
+<details><summary>历史存档（1 期）</summary>
+<ul><li><a href="archive/2026-09-19.html">2026-09-19</a></li></ul>
+</details>
+
+
+<footer>
+  数据来源 GitHub Search API；介绍由 claude-sonnet-5 根据 README 自动生成，性能数字多为项目方自报，仅供参考。<br>
+  检索式：<code>ai OR llm OR agent OR gpt OR mcp OR claude created:&gt;=2026-06-21 stars:&gt;5000</code>
+</footer>
+</div>
+</body>
+</html>

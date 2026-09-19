@@ -1,0 +1,14 @@
+{
+  "placeholder": true,
+  "is_ai_product": true,
+  "category": "其他",
+  "positioning": "A 2.78-trillion-parameter Kimi K3 running inference on a single CPU in 8.24 GB of RAM. Portable C99: no BLAS, no framework, no GPU.",
+  "features": "",
+  "highlights": "",
+  "audience": "",
+  "quickstart": "",
+  "risks": [],
+  "readme_sha": "3554ea15a903aed8f0287eac2759de1a073e652f",
+  "generated_at": "2026-09-19",
+  "model": null
+}
