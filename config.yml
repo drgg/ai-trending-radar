@@ -1,0 +1,31 @@
+# 搜索条件
+keywords: [ai, llm, agent, gpt, mcp, claude]   # GitHub 搜索最多允许 5 个 OR，即 6 个词
+window_days: 90          # 只看最近 N 天内创建的仓库
+min_stars: 5000          # 星数门槛（大于）
+
+# 介绍生成
+# backend: claude-cli 走 Claude 订阅（需要 CLAUDE_CODE_OAUTH_TOKEN，消耗 Pro 额度）
+#          api        走 Claude API 按量计费（需要 ANTHROPIC_API_KEY）
+backend: claude-cli
+model: claude-sonnet-5   # 订阅额度有限，推荐 Sonnet；可改为 claude-opus-5
+effort: medium           # 仅 api 模式生效：low / medium / high
+refresh_after_days: 30   # README 有变化且缓存超过 N 天才重新生成介绍
+readme_max_chars: 12000  # 送给模型的 README 摘录长度上限
+
+# 变化摘要
+top_gainers: 5
+
+# 程序化风险标记
+risk:
+  min_fork_ratio: 0.01   # fork/star 低于该比例视为异常
+  stale_days: 30         # 超过 N 天未 push 视为停更
+
+categories:
+  - 编程 Agent 与运行框架
+  - Agent 平台与基础设施
+  - AI 应用产品
+  - 本地推理与模型
+  - Skills 与写作/设计
+  - 开发者工具与集成
+  - 安全相关
+  - 其他

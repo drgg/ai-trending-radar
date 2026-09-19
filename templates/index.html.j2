@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 热门项目周报{% if is_archive %} · {{ s.date }}{% endif %}</title>
+<meta name="description" content="GitHub 近 {{ s.window_days }} 天新建、星数超过 {{ s.min_stars }} 的 AI 项目，每周自动更新">
+<style>
+:root{
+  --bg:#f7f7f5;--surface:#fff;--text:#1d1d1b;--muted:#6b6b66;--border:#e4e4df;
+  --accent:#2f5bd3;--accent-soft:#e8eefc;--good:#1f7a4d;--good-soft:#e5f4ec;
+  --warn:#9a5b00;--warn-soft:#fbf1df;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141413;--surface:#1e1e1c;--text:#ececea;--muted:#a09f99;--border:#33332f;
+  --accent:#8aa8ff;--accent-soft:#232c45;--good:#6fd3a0;--good-soft:#1b3328;
+  --warn:#f0b35a;--warn-soft:#3a2d17;
+}}
+:root[data-theme="dark"]{
+  --bg:#141413;--surface:#1e1e1c;--text:#ececea;--muted:#a09f99;--border:#33332f;
+  --accent:#8aa8ff;--accent-soft:#232c45;--good:#6fd3a0;--good-soft:#1b3328;
+  --warn:#f0b35a;--warn-soft:#3a2d17;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:32px 16px 64px}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+header h1{font-size:26px;margin:0 0 4px}
+.meta{color:var(--muted);font-size:13px}
+nav.cats{display:flex;flex-wrap:wrap;gap:6px;margin:20px 0}
+nav.cats a{font-size:13px;padding:3px 10px;border:1px solid var(--border);border-radius:999px;background:var(--surface);color:var(--text)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin:16px 0}
+.panel h2{font-size:16px;margin:0 0 10px}
+.changes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.changes h3{font-size:13px;color:var(--muted);margin:0 0 6px;font-weight:600}
+.changes ul,.panel ul{margin:0;padding-left:18px}
+section.cat>h2{font-size:19px;margin:36px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin:12px 0}
+.card-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.card-head h3{font-size:17px;margin:0;word-break:break-all}
+.stars{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px}
+.badge{font-size:12px;padding:1px 8px;border-radius:999px}
+.badge.new{background:var(--accent-soft);color:var(--accent)}
+.badge.up{background:var(--good-soft);color:var(--good)}
+.sub{color:var(--muted);font-size:12.5px;margin:2px 0 8px}
+dl{margin:0;display:grid;grid-template-columns:5em 1fr;gap:4px 12px}
+dt{color:var(--muted);font-size:13.5px}dd{margin:0}
+.risks{margin:10px 0 0;padding:8px 12px;border-radius:8px;background:var(--warn-soft);color:var(--warn);font-size:13.5px;list-style:none}
+.risks li::before{content:"⚠ "}
+details{margin-top:28px;color:var(--muted)}
+footer{margin-top:40px;color:var(--muted);font-size:12.5px}
+@media (max-width:560px){dl{grid-template-columns:1fr}dt{margin-top:6px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>GitHub AI 热门项目周报</h1>
+  <div class="meta">
+    近 {{ s.window_days }} 天新建 · Stars &gt; {{ "{:,}".format(s.min_stars) }} · 共 {{ s.entries|length }} 个项目 · 快照 {{ s.date }}
+    {% if is_archive %} · <a href="{{ base }}index.html">返回最新一期</a>{% endif %}
+    {% if s.dry_run %} · <strong>dry-run 预览（介绍为占位）</strong>{% endif %}
+  </div>
+</header>
+
+<nav class="cats">{% for cat, es in groups %}<a href="#cat-{{ loop.index }}">{{ cat }} · {{ es|length }}</a>{% endfor %}</nav>
+
+<div class="panel">
+  <h2>本期变化</h2>
+  {% if s.diff.first %}<p>这是首期，下周起显示与上一期的对比。</p>{% else %}
+  <div class="changes">
+    <div><h3>新上榜 · {{ s.diff.new|length }}</h3>
+      {% if s.diff.new %}<ul>{% for n in s.diff.new %}<li><a href="#{{ n }}">{{ n }}</a></li>{% endfor %}</ul>{% else %}无{% endif %}</div>
+    <div><h3>移出（超出时间窗口）· {{ s.diff.dropped|length }}</h3>
+      {% if s.diff.dropped %}<ul>{% for d in s.diff.dropped %}<li><a href="https://github.com/{{ d.full_name }}">{{ d.full_name }}</a></li>{% endfor %}</ul>{% else %}无{% endif %}</div>
+    <div><h3>本周涨星榜</h3>
+      {% if s.diff.gainers %}<ul>{% for g in s.diff.gainers %}<li><a href="#{{ g.full_name }}">{{ g.full_name }}</a> +{{ "{:,}".format(g.delta) }}</li>{% endfor %}</ul>{% else %}无{% endif %}</div>
+  </div>
+  <p class="meta">对比 {{ s.diff.prev_date }} 的快照</p>{% endif %}
+</div>
+
+{% if s.trends %}<div class="panel"><h2>趋势小结</h2><ul>{% for b in s.trends %}<li>{{ b }}</li>{% endfor %}</ul></div>{% endif %}
+
+{% for cat, es in groups %}
+<section class="cat" id="cat-{{ loop.index }}">
+  <h2>{{ cat }}</h2>
+  {% for e in es %}{% set i = e.intro %}
+  <article class="card" id="{{ e.full_name }}">
+    <div class="card-head">
+      <h3><a href="{{ e.html_url }}">{{ e.full_name }}</a></h3>
+      <span class="stars">★ {{ "{:,}".format(e.stars) }}</span>
+      {% if e.full_name in s.diff.new %}<span class="badge new">新上榜</span>{% endif %}
+      {% if e.delta %}<span class="badge up">+{{ "{:,}".format(e.delta) }} 本周</span>{% endif %}
+    </div>
+    <div class="sub">{{ e.language or "—" }} · {{ e.license or "无许可证" }} · 创建于 {{ e.created_at }} · 最近更新 {{ e.pushed_at }}{% if e.homepage %} · <a href="{{ e.homepage }}">主页</a>{% endif %}</div>
+    <dl>
+      {% for label, key in [("定位","positioning"),("能做什么","features"),("亮点","highlights"),("适合","audience"),("上手","quickstart")] %}
+      {% if i[key] %}<dt>{{ label }}</dt><dd>{{ i[key] }}</dd>{% endif %}
+      {% endfor %}
+    </dl>
+    {% set rs = i.risks + e.flags %}
+    {% if rs %}<ul class="risks">{% for r in rs %}<li>{{ r }}</li>{% endfor %}</ul>{% endif %}
+  </article>
+  {% endfor %}
+</section>
+{% endfor %}
+
+{% if s.excluded %}
+<details><summary>已排除 {{ s.excluded|length }} 个项目（判定与 AI 无关）</summary>
+<ul>{% for x in s.excluded %}<li><a href="{{ x.html_url }}">{{ x.full_name }}</a>（★ {{ "{:,}".format(x.stars) }}）：{{ x.reason }}</li>{% endfor %}</ul>
+</details>
+{% endif %}
+
+{% if archives %}
+<details><summary>历史存档（{{ archives|length }} 期）</summary>
+<ul>{% for d in archives %}<li><a href="archive/{{ d }}.html">{{ d }}</a></li>{% endfor %}</ul>
+</details>
+{% endif %}
+
+<footer>
+  数据来源 GitHub Search API；介绍由 {{ s.model }} 根据 README 自动生成，性能数字多为项目方自报，仅供参考。<br>
+  检索式：<code>{{ s.query }}</code>
+</footer>
+</div>
+</body>
+</html>
