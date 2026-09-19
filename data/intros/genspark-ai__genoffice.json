@@ -1,14 +1,13 @@
 {
-  "placeholder": true,
-  "is_ai_product": true,
-  "category": "其他",
-  "positioning": "Free, open-source AI Office suite: Docs, Sheets, Slides, PDF, Markdown and HTML editors with a built-in AI agent, plus a `genoffice` CLI and agent skill so Claude Code, Codex and Cursor can create and edit real .docx/.xlsx/.pptx files locally. Bring your own key. macOS, Windows & Linux.",
-  "features": "",
-  "highlights": "",
-  "audience": "",
-  "quickstart": "",
+  "positioning": "GenOffice 是一款免费开源的 AI 办公套件，作为 Microsoft Office 的替代品，支持在 macOS、Windows、Linux 上原生打开和编辑 .docx、.xlsx、.pptx、PDF、Markdown 和 HTML 文件，并在每个文档旁内置一个可审查的 AI 编辑代理，而非简单的聊天侧栏。",
+  "category": "AI 应用产品",
+  "features": "1）按字节保真编辑：只重写被修改的部分，文件其余内容原样保留，保证在 Word/Excel/PowerPoint 中仍可正常打开；2）AI 编辑可审查：Docs 生成追踪更改与差异对比、一键回滚，Sheets 生成可用的实时公式而非贴数值，Slides 在画布上生成且可继续编辑；3）本地优先：文件的打开、编辑、保存、格式转换（PDF↔Word/Excel/PowerPoint、Markdown/HTML→Word）均在本机完成，仅 AI 调用请求发往用户选定的模型提供商；4）自带密钥：可登录 Genspark 免配置，也可自带 Claude、OpenAI、Gemini、DeepSeek、Kimi、GLM、Qwen、Doubao、MiniMax、Grok、Mistral、OpenRouter 等或任意 OpenAI 兼容端点（含本地模型服务）的 API Key；5）提供 genoffice CLI 及配套 Agent Skill，支持 Claude Code、Codex、Cursor、Gemini CLI、GitHub Copilot、OpenCode、Windsurf 等编码代理无需打开窗口即可创建、转换、读写真实 Office 文件；6）提供 MCP 服务器，将命令封装为 29 个 MCP 工具供 Claude Desktop 等客户端调用。",
+  "highlights": "开源协议 Apache-2.0，7000+ Star；强调\"字节保真\"编辑与本地优先处理，仅 AI 请求出网；同时覆盖桌面 GUI 应用、命令行工具和 MCP 服务器三种使用形态，让编码 Agent 能直接产出真实 Office 文件而非 Markdown 近似替代品。",
+  "audience": "需要 AI 辅助创建/编辑 Office 文档（Word、Excel、PPT）、PDF 或网页的个人和团队用户；使用 Claude Code、Cursor 等编码 Agent 并希望其能直接生成规范 Office 文件的开发者。",
+  "quickstart": "从 GitHub Releases 下载 macOS/Windows/Linux 安装包；或安装 CLI 后运行如 `genoffice create --type docx --from notes.md --out notes.docx`、`genoffice convert report.md --to pdf` 等命令；也可通过 `npx skills add genspark-ai/genoffice` 为 Claude Code 等 Agent 安装技能，或运行 `genoffice mcp` 作为 MCP 服务器接入 Claude Desktop 等客户端。",
   "risks": [],
+  "is_ai_product": true,
   "readme_sha": "926f2a36e14db1820a6ab4adf938fc62d3d8d57a",
   "generated_at": "2026-09-19",
-  "model": null
+  "model": "claude-sonnet-5"
 }

@@ -1,14 +1,17 @@
 {
-  "placeholder": true,
   "is_ai_product": true,
-  "category": "其他",
-  "positioning": "AI video skill for Claude Code & Codex — cinematic product videos with Remotion: 152 shot recipe cards, 209 motion previews, a production-ready template",
-  "features": "",
-  "highlights": "",
-  "audience": "",
-  "quickstart": "",
-  "risks": [],
+  "category": "Skills 与写作/设计",
+  "positioning": "面向 Claude Code / Codex 的 Agent Skill，把编程 Agent 变成一个基于 Remotion 的运动设计工作室，用于自动生成电影感的产品宣传、营销、发布或演示视频。",
+  "features": "提供 157 张镶嵌参数（用途、节奏能量、建议时长、实现细节、常见坑点）的分镜/运动“配方卡”，配套 214 种可搜索预览的运动风格及对应 Remotion（TSX）参考实现；内置一套已验证的完整视频模板“Ink Press”（36.2 秒、1920×1080、30fps、10 个镶头，纸墨琥珀色风格，含 2.5D 真实页面运镜、字幕、转场与完整音效）；覆盖真实页面截图采集、2.5D 运镜、按节奏卡点剪辑、电影级音效设计的全流程方法论；支持将成片导出为剪映（CapCut CN）可编辑项目（已在 macOS 剪映 Pro 11.2 验证）；交付后可用浏览器端“Motion Workbench”（类 CapCut 时间线编辑器）对成片按镶头/转场/字幕/音效轨道二次编辑并用 Remotion 重新渲染，支持从 216 个演示动效库中拖拽素材。同系列还有专注旁白视频的 video-talkcraft 技能。",
+  "highlights": "GitHub 8967 星、804 fork，采用 Apache-2.0 许可证；配方卡与预览数量持续扩充（从 104 卡增至 152/157 卡，209/214 种预览）；提供在线 Gallery 供浏览、筛选和复制镶头卡名称；剪映导出与 Workbench 渲染号称“像素级一致”（项目方数据）；音效素材来自 Mixkit 免费商用授权；镶头手法参考了 ClickUp、Perplexity、Slack、Notion、Figma、Framer、Bear、Raycast、Pitch、Miro、Superhuman、Loom 等公司官方产品视频的运镜语言（未直接使用其素材本身）。",
+  "audience": "使用 Claude Code / Codex 等编程 Agent 的产品团队、独立开发者、增长与营销人员，需要快速产出电影感产品宣传视频但缺乏专业运动设计或视频剪辑经验的用户。",
+  "quickstart": "在 Claude Code / Codex 中直接对 Agent 说“Install this skill for me: https://github.com/Vincentwei1021/video-shotcraft”，或用 npx skills add Vincentwei1021/video-shotcraft 安装，也可 git clone 后软链接到 ~/.claude/skills/ 或 ~/.codex/skills/ 目录；之后向 Agent 提出类似“Use video-shotcraft to create a promo for my desktop product”的请求即可，可指定具体镶头卡（如 deck-deal-flyin）或直接套用内置 Ink Press 模板。",
+  "risks": [
+    "Remotion 本身有独立许可证，个人和小团队免费，公司使用可能需要付费授权",
+    "模板中的产品截图为演示素材，发布前需替换并核实是否需要对产品、客户或个人数据做匿名化处理",
+    "剪映导出功能仅在 macOS 版剪映 Pro 11.2 上验证，Windows 版未测试"
+  ],
   "readme_sha": "13a944036cb3df158175d2c6fbab87c14fee1ce6",
   "generated_at": "2026-09-19",
-  "model": null
+  "model": "claude-sonnet-5"
 }

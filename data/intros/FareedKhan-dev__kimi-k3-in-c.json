@@ -1,14 +1,13 @@
 {
-  "placeholder": true,
-  "is_ai_product": true,
-  "category": "其他",
-  "positioning": "A 2.78-trillion-parameter Kimi K3 running inference on a single CPU in 8.24 GB of RAM. Portable C99: no BLAS, no framework, no GPU.",
-  "features": "",
-  "highlights": "",
-  "audience": "",
-  "quickstart": "",
+  "audience": "系统/底层软件工程师、LLM 推理性能优化研究者、希望在消费级硬件上运行超大规模模型的极客与爱好者",
+  "category": "本地推理与模型",
+  "positioning": "一个用纯 C99 从零实现的 CPU 推理引擎，不依赖 BLAS、深度学习框架或 GPU，号称可在单台机器 8GB 内存内运行 2.78 万亿参数的 Kimi K3（MoE）模型。",
+  "features": "核心思路是把 1.45TB 的路由专家权重永不常驻内存，而是以打包的 4bit（MXFP4）形式按需从磁盘读取并即时反量化计算；93 层的 dense trunk 被预先打包成单文件，可按选定深度常驻内存、其余部分流式读取；配合 LRU 专家缓存、MLA（用单一潜向量代替 96 个注意力头）和 KDA（内存恒定的线性注意力）两项结构性优化压缩计算与内存开销；底层用 AVX2+FMA 手写 SIMD kernel，仅依赖 libm 和 OpenMP；随包附带对照 PyTorch 参考实现的多级测试门禁（teacher forcing / greedy decode / incremental 三重比对）。",
+  "highlights": "项目方数据显示：同一份 1.56TB 的 checkpoint，在 8GB 到 224GB 内存预算下均可运行并产生逐字节一致的输出，仅速度不同（8GB 预设约 32.7 秒/token，128GB 预设约 10.7 秒/token）；无需下载任何模型权重，克隆仓库后一分钟内即可用内置 13 层模拟模型跑通全部正确性测试；README 提供了从磁盘 I/O、量化格式、注意力机制到缓存策略的完整实现细节文档。",
+  "quickstart": "git clone 后执行 `make -j` 构建（几秒钟），再 `make test`（一分钟内）即可在无需下载模型、无需联网的情况下验证引擎正确性；若要跑真实推理，需从 HuggingFace 下载 1.56TB 的 Kimi K3 checkpoint（需要约 1.7TB 磁盘空间），用脚本打包 trunk 后通过 `./bin/k3` 加预设（laptop/desktop/workstation/server/max）运行推理。",
   "risks": [],
+  "is_ai_product": true,
   "readme_sha": "3554ea15a903aed8f0287eac2759de1a073e652f",
   "generated_at": "2026-09-19",
-  "model": null
+  "model": "claude-sonnet-5"
 }

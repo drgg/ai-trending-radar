@@ -1,14 +1,13 @@
 {
-  "placeholder": true,
   "is_ai_product": true,
-  "category": "其他",
-  "positioning": "AOS Community Edition: the open agent operating system.",
-  "features": "",
-  "highlights": "",
-  "audience": "",
-  "quickstart": "",
+  "category": "Agent 平台与基础设施",
+  "positioning": "AOS Community Edition 是一个开放的\"智能体操作系统\"（agent operating system），为 AI Agent 提供可检查、可组合的运行环境，用 Rust 实现，由 aos CLI 和 HTTP API 统一管理 Agent 的运行时、能力模块和权限边界。",
+  "features": "提供 aos CLI 与 HTTP API 作为产品统一入口；capsules（胶囊）是用户态的最小能力构建块，官方发行版内置 22 个生产级 capsule，可组合成 harness、meta-harness、连接器等更复杂系统；Forge 作为系统构建工具，教 Agent 检查运行中的系统、发现能力缺口并构建最小权限 capsule；meta-harness skill 引导 Agent 把自身指令、记忆、技能、工具、trace 等当作可迭代改进的用户态世界；aos mcp serve 作为 MCP 服务边界，供 Codex、Claude、Grok 等客户端共享同一操作系统，并提供本地审批界面（macOS AppKit、Windows 原生对话框、Linux Pinentry）；支持 stable/dev/nightly 等签名发布渠道，运行时版本通过 runtime-compatibility.toml 精确锁定，发布产物附带校验和、Sigstore 签名与 GitHub 构建溯源证明。",
+  "highlights": "把 Agent 运行环境当作真正的操作系统来设计（有 init/status/migrate/update/daemon 等根命令边界，而非松散脚本集合）；发布流程强制机器可读的兼容性与自愈校验门（fail-closed），未通过签名验证的渠道不可用；capsule 机制强调最小权限和可审计（Unicity Audit）；同一套系统可被 Codex、Claude、Grok 等多个 Agent 客户端通过 MCP 共享使用。",
+  "audience": "需要为 AI Agent 构建可审查、可复用运行环境的开发者与系统工程师，以及希望在 Codex/Claude/Grok 等多个 Agent 客户端之间共享统一能力体系（capsule、工具、审批策略）的团队。",
+  "quickstart": "执行安装脚本 `curl --proto '=https' --tlsv1.2 -fsSL https://aos.unicity.ai/install.sh | sh` 安装 aos 命令及其固定运行时，随后运行 `aos init`（支持 `--offline` 离线模式）完成 22 个 Community Edition capsule 的初始化；也可用 `aos status`、`aos doctor`、`aos mcp serve` 等命令检查状态或对接 MCP 客户端。",
   "risks": [],
   "readme_sha": "518268beb007a32d6c64eaf91451f2ba1fcea720",
   "generated_at": "2026-09-19",
-  "model": null
+  "model": "claude-sonnet-5"
 }

@@ -1,14 +1,15 @@
 {
-  "placeholder": true,
   "is_ai_product": true,
-  "category": "其他",
-  "positioning": "A Codex jailbreak prompt and test pack for gpt. 针对 gpt 系列的 Codex 破甲提示词与测试包。",
-  "features": "",
-  "highlights": "",
-  "audience": "",
-  "quickstart": "",
-  "risks": [],
+  "category": "安全相关",
+  "positioning": "面向 Codex（GPT 系列）的\"破甲\"（越狱）系统提示词与配套回归测试工具链，通过自定义 model_instructions_file 改变模型的默认行为约束，重点优化复杂任务的首轮执行、过程连续性、工件验证与可回滚部署。",
+  "features": "维护两条并行产品线：稳定生产版 gpt-5.6-sol-v45 与新线 gpt-6-astra-v1；提供 Python 脚本一键部署/预览/回滚系统提示词到 Codex 配置，支持自定义 ZIP/Markdown 部署；配套 A/B/C 三级发布门禁测试体系（3 用例快速验证→66 用例/74 轮回归→120 用例全量测试），并附带测试脚本、评分校验与失败归因文档。",
+  "highlights": "项目方数据：gpt-6-astra-v1 在 A 级门禁 3/4 通过，全量 B 级回归 52/66 cases、60/74 turns、15/16 工件门通过；每个候选提示词限制在 8000 UTF-8 字节内；采用严格的版本命名与历史归档规范（每 epoch 最多 20 个版本），要求所有修改型候选具备修改记录、diff 与可运行回滚方案。",
+  "audience": "对 AI 模型安全机制感兴趣的研究者/测试者，以及需要绕开 Codex/GPT 默认限制以完成复杂任务的高级用户",
+  "quickstart": "克隆仓库后运行 `python3 codex-instruct.py --apply --version gpt-5.6-v45 --dry-run` 预览部署，去掉 `--dry-run` 正式部署稳定版；部署新版用 `--version gpt-6-v1`；`--reset` 可仅恢复本项目管理的提示词配置项，不影响其他 Codex 设置。",
+  "risks": [
+    "该项目本质是绕过 GPT/Codex 模型的默认安全限制（越狱提示词），存在被滥用于生成违规内容的风险；README 明确提示\"从事破甲活动、使用自定义模型指令存在账号风险，建议在日抛账号上使用\"，说明使用者可能面临账号被封禁的后果。"
+  ],
   "readme_sha": "176e63fb71278c74b743180efe1f5b627c3b2d0a",
   "generated_at": "2026-09-19",
-  "model": null
+  "model": "claude-sonnet-5"
 }

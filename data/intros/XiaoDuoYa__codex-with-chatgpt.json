@@ -1,14 +1,16 @@
 {
-  "placeholder": true,
   "is_ai_product": true,
-  "category": "其他",
-  "positioning": "ChatGPT thinks. Codex works. Use ChatGPT as the planning brain while keeping the Codex harness.",
-  "features": "",
-  "highlights": "",
-  "audience": "",
-  "quickstart": "",
-  "risks": [],
+  "category": "编程 Agent 与运行框架",
+  "positioning": "让 Codex 复用 ChatGPT 网页版订阅额度做规划与审查的桥接工具：ChatGPT 负责思考（规划、Review），Codex 负责实际执行代码任务，避免重复消耗 API/Codex Token。",
+  "features": "以 Codex Skill 形式安装，通过本地回环 HTTP 服务（C2C Bridge）连接 ChatGPT 与 Codex；数据面基于只读 MCP，提供 workspace_info、read_file、git_diff、test_status 等 9 个只读工具供 ChatGPT 按需读取工作区代码，仓库内容不会整体上传；控制面通过极小的 [C2C] 状态消息（INIT→PLAN→EXECUTED→REVIEW→DONE）在 ChatGPT 与 Codex 间同步执行状态；连接采用 OAuth 2.1（PKCE、动态客户端注册、刷新令牌轮换）+ 一次性配对码鉴权；默认使用 Cloudflare Quick Tunnel 做公网穿透，也支持绑定自有域名的稳定地址；提供 c2c CLI（setup/status/doctor/pair/logs 等）用于本地管理。",
+  "highlights": "无需 API Key、无逆向代理，直接用官方 ChatGPT 网页端做规划审查；服务端不存在写/删/shell/commit 等工具，从架构上保证只读，防止提示注入获得写权限；敏感文件（.env、密钥、SSH 凭据等）默认拒绝读取；每个 workspace 的令牌绑定单一目录，路径逃逸（符号链接、../、绝对路径）经测试阻断；Skill 每日自动检查更新；项目方称测试覆盖 150 个用例（路径安全、OAuth、配对、MCP 端到端）。",
+  "audience": "使用 Codex 编码、同时已订阅 ChatGPT Plus/Pro 想复用网页版额度做规划与代码审查的开发者",
+  "quickstart": "将仓库 skill/ 目录复制到 ~/.codex/skills/codex-with-chatgpt/，对 Codex 说\"使用 Codex with ChatGPT 完成首次配置\"完成 OAuth 配对与隧道搭建；之后对 Codex 说\"Use Codex with ChatGPT to implement XXX\"即可使用；也可用仓库提供的一段自然语言提示词让 Codex 自动完成环境检测、克隆、构建、安装全过程。",
+  "risks": [
+    "依赖 Cloudflare Quick Tunnel 将本地服务暴露到公网，配置或使用不当可能带来未授权访问风险",
+    "项目为非官方社区项目，与 OpenAI 无关联，且属于 V1 早期版本，可能存在未覆盖的边界问题"
+  ],
   "readme_sha": "e8186b7ca358809d90df9ae26f346bf90c2698d3",
   "generated_at": "2026-09-19",
-  "model": null
+  "model": "claude-sonnet-5"
 }

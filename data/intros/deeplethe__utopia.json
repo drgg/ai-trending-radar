@@ -1,14 +1,16 @@
 {
-  "placeholder": true,
   "is_ai_product": true,
-  "category": "其他",
-  "positioning": "World's first open-source enterprise world model.",
-  "features": "",
-  "highlights": "",
-  "audience": "",
-  "quickstart": "",
-  "risks": [],
+  "category": "Agent 平台与基础设施",
+  "positioning": "Utopia 是 DeepLethe 开源的\"企业世界模型\"，定位为一套能被动学习、自我治理的知识工程底座：在双时态知识图谱和本体之上运行冲突检测、推理与决策，目标是为企业 Agent 提供可离线部署、可审计的知识与决策核心，而非单纯的向量库或知识图谱。",
+  "features": "架构为单个 Rust 二进制 + PostgreSQL（pgvector），内置全文检索（Tantivy）、向量检索与 RRF 融合排序；支持 PDF/DOCX/PPTX/XLSX 等多格式文档摄取及网页、RSS、GitHub、Jira、Notion、WebDAV、S3 定时同步；内置 agent harness 支持对话式操作、文档检索、图谱遍历（按时间点/时间段查询）及挂载数据库查询（Ontology2SQL 支持 Postgres/MySQL/Trino/Databricks/Snowflake）；每个知识库暴露 MCP Server 供 Claude Desktop、Cursor 等 Agent 客户端连接；内置 schema.org、W3C Org、PROV-O、FOAF、IOF Core 等本体包；实体消歧三阶段流程（精确匹配、向量相似、模型裁决）及人工复核队列；基于本体公理的前向链推理（可选开启）；三类冲突检测（事实冲突、公理违反、本体自相矛盾）及处理策略；多用户角色权限管理；append-only 决策台账记录所有确认/合并/回滚操作。",
+  "highlights": "部署极简，只需一个 Rust 二进制加一个 Postgres 实例，无需额外中间件；双时态图谱同时记录\"事实何时为真\"与\"系统何时相信\"，支持决策回溯审计；配套的 Ontology2SQL 方法据项目方数据在 BIRD Mini-Dev（SQLite/PostgreSQL）榜单上表现领先；兼容任意 OpenAI 协议端点（DeepSeek、Qwen、GLM、Ollama、vLLM），可全程 air-gapped 运行；GitHub 8500+ star、1000+ fork，关注度较高。",
+  "audience": "需要私有化部署知识管理/RAG系统的企业技术团队、知识图谱和本体工程师，以及希望为 AI Agent 构建可信知识底座和决策审计能力的开发者。",
+  "quickstart": "克隆仓库后执行 `docker compose --profile app up -d` 启动预构建镜像，访问 http://localhost:1516 注册（首个账号自动成为系统管理员），随后在 Administration → Models 中配置对话与向量模型端点即可开始摄取文档；本地开发需 Rust 1.85+、Node 20+、pnpm，分别启动数据库、`cargo run -p utopia-server` 后端与 `pnpm dev` 前端。",
+  "risks": [
+    "项目仍处于 v0.1 早期阶段，数据库 schema 随版本演进且迁移只能前滚、不支持回滚，生产环境升级前需固定镜像版本并备份数据",
+    "README 明确要求在将其暴露到公网前先阅读 SECURITY.md，说明默认配置可能存在安全隐患需自行加固"
+  ],
   "readme_sha": "10d5d95d0bfeb8186b10b3527576390e14c70733",
   "generated_at": "2026-09-19",
-  "model": null
+  "model": "claude-sonnet-5"
 }

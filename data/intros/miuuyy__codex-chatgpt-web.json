@@ -1,14 +1,17 @@
 {
-  "placeholder": true,
+  "audience": "使用 OpenAI Codex CLI 编码、希望复用 ChatGPT Plus/Pro 网页版额度而非消耗 Codex/API 配额的开发者",
+  "category": "开发者工具与集成",
+  "features": "- 用内嵌浏览器（Playwright 驱动）登录 ChatGPT 网页版，在 Codex 原生模型选择器中加入\"ChatGPT Web\"系列模型\n- 按账户权限自动检测可用模型：Free/Go 账户对应 Luna/Think，有推理控制的账户可用 Instant–High，以及 Extra High、Pro（若账户支持）\n- 三种运行模式：Browser-only（全自动读取/发送页面消息）、Full harness（通过 MCP 与 OpenAI 官方 tunnel-client，把 ChatGPT 的工具调用接回 Codex 当前任务的文件、终端、工具和审批流程）、Zero Risk（不操作页面，手动粘贴/发送并在启动器中确认）\n- 内置浏览器与运行时，无需额外安装 Chrome、Node 或 Bun\n- 提供 macOS/Linux/Windows 一键安装脚本，安装前校验发布的 SHA-256 清单\n- 支持跨后端子代理（subagents）协议切换（Compatibility V1 / Native），用于兼容 Codex 自身功能设置",
+  "highlights": "GitHub 星标 9452；项目方宣传可在 Codex 中用 ChatGPT 网页版（含 Pro）的独立额度完成编码任务，从而不占用 Codex 或工作账号的配额，同时保留同一套界面、任务上下文、流式输出和图片能力。",
+  "positioning": "一个 Codex CLI 的扩展/启动器，通过浏览器自动化把 ChatGPT 网页版（包括 Pro）接入 Codex 的模型选择器，让用户用 ChatGPT 网页额度而非 Codex/API 配额驱动编码任务，并可通过 MCP 让 ChatGPT 调用本地文件、终端等工具。",
+  "quickstart": "macOS/Linux 一行命令：curl -fsSL .../install-launcher.sh | sh；Windows 用 PowerShell 的 irm .../install-launcher.ps1 | iex。也可源码运行：git clone 后执行 bun run app（需 Bun 1.4.0），随后在启动器中登录 ChatGPT、安装模型并重启 Codex，选择\"ChatGPT Web —…\"模型；若需工具调用，在启动器 MCP 页完成 Full harness 设置。",
+  "risks": [
+    "这是非官方的浏览器自动化方案，并非 OpenAI 官方 API，依赖模拟登录态操作 ChatGPT 网页，README 明确提示 ChatGPT 页面 UI 变动会导致失效，且使用方式可能触及 OpenAI 服务条款边界，存在账号风险",
+    "浏览器登录状态属于敏感凭据，本地回环监听可被同一用户下的其他进程访问，官方建议只在可信设备上使用、不要共享启动器画像",
+    "发布的安装包尚未做平台签名，安装/运行时会触发 macOS Gatekeeper 或 Windows SmartScreen 的安全警告"
+  ],
   "is_ai_product": true,
-  "category": "其他",
-  "positioning": "Use ChatGPT Web (including Pro) as a native model in Codex — with context, tools, streaming and images, without using Codex quota.",
-  "features": "",
-  "highlights": "",
-  "audience": "",
-  "quickstart": "",
-  "risks": [],
   "readme_sha": "c7a2c89f5a1361bd2bf6ed506860aa87dec3b695",
   "generated_at": "2026-09-19",
-  "model": null
+  "model": "claude-sonnet-5"
 }

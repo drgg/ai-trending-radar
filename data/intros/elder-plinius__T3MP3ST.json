@@ -1,14 +1,16 @@
 {
-  "placeholder": true,
   "is_ai_product": true,
-  "category": "其他",
-  "positioning": "autonomous red teaming platform; multi-agent offensive-security meta-harness",
-  "features": "",
-  "highlights": "",
-  "audience": "",
-  "quickstart": "",
-  "risks": [],
+  "category": "安全相关",
+  "positioning": "多智能体自动化红队/进攻性安全框架，把用户本地已登录的 AI 编程 Agent（Claude Code、Codex 等）或本地离线模型变成执行\"侦察→利用→出报告\"全流程渗透测试的\"武器库\"。",
+  "features": "不需要单独申请 API key，直接复用本地已在运行的 AI 编程 Agent（Claude Code / Codex / Hermes / OpenCode / Oh My Pi）作为决策大脑，也可指向 Ollama / LM Studio / vLLM 等完全离线的本地模型；提供浏览器 War Room 界面和 CLI 两种操作方式；覆盖 Web 应用黑盒渗透（XBEN 套件）、CTF 无提示解题（Cybench）、机器人/OT/嵌入式 OSS 漏洞协调披露、白盒代码审计（web-tree-sitter 多语言解析）、智能合约漏洞复现（Damn Vulnerable DeFi）、云 IaC 误配置检测、移动端静态分析、二进制/逆向 sink 检测等多个领域，README 中逐项标注各功能的成熟度（稳定/实验性/路线图）；内置 `npm run verify-claims` 命令，可从仓库提交的基准数据一键复现所有宣称的性能数字；支持 Docker 部署，默认仅绑定 127.0.0.1，不对外网暴露。",
+  "highlights": "项目方数据称在 XBOW 官方 104 题挑战套件上 pass@1 达到 90.1%，高于 XBOW 自报的 85%，同时给出了无提示 CTF 解题记录和针对模型训练截止后新披露 CVE 的\"冷猎\"验证结果；强调所有基准数字可通过一条命令从提交数据复现（27/27 通过），并在文档中明确区分哪些能力已稳定、哪些仍是实验性脚手架，避免夸大宣传。",
+  "audience": "授权渗透测试人员、安全研究者、CTF 参赛者，以及希望用 AI Agent 辅助漏洞挖掘的开发者",
+  "quickstart": "克隆仓库后执行 `npm install` 与 `npm run server` 启动 War Room（http://127.0.0.1:3333/ui/），在 Settings 中连接本地 AI 编程 Agent 即可用自然语言向 Op Admiral 描述目标并发起任务；也可设置 OPENROUTER_API_KEY / ANTHROPIC_API_KEY 等云端 key，或通过 `ollama serve` 加 `npx tempest` 完全离线运行；执行 `npm run verify-claims` 可复现 README 中的所有基准数字；也提供 `docker compose up -d` 的容器化部署方式。",
+  "risks": [
+    "这是一款明确定位为进攻性安全的工具，README 反复强调仅限对拥有明确书面授权的目标使用，未经授权访问计算机系统或网络在多数司法辖区属违法行为，使用者需自行承担合规责任。",
+    "采用 AGPL-3.0 许可证，具有较强的著佐权传染性，基于其构建的衍生服务需注意开源披露义务。"
+  ],
   "readme_sha": "273f481f60af3f6fc0f7582f44c2f18462bbe17f",
   "generated_at": "2026-09-19",
-  "model": null
+  "model": "claude-sonnet-5"
 }

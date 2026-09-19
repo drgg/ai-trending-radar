@@ -1,14 +1,13 @@
 {
-  "placeholder": true,
-  "is_ai_product": true,
-  "category": "其他",
-  "positioning": "Open-source auth gateway connecting 1500+ SaaS providers to AI agents through SDK, CLI, MCP, HTTP, and OpenAPI.",
-  "features": "",
-  "highlights": "",
-  "audience": "",
-  "quickstart": "",
+  "positioning": "OpenConnector 是一个开源的连接器/认证网关，为 AI Agent 和应用提供统一入口，接入 1000+（README 中另一处称 1500+）SaaS 服务商与超过 10000 个预制 Action，是 Pipedream/Composio 的开源替代方案。",
+  "features": "支持 GitHub、Gmail、Notion、BigQuery、Google Analytics、Supabase、Airtable、Slack 等主流服务的连接器目录；统一处理 API Key、OAuth2、自定义凭证及无认证场景；提供可审查的 Action 契约（请求/响应 schema、所需权限范围、懒加载执行源）；具备连接身份、作用域、运行时令牌、Action 允许/拦截策略、临时文件中转和脱敏运行日志等运行时控制；支持通过 SDK（TypeScript）、oo CLI、MCP、HTTP/OpenAPI 及 Web 控制台多种方式接入；可本地 Docker/Node.js 部署，使用 SQLite 或 PostgreSQL 存储，本地或 S3 兼容对象存储中转文件，也支持 Kubernetes Helm、Fly.io、Cloudflare Workers 部署及 OOMOL 托管运行时。",
+  "highlights": "核心价值是把服务商凭证与密钥封装在网关运行时边界内，Agent 进程本身不接触真实凭证，只获得元数据、脱敏账户标签和执行结果；同一套 provider id、Action id、schema 和契约可在开源自托管与 OOMOL 商业托管环境间无缝迁移；配套 oo CLI 作为本地 Agent 中继，以及桌面 Agent 应用 Wanta 可直接复用该网关连接 SaaS 服务。",
+  "audience": "需要让 AI Agent 安全、可持久访问用户第三方 SaaS 账户的开发者和团队，尤其是构建 Agent 产品、自动化工作流或需要自托管认证网关以保留数据控制权的公司。",
+  "quickstart": "使用 `docker compose up` 从 `ghcr.io/oomol-lab/open-connector:latest` 镜像启动本地运行时，打开 http://localhost:3000 查看控制台和 API 文档；可先用无需认证的 Action（如 hackernews.get_top_stories）验证运行是否正常，再通过 PUT /api/connections/<provider> 配置凭证（如 GitHub PAT）后调用具体 Action；本地开发可用 Node.js 22+ 运行 `npm install && npm run dev`。",
   "risks": [],
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
   "readme_sha": "1d1d4e7c523985a089cebe120bfe3fa19f25cbad",
   "generated_at": "2026-09-19",
-  "model": null
+  "model": "claude-sonnet-5"
 }

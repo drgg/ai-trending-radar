@@ -1,14 +1,13 @@
 {
-  "placeholder": true,
-  "is_ai_product": true,
-  "category": "其他",
-  "positioning": "OpenWiki is a CLI that writes and maintains agent documentation for your codebase.",
-  "features": "",
-  "highlights": "",
-  "audience": "",
-  "quickstart": "",
+  "audience": "需要为代码仓库或个人知识库自动生成并维护文档的开发者、技术团队，以及使用 Claude Code、Cursor、Codex 等编码 Agent 的用户",
+  "category": "开发者工具与集成",
+  "positioning": "OpenWiki 是一个 CLI 工具，用 Deep Agents 文档 Agent 自动阅读代码库或个人知识源，生成并持续维护一套互相链接的 Markdown Wiki，供 AI Agent 作为记忆读取，也可通过内置可视化工具供人类浏览探索。",
+  "features": "支持 code（代码仓库）和 personal（个人知识）两种模式；兼容 OpenAI、Anthropic、Bedrock、Gemini 等 13 家模型提供商及 OpenAI 兼容网关；可作为技能/MCP 集成进 IBM Bob、Codex、Claude Code、OpenCode、Cursor、Kiro 等编码 Agent，复用宿主的模型与仓库工具；内置 Notion、Slack、Gmail、X、Web Search、Hacker News、LangSmith、本地 Git 仓库、自定义 MCP 等 9 种连接器；Grounded Claims 机制将文档中的关键事实追溯到带版本的源码证据，证据变化时自动标记需复核的内容；支持通过 GitHub Actions、GitLab CI、Bitbucket Pipelines 定时自动更新并发 PR；输出符合 Open Knowledge Format v0.2 规范、带 Mermaid 图的可移植 Wiki 包；仓库生成采用可续跑的分页任务队列架构，中断后可从检查点恢复。",
+  "highlights": "核心卖点是\"自我维护\"：Wiki 会随代码变更自动更新，且用 Grounded Claims 追踪每条事实背后的具体源码证据版本，证据失效时能精确定位哪些结论需要重写或撤回，而不仅仅依赖文件修改时间戳；同时可直接挂载进已有编码 Agent 复用其认证模型，无需额外配置 API Key。",
+  "quickstart": "安装（需 Node.js ≥22.22.0）：npm install -g openwiki；在仓库根目录运行 openwiki --init 首次生成代码 Wiki（引导选择模型提供商），之后用 openwiki --update 增量更新；个人知识库用 openwiki personal --init；也可运行 openwiki integrations install <bob|codex|claude|opencode|cursor|kiro> 集成到已有编码 Agent 中使用。",
   "risks": [],
+  "is_ai_product": true,
   "readme_sha": "aa0e89962dfcf9a47e1bac4ec8eddcdbe94ca200",
   "generated_at": "2026-09-19",
-  "model": null
+  "model": "claude-sonnet-5"
 }

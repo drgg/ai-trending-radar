@@ -1,14 +1,16 @@
 {
-  "placeholder": true,
   "is_ai_product": true,
-  "category": "其他",
-  "positioning": "Multiplayer agent harness for work.",
-  "features": "",
-  "highlights": "",
-  "audience": "",
-  "quickstart": "",
-  "risks": [],
+  "category": "Agent 平台与基础设施",
+  "positioning": "QM 是面向企业/团队的“多人协作型”AI Agent 承载平台（harness），支持在 Slack 和 Web 端使用，让公司内每个员工拥有独立的个人工作空间，同时也能在频道、群聊和项目中与 Agent 协作，替代常见的“个人助理式”单人 Agent 方案。",
+  "features": "核心为无头（headless）服务，用 Postgres 持久化会话、记忆与队列；Agent 执行循环可切换 Pi、OpenCode、Codex、Claude Code 等多种开源 harness 与模型，不绑定单一厂商；每个用户/房间拥有独立作用域的记忆、文件、密钥视图、权限、定时任务（cron）和常驻沙箱环境；支持在沙箱中运行 `execute` 工具执行命令、构建并发布内部 Web 应用；技能（skills）按作用域归属并可授权共享，管理员可将其提升为全组织可用，也可从 git 仓库导入技能包；支持 cron、监听（watch）和入站 webhook 驱动的后台自动化任务；管理员可配置组织级安全与共享策略，以及可用的 harness/模型范围。",
+  "highlights": "区别于单人助理式 Agent，QM 强调“个人 + 共享”双重作用域的协作模型，个人自定义与团队协同可以共存；架构上将 harness、会话存储、沙箱、记忆等全部抽象为可替换接口，声称对模型和 harness 厂商中立；提供两套独立可配置的安全策略——执行安全（Strict/Auto/Dangerous，控制人工审批与内容审查）与共享策略（Isolated/Open，控制跨作用域的文件/记忆访问及来源标注和审计），并对跨上下文读取做出多项限制（如候选窗口上限、二进制文件需显式共享）；部署通过独立的“部署仓库”依赖 `@yc-software/qm` 包完成，企业可在自己的云账号（Fly 或 AWS）中运行，核心代码库与部署配置分离，便于后续升级。",
+  "audience": "需要为团队/公司整体部署内部协作型 AI Agent 的技术负责人、平台工程师和企业 IT/安全管理员，尤其是已在使用 Claude Code、Codex、OpenCode 等编码 Agent 且希望统一到 Slack/Web 协作场景的初创公司团队。",
+  "quickstart": "让编码 Agent 执行“部署 https://github.com/yc-software/qm”指令，由其按仓库内的部署指南自动完成；也可先通过第三方托管版本（agent37.com/qm）试用。正式部署方式是创建组织所属的部署仓库并执行 `npm exec --package=@yc-software/qm@latest -- qm init . --org <slug> --target <fly-or-aws>` 后 `npm install`，完成基础设施、登录、连接器凭证、Slack 接入等配置；本地调试可用 `npm run dev-instance:web`（网页/管理端）或 `npm run dev-instance:slack`（Slack）。",
+  "risks": [
+    "提供“Dangerous”安全模式，可关闭内容审查且工具调用之间无需人工审批，管理员配置不当可能导致 Agent 执行未经审核的高风险操作",
+    "Agent 以用户本人的凭证和权限代表其执行操作（含在沙箱中运行任意命令、访问内部系统），部署方需自行评估权限范围和审计机制"
+  ],
   "readme_sha": "de7d118e26ee52cbee900336c98cb9c5796f6ef1",
   "generated_at": "2026-09-19",
-  "model": null
+  "model": "claude-sonnet-5"
 }

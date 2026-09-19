@@ -1,14 +1,13 @@
 {
-  "placeholder": true,
-  "is_ai_product": true,
-  "category": "其他",
-  "positioning": "Removes 20+ patterns of AI slop from any piece of writing.",
-  "features": "",
-  "highlights": "",
-  "audience": "",
-  "quickstart": "",
+  "positioning": "一个面向 Claude Code、Codex、ChatGPT 等 AI 编程/写作助手的 Skill 插件，用于识别并清除文本中 20 多种典型的\"AI 味\"表达模式，同时尽量保留作者原有的用词、语气和风格。",
+  "features": "- 提供 /no-ai-slop 命令，可直接编辑输入文本，去除套路化表达并列出具体修改点\n- 提供检测模式 /no-ai-slop is this slop?，只标注命中的套路句式，不判断文本是否由 AI 生成\n- 覆盖二元对比句（\"It's not X. It's Y.\"）、故弄玄虚开场白、假深刻结尾、同义词轮换、专家背书式套话等 20+ 种常见 AI 写作模式\n- 同时检查基础写作问题：开门见山、主动语态、句子结构、具体细节 vs 空泛表述\n- 附带 eval.md 用于自检输出质量，可通过 npx skills add 或复制指令安装到多种 AI 编程/对话工具\n- 另有 ChatGPT 插件形式可用",
+  "highlights": "上线约两个半月即获得超过 1 万 star，说明\"去 AI 味\"是当前 AI 写作助手用户的普遍痛点；项目以 Skill/Plugin 形式设计，可跨 Claude Code、Codex、ChatGPT 等多个 Agent 平台复用，而非局限于单一工具。",
+  "audience": "使用 AI 辅助写作或编辑的内容创作者、博客作者、以及在 Claude Code / Codex / ChatGPT 中配置个人写作技能的开发者。",
+  "quickstart": "在 ChatGPT、Claude Code、Codex 或其他支持 Skill 的编程 Agent 中输入：Install the /no-ai-slop skill globally from https://github.com/petergyang/no-ai-slop；也可执行 npx skills add petergyang/no-ai-slop --skill no-ai-slop --global --yes 完成安装，之后用 /no-ai-slop (你的文本) 进行编辑。",
   "risks": [],
+  "is_ai_product": true,
+  "category": "Skills 与写作/设计",
   "readme_sha": "82f8b7af7e02918077afb447f8fc83c2d33483ba",
   "generated_at": "2026-09-19",
-  "model": null
+  "model": "claude-sonnet-5"
 }

@@ -1,14 +1,16 @@
 {
-  "placeholder": true,
+  "audience": "使用 Claude Code、Codex 等编程 Agent 的开发者；短视频/UGC/广告内容生产者；需要批量产出视频变体的营销、增长和电商团队",
+  "category": "Skills 与写作/设计",
+  "positioning": "为 Claude Code、Codex 等编程 Agent 提供一套视频创作语言与系统（技能包），可将任意参考视频\"克隆\"成完整可编辑、可重跑的工作流（画面、字幕、B-roll、特效），也支持从模板或纯文字描述生成视频，生成式模型仅为可选组件。",
+  "features": "提供 SVML 等 DSL/标记语言，让 Agent 以\"词\"而非\"秒\"为锚点组织字幕、镜头切换与特效；克隆参考视频得到的是完整可编辑工作流而非脚本拆解；一份工作流可复用素材批量产出上百个变体（换主播、换钩子、换产品、换语言、换画幅）；组件可插拔，字幕、主持人等模块可独立替换、自建或发布到私有仓库；生成模型可选，纯代码渲染的可视化内容无需调用生成式模型及其费用；内置广告克隆、TikTok Shop 带货视频、AI UGC/数字人口播、播客访谈剪辑、多语言本地化等场景示例。",
+  "highlights": "项目方未披露具体性能数字；上线约两个月已获 10K+ star、1.2K+ fork，热度增长较快；开源免费，无 Hypit 坐席费、渲染费或水印，模型/生成服务费用按所选服务另计（官方推荐 HypiHub，也可接自有 API 或本地模型）。",
+  "quickstart": "运行 `npx skills add hypit-ai/hypit -g` 将其安装为 Agent 技能；在任意项目目录中用 `/hypit` 指令让 Agent 克隆指定参考视频或按文字描述生成视频，首次使用时 Agent 会自动检查并协助准备 Hypit 可执行文件及所需凭证。",
+  "risks": [
+    "内置视频换脸（face swap）功能用于克隆他人视频内容，可能涉及肖像权、深度伪造相关的法律与伦理风险",
+    "采用自定义的 \"Hypit Open Source License\"，GitHub 许可证字段标记为 NOASSERTION，非标准开源协议，使用前需自行核实授权条款"
+  ],
   "is_ai_product": true,
-  "category": "其他",
-  "positioning": "Clone any viral video with AI agents. Not just a script, the whole workflow: swap the face, the words, the B-roll, ship 100 variants in one command, and get your 100M views.",
-  "features": "",
-  "highlights": "",
-  "audience": "",
-  "quickstart": "",
-  "risks": [],
   "readme_sha": "620a5090a7217feac21b46dab22e6056e3c609a3",
   "generated_at": "2026-09-19",
-  "model": null
+  "model": "claude-sonnet-5"
 }

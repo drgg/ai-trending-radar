@@ -1,14 +1,16 @@
 {
-  "placeholder": true,
   "is_ai_product": true,
-  "category": "其他",
-  "positioning": "DSHDesktop：DeepSeek Harness Desktop / DeepSeek Harness 桌面版",
-  "features": "",
-  "highlights": "",
-  "audience": "",
-  "quickstart": "",
-  "risks": [],
+  "category": "AI 应用产品",
+  "positioning": "DSH Desktop 是 DeepSeek Harness（一个 Agent 运行时 + Web UI）的社区桌面客户端，将本地优先、跨平台的 Harness 体验打包成一个可安装的原生应用，开机自启 Harness 并直接打开完整界面。",
+  "features": "自动启动/停止 Harness 而无需单独 CLI 或浏览器标签；原生系统目录选择器管理项目工作区；支持官方 DeepSeek 模型及主流第三方模型提供商；以 .dshpreset 包形式导入导出完整的自定义 Agent 预设（含冲突检测和信任提示）；内置 PPT 模式，可将素材转为可编辑的 PPTX（16 套模板、192 种版式，预览为英文，输出支持中英文）；应用升级时保留 profile、插件、工作区、会话和模型设置；检测启动/前端插件故障并提供诊断日志与引导式修复；非破坏性 Safe Mode 可临时屏蔽第三方插件；支持手机通过局域网或临时公网隧道（Cloudflare/Pinggy）接续会话；受控的应用更新机制；适配 macOS/Windows 的原生菜单、标题栏与主题。",
+  "highlights": "本地优先架构：Harness Web UI 仅在随机回环端口提供服务，渲染进程无 Node.js 权限并启用上下文隔离与沙箱，屏蔽 webview 和不受信导航；用户数据存放在系统应用数据目录而非安装目录内，跨版本升级不丢失；提供 Safe Mode 排障和手机远程接续会话等桌面原生能力，是社区插件生态（dsh-market）的配套客户端；macOS 版本经 Apple 签名公证，Windows 版本代码签名。",
+  "audience": "需要在本地桌面使用 DeepSeek Harness Agent（如日常问答、PPT 生成、插件扩展等）的个人用户和早期尝鲜者，尤其是 macOS/Windows 用户",
+  "quickstart": "从官网 dshdesktop.com 下载稳定版安装包（推荐日常使用），或在 GitHub Releases 中选择标记为 Pre-release 的预览版尝鲜；安装后应用会自动启动 Harness 并打开界面；如遇启动或渲染问题，可从 Harness 菜单选择 \"Restart as Safe Mode…\" 或以命令行传入 --safe-mode 参数进入安全模式排查。",
+  "risks": [
+    "当前为基于快速迭代的 @deepseek-ai/dsh@0.1.5-rc.2 的早期预览版本，官方明确不建议普通用户使用预览渠道",
+    "手机远程访问功能会通过 Cloudflare Quick Tunnel 或 Pinggy 等第三方临时公网隧道暴露本地会话，需注意潜在的数据外泄风险"
+  ],
   "readme_sha": "0c93894eda1d14e44c91e6c7dd5074494303f1cf",
   "generated_at": "2026-09-19",
-  "model": null
+  "model": "claude-sonnet-5"
 }
