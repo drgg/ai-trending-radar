@@ -5,9 +5,6 @@
 ## 本期变化
 首期，暂无对比。
 
-## 趋势小结
-- （dry-run 模式，未生成趋势小结）
-
 ## 其他
 
 ### [xai-org/grok-build](https://github.com/xai-org/grok-build) ⭐ 26,872
@@ -28,7 +25,7 @@
 ### [petergyang/no-ai-slop](https://github.com/petergyang/no-ai-slop) ⭐ 10,594
 - **定位**：Removes 20+ patterns of AI slop from any piece of writing.
 
-### [hypit-ai/hypit](https://github.com/hypit-ai/hypit) ⭐ 10,293
+### [hypit-ai/hypit](https://github.com/hypit-ai/hypit) ⭐ 10,295
 - **定位**：Clone any viral video with AI agents. Not just a script, the whole workflow: swap the face, the words, the B-roll, ship 100 variants in one command, and get your 100M views.
 - ⚠️ 许可证未声明或非标准，商用前请确认授权
 
@@ -54,7 +51,7 @@
 ### [FareedKhan-dev/kimi-k3-in-c](https://github.com/FareedKhan-dev/kimi-k3-in-c) ⭐ 8,054
 - **定位**：A 2.78-trillion-parameter Kimi K3 running inference on a single CPU in 8.24 GB of RAM. Portable C99: no BLAS, no framework, no GPU.
 
-### [google/artemis](https://github.com/google/artemis) ⭐ 7,957
+### [google/artemis](https://github.com/google/artemis) ⭐ 7,956
 - **定位**：ARTEMIS turns natural-language instructions into reliable Android automation. It automates end-to-end workflows, captures logs, and integrates seamlessly with AI coding assistants such as Antigravity, Codex, and Claude Code.  It also achieves 99%+ success rate on AndroidWorld Benchmark.
 
 ### [dataelement/dsh-desktop](https://github.com/dataelement/dsh-desktop) ⭐ 7,525

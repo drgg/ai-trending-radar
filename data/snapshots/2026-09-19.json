@@ -4,7 +4,7 @@
  "window_days": 90,
  "min_stars": 5000,
  "model": "claude-sonnet-5",
- "dry_run": true,
+ "dry_run": false,
  "entries": [
   {
    "full_name": "xai-org/grok-build",
@@ -211,7 +211,7 @@
    "full_name": "hypit-ai/hypit",
    "html_url": "https://github.com/hypit-ai/hypit",
    "description": "Clone any viral video with AI agents. Not just a script, the whole workflow: swap the face, the words, the B-roll, ship 100 variants in one command, and get your 100M views.",
-   "stars": 10293,
+   "stars": 10295,
    "forks": 1264,
    "language": "TypeScript",
    "license": "NOASSERTION",
@@ -557,7 +557,7 @@
    "full_name": "google/artemis",
    "html_url": "https://github.com/google/artemis",
    "description": "ARTEMIS turns natural-language instructions into reliable Android automation. It automates end-to-end workflows, captures logs, and integrates seamlessly with AI coding assistants such as Antigravity, Codex, and Claude Code.  It also achieves 99%+ success rate on AndroidWorld Benchmark.",
-   "stars": 7957,
+   "stars": 7956,
    "forks": 753,
    "language": "Python",
    "license": "Apache-2.0",
@@ -1071,7 +1071,5 @@
   "dropped": [],
   "gainers": []
  },
- "trends": [
-  "（dry-run 模式，未生成趋势小结）"
- ]
+ "trends": []
 }
