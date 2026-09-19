@@ -1,15 +1,26 @@
 {
-  "positioning": "TrueForge 是一个开源的\"agent harness\"（智能体运行框架），定位为运行层——把一个 LLM 变成真正能干活的 Agent，负责执行循环中的模型调用、工具接入、沙箱执行、审批和会话状态管理，而不是又一个 Agent 框架/编排库。",
-  "features": "支持从 YAML 目录一键初始化模型、MCP 工具、Skills 和沙箱配置；兼容 OpenAI、Anthropic、Google Gemini 及任意 OpenAI 兼容端点；支持远程 MCP 服务器（含 Header 鉴权和 OAuth、聊天内授权）；通过 git 管理的 SKILL.md 技能包按需加载；沙箱作为工具按需provision（目前支持 Daytona，密钥留存在 harness 内不下发）；提供工具审批、人工提问、Generative UI 等人工检查点；具备子智能体、延迟工具加载、Code Mode、大结果卸载与上下文压缩等上下文工程能力；对外提供聊天 UI、HTTP API + TypeScript SDK（@truefoundry/trueforge-sdk）以及可嵌入的 UI SDK（@truefoundry/trueforge-ui）。",
-  "highlights": "可从单进程 + SQLite 的本地模式，平滑扩展到 Postgres + Redis 的多副本托管模式（Docker Compose / Helm / Railway）；项目方在 benchmark 中称在相同任务、工具、模型条件下，相较 Claude Managed Agents 和 deepagents 达到\"同等准确率、更低成本\"（项目方数据，可在仓库 benchmark/ 目录复现）；MIT 许可，TypeScript 编写，star 数近 5.8k，由 TrueFoundry 团队维护。",
-  "audience": "需要快速搭建生产级 Agent 运行环境的开发者和团队，尤其是希望复用现成的工具接入、沙箱、审批与会话管理能力、而非从零造轮子的场景；也适合想对比不同 Agent 框架成本与效果的技术团队。",
-  "quickstart": "运行 npx @truefoundry/trueforge@latest 即可在本地以单进程 + SQLite 方式体验；生产/团队场景可参考官网 Quickstart 指南，通过 Docker Compose、Helm 或 Railway 部署托管模式（Postgres + Redis）。",
-  "risks": [
-    "README 明确提示本地模式默认无登录、数据存于本地 SQLite 文件，仅适合个人试用，不应暴露在公网，团队/生产场景需切换到有鉴权的托管模式。"
-  ],
   "is_ai_product": true,
   "category": "Agent 平台与基础设施",
+  "tagline": "开源的 Agent 运行时，把 LLM 变成可用的智能体",
+  "positioning": "TrueForge 承担 Agent 执行循环——模型调用、工具、沙箱、审批、上下文管理，并通过聊天界面、HTTP API/SDK、可嵌入 UI 三种方式对外提供，省去自建运行时的重复劳动。",
+  "features": [
+    "支持 OpenAI、Anthropic、Gemini 等多模型及任意 OpenAI 兼容接口",
+    "可接入远程 MCP 工具，支持 Header 认证和 OAuth",
+    "支持 SKILL.md 技能包，按需在沙箱中加载",
+    "沙箱作为工具按需提供隔离代码/文件执行环境，密钥留在运行时内",
+    "内置工具审批、追问用户、生成式 UI 等人工检查点"
+  ],
+  "highlights": [
+    "项目方数据：在相同任务和模型下，成本低于 Claude Managed Agents 和 deepagents，精度相当"
+  ],
+  "audience": "需要快速搭建生产级 Agent 运行时的开发者和团队，尤其是已用 MCP/多模型但缺少统一执行框架的场景",
+  "quickstart_cmd": "npx @truefoundry/trueforge@latest",
+  "quickstart_note": "本地模式单进程+SQLite适合个人试用；团队或生产建议用 Docker Compose、Helm 或 Railway 的托管模式",
+  "risks": [
+    "本地模式默认无登录且数据存于本地 SQLite 文件，官方提示仅限本机使用，不适合暴露到公网"
+  ],
   "readme_sha": "974a6a453038450ed24217e08b0ac254835a9cdd",
   "generated_at": "2026-09-19",
+  "prompt_version": 2,
   "model": "claude-sonnet-5"
 }

@@ -1,13 +1,27 @@
 {
-  "audience": "使用 Codex、Doubao、Coze 等支持 Agent Skills 格式的 AI 编程/创作工具的开发者、设计师，以及需要快速生成品牌吉祥物 Logo 的产品团队",
-  "category": "Skills 与写作/设计",
-  "positioning": "一个开放格式的 Agent Skill，专门指导 AI 图像模型生成极简、圆润、略带新拟物质感的可爱 IP 吉祥物 Logo，不绑定特定 Agent 产品，可安装到任何兼容该格式的 AI 工具中。",
-  "features": "- 遵循 Agent Skills 开放格式，通过 `npx skills@latest add` 一键安装到 Codex、Coze、Doubao、YouMind、Manus、Gemini Apps、Replit Agent 等兼容工具\n- 规定设计规范：4-7 个基础形状构成的主体轮廓、默认三色配色（两种主体色+一种背景色）、圆润无锐角的粗线条造型\n- 主体从画面左下或右下角\"涌现\"，占画面 85%-95%，默认生成 6 张候选图（3 张左下+3 张右下各方向两变体）\n- 优先使用常见动物形象作为吉祥物主体（开放式批次中占 95%-100%），非动物题材需与产品属性直接相关\n- 需要顶级图像模型支持（GPT Image 2、Seedance 5.0 Pro、Nano Banana Pro/2 等），不回退到 SVG\n- 生成过程不做透明度检测、合规筛选或自动重试，原样保留并交付每次生成结果\n- 配套官网 ipaslogo.com 提供免费可商用的现成 Logo 库，供无 AI 工具的用户直接下载",
-  "highlights": "仓库结构极简，仅含一份 SKILL.md 指令文档和一张展示图，无脚本或额外依赖；上线一周内获得 5000+ star，反映出对\"用 AI Skill 标准化控制图像生成风格\"这一思路的关注度较高。",
-  "quickstart": "执行 `npx skills@latest add s1dashu/ip-as-logo-skill`（可加 `--global` 全局安装），安装器会自动识别根目录 SKILL.md 并引导选择兼容的编程 Agent；之后在对话中用自然语言描述吉祥物需求（如\"在深藏青色背景上做一个简单可爱的圆润幽灵 IP 形象\"），Skill 会自动提出三个设计方向并生成六张候选图。若无相关 Agent 工具，可直接访问 ipaslogo.com 下载现成免费商用 Logo。",
-  "risks": [],
   "is_ai_product": true,
+  "category": "Skills 与写作/设计",
+  "tagline": "面向AI Agent的极简可爱IP吉祥物/Logo生成技能包",
+  "positioning": "遵循开放Agent Skills格式的指令文档，指导兼容AI Agent（需搭载顶尖图像模型）生成极简、圆润、带轻微新拟物质感的公司吉祥物形象，不绑定特定Agent产品。",
+  "features": [
+    "主体由4-7个大块基础形状构成，严格限制视觉复杂度",
+    "默认三色方案：两个主体色加一个命名纯色背景",
+    "主体固定从左下或右下角凸显，占比约85%-95%",
+    "用户确认方向后自动生成三方向共六张独立候选图",
+    "兼容Codex、Doubao、Coze、Manus、Gemini Apps等Agent"
+  ],
+  "highlights": [
+    "官网ipaslogo.com提供免费商用Logo库，无需自备兼容Agent即可下载",
+    "仓库仅含单个SKILL.md指令文档，无脚本或生成依赖，轻量易安装"
+  ],
+  "audience": "需要快速产出品牌吉祥物或Logo草案的产品设计师、独立开发者，以及已在使用Codex等AI Agent的团队",
+  "quickstart_cmd": "npx skills@latest add s1dashu/ip-as-logo-skill",
+  "quickstart_note": "安装后需在兼容Agent中启用顶尖图像模型（如GPT Image 2、Nano Banana Pro）才能实际生成图像",
+  "risks": [
+    "生成效果依赖第三方图像模型且具随机性，项目方不做合规或质量自动校验"
+  ],
   "readme_sha": "5c90d60233172ad9deff581d28059be36f00442e",
   "generated_at": "2026-09-19",
+  "prompt_version": 2,
   "model": "claude-sonnet-5"
 }

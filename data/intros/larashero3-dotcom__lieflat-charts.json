@@ -1,16 +1,28 @@
 {
-  "positioning": "面向 AI Agent 的数据可视化 Skill，遵循 Agent Skills 规范（SKILL.md 格式），让 Claude Code、Codex、moxt 等兼容 Agent 把用户数据自动转化为有编辑设计感的可交互 HTML 图表或整页报告。",
-  "features": "提供三种视觉风格——Lupi（编辑叙事型，细线/留白/逐记录，适合论文年报）、Glance（快速判断型，粗柱大数字，适合周报 dashboard）、Basics（保留常见图表轮廓的基础编辑型）；49 个图型覆盖柱状、折线、环形、散点、矩形树图、K 线、网络关系图等；支持 Mono 黑白灰及青瓷蓝、椰林绿、编辑部红三套彩色预设，Agent 可按数据结构自动选色，也支持自定义品牌色；新增 12 套中英双语整页报告模板（调研、年报、财报、dashboard、海报等），可从单图扩展到整页 HTML 报告；实现上 Lupi/Basics 多用原生 SVG，Glance 与部分交互图通过 CDN 加载 Chart.js/ECharts。",
-  "highlights": "与常规\"套模板出图\"不同，先判断数据契约再选图型、每张图只承担一个独立结论、把标题旁注来源留白动效都纳入设计语法，用 Lupi/Glance 区分\"慢读\"与\"快读\"两种阅读速度；在 moxt.ai 原生工作区中可保留规则模板数据在同一环境持续迭代，也可独立安装到 Claude Code、Codex 等其他 Agent 工具中使用；GitHub 5500+ stars。",
-  "audience": "需要用 AI Agent 快速产出高质量数据图表或报告的内容创作者、分析师、研究者，以及在 Claude Code / Codex / moxt 等平台上做 Agent 开发和数据可视化自动化的开发者。",
-  "quickstart": "一条命令安装：npx skills add https://github.com/larashero3-dotcom/lieflat-charts --skill lieflat-charts；或让有 shell 权限的 Agent 将仓库克隆到 ~/.claude/skills/lieflat-charts（Codex 为 ~/.codex/skills/lieflat-charts），确认 SKILL.md、templates/、catalog.md、mono-tokens.js 等文件存在后即可安装完成；安装后直接向 Agent 提出可视化需求（如“把这份数据做成适合公众号的图表”）即可生成 HTML 结果；也可直接打开 templates/ 下的 HTML 文件预览效果。",
-  "risks": [
-    "使用 PolyForm Noncommercial License 1.0.0 非标准许可证，仅允许非商业使用，商业使用需另行获取授权。",
-    "Glance、Circular、Force 等部分图表及报告模板 R11/R12 通过 CDN 加载 Chart.js/ECharts，离线环境无法完整显示。"
+  "audience": "需要用 AI Agent 快速生成图表和报告的内容创作者、分析师及 Claude Code/Codex 用户",
+  "category": "Skills 与写作/设计",
+  "features": [
+    "49 种图型：Lupi 编辑叙事型、Glance 快速判断型、Basics 基础型三套视觉体系",
+    "提供 12 套中英双语整页报告模板，覆盖年报、周报、dashboard 等场景",
+    "内置 Mono 及青瓷蓝、椰林绿、编辑部红三种彩色预设，Agent 可自动选色",
+    "支持网络图、路径图等独立交互大图，基于 SVG/Chart.js/ECharts 实现",
+    "遵循 Agent Skills 格式，可安装到 moxt、Claude Code、Codex 等兼容 SKILL.md 的工具"
+  ],
+  "highlights": [
+    "GitHub 5500+ star，专注把数据转成有编辑设计感的 HTML 图表而非通用图表库",
+    "设计规则围绕数据契约展开：先判断数据结构再选图型，而非先选模板"
   ],
   "is_ai_product": true,
-  "category": "Skills 与写作/设计",
+  "positioning": "面向 AI Agent 的数据可视化 Skill，遵循 Agent Skills 格式，让 Claude Code、Codex 等 Agent 把数据自动生成为有编辑设计感的可交互 HTML 图表或整页报告。",
+  "quickstart_cmd": "npx skills add https://github.com/larashero3-dotcom/lieflat-charts --skill lieflat-charts",
+  "quickstart_note": "安装后直接对 Agent 描述数据和用途即可生成图表；推荐在 moxt.ai 中使用以获得完整工作区体验。",
+  "risks": [
+    "采用 PolyForm Noncommercial License，仅限学习和非商业使用，商业使用需另行取得许可",
+    "部分图表模板通过 CDN 加载 Chart.js/ECharts，离线环境无法完整显示"
+  ],
+  "tagline": "面向 AI Agent 的数据可视化 Skill，一键把数据变成精致可交互的 HTML 图表",
   "readme_sha": "fae996e05d395fcf693cd515ab75c83ba09bf5c7",
   "generated_at": "2026-09-19",
+  "prompt_version": 2,
   "model": "claude-sonnet-5"
 }

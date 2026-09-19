@@ -1,13 +1,25 @@
 {
   "is_ai_product": true,
   "category": "Skills 与写作/设计",
-  "positioning": "一套面向 AI Agent（如 Claude Code）的\"界面设计技能\"集合，通过给 Agent 注入专业的 UI/UX 知识，帮助其在写代码时自动生成更精致的界面，涵盖排版、色彩、布局、无障碍与产品文案等方面。",
-  "features": "提供多个可独立安装的 Agent Skill：better-ui（同心圆角、视觉对齐、上下文图标、点击区域、动效等）、better-typography（字号阶梯、间距、可变字体、OpenType 特性、换行截断等）、better-colors（调色板生成、语义化色彩令牌、格式转换、对比度检查）、better-accessibility（无障碍规范）、better-layout（分组、对齐、阅读顺序）、better-writing（产品文案打磨）；此外还有综合型技能 better-interface（整合所有 better-* 技能进行统一审查）、interface-review（多维度界面审查报告）、explain-interface（解析网页动画/UI 实现原理）、break（在临时页面中渲染组件的全部状态并做压力测试）、variant（批量生成组件变体辅助迭代）。",
-  "highlights": "作者是设计工程类杂志 Interfaces 的作者，技能内容来自其个人网站与杂志文章，聚焦\"让 AI 写出的界面更专业\"这一具体痛点；技能可按需单独调用（如 interface-review、explain-interface 为用户主动触发），也可通过 better-interface 一键组合全部审查项；支持通过 npx 或 Claude Code 插件市场两种方式快速安装。",
-  "audience": "使用 AI Agent（尤其是 Claude Code）辅助前端/界面开发的设计工程师、前端开发者及产品设计师。",
-  "quickstart": "命令行安装：npx skills add jakubkrehel/skills；或在 Claude Code 中通过插件市场安装：/plugin marketplace add jakubkrehel/skills 然后 /plugin install interfaces@interfaces。",
+  "tagline": "一套面向 AI Agent 的界面设计技能集，帮助打造更好的 UI",
+  "positioning": "为 Claude 等 Agent 提供可插拔的设计技能包，覆盖 UI、排版、色彩、无障碍、布局与文案，让 Agent 按专业标准审查和改进界面。",
+  "features": [
+    "better-ui 涵盖圆角、光学对齐、图标、点击区域、动画等界面细节",
+    "better-typography 处理字号、间距、可变字体、断行截断等排版问题",
+    "better-colors 生成调色板、语义化 token 并检查对比度",
+    "better-accessibility 帮助项目符合无障碍标准",
+    "interface-review、break、variant 支持界面审查与多方案迭代"
+  ],
+  "highlights": [
+    "作者将个人设计工程博客 Interfaces 的内容整理成可复用技能",
+    "可作为 Claude Code 插件直接安装使用"
+  ],
+  "audience": "使用 Claude 等 Agent 工具进行前端/UI 开发的设计工程师和开发者",
+  "quickstart_cmd": "npx skills add jakubkrehel/skills",
+  "quickstart_note": "也可作为 Claude Code 插件安装：/plugin marketplace add jakubkrehel/skills",
   "risks": [],
   "readme_sha": "a564ec0a2f60c6072c813e55e49d9df228070819",
   "generated_at": "2026-09-19",
+  "prompt_version": 2,
   "model": "claude-sonnet-5"
 }

@@ -1,13 +1,28 @@
 {
-  "audience": "需要命令行/终端AI编程助手的软件开发者，尤其是已在使用类似Codex CLI、Claude Code、opencode等工具、希望尝试xAI官方方案的用户",
-  "category": "编程 Agent 与运行框架",
-  "positioning": "xAI（项目署名SpaceXAI）推出的终端AI编程代理 grok，以全屏TUI形式运行，可理解代码库、编辑文件、执行命令，定位与OpenAI Codex CLI、Claude Code等终端编程Agent类似",
-  "features": "全屏、支持鼠标交互的TUI界面；理解代码库、自动编辑文件、执行shell命令、联网搜索、管理长时间运行任务；支持交互式、headless（脚本/CI）、通过Agent Client Protocol（ACP）嵌入编辑器三种运行方式；支持MCP服务器、插件、hooks、主题、沙箱等扩展机制；首次启动通过浏览器完成身份认证",
-  "highlights": "由xAI官方发布，创建仅两月余（2026-07-14）已获2.6万+ star，热度增长迅速；Rust编写，通过DotSlash管理构建工具链；仓库定期从xAI内部monorepo同步；工具实现中包含对openai/codex和sst/opencode的移植代码（第三方声明中注明）；不接受外部代码贡献",
-  "quickstart": "macOS/Linux执行 curl -fsSL https://x.ai/cli/install.sh | bash 安装，Windows PowerShell执行 irm https://x.ai/cli/install.ps1 | iex，安装后运行 grok --version 验证；也可用cargo从源码构建（需先安装DotSlash和protoc）",
-  "risks": [],
   "is_ai_product": true,
+  "category": "编程 Agent 与运行框架",
+  "tagline": "xAI 出品的终端 AI 编程助手，全屏 TUI 交互，可编辑代码、执行命令",
+  "positioning": "Grok Build（grok）是 xAI（SpaceXAI）开发的终端 AI 编程 Agent，理解代码库、编辑文件、执行 shell 命令、搜索网页并管理长任务，可交互使用也可无头运行于 CI 或嵌入编辑器。",
+  "features": [
+    "全屏、支持鼠标操作的终端 TUI 界面",
+    "可编辑文件、执行 shell 命令、联网搜索",
+    "支持交互式、无头脚本化（CI）和通过 ACP 协议嵌入编辑器三种运行模式",
+    "支持 MCP 服务器、插件、Hooks、技能（skills）和沙箱运行",
+    "官方提供 macOS/Linux/Windows 预编译二进制，源码从内部 monorepo 定期同步"
+  ],
+  "highlights": [
+    "由 xAI 官方发布，Star 数已近 2.7 万，增长迅速",
+    "部分工具实现移植自 openai/codex 与 sst/opencode 项目"
+  ],
+  "audience": "使用命令行工作、希望借助 AI Agent 辅助编码、调试和自动化任务的开发者",
+  "quickstart_cmd": "curl -fsSL https://x.ai/cli/install.sh | bash",
+  "quickstart_note": "安装后运行 grok，首次启动会打开浏览器完成身份认证",
+  "risks": [
+    "不接受外部代码贡献，仓库为只读同步性质",
+    "首次启动需通过浏览器登录 xAI 账号完成认证，涉及账号授权"
+  ],
   "readme_sha": "4569db83fe4fee02ba656f8eaa52db22e43e8e63",
   "generated_at": "2026-09-19",
+  "prompt_version": 2,
   "model": "claude-sonnet-5"
 }

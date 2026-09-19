@@ -1,15 +1,27 @@
 {
   "is_ai_product": true,
   "category": "开发者工具与集成",
-  "positioning": "由腾讯开源的浏览器自动化工具，通过 CLI（bsk）+ 浏览器扩展，让 Cursor、Claude Code、Codex 等任意可调用 Shell 的 AI Agent 复用用户本机已登录的真实浏览器，而不打断用户日常使用。",
-  "features": "核心机制是「借用标签页」：Agent 需显式借用某个标签页、任务完成后归还，不干扰浏览器其余部分；浏览任务在独立可见的 Agent Window 中运行，用户可继续正常使用自己的浏览器；内置人机协作机制，遇到验证码、登录、确认弹窗等需要人工介入的步骤时可请求用户接管；支持整页截图（bsk screenshot --full-page）；提供技能文件（SKILL.md）一键安装到各类 Agent Harness，兼容 macOS（Apple Silicon/Intel）、Linux（x64/ARM64）、Windows x64，浏览器支持 Chrome 和 Edge（其他基于 Chromium 的浏览器预期可用，Firefox 计划支持中）。",
-  "highlights": "不依赖为 Agent 单独准备测试账号，直接复用已登录状态访问网站；不锁定特定模型或 Agent 框架，任何能调用 Shell 的 Agent 均可通过 bsk CLI 接入；自动化设置（借用前确认、允许求助）两项开关默认开启，用户设置对所有会话具有最高优先级；协议版本兼容 1.0–1.2，支持渐进式升级。",
-  "audience": "使用 Cursor、Claude Code、Codex 等 AI 编程/自动化 Agent、需要 Agent 操作已登录网站（如后台管理、内部系统）但又不想打断自己浏览器使用的开发者。",
-  "quickstart": "通过 install.sh（macOS/Linux）或 install.ps1（Windows）安装 bsk CLI；从 Chrome Web Store 或 Edge Add-ons 安装 BrowserSkill 浏览器扩展；运行 bsk install-skill 将技能安装到所用 Agent Harness；运行 bsk doctor 检查连接状态，即可在 Agent 会话中发出如 /browser-skill open example.com 的指令进行验证；也可直接把安装说明链接发给 Agent 让其自动完成安装。",
+  "tagline": "让AI Agent借用你已登录的真实浏览器完成网页任务",
+  "positioning": "腾讯开源的CLI+浏览器扩展，让Cursor、Claude Code、Codex等任意可调用shell的AI Agent借用你已登录的浏览器标签页执行任务，用完归还，不打断日常使用。",
+  "features": [
+    "复用已登录状态，无需为Agent单独准备测试账号",
+    "任务在独立可见的Agent窗口运行，不影响用户正常浏览",
+    "通过bsk CLI支持任意可调用shell的Agent，不绑定特定模型或框架",
+    "遇到验证码、登录、确认弹窗时可请求用户接管后继续执行",
+    "支持整页长截图导出，可用CLI命令或扩展快捷操作触发"
+  ],
+  "highlights": [
+    "已获5000+ star，兼容Cursor、Claude Code、Codex、OpenClaw等多种Agent工具",
+    "跨平台支持macOS、Linux、Windows，浏览器端支持Chrome和Edge"
+  ],
+  "audience": "需要让AI Agent操作真实登录网页（如企业后台、SaaS系统）的开发者及自动化工程师",
+  "quickstart_cmd": "curl -fsSL https://raw.githubusercontent.com/Tencent/BrowserSkill/main/install.sh | sh",
+  "quickstart_note": "安装CLI后还需安装浏览器扩展，并运行bsk install-skill为对应Agent配置技能文件",
   "risks": [
-    "该工具允许 AI Agent 操作用户已登录状态的真实浏览器标签页（包括第三方网站账号），若被用于自动执行网站禁止的自动化操作，可能违反相关网站服务条款或存在账号风险。"
+    "让Agent自动操作已登录的真实账号和网页，可能违反部分网站的服务条款或引发账号风险"
   ],
   "readme_sha": "e8d471b54fb2fa27dad16924005acc62198fd7fa",
   "generated_at": "2026-09-19",
+  "prompt_version": 2,
   "model": "claude-sonnet-5"
 }

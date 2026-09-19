@@ -1,13 +1,25 @@
 {
-  "positioning": "TurboFieldfare 是一个用 Swift + Metal 编写的模型专用推理运行时，让 Gemma 4 26B-A4B（26B 参数、约3.88B 激活参数的 MoE 模型）能在仅 8GB 内存的 Apple Silicon Mac 上运行，运行时占用约 2GB 内存。",
-  "features": "- 不将完整 14.3GB 模型加载进内存，仅常驻 1.35GB 共享核心和 FP16 KV 缓存，按 token 从 SSD 流式加载所需专家（MoE 路由）\n- 权重采用 MLX 4-bit 仿射量化（分组64）、8-bit 路由器\n- 提供原生 Mac App、命令行 CLI、实验性 OpenAI 兼容本地服务器（仅回环地址，无远程鉴权/TLS）三种使用方式，共享同一 .gturbo 模型目录\n- 流式安装器直接从 Hugging Face 按字节范围拉取并重打包模型，无需在本地保留完整原始 checkpoint\n- 支持可选视觉塔（约1.1GB）实现图像输入，需 M2 及以上机型；纯文本推理支持 M1\n- CLI/服务器支持工具调用声明，但工具执行需客户端自行完成；不支持音频/视频\n- 模型专用而非 MLX 或 llama.cpp 的通用封装，附103项内核、缓存、I/O、预填充、解码相关实测记录",
-  "highlights": "项目方实测：8GB M2 MacBook Air 上解码速度 5.1-6.3 tok/s，24GB M5 Pro 上 31-35 tok/s（均为项目方数据）。核心卖点是把 26B 参数 MoE 模型的内存占用压到约2GB，使 8GB 内存的入门级 Mac 也能跑得动大模型，这是同类通用推理框架（如 llama.cpp、MLX）难以做到的针对性优化。",
-  "audience": "拥有 Apple Silicon Mac（尤其是 8GB/16GB 低内存机型）、希望本地运行大参数量 LLM 的开发者和技术爱好者，以及关注端侧 AI 推理优化的工程师。",
-  "quickstart": "克隆仓库后执行 `swift build -c release` 编译，运行 `.build/release/TurboFieldfareMac` 启动 Mac App，首次运行选择 Download 下载并重打包约15GB的 Gemma 4 模型，完成后 Load Model 即可在界面输入 Prompt 生成；也可用 TurboFieldfareCLI 命令行方式或启动 TurboFieldfareServer 提供 OpenAI 兼容的本地 API（监听 127.0.0.1:8080）。要求 macOS 26 + Metal 4 + Xcode 26 + Swift 6.2，仅支持 arm64。",
-  "risks": [],
   "is_ai_product": true,
   "category": "本地推理与模型",
+  "tagline": "用Swift+Metal专为Gemma 4 26B打造的运行时，8GB内存Mac也能跑26B大模型",
+  "positioning": "面向Apple Silicon Mac的模型专用推理引擎，通过流式加载专家权重把26B参数模型的内存占用压到约2GB，而非通用的MLX/llama.cpp包装器。",
+  "features": [
+    "仅保留1.35GB共享核心与KV缓存常驻内存，按需从SSD流式加载专家权重",
+    "提供原生Mac App、命令行CLI和本地OpenAI兼容Server三种使用方式",
+    "支持视觉理解，需额外安装约1.1GB的图像模型包(M2及以上)",
+    "CLI和Server支持多轮对话、函数调用声明及采样参数自定义",
+    "内置流式安装器，边下载边重打包为.gturbo格式，避免占用双份磁盘空间"
+  ],
+  "highlights": [
+    "项目方数据：8GB M2 MacBook Air上解码速度5.1-6.3 tok/s，24GB M5 Pro上可达31-35 tok/s",
+    "模型专用运行时而非通用推理框架包装器，针对Gemma 4 26B-A4B做了103项内核/缓存/IO优化实验"
+  ],
+  "audience": "拥有Apple Silicon Mac(尤其8GB内存机型)、想在本地运行大模型又不想升级硬件的开发者和爱好者",
+  "quickstart_cmd": "git clone https://github.com/drumih/turbo-fieldfare.git && cd turbo-fieldfare && swift build -c release && .build/release/TurboFieldfareMac",
+  "quickstart_note": "首次运行需下载约15GB模型文件；仅支持macOS 26+Metal 4+Xcode 26的arm64 Apple Silicon Mac。",
+  "risks": [],
   "readme_sha": "45cd3d182820e20e43ac90669233d01d96248f5e",
   "generated_at": "2026-09-19",
+  "prompt_version": 2,
   "model": "claude-sonnet-5"
 }

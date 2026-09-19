@@ -1,15 +1,27 @@
 {
-  "positioning": "ARTEMIS 是 Google 开源的 Android 自动化测试 Agent，能把自然语言指令转化为在真机或模拟器上执行的端到端操作流程，并生成日志与诊断报告，同时可作为 MCP 服务器接入 Antigravity、Codex、Claude Code 等 AI 编程助手，让它们直接操控测试设备。",
-  "features": "• 跨应用自然语言自动化：根据文字描述完成测试用例或日常任务的连续操作；\n• 多模态元素定位：优先使用无障碍元素索引，辅以坐标和视觉模型定位，兼容自定义 Canvas/Compose/Flutter 界面；\n• MCP 集成：内置 MCP 服务器，支持 Antigravity、Claude Code、Windsurf、Cursor、Codex 等 IDE 直接驱动设备、采集 Logcat 和截图；\n• 双执行档位：Flash（约 3–5 秒/步的反应式循环，适合常规确定性任务）与 Pro（15–40 秒/步的多智能体规划-执行-校验图，含 Planner/Operator、预执行安全网与执行事件恢复机制）；\n• 提供 Web 可视化测试控制台、开发者 CLI、Python SDK（含 Pydantic 结构化输出）及零运行时依赖的 artemis-client 客户端，可接入 pytest/CI 等自动化测试流程；\n• 会在设备上安装名为 Artemis Accessibility Helper 的无障碍服务用于读取屏幕结构，可预装/卸载，也可切换为 UIAutomator2 后端。",
-  "highlights": "在 Google Research 的 AndroidWorld 基准（20+ 应用、100+ 多步骤任务）上达到 99%+ 任务完成率（项目方数据）；出自 Google 官方仓库，Apache-2.0 许可，上线一个月内即获近 8000 星，社区关注度高。",
-  "audience": "Android 应用测试/QA 工程师、移动端自动化测试团队、使用 AI 编程助手（Antigravity/Claude Code/Codex 等）进行调试和缺陷复现的开发者。",
-  "quickstart": "连接已开启 USB 调试的 Android 设备或模拟器后，克隆仓库并执行一键启动脚本（macOS/Linux 用 ./start.sh，Windows 用 .\\start.bat），脚本会自动安装 ADB/scrcpy/FFmpeg 等工具链并提示配置 MCP 及 AI IDE 规则，随后可通过浏览器访问 http://localhost:8000 使用可视化控制台，或用 `uv run artemis run \"指令内容\" --profile flash` 从命令行直接执行任务；也可用 `uv run artemis mcp --install all` 将其接入各类 AI IDE 的 MCP 配置。",
-  "risks": [
-    "会在被测手机上安装并运行一个无障碍服务（Artemis Accessibility Helper）读取屏幕内容，使用前需了解其权限范围及卸载方式。"
-  ],
   "is_ai_product": true,
   "category": "编程 Agent 与运行框架",
+  "tagline": "Google 出品的自然语言驱动 Android 自动化测试与操作框架",
+  "positioning": "将自然语言指令转化为可靠的 Android 端到端自动化操作，支持测试与日常任务执行，并通过 MCP 与 AI 编程助手集成",
+  "features": [
+    "观察-行动的多模态定位，结合无障碍层级、OCR 与视觉模型识别界面元素",
+    "原生 MCP 服务器，供 Antigravity、Claude Code、Codex 等 IDE 驱动真机执行任务",
+    "Flash 与 Pro 双执行模式，分别面向快速响应和深度规划验证场景",
+    "自动采集 Logcat 日志与截图，支持长时间探索性与稳定性测试",
+    "提供 Web 可视化控制台、CLI 和 Python SDK 多种使用方式"
+  ],
+  "highlights": [
+    "项目方数据：在 Google Research 的 AndroidWorld 基准（20+ 应用、100+ 多步任务）上完成率超 99%",
+    "Flash 模式单步响应约 3-5 秒，采用历史压缩而非截断以支持长流程任务"
+  ],
+  "audience": "移动应用测试工程师、需要 Android 自动化的开发者，以及使用 AI 编程助手做移动端调试的团队",
+  "quickstart_cmd": "git clone https://github.com/google/artemis.git && cd artemis && ./start.sh",
+  "quickstart_note": "需先通过 USB 调试连接 Android 设备或模拟器，一键脚本会自动安装 ADB、scrcpy 等依赖",
+  "risks": [
+    "会在测试设备上安装无障碍辅助服务并读取屏幕内容，需注意在授权设备上使用"
+  ],
   "readme_sha": "d18836053c4b1b4c423970e2c4e57693419543f6",
   "generated_at": "2026-09-19",
+  "prompt_version": 2,
   "model": "claude-sonnet-5"
 }

@@ -1,15 +1,27 @@
 {
   "is_ai_product": true,
   "category": "AI 应用产品",
-  "positioning": "开源的\"Agent 优先\"CRM：不是在传统 CRM 上加一个聊天框，而是让 AI Agent 作为 CRM 的主要使用者——Agent 独立部署、自主调度、自主研究并记录客户信息，人类查看和把关它的工作成果。",
-  "features": "基于 eve 框架构建独立部署的 Agent（apps/agent），拥有 18 个自定义工具（如 identify_contact、research_person、enrich_company、record_fact、schedule_recheck 等）和 4 份 Markdown 编写的技能文档；工作队列用 Postgres 行级锁（FOR UPDATE SKIP LOCKED）实现任务分发与租约恢复；提供无网络、无数据库访问权限的沙箱环境执行 bash/grep/glob 等命令；证据分级机制——只有强证据才写入客户记录，弱证据变为待人工确认的建议，工具不允许输出\"置信度\"；可选集成 Perplexity（网络研究）、Context（公司品牌数据与 LinkedIn 信息）等外部数据源，零 API Key 也可基于已有邮件/会议记录工作；前端 Next.js + shadcn/ui，后端 NestJS + tRPC + Prisma + Postgres，认证用 Better Auth（支持 Google/Microsoft/自有 IdP），单租户架构（不支持多组织）。",
-  "highlights": "与常见\"AI+CRM\"产品的核心区别在于角色反转：CRM 是 Agent 记笔记的地方，而非人类操作、AI 辅助；强调\"绝不猜测\"原则，所有客户事实必须有可观测证据支撑，避免大模型自评置信度导致的错误记录；沙箱刻意采用 deny-all 出站网络且不注入数据库凭证，防止客户邮件等敏感数据通过 shell 命令泄露；每个联系人/公司/交易都有 Agent 标签页展示其决策步骤和被丢弃的线索及原因，可读性和可追溯性较强；GitHub 已获超万星，社区关注度较高。",
-  "audience": "需要自建/自托管 CRM 且愿意接受 AI Agent 自动化管理客户资料的技术团队、销售运营人员、以及对 Agentic 应用架构感兴趣的开发者",
-  "quickstart": "需要 Bun 和 Docker：克隆仓库后复制 .env.example 并配置 BETTER_AUTH_SECRET、ALLOWED_SIGN_IN 及 Google/Microsoft OAuth 凭据（至少配置一种登录方式），执行 bun install、docker compose up -d 启动本地 Postgres，运行 bun run db:deploy 应用迁移、bun run db:seed 生成示例数据，最后 bun run dev 启动，前端在 localhost:3000，API 在 localhost:3001。",
+  "tagline": "开源CRM，AI Agent是核心而非附加聊天框",
+  "positioning": "Comp AI CRM 把自主研究型Agent作为CRM的运行主体，Agent独立部署、自定调度、调研客户信息并按证据强弱决定是否落库，而不是给传统CRM表单加个聊天框。",
+  "features": [
+    "Agent独立部署运行，拥有自己的任务队列、调度计划和研究预算",
+    "18个内置工具加4个技能文件，按证据强度分级录入，杜绝置信度打分",
+    "沙箱支持bash/grep/glob执行，默认deny-all出站，且不挂载数据库凭证",
+    "无需任何外部API Key即可运行，靠已有邮件与会议记录做基础调研",
+    "每个联系人/公司/交易都有Agent标签页，可查看执行步骤和决策理由"
+  ],
+  "highlights": [
+    "设计理念强调工具只报告观测事实、拒绝AI自评置信度，弱证据仅生成待人工确认的建议",
+    "沙箱环境无网络无数据库访问权限，从架构上防止客户数据经由Shell命令泄露"
+  ],
+  "audience": "需要AI自动调研、维护和补全客户资料的销售/CRM团队，以及关注Agent系统架构设计的开发者",
+  "quickstart_cmd": "git clone https://github.com/trycompai/crm.git && cd crm",
+  "quickstart_note": "需先装好Bun和Docker，配置.env后依次执行bun install、docker compose up -d、数据库迁移与bun run dev",
   "risks": [
-    "Agent 需要接入 Gmail/Calendar 等真实邮件和日历数据以及 LinkedIn 等第三方信息进行客户研究，自建时需关注邮件内容和个人信息的隐私合规与数据处理边界"
+    "需接入Google/Microsoft账号授权读取Gmail、日历及LinkedIn数据，涉及第三方账号权限和隐私合规问题"
   ],
   "readme_sha": "c761ebff650556235dd27f7c320ce94a6e5cdc30",
   "generated_at": "2026-09-19",
+  "prompt_version": 2,
   "model": "claude-sonnet-5"
 }

@@ -1,15 +1,27 @@
 {
-  "positioning": "一款面向 AI Agent 生态的\"去水印/去溯源标记\"工具：以 Agent Skill + 纯 Python 标准库服务的形式，批量清除文本与文件中的多厂商 AI 溯源标记（如 C2PA、SynthID、隐形 Unicode 水印等），用于清理\"用户自有内容\"上的痕迹。",
-  "features": "分为三层能力：Layer A 用确定性脚本清除隐形 Unicode、异形空格、bidi 控制符等文本痕迹；Layer B 针对统计型 token 采样水印（如 Kirchenbauer 绿名单、Aaronson keyed-Gumbel）依赖 Agent 改写或脚本 hook；文件层支持 PNG/JPEG/PDF/DOCX/MP4/MP3 等数十种格式的 C2PA/EXIF/XMP/文档属性清除。可作为 Claude Code 插件市场一键安装，注册 PostToolUse hook 在 Agent 写文件时自动检测或清理；也支持 Cursor、Grok、Cowork/claude.ai 等多种宿主安装；服务端仅依赖 Python 3.10+ 标准库，无需 Docker。",
-  "highlights": "上线约一个月（2026-08 创建）即获 2.2 万+ star，是近期 GitHub 热门项目；技能本身\"零代码\"，通过 HTTP 调用后端服务实现跨 Agent 宿主（Claude Code、Cursor、Grok 等）复用；提供确定性的文件写入 hook，与 pre-commit gate、CI SARIF 导出共用同一套检测逻辑，弥补\"模型是否调用 skill 不确定\"的问题。",
-  "audience": "使用 Claude Code / Cursor / Grok 等 AI 编程助手的开发者、需要清理自有内容中 AI 生成痕迹的写作者与内容团队。",
-  "quickstart": "Claude Code 用户可通过插件市场安装：`/plugin marketplace add guillaumemeyer/watermarks-remover` 后 `/plugin install watermarks-remover@watermarks-remover`；或用 `python3 install_skill.py --skill remove-ai-marks --target claude-code` 安装到本地技能目录，再执行 `make serve` 启动本地 HTTP 服务（默认 127.0.0.1:8765），随后用 `/remove-ai-marks` 或直接调用 `service/scripts/clean_file.py` 处理文件。",
-  "risks": [
-    "该工具核心功能是移除 AI 生成内容的溯源/水印标记（如 C2PA、SynthID），若用于非自有或未获授权的内容，可能违反平台条款或 AI 内容标识相关法规（如要求标注 AI 生成内容的监管要求）。"
-  ],
   "is_ai_product": true,
-  "category": "Agent 平台与基础设施",
+  "category": "开发者工具与集成",
+  "tagline": "去除AI生成内容水印与溯源标记的Agent Skill及本地服务",
+  "positioning": "面向Claude Code、Cursor、Grok等Agent主机的Skill/插件，配合纯Python本地服务，清除自有文本与文件中的多厂商AI水印和溯源标记。",
+  "features": [
+    "支持Claude、Gemini/SynthID、OpenAI等多厂商水印检测与清除",
+    "覆盖图片、文档、音视频等二十余种文件格式的C2PA/EXIF/XMP元数据清理",
+    "提供PostToolUse钩子，在Agent写文件时自动检测或清理水印",
+    "纯Python标准库实现无需额外依赖，一条命令即可启动本地服务",
+    "支持Claude Code插件市场、Cursor、Grok等多种主机的安装方式"
+  ],
+  "highlights": [
+    "同时处理不可见Unicode字符、统计型文本水印和文件元数据三类溯源标记",
+    "提供确定性钩子而非仅依赖模型指令，保证Agent写文件时的清理可靠执行"
+  ],
+  "audience": "使用AI生成工具创作、需要清理自有内容中溯源标记的开发者、创作者及Agent工具集成者",
+  "quickstart_cmd": "python3 install_skill.py --skill remove-ai-marks --target claude-code",
+  "quickstart_note": "安装Skill后还需运行make serve启动本地HTTP服务，Skill通过HTTP调用该服务完成实际清理",
+  "risks": [
+    "用于去除AI生成内容的溯源与水印标识，可能涉及AI内容标识相关法规合规问题"
+  ],
   "readme_sha": "ec21ff8badcc90cef4aa014f8bac121a779c7426",
   "generated_at": "2026-09-19",
+  "prompt_version": 2,
   "model": "claude-sonnet-5"
 }

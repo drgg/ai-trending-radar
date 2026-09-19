@@ -1,13 +1,26 @@
 {
-  "positioning": "Graft 是为 Claude Code、Cursor、Codex、Gemini 等编码 Agent 提供代码库知识图谱的开源 CLI 工具，通过一次性构建可读的 Markdown 节点图谱，让 Agent 无需每次任务都从零探索代码库，从而更快、更省、且更准确地完成任务。",
-  "features": "- `graft init` 一键接入 Claude Code：自动构建代码图谱并在 `.claude/` 下写入 statusline 和 hooks，后续每轮对话自动拉取相关节点、后台增量重建图谱；\n- 图谱以 tree-sitter 静态解析（Tier 1，$0、无需模型/密钥）为基础，构建 per-symbol 代码图（wiring.json）；可选 `--deep` 模式用 LLM（OpenAI/Anthropic/OpenRouter/Fireworks/Groq/本地模型等，使用用户自己的 key）对每个文件生成摘要并分组为若干\"节点\"（子系统/关键文件/概念），节点内容是用自然语言解释代码作用和关联关系，而非符号列表；\n- 每次查询前自动按内容哈希增量刷新图谱（约 3ms，无改动时几乎零成本），保证图谱与未提交的工作区改动保持同步；\n- 图谱本身是本地可再生缓存（类似 node_modules），自动加入 `.gitignore`，团队共享的是 `graft init` 写入的接入配置，各自运行 `graft build` 生成本地图谱；\n- 支持 MCP server 集成、CLI 命令（`graft grep`/`graft map`/`graft viz` 等）、多语言解析（23 种语言，含全保真度的 TS/JS/Python/Go/Java/Kotlin/PHP/Swift/R，以及广泛支持的 Rust/C/C++/C#/Ruby 等），并可选接入 LSP（rust-analyzer、clangd、gopls、pyright 等）获得更精确的调用边。",
-  "highlights": "项目方给出的自测数据（Claude Sonnet 5 harness，162 次运行）：接入 Graft 后工具调用减少 46%、token 节省 42%、耗时减少 60%，正确率不降反升；在 SWE-bench Verified（50 个实例）上，接入 Graft 后解决率从 54% 提升到 66%（+12 分），同时 token 减少 23%、成本降低 19%、耗时减少 32%。项目方称此结果源于图谱能让 Agent 一次性发现需要修改的所有相关文件，而非漏改部分文件导致测试失败。",
-  "audience": "使用 Claude Code、Cursor、Codex、Gemini 等 AI 编码 Agent 的开发者，尤其是希望降低大型代码库探索成本、提升多文件改动准确率的团队。",
-  "quickstart": "全局安装：`npm install -g @nanonets/graft`，然后运行 `graft init` 构建图谱并接入所选编码 Agent（可用 `--dry-run` 预览改动，`--agents claude` 指定单一 Agent）；也可用 `npx @nanonets/graft init` 免全局安装直接运行。之后每次修改代码，`graft build` 会增量更新图谱，团队协作时提交 `.claude/` 等接入配置，各成员本地运行 `graft build` 生成自己的图谱副本。",
-  "risks": [],
   "is_ai_product": true,
-  "category": "编程 Agent 与运行框架",
+  "category": "开发者工具与集成",
+  "tagline": "给 Claude Code、Cursor 等编码 Agent 装上代码知识图谱，减少重复探索代码库",
+  "positioning": "Graft 为代码库构建一份可读的 Markdown 知识图谱，写入仓库供各类编码 Agent 直接读取，避免每次任务从零探索代码，从而更省钱、更快、更准确。",
+  "features": [
+    "graft init 自动为 Claude Code 等 Agent 接入统计栏、钩子和 MCP 配置",
+    "两阶段构图：LLM 总结每个文件，再分组成带类型链接的节点",
+    "结构层用 tree-sitter 解析，$0 成本、无需模型密钥，支持23种语言",
+    "每次查询前自动增量刷新图谱，反映未提交的最新代码改动",
+    "graft/ 目录作为本地可再生缓存不提交，团队成员各自 build 生成"
+  ],
+  "highlights": [
+    "项目方基准测试：工具调用减少46%，token节省42%，耗时减少60%",
+    "项目方SWE-bench Verified测试：正确率从54%提升到66%（+12分）",
+    "支持OpenAI、Anthropic、OpenRouter等多家模型提供商，可用自有API密钥"
+  ],
+  "audience": "使用Claude Code、Cursor、Codex、Gemini等AI编码助手的开发者和团队",
+  "quickstart_cmd": "npm install -g @nanonets/graft && graft init",
+  "quickstart_note": "安装后运行graft init选择要接入的编码Agent，自动构建图谱并完成配置",
+  "risks": [],
   "readme_sha": "f2101dcdf027d1521bfb6c75813bff069df4dcc9",
   "generated_at": "2026-09-19",
+  "prompt_version": 2,
   "model": "claude-sonnet-5"
 }
