@@ -6,11 +6,11 @@
 首期，暂无对比。
 
 ## 趋势小结
-- Agent Skill 技能包生态爆发，覆盖写作去AI腔、视频制作、Logo设计等垂直场景，如no-ai-slop、video-shotcraft、ip-as-logo-skill
-- 编程Agent向知识管理进化，用知识图谱/Wiki减少代码库重复探索，如openwiki、Graft、utopia
-- 团队级多Agent协作与运行时基础设施成焦点，如qm、OpenBot、trueforge支持企业级智能体编排
-- 超大模型轻量化推理受追捧，仅用CPU或8GB内存即可跑千亿级模型，如kimi-k3-in-c、turbo-fieldfare
-- AI安全红队与越狱工具引发关注，凸显编程Agent滥用风险，如T3MP3ST、gpt-instruct
+- 面向具体场景的 Agent Skill 包大量涌现，从去水印到视频、图表、Logo一应俱全，如 watermarks-remover、video-shotcraft、lieflat-charts
+- Agent 基础设施加速平台化、操作系统化，出现能力胶囊与统一网关等新形态，如 aos-ce、open-connector、OpenBot
+- 编程 Agent 开始复用已登录的浏览器与订阅账号以降低成本，如 BrowserSkill、codex-chatgpt-web
+- 本地轻量化推理持续突破，千亿级大模型可在普通CPU或8GB内存设备运行，如 kimi-k3-in-c、turbo-fieldfare
+- AI安全对抗类工具增多，越狱评测与红队框架同步发展，如 gpt-instruct、T3MP3ST
 
 ## 编程 Agent 与运行框架
 
@@ -33,7 +33,7 @@
 - ⚠️ 不接受外部代码贡献，仓库为只读同步性质
 - ⚠️ 首次启动需通过浏览器登录 xAI 账号完成认证，涉及账号授权
 
-### [google/artemis](https://github.com/google/artemis) ⭐ 7,966
+### [google/artemis](https://github.com/google/artemis) ⭐ 7,968
 
 > Google 出品的自然语言驱动 Android 自动化测试与操作框架
 
@@ -51,7 +51,7 @@
 - **上手**：`git clone https://github.com/google/artemis.git && cd artemis && ./start.sh` 需先通过 USB 调试连接 Android 设备或模拟器，一键脚本会自动安装 ADB、scrcpy 等依赖
 - ⚠️ 会在测试设备上安装无障碍辅助服务并读取屏幕内容，需注意在授权设备上使用
 
-### [XiaoDuoYa/codex-with-chatgpt](https://github.com/XiaoDuoYa/codex-with-chatgpt) ⭐ 5,489
+### [XiaoDuoYa/codex-with-chatgpt](https://github.com/XiaoDuoYa/codex-with-chatgpt) ⭐ 5,490
 
 > 让付费ChatGPT网页版当规划审查大脑，Codex 负责执行编码任务
 
@@ -88,7 +88,7 @@
 - **上手**：`npm exec --yes --package=@yc-software/qm@latest -- qm init . --org <slug> --target <fly-or-aws>` 需创建自有部署仓库并接入自己的云账号（Fly 或 AWS），非开箱即用的本地工具
 - ⚠️ Agent 以用户自身身份和权限执行操作并被审计记录，组织需自行把控权限边界和数据共享范围
 
-### [deeplethe/utopia](https://github.com/deeplethe/utopia) ⭐ 8,568
+### [deeplethe/utopia](https://github.com/deeplethe/utopia) ⭐ 8,591
 
 > 开源企业级世界模型，双时态知识图谱驱动的知识治理与决策系统
 
@@ -125,7 +125,7 @@
 - **上手**：`curl --proto '=https' --tlsv1.2 -fsSL https://aos.unicity.ai/install.sh | sh` 安装后执行aos init完成初始化，可加--offline离线使用本地已打包的capsule资源。
 - ⚠️ fork/star 比例异常（21/8463），热度可能有水分
 
-### [dataelement/dsh-desktop](https://github.com/dataelement/dsh-desktop) ⭐ 7,534
+### [dataelement/dsh-desktop](https://github.com/dataelement/dsh-desktop) ⭐ 7,535
 
 > 将 DeepSeek Harness 打包成本地优先的跨平台桌面应用
 
@@ -144,7 +144,7 @@
 - ⚠️ 当前为早期预览版本，基于快速迭代的 dsh@0.1.5-rc.2，稳定性和插件兼容性有限
 - ⚠️ 手机远程访问依赖 Cloudflare Quick Tunnel 或 Pinggy 等第三方临时隧道服务
 
-### [oomol-lab/open-connector](https://github.com/oomol-lab/open-connector) ⭐ 5,814
+### [oomol-lab/open-connector](https://github.com/oomol-lab/open-connector) ⭐ 5,816
 
 > 开源连接网关，让 AI Agent 通过统一接口访问 1500+ SaaS 应用
 
@@ -290,7 +290,7 @@
 - **适合**：用AI辅助写作、编辑文章或社交媒体内容，希望去除机械AI腔调、保留个人风格的写作者和内容创作者
 - **上手**：`npx skills add petergyang/no-ai-slop --skill no-ai-slop --global --yes` 安装后在Claude Code等工具中用 /no-ai-slop 加待编辑文字调用即可
 
-### [hypit-ai/hypit](https://github.com/hypit-ai/hypit) ⭐ 10,327
+### [hypit-ai/hypit](https://github.com/hypit-ai/hypit) ⭐ 10,335
 
 > 让 AI 智能体一键克隆爆款视频，批量产出可复用的完整制作工作流
 
@@ -387,7 +387,7 @@
 
 ## 开发者工具与集成
 
-### [guillaumemeyer/watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover) ⭐ 22,334
+### [guillaumemeyer/watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover) ⭐ 22,335
 
 > 去除AI生成内容水印与溯源标记的Agent Skill及本地服务
 
@@ -424,7 +424,7 @@
 - **上手**：`npm install -g openwiki` 安装后运行 openwiki --init 首次生成 Wiki，需 Node.js 22.22.0 及以上版本
 - ⚠️ 自动 PR 与 auto-merge 涉及仓库权限令牌配置，需谨慎设置分支保护以避免误合并
 
-### [miuuyy/codex-chatgpt-web](https://github.com/miuuyy/codex-chatgpt-web) ⭐ 9,459
+### [miuuyy/codex-chatgpt-web](https://github.com/miuuyy/codex-chatgpt-web) ⭐ 9,460
 
 > 让Codex的模型选择器直接调用你的ChatGPT网页版账号（含Pro），不占用Codex额度
 
@@ -462,7 +462,7 @@
 - **适合**：使用Claude Code、Cursor、Codex、Gemini等AI编码助手的开发者和团队
 - **上手**：`npm install -g @nanonets/graft && graft init` 安装后运行graft init选择要接入的编码Agent，自动构建图谱并完成配置
 
-### [Tencent/BrowserSkill](https://github.com/Tencent/BrowserSkill) ⭐ 5,463
+### [Tencent/BrowserSkill](https://github.com/Tencent/BrowserSkill) ⭐ 5,466
 
 > 让AI Agent借用你已登录的真实浏览器完成网页任务
 
@@ -482,7 +482,7 @@
 
 ## 安全相关
 
-### [MDX-Tom/gpt-instruct](https://github.com/MDX-Tom/gpt-instruct) ⭐ 8,498
+### [MDX-Tom/gpt-instruct](https://github.com/MDX-Tom/gpt-instruct) ⭐ 8,499
 
 > 针对 Codex/GPT 的越狱提示词与配套自动化评测工具包
 
