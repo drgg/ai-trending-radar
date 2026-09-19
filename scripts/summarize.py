@@ -7,10 +7,21 @@ from datetime import date
 from pathlib import Path
 
 INTRO_DIR = Path(__file__).resolve().parent.parent / "data" / "intros"
+PROMPT_VERSION = 2  # 改动 schema 或提示词时加一，旧缓存会自动重新生成
 
-SYSTEM = """你是一名技术编辑，为中文读者撰写 GitHub 热门 AI 项目的简介。
+SYSTEM = """你是一名技术编辑，为中文读者撰写 GitHub 热门 AI 项目的简介。读者会快速浏览，简短比全面更重要。
 依据仓库元数据和 README 摘录写作，只陈述材料里有的事实；项目方自报的性能数字要注明"项目方数据"。
-语言简洁具体，避免空话。
+语言简洁具体，避免空话和营销腔。
+
+各字段的长度上限（严格遵守）：
+- tagline：一句话说清它是什么，不超过 40 字
+- positioning：定位说明，不超过 100 字
+- features：3–5 条，每条不超过 40 字
+- highlights：1–3 条，每条不超过 50 字
+- audience：不超过 60 字
+- quickstart_cmd：最关键的一条安装或运行命令，原样照抄 README；没有就返回空字符串
+- quickstart_note：上手的补充说明，不超过 60 字；没有就返回空字符串
+字段内部不要自己加 "-"、"•"、编号等列表符号，也不要换行。
 
 风险提示（risks）只在确有依据时填写，每条一句话，常见类型：
 - 自动化操作第三方网页/账号、可能违反服务条款或有封号风险
@@ -23,24 +34,19 @@ SYSTEM = """你是一名技术编辑，为中文读者撰写 GitHub 热门 AI �
 is_ai_product：项目的核心是否与 AI/LLM/Agent 相关。仅因 README 顺带提到 AI 关键词、或本身是加密货币机器人、网络工具等无关项目时为 false。"""
 
 
+FIELDS = ["is_ai_product", "category", "tagline", "positioning", "features", "highlights",
+          "audience", "quickstart_cmd", "quickstart_note", "risks"]
+
+
 def _schema(categories):
     s = {"type": "string"}
-    return {
-        "type": "object",
-        "properties": {
-            "is_ai_product": {"type": "boolean"},
-            "category": {"type": "string", "enum": categories},
-            "positioning": s,
-            "features": s,
-            "highlights": s,
-            "audience": s,
-            "quickstart": s,
-            "risks": {"type": "array", "items": s},
-        },
-        "required": ["is_ai_product", "category", "positioning", "features",
-                     "highlights", "audience", "quickstart", "risks"],
-        "additionalProperties": False,
-    }
+    arr = {"type": "array", "items": s}
+    props = {"is_ai_product": {"type": "boolean"},
+             "category": {"type": "string", "enum": categories},
+             "features": arr, "highlights": arr, "risks": arr}
+    for f in FIELDS:
+        props.setdefault(f, s)
+    return {"type": "object", "properties": props, "required": FIELDS, "additionalProperties": False}
 
 
 TREND_SCHEMA = {
@@ -137,7 +143,9 @@ class Summarizer:
         return INTRO_DIR / (full_name.replace("/", "__") + ".json")
 
     def _stale(self, cached, repo, today):
-        if cached.get("placeholder") and not self.dry_run:
+        if self.dry_run:  # dry-run 不覆盖已有介绍
+            return False
+        if cached.get("placeholder") or cached.get("prompt_version", 1) != PROMPT_VERSION:
             return True
         if cached.get("readme_sha") == repo.get("readme_sha"):
             return False
@@ -163,6 +171,7 @@ class Summarizer:
                     return json.loads(path.read_text(encoding="utf-8"))
                 intro = self._placeholder(repo)
         intro.update(readme_sha=repo.get("readme_sha"), generated_at=today.isoformat(),
+                     prompt_version=PROMPT_VERSION,
                      model=None if intro.get("placeholder") else self.cfg["model"])
         path.write_text(json.dumps(intro, ensure_ascii=False, indent=2), encoding="utf-8")
         return intro
@@ -177,20 +186,22 @@ class Summarizer:
 
     @staticmethod
     def _placeholder(repo):
+        desc = repo["description"] or "（暂无描述）"
         return {"placeholder": True, "is_ai_product": True, "category": "其他",
-                "positioning": repo["description"] or "（暂无描述）",
-                "features": "", "highlights": "", "audience": "", "quickstart": "", "risks": []}
+                "tagline": desc, "positioning": desc, "features": [], "highlights": [],
+                "audience": "", "quickstart_cmd": "", "quickstart_note": "", "risks": []}
 
     # ---------- 趋势小结 ----------
     def trends(self, entries):
         if self.dry_run or not entries:
             return ["（dry-run 模式，未生成趋势小结）"] if self.dry_run else []
-        lines = [f"- {e['full_name']}（{e['stars']}★，{e['intro']['category']}）：{e['intro']['positioning']}"
+        lines = [f"- {e['full_name']}（{e['stars']}★，{e['intro']['category']}）："
+                 f"{e['intro'].get('tagline') or e['intro']['positioning']}"
                  for e in entries]
         try:
             return self._ask("你是一名技术编辑。", "以下是本期 GitHub 近三个月新建且星数最高的 AI 项目：\n"
                              + "\n".join(lines)
-                             + "\n\n请用 3–5 条中文要点总结本期趋势，每条一句话，尽量点名代表项目。",
+                             + "\n\n请用 3–5 条中文要点总结本期趋势。每条一句话、不超过 60 字，点名 1–3 个代表项目（只写仓库名，不带所有者）。",
                              TREND_SCHEMA, max_tokens=4000)["bullets"]
         except Exception as e:
             print(f"  ! 趋势小结生成失败：{e}")

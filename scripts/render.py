@@ -1,4 +1,5 @@
 """把快照渲染成 HTML 网页（本期 + 存档）和 Markdown 报告。"""
+import re
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -7,20 +8,57 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 ARCHIVE = SITE / "archive"
 
+# 兜底长度：模型偶尔超出提示词里的字数上限
+LIMITS = {"tagline": 60, "positioning": 140, "item": 70, "audience": 90, "note": 90}
+_BULLET = re.compile(r"^\s*(?:[-•·*]|\d+[.)、])\s*")
 
-def _group(snapshot, categories):
+
+def _clip(text, n):
+    text = " ".join((text or "").split())
+    return text if len(text) <= n else text[:n - 1].rstrip("，,；;、 ") + "…"
+
+
+def _as_list(value, n_items, n_chars):
+    """新格式是数组；旧格式是带伪列表符号的长字符串，按行拆开。"""
+    if isinstance(value, str):
+        value = [_BULLET.sub("", ln) for ln in value.splitlines()] if "\n" in value else [value]
+    return [_clip(v, n_chars) for v in value if v and v.strip()][:n_items]
+
+
+def view(intro):
+    """把缓存里的介绍规整成模板直接使用的字段（兼容 prompt_version 1 和 2）。"""
+    positioning = intro.get("positioning", "")
+    tagline = intro.get("tagline") or re.split(r"[。；;]", positioning, maxsplit=1)[0]
+    return {
+        "tagline": _clip(tagline, LIMITS["tagline"]),
+        "positioning": _clip(positioning, LIMITS["positioning"]),
+        "features": _as_list(intro.get("features"), 5, LIMITS["item"]),
+        "highlights": _as_list(intro.get("highlights"), 3, LIMITS["item"]),
+        "audience": _clip(intro.get("audience"), LIMITS["audience"]),
+        "cmd": (intro.get("quickstart_cmd") or "").strip(),
+        "note": _clip(intro.get("quickstart_note") or intro.get("quickstart"), LIMITS["note"]),
+        "risks": intro.get("risks", []),
+        "category": intro.get("category", "其他"),
+    }
+
+
+def _prepare(snapshot, categories):
+    ranked = sorted(snapshot["entries"], key=lambda e: e["stars"], reverse=True)
+    for i, e in enumerate(ranked, 1):
+        e["rank"] = i
+        e["v"] = view(e["intro"])
     groups = {c: [] for c in categories}
-    for e in snapshot["entries"]:
-        groups.setdefault(e["intro"]["category"], []).append(e)
-    return [(c, es) for c, es in groups.items() if es]
+    for e in ranked:
+        groups.setdefault(e["v"]["category"], []).append(e)
+    return ranked, [(c, es) for c, es in groups.items() if es]
 
 
 def render(snapshot, categories):
     env = Environment(loader=FileSystemLoader(ROOT / "templates"),
                       autoescape=select_autoescape(["html", "j2"]))
     ARCHIVE.mkdir(parents=True, exist_ok=True)
-    groups = _group(snapshot, categories)
-    ctx = dict(s=snapshot, groups=groups)
+    ranked, groups = _prepare(snapshot, categories)
+    ctx = dict(s=snapshot, groups=groups, ranked=ranked, new=set(snapshot["diff"]["new"]))
 
     tpl = env.get_template("index.html.j2")
     (ARCHIVE / f"{snapshot['date']}.html").write_text(tpl.render(**ctx, base="../", is_archive=True),
@@ -48,13 +86,19 @@ def _markdown(s, groups):
     for cat, es in groups:
         out += ["", f"## {cat}"]
         for e in es:
-            i = e["intro"]
-            out += ["", f"### [{e['full_name']}]({e['html_url']}) ⭐ {e['stars']:,}"]
-            for label, key in (("定位", "positioning"), ("能做什么", "features"), ("亮点", "highlights"),
-                               ("适合", "audience"), ("上手", "quickstart")):
-                if i.get(key):
-                    out.append(f"- **{label}**：{i[key]}")
-            for r in i.get("risks", []) + e["flags"]:
+            v = e["v"]
+            out += ["", f"### [{e['full_name']}]({e['html_url']}) ⭐ {e['stars']:,}", "", f"> {v['tagline']}", ""]
+            if v["positioning"]:
+                out.append(f"- **定位**：{v['positioning']}")
+            for label, key in (("能做什么", "features"), ("亮点", "highlights")):
+                if v[key]:
+                    out.append(f"- **{label}**：")
+                    out += [f"  - {x}" for x in v[key]]
+            if v["audience"]:
+                out.append(f"- **适合**：{v['audience']}")
+            if v["cmd"] or v["note"]:
+                out.append("- **上手**：" + (f"`{v['cmd']}` " if v["cmd"] else "") + v["note"])
+            for r in v["risks"] + e["flags"]:
                 out.append(f"- ⚠️ {r}")
     if s["excluded"]:
         out += ["", "## 已排除（判定与 AI 无关）"] + [f"- {x['full_name']}：{x['reason']}" for x in s["excluded"]]
