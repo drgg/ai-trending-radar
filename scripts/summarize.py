@@ -89,6 +89,9 @@ class Summarizer:
         # API Key 在认证优先级上高于订阅令牌，这里去掉以免误走 API 计费
         env = {k: v for k, v in os.environ.items()
                if k not in ("ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN")}
+        # 从终端复制的令牌常带折行或末尾换行；令牌本身不含空白，直接去掉
+        if env.get("CLAUDE_CODE_OAUTH_TOKEN"):
+            env["CLAUDE_CODE_OAUTH_TOKEN"] = "".join(env["CLAUDE_CODE_OAUTH_TOKEN"].split())
         proc = subprocess.run(cmd, input=user, capture_output=True, text=True,
                               encoding="utf-8", timeout=600, env=env)
         self.calls += 1
