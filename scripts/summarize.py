@@ -51,6 +51,13 @@ TREND_SCHEMA = {
 }
 
 
+class AuthError(RuntimeError):
+    """认证失败：继续调用没有意义，整期中止。"""
+
+
+_AUTH_MARKERS = ("Failed to authenticate", "401", "invalid x-api-key", "OAuth")
+
+
 class Summarizer:
     def __init__(self, cfg, dry_run=False):
         self.cfg = cfg
@@ -90,7 +97,10 @@ class Summarizer:
         except json.JSONDecodeError:
             raise RuntimeError(f"claude 输出无法解析（exit {proc.returncode}）：{(proc.stderr or proc.stdout)[:300]}")
         if out.get("is_error"):
-            raise RuntimeError(f"claude 调用失败：{out.get('result')}")
+            msg = str(out.get("result"))
+            if any(m in msg for m in _AUTH_MARKERS):
+                raise AuthError(f"Claude 认证失败：{msg}")
+            raise RuntimeError(f"claude 调用失败：{msg}")
         data = out.get("structured_output")
         return data if data is not None else json.loads(out["result"])
 
@@ -142,6 +152,8 @@ class Summarizer:
         else:
             try:
                 intro = self._ask(SYSTEM, self._repo_prompt(repo), _schema(self.cfg["categories"]))
+            except AuthError:
+                raise
             except Exception as e:  # 单个失败不影响整期
                 print(f"  ! {repo['full_name']} 介绍生成失败：{e}")
                 if path.exists():
