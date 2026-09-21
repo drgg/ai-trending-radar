@@ -1,0 +1,29 @@
+{
+  "is_ai_product": true,
+  "category": "编程 Agent 与运行框架",
+  "tagline": "Claude Code 插件：逐条为工具调用打分，取代压缩摘要，保留内容全为原文",
+  "positioning": "上下文压缩常用LLM生成摘要而丢失细节，本项目改用Jev模型对每次工具调用和结果打分，决定保留、截断或删除，保留部分始终逐字不变；可作Claude Code插件替换内置压缩，也可作npm库单独使用。",
+  "features": [
+    "对每次工具调用和结果单独打分，只做保留/截断/删除决策，不做摘要改写",
+    "保留的用户、助手文本及工具结果均逐字保留、绝不改写或概括",
+    "通过TypeSafe的Jev模型API评分，可配置token上限、保留窗口、阈值等参数",
+    "同时提供npm库和Claude Code插件两种形式，插件在压缩效果不足时自动回退内置摘要",
+    "附带SwiftUI动画演示程序，用于录屏展示压缩决策过程"
+  ],
+  "highlights": [
+    "与常见摘要式压缩不同，只删减不改写，避免文件路径、报错等细节因概括而丢失",
+    "项目方数据：GitHub已获5442星、297 fork"
+  ],
+  "audience": "使用Claude Code进行长会话开发、担心上下文压缩丢失关键细节的工程师",
+  "quickstart_cmd": "npm install fast-jev-compaction",
+  "quickstart_note": "需先设置TYPESAFE_API_KEY；作为Claude Code插件需添加marketplace并安装，且要求2.1.274+版本",
+  "risks": [
+    "需要将完整对话历史发送给第三方TypeSafe的Jev API进行打分，存在会话数据外传的隐私风险",
+    "依赖Claude Code尚处早期访问阶段的function hooks特性，需手动开启实验性开关才能使用",
+    "功能运行依赖外部API密钥和第三方服务可用性，非完全自托管方案"
+  ],
+  "readme_sha": "8f4f65b5567600cd8257c54fc3beb7c8f3c861d9",
+  "generated_at": "2026-09-21",
+  "prompt_version": 2,
+  "model": "claude-sonnet-5"
+}
