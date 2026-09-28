@@ -1,0 +1,25 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "腾讯云出品的自托管多用户多智能体 AI 助手",
+  "positioning": "面向家庭和小团队的自托管 AI 助手平台，单进程运行 Web 控制台、CLI、IM 渠道和定时任务，数据全部留在本地。",
+  "features": [
+    "多用户专家团队，管理员统一分配，内置专家库和专家市场",
+    "支持飞书、钉钉、QQ、微信、Telegram、Discord、企业微信等 IM 渠道接入",
+    "可插拔工作区后端：本地磁盘、Docker 沙盒、PostgreSQL 或 COS/S3",
+    "ACP 双向集成，可调用或被 OpenCode、Claude Code 等外部编码 Agent 调用",
+    "内置浏览器自动化、远程桌面、终端 AI 及 RAG 知识库"
+  ],
+  "highlights": [
+    "单进程架构整合 Web、CLI、IM、定时任务，重启后从控制面数据库完整恢复状态",
+    "记忆随工作区迁移，配合专家共享池和 MBTI 人格模板打造差异化 Agent"
+  ],
+  "audience": "希望自建私有 AI 助手的开发者、注重数据隐私的家庭用户及需要跨 IM 协同的小团队",
+  "quickstart_cmd": "curl -fsSL https://finnie-1258344699.cos.ap-guangzhou.myqcloud.com/octop/install.sh | bash",
+  "quickstart_note": "安装脚本自动用 uv 配置 Python 3.12 虚拟环境，也提供桌面客户端安装包和 FnOS NAS 版本。",
+  "risks": [],
+  "readme_sha": "7f3245670f534fcdc03595c43bb028617a5aa729",
+  "generated_at": "2026-09-28",
+  "prompt_version": 2,
+  "model": "claude-sonnet-5"
+}

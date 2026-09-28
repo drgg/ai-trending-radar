@@ -1,0 +1,28 @@
+{
+  "is_ai_product": true,
+  "category": "AI 应用产品",
+  "tagline": "装在手机上的AI对话副驾：读懂聊天、给出候选回复，发不发由你决定",
+  "positioning": "Android无障碍服务读取QQ/X/飞书聊天界面，交给大模型判断意图并生成候选回复，一键填入输入框，发送与否由用户自己决定。",
+  "features": [
+    "判断模型先分析对方意图、危险等级、是否该马上回，再起草3条候选回复",
+    "无障碍服务只读屏幕内容，不hook、不改包、不碰App账号或数据库",
+    "本地知识库与联系人档案，分析时自动带入命中的笔记和历史背景",
+    "判断/回复/视觉三路接口可分别配置，支持OpenRouter等多家模型预设",
+    "回复仅通过ACTION_SET_TEXT填入输入框，从不自动发送，不碰转账红包"
+  ],
+  "highlights": [
+    "项目方称QQ、X真机全链路跑通，飞书靠离线OCR兜底；微信Android版已下架故不支持",
+    "密钥、知识库与截图OCR均在本机完成不上传，但触发分析时聊天内容会发给用户自配的模型服务商"
+  ],
+  "audience": "使用QQ、X、飞书聊天，希望AI辅助分析对方意图并起草回复、但仍要自己决定是否发送的Android用户",
+  "quickstart_cmd": "adb install -r apk/jev-assistant-v1.4-release.apk",
+  "quickstart_note": "安装后需在设置中填入判断接口API Key（如OpenRouter），并开启无障碍、悬浮窗、自启动权限",
+  "risks": [
+    "触发分析时聊天文字及启用的背景信息会发送给用户自行配置的第三方模型服务商，存在隐私数据外传",
+    "通过无障碍服务读取聊天App界面内容并辅助生成回复，可能涉及相关平台服务条款合规问题"
+  ],
+  "readme_sha": "53e32241e05095c8824c4f38cdceb1ef5a19c64b",
+  "generated_at": "2026-09-28",
+  "prompt_version": 2,
+  "model": "claude-sonnet-5"
+}

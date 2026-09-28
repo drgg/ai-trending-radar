@@ -1,0 +1,28 @@
+{
+  "is_ai_product": true,
+  "category": "编程 Agent 与运行框架",
+  "tagline": "超快浏览器操作 Agent，用动态索引动作空间替代截图驱动方案",
+  "positioning": "一个浏览器自动化 Agent 框架，通过结构化 DOM 快照生成动态索引动作空间，一次网络请求内同时选出操作和目标元素，仅在需要输入文本时调用小型 LLM 生成内容，以降低延迟。",
+  "features": [
+    "每次观察生成带编号的可操作元素表，动态定义可执行动作空间",
+    "操作预测与目标预测合并为一次 TypeSafe 网络请求，减少往返次数",
+    "默认不依赖截图，直接消费结构化页面状态，本地调试界面才启用截图",
+    "执行前校验目标元素页面新鲜度与遮挡情况，降低误操作风险",
+    "代码库精简，核心循环、DOM 快照、浏览器执行等模块均可直接阅读"
+  ],
+  "highlights": [
+    "项目方数据：Google Flights 单程航班搜索任务7.1秒完成，含模型调用与页面加载等待",
+    "项目方数据：与对比版本相比，浏览器协议调用次数从1092次降至101次，任务耗时中位数下降25%"
+  ],
+  "audience": "需要构建低延迟网页自动化/浏览器 Agent 的开发者，尤其关注减少模型调用和协议往返开销的团队",
+  "quickstart_cmd": "git clone https://github.com/browser-use/jev-ultrafast.git && cd jev-ultrafast && uv sync && cp .env.example .env && uv run jev",
+  "quickstart_note": "需自行配置 TYPESAFE_API_KEY 和 TEXT_MODEL_API_KEY（如 OpenRouter），并通过 Browser Harness 连接 Chrome",
+  "risks": [
+    "自动化操作 Google Flights、Wikipedia 等第三方网站，可能受目标网站服务条款限制",
+    "依赖 TypeSafe 商业 API 和第三方文本模型服务，实际使用会产生外部 API 调用成本"
+  ],
+  "readme_sha": "fa7d079f9192f8ad47d4016c0d534cfe72207f33",
+  "generated_at": "2026-09-28",
+  "prompt_version": 2,
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,27 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "开源的智能体持续自我进化基础设施，连接推理、反馈、训练与版本发布",
+  "positioning": "Reef 是首个开源的持续自我进化智能体基础设施，把推理服务、反馈收集、训练学习、版本发布整合成闭环，支持训练模型权重或优化智能体harness两种进化路径。",
+  "features": [
+    "四步闭环：提供推理服务、匹配用户反馈、生成候选更新、评估后发布新版本",
+    "支持用Slime、SGLang训练模型权重，或优化harness的提示词、规则与技能",
+    "推理接口兼容OpenAI与Anthropic格式，可直接接入/v1/chat/completions",
+    "内置Reefine等多种recipe，覆盖科学发现、连续任务学习、真实使用反馈等场景",
+    "更新期间保持服务在线，具备版本历史管理与回滚能力"
+  ],
+  "highlights": [
+    "项目方数据：在AIME2025、Terminal-Bench、IMOAnswerBench等基准上验证了多个recipe的改进效果",
+    "宣称是唯一兼具在线推理、权重训练、版本管理与harness进化四种能力的开源框架"
+  ],
+  "audience": "需要让智能体从真实交互中持续学习的AI工程师，以及需要做RL训练或优化coding agent harness的团队",
+  "quickstart_cmd": "uv pip install reef-infra",
+  "quickstart_note": "需先用uv创建并激活虚拟环境；权重训练需配套GPU栈，harness进化只需一个模型API即可体验",
+  "risks": [
+    "harness自我进化功能会让模型以coding agent身份自动修改并执行代码变更，需在沙箱或可信环境中运行"
+  ],
+  "readme_sha": "3c7cc72b73e57cc45952a03232c8c2ee4126878f",
+  "generated_at": "2026-09-28",
+  "prompt_version": 2,
+  "model": "claude-sonnet-5"
+}

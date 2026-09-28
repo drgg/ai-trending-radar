@@ -1,0 +1,25 @@
+{
+  "is_ai_product": true,
+  "category": "AI 应用产品",
+  "tagline": "本地优先、模型无关的开源 AI 科研工作台桌面应用",
+  "positioning": "面向科研人员的桌面级研究工作台，用自然语言描述研究目标，由 AI 智能体调用工具、执行代码、查询科研数据，产出可追溯证据链的报告与图表。",
+  "features": [
+    "内置23个科学技能，另有525个技能可从市场一键安装",
+    "24个内置连接器，支持自定义本地/远程MCP连接器",
+    "本地运行Python/R Notebook，支持SSH远程与Slurm提交",
+    "产物版本不可变并附带溯源信息，可查看生成代码与执行证据",
+    "可选Reviewer自动复核代理执行结果，给出通过/警告/失败判定"
+  ],
+  "highlights": [
+    "项目方数据：在BiomniBench-DA Public 50对比中以79.05分排名第一",
+    "文献库支持PDF管理、开放获取全文查找及图表提取"
+  ],
+  "audience": "从事计算与数据密集型研究的科学家和研究者，涵盖生命科学、化学、材料、物理、环境科学等领域",
+  "quickstart_cmd": "brew install --cask open-science",
+  "quickstart_note": "macOS可用Homebrew安装，其余平台从官网下载对应安装包，完成设置向导后即可创建项目开始研究",
+  "risks": [],
+  "readme_sha": "4468e7815fa4b36e118db1ccbe588b47f19414f7",
+  "generated_at": "2026-09-28",
+  "prompt_version": 2,
+  "model": "claude-sonnet-5"
+}

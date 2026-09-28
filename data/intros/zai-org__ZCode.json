@@ -1,0 +1,25 @@
+{
+  "is_ai_product": true,
+  "category": "编程 Agent 与运行框架",
+  "tagline": "Z.ai 出品的 AI 编程工作台，桌面、Web、终端三端合一的编码 Agent",
+  "positioning": "面向开发者的编程 Agent 工具，统一 zcode 命令支持 TUI 终端、本地 Web 界面和 Electron 桌面应用，本仓库开源客户端、后端服务与 Agent CLI/运行时源码。",
+  "features": [
+    "单一 zcode 命令切换 TUI 终端、Web 界面和桌面应用三种形态",
+    "内置 HTTP/WebSocket 后端服务，支持本地和远程项目连接（SSH/WSL）",
+    "Web 模式支持局域网访问、端口自定义与访问令牌认证",
+    "提供 Agent 客户端 SDK、共享 UI 组件和 Provider 扩展能力",
+    "完整打包发布流程，含安装脚本、校验摘要和多平台桌面构建"
+  ],
+  "highlights": [
+    "同一套 Agent 运行时同时驱动桌面、Web、终端三种交互形态，架构统一",
+    "支持 SSH/WSL 远程开发场景，资源通过 SFTP 上传而非依赖公网 CDN"
+  ],
+  "audience": "需要在终端、浏览器或桌面环境中使用 AI 编程 Agent 的开发者，以及希望自建或定制编码工具链的团队",
+  "quickstart_cmd": "pnpm bootstrap",
+  "quickstart_note": "初始化后可用 pnpm dev:desktop 跑桌面版，或用 zcode / zcode --web 启动命令行发行包",
+  "risks": [],
+  "readme_sha": "bd6247f26035e27ffb5f6c908d736c1c4c82fca7",
+  "generated_at": "2026-09-28",
+  "prompt_version": 2,
+  "model": "claude-sonnet-5"
+}
