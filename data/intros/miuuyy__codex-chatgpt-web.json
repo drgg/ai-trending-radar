@@ -1,29 +1,28 @@
 {
-  "is_ai_product": true,
+  "audience": "已有 ChatGPT（含 Pro）订阅、想在 Codex 中使用其网页模型而不消耗 Codex/Work 配额的开发者",
   "category": "开发者工具与集成",
-  "tagline": "让Codex的模型选择器直接调用你的ChatGPT网页版账号（含Pro），不占用Codex额度",
-  "positioning": "通过浏览器自动化和MCP，把ChatGPT网页版账号（含Pro）接入Codex原生模型选择器，使用网页版独立的用量额度，同时保留上下文、工具调用、流式与图片能力。",
   "features": [
-    "浏览器自动化登录ChatGPT网页版，作为Codex原生模型直接使用",
-    "Full harness模式通过MCP和OpenAI tunnel-client把ChatGPT工具调用接回Codex当前任务",
-    "提供仅浏览器自动发送、完整harness带工具、零风险手动粘贴三种模式",
-    "自带浏览器与运行环境，无需单独安装Chrome、Node或Bun",
-    "按账号类型（Free/Go、Plus、Pro）自动识别可用的模型档位"
+    "内置浏览器登录 ChatGPT Web，按账号权限提供 Luna/Think 到 Instant-High、Extra High、Pro 等模型",
+    "Full harness 模式经 MCP 和官方 tunnel-client，把工具调用接回当前 Codex 任务文件与终端",
+    "Zero Risk 模式不读取或操作页面，需手动粘贴提示词并在启动器中确认已发送",
+    "自带浏览器和运行环境，无需另装 Chrome、Node 或 Bun",
+    "可选把任务对话保存到 ChatGPT 历史记录，默认关闭"
   ],
   "highlights": [
-    "项目方称使用ChatGPT网页版独立用量额度，不消耗Codex或Work自身配额",
-    "官方明确说明这是非官方浏览器自动化方案而非OpenAI API，界面变动可能导致功能失效"
+    "项目方说明这是非官方浏览器自动化而非 OpenAI API，ChatGPT 界面改动可能导致选择器失效",
+    "Full harness 经官方 tunnel-client 建立出站隧道，项目方称不开放入站端口或公网 IP"
   ],
-  "audience": "希望在Codex里用自己ChatGPT Plus/Pro账号能力、且能接受浏览器自动化方案的开发者",
-  "quickstart_cmd": "git clone https://github.com/miuuyy/codex-chatgpt-web.git && cd codex-chatgpt-web && bun run app",
-  "quickstart_note": "该路径需要Bun 1.4.0；也可用官方脚本一键安装启动器（提供macOS/Linux/Windows安装命令）",
+  "is_ai_product": true,
+  "positioning": "桌面启动器，通过内置浏览器把用户自己的 ChatGPT 账号（含 Pro）接入 Codex 原生模型选择器，使用 ChatGPT Web 独立额度而非 Codex/Work 配额，支持上下文、工具调用、流式与图片。",
+  "quickstart_cmd": "curl -fsSL https://github.com/miuuyy/codex-chatgpt-web/releases/latest/download/install-launcher.sh | sh",
+  "quickstart_note": "macOS/Linux 安装启动器后需在内置浏览器登录 ChatGPT、完成模型安装并重启 Codex",
   "risks": [
-    "依赖浏览器自动化操作个人ChatGPT账号页面，可能违反OpenAI服务条款并存在封号风险",
-    "安装包尚未做平台签名，安装时macOS Gatekeeper或Windows SmartScreen会发出警告",
-    "浏览器登录状态是敏感凭证，本机同用户进程可访问，需在受信任设备使用"
+    "核心功能是对 ChatGPT 网页版账号做浏览器自动化操作，项目方自称为非官方方案，可能涉及服务条款风险",
+    "浏览器登录状态属敏感凭证，本地回环端口可被同一用户下的其他进程访问，项目方建议仅在可信设备使用"
   ],
-  "readme_sha": "c7a2c89f5a1361bd2bf6ed506860aa87dec3b695",
-  "generated_at": "2026-09-19",
-  "prompt_version": 2,
+  "tagline": "让 Codex 调用 ChatGPT 网页版（含 Pro）模型，不占用 Codex 自身配额",
+  "readme_sha": "e8358a51151120edf1756d2c73f1b54e93e3526d",
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
   "model": "claude-sonnet-5"
 }

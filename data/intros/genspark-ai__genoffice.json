@@ -1,25 +1,27 @@
 {
   "is_ai_product": true,
   "category": "AI 应用产品",
-  "tagline": "开源 AI 办公套件，本地编辑真正的 Word/Excel/PPT/PDF 文件",
-  "positioning": "GenOffice 是免费开源的 Office 替代品，内置 AI 编辑器直接读写 .docx/.xlsx/.pptx，并提供 CLI 与 Agent 技能，让 Claude Code、Codex、Cursor 等在本地创建和修改真实办公文件。",
+  "tagline": "开源 AI 办公套件，本地编辑 Word/Excel/PPT/PDF，并自带命令行供编程 Agent 调用",
+  "positioning": "面向个人和团队的免费开源 Office 替代品，支持 macOS/Windows/Linux，原生打开保存 docx/xlsx/pptx，内置可审阅的 AI 编辑，并提供 CLI 和 Agent Skill 供 Claude Code、Codex、Cursor 等调用。",
   "features": [
-    "支持 docx/xlsx/pptx/PDF/Markdown/HTML 编辑，未修改部分逐字节保留原文件",
-    "AI 编辑以追踪修改和差异呈现，可一键回滚，表格生成活公式而非纯数字",
-    "文件全部在本地打开、编辑、保存和转换，PDF 转 Word/Excel/PPT 也在设备端完成",
-    "可自带 API Key，支持 Claude、OpenAI、Gemini、DeepSeek 等十余家模型及本地服务",
-    "附带 genoffice CLI、Agent 技能和 MCP 服务器，支持编码 Agent 直接操作文件"
+    "原生编辑 docx/xlsx/pptx/PDF/Markdown/HTML，未改动部分逐字节保留",
+    "AI 编辑以修订记录和差异呈现，可一键回滚；表格生成活公式而非纯数字",
+    "文件读写和格式转换均在本机完成，仅 AI 调用请求发往用户选择的服务商",
+    "内置本地 SQLite 全文搜索，可选开启 TypeSafe Jev 模型对结果重排序",
+    "提供 genoffice CLI 和 Agent Skill，供 Claude Code、Codex、Cursor 等在本机创建/编辑真实 Office 文件"
   ],
   "highlights": [
-    "7190 星，Apache-2.0 协议，支持 macOS、Windows、Linux 三平台原生应用",
-    "MCP 服务器提供 29 个工具，可让 Claude Desktop 等客户端直接构建 Word 文档"
+    "Apache-2.0 协议开源，可登录 Genspark 免配置，也可自带 Claude、OpenAI、Gemini 等主流大模型 API Key",
+    "提供 29 个 MCP 工具，Claude Desktop 等 MCP 客户端可直接调用同一套文档编辑引擎"
   ],
-  "audience": "需要用真实办公文件格式做 AI 协作的个人和团队，以及希望编码 Agent 生成正式文档的开发者",
+  "audience": "需要在本地编辑 Office 文档并结合 AI 辅助的个人和团队，以及希望编程 Agent 直接生成、编辑真实 Office 文件的开发者",
   "quickstart_cmd": "npx skills add genspark-ai/genoffice",
-  "quickstart_note": "安装 GenOffice 应用后即含 genoffice CLI，也可通过该命令为 Claude Code、Cursor 等安装 Agent 技能",
-  "risks": [],
-  "readme_sha": "926f2a36e14db1820a6ab4adf938fc62d3d8d57a",
-  "generated_at": "2026-09-19",
-  "prompt_version": 2,
+  "quickstart_note": "将 Agent Skill 安装到本地编程 Agent；应用本体需从 GitHub Releases 下载对应系统安装包。",
+  "risks": [
+    "开启 Jev 搜索重排序（默认关闭）后，会把本地搜索命中文件的摘录发送给 OpenRouter 或 TypeSafe 的外部 API"
+  ],
+  "readme_sha": "2efdb66cd35ecad7c04ef80eff8d8644987572b1",
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
   "model": "claude-sonnet-5"
 }

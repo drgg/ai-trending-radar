@@ -1,29 +1,27 @@
 {
-  "is_ai_product": true,
+  "audience": "面向使用 Claude Code 或 Codex 的开发者，用于制作产品宣传片、发布视频、功能演示等营销类短视频",
   "category": "Skills 与写作/设计",
-  "tagline": "让 Claude Code / Codex 用 Remotion 自动产出电影感产品宣传视频的 Agent Skill",
-  "positioning": "面向 Claude Code / Codex 的 Agent Skill，将模型变成动效设计工作室，用 Remotion 自动分镜、动画和音效设计出电影感产品宣传片",
   "features": [
-    "157 张分镜配方卡，含用途、时长、参数与实现要点",
-    "214 种运镜风格与动效预览，可在在线 Gallery 搜索筛选",
-    "内置 Ink Press 完整视频模板，36.2 秒 1920×1080 30fps",
-    "交付后可用浏览器 Motion Workbench 继续剪辑并用 Remotion 导出",
-    "支持导出为剪映（JianYing CN）工程，可二次编辑字幕与音轨"
+    "内置157个分镜卡片，覆盖214种运镜风格及预览，可在在线Gallery中搜索筛选",
+    "自带Ink Press完整视频模板：36.2秒、1920×1080、30fps、10个镜头",
+    "交付后可打开浏览器端运动工作台，对轨道化的成片剪辑、调速、换镜头再导出",
+    "支持导出为剪映（CapCut CN）工程文件，分镜、字幕、音轨均可再编辑（仅macOS剪映11.2验证）",
+    "内置149条音效（16个场景分类）及5首BGM，支持节拍同步剪辑"
   ],
   "highlights": [
-    "提供 157 张结构化分镜配方卡和对应 Remotion 组件实现，而非单纯的提示词模板",
-    "内置真实产品截图 2.5D 运镜、卡点音效和 149 条分类 SFX 素材"
+    "157个分镜卡片均附带用途、时长建议、参数和实现要点，并配有对应的Remotion组件实现",
+    "项目自身的Gallery介绍片和Ink Press模板演示视频均由该技能制作完成（项目方展示案例）"
   ],
-  "audience": "使用 Claude Code / Codex 制作产品宣传视频的开发者、独立开发者和营销/设计人员",
+  "is_ai_product": true,
+  "positioning": "video-shotcraft 是面向 Claude Code / Codex 的智能体技能，内置157个分镜卡片和可直接使用的Remotion视频模板，帮助将产品素材自动编排为带分镜、动效与声音设计的宣传视频。",
   "quickstart_cmd": "npx skills add Vincentwei1021/video-shotcraft",
-  "quickstart_note": "也可直接把仓库链接发给 Agent 让其自动安装，或 clone 后软链到 ~/.claude/skills 目录",
+  "quickstart_note": "也可直接把仓库链接发给Claude Code/Codex自动安装，或手动git clone后软链接到~/.claude/skills目录",
   "risks": [
-    "Remotion 本身有独立许可证，个人和小团队免费，公司使用可能需付费授权",
-    "模板中的产品截图为演示素材，发布前需自行替换并核查是否含需匿名化的数据",
-    "音频素材来自 Mixkit 等来源，需遵守各自许可条款"
+    "核心功能依赖Remotion渲染，Remotion有独立许可证，个人和小团队可免费使用，企业用户可能需另购付费许可证。"
   ],
-  "readme_sha": "13a944036cb3df158175d2c6fbab87c14fee1ce6",
-  "generated_at": "2026-09-19",
-  "prompt_version": 2,
+  "tagline": "面向 Claude Code / Codex 的视频制作技能，用 Remotion 生成电影感产品宣传视频",
+  "readme_sha": "2dfecb5adcbfc3c8af91117efefbee7e5d72d7ed",
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
   "model": "claude-sonnet-5"
 }

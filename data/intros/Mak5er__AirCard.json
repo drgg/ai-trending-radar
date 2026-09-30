@@ -1,0 +1,25 @@
+{
+  "risks": [],
+  "audience": "希望个性化Apple Pay钱包卡片外观和锁屏密码键盘的iPhone用户，需配合一台Mac使用",
+  "quickstart_cmd": "git clone https://github.com/mak5er/AirCard.git && cd AirCard && chmod +x build.sh && ./build.sh",
+  "quickstart_note": "从源码构建通用二进制并生成AirCard.app与dmg；普通用户也可直接从Releases下载AirCard.dmg安装",
+  "is_ai_product": false,
+  "category": "其他",
+  "tagline": "借助漏洞免越狱为iOS 18+ Apple Wallet卡片和锁屏密码键盘自定义皮肤的Mac工具",
+  "positioning": "面向iOS 18+设备的macOS桌面应用，利用名为airlift的AirTraffic同步沙盒逃逸漏洞，无需越狱即可替换Apple Wallet卡片外观和锁屏密码键盘图案，通过USB连接iPhone扫描卡片并推送皮肤。",
+  "features": [
+    "为Apple Pay/Wallet中每张卡片设置自定义卡面图案或银行Logo",
+    "支持.passthm锁屏密码键盘主题的应用、编辑与创建，支持整图切图或逐键编辑",
+    "USB连接iPhone后在钱包中点按卡片即可实时扫描识别卡片哈希",
+    "单卡或批量为所有卡片一键设置皮肤，Flash后强退Wallet应用生效",
+    "macOS通用包，原生支持Apple Silicon与Intel，无需Homebrew或终端环境"
+  ],
+  "highlights": [
+    "核心依赖名为airlift的AirTraffic同步（ATAirlock）沙盒逃逸漏洞实现免越狱操作，该漏洞由第三方项目提供",
+    "所需设备通信与图像处理工具已预打包进App，macOS用户无需安装Homebrew或Python环境"
+  ],
+  "readme_sha": "0fce0bd2b77be75b3473c69f53f20b7790b543ef",
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
+  "model": "claude-sonnet-5"
+}

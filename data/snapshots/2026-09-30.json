@@ -1,0 +1,1748 @@
+{
+ "date": "2026-09-30",
+ "query": "ai OR llm OR agent OR gpt OR mcp OR claude created:>=2026-07-02 stars:>5000",
+ "window_days": 90,
+ "min_stars": 5000,
+ "model": "claude-sonnet-5",
+ "dry_run": false,
+ "entries": [
+  {
+   "full_name": "xai-org/grok-build",
+   "html_url": "https://github.com/xai-org/grok-build",
+   "description": "SpaceXAI's coding agent harness and TUI. Fullscreen, mouse interactive, extensible.",
+   "stars": 27165,
+   "forks": 5113,
+   "language": "Rust",
+   "license": "Apache-2.0",
+   "topics": [],
+   "homepage": "",
+   "created_at": "2026-07-14",
+   "pushed_at": "2026-09-29",
+   "readme_sha": "4569db83fe4fee02ba656f8eaa52db22e43e8e63",
+   "intro": {
+    "is_ai_product": true,
+    "category": "编程 Agent 与运行框架",
+    "tagline": "xAI 出品的终端 AI 编程代理，全屏 TUI，支持交互、无头运行和编辑器集成",
+    "positioning": "Grok Build（grok）是 xAI（SpaceXAI）开发的终端 AI 编程代理，以全屏 TUI 运行，能理解代码库、编辑文件、执行命令、搜索网页并管理长任务，可交互使用、无头运行于 CI，或通过 ACP 协议嵌入编辑器。",
+    "features": [
+     "理解代码库上下文，自动编辑文件、执行 shell 命令",
+     "支持网页搜索，辅助管理长任务",
+     "提供交互式全屏 TUI，也可无头模式用于脚本和 CI",
+     "通过 Agent Client Protocol（ACP）嵌入编辑器使用",
+     "可选配置 MCP 服务器、技能、插件、钩子和沙箱运行"
+    ],
+    "highlights": [
+     "官方提供 macOS、Linux、Windows 预编译二进制，一条命令即可安装",
+     "部分工具实现移植自 openai/codex 和 sst/opencode 开源项目"
+    ],
+    "audience": "需要在终端使用 AI 编程助手的开发者，尤其是希望在 CI 脚本或代码编辑器中集成智能代理的团队",
+    "quickstart_cmd": "curl -fsSL https://x.ai/cli/install.sh | bash",
+    "quickstart_note": "安装后运行 grok，首次启动会打开浏览器进行身份验证",
+    "risks": [],
+    "readme_sha": "4569db83fe4fee02ba656f8eaa52db22e43e8e63",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 33
+  },
+  {
+   "full_name": "guillaumemeyer/watermarks-remover",
+   "html_url": "https://github.com/guillaumemeyer/watermarks-remover",
+   "description": "A privacy-first app that strips AI watermarks from content you own.",
+   "stars": 23132,
+   "forks": 2650,
+   "language": "Python",
+   "license": "MIT",
+   "topics": [
+    "agent-skill",
+    "ai",
+    "anthropic",
+    "c2pa",
+    "chatgpt",
+    "claude",
+    "gemini",
+    "openai",
+    "provenance",
+    "synthid",
+    "watermark",
+    "watermark-detection",
+    "watermark-tools",
+    "watermarking",
+    "watermarks"
+   ],
+   "homepage": "https://github.com/guillaumemeyer/watermarks-remover",
+   "created_at": "2026-08-11",
+   "pushed_at": "2026-09-28",
+   "readme_sha": "d644ce7ec731d47e09643ecb130ea66c2d404c8c",
+   "intro": {
+    "audience": "需要清理自有 AI 生成内容中厂商水印或溯源标记的开发者，以及 Claude Code、Cursor 等 Agent 工具用户",
+    "category": "开发者工具与集成",
+    "features": [
+     "清除文本中隐藏Unicode、异形空格等确定性标记，纯Python脚本处理，无需依赖",
+     "统计型文本水印（如SynthID-Text）需Agent改写或可选rewrite_text.py钩子处理",
+     "支持从图片、PDF、Office文档、音视频等文件中剥离C2PA/EXIF/XMP元数据",
+     "可作为Claude Code插件安装，通过PostToolUse钩子自动检测或清理Agent写入文件（需配置clean模式）",
+     "覆盖Claude、Gemini/SynthID-Text、OpenAI及开源LLM等多厂商文本水印类别"
+    ],
+    "highlights": [
+     "核心服务仅依赖 Python 3.10+ 标准库，无需额外依赖或 Docker 即可本地运行",
+     "支持 PNG、PDF、DOCX、MP4 等 20 余种文件格式的水印与元数据清理"
+    ],
+    "is_ai_product": true,
+    "positioning": "一款面向 Claude、Gemini、OpenAI 等厂商生成内容的水印/溯源标记清除工具，以 Agent Skill 加本地 HTTP 服务形式提供，用于清理用户自有内容中的文本与文件水印。",
+    "quickstart_cmd": "python3 install_skill.py --skill remove-ai-marks --target claude-code",
+    "quickstart_note": "安装 Skill 后需另行启动本地服务（make serve），默认监听 http://127.0.0.1:8765。",
+    "risks": [
+     "核心功能是清除 AI 生成内容的溯源/水印标记（如 C2PA、SynthID），可能涉及 AI 内容标识相关法规合规问题"
+    ],
+    "tagline": "清除文本与文件中多厂商 AI 溯源水印的 Agent Skill 及本地服务",
+    "readme_sha": "d644ce7ec731d47e09643ecb130ea66c2d404c8c",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 165
+  },
+  {
+   "full_name": "browser-use/jev-ultrafast",
+   "html_url": "https://github.com/browser-use/jev-ultrafast",
+   "description": "Fastest and cheapest web agent",
+   "stars": 21547,
+   "forks": 1508,
+   "language": "Python",
+   "license": "MIT",
+   "topics": [],
+   "homepage": "https://browser-use.com",
+   "created_at": "2026-09-16",
+   "pushed_at": "2026-09-30",
+   "readme_sha": "fa7d079f9192f8ad47d4016c0d534cfe72207f33",
+   "intro": {
+    "tagline": "用可索引元素表替代截图驱动浏览器操作的极速网页智能体",
+    "positioning": "browser-use旗下的浏览器智能体，给定一个目标后，用结构化的可索引元素表代替截图，让小模型只做操作与目标选择，仅在输入文本时才生成文字，以减少决策所需的网络往返。",
+    "is_ai_product": true,
+    "category": "Agent 平台与基础设施",
+    "features": [
+     "基于元素表选择CLICK、TYPE_TEXT、SELECT等操作，仅TYPE_TEXT时才调用小模型生成文字",
+     "默认不使用截图驱动决策，截图仅用于本地检查器界面展示",
+     "通过Browser Harness连接Chrome，执行前校验目标元素新鲜度与是否被遮挡",
+     "提供Python库接口Agent类，可自定义起始URL和自然语言目标运行",
+     "DONE状态仍需额外独立验证结果，不自动判定任务完成"
+    ],
+    "highlights": [
+     "项目方数据：Google Flights上从Zürich到London的单次自然语言目标搜索耗时7.1秒",
+     "项目方数据：同一任务六次测试，中位耗时9.450秒降至7.092秒，仅三次重复非通用基准"
+    ],
+    "audience": "需要在Chrome中自动执行网页操作任务、或研究结构化观测驱动浏览器智能体架构的开发者",
+    "quickstart_cmd": "uv sync",
+    "quickstart_note": "需先clone仓库，配置.env填入TYPESAFE_API_KEY和TEXT_MODEL_API_KEY，再执行uv run jev启动本地演示",
+    "risks": [
+     "核心功能是用浏览器自动化操作Google Flights、Wikipedia等第三方网站，可能违反相关网站的服务条款"
+    ],
+    "readme_sha": "fa7d079f9192f8ad47d4016c0d534cfe72207f33",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 639
+  },
+  {
+   "full_name": "hypit-ai/hypit",
+   "html_url": "https://github.com/hypit-ai/hypit",
+   "description": "Clone any viral video with AI agents. Not just a script, the whole workflow: swap the face, the words, the B-roll, ship 100 variants in one command, and get your 100M views.",
+   "stars": 17975,
+   "forks": 2094,
+   "language": "TypeScript",
+   "license": "NOASSERTION",
+   "topics": [
+    "agentic-ai",
+    "ai",
+    "ai-agents",
+    "ai-video",
+    "compiler",
+    "dsl",
+    "ffmpeg",
+    "generative-ai",
+    "llm",
+    "markup-language",
+    "monorepo",
+    "plugin-system",
+    "programming-language",
+    "text-to-video",
+    "typescript",
+    "video",
+    "video-automation",
+    "video-clone",
+    "video-editing",
+    "video-generation"
+   ],
+   "homepage": "https://hypit.ai",
+   "created_at": "2026-07-29",
+   "pushed_at": "2026-09-28",
+   "readme_sha": "15f31267a99d7c4a520fcd3a8cc9e7c3f1bfc8c5",
+   "intro": {
+    "is_ai_product": true,
+    "category": "Skills 与写作/设计",
+    "tagline": "面向 Claude Code、Codex 等 AI 编程助手的开源视频克隆与生成系统",
+    "positioning": "作为编程 Agent 的 Skill 使用，把视频拆解为字幕、B-roll、特效等可编辑工作流，支持克隆已有视频、套用模板或按描述从零生成，一次生成可批量产出多个变体。",
+    "features": [
+     "克隆任意视频：还原为可编辑的完整工作流，而非简单脚本拆解",
+     "一份工作流复用素材，仅重新生成有变化的部分，批量产出多个变体",
+     "组件可插拔，可替换主播、字幕等模块，或自行编写、分享组件",
+     "生成模型为可选项，也可用代码渲染方式本地合成视频，无需调用生成模型",
+     "覆盖广告、UGC、播客剪辑、多语言本地化等场景"
+    ],
+    "highlights": [
+     "开源免费，项目方说明不收取座位费、按次渲染费，也不加水印，模型服务费用由用户自选服务商另计",
+     "通过 npx skills add 安装为 Agent Skill，可在任意项目目录中被 Claude Code、Codex 等调用"
+    ],
+    "audience": "使用 Claude Code、Codex 等 AI 编程助手制作短视频广告、UGC、播客剪辑等内容的创作者和团队",
+    "quickstart_cmd": "npx skills add hypit-ai/hypit -g",
+    "quickstart_note": "安装为 Agent 的 Skill，首次使用时由 Agent 自动检查并协助准备 Hypit 可执行程序",
+    "risks": [
+     "使用自定义的 Hypit Open Source License，非常见开源协议，需自行确认许可条款",
+     "核心用法包括克隆 Meta 广告库、TikTok、Reels 等平台上的他人视频并替换内容，可能涉及版权或平台条款问题"
+    ],
+    "readme_sha": "15f31267a99d7c4a520fcd3a8cc9e7c3f1bfc8c5",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [
+    "许可证未声明或非标准，商用前请确认授权"
+   ],
+   "delta": 1086
+  },
+  {
+   "full_name": "yc-software/qm",
+   "html_url": "https://github.com/yc-software/qm",
+   "description": "Multiplayer agent harness for work.",
+   "stars": 15295,
+   "forks": 1889,
+   "language": "TypeScript",
+   "license": "MIT",
+   "topics": [
+    "ai",
+    "assistant",
+    "harness",
+    "qm"
+   ],
+   "homepage": "https://x.com/qm__dev",
+   "created_at": "2026-07-29",
+   "pushed_at": "2026-09-30",
+   "readme_sha": "ebf5c2920a71b2c701f8de7dc9b9521b9279ed50",
+   "intro": {
+    "is_ai_product": true,
+    "category": "编程 Agent 与运行框架",
+    "tagline": "面向企业的多人协作 AI Agent 运行框架，支持 Slack 与网页，可自托管部署",
+    "positioning": "面向创业公司的自托管多人 Agent 运行框架，部署在自有云上并使用自有模型和密钥，员工拥有独立工作区，也能在共享频道中与 Agent 协作，不绑定单一 harness 或模型供应商。",
+    "features": [
+     "个人与共享作用域并存，每人有独立工作区，也可在 Slack 频道、群聊和项目中协作",
+     "Slack 与网页共用同一身份和配置，可无缝切换使用界面",
+     "管理员可设置组织级安全与共享策略，选择开放给组织使用的 harness 和模型",
+     "共享技能按作用域授权，管理员可提升为全组织技能，支持从 Git 仓库导入技能包",
+     "支持后台运行 crons、watch 和入站 webhook，用户离线时任务仍可持续执行"
+    ],
+    "highlights": [
+     "可在同一核心上切换 Pi、OpenCode、Codex、Claude Code 等多种 agent harness 与模型，不绑定单一供应商",
+     "安全策略分 Strict（每次工具调用需人工审批）、Auto（默认，屏蔽私网访问）、Dangerous（无内容审查和审批门控）三档"
+    ],
+    "audience": "需要为公司自托管部署多人协作 AI Agent 系统的技术团队、初创公司管理员和工程负责人",
+    "quickstart_cmd": "npm exec --yes --package=@yc-software/qm@latest -- qm init . --org <slug> --target <fly-or-aws>",
+    "quickstart_note": "该命令会创建组织专属的部署仓库并引导完成基础设施、登录、连接器凭证等初始化，随后执行 npm install。",
+    "risks": [],
+    "readme_sha": "ebf5c2920a71b2c701f8de7dc9b9521b9279ed50",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 27
+  },
+  {
+   "full_name": "miuuyy/codex-chatgpt-web",
+   "html_url": "https://github.com/miuuyy/codex-chatgpt-web",
+   "description": "Use ChatGPT Web (including Pro) as a native model in Codex — with context, tools, streaming and images, without using Codex quota.",
+   "stars": 12997,
+   "forks": 1027,
+   "language": "TypeScript",
+   "license": "MIT",
+   "topics": [
+    "chatgpt",
+    "chatgpt-pro",
+    "codex",
+    "free-ai",
+    "mcp",
+    "openai",
+    "playwright",
+    "quickstart",
+    "responses-api",
+    "typescript"
+   ],
+   "homepage": "",
+   "created_at": "2026-07-26",
+   "pushed_at": "2026-09-28",
+   "readme_sha": "e8358a51151120edf1756d2c73f1b54e93e3526d",
+   "intro": {
+    "audience": "已有 ChatGPT（含 Pro）订阅、想在 Codex 中使用其网页模型而不消耗 Codex/Work 配额的开发者",
+    "category": "开发者工具与集成",
+    "features": [
+     "内置浏览器登录 ChatGPT Web，按账号权限提供 Luna/Think 到 Instant-High、Extra High、Pro 等模型",
+     "Full harness 模式经 MCP 和官方 tunnel-client，把工具调用接回当前 Codex 任务文件与终端",
+     "Zero Risk 模式不读取或操作页面，需手动粘贴提示词并在启动器中确认已发送",
+     "自带浏览器和运行环境，无需另装 Chrome、Node 或 Bun",
+     "可选把任务对话保存到 ChatGPT 历史记录，默认关闭"
+    ],
+    "highlights": [
+     "项目方说明这是非官方浏览器自动化而非 OpenAI API，ChatGPT 界面改动可能导致选择器失效",
+     "Full harness 经官方 tunnel-client 建立出站隧道，项目方称不开放入站端口或公网 IP"
+    ],
+    "is_ai_product": true,
+    "positioning": "桌面启动器，通过内置浏览器把用户自己的 ChatGPT 账号（含 Pro）接入 Codex 原生模型选择器，使用 ChatGPT Web 独立额度而非 Codex/Work 配额，支持上下文、工具调用、流式与图片。",
+    "quickstart_cmd": "curl -fsSL https://github.com/miuuyy/codex-chatgpt-web/releases/latest/download/install-launcher.sh | sh",
+    "quickstart_note": "macOS/Linux 安装启动器后需在内置浏览器登录 ChatGPT、完成模型安装并重启 Codex",
+    "risks": [
+     "核心功能是对 ChatGPT 网页版账号做浏览器自动化操作，项目方自称为非官方方案，可能涉及服务条款风险",
+     "浏览器登录状态属敏感凭证，本地回环端口可被同一用户下的其他进程访问，项目方建议仅在可信设备使用"
+    ],
+    "tagline": "让 Codex 调用 ChatGPT 网页版（含 Pro）模型，不占用 Codex 自身配额",
+    "readme_sha": "e8358a51151120edf1756d2c73f1b54e93e3526d",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 785
+  },
+  {
+   "full_name": "petergyang/no-ai-slop",
+   "html_url": "https://github.com/petergyang/no-ai-slop",
+   "description": "Removes 20+ patterns of AI slop from any piece of writing.",
+   "stars": 11584,
+   "forks": 792,
+   "language": "Python",
+   "license": "MIT",
+   "topics": [],
+   "homepage": "https://creatoreconomy.so/p/use-my-no-ai-slop-skill-to-remove-20-ai-slop-patterns",
+   "created_at": "2026-07-07",
+   "pushed_at": "2026-09-02",
+   "readme_sha": "82f8b7af7e02918077afb447f8fc83c2d33483ba",
+   "intro": {
+    "audience": "使用AI辅助写作、希望文本保留个人语气而非千篇一律AI腔的作者、内容创作者和开发者",
+    "category": "Skills 与写作/设计",
+    "features": [
+     "提供 /no-ai-slop 指令，编辑文本并列出具体改动",
+     "提供检测模式，仅引用发现的套话，不猜测是否AI生成",
+     "可生成讽刺性AI套话文章作为反面示例",
+     "覆盖二元对立句、故作深刻结尾等20多种固定AI写作模式",
+     "附带 eval.md 供技能自检编辑效果"
+    ],
+    "highlights": [
+     "项目方称覆盖20多种AI写作套路模式，未提供量化评测数据"
+    ],
+    "is_ai_product": true,
+    "positioning": "一个可安装到ChatGPT、Claude Code、Codex等编码助手的Skill，用于检测并删除文本中20多种AI套话模式，同时尽量保留作者原有语气和风格。",
+    "quickstart_cmd": "npx skills add petergyang/no-ai-slop --skill no-ai-slop --global --yes",
+    "quickstart_note": "也可将安装指令直接粘贴给ChatGPT、Claude Code或Codex等编码助手完成安装。",
+    "risks": [],
+    "tagline": "清除写作中的AI套话模式，同时尽量保留作者个人语气的Skill工具。",
+    "readme_sha": "82f8b7af7e02918077afb447f8fc83c2d33483ba",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 133
+  },
+  {
+   "full_name": "dataelement/dsh-desktop",
+   "html_url": "https://github.com/dataelement/dsh-desktop",
+   "description": "DSHDesktop：DeepSeek Harness Desktop / DeepSeek Harness 桌面版",
+   "stars": 11095,
+   "forks": 413,
+   "language": "TypeScript",
+   "license": "MIT",
+   "topics": [
+    "agent",
+    "apps",
+    "deepseek",
+    "deepseek-harness",
+    "deepseek-harness-desktop",
+    "desktop",
+    "dsh-desktop",
+    "dsh-plugin",
+    "dsh-plugin-desktop",
+    "dshdesktop",
+    "harness"
+   ],
+   "homepage": "https://dshdesktop.com",
+   "created_at": "2026-08-13",
+   "pushed_at": "2026-09-30",
+   "readme_sha": "a566732d3313396c5e89c9dcecf2c90da14a50d3",
+   "intro": {
+    "audience": "需要本地运行 DeepSeek Agent 运行时、希望脱离命令行用图形界面和插件生态的 macOS 或 Windows 用户",
+    "category": "Agent 平台与基础设施",
+    "features": [
+     "自动启动/停止 Harness，无需单独命令行或浏览器标签",
+     "支持官方 DeepSeek 模型及主流第三方模型提供商",
+     "以 .dshpreset 包导入导出完整 Agent 预设，安装前有冲突检测和信任提示",
+     "内置 PPT 模式，转素材为可编辑 PPTX，16模板192版式（项目方数据）",
+     "手机可通过局域网或可选临时公网隧道配对，延续会话"
+    ],
+    "highlights": [
+     "检测启动和前端插件故障，记录日志，提供安全模式与引导式恢复",
+     "Harness 服务仅监听随机本地回环端口，渲染进程禁用 Node 权限并启用沙箱隔离",
+     "早期预览版，跟随快速迭代的 dsh 0.1.7-rc.1，暂仅支持 macOS 与 Windows x64"
+    ],
+    "is_ai_product": true,
+    "positioning": "DSH Desktop 将本地版 DeepSeek Harness 智能体运行时和 Web UI 打包为可安装的桌面应用，自动启动运行时并把配置、插件、工作区和会话保存在应用目录之外，就绪后直接打开完整界面。当前为基于 dsh 0.1.7-rc.1 的早期预览版。",
+    "quickstart_cmd": "",
+    "quickstart_note": "",
+    "risks": [],
+    "tagline": "本地优先的跨平台桌面应用，用于安装运行 DeepSeek Harness 智能体运行时",
+    "readme_sha": "a566732d3313396c5e89c9dcecf2c90da14a50d3",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 1010
+  },
+  {
+   "full_name": "trycompai/crm",
+   "html_url": "https://github.com/trycompai/crm",
+   "description": "Comp AI CRM is an open source, CRM designed for AI agents. Agentic-first CRM.",
+   "stars": 10982,
+   "forks": 1558,
+   "language": "TypeScript",
+   "license": "MIT",
+   "topics": [],
+   "homepage": "https://trycrm.ai",
+   "created_at": "2026-07-31",
+   "pushed_at": "2026-09-11",
+   "readme_sha": "c761ebff650556235dd27f7c320ce94a6e5cdc30",
+   "intro": {
+    "is_ai_product": true,
+    "category": "AI 应用产品",
+    "tagline": "开源的 Agent 优先 CRM：AI 独立运行，自主调研、记录客户信息",
+    "positioning": "区别于数据库加聊天框式的AI CRM，Agent不是附加功能而是主角：拥有自己的部署、日程和工作队列，自主决定调研对象，遵循证据分级原则写入记录，从不猜测客户信息。",
+    "features": [
+     "Agent独立部署运行，按自身工作队列和日程决定下一步调查目标，非请求响应模式",
+     "内置18个工具和4个技能文件，用于识别联系人、调研公司、记录事实并安排复查",
+     "工具只报告观测结果不接受置信度评分，弱证据转为建议交人工确认，强证据才写入记录",
+     "沙箱具备shell能力但默认deny-all出站网络，且从不注入数据库凭证",
+     "所有外部数据源均为可选，无任何API Key时仍可基于已有邮件和会议记录工作"
+    ],
+    "highlights": [
+     "项目方设计理念：拒绝让模型自评置信度，因为模型倾向于给出让自己显得有用但可能错误的分数",
+     "每个联系人、公司、交易都有Agent标签页可查看其调研步骤、放弃的线索及原因，支持人工介入答疑"
+    ],
+    "audience": "希望自建CRM并让AI agent自动调研、维护客户资料的技术团队或自托管开发者",
+    "quickstart_cmd": "git clone https://github.com/trycompai/crm.git && cd crm",
+    "quickstart_note": "需先安装Bun和Docker，克隆后复制.env.example为.env并配置，再依次执行bun install、docker compose up -d、db:deploy、dev",
+    "risks": [
+     "Agent会对联系人和公司进行网络调研，并可能通过Perplexity、Context/LinkedIn等外部服务补全个人信息，涉及采集和处理第三方个人数据"
+    ],
+    "readme_sha": "c761ebff650556235dd27f7c320ce94a6e5cdc30",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 51
+  },
+  {
+   "full_name": "google/artemis",
+   "html_url": "https://github.com/google/artemis",
+   "description": "ARTEMIS turns natural-language instructions into reliable Android automation. It automates end-to-end workflows, captures logs, and integrates seamlessly with AI coding assistants such as Antigravity, Codex, and Claude Code.  It also achieves 99%+ success rate on AndroidWorld Benchmark.",
+   "stars": 10718,
+   "forks": 1074,
+   "language": "Python",
+   "license": "Apache-2.0",
+   "topics": [
+    "ai-agents",
+    "android",
+    "google",
+    "test-automation",
+    "testing"
+   ],
+   "homepage": "",
+   "created_at": "2026-08-13",
+   "pushed_at": "2026-09-29",
+   "readme_sha": "8683bcce336c1cc53889ea49cbbc453f4a988076",
+   "intro": {
+    "is_ai_product": true,
+    "category": "编程 Agent 与运行框架",
+    "tagline": "用自然语言指令驱动 Android 端到端自动化测试，并接入 AI 编程助手",
+    "positioning": "一个 Android 自动化框架，将自然语言指令转化为可靠的端到端操作流程，通过 MCP 协议与 Antigravity、Codex、Claude Code 等 AI 编程助手集成，用于测试与日常任务执行。",
+    "features": [
+     "支持跨 App 的自然语言自动化测试与日常任务执行，可记录 Logcat 与截图",
+     "通过 MCP 服务器连接 AI IDE（Antigravity、Claude Code、Windsurf 等），驱动测试设备并获取诊断信息",
+     "提供 Flash（快速反应，约3–5秒/步）与 Pro（规划+验证，约15–40秒/步）两种执行模式",
+     "结合可访问性层级、OCR与视觉模型定位元素，支持自定义界面",
+     "提供 Web 可视化控制台、CLI 与 Python SDK 三种使用方式，可接入 pytest 等测试框架"
+    ],
+    "highlights": [
+     "项目方数据：在 Google Research 的 AndroidWorld 基准（20+应用、100+多步任务）上任务完成率达 99%+",
+     "首次运行会在手机上安装 Artemis Accessibility Helper 辅助服务用于读取屏幕布局，README 说明该服务仅在本机监听不发送数据"
+    ],
+    "audience": "需要将 AI Agent 接入 Android 自动化测试或日常任务执行的移动测试工程师与开发者",
+    "quickstart_cmd": "git clone https://github.com/google/artemis.git && cd artemis && ./start.sh",
+    "quickstart_note": "一键脚本自动安装 ADB、scrcpy、FFmpeg 等依赖，并在浏览器打开设备连接向导与测试控制台（Windows 用 start.bat）",
+    "risks": [],
+    "readme_sha": "8683bcce336c1cc53889ea49cbbc453f4a988076",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 225
+  },
+  {
+   "full_name": "Vincentwei1021/video-shotcraft",
+   "html_url": "https://github.com/Vincentwei1021/video-shotcraft",
+   "description": "AI video skill for Claude Code & Codex — cinematic product videos with Remotion: 152 shot recipe cards, 209 motion previews, a production-ready template",
+   "stars": 10025,
+   "forks": 896,
+   "language": "TypeScript",
+   "license": "Apache-2.0",
+   "topics": [
+    "agent-skills",
+    "ai-agents",
+    "ai-video",
+    "claude-code",
+    "claude-code-skills",
+    "claude-skills",
+    "codex",
+    "motion-design",
+    "motion-graphics",
+    "product-video",
+    "promo-video",
+    "remotion",
+    "video-generation",
+    "video-production"
+   ],
+   "homepage": "https://vincentwei1021.github.io/video-shotcraft/",
+   "created_at": "2026-07-19",
+   "pushed_at": "2026-09-28",
+   "readme_sha": "2dfecb5adcbfc3c8af91117efefbee7e5d72d7ed",
+   "intro": {
+    "audience": "面向使用 Claude Code 或 Codex 的开发者，用于制作产品宣传片、发布视频、功能演示等营销类短视频",
+    "category": "Skills 与写作/设计",
+    "features": [
+     "内置157个分镜卡片，覆盖214种运镜风格及预览，可在在线Gallery中搜索筛选",
+     "自带Ink Press完整视频模板：36.2秒、1920×1080、30fps、10个镜头",
+     "交付后可打开浏览器端运动工作台，对轨道化的成片剪辑、调速、换镜头再导出",
+     "支持导出为剪映（CapCut CN）工程文件，分镜、字幕、音轨均可再编辑（仅macOS剪映11.2验证）",
+     "内置149条音效（16个场景分类）及5首BGM，支持节拍同步剪辑"
+    ],
+    "highlights": [
+     "157个分镜卡片均附带用途、时长建议、参数和实现要点，并配有对应的Remotion组件实现",
+     "项目自身的Gallery介绍片和Ink Press模板演示视频均由该技能制作完成（项目方展示案例）"
+    ],
+    "is_ai_product": true,
+    "positioning": "video-shotcraft 是面向 Claude Code / Codex 的智能体技能，内置157个分镜卡片和可直接使用的Remotion视频模板，帮助将产品素材自动编排为带分镜、动效与声音设计的宣传视频。",
+    "quickstart_cmd": "npx skills add Vincentwei1021/video-shotcraft",
+    "quickstart_note": "也可直接把仓库链接发给Claude Code/Codex自动安装，或手动git clone后软链接到~/.claude/skills目录",
+    "risks": [
+     "核心功能依赖Remotion渲染，Remotion有独立许可证，个人和小团队可免费使用，企业用户可能需另购付费许可证。"
+    ],
+    "tagline": "面向 Claude Code / Codex 的视频制作技能，用 Remotion 生成电影感产品宣传视频",
+    "readme_sha": "2dfecb5adcbfc3c8af91117efefbee7e5d72d7ed",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 280
+  },
+  {
+   "full_name": "trailhq/Graft",
+   "html_url": "https://github.com/trailhq/Graft",
+   "description": "Turbocharge Claude Code, Cursor, Codex, Gemini & every coding agent: faster, cheaper, with contextual understanding specific to your codebase.",
+   "stars": 9427,
+   "forks": 865,
+   "language": "TypeScript",
+   "license": "MIT",
+   "topics": [
+    "ai-agents",
+    "anthropic",
+    "claude-code",
+    "cli",
+    "code-graph",
+    "codex",
+    "context-engineering",
+    "cursor",
+    "developer-tools",
+    "gemini",
+    "knowledge-graph",
+    "llm",
+    "mcp",
+    "mcp-server",
+    "open-source",
+    "openai",
+    "tree-sitter"
+   ],
+   "homepage": "https://trailhq.com/graft",
+   "created_at": "2026-07-03",
+   "pushed_at": "2026-09-30",
+   "readme_sha": "709a27680c8f26e9f2c1fdd8d45a99462716d0b3",
+   "intro": {
+    "is_ai_product": true,
+    "category": "开发者工具与集成",
+    "tagline": "为代码库生成可读知识图谱，让 Claude Code、Cursor 等编码智能体更快更省地理解代码",
+    "positioning": "Graft 是一个 CLI 工具，用 tree-sitter 解析代码并生成按子系统/概念组织的 markdown 图谱，接入 Claude Code、Cursor、Codex、Gemini 等编码智能体，减少其每次任务重新探索代码库的开销。",
+    "features": [
+     "tree-sitter 解析代码结构，支持23种语言，结构化构建无需模型或密钥",
+     "将代码归纳为若干可读的 markdown 节点，注明子系统、概念及相互关系，而非符号列表",
+     "graft init 一键接入 Claude Code，写入 hooks 和状态栏，每轮对话后台增量重建图谱",
+     "节点摘要由用户自选模型生成（OpenAI、Anthropic、OpenRouter 等），使用自己的密钥",
+     "提供 MCP server 及 graft grep/map/viz 等 CLI 命令，用于检索和可视化图谱"
+    ],
+    "highlights": [
+     "项目方数据：接入Graft后工具调用减少46%，Token节省42%，耗时减少60%，正确率持平93%",
+     "项目方在SWE-bench Verified 50个实例测试，正确率从54%提升至66%，减少23% Token、32%耗时（项目方数据）"
+    ],
+    "audience": "使用 Claude Code、Cursor、Codex、Gemini 等编码智能体、希望降低代码库探索成本的开发者和团队",
+    "quickstart_cmd": "npm install -g @nanonets/graft   # install the CLI, once\ngraft init                       # build the graph + wire it into Claude Code",
+    "quickstart_note": "全局安装后运行 graft init 构建图谱并自动写入 .claude/ 配置，默认无需守护进程或额外服务",
+    "risks": [],
+    "readme_sha": "709a27680c8f26e9f2c1fdd8d45a99462716d0b3",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 107
+  },
+  {
+   "full_name": "MDX-Tom/gpt-instruct",
+   "html_url": "https://github.com/MDX-Tom/gpt-instruct",
+   "description": "A Codex jailbreak prompt and test pack for gpt. 针对 gpt 系列的 Codex 破甲提示词与测试包。",
+   "stars": 9009,
+   "forks": 1098,
+   "language": "Python",
+   "license": "MIT",
+   "topics": [],
+   "homepage": "https://mdx-tom.github.io/gpt-instruct/",
+   "created_at": "2026-07-11",
+   "pushed_at": "2026-09-07",
+   "readme_sha": "176e63fb71278c74b743180efe1f5b627c3b2d0a",
+   "intro": {
+    "positioning": "提供面向 Codex/GPT 的\"破甲\"（越狱）提示词及配套评测脚本，用 A/B/C 三级门禁测试候选提示词在复杂任务中的执行完成率与工件验证效果。",
+    "tagline": "面向 Codex/GPT 的越狱提示词与可复现评测工具链",
+    "is_ai_product": true,
+    "category": "安全相关",
+    "features": [
+     "提供 gpt-5.6-sol-v45（稳定版）与 gpt-6-astra-v1（正式版）两条提示词产品线",
+     "codex-instruct.py 脚本支持一键部署、--dry-run 预览与 --reset 回滚",
+     "A/B/C 三级发布门禁：3+1 用例、66 用例回归、120 用例原始测试逐级把关",
+     "部署前自动保存配置快照，可通过 --restore-snapshot 显式恢复",
+     "评测脚本要求显式指定 --model 与 --reasoning，避免跨版本混淆成绩"
+    ],
+    "highlights": [
+     "项目方数据：gpt-6-astra-v1全量B测试52/66 cases、60/74 turns，未达66/66全过门槛，C阶段未运行"
+    ],
+    "audience": "需要自定义或绕过 Codex/GPT 官方模型指令限制、并关注提示词可复现评测的开发者",
+    "quickstart_cmd": "git clone https://github.com/MDX-Tom/gpt-instruct.git",
+    "quickstart_note": "clone 后进入目录，用 python3 codex-instruct.py --apply --version 部署所选提示词版本",
+    "risks": [
+     "核心功能是绕过 Codex/GPT 官方模型安全限制的越狱提示词",
+     "README 明确提示此类自定义指令存在账号封禁风险，建议使用日抛账号操作",
+     "README 声明禁止任何商业化使用（含融资宣传、授权转让、付费服务），与仓库标注的 MIT 许可证存在冲突"
+    ],
+    "readme_sha": "176e63fb71278c74b743180efe1f5b627c3b2d0a",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 115
+  },
+  {
+   "full_name": "FareedKhan-dev/kimi-k3-in-c",
+   "html_url": "https://github.com/FareedKhan-dev/kimi-k3-in-c",
+   "description": "A 2.78-trillion-parameter Kimi K3 running inference on a single CPU in 8.24 GB of RAM. Portable C99: no BLAS, no framework, no GPU.",
+   "stars": 8816,
+   "forks": 1427,
+   "language": "C",
+   "license": "Apache-2.0",
+   "topics": [
+    "avx2",
+    "c99",
+    "cpu-inference",
+    "deep-learning",
+    "from-scratch",
+    "inference-engine",
+    "kimi-k3",
+    "linear-attention",
+    "llm",
+    "llm-inference",
+    "machine-learning",
+    "memory-efficient",
+    "mixture-of-experts",
+    "moe",
+    "mxfp4",
+    "quantization",
+    "simd",
+    "systems-programming",
+    "transformer",
+    "zero-dependencies"
+   ],
+   "homepage": "https://medium.com/@fareedkhandev/building-kimi-k3-in-c-to-run-a-2-8t-model-on-consumer-hardware-a5792cbf3b59",
+   "created_at": "2026-08-01",
+   "pushed_at": "2026-09-22",
+   "readme_sha": "9083f4d8a0a2cd02a6570a400829ccb070d7aaee",
+   "intro": {
+    "is_ai_product": true,
+    "category": "本地推理与模型",
+    "tagline": "纯C99实现的推理引擎，让2.78万亿参数Kimi K3模型能在单CPU、8GB内存下运行",
+    "positioning": "面向1.56TB checkpoint的Kimi K3模型的CPU推理引擎，不依赖BLAS、框架或GPU，通过4bit量化与流式加载把内存需求压缩到消费级硬件可承受的范围，在8GB到224GB间提供多档内存预设。",
+    "features": [
+     "纯C99编写，零依赖（无BLAS无框架无GPU），支持Linux/macOS/Windows AVX2平台",
+     "专家权重以MXFP4（4bit）打包存储，按需流式读取，不常驻内存",
+     "密集trunk层打包为单文件，提供laptop/desktop/workstation/server/max五档内存预设",
+     "采用KDA线性注意力与MLA多头潜在注意力，降低长上下文计算与内存开销",
+     "内置三重测试门（teacher forcing、贪婪解码、增量解码），与PyTorch参考实现逐token对齐验证"
+    ],
+    "highlights": [
+     "项目方数据：8.24GB内存预设下生成速度约32.69秒/token，127.92GB内存预设下约10.69秒/token，速度较慢但输出正确",
+     "项目方数据：同一模型在不同内存预算（8GB至224GB）下产生字节级完全一致的输出"
+    ],
+    "audience": "希望在消费级硬件上研究超大规模MoE模型推理原理、或从事CPU推理系统编程的工程师和研究者",
+    "quickstart_cmd": "git clone https://github.com/FareedKhan-dev/kimi-k3-in-c.git",
+    "quickstart_note": "克隆后执行make -j编译，再运行make test验证引擎正确性，全程约一分钟，无需下载1.56TB模型",
+    "risks": [],
+    "readme_sha": "9083f4d8a0a2cd02a6570a400829ccb070d7aaee",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 89
+  },
+  {
+   "full_name": "unicity-aos/aos-ce",
+   "html_url": "https://github.com/unicity-aos/aos-ce",
+   "description": "AOS Community Edition: the open agent operating system.",
+   "stars": 8463,
+   "forks": 22,
+   "language": "Rust",
+   "license": "Apache-2.0",
+   "topics": [],
+   "homepage": "",
+   "created_at": "2026-07-12",
+   "pushed_at": "2026-09-22",
+   "readme_sha": "098dbfbde1bc6d414ecb8ebf5b1b20cc6c44042e",
+   "intro": {
+    "audience": "需要搭建、审计智能体运行环境的开发者，以及希望通过 MCP 让 Codex、Claude、Grok 等客户端接入统一能力体系的团队。",
+    "category": "Agent 平台与基础设施",
+    "features": [
+     "安装脚本自动部署 aos CLI 及运行时，并固定安装 22 个社区版能力胶囊(capsule)",
+     "aos mcp serve 提供 MCP 接入端，供 Codex、Claude、Grok 等客户端共用",
+     "内置 Forge 工具链，帮助智能体检查系统、发现能力缺口并构建最小权限胶囊",
+     "发布版本附带校验和、Sigstore 签名和构建溯源证明，支持 stable/dev/nightly 更新通道",
+     "可选导入已有 astrid 独立运行时状态，且不改动原始安装"
+    ],
+    "highlights": [
+     "安装全部 22 个能力胶囊需等待限速批次完成，项目方说明约耗时两分钟",
+     "每个发布 tag 必须先通过运行时兼容性与自愈校验双重门禁",
+     "MCP 审批默认走本地系统原生对话框（AppKit/Windows/Pinentry），不接受任意字符串或密码字段"
+    ],
+    "is_ai_product": true,
+    "positioning": "AOS Community Edition 是面向智能体的操作系统，围绕 aos CLI、HTTP API、能力胶囊(capsule)、模型/供应商体验与审计功能构建，供开发者搭建可组合、可检查的智能体运行环境。",
+    "quickstart_cmd": "curl --proto '=https' --tlsv1.2 -fsSL https://aos.unicity.ai/install.sh | sh",
+    "quickstart_note": "安装脚本执行后需运行 aos init 完成初始化，也可用 aos init --offline 离线部署。",
+    "risks": [],
+    "tagline": "面向智能体的可组合操作系统，提供 CLI、能力胶囊体系与审计机制。",
+    "readme_sha": "098dbfbde1bc6d414ecb8ebf5b1b20cc6c44042e",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [
+    "fork/star 比例异常（22/8463），热度可能有水分"
+   ],
+   "delta": 1
+  },
+  {
+   "full_name": "genspark-ai/genoffice",
+   "html_url": "https://github.com/genspark-ai/genoffice",
+   "description": "Free, open-source AI Office suite: Docs, Sheets, Slides, PDF, Markdown and HTML editors with a built-in AI agent, plus a `genoffice` CLI and agent skill so Claude Code, Codex and Cursor can create and edit real .docx/.xlsx/.pptx files locally. Bring your own key. macOS, Windows & Linux.",
+   "stars": 8243,
+   "forks": 1074,
+   "language": "TypeScript",
+   "license": "Apache-2.0",
+   "topics": [
+    "ai",
+    "ai-agent",
+    "claude-code",
+    "cli",
+    "codex",
+    "cursor",
+    "docx",
+    "excel",
+    "libreoffice-alternative",
+    "local-first",
+    "markdown-editor",
+    "microsoft-office-alternative",
+    "office-suite",
+    "pdf-editor",
+    "pdf-to-word",
+    "powerpoint",
+    "pptx",
+    "skills",
+    "spreadsheet",
+    "xlsx"
+   ],
+   "homepage": "https://genoffice.ai/",
+   "created_at": "2026-07-31",
+   "pushed_at": "2026-09-29",
+   "readme_sha": "2efdb66cd35ecad7c04ef80eff8d8644987572b1",
+   "intro": {
+    "is_ai_product": true,
+    "category": "AI 应用产品",
+    "tagline": "开源 AI 办公套件，本地编辑 Word/Excel/PPT/PDF，并自带命令行供编程 Agent 调用",
+    "positioning": "面向个人和团队的免费开源 Office 替代品，支持 macOS/Windows/Linux，原生打开保存 docx/xlsx/pptx，内置可审阅的 AI 编辑，并提供 CLI 和 Agent Skill 供 Claude Code、Codex、Cursor 等调用。",
+    "features": [
+     "原生编辑 docx/xlsx/pptx/PDF/Markdown/HTML，未改动部分逐字节保留",
+     "AI 编辑以修订记录和差异呈现，可一键回滚；表格生成活公式而非纯数字",
+     "文件读写和格式转换均在本机完成，仅 AI 调用请求发往用户选择的服务商",
+     "内置本地 SQLite 全文搜索，可选开启 TypeSafe Jev 模型对结果重排序",
+     "提供 genoffice CLI 和 Agent Skill，供 Claude Code、Codex、Cursor 等在本机创建/编辑真实 Office 文件"
+    ],
+    "highlights": [
+     "Apache-2.0 协议开源，可登录 Genspark 免配置，也可自带 Claude、OpenAI、Gemini 等主流大模型 API Key",
+     "提供 29 个 MCP 工具，Claude Desktop 等 MCP 客户端可直接调用同一套文档编辑引擎"
+    ],
+    "audience": "需要在本地编辑 Office 文档并结合 AI 辅助的个人和团队，以及希望编程 Agent 直接生成、编辑真实 Office 文件的开发者",
+    "quickstart_cmd": "npx skills add genspark-ai/genoffice",
+    "quickstart_note": "将 Agent Skill 安装到本地编程 Agent；应用本体需从 GitHub Releases 下载对应系统安装包。",
+    "risks": [
+     "开启 Jev 搜索重排序（默认关闭）后，会把本地搜索命中文件的摘录发送给 OpenRouter 或 TypeSafe 的外部 API"
+    ],
+    "readme_sha": "2efdb66cd35ecad7c04ef80eff8d8644987572b1",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 226
+  },
+  {
+   "full_name": "deeplethe/utopia",
+   "html_url": "https://github.com/deeplethe/utopia",
+   "description": "World's first open-source enterprise world model.",
+   "stars": 7974,
+   "forks": 1099,
+   "language": "Rust",
+   "license": "Apache-2.0",
+   "topics": [
+    "agent-memory",
+    "bitemporal",
+    "graphrag",
+    "knowledge-base",
+    "knowledge-graph",
+    "llm",
+    "ontology",
+    "pgvector",
+    "postgresql",
+    "rag",
+    "rust",
+    "self-hosted",
+    "semantic-search",
+    "temporal-knowledge-graph",
+    "world-model"
+   ],
+   "homepage": "",
+   "created_at": "2026-08-07",
+   "pushed_at": "2026-09-30",
+   "readme_sha": "67551fb255e1088236d6d87d2f2195cec72be985",
+   "intro": {
+    "is_ai_product": true,
+    "category": "Agent 平台与基础设施",
+    "tagline": "开源自托管企业世界模型，用双时态知识图谱做知识治理与可信决策",
+    "positioning": "面向企业的开源世界模型，单个Rust二进制加一个Postgres即可运行，把时间感知和本体内置在底层知识系统中，随资料摄取持续演化、检测冲突并留存决策依据，可离线部署在企业自有硬件上。",
+    "features": [
+     "支持PDF、DOCX、CSV等多格式上传，网页、RSS、GitHub、Jira、Notion、S3等可定时同步",
+     "全文检索(Tantivy)与向量检索(pgvector)经RRF融合，回答附带可点击引用出处",
+     "内置Agent搜索文档、遍历图谱、查询数据库，只读工具经MCP暴露给Claude等",
+     "双时态图谱记录事实的有效期与系统发现时间，修正事实时保留旧版本而非覆盖",
+     "提供实体归并去重、人工审核队列及三类冲突检测处理方式，合并操作可撤销"
+    ],
+    "highlights": [
+     "配套的Ontology2SQL文本转SQL方法在BIRD Mini-Dev基准上据称取得最优结果（项目方数据）",
+     "支持任意OpenAI兼容模型端点(DeepSeek、Qwen、GLM、Ollama、vLLM)，可全程离线部署",
+     "决策台账采用仅追加设计，记录每次修改的操作者、时间及对象当时快照，用于合规审计"
+    ],
+    "audience": "需要私有化部署企业知识库、构建可审计Agent决策系统的技术团队与知识工程师",
+    "quickstart_cmd": "docker compose --profile app up -d",
+    "quickstart_note": "先git clone仓库并进入目录；启动后打开localhost:1516注册，首个账号自动成为管理员",
+    "risks": [
+     "项目仍为v0.1版本，README提示暴露到公网前需先阅读SECURITY.md，数据库schema变更后迁移不可回滚"
+    ],
+    "readme_sha": "67551fb255e1088236d6d87d2f2195cec72be985",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 71
+  },
+  {
+   "full_name": "Human-Agent-Society/reef",
+   "html_url": "https://github.com/Human-Agent-Society/reef",
+   "description": "Infrastructure for continually self‑improving agents",
+   "stars": 7392,
+   "forks": 688,
+   "language": "Python",
+   "license": "Apache-2.0",
+   "topics": [
+    "agent-infrastructure",
+    "ai-agents",
+    "continual-learning",
+    "inference",
+    "llm",
+    "llm-training",
+    "reinforcement-learning",
+    "self-improving-agents"
+   ],
+   "homepage": "https://reefinfra.ai",
+   "created_at": "2026-08-31",
+   "pushed_at": "2026-09-30",
+   "readme_sha": "7a7a7cc470850494e40277f4aa201598c7eddb45",
+   "intro": {
+    "positioning": "项目方自述为首个面向持续自我进化智能体的开源基础设施，整合推理、反馈匹配、训练与带版本管理的交付，可用于训练模型权重或优化智能体的提示词、规则、技能等 harness。",
+    "tagline": "连接推理、反馈、训练与版本发布的智能体持续自我进化基础设施",
+    "is_ai_product": true,
+    "category": "Agent 平台与基础设施",
+    "features": [
+     "支持用 Slime 与 SGLang 训练模型权重，实现权重层面的持续学习",
+     "支持优化智能体 harness（提示词、规则、技能），无需 GPU 只需模型接口",
+     "提供 OpenAI/Anthropic 兼容的推理接口，并可通过 /reef/report 上报反馈打分",
+     "内置 Reefine 配方，可依据自然语言需求自动改写编码 harness（需手动安装启用）",
+     "支持配置化的候选评估与版本发布策略，更新权重或 harness 时服务保持在线"
+    ],
+    "highlights": [
+     "将推理、反馈、训练、版本发布四个环节打通为一个闭环流程，而非零散工具拼接",
+     "提供 SAO、GEPA、TTT-Discover、Reefine 等多种预置配方，覆盖科学发现、连续任务学习、使用中学习等场景"
+    ],
+    "audience": "需要为智能体构建持续学习或自我改进能力的研究者和工程团队，尤其是模型权重训练或 Agent harness 优化方向的开发者",
+    "quickstart_cmd": "uv pip install reef-infra",
+    "quickstart_note": "安装前需用 uv 创建并激活虚拟环境；若需制品与检查点功能，还需另外安装 git-lfs。",
+    "risks": [
+     "Reefine/reef-pi 的 harness 自我进化功能默认在无沙箱环境下执行命令，仅在 Linux 且具备 bwrap/pasta 支持非 root 用户时才能隔离，否则以本机权限运行改写后的 harness。"
+    ],
+    "readme_sha": "7a7a7cc470850494e40277f4aa201598c7eddb45",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 754
+  },
+  {
+   "full_name": "jakubkrehel/skills",
+   "html_url": "https://github.com/jakubkrehel/skills",
+   "description": "A collection of agent skills that help you build great interfaces.",
+   "stars": 7385,
+   "forks": 274,
+   "language": "Markdown",
+   "license": "MIT",
+   "topics": [],
+   "homepage": "https://jakub.kr/skills",
+   "created_at": "2026-07-10",
+   "pushed_at": "2026-08-29",
+   "readme_sha": "a564ec0a2f60c6072c813e55e49d9df228070819",
+   "intro": {
+    "is_ai_product": true,
+    "category": "Skills 与写作/设计",
+    "tagline": "一套帮助构建优秀界面的 Agent Skills 合集，涵盖 UI、排版、配色、布局与文案",
+    "positioning": "面向 AI 编程助手（如 Claude Code）的技能包，将作者在个人网站和设计工程杂志 Interfaces 上的界面设计经验封装为可调用的 agent skills，用于审查和改进项目界面。",
+    "features": [
+     "better-ui 等系列技能覆盖圆角、对齐、图标、动效等 UI 细节",
+     "better-typography 处理字号、间距、可变字体等排版问题",
+     "better-colors 支持生成调色板、语义色板、格式转换、对比度检查",
+     "interface-review 对 UI、排版、布局、配色、文案、可访问性做综合审查",
+     "break 和 variant 可渲染组件多状态压力测试或生成多种变体，均需用户手动调用"
+    ],
+    "highlights": [
+     "由多个独立技能组成，better-interface 可一次性整合所有 better-* 技能进行综合审查"
+    ],
+    "audience": "使用 Claude Code 等 AI 编程工具进行前端/界面开发的设计师和工程师",
+    "quickstart_cmd": "npx skills add jakubkrehel/skills",
+    "quickstart_note": "也可在 Claude Code 中执行 /plugin marketplace add 和 /plugin install 安装为插件",
+    "risks": [],
+    "readme_sha": "a564ec0a2f60c6072c813e55e49d9df228070819",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [
+    "已 32 天未更新"
+   ],
+   "delta": 108
+  },
+  {
+   "full_name": "zai-org/ZCode",
+   "html_url": "https://github.com/zai-org/ZCode",
+   "description": "Z.ai's coding agent harness. Powerful, intelligent, extensible.",
+   "stars": 7244,
+   "forks": 2197,
+   "language": "TypeScript",
+   "license": "Apache-2.0",
+   "topics": [],
+   "homepage": "https://zcode.z.ai/",
+   "created_at": "2026-09-20",
+   "pushed_at": "2026-09-29",
+   "readme_sha": "bd6247f26035e27ffb5f6c908d736c1c4c82fca7",
+   "intro": {
+    "is_ai_product": true,
+    "category": "编程 Agent 与运行框架",
+    "tagline": "Z.ai 出品的 AI 编程工作台，提供桌面应用、浏览器界面和终端 Agent 三种形态",
+    "positioning": "ZCode 是 Z.ai 的编程 Agent 运行框架，本仓库包含桌面客户端、Web 客户端、后端服务、共享 UI 以及 Agent CLI 与运行时源码，供开发者本地构建和运行编程 Agent。",
+    "features": [
+     "统一 zcode 命令，无参数进入终端 TUI，--web 启动浏览器界面，均在本机运行无需 Electron",
+     "另提供 Electron 桌面应用，支持 macOS/Windows/Linux 打包",
+     "支持 SSH/WSL 远程项目开发，资源经 SFTP 上传，不经 CDN 分发",
+     "可配置数据目录、后端工作区、Provider 配置文件等环境变量",
+     "命令行发行包提供安装脚本，默认安装到 ~/.zcode/runtime 并注册 zcode 命令"
+    ],
+    "highlights": [
+     "命令行发行包用同一套二进制统一承载 TUI 与 Web 两种交互模式，共用同一后端服务"
+    ],
+    "audience": "需要在桌面、浏览器或终端中使用 AI 编程 Agent 的开发者，以及希望自行构建部署该工作台的团队",
+    "quickstart_cmd": "pnpm bootstrap",
+    "quickstart_note": "克隆仓库后在根目录执行，安装 workspace 依赖并准备桌面本地运行资源，用于本地开发构建",
+    "risks": [
+     "Web 模式若通过 --host 0.0.0.0 监听非本机地址会默认生成访问令牌，使用前需注意该配置项的安全影响"
+    ],
+    "readme_sha": "bd6247f26035e27ffb5f6c908d736c1c4c82fca7",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 311
+  },
+  {
+   "full_name": "tamaratran/fast-jev-compaction",
+   "html_url": "https://github.com/tamaratran/fast-jev-compaction",
+   "description": "Claude Code plugin that replaces the compaction summary with Jev decisions: every tool call and result is scored in one fast request, stale ones are dropped or truncated, everything kept stays verbatim.",
+   "stars": 7244,
+   "forks": 467,
+   "language": "TypeScript",
+   "license": "MIT",
+   "topics": [],
+   "homepage": "",
+   "created_at": "2026-09-17",
+   "pushed_at": "2026-09-18",
+   "readme_sha": "8f4f65b5567600cd8257c54fc3beb7c8f3c861d9",
+   "intro": {
+    "is_ai_product": true,
+    "category": "编程 Agent 与运行框架",
+    "tagline": "Claude Code 插件，用 Jev 模型逐条打分决定去留，替代内置的摘要式上下文压缩",
+    "positioning": "Claude Code 上下文压缩的替代方案：不用LLM改写摘要旧对话，而是让Jev对每次工具调用和结果打分，决定删除、截断或原样保留，避免摘要丢失文件路径等细节，同时也可作为独立npm库使用。",
+    "features": [
+     "对每个工具调用和结果发起打分请求，判断是否保留调用与结果",
+     "保留内容原样不改写，用户和助手文本始终保持原文顺序",
+     "最新preserveRecentMessages条消息（默认6条）始终不做改动",
+     "提供reductionRatio等统计指标，压缩比不足时可放弃压缩改用摘要",
+     "也可作为npm库使用，支持自定义JevAsker接入其他打分后端"
+    ],
+    "highlights": [
+     "不同于常见的LLM摘要压缩，采用逐条删除/截断而非改写，项目方称可避免摘要丢失文件路径、报错等细节",
+     "压缩失败或效果不足（如短会话）时自动回退到Claude Code内置摘要"
+    ],
+    "audience": "使用Claude Code、关注长会话中上下文丢失问题的开发者，或需要自定义上下文压缩策略的npm库使用者",
+    "quickstart_cmd": "claude plugin marketplace add tamaratran/fast-jev-compaction",
+    "quickstart_note": "需先在settings.json中开启CLAUDE_CODE_ENABLE_FUNCTION_HOOKS并配置TYPESAFE_API_KEY，再安装插件",
+    "risks": [
+     "会将完整会话内容（工具调用、结果、用户与助手文本）发送给TypeSafe的Jev接口打分，存在第三方数据外传"
+    ],
+    "readme_sha": "8f4f65b5567600cd8257c54fc3beb7c8f3c861d9",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 202
+  },
+  {
+   "full_name": "jev-chat/jev-chat-jarvis",
+   "html_url": "https://github.com/jev-chat/jev-chat-jarvis",
+   "description": "装在手机上的对话副驾：在 QQ / X / 飞书里读懂对方、给出候选回复、一键填入输入框，发不发由你。非侵入，只读屏幕，不 hook 不改包。",
+   "stars": 7180,
+   "forks": 1214,
+   "language": "Kotlin",
+   "license": "MIT",
+   "topics": [
+    "accessibility-service",
+    "ai-assistant",
+    "android",
+    "chat-assistant",
+    "chat-copilot",
+    "llm",
+    "ocr",
+    "qq"
+   ],
+   "homepage": "https://chatjevs.com",
+   "created_at": "2026-09-21",
+   "pushed_at": "2026-09-29",
+   "readme_sha": "8debda6168a2119523dd46deffc027a9724c9e96",
+   "intro": {
+    "is_ai_product": true,
+    "category": "AI 应用产品",
+    "tagline": "Android 无障碍读屏助手，在 QQ/X/飞书分析聊天并给出候选回复，发不发由你",
+    "positioning": "面向 Android 手机的聊天回复辅助工具，通过系统无障碍服务只读屏幕内容，用大模型判断对方意图后生成候选回复并填入输入框，不 hook、不改包、不碰账号数据，发送权始终在用户手中。",
+    "features": [
+     "判断模型先给出对方意图、危险等级、是否该回，再生成3条口语化候选回复",
+     "QQ、X私信全链路支持，飞书靠离线OCR补正文，其它App可手动截屏识别",
+     "本地知识库与联系人档案，分析时自动带上命中的笔记和该联系人历史",
+     "判断/回复/视觉三路接口可分别配置，内置OpenRouter、DeepSeek等多个预设",
+     "回复只填入输入框用ACTION_SET_TEXT，从不自动发送，不碰转账红包收款"
+    ],
+    "highlights": [
+     "不hook、不改包、不读聊天软件数据库，仅用系统无障碍服务读取屏幕已显示内容",
+     "截图仅在本机用ML Kit离线OCR识别文字，不上传图片",
+     "微信Android版已全面下架，当前版本不采集、不分析微信内容"
+    ],
+    "audience": "需要在手机上快速判断聊天意图并起草回复的QQ、X、飞书用户，尤其看重回复可控、不自动发送的场景",
+    "quickstart_cmd": "adb install -r apk/jev-assistant-v1.4-release.apk",
+    "quickstart_note": "下载仓库内签名APK后用adb安装，需Android 11+，仅支持ARM64架构",
+    "risks": [
+     "触发分析时，聊天文字及启用的背景信息（含联系人、聊天对象内容）会发送到用户自行配置的第三方模型服务商",
+     "通过无障碍服务读取QQ、X、飞书等App界面内容，README提示需遵守这些软件的许可协议与当地法律法规"
+    ],
+    "readme_sha": "8debda6168a2119523dd46deffc027a9724c9e96",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 370
+  },
+  {
+   "full_name": "XiaoDuoYa/codex-with-chatgpt",
+   "html_url": "https://github.com/XiaoDuoYa/codex-with-chatgpt",
+   "description": "ChatGPT thinks. Codex works. Use ChatGPT as the planning brain while keeping the Codex harness.",
+   "stars": 6942,
+   "forks": 641,
+   "language": "TypeScript",
+   "license": "MIT",
+   "topics": [
+    "ai-agents",
+    "chatgpt",
+    "codex",
+    "mcp",
+    "model-context-protocol",
+    "oauth"
+   ],
+   "homepage": "",
+   "created_at": "2026-08-28",
+   "pushed_at": "2026-09-13",
+   "readme_sha": "e8186b7ca358809d90df9ae26f346bf90c2698d3",
+   "intro": {
+    "is_ai_product": true,
+    "category": "编程 Agent 与运行框架",
+    "tagline": "让 ChatGPT 网页版做规划评审、Codex 负责执行的编码协作桥接工具",
+    "positioning": "通过只读 MCP 桥接把 ChatGPT Plus/Pro 网页版接入 Codex 编码会话，让网页版闲置额度负责思考规划，Codex 保留全部执行权，无需 API Key、无需逆向代理。",
+    "features": [
+     "通过 OAuth 2.1 保护的只读 MCP 连接，让 ChatGPT 按需读取当前工作区代码",
+     "Codex 与 ChatGPT 通过极简 [C2C] 状态消息通信，不传输 diff、日志或文件内容",
+     "提供 9 个只读 MCP 工具，覆盖目录、文件、搜索、git 状态与测试记录",
+     "服务端不存在写入/删除/shell/提交类工具，避免提示注入触发危险操作",
+     "支持一段话自动安装，Codex 可自动完成环境检测、构建与首次配对配置"
+    ],
+    "highlights": [
+     "项目方称已完成端到端验证：桥接、OAuth+配对、公网隧道、ChatGPT 连接器配置与零操作首次运行，但仍为 V1 版本",
+     "敏感文件（.env、密钥、SSH 凭证等）默认禁止被读取，路径隔离阻断符号链接与路径穿越"
+    ],
+    "audience": "已订阅 ChatGPT Plus/Pro 并使用 Codex 编码、希望让网页版承担规划评审工作的开发者",
+    "quickstart_cmd": "pnpm install",
+    "quickstart_note": "构建后运行 c2c setup 完成桥接、隧道与配对码配置，也可让 Codex 按 README 一段话指令自动安装",
+    "risks": [
+     "核心功能依赖 Computer Use 方式让 Codex 与 ChatGPT 网页版交换控制消息，属于自动化操作第三方 AI 网页服务，需注意其服务条款风险"
+    ],
+    "readme_sha": "e8186b7ca358809d90df9ae26f346bf90c2698d3",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 153
+  },
+  {
+   "full_name": "drumih/turbo-fieldfare",
+   "html_url": "https://github.com/drumih/turbo-fieldfare",
+   "description": "Gemma 4 26B-A4B inference in ~2 GB of RAM on any M-series MacBook",
+   "stars": 6849,
+   "forks": 431,
+   "language": "Swift",
+   "license": "Apache-2.0",
+   "topics": [
+    "apple-silicon",
+    "gemma",
+    "gemma4",
+    "gemma4-26b-a4b",
+    "gpgpu",
+    "llm",
+    "llm-inference",
+    "local-ai",
+    "macos",
+    "metal",
+    "on-device-ai",
+    "on-device-llm",
+    "swift"
+   ],
+   "homepage": "",
+   "created_at": "2026-07-17",
+   "pushed_at": "2026-09-27",
+   "readme_sha": "45cd3d182820e20e43ac90669233d01d96248f5e",
+   "intro": {
+    "is_ai_product": true,
+    "category": "本地推理与模型",
+    "tagline": "Swift+Metal运行时，让264亿参数的Gemma 4模型在8GB内存的Apple Silicon Mac上运行",
+    "positioning": "面向Apple Silicon Mac的模型专用推理运行时，仅用约2GB内存运行Gemma 4 26B-A4B模型，通过从SSD流式加载专家权重实现，而非基于MLX或llama.cpp的通用封装。",
+    "features": [
+     "内存中仅保留1.35GB共享核心和FP16 KV缓存，其余专家权重按需从SSD流式读取",
+     "提供原生Mac应用、命令行工具和实验性OpenAI兼容本地服务器，共用同一模型目录",
+     "可选安装约1.1GB视觉扩展包实现图文对话，需M2及以上芯片，文本推理可在M1运行",
+     "安装器流式重打包权重，不在磁盘上生成完整14.3GB源检查点",
+     "支持函数工具声明，但不直接执行工具调用，由客户端负责授权和执行"
+    ],
+    "highlights": [
+     "项目方数据：8GB M2 MacBook Air上解码速度5.1-6.3 tok/s，24GB M5 Pro上为31-35 tok/s，官方说明该结果仅为参考点而非性能上限",
+     "验证目标机型为8GB内存的M2 MacBook Air，26B参数模型在该配置下仍可完整运行"
+    ],
+    "audience": "拥有Apple Silicon Mac（尤其8GB内存设备）、希望在本地运行大参数量模型的开发者和爱好者",
+    "quickstart_cmd": "git clone https://github.com/drumih/turbo-fieldfare.git && cd turbo-fieldfare && swift build -c release && .build/release/TurboFieldfareMac",
+    "quickstart_note": "需macOS 26、Metal 4、Xcode 26、Swift 6.2+，仅支持arm64；首次运行需在App内下载约15GB模型",
+    "risks": [
+     "本地OpenAI兼容服务器无远程身份验证和TLS，README提示需保持在本地回环，不要直接暴露到公网"
+    ],
+    "readme_sha": "45cd3d182820e20e43ac90669233d01d96248f5e",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 15
+  },
+  {
+   "full_name": "elder-plinius/T3MP3ST",
+   "html_url": "https://github.com/elder-plinius/T3MP3ST",
+   "description": "autonomous red teaming platform; multi-agent offensive-security meta-harness",
+   "stars": 6290,
+   "forks": 1316,
+   "language": "TypeScript",
+   "license": "AGPL-3.0",
+   "topics": [
+    "agents",
+    "ai",
+    "multi-agent",
+    "offensive-security",
+    "redteam"
+   ],
+   "homepage": "",
+   "created_at": "2026-07-02",
+   "pushed_at": "2026-09-08",
+   "readme_sha": "273f481f60af3f6fc0f7582f44c2f18462bbe17f",
+   "intro": {
+    "audience": "需要合法授权红队测试、漏洞挖掘、CTF训练的安全研究人员和渗透测试从业者",
+    "category": "安全相关",
+    "features": [
+     "复用本地已登录的AI编程Agent（Claude Code、Codex等）或本地模型驱动攻击流程",
+     "提供浏览器War Room界面或CLI，输入目标描述后自动执行侦察→利用→报告全流程",
+     "覆盖Web应用、CTF、源码白盒分析、机器人/嵌入式OSS漏洞挖掘等多个领域，部分为稳定功能",
+     "内置npm run verify-claims命令，可从仓库中提交的数据重新计算README中的所有指标",
+     "云安全、移动端、二进制逆向为可选武器库，仍是静态检测脚手架，未做实战基准测试"
+    ],
+    "highlights": [
+     "项目方数据：在XBOW自家104题基准上pass@1达90.1%，高于XBOW自报的85%",
+     "号称所有README中的数字均可用一条命令从已提交数据重新推导验证"
+    ],
+    "is_ai_product": true,
+    "positioning": "面向已获授权的安全测试场景，用多智能体框架驱动用户已有的AI编程Agent（如Claude Code、Codex）或本地模型完成侦察-利用-报告的红队工作流，无需新增API Key。",
+    "quickstart_cmd": "npm install\nnpm run server",
+    "quickstart_note": "启动后访问 http://127.0.0.1:3333/ui/ 的War Room界面，在设置中连接本地AI Agent即可开始任务",
+    "risks": [
+     "核心功能为攻击性安全工具（红队/漏洞挖掘），README明确要求仅可用于已获得明确书面授权的目标，未经授权测试他人系统可能违法",
+     "可选择通过OpenRouter、xAI或Novita等第三方API Key运行，此时目标相关提示词和输出会发送给对应第三方服务"
+    ],
+    "tagline": "多智能体红队自动化平台，把本地AI编程Agent变成攻防武器库",
+    "readme_sha": "273f481f60af3f6fc0f7582f44c2f18462bbe17f",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 23
+  },
+  {
+   "full_name": "TencentCloud/Octop",
+   "html_url": "https://github.com/TencentCloud/Octop",
+   "description": "A smarter, self-hosted AI assistant — multi-user, multi-agent.",
+   "stars": 6049,
+   "forks": 763,
+   "language": "Python",
+   "license": "MIT",
+   "topics": [
+    "agent",
+    "agentic-ai",
+    "ai",
+    "ai-agent",
+    "ai-agents",
+    "local-first",
+    "long-term-memory"
+   ],
+   "homepage": "https://octop.cloud",
+   "created_at": "2026-07-08",
+   "pushed_at": "2026-09-30",
+   "readme_sha": "07c4fb8185dbff664b143b2be82211a220c698b5",
+   "intro": {
+    "is_ai_product": true,
+    "category": "Agent 平台与基础设施",
+    "tagline": "腾讯云出品的自托管多用户多智能体AI助手平台",
+    "positioning": "Octop是开源自托管AI助手，单进程运行同时提供Web控制台、CLI和多IM渠道接入，面向家庭和小团队，数据与凭证保留在本地机器上。",
+    "features": [
+     "多用户多专家团队，内置专家库和专家市场，可按场景切换不同专家角色",
+     "支持飞书、钉钉、QQ、微信、Telegram、Discord、企业微信等IM渠道接入",
+     "ACP协议双向对接，可调用或被OpenCode、Claude Code等编码Agent调用",
+     "可插拔工作区后端，支持本地磁盘、Docker沙箱、PostgreSQL、COS/S3",
+     "内置知识库RAG、终端AI助手、浏览器自动化（Browser AI+）与远程桌面"
+    ],
+    "highlights": [
+     "单进程架构，Web、CLI、IM渠道和定时任务共用同一控制面数据库，数据全部留在本地",
+     "内置JWT多用户隔离、工具审批、Shell命令防护和PII脱敏等安全机制"
+    ],
+    "audience": "需要本地私有部署AI助手、看重数据不出本机的家庭用户、小团队和开发者",
+    "quickstart_cmd": "curl -fsSL https://finnie-1258344699.cos.ap-guangzhou.myqcloud.com/octop/install.sh | bash",
+    "quickstart_note": "适用于macOS/Linux一键安装，安装后重载终端配置，执行octop run启动服务",
+    "risks": [],
+    "readme_sha": "07c4fb8185dbff664b143b2be82211a220c698b5",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 691
+  },
+  {
+   "full_name": "truefoundry/trueforge",
+   "html_url": "https://github.com/truefoundry/trueforge",
+   "description": "The open-source agent harness - the runtime layer that turns an LLM into a working agent.",
+   "stars": 6029,
+   "forks": 486,
+   "language": "TypeScript",
+   "license": "MIT",
+   "topics": [
+    "agent",
+    "agentic-ai",
+    "agents",
+    "harness",
+    "harness-engineering"
+   ],
+   "homepage": "https://trueforge.dev",
+   "created_at": "2026-07-23",
+   "pushed_at": "2026-09-30",
+   "readme_sha": "974a6a453038450ed24217e08b0ac254835a9cdd",
+   "intro": {
+    "is_ai_product": true,
+    "category": "编程 Agent 与运行框架",
+    "tagline": "开源 Agent 运行时，负责把 LLM 变成能实际工作的 Agent",
+    "positioning": "TrueForge 是一个开源 Agent 执行层，接管模型调用、工具、沙箱、审批和会话状态等运行细节，并通过聊天界面、HTTP API/SDK、可嵌入 UI SDK 三种方式对外暴露。",
+    "features": [
+     "从模型、MCP 服务器、技能、沙箱目录一次性配置，供 Agent 按需选用",
+     "支持 OpenAI、Anthropic、Google Gemini 及任意 OpenAI 兼容接口",
+     "支持远程 MCP 工具，含 Header 认证和 OAuth 授权",
+     "沙箱作为工具按需provisioned执行代码/文件，密钥留在harness中（当前支持 Daytona）",
+     "内置工具审批、向用户提问、子代理、上下文压缩等能力"
+    ],
+    "highlights": [
+     "项目方数据显示，在相同任务、工具和模型下，与 Claude Managed Agents、deepagents 相比准确率相当但成本更低",
+     "支持本地模式（单进程+SQLite）和托管模式（Postgres+Redis，可用 Docker Compose/Helm/Railway 部署）"
+    ],
+    "audience": "需要自建或部署 LLM Agent 运行时的开发者和团队，尤其是想要工具调用、沙箱、审批与会话管理开箱即用的场景",
+    "quickstart_cmd": "npx @truefoundry/trueforge@latest",
+    "quickstart_note": "以本地模式运行，单进程加 SQLite 存储，适合个人试用，非生产环境",
+    "risks": [
+     "README 明确说明本地模式默认无登录、数据存于本地 SQLite，仅适合本机使用，不应暴露到公网或用于生产"
+    ],
+    "readme_sha": "974a6a453038450ed24217e08b0ac254835a9cdd",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 40
+  },
+  {
+   "full_name": "larashero3-dotcom/lieflat-charts",
+   "html_url": "https://github.com/larashero3-dotcom/lieflat-charts",
+   "description": "Data visualization Skill for AI Agents, turning data into polished, interactive HTML charts. 面向 AI Agents 的数据可视化 Skill，将数据快速生成精致、可交互的 HTML 图表。",
+   "stars": 5837,
+   "forks": 363,
+   "language": "HTML",
+   "license": "NOASSERTION",
+   "topics": [
+    "agent-skills",
+    "charts",
+    "claude-code",
+    "codex",
+    "data-visualization",
+    "html",
+    "moxt",
+    "svg"
+   ],
+   "homepage": "",
+   "created_at": "2026-07-16",
+   "pushed_at": "2026-09-05",
+   "readme_sha": "fae996e05d395fcf693cd515ab75c83ba09bf5c7",
+   "intro": {
+    "is_ai_product": true,
+    "category": "Skills 与写作/设计",
+    "tagline": "面向 AI Agent 的数据可视化 Skill，将数据转为可编辑的精致 HTML 图表",
+    "positioning": "遵循 Agent Skills 格式的数据可视化与报告生成 skill，可供 moxt、Claude Code、Codex 等兼容 SKILL.md 的 AI agent 调用，默认生成图表，按需生成整页报告。",
+    "features": [
+     "提供 Lupi、Glance、Basics 三种视觉风格，分别适合细读、快速判断和基础图型场景",
+     "内置网络图、路径图等独立交互大图，支持 hover、拖拽、缩放",
+     "支持 Mono 黑白灰及青瓷蓝、椰林绿、编辑部红三种彩色预设，可选自定义品牌色板",
+     "提供 12 套中英双语整页报告模板，覆盖年报、周报、dashboard、海报等场景",
+     "图表数量按结论数自动决定，单页默认最多 6 张"
+    ],
+    "highlights": [
+     "49 个图型加 12 套整页报告模板，覆盖手写 SVG、Chart.js、ECharts 多种实现",
+     "在 moxt.ai 环境中制作和迭代，也可安装到 Claude Code、Codex 等其他支持 Agent Skills 的工具"
+    ],
+    "audience": "使用 Claude Code、Codex 等 AI Agent 工具、需要快速生成数据图表或报告的开发者和内容创作者",
+    "quickstart_cmd": "npx skills add https://github.com/larashero3-dotcom/lieflat-charts --skill lieflat-charts",
+    "quickstart_note": "安装后直接向 Agent 描述图表需求即可生成，部分模板需联网加载 Chart.js/ECharts",
+    "risks": [
+     "许可证为 PolyForm Noncommercial License 1.0.0，仅限非商业使用，商用需另行授权"
+    ],
+    "readme_sha": "fae996e05d395fcf693cd515ab75c83ba09bf5c7",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [
+    "许可证未声明或非标准，商用前请确认授权"
+   ],
+   "delta": 88
+  },
+  {
+   "full_name": "CopilotKit/OpenBot",
+   "html_url": "https://github.com/CopilotKit/OpenBot",
+   "description": "Open-source AI coworkers that each get a computer of their own: a browser, files and tools, with every action decided before it happens and recorded after. Bring any AG-UI agent.",
+   "stars": 5759,
+   "forks": 765,
+   "language": "TypeScript",
+   "license": "MIT",
+   "topics": [
+    "ag-ui",
+    "agent-governance",
+    "ai-agents",
+    "browser-automation",
+    "copilotkit",
+    "generative-ui",
+    "mcp"
+   ],
+   "homepage": "https://www.copilotkit.ai/openbot",
+   "created_at": "2026-08-17",
+   "pushed_at": "2026-09-29",
+   "readme_sha": "0a391dd4c1f8f9fdfb8cdac914f1ee5db6f3879b",
+   "intro": {
+    "audience": "需要在自有基础设施上部署可控AI协作者、重视操作审计与权限治理的企业技术团队",
+    "category": "Agent 平台与基础设施",
+    "features": [
+     "每个Bot拥有独立容器、workspace目录和浏览器登录态，可选启用gVisor隔离",
+     "支持在workspace内执行Shell命令，命令与其他操作均经统一网关审批并留痕",
+     "基于CEL策略引擎，未设策略默认拒绝，规则执行出错也拒绝而非放行",
+     "遇到登录墙或2FA可将控制权交还人类，人工操作期间Bot动作被拒绝",
+     "兼容任意AG-UI协议Agent，可接入LangGraph、Mastra、CrewAI、Pydantic AI、Google ADK等框架"
+    ],
+    "highlights": [
+     "示例包内置13个预置协作者，包括通用助手、知识问答及10个金融场景专用Agent",
+     "密钥类操作不进入对话记录，仅记录发生了请求及其持续时长，不记录具体内容"
+    ],
+    "is_ai_product": true,
+    "positioning": "一个可克隆二次开发的模板项目，用于在企业自有基础设施上运行AG-UI协议的Agent，为其配备浏览器、文件和工具，所有动作先经网关审批、后留存审计记录。",
+    "quickstart_cmd": "cp .env.example .env && bun install",
+    "quickstart_note": "还需安装Docker与Bun 1.3+，配置CopilotKit Intelligence项目及模型API Key，再运行bash scripts/start.sh启动",
+    "risks": [
+     "核心功能之一是用真实浏览器代替用户操作第三方网站（如自动填表），可能违反目标网站的服务条款",
+     "README说明默认的OPENBOT_SINGLE_USER=true会将所有请求视为同一管理员身份，需手动开启登录后才能限制访问"
+    ],
+    "tagline": "可自托管的AI协作者平台：每个Bot配一台独立电脑，操作先审批、后留痕",
+    "readme_sha": "0a391dd4c1f8f9fdfb8cdac914f1ee5db6f3879b",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 103
+  },
+  {
+   "full_name": "s1dashu/ip-as-logo-skill",
+   "html_url": "https://github.com/s1dashu/ip-as-logo-skill",
+   "description": "A compact Agent Skill for highly simplified, rounded, subtly neo-skeuomorphic IP mascot logos.",
+   "stars": 5725,
+   "forks": 280,
+   "language": null,
+   "license": "MIT",
+   "topics": [
+    "codex",
+    "codex-skill",
+    "image-generation",
+    "logo-design",
+    "mascot-design"
+   ],
+   "homepage": "https://ipaslogo.com",
+   "created_at": "2026-08-18",
+   "pushed_at": "2026-08-22",
+   "readme_sha": "5c90d60233172ad9deff581d28059be36f00442e",
+   "intro": {
+    "is_ai_product": true,
+    "category": "Skills 与写作/设计",
+    "tagline": "一个指导 AI 智能体生成简化可爱 IP 吉祥物 logo 的 Agent Skill",
+    "positioning": "以 SKILL.md 格式提供设计规则文档，约束图像模型按固定构图和配色生成圆润吉祥物 logo，可安装到兼容的 AI 智能体中调用，不绑定特定产品。",
+    "features": [
+     "单一 IP 主体由约 4-7 个大色块构成，限制细节复杂度",
+     "默认使用三种语义色：两种 IP 主色加一种背景色",
+     "默认批量生成六张独立图像，三张左下三张右下构图",
+     "开放主题时优先选用常见可爱动物作为吉祥物",
+     "需配合顶级图像模型使用，如无可选启用其他工具或提供 API key"
+    ],
+    "highlights": [
+     "遵循开放 Agent Skills 格式，兼容 Codex、Coze、豆包、Gemini Apps 等多种智能体，不依赖单一产品",
+     "配套官网提供搜索库和免费下载的现成 logo，均可商用"
+    ],
+    "audience": "需要为产品快速生成统一风格吉祥物 logo 的设计师、独立开发者及使用兼容 AI 编码智能体的团队",
+    "quickstart_cmd": "npx skills@latest add s1dashu/ip-as-logo-skill",
+    "quickstart_note": "安装完成后可在 Codex、豆包、Coze 等兼容智能体中直接对话调用生成吉祥物图像",
+    "risks": [],
+    "readme_sha": "5c90d60233172ad9deff581d28059be36f00442e",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [
+    "已 39 天未更新"
+   ],
+   "delta": 111
+  },
+  {
+   "full_name": "bojieli/ai-infra-book",
+   "html_url": "https://github.com/bojieli/ai-infra-book",
+   "description": "《深入理解 AI Infra：量化分析与系统设计》（李博杰 著）开源书稿：从硬件约束和模型架构出发，量化推导 LLM 推理与训练系统设计。含全书正文、PDF、配套计算工具与实验",
+   "stars": 5689,
+   "forks": 409,
+   "language": "Python",
+   "license": "Apache-2.0",
+   "topics": [
+    "accelerator",
+    "ai-infra",
+    "ai-infrastructure",
+    "book",
+    "datacenter-network",
+    "deepseek",
+    "distributed-systems",
+    "gpu",
+    "kv-cache",
+    "llm",
+    "llm-inference",
+    "llm-serving",
+    "llm-training",
+    "mixture-of-experts",
+    "performance-engineering"
+   ],
+   "homepage": "https://bojieli.github.io/ai-infra-book/",
+   "created_at": "2026-08-22",
+   "pushed_at": "2026-09-30",
+   "readme_sha": "b8595154c25f535aca03754bba40237fd4f19c63",
+   "intro": {
+    "audience": "已用过大模型API或本地部署过模型、想弄清推理速度与成本原因的开发者，以及系统、网络、芯片方向的工程师和研究者。",
+    "category": "其他",
+    "features": [
+     "全书12章覆盖模型架构、加速器、数据中心网络、推理优化、分布式训练等主题",
+     "配套计算工具用Python标准库复算书中数字，静态计算无需GPU或模型权重",
+     "配套实验按章节存放于experiments目录，附运行方法、输入条件与结果说明",
+     "提供简体中文原版及英文、繁体中文、俄语社区翻译版本",
+     "支持PDF、EPUB与在线阅读三种格式，推送main后自动构建发布"
+    ],
+    "highlights": [
+     "书稿仍为初稿并持续修订，GitHub Actions会检查PR的网站与四种语言PDF/EPUB构建",
+     "方法论强调从硬件约束和第一性原理推导设计上限，再对照实测差距定位系统开销"
+    ],
+    "is_ai_product": true,
+    "positioning": "开源技术书稿，从硬件约束和模型架构出发量化推导LLM推理与训练系统设计，是《深入理解AI Agent》姊妹篇，含全书正文、PDF/EPUB及配套计算工具与实验。",
+    "quickstart_cmd": "git clone https://github.com/bojieli/ai-infra-book.git",
+    "quickstart_note": "克隆后可用python3 calculations/calc.py复算或估算模型资源需求，仅需Python 3.10+标准库，无需GPU。",
+    "risks": [],
+    "tagline": "开源书稿：从硬件约束出发量化推导LLM推理与训练系统设计",
+    "readme_sha": "b8595154c25f535aca03754bba40237fd4f19c63",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 251
+  },
+  {
+   "full_name": "aipoch/open-science",
+   "html_url": "https://github.com/aipoch/open-science",
+   "description": "The open-source AI research workbench for scientific research and agent workflows. Local-first, model-agnostic desktop app with extensible skills, MCP tools and connectors, Python/R execution and traceable artifacts for reproducible research on macOS, Windows and Linux.",
+   "stars": 5324,
+   "forks": 489,
+   "language": "TypeScript",
+   "license": "Apache-2.0",
+   "topics": [
+    "agent-skills",
+    "ai-agent",
+    "ai-for-science",
+    "ai-research",
+    "ai-research-workbench",
+    "ai-workbench",
+    "bioinformatics",
+    "desktop-app",
+    "local-first",
+    "mcp",
+    "model-agnostic",
+    "open-science",
+    "open-source",
+    "reproducible-research",
+    "research-tools",
+    "science",
+    "science-agent",
+    "scientific-ai",
+    "scientific-computing",
+    "scientific-research"
+   ],
+   "homepage": "https://aipoch.com/open-science",
+   "created_at": "2026-07-03",
+   "pushed_at": "2026-09-30",
+   "readme_sha": "b9a179d39ff084ec43005d5aee015b9dbcc31696",
+   "intro": {
+    "is_ai_product": true,
+    "category": "AI 应用产品",
+    "tagline": "本地优先、模型无关的开源AI科研工作台，支持Python/R执行与可追溯研究产出",
+    "positioning": "面向科学家和研究人员的桌面端AI研究工作台，开源、本地优先、模型无关。科学Agent可读取文件、搜索网络、运行代码、查询科学数据源，产出带可追溯来源的报告、表格和图表。",
+    "features": [
+     "内置23个科学技能，技能市场提供525个技能可一键安装更新",
+     "内置24个科学数据连接器，也支持自定义本地/远程MCP连接器",
+     "共享Notebook中执行Python和R代码",
+     "每个生成产物存为不可变、带校验和的版本，可在Provenance视图追溯来源代码与执行记录",
+     "可导出.science研究包用于跨项目或设备的只读审阅、交接与归档"
+    ],
+    "highlights": [
+     "在BiomniBench-DA Public 50公开对比中以79.05分排名第一（项目方数据，使用gpt-5.6-sol xhigh模型）"
+    ],
+    "audience": "从事计算和数据密集型研究的科学家与研究人员，涵盖机器学习、生命科学、化学、材料、物理、环境科学等领域",
+    "quickstart_cmd": "brew install --cask open-science",
+    "quickstart_note": "仅适用于macOS的Homebrew安装方式；Windows/Linux需从官方下载页获取对应安装包",
+    "risks": [],
+    "readme_sha": "b9a179d39ff084ec43005d5aee015b9dbcc31696",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 165
+  },
+  {
+   "full_name": "Hisn00w/ASu-skills",
+   "html_url": "https://github.com/Hisn00w/ASu-skills",
+   "description": "🚀面向求职与开发场景的实用 AI Skills 集合，支持简历优化、岗位投递、面试准备与开发提效。",
+   "stars": 5281,
+   "forks": 295,
+   "language": "HTML",
+   "license": "MIT",
+   "topics": [],
+   "homepage": "",
+   "created_at": "2026-08-12",
+   "pushed_at": "2026-09-29",
+   "readme_sha": "35907cfac7fad591af0cd1cb3143b63383343c7a",
+   "intro": {
+    "is_ai_product": true,
+    "category": "Skills 与写作/设计",
+    "tagline": "面向求职全流程的 AI Skills 插件包，覆盖简历制作、岗位匹配、投递与面试准备",
+    "positioning": "面向求职场景的 AI Skills 插件包，提供九个可单独调用的入口，覆盖开源贡献积累、项目梳理、简历制作、岗位匹配、投递填写、面试准备和进度管理，支持多个 AI 编程平台安装。",
+    "features": [
+     "九个入口分别对应开源贡献、项目导学、简历提升、简历制作、证据复盘、岗位匹配、投递填写、面试准备和进度管理",
+     "/make-resume 提供 18 个 HTML 简历模板，可浏览器内编辑并导出 PDF，也可选导出 LaTeX",
+     "/job-apply 连接已登录浏览器填写招聘网站申请表，默认停在提交按钮前供人工核对",
+     "/interview 通过一次一问的连续追问检验简历内容，不替用户编造面试答案",
+     "支持 Codex、Claude Code、TraeWork、Qoder 安装，另提供 Cursor、OpenCode、WorkBuddy 的轻量桥接入口"
+    ],
+    "highlights": [
+     "强调事实边界，不编造职位、公司或数据，简历改写基于用户提供的证据链",
+     "/job-apply 明确要求人工确认每一步且禁止批量投递、骚扰 HR"
+    ],
+    "audience": "准备求职（尤其是校招或开发岗位）、需要制作简历、准备面试或管理投递进度的开发者",
+    "quickstart_cmd": "/plugin marketplace add Hisn00w/ASu-skills",
+    "quickstart_note": "适用于 Claude Code，安装后需再执行 /plugin install asu-skills@asu 并 /reload-plugins",
+    "risks": [
+     "/job-apply 依赖浏览器自动化操作招聘网站账号填写并提交申请表，可能受目标网站服务条款限制"
+    ],
+    "readme_sha": "35907cfac7fad591af0cd1cb3143b63383343c7a",
+    "generated_at": "2026-09-30",
+    "prompt_version": 3,
+    "model": "claude-sonnet-5"
+   },
+   "flags": [],
+   "delta": 99
+  }
+ ],
+ "excluded": [
+  {
+   "full_name": "Mak5er/AirCard",
+   "html_url": "https://github.com/Mak5er/AirCard",
+   "stars": 5156,
+   "reason": "面向iOS 18+设备的macOS桌面应用，利用名为airlift的AirTraffic同步沙盒逃逸漏洞，无需越狱即可替换Apple Wallet卡片外观和锁屏密码键盘图案，通过USB连接iPhone扫描卡片并推送皮肤。"
+  }
+ ],
+ "diff": {
+  "first": false,
+  "prev_date": "2026-09-28",
+  "new": [],
+  "dropped": [],
+  "gainers": [
+   {
+    "full_name": "hypit-ai/hypit",
+    "delta": 1086,
+    "stars": 17975
+   },
+   {
+    "full_name": "dataelement/dsh-desktop",
+    "delta": 1010,
+    "stars": 11095
+   },
+   {
+    "full_name": "miuuyy/codex-chatgpt-web",
+    "delta": 785,
+    "stars": 12997
+   },
+   {
+    "full_name": "Human-Agent-Society/reef",
+    "delta": 754,
+    "stars": 7392
+   },
+   {
+    "full_name": "TencentCloud/Octop",
+    "delta": 691,
+    "stars": 6049
+   }
+  ]
+ },
+ "trends": [
+  "Agent Skills生态持续繁荣，覆盖写作、设计、图表等垂直场景，如no-ai-slop、video-shotcraft、lieflat-charts",
+  "编程Agent与运行框架竞争激烈，grok-build、ZCode、trueforge等争相打造终端级AI编程体验",
+  "本地推理突破硬件极限，kimi-k3-in-c、turbo-fieldfare让万亿参数模型跑进消费级设备",
+  "Agent平台基础设施强调自托管与可审计，Octop、OpenBot、utopia聚焦企业级多智能体协作治理",
+  "安全与红队工具链受关注，gpt-instruct、T3MP3ST揭示AI编程Agent的攻防两面性"
+ ]
+}

@@ -1,24 +1,24 @@
 {
-  "is_ai_product": true,
+  "audience": "使用AI辅助写作、希望文本保留个人语气而非千篇一律AI腔的作者、内容创作者和开发者",
   "category": "Skills 与写作/设计",
-  "tagline": "一个 Claude/ChatGPT/Codex 技能，专门清除文字中 20 多种\"AI 腔\"套路",
-  "positioning": "面向用 AI 辅助写作或编辑的用户，识别并去除\"这不是X，而是Y\"等 AI 套话模式，同时保留个人写作风格，可作为编辑器或检测器使用。",
   "features": [
-    "检测并清除二元对比、故作深刻等20多种AI套话模式",
-    "支持纯编辑模式和仅检测不猜测模式",
-    "保留原作者的词汇、语感和幽默风格",
-    "可反向生成讽刺性AI套话文案娱乐用",
-    "提供ChatGPT插件和Codex/Claude Code技能两种接入方式"
+    "提供 /no-ai-slop 指令，编辑文本并列出具体改动",
+    "提供检测模式，仅引用发现的套话，不猜测是否AI生成",
+    "可生成讽刺性AI套话文章作为反面示例",
+    "覆盖二元对立句、故作深刻结尾等20多种固定AI写作模式",
+    "附带 eval.md 供技能自检编辑效果"
   ],
   "highlights": [
-    "GitHub星标超1万，上线两个月内迅速走红"
+    "项目方称覆盖20多种AI写作套路模式，未提供量化评测数据"
   ],
-  "audience": "用AI辅助写作、编辑文章或社交媒体内容，希望去除机械AI腔调、保留个人风格的写作者和内容创作者",
+  "is_ai_product": true,
+  "positioning": "一个可安装到ChatGPT、Claude Code、Codex等编码助手的Skill，用于检测并删除文本中20多种AI套话模式，同时尽量保留作者原有语气和风格。",
   "quickstart_cmd": "npx skills add petergyang/no-ai-slop --skill no-ai-slop --global --yes",
-  "quickstart_note": "安装后在Claude Code等工具中用 /no-ai-slop 加待编辑文字调用即可",
+  "quickstart_note": "也可将安装指令直接粘贴给ChatGPT、Claude Code或Codex等编码助手完成安装。",
   "risks": [],
+  "tagline": "清除写作中的AI套话模式，同时尽量保留作者个人语气的Skill工具。",
   "readme_sha": "82f8b7af7e02918077afb447f8fc83c2d33483ba",
-  "generated_at": "2026-09-19",
-  "prompt_version": 2,
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
   "model": "claude-sonnet-5"
 }

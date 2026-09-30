@@ -1,26 +1,27 @@
 {
   "is_ai_product": true,
-  "category": "Agent 平台与基础设施",
-  "tagline": "开源的 Agent 运行时，把 LLM 变成可用的智能体",
-  "positioning": "TrueForge 承担 Agent 执行循环——模型调用、工具、沙箱、审批、上下文管理，并通过聊天界面、HTTP API/SDK、可嵌入 UI 三种方式对外提供，省去自建运行时的重复劳动。",
+  "category": "编程 Agent 与运行框架",
+  "tagline": "开源 Agent 运行时，负责把 LLM 变成能实际工作的 Agent",
+  "positioning": "TrueForge 是一个开源 Agent 执行层，接管模型调用、工具、沙箱、审批和会话状态等运行细节，并通过聊天界面、HTTP API/SDK、可嵌入 UI SDK 三种方式对外暴露。",
   "features": [
-    "支持 OpenAI、Anthropic、Gemini 等多模型及任意 OpenAI 兼容接口",
-    "可接入远程 MCP 工具，支持 Header 认证和 OAuth",
-    "支持 SKILL.md 技能包，按需在沙箱中加载",
-    "沙箱作为工具按需提供隔离代码/文件执行环境，密钥留在运行时内",
-    "内置工具审批、追问用户、生成式 UI 等人工检查点"
+    "从模型、MCP 服务器、技能、沙箱目录一次性配置，供 Agent 按需选用",
+    "支持 OpenAI、Anthropic、Google Gemini 及任意 OpenAI 兼容接口",
+    "支持远程 MCP 工具，含 Header 认证和 OAuth 授权",
+    "沙箱作为工具按需provisioned执行代码/文件，密钥留在harness中（当前支持 Daytona）",
+    "内置工具审批、向用户提问、子代理、上下文压缩等能力"
   ],
   "highlights": [
-    "项目方数据：在相同任务和模型下，成本低于 Claude Managed Agents 和 deepagents，精度相当"
+    "项目方数据显示，在相同任务、工具和模型下，与 Claude Managed Agents、deepagents 相比准确率相当但成本更低",
+    "支持本地模式（单进程+SQLite）和托管模式（Postgres+Redis，可用 Docker Compose/Helm/Railway 部署）"
   ],
-  "audience": "需要快速搭建生产级 Agent 运行时的开发者和团队，尤其是已用 MCP/多模型但缺少统一执行框架的场景",
+  "audience": "需要自建或部署 LLM Agent 运行时的开发者和团队，尤其是想要工具调用、沙箱、审批与会话管理开箱即用的场景",
   "quickstart_cmd": "npx @truefoundry/trueforge@latest",
-  "quickstart_note": "本地模式单进程+SQLite适合个人试用；团队或生产建议用 Docker Compose、Helm 或 Railway 的托管模式",
+  "quickstart_note": "以本地模式运行，单进程加 SQLite 存储，适合个人试用，非生产环境",
   "risks": [
-    "本地模式默认无登录且数据存于本地 SQLite 文件，官方提示仅限本机使用，不适合暴露到公网"
+    "README 明确说明本地模式默认无登录、数据存于本地 SQLite，仅适合本机使用，不应暴露到公网或用于生产"
   ],
   "readme_sha": "974a6a453038450ed24217e08b0ac254835a9cdd",
-  "generated_at": "2026-09-19",
-  "prompt_version": 2,
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
   "model": "claude-sonnet-5"
 }

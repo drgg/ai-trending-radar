@@ -1,28 +1,28 @@
 {
-  "audience": "需要批量制作短视频广告、UGC、社媒克隆视频的营销团队，以及使用 Claude Code、Codex 等编码智能体的开发者",
+  "is_ai_product": true,
   "category": "Skills 与写作/设计",
+  "tagline": "面向 Claude Code、Codex 等 AI 编程助手的开源视频克隆与生成系统",
+  "positioning": "作为编程 Agent 的 Skill 使用，把视频拆解为字幕、B-roll、特效等可编辑工作流，支持克隆已有视频、套用模板或按描述从零生成，一次生成可批量产出多个变体。",
   "features": [
-    "克隆任意参考视频为完整工作流：镜头、字幕、B-roll、特效一并生成",
-    "以词而非秒为时间锚点，修改文案后时间轴自动重排",
-    "组件可插拔，可替换主播、字幕样式或自写自定义组件",
-    "支持代码渲染视频，无需调用生成模型即可完成合成",
-    "单次编排可衍生上百条变体，适配广告投放和多语言本地化"
+    "克隆任意视频：还原为可编辑的完整工作流，而非简单脚本拆解",
+    "一份工作流复用素材，仅重新生成有变化的部分，批量产出多个变体",
+    "组件可插拔，可替换主播、字幕等模块，或自行编写、分享组件",
+    "生成模型为可选项，也可用代码渲染方式本地合成视频，无需调用生成模型",
+    "覆盖广告、UGC、播客剪辑、多语言本地化等场景"
   ],
   "highlights": [
-    "开源免费，无席位费、渲染费或水印，仅模型服务按用量单独计费（项目方数据）",
-    "自研 SVML 标记语言与编译器，把视频描述编译为可重跑的完整合成工程"
+    "开源免费，项目方说明不收取座位费、按次渲染费，也不加水印，模型服务费用由用户自选服务商另计",
+    "通过 npx skills add 安装为 Agent Skill，可在任意项目目录中被 Claude Code、Codex 等调用"
   ],
-  "is_ai_product": true,
-  "positioning": "Hypit 为 Claude Code、Codex 等编码智能体提供一套视频创作语言与系统，把参考视频克隆成可编辑、可重复运行的完整工作流，而非一次性成片。",
+  "audience": "使用 Claude Code、Codex 等 AI 编程助手制作短视频广告、UGC、播客剪辑等内容的创作者和团队",
   "quickstart_cmd": "npx skills add hypit-ai/hypit -g",
-  "quickstart_note": "安装为 Agent Skill 后在项目目录用 /hypit 指令让智能体克隆或新建视频，首次使用会自动检查并准备可执行程序",
+  "quickstart_note": "安装为 Agent 的 Skill，首次使用时由 Agent 自动检查并协助准备 Hypit 可执行程序",
   "risks": [
-    "采用自定义的 Hypit Open Source License，非标准开源协议，使用前需自行确认条款",
-    "克隆他人短视频或广告素材制作衍生内容可能涉及版权或平台服务条款风险"
+    "使用自定义的 Hypit Open Source License，非常见开源协议，需自行确认许可条款",
+    "核心用法包括克隆 Meta 广告库、TikTok、Reels 等平台上的他人视频并替换内容，可能涉及版权或平台条款问题"
   ],
-  "tagline": "让 AI 智能体一键克隆爆款视频，批量产出可复用的完整制作工作流",
-  "readme_sha": "620a5090a7217feac21b46dab22e6056e3c609a3",
-  "generated_at": "2026-09-19",
-  "prompt_version": 2,
+  "readme_sha": "15f31267a99d7c4a520fcd3a8cc9e7c3f1bfc8c5",
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
   "model": "claude-sonnet-5"
 }

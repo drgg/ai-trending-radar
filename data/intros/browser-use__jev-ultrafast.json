@@ -1,28 +1,27 @@
 {
+  "tagline": "用可索引元素表替代截图驱动浏览器操作的极速网页智能体",
+  "positioning": "browser-use旗下的浏览器智能体，给定一个目标后，用结构化的可索引元素表代替截图，让小模型只做操作与目标选择，仅在输入文本时才生成文字，以减少决策所需的网络往返。",
   "is_ai_product": true,
-  "category": "编程 Agent 与运行框架",
-  "tagline": "超快浏览器操作 Agent，用动态索引动作空间替代截图驱动方案",
-  "positioning": "一个浏览器自动化 Agent 框架，通过结构化 DOM 快照生成动态索引动作空间，一次网络请求内同时选出操作和目标元素，仅在需要输入文本时调用小型 LLM 生成内容，以降低延迟。",
+  "category": "Agent 平台与基础设施",
   "features": [
-    "每次观察生成带编号的可操作元素表，动态定义可执行动作空间",
-    "操作预测与目标预测合并为一次 TypeSafe 网络请求，减少往返次数",
-    "默认不依赖截图，直接消费结构化页面状态，本地调试界面才启用截图",
-    "执行前校验目标元素页面新鲜度与遮挡情况，降低误操作风险",
-    "代码库精简，核心循环、DOM 快照、浏览器执行等模块均可直接阅读"
+    "基于元素表选择CLICK、TYPE_TEXT、SELECT等操作，仅TYPE_TEXT时才调用小模型生成文字",
+    "默认不使用截图驱动决策，截图仅用于本地检查器界面展示",
+    "通过Browser Harness连接Chrome，执行前校验目标元素新鲜度与是否被遮挡",
+    "提供Python库接口Agent类，可自定义起始URL和自然语言目标运行",
+    "DONE状态仍需额外独立验证结果，不自动判定任务完成"
   ],
   "highlights": [
-    "项目方数据：Google Flights 单程航班搜索任务7.1秒完成，含模型调用与页面加载等待",
-    "项目方数据：与对比版本相比，浏览器协议调用次数从1092次降至101次，任务耗时中位数下降25%"
+    "项目方数据：Google Flights上从Zürich到London的单次自然语言目标搜索耗时7.1秒",
+    "项目方数据：同一任务六次测试，中位耗时9.450秒降至7.092秒，仅三次重复非通用基准"
   ],
-  "audience": "需要构建低延迟网页自动化/浏览器 Agent 的开发者，尤其关注减少模型调用和协议往返开销的团队",
-  "quickstart_cmd": "git clone https://github.com/browser-use/jev-ultrafast.git && cd jev-ultrafast && uv sync && cp .env.example .env && uv run jev",
-  "quickstart_note": "需自行配置 TYPESAFE_API_KEY 和 TEXT_MODEL_API_KEY（如 OpenRouter），并通过 Browser Harness 连接 Chrome",
+  "audience": "需要在Chrome中自动执行网页操作任务、或研究结构化观测驱动浏览器智能体架构的开发者",
+  "quickstart_cmd": "uv sync",
+  "quickstart_note": "需先clone仓库，配置.env填入TYPESAFE_API_KEY和TEXT_MODEL_API_KEY，再执行uv run jev启动本地演示",
   "risks": [
-    "自动化操作 Google Flights、Wikipedia 等第三方网站，可能受目标网站服务条款限制",
-    "依赖 TypeSafe 商业 API 和第三方文本模型服务，实际使用会产生外部 API 调用成本"
+    "核心功能是用浏览器自动化操作Google Flights、Wikipedia等第三方网站，可能违反相关网站的服务条款"
   ],
   "readme_sha": "fa7d079f9192f8ad47d4016c0d534cfe72207f33",
-  "generated_at": "2026-09-28",
-  "prompt_version": 2,
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
   "model": "claude-sonnet-5"
 }

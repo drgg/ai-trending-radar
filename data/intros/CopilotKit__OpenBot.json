@@ -1,29 +1,28 @@
 {
-  "audience": "需要在自有基础设施上部署可控AI协作者的企业技术团队，尤其关注操作审计、权限治理和多Agent框架接入的场景",
+  "audience": "需要在自有基础设施上部署可控AI协作者、重视操作审计与权限治理的企业技术团队",
   "category": "Agent 平台与基础设施",
   "features": [
-    "每个Bot拥有独立容器、workspace卷和浏览器profile，可选gVisor沙箱隔离",
-    "统一网关先鉴权记录再执行，CEL策略引擎默认拒绝未授权操作",
-    "支持Google Drive、Notion等MCP服务器，工具按Bot逐一授权",
-    "Bot遇登录墙或2FA时可移交人工接管，全程操作可审计追溯",
-    "内置13个示例协作者（费用审核、会议纪要、发布说明等），配置化定义"
+    "每个Bot拥有独立容器、workspace目录和浏览器登录态，可选启用gVisor隔离",
+    "支持在workspace内执行Shell命令，命令与其他操作均经统一网关审批并留痕",
+    "基于CEL策略引擎，未设策略默认拒绝，规则执行出错也拒绝而非放行",
+    "遇到登录墙或2FA可将控制权交还人类，人工操作期间Bot动作被拒绝",
+    "兼容任意AG-UI协议Agent，可接入LangGraph、Mastra、CrewAI、Pydantic AI、Google ADK等框架"
   ],
   "highlights": [
-    "基于AG-UI协议，可接入LangGraph、CrewAI、Mastra、Pydantic AI等任意Agent框架",
-    "Docker Compose一键部署，数据存于自有PostgreSQL，不绑定任何模型厂商",
-    "官方明确定位为\"模板而非产品\"，需克隆源码后自行定制部署，无托管版本"
+    "示例包内置13个预置协作者，包括通用助手、知识问答及10个金融场景专用Agent",
+    "密钥类操作不进入对话记录，仅记录发生了请求及其持续时长，不记录具体内容"
   ],
   "is_ai_product": true,
-  "positioning": "OpenBot是可部署在自有基础设施上的开源Agent平台模板，通过AG-UI协议接入任意Agent框架，每个Bot拥有独立电脑（浏览器、文件、工具），所有操作经统一网关审批并留痕。",
-  "quickstart_cmd": "docker run -p 3001:3001 --env-file .env -e EMBEDDED_POSTGRES=on -v openbot-data:/var/lib/postgresql ghcr.io/copilotkit/openbot:latest",
-  "quickstart_note": "需先获取CopilotKit Intelligence项目密钥和模型API Key并写入.env，再执行bun install和启动脚本",
+  "positioning": "一个可克隆二次开发的模板项目，用于在企业自有基础设施上运行AG-UI协议的Agent，为其配备浏览器、文件和工具，所有动作先经网关审批、后留存审计记录。",
+  "quickstart_cmd": "cp .env.example .env && bun install",
+  "quickstart_note": "还需安装Docker与Bun 1.3+，配置CopilotKit Intelligence项目及模型API Key，再运行bash scripts/start.sh启动",
   "risks": [
-    "Bot使用独立浏览器登录第三方网站执行自动化操作，可能违反目标站点的服务条款",
-    "处于Alpha早期开发阶段，官方提示存在较多不稳定问题"
+    "核心功能之一是用真实浏览器代替用户操作第三方网站（如自动填表），可能违反目标网站的服务条款",
+    "README说明默认的OPENBOT_SINGLE_USER=true会将所有请求视为同一管理员身份，需手动开启登录后才能限制访问"
   ],
-  "tagline": "自托管AI协作者平台，每个Agent配专属浏览器、文件和操作审批网关",
-  "readme_sha": "c4cdafe64a6256a454d4a12e523491937e52eb26",
-  "generated_at": "2026-09-19",
-  "prompt_version": 2,
+  "tagline": "可自托管的AI协作者平台：每个Bot配一台独立电脑，操作先审批、后留痕",
+  "readme_sha": "0a391dd4c1f8f9fdfb8cdac914f1ee5db6f3879b",
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
   "model": "claude-sonnet-5"
 }

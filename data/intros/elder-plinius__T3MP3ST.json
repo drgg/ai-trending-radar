@@ -1,28 +1,28 @@
 {
-  "audience": "已获得授权的安全研究员、渗透测试人员和红队从业者",
+  "audience": "需要合法授权红队测试、漏洞挖掘、CTF训练的安全研究人员和渗透测试从业者",
   "category": "安全相关",
-  "tagline": "多智能体自动化红队框架，把你的AI编程Agent变成渗透测试军火库",
-  "positioning": "复用本地已在使用的AI编程Agent（Claude Code、Codex等）或离线本地模型作为决策大脑，驱动侦察-利用-报告全流程渗透测试，无需额外API密钥。",
   "features": [
-    "调用本地已登录的AI编程Agent或Ollama/LM Studio等离线模型作为大脑，无需新密钥",
-    "覆盖Web应用、CTF、源码审计等成熟场景，云、移动、二进制等仍为脚手架阶段",
-    "提供War Room浏览器界面和CLI两种操作方式",
-    "内置verify-claims命令，一键从提交数据复现README中所有基准结果",
-    "支持Docker部署，服务默认仅绑定127.0.0.1本地地址"
+    "复用本地已登录的AI编程Agent（Claude Code、Codex等）或本地模型驱动攻击流程",
+    "提供浏览器War Room界面或CLI，输入目标描述后自动执行侦察→利用→报告全流程",
+    "覆盖Web应用、CTF、源码白盒分析、机器人/嵌入式OSS漏洞挖掘等多个领域，部分为稳定功能",
+    "内置npm run verify-claims命令，可从仓库中提交的数据重新计算README中的所有指标",
+    "云安全、移动端、二进制逆向为可选武器库，仍是静态检测脚手架，未做实战基准测试"
   ],
   "highlights": [
-    "项目方数据：在XBOW官方104题挑战集上pass@1达90.1%，高于XBOW自评的85%",
-    "所有基准数字可通过npm run verify-claims从公开提交的原始数据复现，27项全部通过"
-  ],
-  "quickstart_cmd": "npm install\nnpm run server",
-  "quickstart_note": "启动后访问 http://127.0.0.1:3333/ui/ 打开War Room，在设置中连接本地Agent或配置模型密钥",
-  "risks": [
-    "这是进攻性安全工具，仅限对已获得明确书面授权的目标使用，未授权访问计算机系统在多数司法辖区属违法行为",
-    "使用第三方托管模型（如Novita）时会将目标数据和提示词发送至该服务商，需自行评估隐私和数据安全风险"
+    "项目方数据：在XBOW自家104题基准上pass@1达90.1%，高于XBOW自报的85%",
+    "号称所有README中的数字均可用一条命令从已提交数据重新推导验证"
   ],
   "is_ai_product": true,
+  "positioning": "面向已获授权的安全测试场景，用多智能体框架驱动用户已有的AI编程Agent（如Claude Code、Codex）或本地模型完成侦察-利用-报告的红队工作流，无需新增API Key。",
+  "quickstart_cmd": "npm install\nnpm run server",
+  "quickstart_note": "启动后访问 http://127.0.0.1:3333/ui/ 的War Room界面，在设置中连接本地AI Agent即可开始任务",
+  "risks": [
+    "核心功能为攻击性安全工具（红队/漏洞挖掘），README明确要求仅可用于已获得明确书面授权的目标，未经授权测试他人系统可能违法",
+    "可选择通过OpenRouter、xAI或Novita等第三方API Key运行，此时目标相关提示词和输出会发送给对应第三方服务"
+  ],
+  "tagline": "多智能体红队自动化平台，把本地AI编程Agent变成攻防武器库",
   "readme_sha": "273f481f60af3f6fc0f7582f44c2f18462bbe17f",
-  "generated_at": "2026-09-19",
-  "prompt_version": 2,
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
   "model": "claude-sonnet-5"
 }

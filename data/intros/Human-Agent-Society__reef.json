@@ -1,27 +1,27 @@
 {
+  "positioning": "项目方自述为首个面向持续自我进化智能体的开源基础设施，整合推理、反馈匹配、训练与带版本管理的交付，可用于训练模型权重或优化智能体的提示词、规则、技能等 harness。",
+  "tagline": "连接推理、反馈、训练与版本发布的智能体持续自我进化基础设施",
   "is_ai_product": true,
   "category": "Agent 平台与基础设施",
-  "tagline": "开源的智能体持续自我进化基础设施，连接推理、反馈、训练与版本发布",
-  "positioning": "Reef 是首个开源的持续自我进化智能体基础设施，把推理服务、反馈收集、训练学习、版本发布整合成闭环，支持训练模型权重或优化智能体harness两种进化路径。",
   "features": [
-    "四步闭环：提供推理服务、匹配用户反馈、生成候选更新、评估后发布新版本",
-    "支持用Slime、SGLang训练模型权重，或优化harness的提示词、规则与技能",
-    "推理接口兼容OpenAI与Anthropic格式，可直接接入/v1/chat/completions",
-    "内置Reefine等多种recipe，覆盖科学发现、连续任务学习、真实使用反馈等场景",
-    "更新期间保持服务在线，具备版本历史管理与回滚能力"
+    "支持用 Slime 与 SGLang 训练模型权重，实现权重层面的持续学习",
+    "支持优化智能体 harness（提示词、规则、技能），无需 GPU 只需模型接口",
+    "提供 OpenAI/Anthropic 兼容的推理接口，并可通过 /reef/report 上报反馈打分",
+    "内置 Reefine 配方，可依据自然语言需求自动改写编码 harness（需手动安装启用）",
+    "支持配置化的候选评估与版本发布策略，更新权重或 harness 时服务保持在线"
   ],
   "highlights": [
-    "项目方数据：在AIME2025、Terminal-Bench、IMOAnswerBench等基准上验证了多个recipe的改进效果",
-    "宣称是唯一兼具在线推理、权重训练、版本管理与harness进化四种能力的开源框架"
+    "将推理、反馈、训练、版本发布四个环节打通为一个闭环流程，而非零散工具拼接",
+    "提供 SAO、GEPA、TTT-Discover、Reefine 等多种预置配方，覆盖科学发现、连续任务学习、使用中学习等场景"
   ],
-  "audience": "需要让智能体从真实交互中持续学习的AI工程师，以及需要做RL训练或优化coding agent harness的团队",
+  "audience": "需要为智能体构建持续学习或自我改进能力的研究者和工程团队，尤其是模型权重训练或 Agent harness 优化方向的开发者",
   "quickstart_cmd": "uv pip install reef-infra",
-  "quickstart_note": "需先用uv创建并激活虚拟环境；权重训练需配套GPU栈，harness进化只需一个模型API即可体验",
+  "quickstart_note": "安装前需用 uv 创建并激活虚拟环境；若需制品与检查点功能，还需另外安装 git-lfs。",
   "risks": [
-    "harness自我进化功能会让模型以coding agent身份自动修改并执行代码变更，需在沙箱或可信环境中运行"
+    "Reefine/reef-pi 的 harness 自我进化功能默认在无沙箱环境下执行命令，仅在 Linux 且具备 bwrap/pasta 支持非 root 用户时才能隔离，否则以本机权限运行改写后的 harness。"
   ],
-  "readme_sha": "3c7cc72b73e57cc45952a03232c8c2ee4126878f",
-  "generated_at": "2026-09-28",
-  "prompt_version": 2,
+  "readme_sha": "7a7a7cc470850494e40277f4aa201598c7eddb45",
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
   "model": "claude-sonnet-5"
 }

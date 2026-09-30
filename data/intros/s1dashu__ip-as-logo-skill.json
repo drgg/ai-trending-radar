@@ -1,27 +1,25 @@
 {
   "is_ai_product": true,
   "category": "Skills 与写作/设计",
-  "tagline": "面向AI Agent的极简可爱IP吉祥物/Logo生成技能包",
-  "positioning": "遵循开放Agent Skills格式的指令文档，指导兼容AI Agent（需搭载顶尖图像模型）生成极简、圆润、带轻微新拟物质感的公司吉祥物形象，不绑定特定Agent产品。",
+  "tagline": "一个指导 AI 智能体生成简化可爱 IP 吉祥物 logo 的 Agent Skill",
+  "positioning": "以 SKILL.md 格式提供设计规则文档，约束图像模型按固定构图和配色生成圆润吉祥物 logo，可安装到兼容的 AI 智能体中调用，不绑定特定产品。",
   "features": [
-    "主体由4-7个大块基础形状构成，严格限制视觉复杂度",
-    "默认三色方案：两个主体色加一个命名纯色背景",
-    "主体固定从左下或右下角凸显，占比约85%-95%",
-    "用户确认方向后自动生成三方向共六张独立候选图",
-    "兼容Codex、Doubao、Coze、Manus、Gemini Apps等Agent"
+    "单一 IP 主体由约 4-7 个大色块构成，限制细节复杂度",
+    "默认使用三种语义色：两种 IP 主色加一种背景色",
+    "默认批量生成六张独立图像，三张左下三张右下构图",
+    "开放主题时优先选用常见可爱动物作为吉祥物",
+    "需配合顶级图像模型使用，如无可选启用其他工具或提供 API key"
   ],
   "highlights": [
-    "官网ipaslogo.com提供免费商用Logo库，无需自备兼容Agent即可下载",
-    "仓库仅含单个SKILL.md指令文档，无脚本或生成依赖，轻量易安装"
+    "遵循开放 Agent Skills 格式，兼容 Codex、Coze、豆包、Gemini Apps 等多种智能体，不依赖单一产品",
+    "配套官网提供搜索库和免费下载的现成 logo，均可商用"
   ],
-  "audience": "需要快速产出品牌吉祥物或Logo草案的产品设计师、独立开发者，以及已在使用Codex等AI Agent的团队",
+  "audience": "需要为产品快速生成统一风格吉祥物 logo 的设计师、独立开发者及使用兼容 AI 编码智能体的团队",
   "quickstart_cmd": "npx skills@latest add s1dashu/ip-as-logo-skill",
-  "quickstart_note": "安装后需在兼容Agent中启用顶尖图像模型（如GPT Image 2、Nano Banana Pro）才能实际生成图像",
-  "risks": [
-    "生成效果依赖第三方图像模型且具随机性，项目方不做合规或质量自动校验"
-  ],
+  "quickstart_note": "安装完成后可在 Codex、豆包、Coze 等兼容智能体中直接对话调用生成吉祥物图像",
+  "risks": [],
   "readme_sha": "5c90d60233172ad9deff581d28059be36f00442e",
-  "generated_at": "2026-09-19",
-  "prompt_version": 2,
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
   "model": "claude-sonnet-5"
 }

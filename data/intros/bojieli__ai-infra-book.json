@@ -1,25 +1,25 @@
 {
-  "is_ai_product": true,
+  "audience": "已用过大模型API或本地部署过模型、想弄清推理速度与成本原因的开发者，以及系统、网络、芯片方向的工程师和研究者。",
   "category": "其他",
-  "tagline": "从硬件约束与模型架构出发，量化推导 LLM 推理训练系统设计的开源书稿",
-  "positioning": "《深入理解 AI Agent》作者的姊妹篇，用量化估算方法系统讲解 LLM 推理与训练系统设计，覆盖加速器、算子、网络、调度等十二章内容，配套计算工具与实验代码。",
   "features": [
-    "十二章覆盖模型架构、加速器、算子运行时、数据中心网络、推理与训练系统等主题",
-    "配套 Python 计算工具可复算书中数字，也可替换模型和硬件重新估算",
-    "按章节组织实验代码与运行记录，需 GPU 的实验注明硬件与依赖",
-    "提供简体中文、英文、繁体中文三语 PDF、EPUB 及在线阅读版本",
-    "全书正文为 Markdown，持续开源修订，欢迎勘误与翻译贡献"
+    "全书12章覆盖模型架构、加速器、数据中心网络、推理优化、分布式训练等主题",
+    "配套计算工具用Python标准库复算书中数字，静态计算无需GPU或模型权重",
+    "配套实验按章节存放于experiments目录，附运行方法、输入条件与结果说明",
+    "提供简体中文原版及英文、繁体中文、俄语社区翻译版本",
+    "支持PDF、EPUB与在线阅读三种格式，推送main后自动构建发布"
   ],
   "highlights": [
-    "姊妹篇《深入理解 AI Agent》在 GitHub 获得 45k+ Star（项目方数据）",
-    "方法论强调\"从约束推导设计\"：先算硬件理论上限，再对照实测找差距来源"
+    "书稿仍为初稿并持续修订，GitHub Actions会检查PR的网站与四种语言PDF/EPUB构建",
+    "方法论强调从硬件约束和第一性原理推导设计上限，再对照实测差距定位系统开销"
   ],
-  "audience": "已调用或部署过大模型、想弄清推理训练系统底层原理的应用工程师、系统/网络/芯片工程师及相关研究者",
+  "is_ai_product": true,
+  "positioning": "开源技术书稿，从硬件约束和模型架构出发量化推导LLM推理与训练系统设计，是《深入理解AI Agent》姊妹篇，含全书正文、PDF/EPUB及配套计算工具与实验。",
   "quickstart_cmd": "git clone https://github.com/bojieli/ai-infra-book.git",
-  "quickstart_note": "克隆后可用 calc.py 复算书中算例，静态计算仅需 Python 3.10+ 标准库，无需 GPU 或模型权重",
+  "quickstart_note": "克隆后可用python3 calculations/calc.py复算或估算模型资源需求，仅需Python 3.10+标准库，无需GPU。",
   "risks": [],
-  "readme_sha": "58b0d6e93379a29c1fe02b09e5061fa39f0030da",
-  "generated_at": "2026-09-28",
-  "prompt_version": 2,
+  "tagline": "开源书稿：从硬件约束出发量化推导LLM推理与训练系统设计",
+  "readme_sha": "b8595154c25f535aca03754bba40237fd4f19c63",
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
   "model": "claude-sonnet-5"
 }

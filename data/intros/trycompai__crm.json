@@ -1,27 +1,27 @@
 {
   "is_ai_product": true,
   "category": "AI 应用产品",
-  "tagline": "开源CRM，AI Agent是核心而非附加聊天框",
-  "positioning": "Comp AI CRM 把自主研究型Agent作为CRM的运行主体，Agent独立部署、自定调度、调研客户信息并按证据强弱决定是否落库，而不是给传统CRM表单加个聊天框。",
+  "tagline": "开源的 Agent 优先 CRM：AI 独立运行，自主调研、记录客户信息",
+  "positioning": "区别于数据库加聊天框式的AI CRM，Agent不是附加功能而是主角：拥有自己的部署、日程和工作队列，自主决定调研对象，遵循证据分级原则写入记录，从不猜测客户信息。",
   "features": [
-    "Agent独立部署运行，拥有自己的任务队列、调度计划和研究预算",
-    "18个内置工具加4个技能文件，按证据强度分级录入，杜绝置信度打分",
-    "沙箱支持bash/grep/glob执行，默认deny-all出站，且不挂载数据库凭证",
-    "无需任何外部API Key即可运行，靠已有邮件与会议记录做基础调研",
-    "每个联系人/公司/交易都有Agent标签页，可查看执行步骤和决策理由"
+    "Agent独立部署运行，按自身工作队列和日程决定下一步调查目标，非请求响应模式",
+    "内置18个工具和4个技能文件，用于识别联系人、调研公司、记录事实并安排复查",
+    "工具只报告观测结果不接受置信度评分，弱证据转为建议交人工确认，强证据才写入记录",
+    "沙箱具备shell能力但默认deny-all出站网络，且从不注入数据库凭证",
+    "所有外部数据源均为可选，无任何API Key时仍可基于已有邮件和会议记录工作"
   ],
   "highlights": [
-    "设计理念强调工具只报告观测事实、拒绝AI自评置信度，弱证据仅生成待人工确认的建议",
-    "沙箱环境无网络无数据库访问权限，从架构上防止客户数据经由Shell命令泄露"
+    "项目方设计理念：拒绝让模型自评置信度，因为模型倾向于给出让自己显得有用但可能错误的分数",
+    "每个联系人、公司、交易都有Agent标签页可查看其调研步骤、放弃的线索及原因，支持人工介入答疑"
   ],
-  "audience": "需要AI自动调研、维护和补全客户资料的销售/CRM团队，以及关注Agent系统架构设计的开发者",
+  "audience": "希望自建CRM并让AI agent自动调研、维护客户资料的技术团队或自托管开发者",
   "quickstart_cmd": "git clone https://github.com/trycompai/crm.git && cd crm",
-  "quickstart_note": "需先装好Bun和Docker，配置.env后依次执行bun install、docker compose up -d、数据库迁移与bun run dev",
+  "quickstart_note": "需先安装Bun和Docker，克隆后复制.env.example为.env并配置，再依次执行bun install、docker compose up -d、db:deploy、dev",
   "risks": [
-    "需接入Google/Microsoft账号授权读取Gmail、日历及LinkedIn数据，涉及第三方账号权限和隐私合规问题"
+    "Agent会对联系人和公司进行网络调研，并可能通过Perplexity、Context/LinkedIn等外部服务补全个人信息，涉及采集和处理第三方个人数据"
   ],
   "readme_sha": "c761ebff650556235dd27f7c320ce94a6e5cdc30",
-  "generated_at": "2026-09-19",
-  "prompt_version": 2,
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
   "model": "claude-sonnet-5"
 }

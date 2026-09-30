@@ -1,25 +1,27 @@
 {
   "is_ai_product": true,
   "category": "本地推理与模型",
-  "tagline": "用Swift+Metal专为Gemma 4 26B打造的运行时，8GB内存Mac也能跑26B大模型",
-  "positioning": "面向Apple Silicon Mac的模型专用推理引擎，通过流式加载专家权重把26B参数模型的内存占用压到约2GB，而非通用的MLX/llama.cpp包装器。",
+  "tagline": "Swift+Metal运行时，让264亿参数的Gemma 4模型在8GB内存的Apple Silicon Mac上运行",
+  "positioning": "面向Apple Silicon Mac的模型专用推理运行时，仅用约2GB内存运行Gemma 4 26B-A4B模型，通过从SSD流式加载专家权重实现，而非基于MLX或llama.cpp的通用封装。",
   "features": [
-    "仅保留1.35GB共享核心与KV缓存常驻内存，按需从SSD流式加载专家权重",
-    "提供原生Mac App、命令行CLI和本地OpenAI兼容Server三种使用方式",
-    "支持视觉理解，需额外安装约1.1GB的图像模型包(M2及以上)",
-    "CLI和Server支持多轮对话、函数调用声明及采样参数自定义",
-    "内置流式安装器，边下载边重打包为.gturbo格式，避免占用双份磁盘空间"
+    "内存中仅保留1.35GB共享核心和FP16 KV缓存，其余专家权重按需从SSD流式读取",
+    "提供原生Mac应用、命令行工具和实验性OpenAI兼容本地服务器，共用同一模型目录",
+    "可选安装约1.1GB视觉扩展包实现图文对话，需M2及以上芯片，文本推理可在M1运行",
+    "安装器流式重打包权重，不在磁盘上生成完整14.3GB源检查点",
+    "支持函数工具声明，但不直接执行工具调用，由客户端负责授权和执行"
   ],
   "highlights": [
-    "项目方数据：8GB M2 MacBook Air上解码速度5.1-6.3 tok/s，24GB M5 Pro上可达31-35 tok/s",
-    "模型专用运行时而非通用推理框架包装器，针对Gemma 4 26B-A4B做了103项内核/缓存/IO优化实验"
+    "项目方数据：8GB M2 MacBook Air上解码速度5.1-6.3 tok/s，24GB M5 Pro上为31-35 tok/s，官方说明该结果仅为参考点而非性能上限",
+    "验证目标机型为8GB内存的M2 MacBook Air，26B参数模型在该配置下仍可完整运行"
   ],
-  "audience": "拥有Apple Silicon Mac(尤其8GB内存机型)、想在本地运行大模型又不想升级硬件的开发者和爱好者",
+  "audience": "拥有Apple Silicon Mac（尤其8GB内存设备）、希望在本地运行大参数量模型的开发者和爱好者",
   "quickstart_cmd": "git clone https://github.com/drumih/turbo-fieldfare.git && cd turbo-fieldfare && swift build -c release && .build/release/TurboFieldfareMac",
-  "quickstart_note": "首次运行需下载约15GB模型文件；仅支持macOS 26+Metal 4+Xcode 26的arm64 Apple Silicon Mac。",
-  "risks": [],
+  "quickstart_note": "需macOS 26、Metal 4、Xcode 26、Swift 6.2+，仅支持arm64；首次运行需在App内下载约15GB模型",
+  "risks": [
+    "本地OpenAI兼容服务器无远程身份验证和TLS，README提示需保持在本地回环，不要直接暴露到公网"
+  ],
   "readme_sha": "45cd3d182820e20e43ac90669233d01d96248f5e",
-  "generated_at": "2026-09-19",
-  "prompt_version": 2,
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
   "model": "claude-sonnet-5"
 }

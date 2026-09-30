@@ -1,28 +1,28 @@
 {
   "is_ai_product": true,
   "category": "Agent 平台与基础设施",
-  "tagline": "开源企业级世界模型，双时态知识图谱驱动的知识治理与决策系统",
-  "positioning": "DeepLethe打造的开源企业知识引擎，将时间感知与本体内置于底层，知识随材料自动演化，冲突检测、推理与决策均基于本体运行，可离线部署构建可信决策核心与合规审计链。",
+  "tagline": "开源自托管企业世界模型，用双时态知识图谱做知识治理与可信决策",
+  "positioning": "面向企业的开源世界模型，单个Rust二进制加一个Postgres即可运行，把时间感知和本体内置在底层知识系统中，随资料摄取持续演化、检测冲突并留存决策依据，可离线部署在企业自有硬件上。",
   "features": [
-    "支持PDF/DOCX等多格式文档及网页、GitHub、Jira、Notion等数据源定时同步",
-    "全文检索(Tantivy)与向量检索(pgvector)融合，答案流式输出并附来源引用",
-    "内置Agent可搜索文档、遍历图谱、查询数据库，并通过MCP接入Claude Desktop等客户端",
-    "双时态知识图谱：修正事实不覆盖旧版本，保留世界真实状态与系统认知两条时间线",
-    "本体驱动的冲突检测与推理，实体合并可撤销，决策过程留痕形成审计日志"
+    "支持PDF、DOCX、CSV等多格式上传，网页、RSS、GitHub、Jira、Notion、S3等可定时同步",
+    "全文检索(Tantivy)与向量检索(pgvector)经RRF融合，回答附带可点击引用出处",
+    "内置Agent搜索文档、遍历图谱、查询数据库，只读工具经MCP暴露给Claude等",
+    "双时态图谱记录事实的有效期与系统发现时间，修正事实时保留旧版本而非覆盖",
+    "提供实体归并去重、人工审核队列及三类冲突检测处理方式，合并操作可撤销"
   ],
   "highlights": [
-    "单个Rust二进制加PostgreSQL即可运行，无需额外中间件，支持全离线部署",
-    "自研Ontology2SQL方法在BIRD Mini-Dev文本转SQL基准上表现领先（项目方数据）"
+    "配套的Ontology2SQL文本转SQL方法在BIRD Mini-Dev基准上据称取得最优结果（项目方数据）",
+    "支持任意OpenAI兼容模型端点(DeepSeek、Qwen、GLM、Ollama、vLLM)，可全程离线部署",
+    "决策台账采用仅追加设计，记录每次修改的操作者、时间及对象当时快照，用于合规审计"
   ],
-  "audience": "需要自建可信知识库、决策审计追踪的企业技术团队，以及关注知识图谱、GraphRAG与Agent记忆系统的开发者",
+  "audience": "需要私有化部署企业知识库、构建可审计Agent决策系统的技术团队与知识工程师",
   "quickstart_cmd": "docker compose --profile app up -d",
-  "quickstart_note": "先clone仓库并准备Docker环境，启动后访问 http://localhost:1516 注册即成为管理员",
+  "quickstart_note": "先git clone仓库并进入目录；启动后打开localhost:1516注册，首个账号自动成为管理员",
   "risks": [
-    "项目仍处于v0.1早期阶段，数据库schema随版本演进且迁移不可回滚，升级需谨慎备份",
-    "官方提示暴露到公网前需先阅读SECURITY.md，存在安全配置风险"
+    "项目仍为v0.1版本，README提示暴露到公网前需先阅读SECURITY.md，数据库schema变更后迁移不可回滚"
   ],
-  "readme_sha": "10d5d95d0bfeb8186b10b3527576390e14c70733",
-  "generated_at": "2026-09-19",
-  "prompt_version": 2,
+  "readme_sha": "67551fb255e1088236d6d87d2f2195cec72be985",
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
   "model": "claude-sonnet-5"
 }

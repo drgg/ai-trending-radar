@@ -1,28 +1,27 @@
 {
   "is_ai_product": true,
   "category": "Skills 与写作/设计",
-  "tagline": "面向求职场景的九个 AI Skill 插件包，覆盖简历、投递、面试全流程",
-  "positioning": "面向 Claude Code、Codex 等 AI Agent 平台的求职技能插件包，提供从开源贡献积累经历、简历制作、岗位匹配到投递填表、面试演练、进度管理的九个可单独调用入口。",
+  "tagline": "面向求职全流程的 AI Skills 插件包，覆盖简历制作、岗位匹配、投递与面试准备",
+  "positioning": "面向求职场景的 AI Skills 插件包，提供九个可单独调用的入口，覆盖开源贡献积累、项目梳理、简历制作、岗位匹配、投递填写、面试准备和进度管理，支持多个 AI 编程平台安装。",
   "features": [
-    "/contributor 寻找开源问题、核对贡献规则后辅助提交 PR 积累经历",
-    "/great-resume 与 /make-resume 完成岗位定位改写并生成可编辑 HTML 简历",
-    "/job-match 对照 JD 生成要求-证据矩阵和投递建议",
-    "/job-apply 连接浏览器自动填写招聘申请表，停在提交前供用户核对",
-    "/interview 与 /offer 支持追问式面试演练和校招投递进度跟踪"
+    "九个入口分别对应开源贡献、项目导学、简历提升、简历制作、证据复盘、岗位匹配、投递填写、面试准备和进度管理",
+    "/make-resume 提供 18 个 HTML 简历模板，可浏览器内编辑并导出 PDF，也可选导出 LaTeX",
+    "/job-apply 连接已登录浏览器填写招聘网站申请表，默认停在提交按钮前供人工核对",
+    "/interview 通过一次一问的连续追问检验简历内容，不替用户编造面试答案",
+    "支持 Codex、Claude Code、TraeWork、Qoder 安装，另提供 Cursor、OpenCode、WorkBuddy 的轻量桥接入口"
   ],
   "highlights": [
-    "同时支持 Codex、Claude Code、TraeWork、Qoder、Cursor 等多平台安装",
-    "强调事实边界，不编造经历数据，关键操作均需用户逐项确认后才提交"
+    "强调事实边界，不编造职位、公司或数据，简历改写基于用户提供的证据链",
+    "/job-apply 明确要求人工确认每一步且禁止批量投递、骚扰 HR"
   ],
-  "audience": "求职中的学生和开发者，尤其是需要系统整理项目经历、制作简历、准备面试的求职者",
+  "audience": "准备求职（尤其是校招或开发岗位）、需要制作简历、准备面试或管理投递进度的开发者",
   "quickstart_cmd": "/plugin marketplace add Hisn00w/ASu-skills",
-  "quickstart_note": "适用于 Claude Code，安装后执行 /plugin install asu-skills@asu 并按提示 reload-plugins",
+  "quickstart_note": "适用于 Claude Code，安装后需再执行 /plugin install asu-skills@asu 并 /reload-plugins",
   "risks": [
-    "/job-apply 涉及自动化操作已登录浏览器填写招聘网站表单，需留意平台服务条款风险",
-    "/contributor 会代为提交开源 PR，需确保符合目标仓库的贡献规范，避免滥用"
+    "/job-apply 依赖浏览器自动化操作招聘网站账号填写并提交申请表，可能受目标网站服务条款限制"
   ],
   "readme_sha": "35907cfac7fad591af0cd1cb3143b63383343c7a",
-  "generated_at": "2026-09-28",
-  "prompt_version": 2,
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
   "model": "claude-sonnet-5"
 }

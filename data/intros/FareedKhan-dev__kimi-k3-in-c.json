@@ -1,26 +1,25 @@
 {
   "is_ai_product": true,
   "category": "本地推理与模型",
-  "tagline": "用纯C99在单CPU、8GB内存上运行2.78万亿参数Kimi K3模型的推理引擎",
-  "positioning": "面向超大规模MoE模型的CPU推理引擎，通过流式加载1.45TB专家权重、LRU缓存和4bit量化，把1.56TB检查点压缩到8GB内存运行，不同内存预算下输出字节级一致。",
+  "tagline": "纯C99实现的推理引擎，让2.78万亿参数Kimi K3模型能在单CPU、8GB内存下运行",
+  "positioning": "面向1.56TB checkpoint的Kimi K3模型的CPU推理引擎，不依赖BLAS、框架或GPU，通过4bit量化与流式加载把内存需求压缩到消费级硬件可承受的范围，在8GB到224GB间提供多档内存预设。",
   "features": [
-    "无BLAS无框架无GPU依赖，纯C99代码可跨Linux/macOS/Windows移植",
-    "密集主干层可流式读取，1.45TB路由专家权重不常驻内存按需读取",
-    "LRU缓存管理专家权重，配合4bit量化(MXFP4)和AVX2 SIMD内核",
-    "提供laptop到server等多档内存预设，8GB到224GB均可运行",
-    "内置测试套件，用PyTorch参考结果逐层验证推理正确性"
+    "纯C99编写，零依赖（无BLAS无框架无GPU），支持Linux/macOS/Windows AVX2平台",
+    "专家权重以MXFP4（4bit）打包存储，按需流式读取，不常驻内存",
+    "密集trunk层打包为单文件，提供laptop/desktop/workstation/server/max五档内存预设",
+    "采用KDA线性注意力与MLA多头潜在注意力，降低长上下文计算与内存开销",
+    "内置三重测试门（teacher forcing、贪婪解码、增量解码），与PyTorch参考实现逐token对齐验证"
   ],
   "highlights": [
-    "项目方数据：8GB内存下生成约32.69秒/token，127GB内存下约10.69秒/token",
-    "不同内存预算（8GB~224GB）下生成结果字节级完全一致，仅速度不同",
-    "完整检查点1.56TB，通过流式读取与打包主干把内存下限降到8GB"
+    "项目方数据：8.24GB内存预设下生成速度约32.69秒/token，127.92GB内存预设下约10.69秒/token，速度较慢但输出正确",
+    "项目方数据：同一模型在不同内存预算（8GB至224GB）下产生字节级完全一致的输出"
   ],
-  "audience": "对底层推理引擎实现、CPU上运行超大MoE模型、系统编程感兴趣的工程师和研究者",
-  "quickstart_cmd": "git clone https://github.com/FareedKhan-dev/kimi-k3-in-c.git && cd kimi-k3-in-c && make -j && make test",
-  "quickstart_note": "该命令只构建并验证引擎，无需下载模型；实际生成文本需另外下载1.56TB检查点并打包主干层。",
+  "audience": "希望在消费级硬件上研究超大规模MoE模型推理原理、或从事CPU推理系统编程的工程师和研究者",
+  "quickstart_cmd": "git clone https://github.com/FareedKhan-dev/kimi-k3-in-c.git",
+  "quickstart_note": "克隆后执行make -j编译，再运行make test验证引擎正确性，全程约一分钟，无需下载1.56TB模型",
   "risks": [],
-  "readme_sha": "3554ea15a903aed8f0287eac2759de1a073e652f",
-  "generated_at": "2026-09-19",
-  "prompt_version": 2,
+  "readme_sha": "9083f4d8a0a2cd02a6570a400829ccb070d7aaee",
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
   "model": "claude-sonnet-5"
 }

@@ -1,25 +1,26 @@
 {
-  "is_ai_product": true,
+  "audience": "需要搭建、审计智能体运行环境的开发者，以及希望通过 MCP 让 Codex、Claude、Grok 等客户端接入统一能力体系的团队。",
   "category": "Agent 平台与基础设施",
-  "tagline": "面向智能体的开放操作系统，提供CLI、能力胶囊与运行时管理",
-  "positioning": "AOS Community Edition 是为智能体设计的可审查、可组合运行环境，提供 aos CLI、HTTP API、官方 capsule 集合及 MCP 接入，供开发者搭建和治理agent系统。",
   "features": [
-    "aos CLI与HTTP API统一管理运行时、发行版与capsule",
-    "内置22个官方生产级capsule作为可组合用户态构建块",
-    "aos mcp serve支持Codex、Claude、Grok等客户端接入",
-    "Forge工具辅助智能体检查系统、发现缺口并构建最小权限capsule",
-    "发布物附带校验和、Sigstore签名与构建溯源证明"
+    "安装脚本自动部署 aos CLI 及运行时，并固定安装 22 个社区版能力胶囊(capsule)",
+    "aos mcp serve 提供 MCP 接入端，供 Codex、Claude、Grok 等客户端共用",
+    "内置 Forge 工具链，帮助智能体检查系统、发现能力缺口并构建最小权限胶囊",
+    "发布版本附带校验和、Sigstore 签名和构建溯源证明，支持 stable/dev/nightly 更新通道",
+    "可选导入已有 astrid 独立运行时状态，且不改动原始安装"
   ],
   "highlights": [
-    "项目方称安装全部22个capsule约需2分钟等待（受限流批次影响），为自报数据",
-    "支持stable、dev、nightly等多签名发布渠道，元数据未签名时安装会失败关闭"
+    "安装全部 22 个能力胶囊需等待限速批次完成，项目方说明约耗时两分钟",
+    "每个发布 tag 必须先通过运行时兼容性与自愈校验双重门禁",
+    "MCP 审批默认走本地系统原生对话框（AppKit/Windows/Pinentry），不接受任意字符串或密码字段"
   ],
-  "audience": "需要为Codex、Claude、Grok等智能体提供可控本地运行环境、权限管理与可组合能力扩展的开发者",
+  "is_ai_product": true,
+  "positioning": "AOS Community Edition 是面向智能体的操作系统，围绕 aos CLI、HTTP API、能力胶囊(capsule)、模型/供应商体验与审计功能构建，供开发者搭建可组合、可检查的智能体运行环境。",
   "quickstart_cmd": "curl --proto '=https' --tlsv1.2 -fsSL https://aos.unicity.ai/install.sh | sh",
-  "quickstart_note": "安装后执行aos init完成初始化，可加--offline离线使用本地已打包的capsule资源。",
+  "quickstart_note": "安装脚本执行后需运行 aos init 完成初始化，也可用 aos init --offline 离线部署。",
   "risks": [],
-  "readme_sha": "518268beb007a32d6c64eaf91451f2ba1fcea720",
-  "generated_at": "2026-09-19",
-  "prompt_version": 2,
+  "tagline": "面向智能体的可组合操作系统，提供 CLI、能力胶囊体系与审计机制。",
+  "readme_sha": "098dbfbde1bc6d414ecb8ebf5b1b20cc6c44042e",
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
   "model": "claude-sonnet-5"
 }

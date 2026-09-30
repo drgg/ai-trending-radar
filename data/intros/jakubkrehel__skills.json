@@ -1,25 +1,24 @@
 {
   "is_ai_product": true,
   "category": "Skills 与写作/设计",
-  "tagline": "一套面向 AI Agent 的界面设计技能集，帮助打造更好的 UI",
-  "positioning": "为 Claude 等 Agent 提供可插拔的设计技能包，覆盖 UI、排版、色彩、无障碍、布局与文案，让 Agent 按专业标准审查和改进界面。",
+  "tagline": "一套帮助构建优秀界面的 Agent Skills 合集，涵盖 UI、排版、配色、布局与文案",
+  "positioning": "面向 AI 编程助手（如 Claude Code）的技能包，将作者在个人网站和设计工程杂志 Interfaces 上的界面设计经验封装为可调用的 agent skills，用于审查和改进项目界面。",
   "features": [
-    "better-ui 涵盖圆角、光学对齐、图标、点击区域、动画等界面细节",
-    "better-typography 处理字号、间距、可变字体、断行截断等排版问题",
-    "better-colors 生成调色板、语义化 token 并检查对比度",
-    "better-accessibility 帮助项目符合无障碍标准",
-    "interface-review、break、variant 支持界面审查与多方案迭代"
+    "better-ui 等系列技能覆盖圆角、对齐、图标、动效等 UI 细节",
+    "better-typography 处理字号、间距、可变字体等排版问题",
+    "better-colors 支持生成调色板、语义色板、格式转换、对比度检查",
+    "interface-review 对 UI、排版、布局、配色、文案、可访问性做综合审查",
+    "break 和 variant 可渲染组件多状态压力测试或生成多种变体，均需用户手动调用"
   ],
   "highlights": [
-    "作者将个人设计工程博客 Interfaces 的内容整理成可复用技能",
-    "可作为 Claude Code 插件直接安装使用"
+    "由多个独立技能组成，better-interface 可一次性整合所有 better-* 技能进行综合审查"
   ],
-  "audience": "使用 Claude 等 Agent 工具进行前端/UI 开发的设计工程师和开发者",
+  "audience": "使用 Claude Code 等 AI 编程工具进行前端/界面开发的设计师和工程师",
   "quickstart_cmd": "npx skills add jakubkrehel/skills",
-  "quickstart_note": "也可作为 Claude Code 插件安装：/plugin marketplace add jakubkrehel/skills",
+  "quickstart_note": "也可在 Claude Code 中执行 /plugin marketplace add 和 /plugin install 安装为插件",
   "risks": [],
   "readme_sha": "a564ec0a2f60c6072c813e55e49d9df228070819",
-  "generated_at": "2026-09-19",
-  "prompt_version": 2,
+  "generated_at": "2026-09-30",
+  "prompt_version": 3,
   "model": "claude-sonnet-5"
 }
