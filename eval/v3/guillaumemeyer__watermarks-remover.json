@@ -1,0 +1,27 @@
+{
+  "is_ai_product": true,
+  "category": "开发者工具与集成",
+  "tagline": "跨厂商清除 AI 水印与溯源标记的 Agent Skill 与本地服务工具",
+  "positioning": "面向 Claude Code 等 Agent host 的技能加本地服务，通过 HTTP 调用清除文本与文件中的多厂商 AI 水印及溯源标记，用于用户自有内容的隐私清理",
+  "features": [
+    "文本层清除隐藏 Unicode、异形空格等确定性标记，统计型水印靠 Agent 改写",
+    "文件层清除 C2PA/EXIF/XMP 等溯源信息，支持图片、PDF、Office、音视频等格式",
+    "识别 Claude、Gemini/SynthID-Text、OpenAI 及开源 LLM 水印等多厂商类别",
+    "可选 PostToolUse Hook，对 Agent 写入的文件做确定性检测(check)或清除(clean)",
+    "提供 Claude Code、Cursor、Grok 等多种 Agent host 的安装方式"
+  ],
+  "highlights": [
+    "Skill 本身不含清除逻辑，仅作为 HTTP 客户端调用本地/远程服务执行实际操作",
+    "Hook 模式由脚本确定性处理写入文件，而非依赖模型自主判断是否清理"
+  ],
+  "audience": "使用 Claude Code、Cursor 等 AI 编程助手，需要清理自有内容中 AI 水印/溯源标记的开发者",
+  "quickstart_cmd": "python3 install_skill.py --skill remove-ai-marks --target claude-code",
+  "quickstart_note": "安装技能后还需另启本地服务 make serve，默认监听 127.0.0.1:8765",
+  "risks": [
+    "核心功能是清除 AI 生成内容的水印与溯源标记（如 C2PA、SynthID），可能与部分地区 AI 内容标识法规要求相冲突"
+  ],
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 1,
+  "still_over": []
+}

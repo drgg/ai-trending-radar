@@ -1,37 +1,65 @@
 """用 Claude API 为仓库生成中文介绍；按 README sha 缓存，避免重复调用。"""
 import json
 import os
+import re
 import shutil
 import subprocess
 from datetime import date
 from pathlib import Path
 
 INTRO_DIR = Path(__file__).resolve().parent.parent / "data" / "intros"
-PROMPT_VERSION = 2  # 改动 schema 或提示词时加一，旧缓存会自动重新生成
+PROMPT_VERSION = 3  # 改动 schema 或提示词时加一，旧缓存会自动重新生成
 
 SYSTEM = """你是一名技术编辑，为中文读者撰写 GitHub 热门 AI 项目的简介。读者会快速浏览，简短比全面更重要。
-依据仓库元数据和 README 摘录写作，只陈述材料里有的事实；项目方自报的性能数字要注明"项目方数据"。
-语言简洁具体，避免空话和营销腔。
+依据仓库元数据和 README 摘录写作，只陈述材料里有的事实，语言简洁具体，避免空话和营销腔。
+- 项目方自报的性能、速度、基准数字都要注明"项目方数据"；如果 README 同时说明该结果没有达到项目自己设定的目标或门槛，要一并写出。
+- 不写材料无法支撑的评价，例如"迅速走红""增长迅速""业界领先"。星数本身不算亮点。
+- 元数据和 README 的数字冲突时，以 README 为准。
+- 描述功能时照 README 的默认行为写；需要手动开启的，要说明"可选"或"需开启"。
 
-各字段的长度上限（严格遵守）：
+各字段的长度上限（中文字符和英文单词各算 1 字，严格遵守）：
 - tagline：一句话说清它是什么，不超过 40 字
 - positioning：定位说明，不超过 100 字
 - features：3–5 条，每条不超过 40 字
 - highlights：1–3 条，每条不超过 50 字
 - audience：不超过 60 字
-- quickstart_cmd：最关键的一条安装或运行命令，原样照抄 README；没有就返回空字符串
-- quickstart_note：上手的补充说明，不超过 60 字；没有就返回空字符串
+- quickstart_cmd：最关键的一条安装或运行命令，原样照抄 README；README 里没有安装或运行命令（例如只提供下载安装包）就返回空字符串，不要用排查、调试类命令代替
+- quickstart_note：上手的补充说明，不超过 60 字，必须和 quickstart_cmd 属于同一条安装路径；没有就返回空字符串
 字段内部不要自己加 "-"、"•"、编号等列表符号，也不要换行。
 
-风险提示（risks）只在确有依据时填写，每条一句话，常见类型：
-- 自动化操作第三方网页/账号、可能违反服务条款或有封号风险
+风险提示（risks）只在确有依据时填写，每条一句话。属于风险的类型：
+- 自动化操作第三方网页或账号，可能违反服务条款或有封号风险。项目的核心功能就是用浏览器自动化、Computer Use 等方式操作别人的服务（包括 ChatGPT 等 AI 服务的网页版）时，必须标注
 - 越狱、绕过模型安全限制
 - 攻击性安全工具：注明仅限授权测试
-- 隐私、版权、肖像权或 AI 内容标识等法规问题
-- 许可证未声明或非标准
+- 隐私、版权、肖像权或 AI 内容标识等法规问题，包括把用户或第三方的数据发送给外部服务、采集他人个人信息
+- 许可证未声明或非标准（如仅限非商业使用）
+- 默认配置不安全：README 明确警告默认设置不可直接暴露到公网
+以下不算风险，不要写入 risks：需要联网、需要登录或注册账号、需要 API Key、不接受外部贡献、处于早期版本、效果有随机性、仅支持部分平台。
 没有风险就返回空数组。
 
 is_ai_product：项目的核心是否与 AI/LLM/Agent 相关。仅因 README 顺带提到 AI 关键词、或本身是加密货币机器人、网络工具等无关项目时为 false。"""
+
+
+LENGTH_LIMITS = {"tagline": 40, "positioning": 100, "audience": 60, "quickstart_note": 60,
+                 "features": 40, "highlights": 50}
+_WORD = re.compile(r"[A-Za-z0-9][A-Za-z0-9._\-/+]*")
+
+
+def text_len(text):
+    """中文字符和英文单词各算 1 字，和提示词里的口径一致。"""
+    return len(_WORD.sub("W", text))
+
+
+def length_violations(intro):
+    over = []
+    for field, limit in LENGTH_LIMITS.items():
+        value = intro.get(field) or ""
+        for i, item in enumerate(value if isinstance(value, list) else [value], 1):
+            n = text_len(item)
+            if n > limit:
+                label = f"{field}[{i}]" if isinstance(value, list) else field
+                over.append(f"{label} {n}/{limit} 字")
+    return over
 
 
 FIELDS = ["is_ai_product", "category", "tagline", "positioning", "features", "highlights",
@@ -109,7 +137,7 @@ class Summarizer:
             msg = str(out.get("result"))
             if any(m in msg for m in _AUTH_MARKERS):
                 raise AuthError(f"Claude 认证失败：{msg}")
-            raise RuntimeError(f"claude 调用失败：{msg}")
+            raise RuntimeError(f"claude 调用失败（{out.get('subtype')}）：{msg}")
         data = out.get("structured_output")
         return data if data is not None else json.loads(out["result"])
 
@@ -162,7 +190,7 @@ class Summarizer:
             intro = self._placeholder(repo)
         else:
             try:
-                intro = self._ask(SYSTEM, self._repo_prompt(repo), _schema(self.cfg["categories"]))
+                intro = self.generate(repo)
             except AuthError:
                 raise
             except Exception as e:  # 单个失败不影响整期
@@ -174,6 +202,19 @@ class Summarizer:
                      prompt_version=PROMPT_VERSION,
                      model=None if intro.get("placeholder") else self.cfg["model"])
         path.write_text(json.dumps(intro, ensure_ascii=False, indent=2), encoding="utf-8")
+        return intro
+
+    def generate(self, repo):
+        """调用模型生成介绍；超出字数上限时带着超限清单重试一次，仍超限就保留第二次结果。"""
+        schema = _schema(self.cfg["categories"])
+        prompt = self._repo_prompt(repo)
+        intro = self._ask(SYSTEM, prompt, schema)
+        over = length_violations(intro)
+        if over:
+            retry = (prompt + "\n\n上一版介绍如下，其中这些字段超出了字数上限："
+                     + "；".join(over) + "。请在不丢失关键信息的前提下压缩，重新输出完整介绍。\n"
+                     + json.dumps(intro, ensure_ascii=False))
+            intro = self._ask(SYSTEM, retry, schema)
         return intro
 
     @staticmethod

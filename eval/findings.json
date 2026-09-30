@@ -1,0 +1,54 @@
+{
+ "judge": "Claude Opus 5.5 逐条对照 README（按 intro 记录的 readme_sha 取回，按 fetch.py 同样规则清洗、截断到 12000 字符）；待本人复核",
+ "findings": {
+  "CopilotKit/OpenBot": [
+   {"type": "事实偏差", "severity": "轻", "field": "quickstart_note", "detail": "命令是 docker run 预构建镜像，说明却写“再执行 bun install 和启动脚本”，那是 clone 源码的另一条路径，两者混在一起"},
+   {"type": "漏报风险", "severity": "轻", "field": "risks", "detail": "README 提示默认 OPENBOT_SINGLE_USER=true，所有请求都按管理员放行，暴露到外网前必须开启登录，未提示"}
+  ],
+  "MDX-Tom/gpt-instruct": [
+   {"type": "夸大", "severity": "重要", "field": "highlights[1]", "detail": "把全量 B 测试 52/66 当亮点，但 README 写明 B 层门槛是 66/66，该版本未达标，C 层因此没跑；介绍没交代这一点"}
+  ],
+  "Tencent/BrowserSkill": [],
+  "Vincentwei1021/video-shotcraft": [],
+  "XiaoDuoYa/codex-with-chatgpt": [
+   {"type": "漏报风险", "severity": "重要", "field": "risks", "detail": "risks 为空。项目通过 Computer Use 自动操作付费 ChatGPT 网页版，用订阅额度替代 API，属于提示词列出的第一类风险（自动化操作第三方网页/账号、可能违反服务条款）；另外会经 Cloudflare 隧道把本地工作区暴露为公网 MCP 端点。同类的 codex-chatgpt-web 标了 3 条风险，判断不一致"}
+  ],
+  "dataelement/dsh-desktop": [
+   {"type": "违反格式要求", "severity": "轻", "field": "quickstart_cmd", "detail": "README 没有安装命令（从官网或 Releases 下载），按提示词应返回空字符串，模型却填了“以安全模式启动”的故障排查命令"}
+  ],
+  "deeplethe/utopia": [],
+  "genspark-ai/genoffice": [
+   {"type": "漏报风险", "severity": "轻", "field": "risks", "detail": "用 Genspark 账号登录时，模型调用经 Genspark 代理转发，文档内容会发给第三方；介绍只强调“全部在本地”"}
+  ],
+  "google/artemis": [
+   {"type": "未标注项目方数据", "severity": "轻", "field": "highlights[2]", "detail": "“Flash 模式单步响应约 3-5 秒”是项目方自报的性能数字，未标注"}
+  ],
+  "guillaumemeyer/watermarks-remover": [
+   {"type": "事实偏差", "severity": "重要", "field": "highlights[2]", "detail": "写“保证 Agent 写文件时的清理可靠执行”，但钩子默认是 check 模式，只报告不清理，要手动切到 clean 才会清理；统计型文本水印（Layer B）靠模型改写，README 也说是尽力而为"}
+  ],
+  "larashero3-dotcom/lieflat-charts": [
+   {"type": "风险无依据", "severity": "轻", "field": "risks[2]", "detail": "“离线环境无法完整显示”是使用限制，不属于风险提示"}
+  ],
+  "miuuyy/codex-chatgpt-web": [],
+  "oomol-lab/open-connector": [
+   {"type": "事实偏差", "severity": "轻", "field": "tagline", "detail": "tagline 写 1500+（取自仓库简介），positioning 和 features 写“上千家”（README 为 1,000+）。两处来源冲突，同一条介绍前后不一致"}
+  ],
+  "petergyang/no-ai-slop": [
+   {"type": "夸大", "severity": "轻", "field": "highlights[1]", "detail": "“上线两个月内迅速走红”：仓库创建于 07-07，快照日 09-19 已约 74 天，材料里也没有增长曲线；唯一的亮点是星数，没有写产品本身"}
+  ],
+  "s1dashu/ip-as-logo-skill": [
+   {"type": "风险无依据", "severity": "轻", "field": "risks[1]", "detail": "“效果有随机性、不做自动校验”是 README 描述的设计取舍，不是风险"}
+  ],
+  "trailhq/Graft": [],
+  "truefoundry/trueforge": [],
+  "trycompai/crm": [
+   {"type": "事实偏差", "severity": "轻", "field": "risks[1]", "detail": "LinkedIn 数据不是通过账号授权读取，而是经 Context 第三方数据服务按 URL 抓取联系人资料；真正的风险是对第三方个人数据的采集和补全"}
+  ],
+  "xai-org/grok-build": [
+   {"type": "风险无依据", "severity": "轻", "field": "risks[1]", "detail": "“不接受外部贡献”不影响使用者，不是风险"},
+   {"type": "风险无依据", "severity": "轻", "field": "risks[2]", "detail": "“首次需登录账号”是常规流程，不是风险"},
+   {"type": "夸大", "severity": "轻", "field": "highlights[1]", "detail": "“增长迅速”无依据，本期它也不在涨幅榜里"}
+  ],
+  "yc-software/qm": []
+ }
+}

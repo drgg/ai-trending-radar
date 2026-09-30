@@ -1,0 +1,25 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "开源连接器网关，为 AI Agent 提供 1000+ SaaS 服务的统一鉴权与调用入口",
+  "positioning": "OpenConnector 是开源连接器网关，作为 Pipedream/Composio 的替代方案，统一托管用户应用账号凭证与 OAuth，向 Agent 暴露标准化 Action 目录，凭证不下发给 Agent 进程。",
+  "features": [
+    "覆盖 GitHub、Gmail、Notion、BigQuery、Slack 等 1000+ 服务商，提供 10000+ 预置 Action",
+    "支持 API Key、OAuth2、自定义凭证及免鉴权多种凭证类型",
+    "提供 SDK、CLI、MCP、HTTP/OpenAPI 多种接入方式及本地 Web 控制台",
+    "运行时支持连接身份、作用域、Token、Action 允许/阻止策略及脱敏日志",
+    "可本地 Docker/Node 自托管，支持 SQLite 或 PostgreSQL，也可使用 OOMOL 托管运行时"
+  ],
+  "highlights": [
+    "服务商凭证保留在网关运行时边界内，Agent 仅获取元数据和执行结果",
+    "同一套 Provider、Action ID 与契约可在开源自托管与商业托管部署间复用"
+  ],
+  "audience": "需要让 AI Agent 安全访问用户已有 SaaS 账号的开发者和团队，尤其是构建 Agent 产品或工作流自动化的团队",
+  "quickstart_cmd": "docker compose up",
+  "quickstart_note": "拉取官方镜像启动本地运行时，控制台地址 http://localhost:3000，OAuth 提供商需自行注册客户端凭证",
+  "risks": [],
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 1,
+  "still_over": []
+}

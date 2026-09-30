@@ -1,0 +1,25 @@
+{
+  "is_ai_product": true,
+  "category": "本地推理与模型",
+  "tagline": "用纯C99在单CPU、8.24GB内存下运行2.78万亿参数Kimi K3模型的推理引擎",
+  "positioning": "从零实现的纯C语言LLM推理引擎，通过流式加载dense trunk和4bit量化的路由专家权重，在普通硬件的有限内存中运行原本需1.56TB存储的超大模型，不依赖BLAS或GPU。",
+  "features": [
+    "纯C99实现，无外部框架依赖，仅需libm和OpenMP，支持Linux、macOS、Windows构建",
+    "93层dense trunk打包后按需读取，1.45TB路由专家权重以4bit压缩形式流式加载，不常驻内存",
+    "内存预算可调，从8GB到224GB以上，不同预算下输出结果逐字节一致（项目方数据）",
+    "提供teacher forcing、贪婪解码、增量生成三级测试，验证引擎输出与PyTorch参考实现一致",
+    "内置k3-doctor.sh环境检测脚本，自动评估机器配置并推荐合适的内存预设"
+  ],
+  "highlights": [
+    "项目方测试：8.24GB内存下生成8个token耗时261.5秒（平均32.69秒/token）；224GB内存下平均10.69秒/token，速度慢但结果不变",
+    "模型检查点为1.56TB的safetensors分片，本地需约1.7TB存储空间，下载需从HuggingFace获取token"
+  ],
+  "audience": "对LLM推理底层原理、C语言系统编程、或在无GPU条件下运行超大模型感兴趣的开发者与研究者",
+  "quickstart_cmd": "git clone https://github.com/FareedKhan-dev/kimi-k3-in-c.git && cd kimi-k3-in-c && make -j && make test",
+  "quickstart_note": "无需下载1.56TB模型即可编译并运行完整测试套件验证引擎正确性，整个过程约一分钟",
+  "risks": [],
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 1,
+  "still_over": []
+}

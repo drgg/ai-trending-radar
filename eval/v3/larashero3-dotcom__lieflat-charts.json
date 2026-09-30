@@ -1,0 +1,27 @@
+{
+  "audience": "需要用 AI Agent 快速生成图表或数据报告的开发者、内容创作者和分析师，尤其是使用 Claude Code、Codex 等支持 Agent Skills 工具的用户",
+  "category": "Skills 与写作/设计",
+  "features": [
+    "提供 Lupi、Basics、Glance 三种视觉风格，覆盖细读叙事到快速判断两种阅读速度",
+    "内置 Mono 黑白灰及青瓷蓝、椰林绿、编辑部红三套彩色预设，可选自定义品牌色板",
+    "49 个图型模板，含柱状、折线、环形、网络、路径等基础图表与交互大图",
+    "可选报告模式，从 12 套中英双语整页模板生成年报、周报、海报等 HTML 报告",
+    "Glance、Circular、Force 及报告模板 R11/R12 通过 CDN 加载 Chart.js/ECharts，需联网显示"
+  ],
+  "highlights": [
+    "在 moxt.ai 制作并持续迭代，项目方称推荐在 Moxt 工作区中使用以获得更完整的设计规范和多轮修改体验",
+    "设计上先判断数据结构再选图型，每张图对应真实数据单位，不用装饰性噪声伪造密度"
+  ],
+  "is_ai_product": true,
+  "positioning": "遵循 Agent Skills 格式的数据可视化与报告生成 skill，供 moxt、Claude Code、Codex 等兼容 SKILL.md 的 AI agent 调用，默认生成单张图表，用户明确要求时才生成整页 HTML 报告。",
+  "quickstart_cmd": "npx skills add https://github.com/larashero3-dotcom/lieflat-charts --skill lieflat-charts",
+  "quickstart_note": "安装后直接对 Agent 描述图表需求即可；Codex 用户需将安装路径换成 ~/.codex/skills/lieflat-charts",
+  "risks": [
+    "许可证为 PolyForm Noncommercial License 1.0.0，仅允许学习、非商业使用，商业使用需另行获得许可"
+  ],
+  "tagline": "面向 AI Agent 的数据可视化 Skill，把数据转成精致可交互的 HTML 图表和报告",
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 1,
+  "still_over": []
+}

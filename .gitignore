@@ -1,3 +1,6 @@
 __pycache__/
 *.pyc
 .env
+
+# 评测用的第三方 README 原文，可由 eval/prepare.py 按 sha 重新取回
+eval/readmes/

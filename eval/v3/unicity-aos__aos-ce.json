@@ -1,0 +1,25 @@
+{
+  "audience": "需要可检视、可组合 Agent 运行环境的开发者，以及在本地系统上构建、编排多 Agent 能力和 MCP 集成的团队",
+  "category": "Agent 平台与基础设施",
+  "features": [
+    "安装脚本自动部署 aos CLI、固定版本运行时及 22 个官方能力胶囊（capsule）",
+    "aos mcp serve 是 Codex、Claude、Grok 共享的 MCP 服务入口，支持多种审批交互模式",
+    "内置 Forge 工具链，辅助 Agent 检视运行系统、发现能力缺口并构建最小权限胶囊",
+    "可从已有 astrid 独立运行时导入兼容状态，提供完整性校验与恢复机制",
+    "发布版本附带校验和、Sigstore 签名与 GitHub 构建溯源证明"
+  ],
+  "highlights": [
+    "MCP 本地审批仅接受固定布尔值或枚举选项，不通过该通道收集任意字符串或密码字段",
+    "安装全部 22 个官方能力胶囊约需两分钟等待（项目方数据）"
+  ],
+  "is_ai_product": true,
+  "positioning": "AOS Community Edition 是面向 Agent 的可检查、可组合运行环境，提供 aos CLI、HTTP API、能力胶囊体系与 Provider/模型接入，供开发者在其上构建和运行 Agent 系统。",
+  "quickstart_cmd": "curl --proto '=https' --tlsv1.2 -fsSL https://aos.unicity.ai/install.sh | sh",
+  "quickstart_note": "安装后运行 aos init 完成初始化，自动部署固定运行时及 22 个官方能力胶囊",
+  "risks": [],
+  "tagline": "面向 Agent 的开源操作系统，提供 CLI、能力胶囊体系和 MCP 服务",
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 1,
+  "still_over": []
+}

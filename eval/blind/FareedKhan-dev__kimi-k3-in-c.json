@@ -1,0 +1,45 @@
+{
+ "A": {
+  "is_ai_product": true,
+  "category": "本地推理与模型",
+  "tagline": "用纯C99在单CPU、8GB内存上运行2.78万亿参数Kimi K3模型的推理引擎",
+  "positioning": "面向超大规模MoE模型的CPU推理引擎，通过流式加载1.45TB专家权重、LRU缓存和4bit量化，把1.56TB检查点压缩到8GB内存运行，不同内存预算下输出字节级一致。",
+  "features": [
+   "无BLAS无框架无GPU依赖，纯C99代码可跨Linux/macOS/Windows移植",
+   "密集主干层可流式读取，1.45TB路由专家权重不常驻内存按需读取",
+   "LRU缓存管理专家权重，配合4bit量化(MXFP4)和AVX2 SIMD内核",
+   "提供laptop到server等多档内存预设，8GB到224GB均可运行",
+   "内置测试套件，用PyTorch参考结果逐层验证推理正确性"
+  ],
+  "highlights": [
+   "项目方数据：8GB内存下生成约32.69秒/token，127GB内存下约10.69秒/token",
+   "不同内存预算（8GB~224GB）下生成结果字节级完全一致，仅速度不同",
+   "完整检查点1.56TB，通过流式读取与打包主干把内存下限降到8GB"
+  ],
+  "audience": "对底层推理引擎实现、CPU上运行超大MoE模型、系统编程感兴趣的工程师和研究者",
+  "quickstart_cmd": "git clone https://github.com/FareedKhan-dev/kimi-k3-in-c.git && cd kimi-k3-in-c && make -j && make test",
+  "quickstart_note": "该命令只构建并验证引擎，无需下载模型；实际生成文本需另外下载1.56TB检查点并打包主干层。",
+  "risks": []
+ },
+ "B": {
+  "is_ai_product": true,
+  "category": "本地推理与模型",
+  "tagline": "用纯C99在单CPU、8.24GB内存下运行2.78万亿参数Kimi K3模型的推理引擎",
+  "positioning": "从零实现的纯C语言LLM推理引擎，通过流式加载dense trunk和4bit量化的路由专家权重，在普通硬件的有限内存中运行原本需1.56TB存储的超大模型，不依赖BLAS或GPU。",
+  "features": [
+   "纯C99实现，无外部框架依赖，仅需libm和OpenMP，支持Linux、macOS、Windows构建",
+   "93层dense trunk打包后按需读取，1.45TB路由专家权重以4bit压缩形式流式加载，不常驻内存",
+   "内存预算可调，从8GB到224GB以上，不同预算下输出结果逐字节一致（项目方数据）",
+   "提供teacher forcing、贪婪解码、增量生成三级测试，验证引擎输出与PyTorch参考实现一致",
+   "内置k3-doctor.sh环境检测脚本，自动评估机器配置并推荐合适的内存预设"
+  ],
+  "highlights": [
+   "项目方测试：8.24GB内存下生成8个token耗时261.5秒（平均32.69秒/token）；224GB内存下平均10.69秒/token，速度慢但结果不变",
+   "模型检查点为1.56TB的safetensors分片，本地需约1.7TB存储空间，下载需从HuggingFace获取token"
+  ],
+  "audience": "对LLM推理底层原理、C语言系统编程、或在无GPU条件下运行超大模型感兴趣的开发者与研究者",
+  "quickstart_cmd": "git clone https://github.com/FareedKhan-dev/kimi-k3-in-c.git && cd kimi-k3-in-c && make -j && make test",
+  "quickstart_note": "无需下载1.56TB模型即可编译并运行完整测试套件验证引擎正确性，整个过程约一分钟",
+  "risks": []
+ }
+}

@@ -1,0 +1,175 @@
+{
+ "CopilotKit/OpenBot": {
+  "length_issues": [
+   "quickstart_note 68/60 字",
+   "features[1] 46/40 字",
+   "highlights[1] 58/50 字"
+  ],
+  "cmd_verbatim": false,
+  "cmd": "docker run -p 3001:3001 --env-file .env -e EMBEDDED_POSTGRES=on -v openbot-data:/var/lib/postgresql ghcr.io/copilotkit/openbot:latest"
+ },
+ "MDX-Tom/gpt-instruct": {
+  "length_issues": [
+   "quickstart_note 67/60 字",
+   "features[1] 50/40 字",
+   "features[2] 52/40 字",
+   "features[3] 43/40 字",
+   "highlights[1] 54/50 字"
+  ],
+  "cmd_verbatim": true,
+  "cmd": "git clone https://github.com/MDX-Tom/gpt-instruct.git"
+ },
+ "Tencent/BrowserSkill": {
+  "length_issues": [
+   "highlights[1] 58/50 字"
+  ],
+  "cmd_verbatim": true,
+  "cmd": "curl -fsSL https://raw.githubusercontent.com/Tencent/BrowserSkill/main/install.sh | sh"
+ },
+ "Vincentwei1021/video-shotcraft": {
+  "length_issues": [
+   "tagline 59/40 字",
+   "features[3] 42/40 字",
+   "features[4] 44/40 字"
+  ],
+  "cmd_verbatim": true,
+  "cmd": "npx skills add Vincentwei1021/video-shotcraft"
+ },
+ "XiaoDuoYa/codex-with-chatgpt": {
+  "length_issues": [
+   "audience 61/60 字",
+   "features[1] 42/40 字",
+   "features[4] 42/40 字",
+   "features[5] 48/40 字"
+  ],
+  "cmd_verbatim": false,
+  "cmd": "pnpm install && pnpm build"
+ },
+ "dataelement/dsh-desktop": {
+  "length_issues": [
+   "features[2] 42/40 字"
+  ],
+  "cmd_verbatim": true,
+  "cmd": "open -a \"DSH Desktop\" --args --safe-mode"
+ },
+ "deeplethe/utopia": {
+  "length_issues": [
+   "features[1] 46/40 字",
+   "features[2] 43/40 字",
+   "features[3] 50/40 字"
+  ],
+  "cmd_verbatim": true,
+  "cmd": "docker compose --profile app up -d"
+ },
+ "genspark-ai/genoffice": {
+  "length_issues": [
+   "positioning 122/100 字",
+   "quickstart_note 73/60 字",
+   "features[1] 52/40 字",
+   "features[3] 47/40 字",
+   "features[4] 56/40 字",
+   "features[5] 52/40 字",
+   "highlights[1] 51/50 字",
+   "highlights[2] 51/50 字"
+  ],
+  "cmd_verbatim": true,
+  "cmd": "npx skills add genspark-ai/genoffice"
+ },
+ "google/artemis": {
+  "length_issues": [
+   "features[2] 57/40 字",
+   "highlights[1] 68/50 字"
+  ],
+  "cmd_verbatim": false,
+  "cmd": "git clone https://github.com/google/artemis.git && cd artemis && ./start.sh"
+ },
+ "guillaumemeyer/watermarks-remover": {
+  "length_issues": [
+   "features[1] 41/40 字"
+  ],
+  "cmd_verbatim": true,
+  "cmd": "python3 install_skill.py --skill remove-ai-marks --target claude-code"
+ },
+ "larashero3-dotcom/lieflat-charts": {
+  "length_issues": [
+   "tagline 46/40 字",
+   "positioning 104/100 字",
+   "features[1] 47/40 字",
+   "features[4] 43/40 字",
+   "features[5] 63/40 字"
+  ],
+  "cmd_verbatim": true,
+  "cmd": "npx skills add https://github.com/larashero3-dotcom/lieflat-charts --skill lieflat-charts"
+ },
+ "miuuyy/codex-chatgpt-web": {
+  "length_issues": [
+   "tagline 47/40 字",
+   "features[2] 63/40 字"
+  ],
+  "cmd_verbatim": false,
+  "cmd": "git clone https://github.com/miuuyy/codex-chatgpt-web.git && cd codex-chatgpt-web && bun run app"
+ },
+ "oomol-lab/open-connector": {
+  "length_issues": [
+   "features[1] 48/40 字",
+   "features[5] 44/40 字"
+  ],
+  "cmd_verbatim": true,
+  "cmd": "docker compose up"
+ },
+ "petergyang/no-ai-slop": {
+  "length_issues": [
+   "tagline 48/40 字"
+  ],
+  "cmd_verbatim": true,
+  "cmd": "npx skills add petergyang/no-ai-slop --skill no-ai-slop --global --yes"
+ },
+ "s1dashu/ip-as-logo-skill": {
+  "length_issues": [
+   "features[5] 43/40 字"
+  ],
+  "cmd_verbatim": true,
+  "cmd": "npx skills@latest add s1dashu/ip-as-logo-skill"
+ },
+ "trailhq/Graft": {
+  "length_issues": [
+   "tagline 49/40 字",
+   "features[1] 51/40 字"
+  ],
+  "cmd_verbatim": false,
+  "cmd": "npm install -g @nanonets/graft && graft init"
+ },
+ "truefoundry/trueforge": {
+  "length_issues": [
+   "quickstart_note 65/60 字",
+   "features[1] 46/40 字",
+   "highlights[1] 60/50 字"
+  ],
+  "cmd_verbatim": true,
+  "cmd": "npx @truefoundry/trueforge@latest"
+ },
+ "trycompai/crm": {
+  "length_issues": [
+   "quickstart_note 76/60 字",
+   "features[3] 43/40 字"
+  ],
+  "cmd_verbatim": true,
+  "cmd": "git clone https://github.com/trycompai/crm.git && cd crm"
+ },
+ "xai-org/grok-build": {
+  "length_issues": [
+   "positioning 106/100 字",
+   "features[5] 51/40 字"
+  ],
+  "cmd_verbatim": true,
+  "cmd": "curl -fsSL https://x.ai/cli/install.sh | bash"
+ },
+ "yc-software/qm": {
+  "length_issues": [
+   "features[2] 50/40 字",
+   "highlights[1] 63/50 字"
+  ],
+  "cmd_verbatim": false,
+  "cmd": "npm exec --yes --package=@yc-software/qm@latest -- qm init . --org <slug> --target <fly-or-aws>"
+ }
+}

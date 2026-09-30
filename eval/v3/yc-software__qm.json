@@ -1,0 +1,25 @@
+{
+  "audience": "面向初创公司等团队，需要为全体员工部署可自定义、可协作的 AI Agent 平台的技术/运维团队",
+  "category": "Agent 平台与基础设施",
+  "features": [
+    "个人与共享作用域并存，员工可个性化 Agent，也能在 Slack 频道、群组、项目中协作",
+    "同时支持 Slack 与网页端，身份和配置在两端保持一致",
+    "管理员可设置组织级安全与共享策略，控制可用的 harness 与模型",
+    "支持搭建内部 Web 应用，并按权限发布给指定成员",
+    "支持定时任务(crons)、监听(watches)和 webhook 驱动的后台自动化工作"
+  ],
+  "highlights": [
+    "harness 与模型可切换，Pi、OpenCode、Codex、Claude Code 均可驱动同一核心，不绑定单一供应商",
+    "安全策略分 Strict/Auto/Dangerous 三档，默认 Auto 会拦截私网访问，但模型内容审查默认关闭需额外开启"
+  ],
+  "is_ai_product": true,
+  "positioning": "QM 是面向初创公司的多人协作 Agent 工作平台，每位员工拥有独立工作区，也可在频道、群组和项目中与 Agent 协作，底层 harness 和模型可自由选配。",
+  "quickstart_cmd": "npm exec --yes --package=@yc-software/qm@latest -- qm init . --org <slug> --target <fly-or-aws> && npm install",
+  "quickstart_note": "需先创建组织专属部署仓库，初始化后按提示完成基础设施、登录与连接器等配置。",
+  "risks": [],
+  "tagline": "面向团队的多人协作 Agent 平台，支持在 Slack 和网页端共同使用",
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 2,
+  "still_over": []
+}

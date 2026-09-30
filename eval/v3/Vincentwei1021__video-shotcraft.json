@@ -1,0 +1,27 @@
+{
+  "is_ai_product": true,
+  "category": "Skills 与写作/设计",
+  "tagline": "让 Claude Code / Codex 化身运镜工作室，自动生成电影感产品宣传视频的 Agent 技能",
+  "positioning": "面向 Claude Code / Codex 的 Agent 技能，调用 Remotion 根据产品截图自动完成分镜、运镜、字幕与音效设计，产出电影感产品宣传视频，主要针对 Web/桌面产品推广场景",
+  "features": [
+    "157张镜头配方卡，含用途、节奏、建议时长、参数与实现要点",
+    "214种运镜风格预览，可在在线Gallery搜索筛选",
+    "内置Ink Press完整视频模板：36.2秒、1920×1080、30fps、10个镜头",
+    "交付后可用浏览器端Motion Workbench时间线编辑器继续调整镜头、字幕、音效",
+    "可选导出为剪映(JianYing)工程文件，支持按镜头调速、编辑字幕与音轨(macOS 11.2验证)"
+  ],
+  "highlights": [
+    "镜头库经八轮逐帧审核筛选产生，运镜手法提炼自多款知名产品宣传片但不含其原始素材",
+    "预览渲染与最终导出帧级一致，项目方称为pixel-parity verified"
+  ],
+  "audience": "使用Claude Code或Codex的开发者、独立开发者及内容创作者，需要制作产品推广、发布或演示视频",
+  "quickstart_cmd": "npx skills add Vincentwei1021/video-shotcraft",
+  "quickstart_note": "也可直接把仓库链接发给Agent说\"安装这个技能\"，由其自动克隆并链接到skills目录",
+  "risks": [
+    "依赖的Remotion渲染框架有独立许可证，个人和小团队免费，公司使用可能需付费授权"
+  ],
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 1,
+  "still_over": []
+}

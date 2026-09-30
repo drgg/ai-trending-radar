@@ -1,0 +1,25 @@
+{
+  "is_ai_product": true,
+  "category": "开发者工具与集成",
+  "tagline": "为编码 Agent 构建代码知识图谱，减少重复探索的 CLI 工具",
+  "positioning": "Graft 是一款 CLI 工具，为代码库生成由链接 Markdown 节点组成的知识图谱，接入 Claude Code、Cursor、Codex、Gemini 等编码 Agent，减少每次任务重复探索代码库带来的开销。",
+  "features": [
+    "graft init 一键构建代码图谱，并将 hooks 与 statusline 接入 Claude Code 等 Agent",
+    "图谱以链接的 Markdown 文件存于本地 graft/ 目录，自动加入 .gitignore，不提交入库",
+    "结构化代码图基于 tree-sitter，无需模型和密钥；深度摘要节点需自选 LLM 提供商及密钥",
+    "提供 graft grep/map/viz 等命令用于搜索、定位和可视化代码结构",
+    "支持 TypeScript、Python、Go、Java 等 23 种语言，部分语言可选接入 LSP 获得精确调用边"
+  ],
+  "highlights": [
+    "项目方数据：SWE-bench Verified 50例中，Graft使Claude Code正确率54%→66%，token省23%",
+    "项目方数据：自建基准（162次运行）显示Graft省42% token、46%工具调用、60%耗时，正确率持平"
+  ],
+  "audience": "使用 Claude Code、Cursor、Codex、Gemini 等编码 Agent 处理中大型代码库的开发者及团队",
+  "quickstart_cmd": "npm install -g @nanonets/graft",
+  "quickstart_note": "安装后运行 graft init 构建图谱并接入 Claude Code 等 Agent，也可用 npx @nanonets/graft init 免全局安装",
+  "risks": [],
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 2,
+  "still_over": []
+}

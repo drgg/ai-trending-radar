@@ -1,0 +1,30 @@
+{
+  "audience": "需要测试或研究 Codex/GPT 模型安全限制、从事 AI 安全评测的安全研究人员",
+  "category": "安全相关",
+  "features": [
+    "通过 Codex 官方配置机制部署提示词，脚本自动保存部署前状态，支持 --dry-run 预览和 --reset 回滚",
+    "维护两条产品线：稳定版 gpt-5.6-sol-v45 与新线 gpt-6-astra-v1，共享测试集与失败归因规范",
+    "提供 A/B/C 三层发布门禁：3+1 用例探针、66 用例/74 轮次回归、120 用例原始测试",
+    "新版本开发统一限定候选提示词不超过 8000 UTF-8 字节，使用 gpt-6-astra、medium 推理等级评测",
+    "支持自定义 ZIP 或 Markdown 部署，也可手动复制文件并在 config.toml 中配置"
+  ],
+  "highlights": [
+    "项目方数据：gpt-6-astra-v1 全量B为52/66 cases、60/74 turns、15/16 artifact gates，未达66/66硬门槛，C未运行",
+    "README 声明项目不用于任何商业化行为，定位为推动 AI 安全边界研究"
+  ],
+  "is_ai_product": true,
+  "positioning": "为 Codex 提供绕过安全限制的自定义模型指令（提示词），并附带 A/B/C 三层回归测试评测体系验证效果，维护两条版本线：稳定版 gpt-5.6-sol-v45 与新版 gpt-6-astra-v1。",
+  "quickstart_cmd": "python3 codex-instruct.py --apply --version gpt-5.6-v45",
+  "quickstart_note": "先 git clone 仓库进入目录，脚本会自动保存部署前配置，可用 --dry-run 预览、--reset 回滚",
+  "risks": [
+    "核心功能是绕过 Codex/GPT 的安全限制（越狱类提示词），README 明确提示破甲操作存在账号风险，建议使用一次性账号",
+    "README 声明项目不用于任何商业化行为，但许可证登记为标准 MIT，实际使用限制与许可证条款存在不一致"
+  ],
+  "tagline": "面向 GPT/Codex 的破甲提示词与可复现评测工具链",
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 2,
+  "still_over": [
+    "features[1] 46/40 字"
+  ]
+}

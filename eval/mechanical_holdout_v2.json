@@ -1,0 +1,80 @@
+{
+ "FareedKhan-dev/kimi-k3-in-c": {
+  "length_issues": [
+   "tagline 41/40 字",
+   "features[1] 44/40 字"
+  ],
+  "length_issues_word": [],
+  "cmd_verbatim": false,
+  "cmd": "git clone https://github.com/FareedKhan-dev/kimi-k3-in-c.git && cd kimi-k3-in-c && make -j && make test"
+ },
+ "drumih/turbo-fieldfare": {
+  "length_issues": [
+   "tagline 49/40 字",
+   "quickstart_note 70/60 字",
+   "features[2] 41/40 字",
+   "highlights[1] 68/50 字",
+   "highlights[2] 54/50 字"
+  ],
+  "length_issues_word": [],
+  "cmd_verbatim": false,
+  "cmd": "git clone https://github.com/drumih/turbo-fieldfare.git && cd turbo-fieldfare && swift build -c release && .build/release/TurboFieldfareMac"
+ },
+ "elder-plinius/T3MP3ST": {
+  "length_issues": [
+   "quickstart_note 63/60 字",
+   "features[1] 49/40 字"
+  ],
+  "length_issues_word": [],
+  "cmd_verbatim": true,
+  "cmd": "npm install\nnpm run server"
+ },
+ "hypit-ai/hypit": {
+  "length_issues": [
+   "audience 61/60 字",
+   "quickstart_note 62/60 字"
+  ],
+  "length_issues_word": [],
+  "cmd_verbatim": true,
+  "cmd": "npx skills add hypit-ai/hypit -g"
+ },
+ "jakubkrehel/skills": {
+  "length_issues": [
+   "quickstart_note 64/60 字",
+   "features[5] 43/40 字"
+  ],
+  "length_issues_word": [],
+  "cmd_verbatim": true,
+  "cmd": "npx skills add jakubkrehel/skills"
+ },
+ "langchain-ai/openwiki": {
+  "length_issues": [
+   "features[2] 55/40 字",
+   "features[3] 51/40 字",
+   "features[4] 43/40 字",
+   "features[5] 59/40 字",
+   "highlights[2] 54/50 字"
+  ],
+  "length_issues_word": [],
+  "cmd_verbatim": true,
+  "cmd": "npm install -g openwiki"
+ },
+ "tamaratran/fast-jev-compaction": {
+  "length_issues": [
+   "quickstart_note 67/60 字",
+   "features[3] 43/40 字",
+   "features[4] 45/40 字"
+  ],
+  "length_issues_word": [],
+  "cmd_verbatim": true,
+  "cmd": "npm install fast-jev-compaction"
+ },
+ "unicity-aos/aos-ce": {
+  "length_issues": [
+   "positioning 101/100 字"
+  ],
+  "length_issues_word": [],
+  "cmd_verbatim": true,
+  "cmd": "curl --proto '=https' --tlsv1.2 -fsSL https://aos.unicity.ai/install.sh | sh"
+ }
+}

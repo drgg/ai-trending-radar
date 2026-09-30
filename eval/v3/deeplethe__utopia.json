@@ -1,0 +1,28 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "开源的企业级双时态知识图谱与AI知识库，自托管部署",
+  "positioning": "Utopia是DeepLethe开发的开源企业世界模型，以单个Rust二进制加Postgres运行，把时间感知和本体置于知识系统底层，支持知识导入、语义检索、Agent交互和冲突检测，可离线自托管部署。",
+  "features": [
+    "架构极简：一个Rust二进制加一个Postgres，全文、向量、任务队列全部内置",
+    "支持PDF、DOCX等多种文档，及网页、RSS、GitHub等定时同步接入",
+    "全文与向量检索融合排序，回答流式输出并附可点击引用，支持OpenAI兼容端点",
+    "内置Agent可检索文档、遍历图谱、查询数据库，并通过MCP供外部Agent连接",
+    "双时态知识图谱记录事实有效期与系统采信时间，支持实体消歧与冲突检测"
+  ],
+  "highlights": [
+    "双时态图谱区分事实成立时间与系统采信时间，修正事实时保留旧版本而非直接覆盖",
+    "推理派生默认关闭，避免错误本体公理推导出错误事实（需手动开启）",
+    "Ontology2SQL在BIRD Mini-Dev基准上表现最优（项目方数据）"
+  ],
+  "audience": "适合需要企业知识治理、决策留痕审计、且希望离线自托管部署知识库与Agent系统的技术团队",
+  "quickstart_cmd": "docker compose --profile app up -d",
+  "quickstart_note": "需先clone仓库并cd进入目录，默认通过http://localhost:1516访问，首个注册账号自动成为管理员",
+  "risks": [
+    "README提醒暴露到公网前需先阅读SECURITY.md，默认数据库密码等配置未必适合直接公开部署"
+  ],
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 1,
+  "still_over": []
+}

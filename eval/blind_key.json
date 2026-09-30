@@ -1,0 +1,34 @@
+{
+ "FareedKhan-dev/kimi-k3-in-c": {
+  "A": "v2",
+  "B": "v3"
+ },
+ "drumih/turbo-fieldfare": {
+  "A": "v2",
+  "B": "v3"
+ },
+ "elder-plinius/T3MP3ST": {
+  "A": "v3",
+  "B": "v2"
+ },
+ "hypit-ai/hypit": {
+  "A": "v2",
+  "B": "v3"
+ },
+ "jakubkrehel/skills": {
+  "A": "v3",
+  "B": "v2"
+ },
+ "langchain-ai/openwiki": {
+  "A": "v3",
+  "B": "v2"
+ },
+ "tamaratran/fast-jev-compaction": {
+  "A": "v3",
+  "B": "v2"
+ },
+ "unicity-aos/aos-ce": {
+  "A": "v2",
+  "B": "v3"
+ }
+}

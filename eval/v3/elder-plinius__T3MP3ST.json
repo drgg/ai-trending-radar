@@ -1,0 +1,29 @@
+{
+  "is_ai_product": true,
+  "category": "安全相关",
+  "tagline": "多智能体驱动的自动化红队测试平台，借助已连接的AI编程助手执行渗透测试全流程",
+  "positioning": "一个多智能体进攻性安全框架，将用户已登录的AI编程Agent（Claude Code、Codex等）转化为漏洞猎手，在授权目标上自动执行侦察→利用→报告全流程，也可选接入云端API Key或完全离线的本地模型。",
+  "features": [
+    "War Room浏览器界面或CLI一键发起任务，按侦察→利用→报告链路自动运行",
+    "默认用本地已连接的AI编程Agent当大脑，无需API Key",
+    "可选用云端API Key，或完全离线跑本地模型（Ollama等）",
+    "覆盖网页应用、CTF、开源物联网/机器人漏洞挖掘、白盒源码分析等多个场景",
+    "提供npm run verify-claims命令，重新计算README关键数据"
+  ],
+  "highlights": [
+    "项目方数据：在XBOW的104题基准套件上取得90.1% pass@1通过率，高于XBOW自报的85%",
+    "冷启动挖掘真实、模型训练截止后新增的CVE，属未经模型预训练见过的案例",
+    "智能合约场景README明确标注为复现已知漏洞，并非新漏洞发现能力"
+  ],
+  "audience": "已在使用Claude Code、Codex等AI编程Agent的安全研究人员和渗透测试人员，且对目标系统拥有明确授权",
+  "quickstart_cmd": "npm install\nnpm run server",
+  "quickstart_note": "启动后在浏览器打开War Room（http://127.0.0.1:3333/ui/），在设置中连接本地AI编程Agent即可使用",
+  "risks": [
+    "核心功能是自动化渗透测试/漏洞利用的攻击性安全工具，仅限对已获得明确授权的目标使用",
+    "可选接入第三方Novita AI等云端API时，会将提示词、上下文与生成结果发送至第三方，需自行查看其隐私政策"
+  ],
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 1,
+  "still_over": []
+}

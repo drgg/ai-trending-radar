@@ -1,0 +1,524 @@
+{
+ "seed": 20261001,
+ "pool": 28,
+ "sample": [
+  {
+   "repo": "CopilotKit/OpenBot",
+   "readme_ok": true,
+   "readme_chars": 26810,
+   "meta": {
+    "full_name": "CopilotKit/OpenBot",
+    "description": "Open-source AI coworkers that each get a computer of their own: a browser, files and tools, with every action decided before it happens and recorded after. Bring any AG-UI agent.",
+    "stars": 5236,
+    "forks": 669,
+    "language": "TypeScript",
+    "license": "MIT",
+    "topics": [
+     "ag-ui",
+     "agent-governance",
+     "ai-agents",
+     "browser-automation",
+     "copilotkit",
+     "generative-ui",
+     "mcp"
+    ],
+    "homepage": "https://www.copilotkit.ai/openbot",
+    "created_at": "2026-08-17",
+    "pushed_at": "2026-09-21"
+   }
+  },
+  {
+   "repo": "MDX-Tom/gpt-instruct",
+   "readme_ok": true,
+   "readme_chars": 7606,
+   "meta": {
+    "full_name": "MDX-Tom/gpt-instruct",
+    "description": "A Codex jailbreak prompt and test pack for gpt. 针对 gpt 系列的 Codex 破甲提示词与测试包。",
+    "stars": 8609,
+    "forks": 1065,
+    "language": "Python",
+    "license": "MIT",
+    "topics": [],
+    "homepage": "https://mdx-tom.github.io/gpt-instruct/",
+    "created_at": "2026-07-11",
+    "pushed_at": "2026-09-07"
+   }
+  },
+  {
+   "repo": "Tencent/BrowserSkill",
+   "readme_ok": true,
+   "readme_chars": 18054,
+   "meta": {
+    "full_name": "Tencent/BrowserSkill",
+    "description": "Let AI agents use your real, logged-in browser without interrupting your work. CLI + extension for browser automation across any shell-capable AI agent.",
+    "stars": 5466,
+    "forks": 378,
+    "language": "TypeScript",
+    "license": "MIT",
+    "topics": [
+     "agent",
+     "browser-use",
+     "dsh-plugin"
+    ],
+    "homepage": "",
+    "created_at": "2026-06-22",
+    "pushed_at": "2026-09-18"
+   }
+  },
+  {
+   "repo": "Vincentwei1021/video-shotcraft",
+   "readme_ok": true,
+   "readme_chars": 14825,
+   "meta": {
+    "full_name": "Vincentwei1021/video-shotcraft",
+    "description": "AI video skill for Claude Code & Codex — cinematic product videos with Remotion: 152 shot recipe cards, 209 motion previews, a production-ready template",
+    "stars": 9124,
+    "forks": 828,
+    "language": "TypeScript",
+    "license": "Apache-2.0",
+    "topics": [
+     "agent-skills",
+     "ai-agents",
+     "ai-video",
+     "claude-code",
+     "claude-code-skills",
+     "claude-skills",
+     "codex",
+     "motion-design",
+     "motion-graphics",
+     "product-video",
+     "promo-video",
+     "remotion",
+     "video-generation",
+     "video-production"
+    ],
+    "homepage": "https://vincentwei1021.github.io/video-shotcraft/",
+    "created_at": "2026-07-19",
+    "pushed_at": "2026-09-09"
+   }
+  },
+  {
+   "repo": "XiaoDuoYa/codex-with-chatgpt",
+   "readme_ok": true,
+   "readme_chars": 10709,
+   "meta": {
+    "full_name": "XiaoDuoYa/codex-with-chatgpt",
+    "description": "ChatGPT thinks. Codex works. Use ChatGPT as the planning brain while keeping the Codex harness.",
+    "stars": 5725,
+    "forks": 549,
+    "language": "TypeScript",
+    "license": "MIT",
+    "topics": [
+     "ai-agents",
+     "chatgpt",
+     "codex",
+     "mcp",
+     "model-context-protocol",
+     "oauth"
+    ],
+    "homepage": "",
+    "created_at": "2026-08-28",
+    "pushed_at": "2026-09-13"
+   }
+  },
+  {
+   "repo": "dataelement/dsh-desktop",
+   "readme_ok": true,
+   "readme_chars": 8865,
+   "meta": {
+    "full_name": "dataelement/dsh-desktop",
+    "description": "DSHDesktop：DeepSeek Harness Desktop / DeepSeek Harness 桌面版",
+    "stars": 8091,
+    "forks": 343,
+    "language": "TypeScript",
+    "license": "MIT",
+    "topics": [
+     "agent",
+     "apps",
+     "deepseek",
+     "deepseek-harness",
+     "deepseek-harness-desktop",
+     "desktop",
+     "dsh-plugin",
+     "dsh-plugin-desktop",
+     "dshdesktop",
+     "harness"
+    ],
+    "homepage": "https://dshdesktop.com",
+    "created_at": "2026-08-13",
+    "pushed_at": "2026-09-21"
+   }
+  },
+  {
+   "repo": "deeplethe/utopia",
+   "readme_ok": true,
+   "readme_chars": 13251,
+   "meta": {
+    "full_name": "deeplethe/utopia",
+    "description": "World's first open-source enterprise world model.",
+    "stars": 9495,
+    "forks": 1038,
+    "language": "Rust",
+    "license": "Apache-2.0",
+    "topics": [
+     "agent-memory",
+     "bitemporal",
+     "graphrag",
+     "knowledge-base",
+     "knowledge-graph",
+     "llm",
+     "ontology",
+     "pgvector",
+     "postgresql",
+     "rag",
+     "rust",
+     "self-hosted",
+     "semantic-search",
+     "temporal-knowledge-graph",
+     "world-model"
+    ],
+    "homepage": "",
+    "created_at": "2026-08-07",
+    "pushed_at": "2026-09-21"
+   }
+  },
+  {
+   "repo": "genspark-ai/genoffice",
+   "readme_ok": true,
+   "readme_chars": 41011,
+   "meta": {
+    "full_name": "genspark-ai/genoffice",
+    "description": "Free, open-source AI Office suite: Docs, Sheets, Slides, PDF, Markdown and HTML editors with a built-in AI agent, plus a `genoffice` CLI and agent skill so Claude Code, Codex and Cursor can create and edit real .docx/.xlsx/.pptx files locally. Bring your own key. macOS, Windows & Linux.",
+    "stars": 7365,
+    "forks": 961,
+    "language": "TypeScript",
+    "license": "Apache-2.0",
+    "topics": [
+     "ai",
+     "ai-agent",
+     "claude-code",
+     "cli",
+     "codex",
+     "cursor",
+     "docx",
+     "excel",
+     "libreoffice-alternative",
+     "local-first",
+     "markdown-editor",
+     "microsoft-office-alternative",
+     "office-suite",
+     "pdf-editor",
+     "pdf-to-word",
+     "powerpoint",
+     "pptx",
+     "skills",
+     "spreadsheet",
+     "xlsx"
+    ],
+    "homepage": "https://genoffice.ai/",
+    "created_at": "2026-07-31",
+    "pushed_at": "2026-09-21"
+   }
+  },
+  {
+   "repo": "google/artemis",
+   "readme_ok": true,
+   "readme_chars": 17519,
+   "meta": {
+    "full_name": "google/artemis",
+    "description": "ARTEMIS turns natural-language instructions into reliable Android automation. It automates end-to-end workflows, captures logs, and integrates seamlessly with AI coding assistants such as Antigravity, Codex, and Claude Code.  It also achieves 99%+ success rate on AndroidWorld Benchmark.",
+    "stars": 8455,
+    "forks": 805,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "topics": [
+     "ai-agents",
+     "android",
+     "google",
+     "test-automation",
+     "testing"
+    ],
+    "homepage": "",
+    "created_at": "2026-08-13",
+    "pushed_at": "2026-09-12"
+   }
+  },
+  {
+   "repo": "guillaumemeyer/watermarks-remover",
+   "readme_ok": true,
+   "readme_chars": 99202,
+   "meta": {
+    "full_name": "guillaumemeyer/watermarks-remover",
+    "description": "A privacy-first app that strips AI watermarks from content you own.",
+    "stars": 22461,
+    "forks": 2595,
+    "language": "Python",
+    "license": "MIT",
+    "topics": [
+     "agent-skill",
+     "ai",
+     "anthropic",
+     "c2pa",
+     "chatgpt",
+     "claude",
+     "gemini",
+     "openai",
+     "provenance",
+     "synthid",
+     "watermark",
+     "watermark-detection",
+     "watermark-tools",
+     "watermarking",
+     "watermarks"
+    ],
+    "homepage": "https://github.com/guillaumemeyer/watermarks-remover",
+    "created_at": "2026-08-11",
+    "pushed_at": "2026-09-20"
+   }
+  },
+  {
+   "repo": "larashero3-dotcom/lieflat-charts",
+   "readme_ok": true,
+   "readme_chars": 11455,
+   "meta": {
+    "full_name": "larashero3-dotcom/lieflat-charts",
+    "description": "Data visualization Skill for AI Agents, turning data into polished, interactive HTML charts. 面向 AI Agents 的数据可视化 Skill，将数据快速生成精致、可交互的 HTML 图表。",
+    "stars": 5594,
+    "forks": 343,
+    "language": "HTML",
+    "license": "NOASSERTION",
+    "topics": [
+     "agent-skills",
+     "charts",
+     "claude-code",
+     "codex",
+     "data-visualization",
+     "html",
+     "moxt",
+     "svg"
+    ],
+    "homepage": "",
+    "created_at": "2026-07-16",
+    "pushed_at": "2026-09-05"
+   }
+  },
+  {
+   "repo": "miuuyy/codex-chatgpt-web",
+   "readme_ok": true,
+   "readme_chars": 10578,
+   "meta": {
+    "full_name": "miuuyy/codex-chatgpt-web",
+    "description": "Use ChatGPT Web (including Pro) as a native model in Codex — with context, tools, streaming and images, without using Codex quota.",
+    "stars": 10046,
+    "forks": 828,
+    "language": "TypeScript",
+    "license": "MIT",
+    "topics": [
+     "chatgpt",
+     "chatgpt-pro",
+     "codex",
+     "free-ai",
+     "mcp",
+     "openai",
+     "playwright",
+     "quickstart",
+     "responses-api",
+     "typescript"
+    ],
+    "homepage": "",
+    "created_at": "2026-07-26",
+    "pushed_at": "2026-09-19"
+   }
+  },
+  {
+   "repo": "oomol-lab/open-connector",
+   "readme_ok": true,
+   "readme_chars": 16532,
+   "meta": {
+    "full_name": "oomol-lab/open-connector",
+    "description": "Open-source auth gateway connecting 1500+ SaaS providers to AI agents through SDK, CLI, MCP, HTTP, and OpenAPI.",
+    "stars": 5845,
+    "forks": 512,
+    "language": "TypeScript",
+    "license": "Apache-2.0",
+    "topics": [
+     "agent-tools",
+     "ai-agents",
+     "api-gateway",
+     "automation",
+     "cli",
+     "cloudflare-workers",
+     "connectors",
+     "integration-platform",
+     "mcp",
+     "model-context-protocol",
+     "oauth",
+     "oomol",
+     "openapi",
+     "openconnector",
+     "saas-integrations",
+     "sdk",
+     "self-hosted",
+     "typescript"
+    ],
+    "homepage": "https://oomol.com",
+    "created_at": "2026-06-29",
+    "pushed_at": "2026-09-21"
+   }
+  },
+  {
+   "repo": "petergyang/no-ai-slop",
+   "readme_ok": true,
+   "readme_chars": 3152,
+   "meta": {
+    "full_name": "petergyang/no-ai-slop",
+    "description": "Removes 20+ patterns of AI slop from any piece of writing.",
+    "stars": 10867,
+    "forks": 739,
+    "language": "Python",
+    "license": "MIT",
+    "topics": [],
+    "homepage": "https://creatoreconomy.so/p/use-my-no-ai-slop-skill-to-remove-20-ai-slop-patterns",
+    "created_at": "2026-07-07",
+    "pushed_at": "2026-09-02"
+   }
+  },
+  {
+   "repo": "s1dashu/ip-as-logo-skill",
+   "readme_ok": true,
+   "readme_chars": 7957,
+   "meta": {
+    "full_name": "s1dashu/ip-as-logo-skill",
+    "description": "A compact Agent Skill for highly simplified, rounded, subtly neo-skeuomorphic IP mascot logos.",
+    "stars": 5379,
+    "forks": 270,
+    "language": null,
+    "license": "MIT",
+    "topics": [
+     "codex",
+     "codex-skill",
+     "image-generation",
+     "logo-design",
+     "mascot-design"
+    ],
+    "homepage": "https://ipaslogo.com",
+    "created_at": "2026-08-18",
+    "pushed_at": "2026-08-22"
+   }
+  },
+  {
+   "repo": "trailhq/Graft",
+   "readme_ok": true,
+   "readme_chars": 42512,
+   "meta": {
+    "full_name": "trailhq/Graft",
+    "description": "Turbocharge Claude Code, Cursor, Codex, Gemini & every coding agent: faster, cheaper, with contextual understanding specific to your codebase.",
+    "stars": 8849,
+    "forks": 809,
+    "language": "TypeScript",
+    "license": "MIT",
+    "topics": [
+     "ai-agents",
+     "anthropic",
+     "claude-code",
+     "cli",
+     "code-graph",
+     "codex",
+     "context-engineering",
+     "cursor",
+     "developer-tools",
+     "gemini",
+     "knowledge-graph",
+     "llm",
+     "mcp",
+     "mcp-server",
+     "open-source",
+     "openai",
+     "tree-sitter"
+    ],
+    "homepage": "https://graft.nanonets.ai",
+    "created_at": "2026-07-03",
+    "pushed_at": "2026-09-20"
+   }
+  },
+  {
+   "repo": "truefoundry/trueforge",
+   "readme_ok": true,
+   "readme_chars": 9421,
+   "meta": {
+    "full_name": "truefoundry/trueforge",
+    "description": "The open-source agent harness - the runtime layer that turns an LLM into a working agent.",
+    "stars": 5861,
+    "forks": 455,
+    "language": "TypeScript",
+    "license": "MIT",
+    "topics": [
+     "agent",
+     "agentic-ai",
+     "agents",
+     "harness",
+     "harness-engineering"
+    ],
+    "homepage": "https://trueforge.dev",
+    "created_at": "2026-07-23",
+    "pushed_at": "2026-09-21"
+   }
+  },
+  {
+   "repo": "trycompai/crm",
+   "readme_ok": true,
+   "readme_chars": 19063,
+   "meta": {
+    "full_name": "trycompai/crm",
+    "description": "Comp AI CRM is an open source, CRM designed for AI agents. Agentic-first CRM.",
+    "stars": 10679,
+    "forks": 1492,
+    "language": "TypeScript",
+    "license": "MIT",
+    "topics": [],
+    "homepage": "https://trycrm.ai",
+    "created_at": "2026-07-31",
+    "pushed_at": "2026-09-11"
+   }
+  },
+  {
+   "repo": "xai-org/grok-build",
+   "readme_ok": true,
+   "readme_chars": 5724,
+   "meta": {
+    "full_name": "xai-org/grok-build",
+    "description": "SpaceXAI's coding agent harness and TUI. Fullscreen, mouse interactive, extensible.",
+    "stars": 26931,
+    "forks": 5079,
+    "language": "Rust",
+    "license": "Apache-2.0",
+    "topics": [],
+    "homepage": "",
+    "created_at": "2026-07-14",
+    "pushed_at": "2026-09-19"
+   }
+  },
+  {
+   "repo": "yc-software/qm",
+   "readme_ok": true,
+   "readme_chars": 15717,
+   "meta": {
+    "full_name": "yc-software/qm",
+    "description": "Multiplayer agent harness for work.",
+    "stars": 15186,
+    "forks": 1855,
+    "language": "TypeScript",
+    "license": "MIT",
+    "topics": [
+     "ai",
+     "assistant",
+     "harness",
+     "qm"
+    ],
+    "homepage": "https://x.com/qm__dev",
+    "created_at": "2026-07-29",
+    "pushed_at": "2026-09-21"
+   }
+  }
+ ]
+}

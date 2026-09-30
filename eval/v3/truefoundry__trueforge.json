@@ -1,0 +1,27 @@
+{
+  "is_ai_product": true,
+  "category": "编程 Agent 与运行框架",
+  "tagline": "开源 agent harness，提供模型调用、工具、沙箱、审批的完整 Agent 运行时",
+  "positioning": "TrueForge 是开源 agent harness，负责模型调用、MCP 工具、技能、沙箱、审批、上下文管理和会话状态等执行循环，并以聊天 UI、HTTP API/SDK、可嵌入 UI SDK 三种方式对外提供。",
+  "features": [
+    "支持 OpenAI、Anthropic、Google Gemini 等任意模型提供商，或任意 OpenAI 兼容端点",
+    "支持远程 MCP 工具，含 header 认证或 OAuth，可在聊天中完成授权",
+    "基于 git 的 SKILL.md 技能包，按需在沙箱中加载",
+    "沙箱作为工具，隔离执行代码与文件，目前支持 Daytona，按需创建以节省资源",
+    "人工检查点：工具审批、向用户提问、Generative UI 交互"
+  ],
+  "highlights": [
+    "支持本地模式（单进程+SQLite）和托管模式（Postgres+Redis，可用 Docker Compose、Helm 或 Railway 部署），可按需伸缩",
+    "项目方数据：在相同任务、工具和模型下，准确率与 Claude Managed Agents、deepagents 相当，但成本更低"
+  ],
+  "audience": "需要为大模型构建可用于生产的 Agent 运行环境的开发者和团队，尤其关注工具调用、沙箱执行和审批流程的场景",
+  "quickstart_cmd": "npx @truefoundry/trueforge@latest",
+  "quickstart_note": "本地模式为单进程+SQLite，默认无登录认证，仅限本机使用，不要暴露到公网。",
+  "risks": [
+    "本地模式默认无登录认证，README 明确说明仅供本机试用，不适合直接暴露到公网或生产环境。"
+  ],
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 1,
+  "still_over": []
+}

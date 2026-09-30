@@ -1,0 +1,48 @@
+{
+ "A": {
+  "is_ai_product": true,
+  "category": "开发者工具与集成",
+  "tagline": "用 AI Agent 为代码库自动生成并持续维护 Wiki 文档的命令行工具",
+  "positioning": "OpenWiki 是一个 CLI，由 Deep Agents 文档代理读取代码库或个人知识源，生成带证据溯源的 Markdown Wiki，并随内容变化自动更新，同时提供可视化浏览界面。",
+  "features": [
+   "支持 code（仓库文档）和 personal（个人知识）两种 Wiki 模式",
+   "内置 13 个模型提供商，可接入 OpenAI、Anthropic、Bedrock、Gemini 等",
+   "可作为 IBM Bob、Codex、Claude Code、Cursor 等编码 Agent 的插件运行",
+   "Grounded Claims 机制将关键事实关联到版本化源代码证据，证据变化时自动标记待确认",
+   "九种内置连接器（Notion、Slack、Gmail、X、Web Search 等）可接入个人知识源，需配置"
+  ],
+  "highlights": [
+   "提供交互式可视化图谱，可将 Wiki 导出为静态站点在 GitHub Pages 等平台发布",
+   "采用可恢复的分页任务架构，生成过程可在中断后从断点继续，避免重复劳动",
+   "可选配置 GitHub Actions/GitLab CI/Bitbucket Pipelines，在代码变化时自动开 PR 更新文档"
+  ],
+  "audience": "需要为代码库自动生成并持续维护文档的开发团队，以及希望搭建可被 Agent 读取的个人知识库的开发者",
+  "quickstart_cmd": "npm install -g openwiki",
+  "quickstart_note": "安装后运行 openwiki --init 首次生成仓库 Wiki，需 Node.js 22.22.0 及以上版本",
+  "risks": []
+ },
+ "B": {
+  "is_ai_product": true,
+  "category": "开发者工具与集成",
+  "tagline": "用 AI Agent 自动生成并持续维护代码仓库的 Wiki 文档",
+  "positioning": "OpenWiki 是一个 CLI 工具，由 Deep Agents 文档代理读取代码仓库或个人知识源，生成互联的 Markdown Wiki，并在代码变更后持续保持文档同步。",
+  "features": [
+   "支持 code（仓库文档）和 personal（个人知识库）两种模式",
+   "内置 13 种模型 provider，支持 OpenAI、Anthropic、Bedrock、Gemini 等",
+   "可集成进 IBM Bob、Codex、Claude Code、Cursor 等编码 Agent 中运行",
+   "Grounded Claims 机制将文档事实追溯到具体代码版本，变更时自动标记待更新",
+   "支持 GitHub Actions/GitLab CI/Bitbucket Pipelines 自动更新文档并发 PR"
+  ],
+  "highlights": [
+   "采用可恢复的分页任务架构，生成过程可在中断后从断点继续",
+   "输出符合 Open Knowledge Format(OKF v0.2)标准，带可验证的 Mermaid 图",
+   "提供交互式节点图可视化界面，可导出为静态站点部署"
+  ],
+  "audience": "需要为代码仓库自动生成并长期维护文档的开发团队，以及希望搭建个人知识库的开发者",
+  "quickstart_cmd": "npm install -g openwiki",
+  "quickstart_note": "安装后运行 openwiki --init 首次生成 Wiki，需 Node.js 22.22.0 及以上版本",
+  "risks": [
+   "自动 PR 与 auto-merge 涉及仓库权限令牌配置，需谨慎设置分支保护以避免误合并"
+  ]
+ }
+}

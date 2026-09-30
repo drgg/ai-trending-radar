@@ -1,0 +1,24 @@
+{
+  "is_ai_product": true,
+  "category": "开发者工具与集成",
+  "tagline": "将自然语言指令转化为 Android 自动化操作，支持接入 AI 编程助手完成测试",
+  "positioning": "Google 出品的 Android 自动化测试框架，将自然语言指令转换为跨应用操作，通过 MCP 协议与 Antigravity、Claude Code、Codex 等 AI 编程助手集成，支持实时诊断和日志采集。",
+  "features": [
+    "跨应用自动化：根据自然语言指令在 Android 上执行测试流程和日常任务",
+    "多模态定位：优先使用元素索引，辅以坐标和视觉识别应对自定义界面",
+    "MCP 集成：接入 Antigravity、Claude Code、Windsurf 等 IDE，采集 Logcat 与截图",
+    "双执行模式：Flash 模式约3-5秒/步快速响应，Pro 模式提供任务规划与预执行安全检查",
+    "提供 Web 控制台、CLI、MCP Server 和 Python SDK 多种使用方式"
+  ],
+  "highlights": [
+    "在 Google Research 的 AndroidWorld 基准测试（20+应用、100+多步任务）中任务完成率超99%（项目方数据）"
+  ],
+  "audience": "面向需要为 Android 应用编写自动化测试、借助 AI 编程助手进行设备调试与 UI 验证的开发者和测试工程师",
+  "quickstart_cmd": "git clone https://github.com/google/artemis.git && cd artemis && ./start.sh",
+  "quickstart_note": "需连接已开启 USB 调试的 Android 设备或模拟器，脚本会自动安装 ADB、scrcpy 等依赖并启动本地 Web 控制台",
+  "risks": [],
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 1,
+  "still_over": []
+}

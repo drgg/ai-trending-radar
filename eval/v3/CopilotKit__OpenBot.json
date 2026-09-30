@@ -1,0 +1,29 @@
+{
+  "audience": "希望在自有基础设施上搭建可控、可审计AI协作团队的企业技术团队、平台工程师和Agent开发者",
+  "category": "Agent 平台与基础设施",
+  "features": [
+    "每个Bot拥有独立\"电脑\"：容器化浏览器、专属文件工作区，可选gVisor沙箱运行",
+    "支持Shell命令执行与文件读写，命令继承PATH等有限环境变量",
+    "统一网关先鉴权、写审计记录再执行，是唯一的动作入口",
+    "基于CEL的策略引擎按工具、页面、命令等维度设置允许/拒绝规则，策略缺失默认拒绝",
+    "基于AG-UI协议接入LangGraph、Mastra、CrewAI、Pydantic AI、Google ADK等任意框架智能体"
+  ],
+  "highlights": [
+    "明确定位为\"模板而非产品\"：需克隆并替换示例内容后自用，无托管版本，一切私有部署",
+    "所有Bot动作必须先经策略评估、写入审计记录，才能交由计算机执行，设计上不可绕过",
+    "处于Alpha阶段并在活跃开发中，README提示可能存在明显缺陷"
+  ],
+  "is_ai_product": true,
+  "positioning": "CopilotKit推出的开源自托管Agent平台模板，让企业在自有基础设施上运行AI协作者：基于AG-UI协议接入任意智能体框架，每个Bot拥有独立浏览器、文件与工具，所有操作经统一网关审批并留痕。",
+  "quickstart_cmd": "bash scripts/start.sh",
+  "quickstart_note": "运行前需先cp .env.example .env、通过copilotkit CLI获取Intelligence密钥并填入OPENAI_API_KEY，再bun install",
+  "risks": [
+    "默认.env示例启用OPENBOT_SINGLE_USER=true，任何请求都被当作管理员放行，须先配置登录鉴权才能允许他人访问部署",
+    "Bot使用各自独立登录态的真实浏览器代为操作网页（如填写表单），可能涉及所访问第三方网站的服务条款问题"
+  ],
+  "tagline": "开源自托管AI协作平台，每个智能体拥有专属浏览器与工具，动作全程审批留痕",
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 1,
+  "still_over": []
+}

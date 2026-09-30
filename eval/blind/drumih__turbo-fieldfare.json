@@ -1,0 +1,46 @@
+{
+ "A": {
+  "is_ai_product": true,
+  "category": "本地推理与模型",
+  "tagline": "用Swift+Metal专为Gemma 4 26B打造的运行时，8GB内存Mac也能跑26B大模型",
+  "positioning": "面向Apple Silicon Mac的模型专用推理引擎，通过流式加载专家权重把26B参数模型的内存占用压到约2GB，而非通用的MLX/llama.cpp包装器。",
+  "features": [
+   "仅保留1.35GB共享核心与KV缓存常驻内存，按需从SSD流式加载专家权重",
+   "提供原生Mac App、命令行CLI和本地OpenAI兼容Server三种使用方式",
+   "支持视觉理解，需额外安装约1.1GB的图像模型包(M2及以上)",
+   "CLI和Server支持多轮对话、函数调用声明及采样参数自定义",
+   "内置流式安装器，边下载边重打包为.gturbo格式，避免占用双份磁盘空间"
+  ],
+  "highlights": [
+   "项目方数据：8GB M2 MacBook Air上解码速度5.1-6.3 tok/s，24GB M5 Pro上可达31-35 tok/s",
+   "模型专用运行时而非通用推理框架包装器，针对Gemma 4 26B-A4B做了103项内核/缓存/IO优化实验"
+  ],
+  "audience": "拥有Apple Silicon Mac(尤其8GB内存机型)、想在本地运行大模型又不想升级硬件的开发者和爱好者",
+  "quickstart_cmd": "git clone https://github.com/drumih/turbo-fieldfare.git && cd turbo-fieldfare && swift build -c release && .build/release/TurboFieldfareMac",
+  "quickstart_note": "首次运行需下载约15GB模型文件；仅支持macOS 26+Metal 4+Xcode 26的arm64 Apple Silicon Mac。",
+  "risks": []
+ },
+ "B": {
+  "is_ai_product": true,
+  "category": "本地推理与模型",
+  "tagline": "用Swift+Metal打造的运行时，让8GB苹果芯片Mac本地跑26B参数的Gemma 4",
+  "positioning": "针对Gemma 4 26B-A4B模型定制的Swift+Metal推理运行时，按需从SSD流式加载专家权重，仅用约2GB内存即可在8GB苹果芯片Mac上运行，而非MLX或llama.cpp的通用封装。",
+  "features": [
+   "仅将1.35GB共享核心和FP16 KV缓存常驻内存，逐token从SSD流式加载所需专家权重",
+   "提供原生Mac应用、命令行工具、模型安装器，以及可选的OpenAI兼容本地服务器",
+   "可选安装约1.1GB视觉塔插件支持图像输入，需M2及以上机型，未安装时文本功能不受影响",
+   "模型权重采用MLX 4-bit量化（路由器8-bit），安装时以流式方式直接从Hugging Face拉取并重新打包",
+   "仅支持搭载Metal 4的macOS 26及arm64架构苹果芯片Mac，需Xcode 26和Swift 6.2以上构建"
+  ],
+  "highlights": [
+   "项目方数据：8GB M2 MacBook Air解码速度约5.1-6.3 token/s，24GB M5 Pro约31-35 token/s",
+   "README说明该数据只是参考点而非性能上限，提示长度、页缓存状态等因素都会影响实际吞吐"
+  ],
+  "audience": "希望在低内存苹果芯片Mac（含8GB机型）上本地运行大参数量语言模型的开发者和爱好者",
+  "quickstart_cmd": "git clone https://github.com/drumih/turbo-fieldfare.git\ncd turbo-fieldfare\nswift build -c release\n.build/release/TurboFieldfareMac",
+  "quickstart_note": "构建需Xcode 26和Swift 6.2以上；首次启动后需在应用内选择下载，获取约15GB的模型文件",
+  "risks": [
+   "本地OpenAI兼容服务器不含远程身份验证和TLS，README提示须保持在本地回环，不可直接暴露到公网"
+  ]
+ }
+}

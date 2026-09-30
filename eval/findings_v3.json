@@ -1,0 +1,39 @@
+{
+ "judge": "Claude Opus 5.5，与 v2 同一套标准；已知是 v3（非盲评）；待本人复核",
+ "findings": {
+  "CopilotKit/OpenBot": [],
+  "MDX-Tom/gpt-instruct": [
+   {"type": "风险无依据", "severity": "轻", "field": "risks[2]", "detail": "把作者“本项目不会用于商业化”的自我声明误读成对使用者的限制，进而说与 MIT 许可证“不一致”。这不是许可证风险"},
+   {"type": "违反格式要求", "severity": "轻", "field": "features[1]", "detail": "46/40 字，重试后仍超限"}
+  ],
+  "Tencent/BrowserSkill": [],
+  "Vincentwei1021/video-shotcraft": [],
+  "XiaoDuoYa/codex-with-chatgpt": [
+   {"type": "风险无依据", "severity": "轻", "field": "risks[2]", "detail": "“非官方社区项目，不隶属于 OpenAI”是声明，不是风险"}
+  ],
+  "dataelement/dsh-desktop": [],
+  "deeplethe/utopia": [],
+  "genspark-ai/genoffice": [
+   {"type": "违反格式要求", "severity": "轻", "field": "features[5]", "detail": "51/40 字，重试后仍超限"}
+  ],
+  "google/artemis": [
+   {"type": "未标注项目方数据", "severity": "轻", "field": "features[4]", "detail": "“Flash 模式约 3-5 秒/步”仍未标注项目方数据（v3 规则已明确要求标注速度数字）"}
+  ],
+  "guillaumemeyer/watermarks-remover": [],
+  "larashero3-dotcom/lieflat-charts": [],
+  "miuuyy/codex-chatgpt-web": [
+   {"type": "违反格式要求", "severity": "轻", "field": "features[3]", "detail": "42/40 字，重试后仍超限"},
+   {"type": "违反格式要求", "severity": "轻", "field": "highlights[1]", "detail": "52/50 字，重试后仍超限"}
+  ],
+  "oomol-lab/open-connector": [],
+  "petergyang/no-ai-slop": [],
+  "s1dashu/ip-as-logo-skill": [],
+  "trailhq/Graft": [],
+  "truefoundry/trueforge": [],
+  "trycompai/crm": [
+   {"type": "漏报风险", "severity": "重要", "field": "risks", "detail": "risks 为空（v2 标了 1 条但描述有误）。核心功能之一是经 Context 按 LinkedIn 链接补全联系人的姓名、职位和履历，属于 v3 明确要求标注的“采集他人个人信息”"}
+  ],
+  "xai-org/grok-build": [],
+  "yc-software/qm": []
+ }
+}

@@ -1,0 +1,25 @@
+{
+  "is_ai_product": true,
+  "category": "编程 Agent 与运行框架",
+  "tagline": "SpaceXAI 出品的终端 AI 编程助手，全屏 TUI，理解代码库并自动编辑执行",
+  "positioning": "面向命令行场景的 AI 编程 Agent，可交互式使用，也可无头运行于脚本/CI，或通过 ACP 协议嵌入编辑器。",
+  "features": [
+    "全屏鼠标交互 TUI，理解代码库结构",
+    "自动编辑文件、执行 shell 命令、搜索网页",
+    "管理长时间运行的任务",
+    "支持无头模式用于脚本和 CI",
+    "支持 MCP 服务器、插件、hooks、沙箱等可选扩展"
+  ],
+  "highlights": [
+    "用 Rust 编写，由 xAI 内部 monorepo 定期同步生成",
+    "内置对 openai/codex 和 sst/opencode 工具实现的移植代码"
+  ],
+  "audience": "习惯命令行工作流、希望在终端或 CI 中使用 AI 编程助手的开发者",
+  "quickstart_cmd": "curl -fsSL https://x.ai/cli/install.sh | bash",
+  "quickstart_note": "适用于 macOS/Linux/Git Bash，安装后首次启动会打开浏览器完成身份验证",
+  "risks": [],
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 1,
+  "still_over": []
+}

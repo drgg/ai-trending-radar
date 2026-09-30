@@ -1,0 +1,27 @@
+{
+  "is_ai_product": true,
+  "category": "编程 Agent 与运行框架",
+  "tagline": "Claude Code 插件，用外部模型给工具调用打分决定压缩时保留或删除，而非生成摘要",
+  "positioning": "替代 Claude Code 默认的压缩摘要机制：调用 TypeSafe 的 Jev 模型为每个工具调用和结果打分，决定保留、截断或删除，保留内容不改写；也可作为独立 npm 库使用。",
+  "features": [
+    "对每次工具调用问两个问题：调用是否有价值、结果是否需保留原文，按阈值决策",
+    "被保留的调用和结果一律逐字保留，不做摘要改写，只删除或截断不需要的部分",
+    "首条消息及最新的若干条消息（默认6条）始终不处理，保持原样",
+    "状态超出 token 上限时分阶段压缩：先截断工具输入，再摘要文本头尾，最后折叠旧消息",
+    "既可作为 Claude Code 插件替换内置 /compact，也可作为独立 npm 库自行集成"
+  ],
+  "highlights": [
+    "项目方数据：token 数量靠字符规则估算而非真实分词器，校准后略高于 Jev 实际计数",
+    "压缩效果不足（reductionRatio 过低）或 Jev 调用失败时，插件会自动回退到 Claude Code 内置摘要"
+  ],
+  "audience": "使用 Claude Code 处理长会话、希望压缩上下文时保留工具调用细节而非模糊摘要的开发者",
+  "quickstart_cmd": "npm install fast-jev-compaction",
+  "quickstart_note": "需设置 TYPESAFE_API_KEY 环境变量才能调用 Jev 打分接口；Claude Code 插件另需单独安装步骤",
+  "risks": [
+    "会将完整会话内容（工具调用输入、文件路径、文本等）发送给 TypeSafe 第三方 API 进行打分"
+  ],
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 1,
+  "still_over": []
+}

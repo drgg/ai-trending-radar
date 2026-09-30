@@ -1,0 +1,25 @@
+{
+  "audience": "面向希望在本地桌面环境使用 DeepSeek Harness Agent、并需要跨设备继续会话的开发者和技术用户。",
+  "category": "AI 应用产品",
+  "features": [
+    "自动启动和停止 Harness，无需单独命令行或浏览器标签",
+    "支持官方 DeepSeek 模型及主流第三方模型提供商",
+    "内置 PPT 模式，含16套模板192种版式，输出可编辑 PPTX",
+    "支持导入导出 .dshpreset 预设包，安装前做冲突检查和信任提示",
+    "提供安全模式，可临时屏蔽第三方插件排查启动或渲染问题"
+  ],
+  "highlights": [
+    "手机可通过局域网或临时公共隧道连接桌面继续会话，需配对码和桌面端确认才能生效",
+    "渲染进程无 Node.js 权限，启用上下文隔离与沙箱，外部链接强制在系统浏览器打开"
+  ],
+  "is_ai_product": true,
+  "positioning": "将本地运行的 DeepSeek Harness Agent 运行时打包成原生桌面应用，自动启动本地服务并提供工作区、插件、模型设置等管理界面，数据保存在用户目录而非安装目录内。",
+  "quickstart_cmd": "",
+  "quickstart_note": "",
+  "risks": [],
+  "tagline": "DeepSeek Harness 的本地优先跨平台 Agent 桌面客户端",
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 1,
+  "still_over": []
+}

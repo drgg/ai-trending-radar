@@ -1,0 +1,28 @@
+{
+  "audience": "同时使用 Codex 编码与 ChatGPT Plus/Pro 订阅、希望用网页版额度做规划审查而非消耗 API 额度的开发者",
+  "category": "编程 Agent 与运行框架",
+  "features": [
+    "只读 MCP 桥接连接本地工作区，ChatGPT 按需读取代码行，仓库内容不会被上传",
+    "OAuth 2.1 保护公网访问，配合一次性配对码完成 ChatGPT 连接器配置",
+    "提供 9 个只读 MCP 工具，含文件读取、搜索、git diff、测试状态等",
+    "Codex Skill 一段话自动安装配置，也支持手动安装与可选的 Cloudflare 稳定域名",
+    "默认拒绝读取 .env、密钥等敏感文件，可通过 .c2cignore 自定义规则"
+  ],
+  "highlights": [
+    "不需要 API Key、不使用逆向代理，通过官方网页加安全桥接实现（项目方说明）",
+    "服务端不存在写入/删除/shell/提交类工具，架构上保证只读，防止 prompt injection 获得执行权"
+  ],
+  "is_ai_product": true,
+  "positioning": "把 ChatGPT 网页版变成 Codex 编码会话的规划与审查大脑，执行权仍在 Codex 手中，用已付费的网页订阅额度替代紧张的 API 额度。",
+  "quickstart_cmd": "pnpm install && pnpm build",
+  "quickstart_note": "构建后运行 c2c setup 完成桥接、隧道与配对码配置，需要 Node.js >= 20 和 git。",
+  "risks": [
+    "架构中的“Computer Use”控制面会自动化操作 ChatGPT 网页版进行状态交互，可能涉及违反 OpenAI 服务条款的风险",
+    "README 明确声明为非官方社区项目，不隶属于也未获得 OpenAI 认可"
+  ],
+  "tagline": "让 ChatGPT 网页版做规划审查，Codex 负责执行的只读 MCP 桥接工具",
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 1,
+  "still_over": []
+}

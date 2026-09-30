@@ -1,0 +1,25 @@
+{
+  "audience": "使用Codex、Coze、豆包、Manus、Gemini Apps等AI智能体的开发者和设计师，需要快速生成极简风格IP吉祥物素材",
+  "category": "Skills 与写作/设计",
+  "features": [
+    "默认生成由约4-7个大色块构成的主体轮廓，严格限制复杂度",
+    "默认使用三种语义色：两种IP主体色加一种背景色",
+    "先提出三个设计方向，用户确认后并行生成六张独立候选图",
+    "开放主题时默认95%-100%为常见动物，非动物主体需有明确产品理由",
+    "生成提示词中从不出现logo、品牌标识等字样，只描述角色本身"
+  ],
+  "highlights": [
+    "对每批生成结果不做透明度检测、合规筛选或自动重试，原样保留并交付所有候选图",
+    "需要agent配备顶级图像模型（如GPT Image 2、Seedance 5.0 Pro、Nano Banana Pro/2）或提供其API Key"
+  ],
+  "is_ai_product": true,
+  "positioning": "遵循开放的Agent Skills格式的指令文档，指导兼容的AI智能体（需配备顶级图像模型）生成风格统一的极简圆润IP吉祥物形象，适用于品牌吉祥物等场景，不绑定特定agent产品。",
+  "quickstart_cmd": "npx skills@latest add s1dashu/ip-as-logo-skill",
+  "quickstart_note": "安装程序会检测仓库根目录的SKILL.md，让你选择受支持的AI智能体完成安装，加--global可全局安装。",
+  "risks": [],
+  "tagline": "面向AI智能体的极简圆润IP吉祥物logo生成技能包",
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 1,
+  "still_over": []
+}

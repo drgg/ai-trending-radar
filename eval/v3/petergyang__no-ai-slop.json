@@ -1,0 +1,25 @@
+{
+  "is_ai_product": true,
+  "category": "Skills 与写作/设计",
+  "tagline": "可安装到 AI 编码助手中的技能，清除写作里 20 多种 AI 套路化表达",
+  "positioning": "面向 Claude Code、ChatGPT、Codex 等编码助手的技能包，用于检测并删除 AI 生成或编辑文本中常见的空洞套路句式，同时尽量保留作者原有的措辞和语气。",
+  "features": [
+    "识别并清除 20+ 种 AI 套路，如二元对比句、故弄玄虚开场白、假深刻结尾等",
+    "编辑完成后列出具体改动，方便核对修改内容",
+    "提供检测模式，只引用命中的套路原句，不臆断文本是否由 AI 生成",
+    "可选反向生成夸张 AI 套路文风，用作讽刺示例",
+    "支持通过对话指令或 npx 命令安装为全局技能"
+  ],
+  "highlights": [
+    "同时提供编辑、检测、反向生成三种使用模式",
+    "以 SKILL.md 定义编辑规则、以 eval.md 定义自检流程"
+  ],
+  "audience": "使用 AI 辅助写作、希望减少文本中明显 AI 痕迹并保留个人风格的内容创作者和开发者",
+  "quickstart_cmd": "npx skills add petergyang/no-ai-slop --skill no-ai-slop --global --yes",
+  "quickstart_note": "全局安装后可在 Claude Code、ChatGPT、Codex 等支持该技能格式的工具中用 /no-ai-slop 调用",
+  "risks": [],
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 1,
+  "still_over": []
+}

@@ -1,0 +1,25 @@
+{
+  "is_ai_product": true,
+  "category": "Skills 与写作/设计",
+  "tagline": "一组 Agent Skills 集合，帮助 AI 编程助手构建更好的界面",
+  "positioning": "面向 Claude Code 等 AI 编程助手的技能库，提供 UI、排版、色彩、可访问性、布局、产品文案等方面的专项技能，用于改进界面设计质量。",
+  "features": [
+    "better-ui：优化 UI 细节，涵盖同心圆角、光学对齐、图标、点击区域、动画等",
+    "better-typography：改进排版，涵盖字号比例、间距、可变字体、OpenType 特性等",
+    "better-colors：构建色彩系统，可生成调色板、使用语义化 token、检查对比度",
+    "better-accessibility：帮助项目符合可访问性标准与最佳实践",
+    "interface-review：跨 UI、排版、布局、色彩、文案、可访问性多维度审查，需用户手动调用"
+  ],
+  "highlights": [
+    "额外提供 explain-interface、break、variant 等用户调用型技能，用于分析网页实现、批量渲染组件状态、生成多个变体",
+    "支持通过 npx 命令或 Claude Code 插件市场两种方式安装"
+  ],
+  "audience": "使用 Claude Code 等 AI 编程助手进行前端界面开发的设计工程师和开发者",
+  "quickstart_cmd": "npx skills add jakubkrehel/skills",
+  "quickstart_note": "也可作为 Claude Code 插件安装：/plugin marketplace add jakubkrehel/skills",
+  "risks": [],
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 1,
+  "still_over": []
+}

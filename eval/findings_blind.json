@@ -1,0 +1,35 @@
+{
+ "judge": "Claude Opus 5.5，盲评（揭晓前记录）；统一口径：只按两版提示词共有的风险类型判漏报",
+ "findings": {
+  "FareedKhan-dev/kimi-k3-in-c": {
+   "A": [{"type": "事实偏差", "severity": "轻", "detail": "“4bit量化(MXFP4)”：MXFP4 不在材料中"}],
+   "B": [{"type": "事实偏差", "severity": "轻", "detail": "“224GB内存下平均10.69秒/token”：README 中 10.69 秒/token 对应的峰值内存是 127.92GB"}]
+  },
+  "drumih/turbo-fieldfare": {
+   "A": [{"type": "事实偏差", "severity": "轻", "detail": "“CLI和Server支持函数调用声明”：README 说 app 和 CLI 不暴露工具，只有 server 接受函数声明"}],
+   "B": [{"type": "违反格式要求", "severity": "轻", "detail": "quickstart_cmd 含换行"}]
+  },
+  "elder-plinius/T3MP3ST": {
+   "A": [{"type": "违反格式要求", "severity": "轻", "detail": "quickstart_cmd 含换行"}],
+   "B": [{"type": "违反格式要求", "severity": "轻", "detail": "quickstart_cmd 含换行"}]
+  },
+  "hypit-ai/hypit": {
+   "A": [{"type": "事实偏差", "severity": "轻", "detail": "“自研 SVML 标记语言与编译器”：材料只出现 .svml 文件，没有说明是自研语言和编译器"}],
+   "B": [{"type": "事实偏差", "severity": "轻", "detail": "风险里的“如换脸”：README 说的是替换出镜人（swap the host），不是换脸"}]
+  },
+  "jakubkrehel/skills": {"A": [], "B": []},
+  "tamaratran/fast-jev-compaction": {
+   "A": [],
+   "B": [
+    {"type": "夸大", "severity": "轻", "detail": "亮点用星数和 fork 数，并误标为“项目方数据”"},
+    {"type": "风险无依据", "severity": "轻", "detail": "“依赖早期访问特性、需开实验开关”是版本限制，不是风险"},
+    {"type": "风险无依据", "severity": "轻", "detail": "“依赖外部 API 密钥和第三方服务可用性”不是风险"}
+   ]
+  },
+  "unicity-aos/aos-ce": {"A": [], "B": []},
+  "langchain-ai/openwiki": {
+   "A": [],
+   "B": [{"type": "风险无依据", "severity": "轻", "detail": "“auto-merge 需谨慎设置分支保护”是 README 中可选示例的配置建议，不是风险"}]
+  }
+ }
+}

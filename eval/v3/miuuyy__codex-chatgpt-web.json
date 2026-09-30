@@ -1,0 +1,31 @@
+{
+  "audience": "使用 Codex CLI 的开发者，尤其是已有 ChatGPT Plus/Pro 订阅、希望用其额度而非按量计费的 API 或 Codex 配额来驱动编码任务的人。",
+  "category": "编程 Agent 与运行框架",
+  "features": [
+    "内置浏览器和运行时，登录ChatGPT后可选Luna/Think、Instant–High、Pro等模型（视账号）",
+    "提供Browser-only、Full harness、Zero Risk三种模式：自动发送、MCP接入本地工具、手动粘贴发送",
+    "Full harness 模式通过 OpenAI 官方 tunnel-client，把 ChatGPT 工具调用接回 Codex 任务的文件、终端和审批流程",
+    "对话与 Codex 任务绑定，随上下文增长支持原生 Codex 压缩",
+    "支持子代理在 Compatibility V1 与 Native 协议间切换"
+  ],
+  "highlights": [
+    "项目方称 Plus Medium/High 模式下上下文窗口约 9 万 token，开启实验性 3× context 后可达 27 万 token（项目方数据）",
+    "Full harness 隧道为出站连接，不开放公网入口、不需端口转发（项目方说明）"
+  ],
+  "is_ai_product": true,
+  "positioning": "非官方浏览器自动化工具，用内置浏览器驱动 ChatGPT 网页版，接入 Codex 模型选择器，提供上下文、工具调用、流式输出和图片支持，使用 ChatGPT Web 自身用量限制而非 Codex 或 API 配额。",
+  "quickstart_cmd": "curl -fsSL https://github.com/miuuyy/codex-chatgpt-web/releases/latest/download/install-launcher.sh | sh",
+  "quickstart_note": "适用于 macOS/Linux（Windows 有对应 PowerShell 脚本）；装完需在内嵌浏览器登录 ChatGPT 并安装模型后方可在 Codex 中使用。",
+  "risks": [
+    "核心功能是用浏览器自动化操控 ChatGPT 网页版充当 Codex 的模型后端，README 明确说明这是非官方自动化而非 OpenAI API，需遵守 ChatGPT 使用条款，且页面改版可能导致功能失效。",
+    "浏览器登录状态属于敏感凭证，本地回环监听可被同一用户下的其他进程访问，不应共享启动器配置文件或在不受信工作站使用。"
+  ],
+  "tagline": "让 Codex 把 ChatGPT 网页版（含 Pro）当作原生模型使用、不占用 Codex 配额的启动器",
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 2,
+  "still_over": [
+    "features[3] 42/40 字",
+    "highlights[1] 52/50 字"
+  ]
+}

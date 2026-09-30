@@ -1,0 +1,26 @@
+{
+  "audience": "希望自建、可自托管CRM，并让AI代理自动调研、维护客户资料的技术团队与开发者。",
+  "category": "AI 应用产品",
+  "features": [
+    "18个代理工具，如search_crm、identify_contact、research_person等",
+    "4个技能文件（如evidence.md）以Markdown编写并像代码一样版本管理",
+    "内置工作队列自主调度调研节奏，而非固定cron时间表",
+    "沙盒默认deny-all出站且不持有数据库凭证，仅提供bash/grep/glob",
+    "每个联系人/公司/交易都有Agent标签页，可查看执行步骤与决策理由"
+  ],
+  "highlights": [
+    "工具不接受置信度评分，只报告观察结果；证据充分才写入记录，证据薄弱则生成待人工确认的建议",
+    "无需任何第三方API key也可运行，依赖自有邮件与日历记录作为免费且可靠的证据来源",
+    "架构上不支持多组织，采用单租户设计"
+  ],
+  "is_ai_product": true,
+  "positioning": "CRM不是聊天框附加的功能，而是代理记录调研成果的地方。代理独立部署、自主排期、自行决定调查对象，仅在证据充分时写入客户资料，弱证据则生成待人工确认的建议。",
+  "quickstart_cmd": "git clone https://github.com/trycompai/crm.git && cd crm",
+  "quickstart_note": "需先配置.env、安装Bun与Docker，再依次执行install、迁移与db:seed命令，最后bun run dev启动。",
+  "risks": [],
+  "tagline": "面向AI代理的开源CRM，代理自主调度、调研客户并写入证据记录",
+  "prompt_version": 3,
+  "model": "claude-sonnet-5",
+  "calls": 1,
+  "still_over": []
+}
