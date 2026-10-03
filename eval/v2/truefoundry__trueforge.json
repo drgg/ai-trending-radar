@@ -1,0 +1,26 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "开源的 Agent 运行时，把 LLM 变成可用的智能体",
+  "positioning": "TrueForge 承担 Agent 执行循环——模型调用、工具、沙箱、审批、上下文管理，并通过聊天界面、HTTP API/SDK、可嵌入 UI 三种方式对外提供，省去自建运行时的重复劳动。",
+  "features": [
+    "支持 OpenAI、Anthropic、Gemini 等多模型及任意 OpenAI 兼容接口",
+    "可接入远程 MCP 工具，支持 Header 认证和 OAuth",
+    "支持 SKILL.md 技能包，按需在沙箱中加载",
+    "沙箱作为工具按需提供隔离代码/文件执行环境，密钥留在运行时内",
+    "内置工具审批、追问用户、生成式 UI 等人工检查点"
+  ],
+  "highlights": [
+    "项目方数据：在相同任务和模型下，成本低于 Claude Managed Agents 和 deepagents，精度相当"
+  ],
+  "audience": "需要快速搭建生产级 Agent 运行时的开发者和团队，尤其是已用 MCP/多模型但缺少统一执行框架的场景",
+  "quickstart_cmd": "npx @truefoundry/trueforge@latest",
+  "quickstart_note": "本地模式单进程+SQLite适合个人试用；团队或生产建议用 Docker Compose、Helm 或 Railway 的托管模式",
+  "risks": [
+    "本地模式默认无登录且数据存于本地 SQLite 文件，官方提示仅限本机使用，不适合暴露到公网"
+  ],
+  "readme_sha": "974a6a453038450ed24217e08b0ac254835a9cdd",
+  "generated_at": "2026-09-19",
+  "prompt_version": 2,
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,27 @@
+{
+  "is_ai_product": true,
+  "category": "编程 Agent 与运行框架",
+  "tagline": "Google 出品的自然语言驱动 Android 自动化测试与操作框架",
+  "positioning": "将自然语言指令转化为可靠的 Android 端到端自动化操作，支持测试与日常任务执行，并通过 MCP 与 AI 编程助手集成",
+  "features": [
+    "观察-行动的多模态定位，结合无障碍层级、OCR 与视觉模型识别界面元素",
+    "原生 MCP 服务器，供 Antigravity、Claude Code、Codex 等 IDE 驱动真机执行任务",
+    "Flash 与 Pro 双执行模式，分别面向快速响应和深度规划验证场景",
+    "自动采集 Logcat 日志与截图，支持长时间探索性与稳定性测试",
+    "提供 Web 可视化控制台、CLI 和 Python SDK 多种使用方式"
+  ],
+  "highlights": [
+    "项目方数据：在 Google Research 的 AndroidWorld 基准（20+ 应用、100+ 多步任务）上完成率超 99%",
+    "Flash 模式单步响应约 3-5 秒，采用历史压缩而非截断以支持长流程任务"
+  ],
+  "audience": "移动应用测试工程师、需要 Android 自动化的开发者，以及使用 AI 编程助手做移动端调试的团队",
+  "quickstart_cmd": "git clone https://github.com/google/artemis.git && cd artemis && ./start.sh",
+  "quickstart_note": "需先通过 USB 调试连接 Android 设备或模拟器，一键脚本会自动安装 ADB、scrcpy 等依赖",
+  "risks": [
+    "会在测试设备上安装无障碍辅助服务并读取屏幕内容，需注意在授权设备上使用"
+  ],
+  "readme_sha": "d18836053c4b1b4c423970e2c4e57693419543f6",
+  "generated_at": "2026-09-19",
+  "prompt_version": 2,
+  "model": "claude-sonnet-5"
+}

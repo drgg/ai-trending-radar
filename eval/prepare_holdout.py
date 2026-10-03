@@ -12,13 +12,13 @@ for snap in sorted((ROOT / "data/snapshots").glob("*.json")):
     for e in json.loads(snap.read_text(encoding="utf-8"))["entries"]:
         meta[e["full_name"]] = {k: e.get(k) for k in ("full_name", "description", "stars", "forks",
                                 "language", "license", "topics", "homepage", "created_at", "pushed_at")}
-names = sorted(p.stem.replace("__", "/", 1) for p in (ROOT / "data/intros").glob("*.json"))
+names = sorted(p.stem.replace("__", "/", 1) for p in (ROOT / "eval/v2").glob("*.json"))
 holdout = [n for n in names if n not in sample]
 s = _session()
 out = []
 for name in holdout:
     key = name.replace("/", "__")
-    intro = json.loads((ROOT / "data/intros" / f"{key}.json").read_text(encoding="utf-8"))
+    intro = json.loads((ROOT / "eval/v2" / f"{key}.json").read_text(encoding="utf-8"))
     r = _get(s, f"https://api.github.com/repos/{name}/git/blobs/{intro['readme_sha']}")
     ok = r.status_code == 200
     raw = base64.b64decode(r.json()["content"]).decode("utf-8", "replace") if ok else ""

@@ -1,7 +1,7 @@
 import json,sys
 for r in sys.argv[1:]:
     k=r.replace('/','__')
-    i=json.load(open(f'data/intros/{k}.json',encoding='utf-8'))
+    i=json.load(open(f"eval/v2/{k}.json",encoding='utf-8'))
     print('='*30,r)
     for f in ['is_ai_product','category','tagline','positioning','features','highlights','audience','quickstart_cmd','quickstart_note','risks']:
         print(f'[{f}]',i.get(f))

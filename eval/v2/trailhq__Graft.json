@@ -1,0 +1,26 @@
+{
+  "is_ai_product": true,
+  "category": "开发者工具与集成",
+  "tagline": "给 Claude Code、Cursor 等编码 Agent 装上代码知识图谱，减少重复探索代码库",
+  "positioning": "Graft 为代码库构建一份可读的 Markdown 知识图谱，写入仓库供各类编码 Agent 直接读取，避免每次任务从零探索代码，从而更省钱、更快、更准确。",
+  "features": [
+    "graft init 自动为 Claude Code 等 Agent 接入统计栏、钩子和 MCP 配置",
+    "两阶段构图：LLM 总结每个文件，再分组成带类型链接的节点",
+    "结构层用 tree-sitter 解析，$0 成本、无需模型密钥，支持23种语言",
+    "每次查询前自动增量刷新图谱，反映未提交的最新代码改动",
+    "graft/ 目录作为本地可再生缓存不提交，团队成员各自 build 生成"
+  ],
+  "highlights": [
+    "项目方基准测试：工具调用减少46%，token节省42%，耗时减少60%",
+    "项目方SWE-bench Verified测试：正确率从54%提升到66%（+12分）",
+    "支持OpenAI、Anthropic、OpenRouter等多家模型提供商，可用自有API密钥"
+  ],
+  "audience": "使用Claude Code、Cursor、Codex、Gemini等AI编码助手的开发者和团队",
+  "quickstart_cmd": "npm install -g @nanonets/graft && graft init",
+  "quickstart_note": "安装后运行graft init选择要接入的编码Agent，自动构建图谱并完成配置",
+  "risks": [],
+  "readme_sha": "f2101dcdf027d1521bfb6c75813bff069df4dcc9",
+  "generated_at": "2026-09-19",
+  "prompt_version": 2,
+  "model": "claude-sonnet-5"
+}

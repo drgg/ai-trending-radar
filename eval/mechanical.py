@@ -23,7 +23,7 @@ def check(intro, readme):
 
 if __name__ == "__main__":
     import sys
-    intro_dir = ROOT / (sys.argv[1] if len(sys.argv) > 1 else "data/intros")
+    intro_dir = ROOT / (sys.argv[1] if len(sys.argv) > 1 else "eval/v2")
     out = ROOT / (sys.argv[2] if len(sys.argv) > 2 else "eval/mechanical.json")
     sys.path.insert(0, str(ROOT / "scripts"))
     from summarize import length_violations

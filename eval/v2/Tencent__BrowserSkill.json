@@ -1,0 +1,27 @@
+{
+  "is_ai_product": true,
+  "category": "开发者工具与集成",
+  "tagline": "让AI Agent借用你已登录的真实浏览器完成网页任务",
+  "positioning": "腾讯开源的CLI+浏览器扩展，让Cursor、Claude Code、Codex等任意可调用shell的AI Agent借用你已登录的浏览器标签页执行任务，用完归还，不打断日常使用。",
+  "features": [
+    "复用已登录状态，无需为Agent单独准备测试账号",
+    "任务在独立可见的Agent窗口运行，不影响用户正常浏览",
+    "通过bsk CLI支持任意可调用shell的Agent，不绑定特定模型或框架",
+    "遇到验证码、登录、确认弹窗时可请求用户接管后继续执行",
+    "支持整页长截图导出，可用CLI命令或扩展快捷操作触发"
+  ],
+  "highlights": [
+    "已获5000+ star，兼容Cursor、Claude Code、Codex、OpenClaw等多种Agent工具",
+    "跨平台支持macOS、Linux、Windows，浏览器端支持Chrome和Edge"
+  ],
+  "audience": "需要让AI Agent操作真实登录网页（如企业后台、SaaS系统）的开发者及自动化工程师",
+  "quickstart_cmd": "curl -fsSL https://raw.githubusercontent.com/Tencent/BrowserSkill/main/install.sh | sh",
+  "quickstart_note": "安装CLI后还需安装浏览器扩展，并运行bsk install-skill为对应Agent配置技能文件",
+  "risks": [
+    "让Agent自动操作已登录的真实账号和网页，可能违反部分网站的服务条款或引发账号风险"
+  ],
+  "readme_sha": "e8d471b54fb2fa27dad16924005acc62198fd7fa",
+  "generated_at": "2026-09-19",
+  "prompt_version": 2,
+  "model": "claude-sonnet-5"
+}

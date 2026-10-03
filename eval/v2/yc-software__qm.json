@@ -1,0 +1,27 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "面向团队的多人协作 Agent 框架，同时支持 Slack 与网页端",
+  "positioning": "QM 是为创业公司打造的多人 Agent 协作框架，每位员工拥有独立作用域和沙箱，也能在频道、项目中与 Agent 协同工作，底层模型与 harness 可自由切换。",
+  "features": [
+    "个人与共享作用域并存，可在 Slack 频道和项目中协同使用 Agent",
+    "支持 Pi、OpenCode、Codex、Claude Code 等多种 harness 和模型切换",
+    "内置定时任务、监控和 webhook，可在无人值守时自动执行后台工作",
+    "可搭建内部 Web 应用并按权限发布给指定成员",
+    "Skills 按作用域共享，支持管理员提升权限及从 Git 仓库导入技能包"
+  ],
+  "highlights": [
+    "安全策略分 Strict/Auto/Dangerous 三级，共享策略分 Isolated/Open，可按组织和作用域精细控制",
+    "每个用户和房间拥有独立的持久化沙箱、记忆与权限，核心运行时与企业部署配置分离"
+  ],
+  "audience": "需要为团队搭建协作式 AI Agent 工作环境的创业公司工程与运维团队",
+  "quickstart_cmd": "npm exec --yes --package=@yc-software/qm@latest -- qm init . --org <slug> --target <fly-or-aws>",
+  "quickstart_note": "需创建自有部署仓库并接入自己的云账号（Fly 或 AWS），非开箱即用的本地工具",
+  "risks": [
+    "Agent 以用户自身身份和权限执行操作并被审计记录，组织需自行把控权限边界和数据共享范围"
+  ],
+  "readme_sha": "de7d118e26ee52cbee900336c98cb9c5796f6ef1",
+  "generated_at": "2026-09-19",
+  "prompt_version": 2,
+  "model": "claude-sonnet-5"
+}

@@ -92,7 +92,7 @@ def main():
         json.dumps(snapshot, ensure_ascii=False, indent=1), encoding="utf-8")
 
     print("④ 渲染页面…")
-    render.render(snapshot, cfg["categories"])
+    render.render(snapshot, cfg["categories"], cfg.get("warn_categories"))
     print(f"完成：site/index.html、report.md（本次模型调用共 {summ.calls} 次）")
 
 

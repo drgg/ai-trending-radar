@@ -1,0 +1,25 @@
+{
+  "is_ai_product": true,
+  "category": "AI 应用产品",
+  "tagline": "开源 AI 办公套件，本地编辑真正的 Word/Excel/PPT/PDF 文件",
+  "positioning": "GenOffice 是免费开源的 Office 替代品，内置 AI 编辑器直接读写 .docx/.xlsx/.pptx，并提供 CLI 与 Agent 技能，让 Claude Code、Codex、Cursor 等在本地创建和修改真实办公文件。",
+  "features": [
+    "支持 docx/xlsx/pptx/PDF/Markdown/HTML 编辑，未修改部分逐字节保留原文件",
+    "AI 编辑以追踪修改和差异呈现，可一键回滚，表格生成活公式而非纯数字",
+    "文件全部在本地打开、编辑、保存和转换，PDF 转 Word/Excel/PPT 也在设备端完成",
+    "可自带 API Key，支持 Claude、OpenAI、Gemini、DeepSeek 等十余家模型及本地服务",
+    "附带 genoffice CLI、Agent 技能和 MCP 服务器，支持编码 Agent 直接操作文件"
+  ],
+  "highlights": [
+    "7190 星，Apache-2.0 协议，支持 macOS、Windows、Linux 三平台原生应用",
+    "MCP 服务器提供 29 个工具，可让 Claude Desktop 等客户端直接构建 Word 文档"
+  ],
+  "audience": "需要用真实办公文件格式做 AI 协作的个人和团队，以及希望编码 Agent 生成正式文档的开发者",
+  "quickstart_cmd": "npx skills add genspark-ai/genoffice",
+  "quickstart_note": "安装 GenOffice 应用后即含 genoffice CLI，也可通过该命令为 Claude Code、Cursor 等安装 Agent 技能",
+  "risks": [],
+  "readme_sha": "926f2a36e14db1820a6ab4adf938fc62d3d8d57a",
+  "generated_at": "2026-09-19",
+  "prompt_version": 2,
+  "model": "claude-sonnet-5"
+}

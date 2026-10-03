@@ -1,0 +1,25 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "面向智能体的开放操作系统，提供CLI、能力胶囊与运行时管理",
+  "positioning": "AOS Community Edition 是为智能体设计的可审查、可组合运行环境，提供 aos CLI、HTTP API、官方 capsule 集合及 MCP 接入，供开发者搭建和治理agent系统。",
+  "features": [
+    "aos CLI与HTTP API统一管理运行时、发行版与capsule",
+    "内置22个官方生产级capsule作为可组合用户态构建块",
+    "aos mcp serve支持Codex、Claude、Grok等客户端接入",
+    "Forge工具辅助智能体检查系统、发现缺口并构建最小权限capsule",
+    "发布物附带校验和、Sigstore签名与构建溯源证明"
+  ],
+  "highlights": [
+    "项目方称安装全部22个capsule约需2分钟等待（受限流批次影响），为自报数据",
+    "支持stable、dev、nightly等多签名发布渠道，元数据未签名时安装会失败关闭"
+  ],
+  "audience": "需要为Codex、Claude、Grok等智能体提供可控本地运行环境、权限管理与可组合能力扩展的开发者",
+  "quickstart_cmd": "curl --proto '=https' --tlsv1.2 -fsSL https://aos.unicity.ai/install.sh | sh",
+  "quickstart_note": "安装后执行aos init完成初始化，可加--offline离线使用本地已打包的capsule资源。",
+  "risks": [],
+  "readme_sha": "518268beb007a32d6c64eaf91451f2ba1fcea720",
+  "generated_at": "2026-09-19",
+  "prompt_version": 2,
+  "model": "claude-sonnet-5"
+}

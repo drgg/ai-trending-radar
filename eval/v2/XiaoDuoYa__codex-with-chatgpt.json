@@ -1,0 +1,25 @@
+{
+  "is_ai_product": true,
+  "category": "编程 Agent 与运行框架",
+  "tagline": "让付费ChatGPT网页版当规划审查大脑，Codex 负责执行编码任务",
+  "positioning": "通过只读MCP桥接把ChatGPT网页版接入Codex编码会话：ChatGPT负责思考规划和代码审查，Codex保留全部执行权，仓库代码不上传，只按需读取所需的少量代码。",
+  "features": [
+    "只读MCP桥接提供9个工具，供ChatGPT按需读取工作区文件、git状态与测试结果",
+    "OAuth 2.1加一次性配对码鉴权，无token访问公网端点直接401",
+    "单工作区单边界，路径规范化处理防止符号链接与路径穿越攻击",
+    ".env、密钥、SSH凭证等敏感文件默认拒绝读取，可用.c2cignore自定义规则",
+    "Codex执行后ChatGPT查看真实git diff和测试记录做独立审查，不轻信测试通过的说法"
+  ],
+  "highlights": [
+    "不需要API Key、不用逆向代理，直接组合官方ChatGPT网页版和Codex CLI使用",
+    "项目方称已完成端到端验证，含150个测试覆盖路径安全、OAuth、配对和MCP流程"
+  ],
+  "audience": "已订阅ChatGPT Plus/Pro并使用Codex CLI编码、希望用网页版闲置额度做规划审查以节省API用量的开发者",
+  "quickstart_cmd": "pnpm install && pnpm build",
+  "quickstart_note": "构建后运行c2c setup完成桥接、隧道和配对，也可让Codex按README提供的一段指令全自动安装配置",
+  "risks": [],
+  "readme_sha": "e8186b7ca358809d90df9ae26f346bf90c2698d3",
+  "generated_at": "2026-09-19",
+  "prompt_version": 2,
+  "model": "claude-sonnet-5"
+}

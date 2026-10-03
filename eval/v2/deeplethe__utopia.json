@@ -1,0 +1,28 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "开源企业级世界模型，双时态知识图谱驱动的知识治理与决策系统",
+  "positioning": "DeepLethe打造的开源企业知识引擎，将时间感知与本体内置于底层，知识随材料自动演化，冲突检测、推理与决策均基于本体运行，可离线部署构建可信决策核心与合规审计链。",
+  "features": [
+    "支持PDF/DOCX等多格式文档及网页、GitHub、Jira、Notion等数据源定时同步",
+    "全文检索(Tantivy)与向量检索(pgvector)融合，答案流式输出并附来源引用",
+    "内置Agent可搜索文档、遍历图谱、查询数据库，并通过MCP接入Claude Desktop等客户端",
+    "双时态知识图谱：修正事实不覆盖旧版本，保留世界真实状态与系统认知两条时间线",
+    "本体驱动的冲突检测与推理，实体合并可撤销，决策过程留痕形成审计日志"
+  ],
+  "highlights": [
+    "单个Rust二进制加PostgreSQL即可运行，无需额外中间件，支持全离线部署",
+    "自研Ontology2SQL方法在BIRD Mini-Dev文本转SQL基准上表现领先（项目方数据）"
+  ],
+  "audience": "需要自建可信知识库、决策审计追踪的企业技术团队，以及关注知识图谱、GraphRAG与Agent记忆系统的开发者",
+  "quickstart_cmd": "docker compose --profile app up -d",
+  "quickstart_note": "先clone仓库并准备Docker环境，启动后访问 http://localhost:1516 注册即成为管理员",
+  "risks": [
+    "项目仍处于v0.1早期阶段，数据库schema随版本演进且迁移不可回滚，升级需谨慎备份",
+    "官方提示暴露到公网前需先阅读SECURITY.md，存在安全配置风险"
+  ],
+  "readme_sha": "10d5d95d0bfeb8186b10b3527576390e14c70733",
+  "generated_at": "2026-09-19",
+  "prompt_version": 2,
+  "model": "claude-sonnet-5"
+}

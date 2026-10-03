@@ -53,12 +53,13 @@ def _prepare(snapshot, categories):
     return ranked, [(c, es) for c, es in groups.items() if es]
 
 
-def render(snapshot, categories):
+def render(snapshot, categories, warn_categories=None):
     env = Environment(loader=FileSystemLoader(ROOT / "templates"),
                       autoescape=select_autoescape(["html", "j2"]))
     ARCHIVE.mkdir(parents=True, exist_ok=True)
     ranked, groups = _prepare(snapshot, categories)
-    ctx = dict(s=snapshot, groups=groups, ranked=ranked, new=set(snapshot["diff"]["new"]))
+    warn = warn_categories or {}
+    ctx = dict(s=snapshot, groups=groups, ranked=ranked, new=set(snapshot["diff"]["new"]), warn=warn)
 
     tpl = env.get_template("index.html.j2")
     (ARCHIVE / f"{snapshot['date']}.html").write_text(tpl.render(**ctx, base="../", is_archive=True),
@@ -66,10 +67,10 @@ def render(snapshot, categories):
     archives = sorted((p.stem for p in ARCHIVE.glob("????-??-??.html")), reverse=True)
     (SITE / "index.html").write_text(tpl.render(**ctx, base="", is_archive=False, archives=archives),
                                      encoding="utf-8")
-    (ROOT / "report.md").write_text(_markdown(snapshot, groups), encoding="utf-8")
+    (ROOT / "report.md").write_text(_markdown(snapshot, groups, warn), encoding="utf-8")
 
 
-def _markdown(s, groups):
+def _markdown(s, groups, warn):
     d = s["diff"]
     out = [f"# GitHub 近 {s['window_days']} 天 AI 热门项目（Stars > {s['min_stars']}）", "",
            f"- 数据快照：{s['date']}　共 {len(s['entries'])} 个项目", ""]
@@ -85,6 +86,8 @@ def _markdown(s, groups):
         out += ["", "## 趋势小结"] + [f"- {b}" for b in s["trends"]]
     for cat, es in groups:
         out += ["", f"## {cat}"]
+        if cat in warn:
+            out += ["", f"> ⚠️ {warn[cat]}"]
         for e in es:
             v = e["v"]
             out += ["", f"### [{e['full_name']}]({e['html_url']}) ⭐ {e['stars']:,}", "", f"> {v['tagline']}", ""]

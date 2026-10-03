@@ -1,0 +1,28 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "将 DeepSeek Harness 打包成本地优先的跨平台桌面应用",
+  "positioning": "DSH Desktop 是 DeepSeek Harness（Agent 运行时 + Web UI）的桌面封装产品，自动启动本地运行环境并打开完整界面，统一管理配置文件、插件、工作区与模型设置。",
+  "features": [
+    "自动启动/停止 Harness，无需单独 CLI 或浏览器标签页",
+    "支持导入导出 .dshpreset 便携式 Agent 预设包，带冲突检查与信任提示",
+    "内置 PPT 模式，提供 16 套模板 192 种版式，生成可编辑 PPTX",
+    "安全模式可临时屏蔽第三方插件，识别故障插件并引导恢复",
+    "支持手机通过局域网或临时隧道连接继续会话"
+  ],
+  "highlights": [
+    "macOS 版本经 Apple 签名与公证，Windows 版本经代码签名",
+    "渲染进程无 Node.js 权限、启用上下文隔离与沙箱，会话数据存于应用目录之外"
+  ],
+  "audience": "需要在本地运行 DeepSeek Harness、希望获得原生桌面体验、插件管理和跨设备续接会话的开发者与重度用户",
+  "quickstart_cmd": "open -a \"DSH Desktop\" --args --safe-mode",
+  "quickstart_note": "需先从官网或 GitHub Releases 下载安装包；该命令用于以安全模式启动以排查插件故障",
+  "risks": [
+    "当前为早期预览版本，基于快速迭代的 dsh@0.1.5-rc.2，稳定性和插件兼容性有限",
+    "手机远程访问依赖 Cloudflare Quick Tunnel 或 Pinggy 等第三方临时隧道服务"
+  ],
+  "readme_sha": "0c93894eda1d14e44c91e6c7dd5074494303f1cf",
+  "generated_at": "2026-09-19",
+  "prompt_version": 2,
+  "model": "claude-sonnet-5"
+}

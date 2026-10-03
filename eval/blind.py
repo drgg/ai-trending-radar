@@ -8,7 +8,7 @@ hold = json.loads((ROOT / "eval/holdout.json").read_text(encoding="utf-8"))["sam
 key = {}
 for h in hold:
     k = h["repo"].replace("/", "__")
-    v = {"v2": json.loads((ROOT / "data/intros" / f"{k}.json").read_text(encoding="utf-8")),
+    v = {"v2": json.loads((ROOT / "eval/v2" / f"{k}.json").read_text(encoding="utf-8")),
          "v3": json.loads((ROOT / "eval/v3" / f"{k}.json").read_text(encoding="utf-8"))}
     order = ["v2", "v3"] if secrets.randbits(1) else ["v3", "v2"]
     key[h["repo"]] = {"A": order[0], "B": order[1]}

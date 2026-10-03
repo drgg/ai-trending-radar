@@ -1,0 +1,29 @@
+{
+  "is_ai_product": true,
+  "category": "Skills 与写作/设计",
+  "tagline": "让 Claude Code / Codex 用 Remotion 自动产出电影感产品宣传视频的 Agent Skill",
+  "positioning": "面向 Claude Code / Codex 的 Agent Skill，将模型变成动效设计工作室，用 Remotion 自动分镜、动画和音效设计出电影感产品宣传片",
+  "features": [
+    "157 张分镜配方卡，含用途、时长、参数与实现要点",
+    "214 种运镜风格与动效预览，可在在线 Gallery 搜索筛选",
+    "内置 Ink Press 完整视频模板，36.2 秒 1920×1080 30fps",
+    "交付后可用浏览器 Motion Workbench 继续剪辑并用 Remotion 导出",
+    "支持导出为剪映（JianYing CN）工程，可二次编辑字幕与音轨"
+  ],
+  "highlights": [
+    "提供 157 张结构化分镜配方卡和对应 Remotion 组件实现，而非单纯的提示词模板",
+    "内置真实产品截图 2.5D 运镜、卡点音效和 149 条分类 SFX 素材"
+  ],
+  "audience": "使用 Claude Code / Codex 制作产品宣传视频的开发者、独立开发者和营销/设计人员",
+  "quickstart_cmd": "npx skills add Vincentwei1021/video-shotcraft",
+  "quickstart_note": "也可直接把仓库链接发给 Agent 让其自动安装，或 clone 后软链到 ~/.claude/skills 目录",
+  "risks": [
+    "Remotion 本身有独立许可证，个人和小团队免费，公司使用可能需付费授权",
+    "模板中的产品截图为演示素材，发布前需自行替换并核查是否含需匿名化的数据",
+    "音频素材来自 Mixkit 等来源，需遵守各自许可条款"
+  ],
+  "readme_sha": "13a944036cb3df158175d2c6fbab87c14fee1ce6",
+  "generated_at": "2026-09-19",
+  "prompt_version": 2,
+  "model": "claude-sonnet-5"
+}

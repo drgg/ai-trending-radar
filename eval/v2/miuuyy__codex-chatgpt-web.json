@@ -1,0 +1,29 @@
+{
+  "is_ai_product": true,
+  "category": "开发者工具与集成",
+  "tagline": "让Codex的模型选择器直接调用你的ChatGPT网页版账号（含Pro），不占用Codex额度",
+  "positioning": "通过浏览器自动化和MCP，把ChatGPT网页版账号（含Pro）接入Codex原生模型选择器，使用网页版独立的用量额度，同时保留上下文、工具调用、流式与图片能力。",
+  "features": [
+    "浏览器自动化登录ChatGPT网页版，作为Codex原生模型直接使用",
+    "Full harness模式通过MCP和OpenAI tunnel-client把ChatGPT工具调用接回Codex当前任务",
+    "提供仅浏览器自动发送、完整harness带工具、零风险手动粘贴三种模式",
+    "自带浏览器与运行环境，无需单独安装Chrome、Node或Bun",
+    "按账号类型（Free/Go、Plus、Pro）自动识别可用的模型档位"
+  ],
+  "highlights": [
+    "项目方称使用ChatGPT网页版独立用量额度，不消耗Codex或Work自身配额",
+    "官方明确说明这是非官方浏览器自动化方案而非OpenAI API，界面变动可能导致功能失效"
+  ],
+  "audience": "希望在Codex里用自己ChatGPT Plus/Pro账号能力、且能接受浏览器自动化方案的开发者",
+  "quickstart_cmd": "git clone https://github.com/miuuyy/codex-chatgpt-web.git && cd codex-chatgpt-web && bun run app",
+  "quickstart_note": "该路径需要Bun 1.4.0；也可用官方脚本一键安装启动器（提供macOS/Linux/Windows安装命令）",
+  "risks": [
+    "依赖浏览器自动化操作个人ChatGPT账号页面，可能违反OpenAI服务条款并存在封号风险",
+    "安装包尚未做平台签名，安装时macOS Gatekeeper或Windows SmartScreen会发出警告",
+    "浏览器登录状态是敏感凭证，本机同用户进程可访问，需在受信任设备使用"
+  ],
+  "readme_sha": "c7a2c89f5a1361bd2bf6ed506860aa87dec3b695",
+  "generated_at": "2026-09-19",
+  "prompt_version": 2,
+  "model": "claude-sonnet-5"
+}

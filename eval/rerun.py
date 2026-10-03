@@ -17,7 +17,7 @@ def run(s):
     path = out_dir / f"{key}.json"
     if path.exists():
         return s["repo"], "cached", 0
-    v2 = json.loads((ROOT / "data/intros" / f"{key}.json").read_text(encoding="utf-8"))
+    v2 = json.loads((ROOT / "eval/v2" / f"{key}.json").read_text(encoding="utf-8"))
     repo = {**s["meta"], "readme_sha": v2["readme_sha"],
             "readme": (ROOT / "eval/readmes" / f"{key}.md").read_text(encoding="utf-8")}
     summ = Summarizer(cfg)

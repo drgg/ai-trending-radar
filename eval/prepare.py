@@ -12,12 +12,12 @@ for snap in sorted((ROOT / "data/snapshots").glob("*.json")):
     for e in json.loads(snap.read_text(encoding="utf-8"))["entries"]:
         meta[e["full_name"]] = {k: e.get(k) for k in ("full_name", "description", "stars", "forks",
                                 "language", "license", "topics", "homepage", "created_at", "pushed_at")}
-names = sorted(p.stem.replace("__", "/", 1) for p in (ROOT / "data/intros").glob("*.json"))
+names = sorted(p.stem.replace("__", "/", 1) for p in (ROOT / "eval/v2").glob("*.json"))
 sample = sorted(random.Random(SEED).sample(names, N))
 s = _session()
 out = []
 for name in sample:
-    intro = json.loads((ROOT / "data/intros" / (name.replace("/", "__") + ".json")).read_text(encoding="utf-8"))
+    intro = json.loads((ROOT / "eval/v2" / (name.replace("/", "__") + ".json")).read_text(encoding="utf-8"))
     r = _get(s, f"https://api.github.com/repos/{name}/git/blobs/{intro['readme_sha']}")
     ok = r.status_code == 200
     raw = base64.b64decode(r.json()["content"]).decode("utf-8", "replace") if ok else ""

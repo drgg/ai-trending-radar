@@ -70,6 +70,8 @@ table.overview{width:100%;table-layout:fixed;border-collapse:collapse;background
 .overview .tg{display:block;color:var(--text-2);font-size:14.5px;margin-top:2px}
 .cat-tag{display:inline-block;font-size:12px;color:var(--muted);border:1px solid var(--border);
   border-radius:6px;padding:0 6px;white-space:nowrap}
+.cat-tag.warn{color:var(--warn);background:var(--warn-soft);border-color:transparent}
+.cat-note{margin:-4px 0 12px;padding:8px 12px;border-radius:8px;background:var(--warn-soft);color:var(--warn);font-size:14px}
 
 /* 徽章 */
 .badge{display:inline-block;font-size:12px;line-height:1.6;padding:0 8px;border-radius:999px;white-space:nowrap;font-weight:500}
@@ -159,7 +161,7 @@ footer code{word-break:break-all}
 
 <nav class="cats" aria-label="分类导航"><div class="wrap">
   <a href="#overview">速览</a>
-  {% for cat, es in groups %}<a href="#cat-{{ loop.index }}">{{ cat }} <span class="num">{{ es|length }}</span></a>{% endfor %}
+  {% for cat, es in groups %}<a href="#cat-{{ loop.index }}">{% if cat in warn %}⚠ {% endif %}{{ cat }} <span class="num">{{ es|length }}</span></a>{% endfor %}
 </div></nav>
 
 <main class="wrap">
@@ -177,7 +179,7 @@ footer code{word-break:break-all}
           {% if e.full_name in new %}<span class="badge new">新</span>{% endif %}
           <span class="tg">{{ e.v.tagline }}</span>
         </td>
-        <td class="cat"><span class="cat-tag">{{ e.v.category }}</span></td>
+        <td class="cat"><span class="cat-tag{% if e.v.category in warn %} warn{% endif %}">{% if e.v.category in warn %}⚠ {% endif %}{{ e.v.category }}</span></td>
         <td class="st num">{{ "{:,}".format(e.stars) }}{% if e.delta %}<br><span class="badge up">+{{ "{:,}".format(e.delta) }}</span>{% endif %}</td>
       </tr>
     {% endfor %}
@@ -215,7 +217,8 @@ footer code{word-break:break-all}
 
 {% for cat, es in groups %}
 <section class="block" id="cat-{{ loop.index }}" data-cat>
-  <h2 class="sec">{{ cat }}<small>{{ es|length }} 个</small></h2>
+  <h2 class="sec">{% if cat in warn %}⚠ {% endif %}{{ cat }}<small>{{ es|length }} 个</small></h2>
+  {% if cat in warn %}<p class="cat-note">{{ warn[cat] }}</p>{% endif %}
   {% for e in es %}{% set v = e.v %}{% set rs = v.risks + e.flags %}
   <details class="card" id="{{ e.full_name }}">
     <summary>

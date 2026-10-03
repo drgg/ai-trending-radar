@@ -4,3 +4,6 @@ __pycache__/
 
 # 评测用的第三方 README 原文，可由 eval/prepare.py 按 sha 重新取回
 eval/readmes/
+
+# 本人复核记录（含 README 摘录和个人笔记），是否公开由本人决定
+eval/复核表.md
