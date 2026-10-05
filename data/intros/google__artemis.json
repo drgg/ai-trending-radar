@@ -1,25 +1,25 @@
 {
   "is_ai_product": true,
-  "category": "编程 Agent 与运行框架",
-  "tagline": "用自然语言指令驱动 Android 端到端自动化测试，并接入 AI 编程助手",
-  "positioning": "一个 Android 自动化框架，将自然语言指令转化为可靠的端到端操作流程，通过 MCP 协议与 Antigravity、Codex、Claude Code 等 AI 编程助手集成，用于测试与日常任务执行。",
+  "category": "开发者工具与集成",
+  "tagline": "用自然语言驱动安卓自动化测试，集成主流AI编程助手的MCP工具",
+  "positioning": "Google出品的安卓自动化工具，将自然语言指令转化为跨应用测试和日常任务执行，通过MCP与Antigravity、Codex、Claude Code等AI编程助手集成，支持日志采集与截图诊断。",
   "features": [
-    "支持跨 App 的自然语言自动化测试与日常任务执行，可记录 Logcat 与截图",
-    "通过 MCP 服务器连接 AI IDE（Antigravity、Claude Code、Windsurf 等），驱动测试设备并获取诊断信息",
-    "提供 Flash（快速反应，约3–5秒/步）与 Pro（规划+验证，约15–40秒/步）两种执行模式",
-    "结合可访问性层级、OCR与视觉模型定位元素，支持自定义界面",
-    "提供 Web 可视化控制台、CLI 与 Python SDK 三种使用方式，可接入 pytest 等测试框架"
+    "跨应用自动化：根据自然语言指令执行安卓测试流程与日常任务",
+    "多模态定位：元素索引为主，坐标与视觉识别作为自定义界面的后备方案",
+    "MCP集成：Antigravity、Claude Code、Windsurf等IDE可直接操控测试设备并采集Logcat与截图",
+    "双执行模式：Flash快速响应约3-5秒/步，Pro模式支持规划、校验与长时间探索测试",
+    "提供Web可视化控制台、MCP服务器、命令行与Python SDK四种使用方式"
   ],
   "highlights": [
-    "项目方数据：在 Google Research 的 AndroidWorld 基准（20+应用、100+多步任务）上任务完成率达 99%+",
-    "首次运行会在手机上安装 Artemis Accessibility Helper 辅助服务用于读取屏幕布局，README 说明该服务仅在本机监听不发送数据"
+    "在Google Research的AndroidWorld基准（20+应用、100+多步任务）上达到99%+任务完成率（项目方数据）",
+    "Apache-2.0许可，Google官方项目"
   ],
-  "audience": "需要将 AI Agent 接入 Android 自动化测试或日常任务执行的移动测试工程师与开发者",
+  "audience": "需要为安卓应用做自动化测试，或希望用AI编程助手驱动设备操作与问题诊断的开发者和测试工程师",
   "quickstart_cmd": "git clone https://github.com/google/artemis.git && cd artemis && ./start.sh",
-  "quickstart_note": "一键脚本自动安装 ADB、scrcpy、FFmpeg 等依赖，并在浏览器打开设备连接向导与测试控制台（Windows 用 start.bat）",
+  "quickstart_note": "需已连接安卓设备（开启USB调试）或模拟器，脚本自动安装ADB等工具链并启动Web控制台",
   "risks": [],
   "readme_sha": "8683bcce336c1cc53889ea49cbbc453f4a988076",
-  "generated_at": "2026-09-30",
-  "prompt_version": 3,
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
   "model": "claude-sonnet-5"
 }

@@ -1,28 +1,26 @@
 {
-  "is_ai_product": true,
+  "audience": "需要知识图谱、RAG与审计追溯能力的企业技术团队、法务合规人员，以及接入MCP开发Agent的工程师",
   "category": "Agent 平台与基础设施",
-  "tagline": "开源自托管企业世界模型，用双时态知识图谱做知识治理与可信决策",
-  "positioning": "面向企业的开源世界模型，单个Rust二进制加一个Postgres即可运行，把时间感知和本体内置在底层知识系统中，随资料摄取持续演化、检测冲突并留存决策依据，可离线部署在企业自有硬件上。",
   "features": [
-    "支持PDF、DOCX、CSV等多格式上传，网页、RSS、GitHub、Jira、Notion、S3等可定时同步",
-    "全文检索(Tantivy)与向量检索(pgvector)经RRF融合，回答附带可点击引用出处",
-    "内置Agent搜索文档、遍历图谱、查询数据库，只读工具经MCP暴露给Claude等",
-    "双时态图谱记录事实的有效期与系统发现时间，修正事实时保留旧版本而非覆盖",
-    "提供实体归并去重、人工审核队列及三类冲突检测处理方式，合并操作可撤销"
+    "支持PDF、Word、Excel等多格式摄取，可同步网页、GitHub等数据源",
+    "全文检索与向量检索融合排序，回答附带可追溯的引用来源",
+    "内置Agent可对话式查询知识图谱，支持MCP协议供外部Agent接入",
+    "本体驱动的实体消歧、冲突检测，支持可选的正向链式推理",
+    "决策台账记录每次确认、合并、回滚操作，且不可篡改"
   ],
   "highlights": [
-    "配套的Ontology2SQL文本转SQL方法在BIRD Mini-Dev基准上据称取得最优结果（项目方数据）",
-    "支持任意OpenAI兼容模型端点(DeepSeek、Qwen、GLM、Ollama、vLLM)，可全程离线部署",
-    "决策台账采用仅追加设计，记录每次修改的操作者、时间及对象当时快照，用于合规审计"
+    "双时态知识图谱同时记录事实的有效时间与系统发现时间，修正时保留历史版本而非覆盖",
+    "单一Rust二进制加Postgres即可运行，无需额外组件，支持离线自部署",
+    "配套方法Ontology2SQL在BIRD Mini-Dev基准上表现突出（项目方数据）"
   ],
-  "audience": "需要私有化部署企业知识库、构建可审计Agent决策系统的技术团队与知识工程师",
+  "is_ai_product": true,
+  "positioning": "DeepLethe开源的企业知识管理系统，用双时态知识图谱记录知识随时间演化的全过程，结合本体推理与冲突检测，支持离线自部署，作为Agent可信赖的决策基座与审计轨迹。",
   "quickstart_cmd": "docker compose --profile app up -d",
-  "quickstart_note": "先git clone仓库并进入目录；启动后打开localhost:1516注册，首个账号自动成为管理员",
-  "risks": [
-    "项目仍为v0.1版本，README提示暴露到公网前需先阅读SECURITY.md，数据库schema变更后迁移不可回滚"
-  ],
-  "readme_sha": "67551fb255e1088236d6d87d2f2195cec72be985",
-  "generated_at": "2026-09-30",
-  "prompt_version": 3,
+  "quickstart_note": "先clone仓库并进入目录，再执行该命令，访问 http://localhost:1516 注册，首个账号自动成为管理员。",
+  "risks": [],
+  "tagline": "开源企业级\"世界模型\"，基于双时态知识图谱的自治知识库系统",
+  "readme_sha": "9f0055035416a005aa401feb7c634133efa73ea4",
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
   "model": "claude-sonnet-5"
 }

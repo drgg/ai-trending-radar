@@ -1,25 +1,25 @@
 {
-  "is_ai_product": true,
+  "audience": "需要终端 AI 编程助手的开发者，尤其是希望在 CLI、CI 或编辑器中集成编码 Agent 的 Grok 用户",
   "category": "编程 Agent 与运行框架",
-  "tagline": "xAI 出品的终端 AI 编程代理，全屏 TUI，支持交互、无头运行和编辑器集成",
-  "positioning": "Grok Build（grok）是 xAI（SpaceXAI）开发的终端 AI 编程代理，以全屏 TUI 运行，能理解代码库、编辑文件、执行命令、搜索网页并管理长任务，可交互使用、无头运行于 CI，或通过 ACP 协议嵌入编辑器。",
   "features": [
-    "理解代码库上下文，自动编辑文件、执行 shell 命令",
-    "支持网页搜索，辅助管理长任务",
-    "提供交互式全屏 TUI，也可无头模式用于脚本和 CI",
-    "通过 Agent Client Protocol（ACP）嵌入编辑器使用",
-    "可选配置 MCP 服务器、技能、插件、钩子和沙箱运行"
+    "理解代码库并自动编辑文件",
+    "执行 shell 命令、搜索网页",
+    "管理长时间运行的任务",
+    "支持交互式全屏 TUI、无头脚本/CI 模式",
+    "可通过 Agent Client Protocol（ACP）嵌入编辑器"
   ],
   "highlights": [
-    "官方提供 macOS、Linux、Windows 预编译二进制，一条命令即可安装",
-    "部分工具实现移植自 openai/codex 和 sst/opencode 开源项目"
+    "由 xAI（SpaceXAI）官方开发并维护，代码定期从内部 monorepo 同步",
+    "README 未给出具体性能或基准数字"
   ],
-  "audience": "需要在终端使用 AI 编程助手的开发者，尤其是希望在 CI 脚本或代码编辑器中集成智能代理的团队",
+  "is_ai_product": true,
+  "positioning": "grok 是 xAI（SpaceXAI）推出的终端 AI 编程 Agent，以全屏 TUI 运行，理解代码库并执行文件编辑、命令、网页搜索等任务，支持交互模式、无头脚本/CI 及通过 ACP 的编辑器集成。",
   "quickstart_cmd": "curl -fsSL https://x.ai/cli/install.sh | bash",
-  "quickstart_note": "安装后运行 grok，首次启动会打开浏览器进行身份验证",
+  "quickstart_note": "适用于 macOS/Linux；Windows 用 PowerShell 命令安装。首次启动 grok 会打开浏览器完成身份验证。",
   "risks": [],
+  "tagline": "xAI 推出的终端 AI 编程 Agent，全屏 TUI，可编辑代码、执行命令、搜索网页。",
   "readme_sha": "4569db83fe4fee02ba656f8eaa52db22e43e8e63",
-  "generated_at": "2026-09-30",
-  "prompt_version": 3,
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
   "model": "claude-sonnet-5"
 }

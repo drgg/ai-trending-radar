@@ -1,27 +1,27 @@
 {
-  "is_ai_product": true,
+  "audience": "正在求职、需要整理开源贡献证据、制作简历或跟进投递进度的开发者和求职者",
   "category": "Skills 与写作/设计",
-  "tagline": "面向求职全流程的 AI Skills 插件包，覆盖简历制作、岗位匹配、投递与面试准备",
-  "positioning": "面向求职场景的 AI Skills 插件包，提供九个可单独调用的入口，覆盖开源贡献积累、项目梳理、简历制作、岗位匹配、投递填写、面试准备和进度管理，支持多个 AI 编程平台安装。",
   "features": [
-    "九个入口分别对应开源贡献、项目导学、简历提升、简历制作、证据复盘、岗位匹配、投递填写、面试准备和进度管理",
-    "/make-resume 提供 18 个 HTML 简历模板，可浏览器内编辑并导出 PDF，也可选导出 LaTeX",
-    "/job-apply 连接已登录浏览器填写招聘网站申请表，默认停在提交按钮前供人工核对",
-    "/interview 通过一次一问的连续追问检验简历内容，不替用户编造面试答案",
-    "支持 Codex、Claude Code、TraeWork、Qoder 安装，另提供 Cursor、OpenCode、WorkBuddy 的轻量桥接入口"
+    "/contributor 寻找有证据支撑的开源问题，经用户逐项确认后才提交 PR",
+    "/make-resume 生成可编辑 HTML 简历，支持 PDF 导出和可选 LaTeX 源文件",
+    "/job-match 对照 JD 与简历输出证据矩阵、硬性门槛和投递建议",
+    "/job-apply 连接已登录浏览器填写招聘网站申请表，默认停在提交前供用户核对",
+    "/offer 整理招聘邮件和投递记录，生成本地求职进度表"
   ],
   "highlights": [
-    "强调事实边界，不编造职位、公司或数据，简历改写基于用户提供的证据链",
-    "/job-apply 明确要求人工确认每一步且禁止批量投递、骚扰 HR"
+    "同时支持 Codex、Claude Code、TraeWork、Qoder，另提供 Cursor、OpenCode、WorkBuddy 轻量桥接",
+    "九个入口共享同一套 skills/assets/references 和证据账本，可按顺序组合成完整求职流程"
   ],
-  "audience": "准备求职（尤其是校招或开发岗位）、需要制作简历、准备面试或管理投递进度的开发者",
+  "is_ai_product": true,
+  "positioning": "可安装进 Claude Code、Codex 等平台的插件包，提供九个面向求职场景的 Skill 入口，覆盖开源贡献、简历提升与制作、面试准备、岗位匹配与投递跟进。",
   "quickstart_cmd": "/plugin marketplace add Hisn00w/ASu-skills",
-  "quickstart_note": "适用于 Claude Code，安装后需再执行 /plugin install asu-skills@asu 并 /reload-plugins",
+  "quickstart_note": "Claude Code 下执行该命令后还需执行 /plugin install asu-skills@asu 并按提示 /reload-plugins",
   "risks": [
-    "/job-apply 依赖浏览器自动化操作招聘网站账号填写并提交申请表，可能受目标网站服务条款限制"
+    "/job-apply 需连接用户已登录的浏览器自动填写招聘网站申请表，自动化操作第三方网页存在违反网站服务条款的风险"
   ],
+  "tagline": "面向求职场景的 AI Skills 插件包，覆盖开源贡献、简历制作到投递跟进全流程",
   "readme_sha": "35907cfac7fad591af0cd1cb3143b63383343c7a",
-  "generated_at": "2026-09-30",
-  "prompt_version": 3,
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
   "model": "claude-sonnet-5"
 }

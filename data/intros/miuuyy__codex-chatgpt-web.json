@@ -1,28 +1,28 @@
 {
-  "audience": "已有 ChatGPT（含 Pro）订阅、想在 Codex 中使用其网页模型而不消耗 Codex/Work 配额的开发者",
+  "audience": "希望用 ChatGPT 网页版（含 Pro）账号额度为 Codex 提供模型，又不想消耗 Codex 自身配额的开发者",
   "category": "开发者工具与集成",
   "features": [
-    "内置浏览器登录 ChatGPT Web，按账号权限提供 Luna/Think 到 Instant-High、Extra High、Pro 等模型",
-    "Full harness 模式经 MCP 和官方 tunnel-client，把工具调用接回当前 Codex 任务文件与终端",
-    "Zero Risk 模式不读取或操作页面，需手动粘贴提示词并在启动器中确认已发送",
-    "自带浏览器和运行环境，无需另装 Chrome、Node 或 Bun",
-    "可选把任务对话保存到 ChatGPT 历史记录，默认关闭"
+    "在 Codex 原生模型选择器中接入 ChatGPT Web 模型，支持上下文、工具调用、流式输出和图片",
+    "内置浏览器与运行时，无需单独安装 Chrome、Node 或 Bun",
+    "可选 Full harness 模式，通过 MCP 把 ChatGPT 工具调用接回 Codex 任务的文件与终端",
+    "提供 Zero Risk 模式，手动粘贴发送提示词，不读取或操作 ChatGPT 页面",
+    "支持跨后端子代理协议切换（Compatibility V1 或 Native）"
   ],
   "highlights": [
-    "项目方说明这是非官方浏览器自动化而非 OpenAI API，ChatGPT 界面改动可能导致选择器失效",
-    "Full harness 经官方 tunnel-client 建立出站隧道，项目方称不开放入站端口或公网 IP"
+    "项目方说明 Full harness 模式的隧道连接为单向出站，不开放公网入口或端口转发",
+    "Plus Medium/High 模式下测得的上下文窗口为 9万 tokens，开启实验性 3倍上下文后可达 27万 tokens（项目方数据）"
   ],
   "is_ai_product": true,
-  "positioning": "桌面启动器，通过内置浏览器把用户自己的 ChatGPT 账号（含 Pro）接入 Codex 原生模型选择器，使用 ChatGPT Web 独立额度而非 Codex/Work 配额，支持上下文、工具调用、流式与图片。",
+  "positioning": "一款浏览器自动化桌面工具，通过内置浏览器登录 ChatGPT 网页版，让 Codex 的模型选择器中可用 ChatGPT Web 各档模型，使用网页版自己的用量限制而非 Codex 或 Work 配额。",
   "quickstart_cmd": "curl -fsSL https://github.com/miuuyy/codex-chatgpt-web/releases/latest/download/install-launcher.sh | sh",
-  "quickstart_note": "macOS/Linux 安装启动器后需在内置浏览器登录 ChatGPT、完成模型安装并重启 Codex",
+  "quickstart_note": "安装启动器后需在内置浏览器登录 ChatGPT 并完成安装模型步骤，再重启 Codex 一次",
   "risks": [
-    "核心功能是对 ChatGPT 网页版账号做浏览器自动化操作，项目方自称为非官方方案，可能涉及服务条款风险",
-    "浏览器登录状态属敏感凭证，本地回环端口可被同一用户下的其他进程访问，项目方建议仅在可信设备使用"
+    "README 明确说明这是非官方的浏览器自动化，通过模拟登录操作 ChatGPT 网页版，可能违反 OpenAI 服务条款并有账号风险",
+    "浏览器登录状态是敏感凭证，本地同用户进程可访问回环监听端口，需在可信设备使用"
   ],
-  "tagline": "让 Codex 调用 ChatGPT 网页版（含 Pro）模型，不占用 Codex 自身配额",
-  "readme_sha": "e8358a51151120edf1756d2c73f1b54e93e3526d",
-  "generated_at": "2026-09-30",
-  "prompt_version": 3,
+  "tagline": "让 Codex 把 ChatGPT 网页版（含 Pro）当作模型使用，不消耗 Codex 配额",
+  "readme_sha": "c9883dd79aa2c3a3c8736567330a8737166b3f5a",
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
   "model": "claude-sonnet-5"
 }

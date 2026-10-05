@@ -1,27 +1,27 @@
 {
   "is_ai_product": true,
   "category": "Skills 与写作/设计",
-  "tagline": "面向 AI Agent 的数据可视化 Skill，将数据转为可编辑的精致 HTML 图表",
-  "positioning": "遵循 Agent Skills 格式的数据可视化与报告生成 skill，可供 moxt、Claude Code、Codex 等兼容 SKILL.md 的 AI agent 调用，默认生成图表，按需生成整页报告。",
+  "tagline": "面向 AI Agent 的数据可视化 Skill，把数据转化为精致可交互的 HTML 图表与报告",
+  "positioning": "遵循 Agent Skills 格式的数据可视化与报告生成 skill，可供 moxt、Claude Code、Codex 等兼容 SKILL.md 的 AI agent 调用，默认生成单张图表，整页报告需用户明确要求。",
   "features": [
-    "提供 Lupi、Glance、Basics 三种视觉风格，分别适合细读、快速判断和基础图型场景",
-    "内置网络图、路径图等独立交互大图，支持 hover、拖拽、缩放",
-    "支持 Mono 黑白灰及青瓷蓝、椰林绿、编辑部红三种彩色预设，可选自定义品牌色板",
-    "提供 12 套中英双语整页报告模板，覆盖年报、周报、dashboard、海报等场景",
-    "图表数量按结论数自动决定，单页默认最多 6 张"
+    "提供 Lupi（编辑叙事）、Glance（快速判断）、Basics（基础图型）三种视觉风格，另有网络、路径、流向等独立交互大图",
+    "支持 Mono 黑白灰及青瓷蓝、椰林绿、编辑部红三色预设，按场景自动选色",
+    "共 49 个图型模板，catalog.md 提供数据契约索引",
+    "需用户明确要求报告、年报、白皮书等才生成整页 HTML 报告，可选 12 套中英双语模板",
+    "部分模板（Glance、Circular、Force 及报告模板 R11/R12）通过 CDN 加载 Chart.js 或 ECharts，需联网显示"
   ],
   "highlights": [
-    "49 个图型加 12 套整页报告模板，覆盖手写 SVG、Chart.js、ECharts 多种实现",
-    "在 moxt.ai 环境中制作和迭代，也可安装到 Claude Code、Codex 等其他支持 Agent Skills 的工具"
+    "项目方称该 skill 在 Moxt 工作区完成设计与验证，可在同一工作区持续预览和修改图表与数据",
+    "用统一字体、留白、线条和明度体系区分“编辑叙事”与“快速判断”两种阅读速度，而非单一图表模板"
   ],
-  "audience": "使用 Claude Code、Codex 等 AI Agent 工具、需要快速生成数据图表或报告的开发者和内容创作者",
+  "audience": "使用 Claude Code、Codex、moxt 等 AI Agent 的用户，需要把数据快速转化为可发布 HTML 图表或报告",
   "quickstart_cmd": "npx skills add https://github.com/larashero3-dotcom/lieflat-charts --skill lieflat-charts",
-  "quickstart_note": "安装后直接向 Agent 描述图表需求即可生成，部分模板需联网加载 Chart.js/ECharts",
+  "quickstart_note": "安装后向 Agent 发送数据可视化需求即可生成 HTML 图表；也可手动克隆到 ~/.claude/skills 或 ~/.codex/skills 目录下。",
   "risks": [
-    "许可证为 PolyForm Noncommercial License 1.0.0，仅限非商业使用，商用需另行授权"
+    "许可证为 PolyForm Noncommercial License 1.0.0，仅允许学习、修改、分享和非商业使用，商业使用需另行取得许可。"
   ],
   "readme_sha": "fae996e05d395fcf693cd515ab75c83ba09bf5c7",
-  "generated_at": "2026-09-30",
-  "prompt_version": 3,
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
   "model": "claude-sonnet-5"
 }

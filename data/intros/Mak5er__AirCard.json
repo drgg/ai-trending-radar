@@ -1,25 +1,26 @@
 {
-  "risks": [],
-  "audience": "希望个性化Apple Pay钱包卡片外观和锁屏密码键盘的iPhone用户，需配合一台Mac使用",
-  "quickstart_cmd": "git clone https://github.com/mak5er/AirCard.git && cd AirCard && chmod +x build.sh && ./build.sh",
-  "quickstart_note": "从源码构建通用二进制并生成AirCard.app与dmg；普通用户也可直接从Releases下载AirCard.dmg安装",
-  "is_ai_product": false,
+  "audience": "持有 iOS 18 及以上系统 iPhone、使用 Mac 且不想越狱就想自定义 Apple Wallet 卡面或锁屏密码键盘样式的用户",
   "category": "其他",
-  "tagline": "借助漏洞免越狱为iOS 18+ Apple Wallet卡片和锁屏密码键盘自定义皮肤的Mac工具",
-  "positioning": "面向iOS 18+设备的macOS桌面应用，利用名为airlift的AirTraffic同步沙盒逃逸漏洞，无需越狱即可替换Apple Wallet卡片外观和锁屏密码键盘图案，通过USB连接iPhone扫描卡片并推送皮肤。",
+  "tagline": "无需越狱，在 Mac 上为 iOS 18+ 的 Apple Wallet 卡片和锁屏密码键盘换肤",
+  "positioning": "一款 macOS 应用，通过 USB 连接 iPhone，利用名为 airlift 的系统漏洞为 Apple Wallet 卡片和锁屏密码键盘替换自定义图案，无需越狱设备。",
   "features": [
-    "为Apple Pay/Wallet中每张卡片设置自定义卡面图案或银行Logo",
-    "支持.passthm锁屏密码键盘主题的应用、编辑与创建，支持整图切图或逐键编辑",
-    "USB连接iPhone后在钱包中点按卡片即可实时扫描识别卡片哈希",
-    "单卡或批量为所有卡片一键设置皮肤，Flash后强退Wallet应用生效",
-    "macOS通用包，原生支持Apple Silicon与Intel，无需Homebrew或终端环境"
+    "为 Apple Pay/Wallet 中的卡片设置自定义图案、材质或银行 Logo",
+    "将 .passthm 主题应用到 iOS 18+ 锁屏密码键盘按钮",
+    "内置主题创作工具，可用单张壁纸切片或逐个按键制作主题",
+    "支持导入并编辑已有的 Cowabunga/Nugget 主题包",
+    "macOS 通用二进制，依赖已预打包，无需 Homebrew 或 Python 环境"
   ],
   "highlights": [
-    "核心依赖名为airlift的AirTraffic同步（ATAirlock）沙盒逃逸漏洞实现免越狱操作，该漏洞由第三方项目提供",
-    "所需设备通信与图像处理工具已预打包进App，macOS用户无需安装Homebrew或Python环境"
+    "无需越狱，依赖名为 airlift 的 AirTraffic 同步漏洞实现卡面与密码键盘定制",
+    "项目方称已在 iOS 27 版本上测试通过",
+    "原生支持 Apple Silicon 与 Intel Mac，macOS 端零前置依赖"
   ],
-  "readme_sha": "0fce0bd2b77be75b3473c69f53f20b7790b543ef",
-  "generated_at": "2026-09-30",
-  "prompt_version": 3,
+  "quickstart_cmd": "git clone https://github.com/mak5er/AirCard.git",
+  "quickstart_note": "克隆后需执行 cd AirCard && chmod +x build.sh && ./build.sh 编译出 AirCard.app；普通用户可直接从 Releases 下载 DMG。",
+  "risks": [],
+  "is_ai_product": false,
+  "readme_sha": "76d09fbd754d1c51cb8bdc976bf54eed3e9260af",
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
   "model": "claude-sonnet-5"
 }

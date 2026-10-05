@@ -1,27 +1,27 @@
 {
   "is_ai_product": true,
-  "category": "编程 Agent 与运行框架",
-  "tagline": "让 ChatGPT 网页版做规划评审、Codex 负责执行的编码协作桥接工具",
-  "positioning": "通过只读 MCP 桥接把 ChatGPT Plus/Pro 网页版接入 Codex 编码会话，让网页版闲置额度负责思考规划，Codex 保留全部执行权，无需 API Key、无需逆向代理。",
+  "category": "开发者工具与集成",
+  "tagline": "让 ChatGPT 网页版做规划审查，Codex 负责执行代码的 MCP 桥接工具",
+  "positioning": "以 Codex Skill 形式接入，把闲置的 ChatGPT Plus/Pro 网页版额度用作编码任务的规划与审查大脑，Codex 保留全部执行权，不占用 API 额度，不用逆向代理。",
   "features": [
-    "通过 OAuth 2.1 保护的只读 MCP 连接，让 ChatGPT 按需读取当前工作区代码",
-    "Codex 与 ChatGPT 通过极简 [C2C] 状态消息通信，不传输 diff、日志或文件内容",
-    "提供 9 个只读 MCP 工具，覆盖目录、文件、搜索、git 状态与测试记录",
-    "服务端不存在写入/删除/shell/提交类工具，避免提示注入触发危险操作",
-    "支持一段话自动安装，Codex 可自动完成环境检测、构建与首次配对配置"
+    "通过只读 MCP 连接让 ChatGPT 按需读取工作区代码，仓库不整体上传",
+    "OAuth 2.1 加一次性配对码保护连接，无 token 访问返回 401，工作区不匹配返回 403",
+    ".env、密钥、SSH 凭据等敏感文件默认禁止读取，可用 .c2cignore 自定义规则",
+    "Codex 执行后，ChatGPT 通过 MCP 独立核查 git diff 和测试记录再给审查意见",
+    "安装为 Codex Skill，可选配置 Cloudflare 固定域名，默认用临时隧道并自动重连"
   ],
   "highlights": [
-    "项目方称已完成端到端验证：桥接、OAuth+配对、公网隧道、ChatGPT 连接器配置与零操作首次运行，但仍为 V1 版本",
-    "敏感文件（.env、密钥、SSH 凭证等）默认禁止被读取，路径隔离阻断符号链接与路径穿越"
+    "服务端不存在写入、删除、shell、提交类工具，结构上保证只读，无法被提示注入绕过",
+    "项目方称测试套件覆盖 150 个用例，涉及路径安全、OAuth、配对流程和 MCP 端到端场景"
   ],
-  "audience": "已订阅 ChatGPT Plus/Pro 并使用 Codex 编码、希望让网页版承担规划评审工作的开发者",
+  "audience": "使用 Codex 编写代码、同时已订阅 ChatGPT Plus/Pro 网页版，希望用网页版额度做规划和代码审查的开发者",
   "quickstart_cmd": "pnpm install",
-  "quickstart_note": "构建后运行 c2c setup 完成桥接、隧道与配对码配置，也可让 Codex 按 README 一段话指令自动安装",
+  "quickstart_note": "克隆仓库后执行 pnpm build 构建，再把 skill/ 安装为 Codex Skill 并运行 c2c setup 完成配对",
   "risks": [
-    "核心功能依赖 Computer Use 方式让 Codex 与 ChatGPT 网页版交换控制消息，属于自动化操作第三方 AI 网页服务，需注意其服务条款风险"
+    "核心流程通过 Computer Use 方式与 ChatGPT 网页版自动交换状态消息并驱动会话，可能涉及 ChatGPT 服务条款风险"
   ],
-  "readme_sha": "e8186b7ca358809d90df9ae26f346bf90c2698d3",
-  "generated_at": "2026-09-30",
-  "prompt_version": 3,
+  "readme_sha": "a100b6ec5fab08df8963d43b58e3c8efce75f0f1",
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
   "model": "claude-sonnet-5"
 }

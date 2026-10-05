@@ -1,27 +1,27 @@
 {
   "is_ai_product": true,
   "category": "编程 Agent 与运行框架",
-  "tagline": "Claude Code 插件，用 Jev 模型逐条打分决定去留，替代内置的摘要式上下文压缩",
-  "positioning": "Claude Code 上下文压缩的替代方案：不用LLM改写摘要旧对话，而是让Jev对每次工具调用和结果打分，决定删除、截断或原样保留，避免摘要丢失文件路径等细节，同时也可作为独立npm库使用。",
+  "tagline": "Claude Code插件，用外部模型逐条打分决定去留，替代摘要式上下文压缩",
+  "positioning": "Claude Code 触发上下文压缩时，用名为Jev的外部模型逐条给工具调用和结果打分，决定保留、截断或删除，替代默认的LLM摘要压缩方式。",
   "features": [
-    "对每个工具调用和结果发起打分请求，判断是否保留调用与结果",
-    "保留内容原样不改写，用户和助手文本始终保持原文顺序",
-    "最新preserveRecentMessages条消息（默认6条）始终不做改动",
-    "提供reductionRatio等统计指标，压缩比不足时可放弃压缩改用摘要",
-    "也可作为npm库使用，支持自定义JevAsker接入其他打分后端"
+    "对每条工具调用和结果打分，决定保留、截断前300字符或整条删除",
+    "保留内容均为原文，不做摘要式改写，用户与助手文本始终完整",
+    "问题超出单次请求token上限时自动分批并发请求，再合并结果",
+    "可作为Claude Code插件直接替换内置compaction，也可作npm库单独调用",
+    "压缩失败或减幅不足时自动回退到Claude Code内置摘要"
   ],
   "highlights": [
-    "不同于常见的LLM摘要压缩，采用逐条删除/截断而非改写，项目方称可避免摘要丢失文件路径、报错等细节",
-    "压缩失败或效果不足（如短会话）时自动回退到Claude Code内置摘要"
+    "用逐条保留概率代替摘要改写，声称可避免文件路径、报错等细节在压缩中丢失（项目方说法）",
+    "完整对话状态会随每批请求重复发送给打分服务，接近状态上限时单次压缩需多次请求（项目方文档）"
   ],
-  "audience": "使用Claude Code、关注长会话中上下文丢失问题的开发者，或需要自定义上下文压缩策略的npm库使用者",
+  "audience": "使用 Claude Code 处理长会话、希望上下文压缩保留原文细节而非摘要的开发者",
   "quickstart_cmd": "claude plugin marketplace add tamaratran/fast-jev-compaction",
-  "quickstart_note": "需先在settings.json中开启CLAUDE_CODE_ENABLE_FUNCTION_HOOKS并配置TYPESAFE_API_KEY，再安装插件",
+  "quickstart_note": "需先在settings.json开启CLAUDE_CODE_ENABLE_FUNCTION_HOOKS并配置TYPESAFE_API_KEY，再执行plugin install完成安装。",
   "risks": [
-    "会将完整会话内容（工具调用、结果、用户与助手文本）发送给TypeSafe的Jev接口打分，存在第三方数据外传"
+    "会将对话中的工具调用、输入参数和文本内容发送给第三方TypeSafe API用于打分，存在隐私或代码泄露风险。"
   ],
   "readme_sha": "8f4f65b5567600cd8257c54fc3beb7c8f3c861d9",
-  "generated_at": "2026-09-30",
-  "prompt_version": 3,
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
   "model": "claude-sonnet-5"
 }

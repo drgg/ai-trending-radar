@@ -1,27 +1,27 @@
 {
-  "positioning": "项目方自述为首个面向持续自我进化智能体的开源基础设施，整合推理、反馈匹配、训练与带版本管理的交付，可用于训练模型权重或优化智能体的提示词、规则、技能等 harness。",
-  "tagline": "连接推理、反馈、训练与版本发布的智能体持续自我进化基础设施",
-  "is_ai_product": true,
+  "audience": "需要为 Agent 构建持续学习或自我改进系统的研究者和工程团队，熟悉强化学习训练框架或 Agent harness 开发",
   "category": "Agent 平台与基础设施",
   "features": [
-    "支持用 Slime 与 SGLang 训练模型权重，实现权重层面的持续学习",
-    "支持优化智能体 harness（提示词、规则、技能），无需 GPU 只需模型接口",
-    "提供 OpenAI/Anthropic 兼容的推理接口，并可通过 /reef/report 上报反馈打分",
-    "内置 Reefine 配方，可依据自然语言需求自动改写编码 harness（需手动安装启用）",
-    "支持配置化的候选评估与版本发布策略，更新权重或 harness 时服务保持在线"
+    "提供 OpenAI/Anthropic 兼容的推理接口，接收请求并记录交互供反馈匹配",
+    "支持两种学习路径：用 Slime、SGLang 训练模型权重，或优化 Agent harness（提示词、规则、技能）",
+    "按 Serve-Observe-Grow-Commit 四步处理反馈并发布更新",
+    "内置 Reefine，仅用模型 API 即可优化编码 harness，无需本地训练 GPU",
+    "支持版本管理与热更新，服务不中断即可切换到新版本"
   ],
   "highlights": [
-    "将推理、反馈、训练、版本发布四个环节打通为一个闭环流程，而非零散工具拼接",
-    "提供 SAO、GEPA、TTT-Discover、Reefine 等多种预置配方，覆盖科学发现、连续任务学习、使用中学习等场景"
+    "项目方称其为首个开源的持续自我改进 Agent 基础设施（项目方说法）",
+    "同时覆盖模型权重训练与 Agent harness 优化两条自我改进路径，并提供多个任务示例配方"
   ],
-  "audience": "需要为智能体构建持续学习或自我改进能力的研究者和工程团队，尤其是模型权重训练或 Agent harness 优化方向的开发者",
+  "is_ai_product": true,
+  "positioning": "Reef 是开源的持续自我改进 Agent 基础设施，连接 Agent 推理、反馈收集、训练与版本化发布，支持训练模型权重或优化 Agent 的提示词、规则与技能（Harness）。",
   "quickstart_cmd": "uv pip install reef-infra",
-  "quickstart_note": "安装前需用 uv 创建并激活虚拟环境；若需制品与检查点功能，还需另外安装 git-lfs。",
+  "quickstart_note": "需先用 uv 创建并激活虚拟环境；若需版本/检查点功能还要系统安装 git-lfs。",
   "risks": [
-    "Reefine/reef-pi 的 harness 自我进化功能默认在无沙箱环境下执行命令，仅在 Linux 且具备 bwrap/pasta 支持非 root 用户时才能隔离，否则以本机权限运行改写后的 harness。"
+    "Reefine 默认在本地无鉴权启动（需手动设 REEF_TOKEN 才要求认证），其编码会话默认不在沙箱中运行命令，README 提醒需自行隔离安装目录与运行环境。"
   ],
+  "tagline": "开源的持续自我改进 Agent 基础设施，衔接推理、反馈、训练与版本发布",
   "readme_sha": "7a7a7cc470850494e40277f4aa201598c7eddb45",
-  "generated_at": "2026-09-30",
-  "prompt_version": 3,
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
   "model": "claude-sonnet-5"
 }

@@ -1,27 +1,27 @@
 {
-  "audience": "需要清理自有 AI 生成内容中厂商水印或溯源标记的开发者，以及 Claude Code、Cursor 等 Agent 工具用户",
-  "category": "开发者工具与集成",
+  "audience": "需要清理自有 AI 生成内容中隐藏水印或溯源元数据的开发者、写作者及 Claude Code/Cursor 用户",
+  "category": "Skills 与写作/设计",
   "features": [
-    "清除文本中隐藏Unicode、异形空格等确定性标记，纯Python脚本处理，无需依赖",
-    "统计型文本水印（如SynthID-Text）需Agent改写或可选rewrite_text.py钩子处理",
-    "支持从图片、PDF、Office文档、音视频等文件中剥离C2PA/EXIF/XMP元数据",
-    "可作为Claude Code插件安装，通过PostToolUse钩子自动检测或清理Agent写入文件（需配置clean模式）",
-    "覆盖Claude、Gemini/SynthID-Text、OpenAI及开源LLM等多厂商文本水印类别"
+    "文本 Layer A：去除隐藏 Unicode、异形空格、双向控制符等标记，用确定性脚本处理",
+    "文本 Layer B：针对统计型水印，依赖 Agent 改写或可选的 rewrite_text.py 钩子",
+    "文件层支持 PNG/JPEG/PDF/DOCX/MP4 等数十种格式的 C2PA/EXIF/XMP/文档属性清理",
+    "可选 PostToolUse 钩子：Claude Code 写文件后自动检测或清除水印（check/clean 模式）",
+    "提供 Claude Code 插件市场、Cursor、Grok 等多宿主一键安装方式"
   ],
   "highlights": [
-    "核心服务仅依赖 Python 3.10+ 标准库，无需额外依赖或 Docker 即可本地运行",
-    "支持 PNG、PDF、DOCX、MP4 等 20 余种文件格式的水印与元数据清理"
+    "项目方称可识别 Claude、Gemini/SynthID-Text、OpenAI 及开源 LLM 的 Kirchenbauer/Gumbel 类水印",
+    "核心脚本仅依赖 Python 3.10+ 标准库，无需额外依赖或 Docker"
   ],
   "is_ai_product": true,
-  "positioning": "一款面向 Claude、Gemini、OpenAI 等厂商生成内容的水印/溯源标记清除工具，以 Agent Skill 加本地 HTTP 服务形式提供，用于清理用户自有内容中的文本与文件水印。",
+  "positioning": "面向拥有内容版权用户的隐私工具，提供 Agent Skill 与本地 Python 服务，检测并清除文本中的隐藏水印及文件的 C2PA/EXIF/XMP 等溯源信息，可装入 Claude Code、Cursor、Grok 等多种 Agent 宿主。",
   "quickstart_cmd": "python3 install_skill.py --skill remove-ai-marks --target claude-code",
-  "quickstart_note": "安装 Skill 后需另行启动本地服务（make serve），默认监听 http://127.0.0.1:8765。",
+  "quickstart_note": "安装 Claude Code 个人版 Skill，需额外启动本地服务（make serve）配合使用",
   "risks": [
-    "核心功能是清除 AI 生成内容的溯源/水印标记（如 C2PA、SynthID），可能涉及 AI 内容标识相关法规合规问题"
+    "去除 AI 内容的水印与溯源标记（如 C2PA、SynthID）可能涉及规避 AI 内容标识相关法规的风险"
   ],
-  "tagline": "清除文本与文件中多厂商 AI 溯源水印的 Agent Skill 及本地服务",
+  "tagline": "Claude Agent Skill + 本地服务，去除文本和文件中的多厂商 AI 水印与溯源标记",
   "readme_sha": "d644ce7ec731d47e09643ecb130ea66c2d404c8c",
-  "generated_at": "2026-09-30",
-  "prompt_version": 3,
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
   "model": "claude-sonnet-5"
 }

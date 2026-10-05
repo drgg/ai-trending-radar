@@ -1,25 +1,24 @@
 {
-  "audience": "已用过大模型API或本地部署过模型、想弄清推理速度与成本原因的开发者，以及系统、网络、芯片方向的工程师和研究者。",
+  "audience": "已调用模型 API 或本地运行过模型、想弄清推理为何慢及如何降本的开发者，以及系统、网络、芯片方向的工程师、研究者和学生",
   "category": "其他",
   "features": [
-    "全书12章覆盖模型架构、加速器、数据中心网络、推理优化、分布式训练等主题",
-    "配套计算工具用Python标准库复算书中数字，静态计算无需GPU或模型权重",
-    "配套实验按章节存放于experiments目录，附运行方法、输入条件与结果说明",
-    "提供简体中文原版及英文、繁体中文、俄语社区翻译版本",
-    "支持PDF、EPUB与在线阅读三种格式，推送main后自动构建发布"
+    "全书十二章，覆盖模型架构、加速器、数据中心网络、推理优化与训练系统",
+    "配套计算工具可复算书中数字，静态计算只需 Python 3.10+ 标准库，无需 GPU 或模型权重",
+    "配套实验按章节组织，附运行方法、输入条件和结果说明，部分实验需 GPU",
+    "提供简体中文原版及英文、繁体中文、俄语社区翻译，含 PDF、EPUB 与在线阅读网站"
   ],
   "highlights": [
-    "书稿仍为初稿并持续修订，GitHub Actions会检查PR的网站与四种语言PDF/EPUB构建",
-    "方法论强调从硬件约束和第一性原理推导设计上限，再对照实测差距定位系统开销"
+    "是作者《深入理解 AI Agent》（项目方称获 50k+ Star）的姊妹篇，聚焦 AI 系统基础设施",
+    "配套计算工具静态计算无需 GPU 或模型权重，可直接复算书中资源估算数字"
   ],
   "is_ai_product": true,
-  "positioning": "开源技术书稿，从硬件约束和模型架构出发量化推导LLM推理与训练系统设计，是《深入理解AI Agent》姊妹篇，含全书正文、PDF/EPUB及配套计算工具与实验。",
+  "positioning": "李博杰撰写的开源书稿，从硬件约束和模型架构出发，用量化估算推导 LLM 推理与训练系统设计，是《深入理解 AI Agent》姊妹篇，书稿仍为初稿。",
   "quickstart_cmd": "git clone https://github.com/bojieli/ai-infra-book.git",
-  "quickstart_note": "克隆后可用python3 calculations/calc.py复算或估算模型资源需求，仅需Python 3.10+标准库，无需GPU。",
+  "quickstart_note": "克隆后可用 python3 calculations/calc.py 复算书中数字，静态计算无需 GPU 或模型权重",
   "risks": [],
-  "tagline": "开源书稿：从硬件约束出发量化推导LLM推理与训练系统设计",
+  "tagline": "从硬件约束出发，量化推导 LLM 推理与训练系统设计的开源电子书",
   "readme_sha": "b8595154c25f535aca03754bba40237fd4f19c63",
-  "generated_at": "2026-09-30",
-  "prompt_version": 3,
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
   "model": "claude-sonnet-5"
 }

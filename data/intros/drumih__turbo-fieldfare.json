@@ -1,27 +1,27 @@
 {
   "is_ai_product": true,
   "category": "本地推理与模型",
-  "tagline": "Swift+Metal运行时，让264亿参数的Gemma 4模型在8GB内存的Apple Silicon Mac上运行",
-  "positioning": "面向Apple Silicon Mac的模型专用推理运行时，仅用约2GB内存运行Gemma 4 26B-A4B模型，通过从SSD流式加载专家权重实现，而非基于MLX或llama.cpp的通用封装。",
+  "tagline": "让260亿参数Gemma4模型在8GB内存Mac上用约2GB内存推理",
+  "positioning": "面向Apple Silicon Mac（含8GB内存机型）的本地大模型推理工具，用专家流式加载技术让260亿参数的Gemma4 26B-A4B在约2GB内存预算下运行。",
   "features": [
-    "内存中仅保留1.35GB共享核心和FP16 KV缓存，其余专家权重按需从SSD流式读取",
-    "提供原生Mac应用、命令行工具和实验性OpenAI兼容本地服务器，共用同一模型目录",
-    "可选安装约1.1GB视觉扩展包实现图文对话，需M2及以上芯片，文本推理可在M1运行",
-    "安装器流式重打包权重，不在磁盘上生成完整14.3GB源检查点",
-    "支持函数工具声明，但不直接执行工具调用，由客户端负责授权和执行"
+    "按token从SSD流式加载所需专家权重，无需把14.3GB完整模型载入内存",
+    "自研Swift+Metal运行时，专为该模型定制，不是MLX或llama.cpp的封装",
+    "提供Mac原生应用、命令行工具、本地OpenAI兼容服务器三种使用方式",
+    "可选安装约1.1GB视觉塔组件支持图像输入，需M2及以上芯片",
+    "本地服务器支持函数工具声明，但需客户端自行授权并执行调用"
   ],
   "highlights": [
-    "项目方数据：8GB M2 MacBook Air上解码速度5.1-6.3 tok/s，24GB M5 Pro上为31-35 tok/s，官方说明该结果仅为参考点而非性能上限",
-    "验证目标机型为8GB内存的M2 MacBook Air，26B参数模型在该配置下仍可完整运行"
+    "项目方数据：8GB内存M2 MacBook Air上测得解码速度5.1-6.3 tok/s",
+    "项目方数据：24GB内存M5 Pro上测得解码速度31-35 tok/s"
   ],
-  "audience": "拥有Apple Silicon Mac（尤其8GB内存设备）、希望在本地运行大参数量模型的开发者和爱好者",
-  "quickstart_cmd": "git clone https://github.com/drumih/turbo-fieldfare.git && cd turbo-fieldfare && swift build -c release && .build/release/TurboFieldfareMac",
-  "quickstart_note": "需macOS 26、Metal 4、Xcode 26、Swift 6.2+，仅支持arm64；首次运行需在App内下载约15GB模型",
+  "audience": "拥有8GB内存等低配Apple Silicon Mac、希望本地运行大模型做推理实验的开发者和爱好者",
+  "quickstart_cmd": "swift build -c release && .build/release/TurboFieldfareMac",
+  "quickstart_note": "克隆仓库后构建运行，首次启动应用需在界面中选择Download下载安装约15GB模型，完成后方可加载生成。",
   "risks": [
-    "本地OpenAI兼容服务器无远程身份验证和TLS，README提示需保持在本地回环，不要直接暴露到公网"
+    "README明确提示本地OpenAI兼容服务器无远程认证和TLS，只应在loopback地址运行，不可直接暴露到公网"
   ],
   "readme_sha": "45cd3d182820e20e43ac90669233d01d96248f5e",
-  "generated_at": "2026-09-30",
-  "prompt_version": 3,
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
   "model": "claude-sonnet-5"
 }

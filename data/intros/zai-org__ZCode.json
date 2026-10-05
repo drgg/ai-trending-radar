@@ -1,26 +1,25 @@
 {
   "is_ai_product": true,
   "category": "编程 Agent 与运行框架",
-  "tagline": "Z.ai 出品的 AI 编程工作台，提供桌面应用、浏览器界面和终端 Agent 三种形态",
-  "positioning": "ZCode 是 Z.ai 的编程 Agent 运行框架，本仓库包含桌面客户端、Web 客户端、后端服务、共享 UI 以及 Agent CLI 与运行时源码，供开发者本地构建和运行编程 Agent。",
+  "tagline": "Z.ai 出品的编程 Agent 工作台，提供桌面、Web 与终端三种界面",
+  "positioning": "ZCode 是 AI 编程工作台，整合桌面应用、浏览器界面和终端 Agent，仓库包含客户端、后端服务、共享 UI 以及 Agent CLI 与运行时源码。",
   "features": [
-    "统一 zcode 命令，无参数进入终端 TUI，--web 启动浏览器界面，均在本机运行无需 Electron",
-    "另提供 Electron 桌面应用，支持 macOS/Windows/Linux 打包",
-    "支持 SSH/WSL 远程项目开发，资源经 SFTP 上传，不经 CDN 分发",
-    "可配置数据目录、后端工作区、Provider 配置文件等环境变量",
-    "命令行发行包提供安装脚本，默认安装到 ~/.zcode/runtime 并注册 zcode 命令"
+    "提供桌面应用（Electron）、Web 界面和终端 TUI/CLI 三种使用形态，共用同一后端服务",
+    "命令行发行包统一用 zcode 命令启动，无参数进入 TUI，加 --web 启动网页界面",
+    "可选支持 SSH/WSL 远程开发，本地构建资源通过 SFTP 上传，不经 CDN",
+    "Web 服务默认只监听 127.0.0.1，局域网访问需显式开启 --host 0.0.0.0",
+    "可通过环境变量自定义数据目录、后端工作区路径及内置 Provider 配置文件"
   ],
   "highlights": [
-    "命令行发行包用同一套二进制统一承载 TUI 与 Web 两种交互模式，共用同一后端服务"
+    "仓库同时开源客户端、后端服务、共享 UI 与 Agent CLI/运行时完整源码，采用 Apache-2.0 许可",
+    "README 标注已更新至 ZCode v3.14.3 版本（项目方数据）"
   ],
-  "audience": "需要在桌面、浏览器或终端中使用 AI 编程 Agent 的开发者，以及希望自行构建部署该工作台的团队",
+  "audience": "需要本地部署或自定义编程 Agent 工作台的开发者和团队",
   "quickstart_cmd": "pnpm bootstrap",
-  "quickstart_note": "克隆仓库后在根目录执行，安装 workspace 依赖并准备桌面本地运行资源，用于本地开发构建",
-  "risks": [
-    "Web 模式若通过 --host 0.0.0.0 监听非本机地址会默认生成访问令牌，使用前需注意该配置项的安全影响"
-  ],
+  "quickstart_note": "安装 workspace 依赖并准备桌面本地运行资源，随后可用 pnpm dev:desktop 启动开发环境",
+  "risks": [],
   "readme_sha": "bd6247f26035e27ffb5f6c908d736c1c4c82fca7",
-  "generated_at": "2026-09-30",
-  "prompt_version": 3,
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
   "model": "claude-sonnet-5"
 }

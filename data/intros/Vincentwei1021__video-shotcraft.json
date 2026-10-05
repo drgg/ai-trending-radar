@@ -1,27 +1,28 @@
 {
-  "audience": "面向使用 Claude Code 或 Codex 的开发者，用于制作产品宣传片、发布视频、功能演示等营销类短视频",
+  "audience": "使用 Claude Code 或 Codex 的开发者和团队，需要为产品制作宣传、发布或演示视频",
   "category": "Skills 与写作/设计",
+  "is_ai_product": true,
+  "tagline": "面向 Claude Code / Codex 的 Agent Skill，用 Remotion 制作电影感产品宣传片",
+  "positioning": "这是一个 Agent Skill，内置分镜配方卡库、运动预览库和可运行的 Remotion 视频模板，让 Claude Code 或 Codex 直接把产品截图编排、动画化、配乐成成片宣传视频。",
   "features": [
-    "内置157个分镜卡片，覆盖214种运镜风格及预览，可在在线Gallery中搜索筛选",
-    "自带Ink Press完整视频模板：36.2秒、1920×1080、30fps、10个镜头",
-    "交付后可打开浏览器端运动工作台，对轨道化的成片剪辑、调速、换镜头再导出",
-    "支持导出为剪映（CapCut CN）工程文件，分镜、字幕、音轨均可再编辑（仅macOS剪映11.2验证）",
-    "内置149条音效（16个场景分类）及5首BGM，支持节拍同步剪辑"
+    "157 个分镜配方卡，含用途、时长、参数与实现注意事项",
+    "214 个运动预览，可在在线 Gallery 搜索筛选及复制镜头名",
+    "内置 Ink Press 完整模板：36.2 秒、1080p、30fps、10 个镜头",
+    "交付后可用浏览器端 Motion Workbench 二次编辑并重新渲染",
+    "支持真实网页截图、2.5D 镜头运动、节拍同步剪辑与电影级音效"
   ],
   "highlights": [
-    "157个分镜卡片均附带用途、时长建议、参数和实现要点，并配有对应的Remotion组件实现",
-    "项目自身的Gallery介绍片和Ink Press模板演示视频均由该技能制作完成（项目方展示案例）"
+    "新增的 48 张分镜卡经过 8 轮逐帧比对参考素材筛选产出（项目方数据）",
+    "剪映（CapCut CN）项目导出功能已在 macOS 剪映专业版 11.2 上验证，Windows 未测试",
+    "Motion Workbench 的预览与渲染结果达到像素级一致（项目方数据）"
   ],
-  "is_ai_product": true,
-  "positioning": "video-shotcraft 是面向 Claude Code / Codex 的智能体技能，内置157个分镜卡片和可直接使用的Remotion视频模板，帮助将产品素材自动编排为带分镜、动效与声音设计的宣传视频。",
   "quickstart_cmd": "npx skills add Vincentwei1021/video-shotcraft",
-  "quickstart_note": "也可直接把仓库链接发给Claude Code/Codex自动安装，或手动git clone后软链接到~/.claude/skills目录",
+  "quickstart_note": "安装后需在 Claude Code 或 Codex 中对话式调用，也可 git clone 后手动软链到 skills 目录",
   "risks": [
-    "核心功能依赖Remotion渲染，Remotion有独立许可证，个人和小团队可免费使用，企业用户可能需另购付费许可证。"
+    "渲染视频依赖的 Remotion 框架有独立许可证，个人与小团队免费，公司使用可能需付费许可（项目方说明）"
   ],
-  "tagline": "面向 Claude Code / Codex 的视频制作技能，用 Remotion 生成电影感产品宣传视频",
   "readme_sha": "2dfecb5adcbfc3c8af91117efefbee7e5d72d7ed",
-  "generated_at": "2026-09-30",
-  "prompt_version": 3,
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
   "model": "claude-sonnet-5"
 }

@@ -1,25 +1,27 @@
 {
-  "is_ai_product": true,
+  "audience": "希望搭建私有、数据留在本地的多智能体 AI 助手的家庭用户、小团队与开发者。",
   "category": "Agent 平台与基础设施",
-  "tagline": "腾讯云出品的自托管多用户多智能体AI助手平台",
-  "positioning": "Octop是开源自托管AI助手，单进程运行同时提供Web控制台、CLI和多IM渠道接入，面向家庭和小团队，数据与凭证保留在本地机器上。",
   "features": [
-    "多用户多专家团队，内置专家库和专家市场，可按场景切换不同专家角色",
-    "支持飞书、钉钉、QQ、微信、Telegram、Discord、企业微信等IM渠道接入",
-    "ACP协议双向对接，可调用或被OpenCode、Claude Code等编码Agent调用",
-    "可插拔工作区后端，支持本地磁盘、Docker沙箱、PostgreSQL、COS/S3",
-    "内置知识库RAG、终端AI助手、浏览器自动化（Browser AI+）与远程桌面"
+    "多用户专家团队：按场景切换专家，支持专家库、专家市场与团队内专家共享",
+    "支持飞书、钉钉、QQ、微信、Telegram、Discord、企业微信等多种 IM 渠道接入",
+    "内置知识库（RAG）与插件系统，支持 OAuth/MCP 的 Connector 扩展",
+    "支持 ACP 协议双向集成，可委托 OpenCode、Claude Code 等编码代理处理任务",
+    "提供浏览器自动化（Browser AI+）与远程桌面功能，用于网页任务和桌面操作"
   ],
   "highlights": [
-    "单进程架构，Web、CLI、IM渠道和定时任务共用同一控制面数据库，数据全部留在本地",
-    "内置JWT多用户隔离、工具审批、Shell命令防护和PII脱敏等安全机制"
+    "安全机制内置：JWT 多用户隔离、工具调用审批、Shell 命令防护与 PII 脱敏",
+    "控制面数据库默认 SQLite，可选 PostgreSQL；所有数据保存在本机 ~/.octop/ 目录下"
   ],
-  "audience": "需要本地私有部署AI助手、看重数据不出本机的家庭用户、小团队和开发者",
+  "is_ai_product": true,
+  "positioning": "Octop 是腾讯云开源的自托管 AI 助手平台，面向家庭和小团队，单进程运行网页控制台、CLI、IM 接入与定时任务，数据和凭证全部留在本机。",
   "quickstart_cmd": "curl -fsSL https://finnie-1258344699.cos.ap-guangzhou.myqcloud.com/octop/install.sh | bash",
-  "quickstart_note": "适用于macOS/Linux一键安装，安装后重载终端配置，执行octop run启动服务",
-  "risks": [],
-  "readme_sha": "07c4fb8185dbff664b143b2be82211a220c698b5",
-  "generated_at": "2026-09-30",
-  "prompt_version": 3,
+  "quickstart_note": "macOS/Linux 一键安装脚本，使用 uv 自动配置 Python 3.12 环境，安装后需重新加载终端。",
+  "risks": [
+    "内置浏览器自动化（Browser AI+）和远程桌面控制功能，用于操作网页和桌面时可能涉及第三方服务条款风险。"
+  ],
+  "tagline": "腾讯云出品的自托管多用户多智能体 AI 助手",
+  "readme_sha": "0908627d034d2c28cd84c5334408b489501d32c8",
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
   "model": "claude-sonnet-5"
 }

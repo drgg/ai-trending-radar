@@ -1,25 +1,26 @@
 {
-  "is_ai_product": true,
+  "audience": "需要在无GPU、低内存消费级硬件上运行超大规模MoE模型的研究者和工程爱好者",
   "category": "本地推理与模型",
-  "tagline": "纯C99实现的推理引擎，让2.78万亿参数Kimi K3模型能在单CPU、8GB内存下运行",
-  "positioning": "面向1.56TB checkpoint的Kimi K3模型的CPU推理引擎，不依赖BLAS、框架或GPU，通过4bit量化与流式加载把内存需求压缩到消费级硬件可承受的范围，在8GB到224GB间提供多档内存预设。",
   "features": [
-    "纯C99编写，零依赖（无BLAS无框架无GPU），支持Linux/macOS/Windows AVX2平台",
-    "专家权重以MXFP4（4bit）打包存储，按需流式读取，不常驻内存",
-    "密集trunk层打包为单文件，提供laptop/desktop/workstation/server/max五档内存预设",
-    "采用KDA线性注意力与MLA多头潜在注意力，降低长上下文计算与内存开销",
-    "内置三重测试门（teacher forcing、贪婪解码、增量解码），与PyTorch参考实现逐token对齐验证"
+    "无BLAS、无框架、无GPU，纯C99实现，仅依赖libm和OpenMP",
+    "专家权重打包为4位（MXFP4）格式，按需流式加载，不常驻内存",
+    "密集trunk层预先打包为109GB文件，可按预设深度常驻内存",
+    "支持AVX2+FMA（x86-64）和NEON（arm64），用LRU缓存管理专家权重",
+    "提供laptop到max共5档内存预设，内存预算从8GB到224GB可选"
   ],
   "highlights": [
-    "项目方数据：8.24GB内存预设下生成速度约32.69秒/token，127.92GB内存预设下约10.69秒/token，速度较慢但输出正确",
-    "项目方数据：同一模型在不同内存预算（8GB至224GB）下产生字节级完全一致的输出"
+    "项目方数据：laptop预设下峰值内存8.24GB，生成8个token耗时261.5秒，平均32.69秒/token",
+    "项目方数据：server预设下峰值内存127.92GB，生成28个token耗时299.3秒，平均10.69秒/token",
+    "项目方称同一模型在8GB到224GB不同内存预算下产生字节级相同输出"
   ],
-  "audience": "希望在消费级硬件上研究超大规模MoE模型推理原理、或从事CPU推理系统编程的工程师和研究者",
-  "quickstart_cmd": "git clone https://github.com/FareedKhan-dev/kimi-k3-in-c.git",
-  "quickstart_note": "克隆后执行make -j编译，再运行make test验证引擎正确性，全程约一分钟，无需下载1.56TB模型",
+  "is_ai_product": true,
+  "positioning": "一个零依赖的C99推理引擎，通过4位专家量化、线性注意力和流式加载把2.78万亿参数的Kimi K3模型的内存需求从集群级降到消费级CPU可承受范围。",
+  "quickstart_cmd": "git clone https://github.com/FareedKhan-dev/kimi-k3-in-c.git\ncd kimi-k3-in-c\nmake -j\nmake test",
+  "quickstart_note": "无需下载模型即可完成构建和测试，约一分钟；完整推理需下载1.56TB权重并打包trunk后运行",
   "risks": [],
-  "readme_sha": "9083f4d8a0a2cd02a6570a400829ccb070d7aaee",
-  "generated_at": "2026-09-30",
-  "prompt_version": 3,
+  "tagline": "用纯C99在单CPU上以8GB内存运行2.78万亿参数的Kimi K3模型",
+  "readme_sha": "4286dfa7a57365cd9f6ea7895e189ace5ce4c591",
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
   "model": "claude-sonnet-5"
 }

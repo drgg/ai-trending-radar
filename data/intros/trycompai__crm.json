@@ -1,27 +1,27 @@
 {
   "is_ai_product": true,
   "category": "AI 应用产品",
-  "tagline": "开源的 Agent 优先 CRM：AI 独立运行，自主调研、记录客户信息",
-  "positioning": "区别于数据库加聊天框式的AI CRM，Agent不是附加功能而是主角：拥有自己的部署、日程和工作队列，自主决定调研对象，遵循证据分级原则写入记录，从不猜测客户信息。",
+  "tagline": "开源 agent 原生 CRM，AI agent 自主调研并记录客户信息，而非聊天侧边栏",
+  "positioning": "为 AI agent 设计的开源 CRM：agent 独立部署运行，自主决定调研对象、记录证据、安排跟进，而非作为聊天框功能附加在传统 CRM 表单上。",
   "features": [
-    "Agent独立部署运行，按自身工作队列和日程决定下一步调查目标，非请求响应模式",
-    "内置18个工具和4个技能文件，用于识别联系人、调研公司、记录事实并安排复查",
-    "工具只报告观测结果不接受置信度评分，弱证据转为建议交人工确认，强证据才写入记录",
-    "沙箱具备shell能力但默认deny-all出站网络，且从不注入数据库凭证",
-    "所有外部数据源均为可选，无任何API Key时仍可基于已有邮件和会议记录工作"
+    "18 个工具 4 个技能 1 个调度，agent 自主建队列决定下一步调研哪个联系人",
+    "证据分级记录事实：强证据写入记录，弱证据只生成人工确认的建议，不接受自评置信度",
+    "沙盒执行 shell 命令默认禁止出网且不接触数据库，防止客户信息经此泄露",
+    "无需任何 API Key 即可运行，读取自身邮件和会议记录作为免费可靠的证据来源",
+    "可选接入 Perplexity 做网络调研，接入 Context 获取 LinkedIn 资料和公司品牌数据"
   ],
   "highlights": [
-    "项目方设计理念：拒绝让模型自评置信度，因为模型倾向于给出让自己显得有用但可能错误的分数",
-    "每个联系人、公司、交易都有Agent标签页可查看其调研步骤、放弃的线索及原因，支持人工介入答疑"
+    "Agent 作为独立部署持续运行，关闭浏览器后仍按自身调度继续工作，非请求-响应式交互",
+    "UI 提供 Agent 标签页可查看调研步骤和决策过程，需配置 AGENT_BRIDGE_SECRET 才启用"
   ],
-  "audience": "希望自建CRM并让AI agent自动调研、维护客户资料的技术团队或自托管开发者",
+  "audience": "需要 AI 自动调研、补全客户资料的销售/增长团队，以及希望自托管、具备工程能力的技术团队",
   "quickstart_cmd": "git clone https://github.com/trycompai/crm.git && cd crm",
-  "quickstart_note": "需先安装Bun和Docker，克隆后复制.env.example为.env并配置，再依次执行bun install、docker compose up -d、db:deploy、dev",
+  "quickstart_note": "需 Bun 和 Docker，克隆后配置 .env、docker compose 启动 Postgres、执行迁移后运行 bun run dev",
   "risks": [
-    "Agent会对联系人和公司进行网络调研，并可能通过Perplexity、Context/LinkedIn等外部服务补全个人信息，涉及采集和处理第三方个人数据"
+    "agent 的 research_person、enrich_company 等工具会调用第三方服务（如 LinkedIn 数据）调研联系人个人信息，涉及第三方隐私数据采集合规问题"
   ],
   "readme_sha": "c761ebff650556235dd27f7c320ce94a6e5cdc30",
-  "generated_at": "2026-09-30",
-  "prompt_version": 3,
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
   "model": "claude-sonnet-5"
 }

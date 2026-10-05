@@ -1,0 +1,25 @@
+{
+  "audience": "想为自己所在行业（法律、HR、金融等）搭建热点聚合与日报网站的自托管用户和开发者",
+  "category": "AI 应用产品",
+  "features": [
+    "支持 RSS、网页、JSON、X、微信公众号等六种信源及自定义推送，分三级设门槛",
+    "大模型先预筛，再独立打两次分，按信源分级门槛决定是否入选精选，提示词全公开可改",
+    "同一事件的不同来源报道自动聚簇，按独立来源数量计算热度，48小时内重复来源不多算",
+    "每天自动生成日报（默认08:00），每周周报、每月月报从日报汇编而成",
+    "提供 RSS、公开 API、MCP、llms.txt 等多种接口，同一份内容同时给人看和给 Agent 用"
+  ],
+  "highlights": [
+    "所有提示词原文和入选门槛均开源，可用自己标注的样本在 SelectBench 中校准评分标准",
+    "仓库是 AIHOT 线上同款引擎代码，但不含其信源名单和运营数据，示范信源仅18个海外AI资讯源"
+  ],
+  "is_ai_product": true,
+  "positioning": "AIHOT 开源的网站引擎和框架，用大模型自动抓取信源、筛选打分、聚簇事件、生成日报周报月报；换上自己行业的信源和提示词，即可搭建专属行业热点站。",
+  "quickstart_cmd": "git clone https://github.com/KKKKhazix/AIHOT.git myhot\ncd myhot\nnode scripts/init-env.ts --llm-key <你的模型 API Key>\ndocker compose up -d --build",
+  "quickstart_note": "需要 Docker、Node.js 24 和 OpenAI 兼容的模型 API Key，完成后访问 localhost:3000，后台在 /admin",
+  "risks": [],
+  "tagline": "自动找热点、写日报的自托管网站框架，换上信源和标准就是你的行业热点站",
+  "readme_sha": "91e8ba24609a8787f3e7782094f40f668437cb98",
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}

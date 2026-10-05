@@ -1,27 +1,25 @@
 {
-  "is_ai_product": true,
+  "audience": "需要AI辅助处理Word/Excel/PPT/PDF文档，或希望让Claude Code、Cursor等编程Agent直接生成真实办公文件的个人与团队",
   "category": "AI 应用产品",
-  "tagline": "开源 AI 办公套件，本地编辑 Word/Excel/PPT/PDF，并自带命令行供编程 Agent 调用",
-  "positioning": "面向个人和团队的免费开源 Office 替代品，支持 macOS/Windows/Linux，原生打开保存 docx/xlsx/pptx，内置可审阅的 AI 编辑，并提供 CLI 和 Agent Skill 供 Claude Code、Codex、Cursor 等调用。",
   "features": [
-    "原生编辑 docx/xlsx/pptx/PDF/Markdown/HTML，未改动部分逐字节保留",
-    "AI 编辑以修订记录和差异呈现，可一键回滚；表格生成活公式而非纯数字",
-    "文件读写和格式转换均在本机完成，仅 AI 调用请求发往用户选择的服务商",
-    "内置本地 SQLite 全文搜索，可选开启 TypeSafe Jev 模型对结果重排序",
-    "提供 genoffice CLI 和 Agent Skill，供 Claude Code、Codex、Cursor 等在本机创建/编辑真实 Office 文件"
+    "原生读写.docx/.xlsx/.pptx，并编辑PDF/Markdown/HTML，未修改部分按字节保留",
+    "AI编辑以追踪变更和diff呈现，支持一键回滚；表格生成实时公式而非粘贴数值",
+    "本机完成PDF转Word/Excel/PPT等格式转换，仅AI请求发送至所选模型服务商",
+    "可登录Genspark免配置使用，或自带Claude/OpenAI/Gemini等多家模型密钥，含本地OpenAI兼容端点",
+    "提供genoffice命令行、Agent Skill和MCP服务器，供Claude Code、Codex、Cursor等Agent创建编辑办公文件"
   ],
   "highlights": [
-    "Apache-2.0 协议开源，可登录 Genspark 免配置，也可自带 Claude、OpenAI、Gemini 等主流大模型 API Key",
-    "提供 29 个 MCP 工具，Claude Desktop 等 MCP 客户端可直接调用同一套文档编辑引擎"
+    "本地SQLite全文搜索支持中日韩分词，可选开启TypeSafe Jev模型对前20条结果重新排序（项目方描述，默认关闭）",
+    "MCP服务器提供29个工具（项目方数据），Claude Desktop等客户端可直接调用在可见编辑器中生成文档"
   ],
-  "audience": "需要在本地编辑 Office 文档并结合 AI 辅助的个人和团队，以及希望编程 Agent 直接生成、编辑真实 Office 文件的开发者",
+  "is_ai_product": true,
+  "positioning": "开源免费的本地优先Office替代品，原生读写.docx/.xlsx/.pptx并编辑PDF/Markdown/HTML，内置可审查的AI代理，提供CLI和Skill供Claude Code、Codex、Cursor等编程Agent创建与编辑真实办公文件。",
   "quickstart_cmd": "npx skills add genspark-ai/genoffice",
-  "quickstart_note": "将 Agent Skill 安装到本地编程 Agent；应用本体需从 GitHub Releases 下载对应系统安装包。",
-  "risks": [
-    "开启 Jev 搜索重排序（默认关闭）后，会把本地搜索命中文件的摘录发送给 OpenRouter 或 TypeSafe 的外部 API"
-  ],
-  "readme_sha": "2efdb66cd35ecad7c04ef80eff8d8644987572b1",
-  "generated_at": "2026-09-30",
-  "prompt_version": 3,
+  "quickstart_note": "该命令将GenOffice的Agent Skill安装进支持Skill的编程Agent；配合随桌面应用安装的genoffice命令行使用。",
+  "risks": [],
+  "tagline": "开源免费的AI办公套件，本地编辑Word/Excel/PPT/PDF并内置AI代理",
+  "readme_sha": "2713ce9e88319e9662a9fa106d6b93a2b05b84b5",
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
   "model": "claude-sonnet-5"
 }

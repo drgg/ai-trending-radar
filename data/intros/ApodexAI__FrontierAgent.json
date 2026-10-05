@@ -1,0 +1,25 @@
+{
+  "audience": "需要终端智能体处理长周期研究、文件分析或多智能体协作任务的开发者与研究者",
+  "category": "编程 Agent 与运行框架",
+  "features": [
+    "ReAct 模式：单个有状态智能体在任务沙箱内研究、读写文件、执行命令并迭代",
+    "Agent Team 模式：协调器维护任务看板，调度并行子智能体并汇总报告合成结果",
+    "任务沙箱分 /inputs 只读、/workspace 可写、/outputs 产出，校验失败默认拒绝",
+    "支持运行中插话：输入新指令会在安全节点注入，不打断正在执行的任务",
+    "写操作默认需审批确认，会话带检查点与本地追踪，支持 /revert 回滚和 --resume 续跑"
+  ],
+  "highlights": [
+    "同一工作流引擎既驱动终端 TUI 产品，也用于跑 FrontierSearchBench/FrontierChallenge 等内置评测基准（项目方数据）",
+    "macOS/Linux 一条命令即可安装运行，无需预装环境，Docker 为可选而非必需依赖"
+  ],
+  "is_ai_product": true,
+  "positioning": "面向长周期研究和文件类任务的开源智能体运行时，内置终端 TUI，提供 ReAct 单智能体与 Agent Team 多智能体两种工作流，同一引擎也用于 Apodex 模型的评测基准。",
+  "quickstart_cmd": "uv run frontier-agent --mode react --cwd /path/to/project",
+  "quickstart_note": "需先 git clone 仓库、执行 uv sync 安装依赖，并在 .env 中配置 OpenAI 兼容模型端点",
+  "risks": [],
+  "tagline": "开源终端智能体运行时，提供 ReAct 单智能体与 Agent Team 多智能体两种工作模式",
+  "readme_sha": "2097d4022db5e7b541ad1df821ad4a876b588f61",
+  "generated_at": "2026-10-05",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}
