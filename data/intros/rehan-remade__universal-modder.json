@@ -1,0 +1,25 @@
+{
+  "audience": "愿意用编程 agent 给自己拥有的 PC 游戏做 mod、逆向研究的开发者和玩家",
+  "category": "编程 Agent 与运行框架",
+  "is_ai_product": true,
+  "tagline": "让 Claude Code 等编程 agent 给你拥有的任意 PC 游戏做 mod 的技能与工具包",
+  "positioning": "为 Claude Code、Codex、Gemini CLI 等编程 agent 提供技能、fal MCP 和 um CLI，驱动 agent 对本地已安装的 PC 游戏进行侦察、逆向、建 mod、生成素材并在游戏内验证。",
+  "features": [
+    "提供 Agent Skills 格式技能、fal MCP 服务器和 um CLI，支持 Claude Code/Codex/Gemini CLI/Cursor/OpenCode 等多种 agent",
+    "标准流程：查知识库、侦察定路线、读代码建切片、生成素材并验证、录视频写笔记",
+    "用 fal 生成图像/3D/音频素材；无 fal key 时可用本地 ComfyUI 生成图像",
+    "知识库收录各游戏改模实录：版本、路线、验证方式和踩坑经验，完成后可提交 PR 共享",
+    "内置规则：仅限自己拥有的单机/多人游戏，拒绝注入反作弊服务器、绕过 DRM，会先询问"
+  ],
+  "highlights": [
+    "项目方展示了 Terraria、AoE2 DE、GTA V×Minecraft 等实际改模案例，均附完整知识库笔记",
+    "同时支持 Claude Code、Codex、Gemini CLI、VS Code/Copilot、Cursor、OpenCode 等多种编程 agent"
+  ],
+  "quickstart_cmd": "/plugin marketplace add rehan-remade/universal-modder",
+  "quickstart_note": "适用于 Claude Code，之后再执行 /plugin install universal-modder@universal-modder 完成安装",
+  "risks": [],
+  "readme_sha": "de0913f2041a56d467821553d4e0f2d772d5c3d9",
+  "generated_at": "2026-10-12",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}

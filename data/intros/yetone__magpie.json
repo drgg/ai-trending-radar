@@ -1,0 +1,27 @@
+{
+  "audience": "同时使用多个编程 Agent（Claude Code、Codex、Gemini CLI 等）、多个模型供应商或多个订阅账号的开发者",
+  "category": "Agent 平台与基础设施",
+  "features": [
+    "菜单栏应用+本地网关，统一管理各编程 Agent 的模型配置，自动改写对应配置文件",
+    "支持 Claude Code、Codex、Gemini CLI、OpenCode、Cursor CLI 等 40 多种 Agent",
+    "Provider 可用 API Key、已登录的订阅账号（Claude/ChatGPT/Copilot/Gemini/Grok）或本地模型（Ollama、LM Studio）",
+    "路由组支持多账号/模型故障转移（smart、order、rotate、usage、pace 等模式），配额用尽自动切到下一个",
+    "提供用量费用统计、配额预警及 Bun 插件/网关中间件扩展"
+  ],
+  "highlights": [
+    "本地网关可在 OpenAI Chat/Responses、Anthropic Messages、Gemini 四种协议间互相翻译，覆盖流式与工具调用",
+    "通过读取 Claude Code、Codex 等本机登录凭证（含 Keychain），把已有订阅账号的模型开放给其它 Agent 使用"
+  ],
+  "is_ai_product": true,
+  "positioning": "一个本地网关加菜单栏工具，让任意编程 Agent 可以切换使用任意供应商的模型或已登录的订阅账号，并在配额用尽时自动切换账号。",
+  "quickstart_cmd": "curl -fsSL https://usemagpie.ai/install.sh | sh",
+  "quickstart_note": "安装后在应用内 Providers 页添加供应商或登录订阅，再为每个 Agent 选择模型；也可用 magpie CLI 完成同样操作。",
+  "risks": [
+    "会读取 Claude Code、Codex 等本机登录凭证（包括系统 Keychain），将一个厂商订阅账号的模型跨 Agent 复用，可能违反相应厂商的服务条款"
+  ],
+  "tagline": "本地网关统一管理，让各编程 Agent 共用任意模型或订阅账号",
+  "readme_sha": "80be947c1590e6f55e1ad3ea42df9b61bb70e347",
+  "generated_at": "2026-10-12",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}

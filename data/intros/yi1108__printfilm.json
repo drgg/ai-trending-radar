@@ -1,0 +1,26 @@
+{
+  "audience": "面向需要批量产出短视频广告或短剧内容的团队，以及想自托管AI视频生成工具链的开发者",
+  "category": "AI 应用产品",
+  "features": [
+    "AI漫剧：从一句话生成大纲/剧本，解析成分镜后编辑，角色场景资产可复用",
+    "AI短视频：20+内置风格模板，支持full（图+视频+合成）或image_text（静图）模式",
+    "工具中心：文生图、图生图、图生产品、文生视频、视频生视频、电商拼图等单点能力",
+    "管理后台与开放API：用户/订单/模板/任务中心/模型路由，提供/api/v1生图生视频接口",
+    "口播由Seedance出片时自动生成，无需单独配音；成片由FFmpeg合成"
+  ],
+  "highlights": [
+    "漫剧与短视频共用一套生成能力，模型可在管理后台切换而无需改代码",
+    "任务调度、执行、轮询均在进程内完成，无需单独部署Celery Worker",
+    "Docker镜像公开可直接拉取，无需登录即可一键启动"
+  ],
+  "is_ai_product": true,
+  "positioning": "面向短视频获客与短剧创作的自托管平台，提供从主题/剧本到分镜、生图、生视频、合成成片的完整流水线，也支持单点生图生视频；基于TokenFree兼容接口调用模型，可Docker一键部署。",
+  "quickstart_cmd": "docker compose --env-file deploy/.env.docker up -d",
+  "quickstart_note": "需先克隆仓库、复制并编辑deploy/.env.docker（设置数据库密码、SECRET_KEY及TokenFree API Key）后再执行此命令",
+  "risks": [],
+  "tagline": "模板驱动的AI短视频与AI漫剧创作平台，从文案到成片",
+  "readme_sha": "6ca59cf8358e73c1ce5726a81ca3f9b5827a3a0a",
+  "generated_at": "2026-10-12",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}

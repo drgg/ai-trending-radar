@@ -1,0 +1,30 @@
+{
+  "is_ai_product": true,
+  "category": "开发者工具与集成",
+  "tagline": "dsh 插件，免登录免 Key 白嫖前沿大模型，并可接入第三方账号渠道",
+  "positioning": "dsh（DeepSeek Harness）的免费模型插件，免登录免 Key 直连开放网关提供前沿模型，并内置十余个第三方账号渠道与自带 Key 聚合接入，附带本地 OpenAI/Anthropic 兼容网关。",
+  "features": [
+    "免费车道直连 OpenCode Zen 网关与 Kilo AI 公共网关，模型清单随上游实时刷新，不保存静态快照",
+    "内置十一个第三方账号渠道（华为云等）及本地网关，凭据只写入宿主凭据库",
+    "聚合渠道支持自带 Key 接入 76 家提供商，含 OpenRouter、Groq、Gemini 等",
+    "思考强度分三档，对应硬性输出 token 预算；另提供工具输出压缩与降级链路由以节省 Token",
+    "本地网关兼容 OpenAI 与 Anthropic Messages 接口，可选开启局域网转发"
+  ],
+  "highlights": [
+    "免费模型来源公开：免费车道直连 OpenCode Zen 与 Kilo AI 网关，不经第三方中转",
+    "用量看板（Token 热力图、速度、首字延迟）数据全部留在本机，不上传任何数据",
+    "EAC 渠道（桌面端专属）需服务器侧校验 GitHub 登录并 star 本仓库才放行对话"
+  ],
+  "audience": "使用 dsh（DeepSeek Harness）的开发者，想免登录、免 API Key 使用前沿大模型，或接入多家第三方账号渠道与自带 Key 渠道的用户",
+  "quickstart_cmd": "dsh plugin --profile web add /绝对路径/dsh-our-free-model",
+  "quickstart_note": "适用于纯 dsh web profile，安装后需重启应用一次；桌面端请使用应用内插件管理器安装，不支持此命令。",
+  "risks": [
+    "内置的十三个第三方账号渠道需登录对应公司账号并自动领取每日积分调用其网关，可能违反对方服务条款并有封号风险",
+    "Kilo 免费渠道的上游声明可能记录 prompt 用于改进服务，官方提示请勿发送敏感内容",
+    "局域网转发为可选功能，开启后同网段内持有 Key 的任何人都可消耗本机免费额度，需在可信网络使用"
+  ],
+  "readme_sha": "2096218bc1502c27332c5ed2d10a27fcf445a098",
+  "generated_at": "2026-10-12",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}

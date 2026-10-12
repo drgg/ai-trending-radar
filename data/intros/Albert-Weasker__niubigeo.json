@@ -1,0 +1,28 @@
+{
+  "is_ai_product": true,
+  "category": "AI 应用产品",
+  "tagline": "开源自托管工具，用真实AI模型回答追踪品牌在AI答案中的曝光与竞品",
+  "positioning": "面向希望了解AI模型如何描述自家产品、提及哪些竞品、引用哪些来源的团队，强调可追溯证据而非黑盒评分，自托管部署并自备模型API Key，Apache-2.0开源。",
+  "features": [
+    "输入域名测试，对比多个AI模型对产品的描述及提及的竞品",
+    "支持OpenRouter等多家模型供应商，可在同一测试中混用不同来源模型",
+    "保留原始回答、引用来源及历史测试记录，可逐条核查",
+    "v0.3新增关键词监测模块（Beta）：分类测试、定时运行并用Diff View比较前后快照变化",
+    "自托管部署，研究数据保存在自己的环境中"
+  ],
+  "highlights": [
+    "设计理念是展示原始模型回答与引用来源作为证据链，而非直接输出单一可见度分数",
+    "项目方称自托管可替代每年5000美元以上的GEO SaaS服务，但该说法未提供第三方验证数据",
+    "当前v0.3版本尚未包含独立的竞品检测仪表盘，功能限于关键词监测、历史记录与变化对比"
+  ],
+  "audience": "需要监测自身产品在AI模型回答中曝光度、竞品及引用来源的产品、营销或SEO团队，愿自托管并自备模型API Key。",
+  "quickstart_cmd": "git clone --branch v0.3.0 --depth 1 https://github.com/Albert-Weasker/niubigeo.git",
+  "quickstart_note": "需Node.js 22.13+及OpenRouter API Key，克隆后npm ci、配置.env，再npm run server启动，访问localhost:8787。",
+  "risks": [
+    "使用时需将域名、关键词、竞品列表等可能具有商业敏感性的研究数据发送给所选的外部模型API服务。"
+  ],
+  "readme_sha": "fe9df257098fcd7188a49acd41399ea57cd2b905",
+  "generated_at": "2026-10-12",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}
