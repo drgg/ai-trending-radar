@@ -1,9 +1,11 @@
 """每周流水线：fetch → summarize → diff → render。
 
 用法：
-  python scripts/main.py            正式运行（需要 ANTHROPIC_API_KEY）
-  python scripts/main.py --dry-run  不调用模型，用占位介绍验证流程
-  python scripts/main.py --limit 3  只处理星数最高的前 N 个（调试用）
+  python scripts/main.py --issue        发布正式一期（定时运行用这个；编期号、写通知、进 RSS）
+  python scripts/main.py                临时更新（不编期号、不通知，例如改了提示词后重新生成介绍）
+  python scripts/main.py --render-only  不抓取、不调模型，只用已有快照重渲染整站（改了模板时用）
+  python scripts/main.py --dry-run      不调用模型，用占位介绍验证流程
+  python scripts/main.py --limit 3      只处理星数最高的前 N 个（调试用）
 """
 import argparse
 import json
@@ -16,6 +18,7 @@ import yaml
 
 import diff
 import fetch
+import notify
 import render
 from summarize import AuthError, Summarizer
 
@@ -51,10 +54,17 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--limit", type=int)
+    ap.add_argument("--issue", action="store_true", help="作为正式一期发布")
+    ap.add_argument("--render-only", action="store_true", help="只用已有快照重渲染整站")
     args = ap.parse_args()
 
     cfg = yaml.safe_load((ROOT / "config.yml").read_text(encoding="utf-8"))
     today = date.today()
+
+    if args.render_only:
+        print("只重渲染：读取已有快照…")
+        publish(cfg, notify_ok=True)
+        return
 
     print("① 抓取候选仓库…")
     query, repos = fetch.fetch_all(cfg, today)
@@ -80,11 +90,13 @@ def main():
         entries.append({**repo, "intro": intro, "flags": risk_flags(repo, cfg, today), "delta": None})
     print(f"   上榜 {len(entries)}，排除 {len(excluded)}，模型调用 {summ.calls} 次")
 
-    print("③ 对比上一期…")
-    changes = diff.compute(entries, diff.previous_snapshot(today.isoformat()), cfg["top_gainers"])
+    official = args.issue and not args.dry_run
+    print(f"③ 对比上一个正式期…（本次{'是正式一期' if official else '是临时更新，不编期号、不通知'}）")
+    prev = diff.previous_issue(today.isoformat())
+    changes = diff.compute(entries, prev, cfg["top_gainers"])
     trends = summ.trends(entries)
 
-    snapshot = {"date": today.isoformat(), "query": query, "window_days": cfg["window_days"],
+    snapshot = {"date": today.isoformat(), "issue": official, "query": query, "window_days": cfg["window_days"],
                 "min_stars": cfg["min_stars"], "model": cfg["model"], "dry_run": args.dry_run,
                 "entries": entries, "excluded": excluded, "diff": changes, "trends": trends}
     diff.SNAP_DIR.mkdir(parents=True, exist_ok=True)
@@ -92,8 +104,16 @@ def main():
         json.dumps(snapshot, ensure_ascii=False, indent=1), encoding="utf-8")
 
     print("④ 渲染页面…")
-    render.render(snapshot, cfg["categories"], cfg.get("warn_categories"))
-    print(f"完成：site/index.html、report.md（本次模型调用共 {summ.calls} 次）")
+    publish(cfg, notify_ok=not args.dry_run)
+    print(f"本次模型调用共 {summ.calls} 次")
+
+
+def publish(cfg, notify_ok):
+    """重渲染整站；最新一期是正式期时写通知文件（工作流据此开 Issue，已发过的会跳过）。"""
+    latest_issue = render.render_site(cfg)
+    print("   已写 site/index.html、site/archive/*.html、site/feed.xml、report.md")
+    if notify_ok and latest_issue:
+        print(f"   通知：{notify.write(latest_issue, cfg)}")
 
 
 if __name__ == "__main__":

@@ -15,6 +15,10 @@ readme_max_chars: 12000  # 送给模型的 README 摘录长度上限
 # 变化摘要
 top_gainers: 5
 
+# 发布地址：RSS、通知里的链接用它拼
+site_url: https://drgg.github.io/ai-trending-radar
+repo_url: https://github.com/drgg/ai-trending-radar
+
 # 程序化风险标记
 risk:
   min_fork_ratio: 0.01   # fork/star 低于该比例视为异常

@@ -2,13 +2,14 @@ name: weekly-report
 
 on:
   schedule:
-    - cron: "0 1 * * 1"   # 每周一 01:00 UTC = 北京时间 09:00
+    - cron: "0 1 * * 1"   # 每周一 01:00 UTC；GitHub 整点排队较多，实际常晚几个小时
   workflow_dispatch:
     inputs:
-      dry_run:
-        description: "不调用模型，仅验证流程"
-        type: boolean
-        default: false
+      mode:
+        description: "update=临时更新（不编期号、不通知）；issue=作为正式一期发布；render=只重渲染页面；dry-run=不调模型验证流程"
+        type: choice
+        default: update
+        options: [update, issue, render, dry-run]
 
 permissions:
   contents: write
@@ -33,6 +34,7 @@ jobs:
       - run: pip install -r requirements.txt
 
       - name: Install Claude Code CLI
+        if: inputs.mode != 'render'
         run: npm install -g @anthropic-ai/claude-code
 
       - name: Run pipeline
@@ -40,7 +42,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}   # backend: claude-cli
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}               # backend: api
-        run: python scripts/main.py ${{ inputs.dry_run && '--dry-run' || '' }}
+          NOTIFY_MENTION: ${{ github.repository_owner }}                    # 通知里 @ 仓库主人
+        run: |
+          case "${{ github.event_name }}:${{ inputs.mode }}" in
+            schedule:*) args="--issue" ;;
+            *:issue)    args="--issue" ;;
+            *:render)   args="--render-only" ;;
+            *:dry-run)  args="--dry-run" ;;
+            *)          args="" ;;
+          esac
+          echo "运行参数：${args:-（临时更新）}"
+          python scripts/main.py $args
 
       - name: Commit data
         run: |
@@ -49,6 +61,13 @@ jobs:
           git add data site report.md
           git diff --cached --quiet || git commit -m "weekly report $(date -u +%F)"
           git push
+
+      - name: Keep notification for after deploy
+        uses: actions/upload-artifact@v4
+        with:
+          name: notify
+          path: build/notify
+          if-no-files-found: ignore
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
@@ -64,3 +83,32 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # 网页部署完再开 Issue，免得通知先到、点进去还是旧页面
+  notify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/download-artifact@v4
+        continue-on-error: true   # 这次运行没写通知（临时更新之前没有正式期、或 dry-run）时没有这个包
+        with:
+          name: notify
+          path: notify
+
+      - name: Open issue for the latest issue
+        run: |
+          if [ ! -f notify/key.txt ]; then echo "本次没有通知"; exit 0; fi
+          key=$(cat notify/key.txt); title=$(cat notify/title.txt)
+          gh label create "周报" --color 3350b0 --description "每周一期的发布通知" --force
+          if gh issue list --label "周报" --state all --limit 200 --json title --jq '.[].title' | grep -qF -- "$key"; then
+            echo "「$key」已经发过通知，跳过"; exit 0
+          fi
+          for n in $(gh issue list --label "周报" --state open --json number --jq '.[].number'); do
+            gh issue close "$n" --comment "新一期已发布：$title"
+          done
+          gh issue create --title "$title" --body-file notify/body.md --label "周报"

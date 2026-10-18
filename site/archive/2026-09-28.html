@@ -3,1624 +3,956 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI 热门项目周报 · 2026-09-28</title>
-<meta name="description" content="GitHub 近 90 天新建、星数超过 5000 的 AI 项目，每周自动更新">
+<title>第 2 期 · AI 热门项目周报（2026-09-28）</title>
+<meta name="description" content="第 2 期：2026-06-30 至 2026-09-28 创建、Stars 超过 5,000 的 33 个 AI 项目，先报本期变化。">
+<link rel="alternate" type="application/atom+xml" title="GitHub AI 热门项目周报" href="../feed.xml">
+<link rel="preload" href="../assets/fonts/serif-heading.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+/* 标题衬线字体自托管：只含标题用到的几十个字（scripts/fetch_font.py），国内也能稳定加载 */
+@font-face{font-family:"Radar Serif";src:url("../assets/fonts/serif-heading.woff2") format("woff2");font-weight:700;font-display:swap}
 :root{
-  --bg:#f6f6f3;--surface:#fff;--sunken:#f0f0ec;--text:#1c1c1a;--text-2:#45443f;--muted:#6a6963;
-  --border:#e2e1db;--accent:#2a55c9;--accent-soft:#e9eefb;--good:#1c7248;--good-soft:#e4f3ea;
-  --warn:#8a4f00;--warn-soft:#fdf3e1;--warn-line:#e0a23c;--code-bg:#f3f3ef;
+  --canvas:#fbfaf8;--surface:#f3f2ee;--line:#e4e2dc;--line-strong:#cfccc4;
+  --ink:#23221f;--ink-2:#4f4d47;--muted:#67655e;
+  --accent:#3350b0;--accent-wash:#eef1fb;--up:#1d7348;
+  --warn-wash:#fbf1e0;--warn-line:#d98a1c;--warn-ink:#7a4a00;
+  --serif:"Radar Serif","Noto Serif SC","Source Han Serif SC","Songti SC",STSong,serif;
+  --sans:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;
+  color-scheme:light dark;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#131312;--surface:#1c1c1a;--sunken:#232321;--text:#ecebe6;--text-2:#cfcec8;--muted:#a3a29b;
-  --border:#34332f;--accent:#8fabff;--accent-soft:#222b44;--good:#72d4a3;--good-soft:#18302a;
-  --warn:#f2b865;--warn-soft:#2e2517;--warn-line:#b98434;--code-bg:#262624;
+  --canvas:#191918;--surface:#232321;--line:#33322f;--line-strong:#45443f;
+  --ink:#ebeae6;--ink-2:#c4c2bb;--muted:#a3a19a;
+  --accent:#8ea8ff;--accent-wash:#232b45;--up:#6fd09f;
+  --warn-wash:#2f2515;--warn-line:#b8832e;--warn-ink:#f0b862;
 }}
 :root[data-theme="dark"]{
-  --bg:#131312;--surface:#1c1c1a;--sunken:#232321;--text:#ecebe6;--text-2:#cfcec8;--muted:#a3a29b;
-  --border:#34332f;--accent:#8fabff;--accent-soft:#222b44;--good:#72d4a3;--good-soft:#18302a;
-  --warn:#f2b865;--warn-soft:#2e2517;--warn-line:#b98434;--code-bg:#262624;
+  --canvas:#191918;--surface:#232321;--line:#33322f;--line-strong:#45443f;
+  --ink:#ebeae6;--ink-2:#c4c2bb;--muted:#a3a19a;
+  --accent:#8ea8ff;--accent-wash:#232b45;--up:#6fd09f;
+  --warn-wash:#2f2515;--warn-line:#b8832e;--warn-ink:#f0b862;
 }
 *{box-sizing:border-box}
-html{scroll-padding-top:64px}
-body{margin:0;background:var(--bg);color:var(--text);font-size:16px;line-height:1.75;
-  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
-  -webkit-font-smoothing:antialiased}
-a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
-code,pre{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--canvas);color:var(--ink);font:16px/1.8 var(--sans);-webkit-font-smoothing:antialiased}
+/* 正文里的链接不能只靠颜色区分（WCAG 1.4.1）：一律带淡色细下划线；独立成行的项目名不需要 */
+a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;
+  text-decoration-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+a:hover{text-decoration-color:currentColor}
+a.nm,.issues a,.item-title a{text-decoration:none}
+a.nm:hover,.issues a:hover,.item-title a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
 .num{font-variant-numeric:tabular-nums}
-.wrap{max-width:960px;margin:0 auto;padding:0 16px}
-.prose{max-width:720px}
+.wrap{max-width:768px;margin:0 auto;padding:0 24px}
+h1,h2{font-family:var(--serif);font-weight:700;margin:0}
+h2{font-size:24px;line-height:1.35}
+h3{font-size:18px;line-height:1.45;font-weight:600;margin:0}
+p{margin:0}
+ul,ol{margin:0;padding-left:24px}
 
-/* 页头 */
-header.top{padding:40px 0 8px}
-header.top h1{font-size:30px;line-height:1.3;margin:0 0 8px;letter-spacing:.01em}
-.meta{color:var(--muted);font-size:14px}
-.hint{color:var(--text-2);font-size:15px;margin:12px 0 0}
-.archive-note{margin-top:8px;font-size:14px}
+/* 刊头 */
+.mast-in{padding:64px 0 32px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.08em}
+.mast h1{font-size:36px;line-height:1.25;margin-top:8px}
+.dateline{font-size:14px;color:var(--ink-2);margin-top:4px}
+.props{margin:24px 0 0;display:grid;grid-template-columns:auto 1fr;column-gap:24px;row-gap:4px;font-size:14px;line-height:1.6}
+.props dt{color:var(--muted);font-weight:600;font-size:13px;padding-top:4px}
+.props dd{margin:0;padding-top:4px}
 
-/* 吸顶分类导航 */
-nav.cats{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);
-  backdrop-filter:blur(8px);border-bottom:1px solid var(--border);margin:20px 0 0}
-nav.cats .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
-nav.cats .wrap::-webkit-scrollbar{display:none}
-nav.cats a{flex:none;font-size:13.5px;padding:4px 12px;border-radius:999px;color:var(--text-2);
-  border:1px solid var(--border);background:var(--surface);white-space:nowrap}
-nav.cats a:hover{text-decoration:none;border-color:var(--accent)}
-nav.cats a.active{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+/* 区块 */
+main{padding-bottom:64px}
+section.blk{margin-top:48px}
+.blk-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:16px}
+.blk-head .aside{font-size:14px;color:var(--muted)}
 
-/* 通用区块 */
-section.block{margin:36px 0}
-h2.sec{font-size:22px;line-height:1.4;margin:0 0 14px;padding-left:12px;border-left:4px solid var(--accent)}
-h2.sec small{font-size:14px;color:var(--muted);font-weight:400;margin-left:8px}
-.panel{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px}
-.panel ul{margin:0;padding-left:1.2em}.panel li+li{margin-top:6px}
+/* 本期变化：标注块 */
+.callout{background:var(--surface);border-radius:12px;padding:24px}
+.callout>*+*{margin-top:32px}
+.sub-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;margin-bottom:12px}
+.sub-head .aside{font-size:13px;color:var(--muted)}
+.callout .empty{font-size:14px;color:var(--ink-2)}
+.new-item{background:var(--accent-wash);border-radius:8px;padding:16px}
+.new-item+.new-item{margin-top:12px}
+.tag{display:inline-block;font-size:13px;font-weight:600;line-height:1.5;padding:0 8px;border-radius:4px;white-space:nowrap}
+.tag.new{color:var(--accent);box-shadow:inset 0 0 0 1px currentColor}
+.tag.cat{color:var(--muted);box-shadow:inset 0 0 0 1px var(--line-strong);font-weight:400}
+.item-title{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.item-title h3,.item-title .h3{font-size:18px;font-weight:600;overflow-wrap:anywhere}
+.stars{font-size:14px;color:var(--muted);white-space:nowrap}
+.tagline{font-size:16px;color:var(--ink-2);margin-top:4px}
+.gainers,.dropped{list-style:none;padding:0;font-size:16px}
+.gainers li,.dropped li{display:grid;grid-template-columns:1fr auto;gap:0 16px;padding:8px 0;border-top:1px solid var(--line)}
+.gainers li:first-child,.dropped li:first-child{border-top:0;padding-top:0}
+.gainers .nm,.dropped .nm{overflow-wrap:anywhere}
+.gainers .d{color:var(--up);font-weight:600;text-align:right;white-space:nowrap}
+.gainers .now{grid-column:1/-1;font-size:13px;color:var(--muted)}
+.dropped .why{grid-column:1/-1;font-size:14px;color:var(--ink-2)}
 
-/* 速览表 */
-table.overview{width:100%;table-layout:fixed;border-collapse:collapse;background:var(--surface);border:1px solid var(--border);
-  border-radius:12px;overflow:hidden;font-size:15px}
-.overview th{text-align:left;font-size:12.5px;font-weight:600;color:var(--muted);background:var(--sunken);
-  padding:8px 12px;letter-spacing:.04em}
-.overview td{padding:10px 12px;border-top:1px solid var(--border);vertical-align:top}
-.overview tr:hover td{background:var(--sunken)}
-.overview .rk{width:3em;color:var(--muted);text-align:right}
-.overview th.cat{width:11em}
-.overview .st{width:6.5em;text-align:right;white-space:nowrap}
-.overview a.name{font-weight:600;overflow-wrap:anywhere}
-.overview .tg{display:block;color:var(--text-2);font-size:14.5px;margin-top:2px}
-.cat-tag{display:inline-block;font-size:12px;color:var(--muted);border:1px solid var(--border);
-  border-radius:6px;padding:0 6px;white-space:nowrap}
+/* 编者按 */
+.editorial{padding-left:24px;border-left:3px solid var(--line-strong)}
+.editorial li+li{margin-top:12px}
+.editorial li::marker{color:var(--muted)}
 
-/* 徽章 */
-.badge{display:inline-block;font-size:12px;line-height:1.6;padding:0 8px;border-radius:999px;white-space:nowrap;font-weight:500}
-.badge.new{background:var(--accent-soft);color:var(--accent)}
-.badge.up{background:var(--good-soft);color:var(--good)}
-.badge.warn{background:var(--warn-soft);color:var(--warn)}
-
-/* 本期变化 */
-.changes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.changes h3{font-size:13px;color:var(--muted);margin:0 0 6px;font-weight:600;letter-spacing:.04em}
-.changes ul{margin:0;padding-left:1.1em;font-size:15px}
-.changes p{margin:0;font-size:15px;color:var(--muted)}
-
-/* 工具条 */
-.toolbar{display:none;gap:8px;margin:0 0 12px}
-.js .toolbar{display:flex}
-.toolbar button{font:inherit;font-size:13.5px;padding:4px 12px;border-radius:8px;cursor:pointer;
-  border:1px solid var(--border);background:var(--surface);color:var(--text-2)}
-.toolbar button:hover{border-color:var(--accent);color:var(--accent)}
-
-/* 项目卡片 */
-details.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin:10px 0}
-details.card[open]{border-color:color-mix(in srgb,var(--accent) 35%,var(--border))}
-details.card>summary{list-style:none;cursor:pointer;padding:14px 18px;display:grid;
-  grid-template-columns:1fr auto;gap:2px 12px;align-items:baseline}
-details.card>summary::-webkit-details-marker{display:none}
-.s-title{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;min-width:0}
-.s-title h3{margin:0;font-size:18px;line-height:1.45;overflow-wrap:anywhere}
-.s-stars{font-size:14px;color:var(--muted);white-space:nowrap}
-.s-tagline{grid-column:1/-1;color:var(--text-2);font-size:15px;margin-top:2px}
-.s-toggle{grid-column:2;grid-row:1;font-size:13px;color:var(--muted);white-space:nowrap}
-.s-toggle::after{content:"展开 ▾"}
-details[open] .s-toggle::after{content:"收起 ▴"}
-.c-body{padding:4px 18px 18px;border-top:1px dashed var(--border);margin:0 18px;padding-left:0;padding-right:0}
-.c-meta{font-size:13.5px;color:var(--muted);margin:12px 0 4px}
-.field{margin-top:16px}
-.field h4{margin:0 0 4px;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.08em}
-.field p{margin:0}
-.field ul{margin:0;padding-left:1.2em}
-.field li+li{margin-top:4px}
-.cmd{display:flex;align-items:stretch;background:var(--code-bg);border:1px solid var(--border);border-radius:8px;margin:4px 0 6px}
-.cmd pre{margin:0;padding:8px 12px;overflow-x:auto;flex:1;font-size:13.5px;line-height:1.6}
-.cmd button{flex:none;font:inherit;font-size:12.5px;border:0;border-left:1px solid var(--border);
-  background:transparent;color:var(--muted);padding:0 12px;cursor:pointer;border-radius:0 8px 8px 0;display:none}
+/* 项目详情（新上榜与名录共用） */
+/* 介绍里常有很长的英文标识符或网址，不允许任意处断行会把 320px 页面撑宽（第 4 期实测 397px） */
+.detail{font-size:16px;line-height:1.75;overflow-wrap:anywhere}
+.detail .meta{font-size:13px;color:var(--muted);margin-top:8px}
+.detail .f{margin-top:16px}
+.detail .f h4{margin:0 0 4px;font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+.detail li+li{margin-top:4px}
+.cmd{display:flex;background:var(--surface);border:1px solid var(--line);border-radius:8px;margin:4px 0 8px}
+.new-item .cmd{background:var(--canvas)}
+/* min-width:0：弹性子项默认不小于内容宽度，长命令会把 320px 页面撑出横向滚动（第 4 期实测） */
+.cmd pre{margin:0;padding:8px 12px;overflow-x:auto;flex:1;min-width:0;font:14px/1.6 var(--mono)}
+.cmd button{display:none;flex:none;font:13px var(--sans);border:0;border-left:1px solid var(--line);background:none;color:var(--muted);padding:0 12px;cursor:pointer;border-radius:0 8px 8px 0}
 .js .cmd button{display:block}
 .cmd button:hover{color:var(--accent)}
-.risks{margin:18px 0 0;padding:10px 14px;background:var(--warn-soft);border-left:3px solid var(--warn-line);
-  border-radius:0 8px 8px 0;list-style:none;font-size:14.5px;color:var(--text)}
-.risks li{padding-left:1.3em;text-indent:-1.3em}
-.risks li::before{content:"⚠ ";color:var(--warn)}
-.risks li+li{margin-top:4px}
+.notes{list-style:none;margin:16px 0 0;padding:8px 12px;background:var(--warn-wash);border-left:3px solid var(--warn-line);border-radius:0 8px 8px 0;font-size:14px;color:var(--ink)}
+.notes li{padding-left:24px;text-indent:-24px}
+.notes li::before{content:"⚠";display:inline-block;width:24px;text-indent:0;color:var(--warn-ink)}
+.notes li+li{margin-top:4px}
 
-/* 页尾 */
-details.foot{margin:12px 0;color:var(--text-2)}
-details.foot summary{cursor:pointer;color:var(--muted);font-size:15px}
-details.foot ul{font-size:14.5px}
-footer{margin:40px 0 56px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:13px}
-footer code{word-break:break-all}
+/* 名录：折叠行 */
+.toolbar{display:none;gap:8px;margin-bottom:24px}
+.js .toolbar{display:flex}
+.toolbar button{font:13px var(--sans);color:var(--ink-2);background:none;border:1px solid var(--line-strong);border-radius:8px;padding:4px 12px;cursor:pointer}
+.toolbar button:hover{color:var(--accent);border-color:var(--accent)}
+.cat-group+.cat-group{margin-top:32px}
+.cat-group>h3{font-size:16px;display:flex;align-items:baseline;gap:8px;padding-bottom:8px;border-bottom:1px solid var(--line-strong)}
+.cat-group>h3 .n{font-size:13px;font-weight:400;color:var(--muted)}
+details.row{border-bottom:1px solid var(--line)}
+details.row>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:12px 1fr auto;gap:0 12px;padding:12px 8px;margin:0 -8px;border-radius:8px}
+details.row>summary::-webkit-details-marker{display:none}
+details.row>summary:hover{background:var(--surface)}
+.caret{color:var(--line-strong);font-size:13px;line-height:28px;transition:transform .15s}
+details[open]>summary .caret{transform:rotate(90deg);color:var(--muted)}
+.row .nm{font-weight:600;overflow-wrap:anywhere}
+.row .tl{grid-column:2/-1;font-size:14px;color:var(--ink-2);line-height:1.6}
+.row .right{text-align:right;font-size:14px;color:var(--muted);white-space:nowrap}
+.row .right .d{color:var(--up);font-weight:600;margin-left:8px}
+.row .flags{display:inline-flex;gap:8px;margin-left:8px;vertical-align:1px}
+.row .warn-n{font-size:13px;color:var(--warn-ink)}
+.row .detail{padding:0 0 24px 24px}
+
+.cat-group.warn>h3{border-bottom-color:var(--warn-line)}
+.warn-mark{color:var(--warn-ink)}
+.cat-note{margin:8px 0 0;padding:8px 12px;background:var(--warn-wash);border-left:3px solid var(--warn-line);border-radius:0 8px 8px 0;font-size:14px}
+.tag.cat.warn{color:var(--warn-ink);box-shadow:inset 0 0 0 1px var(--warn-line)}
+.tmp-note{margin-top:16px;padding:8px 12px;background:var(--surface);border-radius:8px;font-size:14px;color:var(--ink-2)}
+.issues li.tmp{font-size:14px;color:var(--muted)}
+.issues li.tmp a{color:var(--muted)}
+.excluded{margin-top:24px;font-size:14px;color:var(--muted)}
+
+/* 往期 */
+.issues{list-style:none;padding:0;font-size:16px}
+.issues li{display:flex;gap:12px;align-items:baseline;padding:8px 0;border-top:1px solid var(--line)}
+.issues li:first-child{border-top:0}
+.issues .cur{font-weight:600;color:var(--ink)}
+.issues .aside{font-size:13px;color:var(--muted)}
+
+footer .in{border-top:1px solid var(--line);padding:24px 0 48px;font-size:13px;color:var(--muted);line-height:1.7}
+footer code{font:13px var(--mono);overflow-wrap:anywhere}
 
 @media (max-width:640px){
-  header.top{padding-top:28px}
-  header.top h1{font-size:24px}
-  .overview .cat,.overview th.cat{display:none}
-  .overview .rk{width:2.2em;padding-left:6px;padding-right:4px}
-  .overview .st{width:5.2em;padding-left:4px}
-  .overview .tg{font-size:14px}
-  details.card>summary{padding:12px 14px}
-  .c-body{margin:0 14px}
-  .s-title h3{font-size:17px}
+  .wrap{padding:0 16px}
+  .mast-in{padding-top:48px}
+  .mast h1{font-size:28px}
+  .props{grid-template-columns:1fr;row-gap:0}
+  .props dt{padding-top:12px}
+  .props dd{padding-top:0}
+  .callout{padding:16px}
+  details.row>summary{grid-template-columns:12px 1fr}
+  .row .right{grid-column:2;text-align:left}
+  .row .right .d{margin-left:8px}
+  .row .detail{padding-left:0}
+}
+@media print{
+  .toolbar,.cmd button{display:none!important}
+  .callout,.new-item,.notes{background:none;border:1px solid var(--line)}
+  details.row>summary:hover{background:none}
+  a{color:var(--ink)}
 }
 </style>
 </head>
 <body>
 <script>document.documentElement.classList.add("js")</script>
 
-<div class="wrap">
-<header class="top">
-  <h1>GitHub AI 热门项目周报</h1>
-  <div class="meta num">
-    快照 2026-09-28 · 近 90 天新建 · Stars &gt; 5,000 · 共 33 个项目
-    
-  </div>
-  <div class="archive-note">这是 2026-09-28 的存档，<a href="../index.html">查看最新一期 →</a></div>
-  <p class="hint prose">先看「本期速览」了解全貌，点项目名跳到详情；下方按分类排列，点卡片展开功能、亮点和上手命令。</p>
-</header>
-</div>
 
-<nav class="cats" aria-label="分类导航"><div class="wrap">
-  <a href="#overview">速览</a>
-  <a href="#cat-1">编程 Agent 与运行框架 <span class="num">6</span></a><a href="#cat-2">Agent 平台与基础设施 <span class="num">8</span></a><a href="#cat-3">AI 应用产品 <span class="num">4</span></a><a href="#cat-4">本地推理与模型 <span class="num">2</span></a><a href="#cat-5">Skills 与写作/设计 <span class="num">7</span></a><a href="#cat-6">开发者工具与集成 <span class="num">3</span></a><a href="#cat-7">安全相关 <span class="num">2</span></a><a href="#cat-8">其他 <span class="num">1</span></a>
-</div></nav>
+<header class="mast"><div class="wrap"><div class="mast-in">
+  <div class="eyebrow">AI 热门项目周报</div>
+  <h1>第 2 期</h1>
+  <p class="dateline num">2026 年 9 月 28 日 · 这是存档，<a href="../index.html">看最新一期 →</a></p>
+  <dl class="props num">
+    <dt>收录</dt>
+    <dd>2026-06-30 至 2026-09-28 创建、Stars &gt; 5,000 的 AI 项目，共 33 个</dd>
+    <dt>较上期</dt>
+    <dd><a href="../archive/2026-09-21.html">第 1 期（2026-09-21）</a>，相隔 7 天</dd>
+    <dt>本期变化</dt>
+    <dd><a href="#changes">新上榜 8 · 移出 1 · 涨星前 5</a></dd>
+    <dt>目录</dt>
+    <dd><a href="#changes">本期变化</a> · <a href="#editorial">编者按</a> · <a href="#index">名录</a> · <a href="#issues">往期</a></dd>
+    <dt>订阅</dt>
+    <dd><a href="../feed.xml">RSS</a> · 每期发布时在 <a href="https://github.com/drgg/ai-trending-radar/issues?q=label%3A%E5%91%A8%E6%8A%A5">GitHub Issues</a> 推送（Watch 仓库即可收到）</dd>
+  </dl>
+</div></div></header>
 
 <main class="wrap">
 
-<section class="block" id="overview">
-  <h2 class="sec">本期速览<small>按星数排序</small></h2>
-  <table class="overview">
-    <thead><tr><th class="rk">#</th><th>项目</th><th class="cat">分类</th><th class="st">Stars</th></tr></thead>
-    <tbody>
-    
-      <tr>
-        <td class="rk num">1</td>
-        <td class="name-cell">
-          <a class="name" href="#xai-org/grok-build">xai-org/grok-build</a>
-          
-          <span class="tg">xAI 出品的终端 AI 编程助手，全屏 TUI 交互，可编辑代码、执行命令</span>
-        </td>
-        <td class="cat"><span class="cat-tag">编程 Agent 与运行框架</span></td>
-        <td class="st num">27,132<br><span class="badge up">+201</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">2</td>
-        <td class="name-cell">
-          <a class="name" href="#guillaumemeyer/watermarks-remover">guillaumemeyer/watermarks-remover</a>
-          
-          <span class="tg">去除AI生成内容水印与溯源标记的Agent Skill及本地服务</span>
-        </td>
-        <td class="cat"><span class="cat-tag">开发者工具与集成</span></td>
-        <td class="st num">22,967<br><span class="badge up">+506</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">3</td>
-        <td class="name-cell">
-          <a class="name" href="#browser-use/jev-ultrafast">browser-use/jev-ultrafast</a>
-          <span class="badge new">新</span>
-          <span class="tg">超快浏览器操作 Agent，用动态索引动作空间替代截图驱动方案</span>
-        </td>
-        <td class="cat"><span class="cat-tag">编程 Agent 与运行框架</span></td>
-        <td class="st num">20,908</td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">4</td>
-        <td class="name-cell">
-          <a class="name" href="#hypit-ai/hypit">hypit-ai/hypit</a>
-          
-          <span class="tg">让 AI 智能体一键克隆爆款视频，批量产出可复用的完整制作工作流</span>
-        </td>
-        <td class="cat"><span class="cat-tag">Skills 与写作/设计</span></td>
-        <td class="st num">16,889<br><span class="badge up">+4,816</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">5</td>
-        <td class="name-cell">
-          <a class="name" href="#yc-software/qm">yc-software/qm</a>
-          
-          <span class="tg">面向团队的多人协作 Agent 框架，同时支持 Slack 与网页端</span>
-        </td>
-        <td class="cat"><span class="cat-tag">Agent 平台与基础设施</span></td>
-        <td class="st num">15,268<br><span class="badge up">+82</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">6</td>
-        <td class="name-cell">
-          <a class="name" href="#miuuyy/codex-chatgpt-web">miuuyy/codex-chatgpt-web</a>
-          
-          <span class="tg">让Codex的模型选择器直接调用你的ChatGPT网页版账号（含Pro），不占用Codex额度</span>
-        </td>
-        <td class="cat"><span class="cat-tag">开发者工具与集成</span></td>
-        <td class="st num">12,212<br><span class="badge up">+2,166</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">7</td>
-        <td class="name-cell">
-          <a class="name" href="#petergyang/no-ai-slop">petergyang/no-ai-slop</a>
-          
-          <span class="tg">一个 Claude/ChatGPT/Codex 技能，专门清除文字中 20 多种&#34;AI 腔&#34;套路</span>
-        </td>
-        <td class="cat"><span class="cat-tag">Skills 与写作/设计</span></td>
-        <td class="st num">11,451<br><span class="badge up">+584</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">8</td>
-        <td class="name-cell">
-          <a class="name" href="#trycompai/crm">trycompai/crm</a>
-          
-          <span class="tg">开源CRM，AI Agent是核心而非附加聊天框</span>
-        </td>
-        <td class="cat"><span class="cat-tag">AI 应用产品</span></td>
-        <td class="st num">10,931<br><span class="badge up">+252</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">9</td>
-        <td class="name-cell">
-          <a class="name" href="#google/artemis">google/artemis</a>
-          
-          <span class="tg">Google 出品的自然语言驱动 Android 自动化测试与操作框架</span>
-        </td>
-        <td class="cat"><span class="cat-tag">编程 Agent 与运行框架</span></td>
-        <td class="st num">10,493<br><span class="badge up">+2,038</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">10</td>
-        <td class="name-cell">
-          <a class="name" href="#dataelement/dsh-desktop">dataelement/dsh-desktop</a>
-          
-          <span class="tg">将 DeepSeek Harness 打包成本地优先的跨平台桌面应用</span>
-        </td>
-        <td class="cat"><span class="cat-tag">Agent 平台与基础设施</span></td>
-        <td class="st num">10,085<br><span class="badge up">+1,994</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">11</td>
-        <td class="name-cell">
-          <a class="name" href="#Vincentwei1021/video-shotcraft">Vincentwei1021/video-shotcraft</a>
-          
-          <span class="tg">让 Claude Code / Codex 用 Remotion 自动产出电影感产品宣传视频的 Agent Skill</span>
-        </td>
-        <td class="cat"><span class="cat-tag">Skills 与写作/设计</span></td>
-        <td class="st num">9,745<br><span class="badge up">+621</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">12</td>
-        <td class="name-cell">
-          <a class="name" href="#trailhq/Graft">trailhq/Graft</a>
-          
-          <span class="tg">给 Claude Code、Cursor 等编码 Agent 装上代码知识图谱，减少重复探索代码库</span>
-        </td>
-        <td class="cat"><span class="cat-tag">开发者工具与集成</span></td>
-        <td class="st num">9,320<br><span class="badge up">+471</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">13</td>
-        <td class="name-cell">
-          <a class="name" href="#MDX-Tom/gpt-instruct">MDX-Tom/gpt-instruct</a>
-          
-          <span class="tg">针对 Codex/GPT 的越狱提示词与配套自动化评测工具包</span>
-        </td>
-        <td class="cat"><span class="cat-tag">安全相关</span></td>
-        <td class="st num">8,894<br><span class="badge up">+285</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">14</td>
-        <td class="name-cell">
-          <a class="name" href="#FareedKhan-dev/kimi-k3-in-c">FareedKhan-dev/kimi-k3-in-c</a>
-          
-          <span class="tg">用纯C99在单CPU、8GB内存上运行2.78万亿参数Kimi K3模型的推理引擎</span>
-        </td>
-        <td class="cat"><span class="cat-tag">本地推理与模型</span></td>
-        <td class="st num">8,727<br><span class="badge up">+608</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">15</td>
-        <td class="name-cell">
-          <a class="name" href="#unicity-aos/aos-ce">unicity-aos/aos-ce</a>
-          
-          <span class="tg">面向智能体的开放操作系统，提供CLI、能力胶囊与运行时管理</span>
-        </td>
-        <td class="cat"><span class="cat-tag">Agent 平台与基础设施</span></td>
-        <td class="st num">8,462<br><span class="badge up">+-1</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">16</td>
-        <td class="name-cell">
-          <a class="name" href="#genspark-ai/genoffice">genspark-ai/genoffice</a>
-          
-          <span class="tg">开源 AI 办公套件，本地编辑真正的 Word/Excel/PPT/PDF 文件</span>
-        </td>
-        <td class="cat"><span class="cat-tag">AI 应用产品</span></td>
-        <td class="st num">8,017<br><span class="badge up">+652</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">17</td>
-        <td class="name-cell">
-          <a class="name" href="#deeplethe/utopia">deeplethe/utopia</a>
-          
-          <span class="tg">开源企业级世界模型，双时态知识图谱驱动的知识治理与决策系统</span>
-        </td>
-        <td class="cat"><span class="cat-tag">Agent 平台与基础设施</span></td>
-        <td class="st num">7,903<br><span class="badge up">+-1,592</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">18</td>
-        <td class="name-cell">
-          <a class="name" href="#jakubkrehel/skills">jakubkrehel/skills</a>
-          
-          <span class="tg">一套面向 AI Agent 的界面设计技能集，帮助打造更好的 UI</span>
-        </td>
-        <td class="cat"><span class="cat-tag">Skills 与写作/设计</span></td>
-        <td class="st num">7,277<br><span class="badge up">+329</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">19</td>
-        <td class="name-cell">
-          <a class="name" href="#tamaratran/fast-jev-compaction">tamaratran/fast-jev-compaction</a>
-          
-          <span class="tg">Claude Code 插件：逐条为工具调用打分，取代压缩摘要，保留内容全为原文</span>
-        </td>
-        <td class="cat"><span class="cat-tag">编程 Agent 与运行框架</span></td>
-        <td class="st num">7,042<br><span class="badge up">+1,600</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">20</td>
-        <td class="name-cell">
-          <a class="name" href="#zai-org/ZCode">zai-org/ZCode</a>
-          <span class="badge new">新</span>
-          <span class="tg">Z.ai 出品的 AI 编程工作台，桌面、Web、终端三端合一的编码 Agent</span>
-        </td>
-        <td class="cat"><span class="cat-tag">编程 Agent 与运行框架</span></td>
-        <td class="st num">6,933</td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">21</td>
-        <td class="name-cell">
-          <a class="name" href="#drumih/turbo-fieldfare">drumih/turbo-fieldfare</a>
-          
-          <span class="tg">用Swift+Metal专为Gemma 4 26B打造的运行时，8GB内存Mac也能跑26B大模型</span>
-        </td>
-        <td class="cat"><span class="cat-tag">本地推理与模型</span></td>
-        <td class="st num">6,834<br><span class="badge up">+45</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">22</td>
-        <td class="name-cell">
-          <a class="name" href="#jev-chat/jev-chat-jarvis">jev-chat/jev-chat-jarvis</a>
-          <span class="badge new">新</span>
-          <span class="tg">装在手机上的AI对话副驾：读懂聊天、给出候选回复，发不发由你决定</span>
-        </td>
-        <td class="cat"><span class="cat-tag">AI 应用产品</span></td>
-        <td class="st num">6,810</td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">23</td>
-        <td class="name-cell">
-          <a class="name" href="#XiaoDuoYa/codex-with-chatgpt">XiaoDuoYa/codex-with-chatgpt</a>
-          
-          <span class="tg">让付费ChatGPT网页版当规划审查大脑，Codex 负责执行编码任务</span>
-        </td>
-        <td class="cat"><span class="cat-tag">编程 Agent 与运行框架</span></td>
-        <td class="st num">6,789<br><span class="badge up">+1,064</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">24</td>
-        <td class="name-cell">
-          <a class="name" href="#Human-Agent-Society/reef">Human-Agent-Society/reef</a>
-          <span class="badge new">新</span>
-          <span class="tg">开源的智能体持续自我进化基础设施，连接推理、反馈、训练与版本发布</span>
-        </td>
-        <td class="cat"><span class="cat-tag">Agent 平台与基础设施</span></td>
-        <td class="st num">6,638</td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">25</td>
-        <td class="name-cell">
-          <a class="name" href="#elder-plinius/T3MP3ST">elder-plinius/T3MP3ST</a>
-          
-          <span class="tg">多智能体自动化红队框架，把你的AI编程Agent变成渗透测试军火库</span>
-        </td>
-        <td class="cat"><span class="cat-tag">安全相关</span></td>
-        <td class="st num">6,267<br><span class="badge up">+70</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">26</td>
-        <td class="name-cell">
-          <a class="name" href="#truefoundry/trueforge">truefoundry/trueforge</a>
-          
-          <span class="tg">开源的 Agent 运行时，把 LLM 变成可用的智能体</span>
-        </td>
-        <td class="cat"><span class="cat-tag">Agent 平台与基础设施</span></td>
-        <td class="st num">5,989<br><span class="badge up">+128</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">27</td>
-        <td class="name-cell">
-          <a class="name" href="#larashero3-dotcom/lieflat-charts">larashero3-dotcom/lieflat-charts</a>
-          
-          <span class="tg">面向 AI Agent 的数据可视化 Skill，一键把数据变成精致可交互的 HTML 图表</span>
-        </td>
-        <td class="cat"><span class="cat-tag">Skills 与写作/设计</span></td>
-        <td class="st num">5,749<br><span class="badge up">+155</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">28</td>
-        <td class="name-cell">
-          <a class="name" href="#CopilotKit/OpenBot">CopilotKit/OpenBot</a>
-          
-          <span class="tg">自托管AI协作者平台，每个Agent配专属浏览器、文件和操作审批网关</span>
-        </td>
-        <td class="cat"><span class="cat-tag">Agent 平台与基础设施</span></td>
-        <td class="st num">5,656<br><span class="badge up">+420</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">29</td>
-        <td class="name-cell">
-          <a class="name" href="#s1dashu/ip-as-logo-skill">s1dashu/ip-as-logo-skill</a>
-          
-          <span class="tg">面向AI Agent的极简可爱IP吉祥物/Logo生成技能包</span>
-        </td>
-        <td class="cat"><span class="cat-tag">Skills 与写作/设计</span></td>
-        <td class="st num">5,614<br><span class="badge up">+235</span></td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">30</td>
-        <td class="name-cell">
-          <a class="name" href="#bojieli/ai-infra-book">bojieli/ai-infra-book</a>
-          <span class="badge new">新</span>
-          <span class="tg">从硬件约束与模型架构出发，量化推导 LLM 推理训练系统设计的开源书稿</span>
-        </td>
-        <td class="cat"><span class="cat-tag">其他</span></td>
-        <td class="st num">5,438</td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">31</td>
-        <td class="name-cell">
-          <a class="name" href="#TencentCloud/Octop">TencentCloud/Octop</a>
-          <span class="badge new">新</span>
-          <span class="tg">腾讯云出品的自托管多用户多智能体 AI 助手</span>
-        </td>
-        <td class="cat"><span class="cat-tag">Agent 平台与基础设施</span></td>
-        <td class="st num">5,358</td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">32</td>
-        <td class="name-cell">
-          <a class="name" href="#Hisn00w/ASu-skills">Hisn00w/ASu-skills</a>
-          <span class="badge new">新</span>
-          <span class="tg">面向求职场景的九个 AI Skill 插件包，覆盖简历、投递、面试全流程</span>
-        </td>
-        <td class="cat"><span class="cat-tag">Skills 与写作/设计</span></td>
-        <td class="st num">5,182</td>
-      </tr>
-    
-      <tr>
-        <td class="rk num">33</td>
-        <td class="name-cell">
-          <a class="name" href="#aipoch/open-science">aipoch/open-science</a>
-          <span class="badge new">新</span>
-          <span class="tg">本地优先、模型无关的开源 AI 科研工作台桌面应用</span>
-        </td>
-        <td class="cat"><span class="cat-tag">AI 应用产品</span></td>
-        <td class="st num">5,159</td>
-      </tr>
-    
-    </tbody>
-  </table>
-</section>
+<section class="blk" id="changes" aria-labelledby="h-changes">
+  <div class="blk-head"><h2 id="h-changes">本期变化</h2><span class="aside num">较第 1 期 · 09-21 至 09-28，7 天</span></div>
+  <div class="callout">
+    <div>
+      <div class="sub-head"><h3>新上榜</h3><span class="aside num">8 个</span></div>
+      <article class="new-item" aria-labelledby="new-1">
+        <div class="item-title">
+          <span class="tag new">新上榜</span>
+          <h3 id="new-1"><a href="https://github.com/browser-use/jev-ultrafast">browser-use/jev-ultrafast</a></h3>
+          <span class="stars num">★ 20,908</span>
+          <span class="tag cat">编程 Agent 与运行框架</span>
+        </div>
+        <p class="tagline">超快浏览器操作 Agent，用动态索引动作空间替代截图驱动方案</p>
+        <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/browser-use/jev-ultrafast">GitHub ↗</a> · <a href="https://browser-use.com">主页 ↗</a>    · Python · MIT · 创建 2026-09-16 · 最后推送 2026-09-25
+  </p>
+<div class="f"><h4>定位</h4><p>一个浏览器自动化 Agent 框架，通过结构化 DOM 快照生成动态索引动作空间，一次网络请求内同时选出操作和目标元素，仅在需要输入文本时调用小型 LLM 生成内容，以降低延迟。</p></div><div class="f"><h4>能做什么</h4><ul><li>每次观察生成带编号的可操作元素表，动态定义可执行动作空间</li><li>操作预测与目标预测合并为一次 TypeSafe 网络请求，减少往返次数</li><li>默认不依赖截图，直接消费结构化页面状态，本地调试界面才启用截图</li><li>执行前校验目标元素页面新鲜度与遮挡情况，降低误操作风险</li><li>代码库精简，核心循环、DOM 快照、浏览器执行等模块均可直接阅读</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方数据：Google Flights 单程航班搜索任务7.1秒完成，含模型调用与页面加载等待</li><li>项目方数据：与对比版本相比，浏览器协议调用次数从1092次降至101次，任务耗时中位数下降25%</li></ul></div><div class="f"><h4>适合</h4><p>需要构建低延迟网页自动化/浏览器 Agent 的开发者，尤其关注减少模型调用和协议往返开销的团队</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>git clone https://github.com/browser-use/jev-ultrafast.git &amp;&amp; cd jev-ultrafast &amp;&amp; uv sync &amp;&amp; cp .env.example .env &amp;&amp; uv run jev</code></pre><button type="button" data-copy aria-label="复制 browser-use/jev-ultrafast 的上手命令">复制</button></div><p>需自行配置 TYPESAFE_API_KEY 和 TEXT_MODEL_API_KEY（如 OpenRouter），并通过 Browser Harness 连接 Chrome</p>  </div><ul class="notes" aria-label="提示"><li>自动化操作 Google Flights、Wikipedia 等第三方网站，可能受目标网站服务条款限制</li><li>依赖 TypeSafe 商业 API 和第三方文本模型服务，实际使用会产生外部 API 调用成本</li></ul></div>
 
-<section class="block">
-  <h2 class="sec">本期变化<small>对比 2026-09-21</small></h2>
-  <div class="panel">
-  
-    <div class="changes">
-      <div><h3>新上榜 · 8</h3>
-        <ul><li><a href="#browser-use/jev-ultrafast">browser-use/jev-ultrafast</a></li><li><a href="#zai-org/ZCode">zai-org/ZCode</a></li><li><a href="#jev-chat/jev-chat-jarvis">jev-chat/jev-chat-jarvis</a></li><li><a href="#Human-Agent-Society/reef">Human-Agent-Society/reef</a></li><li><a href="#bojieli/ai-infra-book">bojieli/ai-infra-book</a></li><li><a href="#TencentCloud/Octop">TencentCloud/Octop</a></li><li><a href="#Hisn00w/ASu-skills">Hisn00w/ASu-skills</a></li><li><a href="#aipoch/open-science">aipoch/open-science</a></li></ul></div>
-      <div><h3>移出 · 1</h3>
-        <ul><li><a href="https://github.com/oomol-lab/open-connector">oomol-lab/open-connector</a></li></ul></div>
-      <div><h3>本周涨星</h3>
-        <ul><li><a href="#hypit-ai/hypit">hypit-ai/hypit</a> <span class="num">+4,816</span></li><li><a href="#miuuyy/codex-chatgpt-web">miuuyy/codex-chatgpt-web</a> <span class="num">+2,166</span></li><li><a href="#google/artemis">google/artemis</a> <span class="num">+2,038</span></li><li><a href="#dataelement/dsh-desktop">dataelement/dsh-desktop</a> <span class="num">+1,994</span></li><li><a href="#tamaratran/fast-jev-compaction">tamaratran/fast-jev-compaction</a> <span class="num">+1,600</span></li></ul></div>
+      </article>
+      <article class="new-item" aria-labelledby="new-2">
+        <div class="item-title">
+          <span class="tag new">新上榜</span>
+          <h3 id="new-2"><a href="https://github.com/zai-org/ZCode">zai-org/ZCode</a></h3>
+          <span class="stars num">★ 6,933</span>
+          <span class="tag cat">编程 Agent 与运行框架</span>
+        </div>
+        <p class="tagline">Z.ai 出品的 AI 编程工作台，桌面、Web、终端三端合一的编码 Agent</p>
+        <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/zai-org/ZCode">GitHub ↗</a> · <a href="https://zcode.z.ai/">主页 ↗</a>    · TypeScript · Apache-2.0 · 创建 2026-09-20 · 最后推送 2026-09-24
+  </p>
+<div class="f"><h4>定位</h4><p>面向开发者的编程 Agent 工具，统一 zcode 命令支持 TUI 终端、本地 Web 界面和 Electron 桌面应用，本仓库开源客户端、后端服务与 Agent CLI/运行时源码。</p></div><div class="f"><h4>能做什么</h4><ul><li>单一 zcode 命令切换 TUI 终端、Web 界面和桌面应用三种形态</li><li>内置 HTTP/WebSocket 后端服务，支持本地和远程项目连接（SSH/WSL）</li><li>Web 模式支持局域网访问、端口自定义与访问令牌认证</li><li>提供 Agent 客户端 SDK、共享 UI 组件和 Provider 扩展能力</li><li>完整打包发布流程，含安装脚本、校验摘要和多平台桌面构建</li></ul></div><div class="f"><h4>亮点</h4><ul><li>同一套 Agent 运行时同时驱动桌面、Web、终端三种交互形态，架构统一</li><li>支持 SSH/WSL 远程开发场景，资源通过 SFTP 上传而非依赖公网 CDN</li></ul></div><div class="f"><h4>适合</h4><p>需要在终端、浏览器或桌面环境中使用 AI 编程 Agent 的开发者，以及希望自建或定制编码工具链的团队</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>pnpm bootstrap</code></pre><button type="button" data-copy aria-label="复制 zai-org/ZCode 的上手命令">复制</button></div><p>初始化后可用 pnpm dev:desktop 跑桌面版，或用 zcode / zcode --web 启动命令行发行包</p>  </div></div>
+
+      </article>
+      <article class="new-item" aria-labelledby="new-3">
+        <div class="item-title">
+          <span class="tag new">新上榜</span>
+          <h3 id="new-3"><a href="https://github.com/jev-chat/jev-chat-jarvis">jev-chat/jev-chat-jarvis</a></h3>
+          <span class="stars num">★ 6,810</span>
+          <span class="tag cat">AI 应用产品</span>
+        </div>
+        <p class="tagline">装在手机上的AI对话副驾：读懂聊天、给出候选回复，发不发由你决定</p>
+        <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/jev-chat/jev-chat-jarvis">GitHub ↗</a>    · Kotlin · MIT · 创建 2026-09-21 · 最后推送 2026-09-28
+  </p>
+<div class="f"><h4>定位</h4><p>Android无障碍服务读取QQ/X/飞书聊天界面，交给大模型判断意图并生成候选回复，一键填入输入框，发送与否由用户自己决定。</p></div><div class="f"><h4>能做什么</h4><ul><li>判断模型先分析对方意图、危险等级、是否该马上回，再起草3条候选回复</li><li>无障碍服务只读屏幕内容，不hook、不改包、不碰App账号或数据库</li><li>本地知识库与联系人档案，分析时自动带入命中的笔记和历史背景</li><li>判断/回复/视觉三路接口可分别配置，支持OpenRouter等多家模型预设</li><li>回复仅通过ACTION_SET_TEXT填入输入框，从不自动发送，不碰转账红包</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方称QQ、X真机全链路跑通，飞书靠离线OCR兜底；微信Android版已下架故不支持</li><li>密钥、知识库与截图OCR均在本机完成不上传，但触发分析时聊天内容会发给用户自配的模型服务商</li></ul></div><div class="f"><h4>适合</h4><p>使用QQ、X、飞书聊天，希望AI辅助分析对方意图并起草回复、但仍要自己决定是否发送的Android用户</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>adb install -r apk/jev-assistant-v1.4-release.apk</code></pre><button type="button" data-copy aria-label="复制 jev-chat/jev-chat-jarvis 的上手命令">复制</button></div><p>安装后需在设置中填入判断接口API Key（如OpenRouter），并开启无障碍、悬浮窗、自启动权限</p>  </div><ul class="notes" aria-label="提示"><li>触发分析时聊天文字及启用的背景信息会发送给用户自行配置的第三方模型服务商，存在隐私数据外传</li><li>通过无障碍服务读取聊天App界面内容并辅助生成回复，可能涉及相关平台服务条款合规问题</li></ul></div>
+
+      </article>
+      <article class="new-item" aria-labelledby="new-4">
+        <div class="item-title">
+          <span class="tag new">新上榜</span>
+          <h3 id="new-4"><a href="https://github.com/Human-Agent-Society/reef">Human-Agent-Society/reef</a></h3>
+          <span class="stars num">★ 6,638</span>
+          <span class="tag cat">Agent 平台与基础设施</span>
+        </div>
+        <p class="tagline">开源的智能体持续自我进化基础设施，连接推理、反馈、训练与版本发布</p>
+        <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/Human-Agent-Society/reef">GitHub ↗</a> · <a href="https://reefinfra.ai">主页 ↗</a>    · Python · Apache-2.0 · 创建 2026-08-31 · 最后推送 2026-09-28
+  </p>
+<div class="f"><h4>定位</h4><p>Reef 是首个开源的持续自我进化智能体基础设施，把推理服务、反馈收集、训练学习、版本发布整合成闭环，支持训练模型权重或优化智能体harness两种进化路径。</p></div><div class="f"><h4>能做什么</h4><ul><li>四步闭环：提供推理服务、匹配用户反馈、生成候选更新、评估后发布新版本</li><li>支持用Slime、SGLang训练模型权重，或优化harness的提示词、规则与技能</li><li>推理接口兼容OpenAI与Anthropic格式，可直接接入/v1/chat/completions</li><li>内置Reefine等多种recipe，覆盖科学发现、连续任务学习、真实使用反馈等场景</li><li>更新期间保持服务在线，具备版本历史管理与回滚能力</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方数据：在AIME2025、Terminal-Bench、IMOAnswerBench等基准上验证了多个recipe的改进效果</li><li>宣称是唯一兼具在线推理、权重训练、版本管理与harness进化四种能力的开源框架</li></ul></div><div class="f"><h4>适合</h4><p>需要让智能体从真实交互中持续学习的AI工程师，以及需要做RL训练或优化coding agent harness的团队</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>uv pip install reef-infra</code></pre><button type="button" data-copy aria-label="复制 Human-Agent-Society/reef 的上手命令">复制</button></div><p>需先用uv创建并激活虚拟环境；权重训练需配套GPU栈，harness进化只需一个模型API即可体验</p>  </div><ul class="notes" aria-label="提示"><li>harness自我进化功能会让模型以coding agent身份自动修改并执行代码变更，需在沙箱或可信环境中运行</li></ul></div>
+
+      </article>
+      <article class="new-item" aria-labelledby="new-5">
+        <div class="item-title">
+          <span class="tag new">新上榜</span>
+          <h3 id="new-5"><a href="https://github.com/bojieli/ai-infra-book">bojieli/ai-infra-book</a></h3>
+          <span class="stars num">★ 5,438</span>
+          <span class="tag cat">其他</span>
+        </div>
+        <p class="tagline">从硬件约束与模型架构出发，量化推导 LLM 推理训练系统设计的开源书稿</p>
+        <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/bojieli/ai-infra-book">GitHub ↗</a> · <a href="https://bojieli.github.io/ai-infra-book/">主页 ↗</a>    · Python · Apache-2.0 · 创建 2026-08-22 · 最后推送 2026-09-26
+  </p>
+<div class="f"><h4>定位</h4><p>《深入理解 AI Agent》作者的姊妹篇，用量化估算方法系统讲解 LLM 推理与训练系统设计，覆盖加速器、算子、网络、调度等十二章内容，配套计算工具与实验代码。</p></div><div class="f"><h4>能做什么</h4><ul><li>十二章覆盖模型架构、加速器、算子运行时、数据中心网络、推理与训练系统等主题</li><li>配套 Python 计算工具可复算书中数字，也可替换模型和硬件重新估算</li><li>按章节组织实验代码与运行记录，需 GPU 的实验注明硬件与依赖</li><li>提供简体中文、英文、繁体中文三语 PDF、EPUB 及在线阅读版本</li><li>全书正文为 Markdown，持续开源修订，欢迎勘误与翻译贡献</li></ul></div><div class="f"><h4>亮点</h4><ul><li>姊妹篇《深入理解 AI Agent》在 GitHub 获得 45k+ Star（项目方数据）</li><li>方法论强调&#34;从约束推导设计&#34;：先算硬件理论上限，再对照实测找差距来源</li></ul></div><div class="f"><h4>适合</h4><p>已调用或部署过大模型、想弄清推理训练系统底层原理的应用工程师、系统/网络/芯片工程师及相关研究者</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>git clone https://github.com/bojieli/ai-infra-book.git</code></pre><button type="button" data-copy aria-label="复制 bojieli/ai-infra-book 的上手命令">复制</button></div><p>克隆后可用 calc.py 复算书中算例，静态计算仅需 Python 3.10+ 标准库，无需 GPU 或模型权重</p>  </div></div>
+
+      </article>
+      <article class="new-item" aria-labelledby="new-6">
+        <div class="item-title">
+          <span class="tag new">新上榜</span>
+          <h3 id="new-6"><a href="https://github.com/TencentCloud/Octop">TencentCloud/Octop</a></h3>
+          <span class="stars num">★ 5,358</span>
+          <span class="tag cat">Agent 平台与基础设施</span>
+        </div>
+        <p class="tagline">腾讯云出品的自托管多用户多智能体 AI 助手</p>
+        <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/TencentCloud/Octop">GitHub ↗</a> · <a href="https://octop.cloud">主页 ↗</a>    · Python · MIT · 创建 2026-07-08 · 最后推送 2026-09-28
+  </p>
+<div class="f"><h4>定位</h4><p>面向家庭和小团队的自托管 AI 助手平台，单进程运行 Web 控制台、CLI、IM 渠道和定时任务，数据全部留在本地。</p></div><div class="f"><h4>能做什么</h4><ul><li>多用户专家团队，管理员统一分配，内置专家库和专家市场</li><li>支持飞书、钉钉、QQ、微信、Telegram、Discord、企业微信等 IM 渠道接入</li><li>可插拔工作区后端：本地磁盘、Docker 沙盒、PostgreSQL 或 COS/S3</li><li>ACP 双向集成，可调用或被 OpenCode、Claude Code 等外部编码 Agent 调用</li><li>内置浏览器自动化、远程桌面、终端 AI 及 RAG 知识库</li></ul></div><div class="f"><h4>亮点</h4><ul><li>单进程架构整合 Web、CLI、IM、定时任务，重启后从控制面数据库完整恢复状态</li><li>记忆随工作区迁移，配合专家共享池和 MBTI 人格模板打造差异化 Agent</li></ul></div><div class="f"><h4>适合</h4><p>希望自建私有 AI 助手的开发者、注重数据隐私的家庭用户及需要跨 IM 协同的小团队</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>curl -fsSL https://finnie-1258344699.cos.ap-guangzhou.myqcloud.com/octop/install.sh | bash</code></pre><button type="button" data-copy aria-label="复制 TencentCloud/Octop 的上手命令">复制</button></div><p>安装脚本自动用 uv 配置 Python 3.12 虚拟环境，也提供桌面客户端安装包和 FnOS NAS 版本。</p>  </div></div>
+
+      </article>
+      <article class="new-item" aria-labelledby="new-7">
+        <div class="item-title">
+          <span class="tag new">新上榜</span>
+          <h3 id="new-7"><a href="https://github.com/Hisn00w/ASu-skills">Hisn00w/ASu-skills</a></h3>
+          <span class="stars num">★ 5,182</span>
+          <span class="tag cat">Skills 与写作/设计</span>
+        </div>
+        <p class="tagline">面向求职场景的九个 AI Skill 插件包，覆盖简历、投递、面试全流程</p>
+        <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/Hisn00w/ASu-skills">GitHub ↗</a>    · HTML · MIT · 创建 2026-08-12 · 最后推送 2026-09-28
+  </p>
+<div class="f"><h4>定位</h4><p>面向 Claude Code、Codex 等 AI Agent 平台的求职技能插件包，提供从开源贡献积累经历、简历制作、岗位匹配到投递填表、面试演练、进度管理的九个可单独调用入口。</p></div><div class="f"><h4>能做什么</h4><ul><li>/contributor 寻找开源问题、核对贡献规则后辅助提交 PR 积累经历</li><li>/great-resume 与 /make-resume 完成岗位定位改写并生成可编辑 HTML 简历</li><li>/job-match 对照 JD 生成要求-证据矩阵和投递建议</li><li>/job-apply 连接浏览器自动填写招聘申请表，停在提交前供用户核对</li><li>/interview 与 /offer 支持追问式面试演练和校招投递进度跟踪</li></ul></div><div class="f"><h4>亮点</h4><ul><li>同时支持 Codex、Claude Code、TraeWork、Qoder、Cursor 等多平台安装</li><li>强调事实边界，不编造经历数据，关键操作均需用户逐项确认后才提交</li></ul></div><div class="f"><h4>适合</h4><p>求职中的学生和开发者，尤其是需要系统整理项目经历、制作简历、准备面试的求职者</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>/plugin marketplace add Hisn00w/ASu-skills</code></pre><button type="button" data-copy aria-label="复制 Hisn00w/ASu-skills 的上手命令">复制</button></div><p>适用于 Claude Code，安装后执行 /plugin install asu-skills@asu 并按提示 reload-plugins</p>  </div><ul class="notes" aria-label="提示"><li>/job-apply 涉及自动化操作已登录浏览器填写招聘网站表单，需留意平台服务条款风险</li><li>/contributor 会代为提交开源 PR，需确保符合目标仓库的贡献规范，避免滥用</li></ul></div>
+
+      </article>
+      <article class="new-item" aria-labelledby="new-8">
+        <div class="item-title">
+          <span class="tag new">新上榜</span>
+          <h3 id="new-8"><a href="https://github.com/aipoch/open-science">aipoch/open-science</a></h3>
+          <span class="stars num">★ 5,159</span>
+          <span class="tag cat">AI 应用产品</span>
+        </div>
+        <p class="tagline">本地优先、模型无关的开源 AI 科研工作台桌面应用</p>
+        <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/aipoch/open-science">GitHub ↗</a> · <a href="https://aipoch.com/open-science">主页 ↗</a>    · TypeScript · Apache-2.0 · 创建 2026-07-03 · 最后推送 2026-09-28
+  </p>
+<div class="f"><h4>定位</h4><p>面向科研人员的桌面级研究工作台，用自然语言描述研究目标，由 AI 智能体调用工具、执行代码、查询科研数据，产出可追溯证据链的报告与图表。</p></div><div class="f"><h4>能做什么</h4><ul><li>内置23个科学技能，另有525个技能可从市场一键安装</li><li>24个内置连接器，支持自定义本地/远程MCP连接器</li><li>本地运行Python/R Notebook，支持SSH远程与Slurm提交</li><li>产物版本不可变并附带溯源信息，可查看生成代码与执行证据</li><li>可选Reviewer自动复核代理执行结果，给出通过/警告/失败判定</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方数据：在BiomniBench-DA Public 50对比中以79.05分排名第一</li><li>文献库支持PDF管理、开放获取全文查找及图表提取</li></ul></div><div class="f"><h4>适合</h4><p>从事计算与数据密集型研究的科学家和研究者，涵盖生命科学、化学、材料、物理、环境科学等领域</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>brew install --cask open-science</code></pre><button type="button" data-copy aria-label="复制 aipoch/open-science 的上手命令">复制</button></div><p>macOS可用Homebrew安装，其余平台从官网下载对应安装包，完成设置向导后即可创建项目开始研究</p>  </div></div>
+
+      </article>
     </div>
-  
+
+    <div>
+      <div class="sub-head"><h3>涨星</h3><span class="aside num">7 天内增量前 5</span></div>
+      <ol class="gainers num">
+        <li><a class="nm" href="#hypit-ai/hypit">hypit-ai/hypit</a><span class="d">+4,816</span>
+            <span class="now">现 16,889 星 · 让 AI 智能体一键克隆爆款视频，批量产出可复用的完整制作工作流</span></li>
+        <li><a class="nm" href="#miuuyy/codex-chatgpt-web">miuuyy/codex-chatgpt-web</a><span class="d">+2,166</span>
+            <span class="now">现 12,212 星 · 让Codex的模型选择器直接调用你的ChatGPT网页版账号（含Pro），不占用Codex额度</span></li>
+        <li><a class="nm" href="#google/artemis">google/artemis</a><span class="d">+2,038</span>
+            <span class="now">现 10,493 星 · Google 出品的自然语言驱动 Android 自动化测试与操作框架</span></li>
+        <li><a class="nm" href="#dataelement/dsh-desktop">dataelement/dsh-desktop</a><span class="d">+1,994</span>
+            <span class="now">现 10,085 星 · 将 DeepSeek Harness 打包成本地优先的跨平台桌面应用</span></li>
+        <li><a class="nm" href="#tamaratran/fast-jev-compaction">tamaratran/fast-jev-compaction</a><span class="d">+1,600</span>
+            <span class="now">现 7,042 星 · Claude Code 插件：逐条为工具调用打分，取代压缩摘要，保留内容全为原文</span></li>
+      </ol>
+    </div>
+
+    <div>
+      <div class="sub-head"><h3>移出</h3><span class="aside num">1 个</span></div>
+      <ul class="dropped num">
+        <li><a class="nm" href="https://github.com/oomol-lab/open-connector">oomol-lab/open-connector</a><span class="stars">★ 5,845</span>
+            <span class="why">创建于 2026-06-29，已超出 90 天收录窗口，不是热度下降。</span></li>
+      </ul>
+    </div>
   </div>
 </section>
 
-
-<section class="block">
-  <h2 class="sec">趋势小结</h2>
-  <div class="panel prose"><ul><li>面向AI Agent的垂直技能包大量涌现，覆盖设计、简历、可视化等场景，如no-ai-slop、ASu-skills、ip-as-logo-skill</li><li>开源Agent运行时/操作系统成基础设施热点，强调协作与自进化，如aos-ce、reef、utopia</li><li>编程Agent工具持续迭代，终端桌面一体化与上下文管理并进，如grok-build、ZCode、fast-jev-compaction</li><li>消费级硬件跑超大模型的极限推理引擎受关注，如kimi-k3-in-c、turbo-fieldfare</li><li>AI安全与红队自动化工具浮现，越狱与渗透测试框架同步增长，如T3MP3ST、gpt-instruct</li></ul></div>
+<section class="blk" id="editorial" aria-labelledby="h-ed">
+  <div class="blk-head"><h2 id="h-ed">编者按</h2><span class="aside">由 claude-sonnet-5 读完本期全部项目后归纳，点项目名看详情</span></div>
+  <ol class="editorial"><li>面向AI Agent的垂直技能包大量涌现，覆盖设计、简历、可视化等场景，如no-ai-slop、<a href="#Hisn00w/ASu-skills">ASu-skills</a>、<a href="#s1dashu/ip-as-logo-skill">ip-as-logo-skill</a></li><li>开源Agent运行时/操作系统成基础设施热点，强调协作与自进化，如aos-ce、<a href="#Human-Agent-Society/reef">reef</a>、<a href="#deeplethe/utopia">utopia</a></li><li>编程Agent工具持续迭代，终端桌面一体化与上下文管理并进，如grok-build、<a href="#zai-org/ZCode">ZCode</a>、<a href="#tamaratran/fast-jev-compaction">fast-jev-compaction</a></li><li>消费级硬件跑超大模型的极限推理引擎受关注，如kimi-k3-in-c、<a href="#drumih/turbo-fieldfare">turbo-fieldfare</a></li><li>AI安全与红队自动化工具浮现，越狱与渗透测试框架同步增长，如T3MP3ST、<a href="#MDX-Tom/gpt-instruct">gpt-instruct</a></li></ol>
 </section>
 
+<section class="blk" id="index" aria-labelledby="h-index">
+  <div class="blk-head"><h2 id="h-index">名录</h2><span class="aside num">33 个项目 · 按分类 · 分类内按星数 · 绿色 +N 为较第 1 期（7 天）的增量 · 22 个带提示</span></div>
+  <div class="toolbar" role="group" aria-label="名录展开控制">
+    <button type="button" data-all="open">全部展开</button>
+    <button type="button" data-all="close">全部收起</button>
+  </div>
+  <div class="cat-group">
+    <h3>编程 Agent 与运行框架<span class="n num">6</span></h3>
+    <details class="row" id="xai-org/grok-build">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">xai-org/grok-build</span><span class="flags"><span class="warn-n">⚠ 2 条提示</span></span></span>
+        <span class="right num">★ 27,132<span class="d">+201</span></span>
+        <span class="tl">xAI 出品的终端 AI 编程助手，全屏 TUI 交互，可编辑代码、执行命令</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/xai-org/grok-build">GitHub ↗</a>    · Rust · Apache-2.0 · 创建 2026-07-14 · 最后推送 2026-09-23
+  </p>
+<div class="f"><h4>定位</h4><p>Grok Build（grok）是 xAI（SpaceXAI）开发的终端 AI 编程 Agent，理解代码库、编辑文件、执行 shell 命令、搜索网页并管理长任务，可交互使用也可无头运行于 CI 或嵌入编辑器。</p></div><div class="f"><h4>能做什么</h4><ul><li>全屏、支持鼠标操作的终端 TUI 界面</li><li>可编辑文件、执行 shell 命令、联网搜索</li><li>支持交互式、无头脚本化（CI）和通过 ACP 协议嵌入编辑器三种运行模式</li><li>支持 MCP 服务器、插件、Hooks、技能（skills）和沙箱运行</li><li>官方提供 macOS/Linux/Windows 预编译二进制，源码从内部 monorepo 定期同步</li></ul></div><div class="f"><h4>亮点</h4><ul><li>由 xAI 官方发布，Star 数已近 2.7 万，增长迅速</li><li>部分工具实现移植自 openai/codex 与 sst/opencode 项目</li></ul></div><div class="f"><h4>适合</h4><p>使用命令行工作、希望借助 AI Agent 辅助编码、调试和自动化任务的开发者</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>curl -fsSL https://x.ai/cli/install.sh | bash</code></pre><button type="button" data-copy aria-label="复制 xai-org/grok-build 的上手命令">复制</button></div><p>安装后运行 grok，首次启动会打开浏览器完成身份认证</p>  </div><ul class="notes" aria-label="提示"><li>不接受外部代码贡献，仓库为只读同步性质</li><li>首次启动需通过浏览器登录 xAI 账号完成认证，涉及账号授权</li></ul></div>
 
-<div class="toolbar" role="group" aria-label="卡片展开控制">
-  <button type="button" data-toggle="open">全部展开</button>
-  <button type="button" data-toggle="close">全部收起</button>
-</div>
+    </details>
+    <details class="row" id="browser-use/jev-ultrafast">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">browser-use/jev-ultrafast</span><span class="flags"><span class="tag new">新上榜</span><span class="warn-n">⚠ 2 条提示</span></span></span>
+        <span class="right num">★ 20,908</span>
+        <span class="tl">超快浏览器操作 Agent，用动态索引动作空间替代截图驱动方案</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/browser-use/jev-ultrafast">GitHub ↗</a> · <a href="https://browser-use.com">主页 ↗</a>    · Python · MIT · 创建 2026-09-16 · 最后推送 2026-09-25
+  </p>
+<div class="f"><h4>定位</h4><p>一个浏览器自动化 Agent 框架，通过结构化 DOM 快照生成动态索引动作空间，一次网络请求内同时选出操作和目标元素，仅在需要输入文本时调用小型 LLM 生成内容，以降低延迟。</p></div><div class="f"><h4>能做什么</h4><ul><li>每次观察生成带编号的可操作元素表，动态定义可执行动作空间</li><li>操作预测与目标预测合并为一次 TypeSafe 网络请求，减少往返次数</li><li>默认不依赖截图，直接消费结构化页面状态，本地调试界面才启用截图</li><li>执行前校验目标元素页面新鲜度与遮挡情况，降低误操作风险</li><li>代码库精简，核心循环、DOM 快照、浏览器执行等模块均可直接阅读</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方数据：Google Flights 单程航班搜索任务7.1秒完成，含模型调用与页面加载等待</li><li>项目方数据：与对比版本相比，浏览器协议调用次数从1092次降至101次，任务耗时中位数下降25%</li></ul></div><div class="f"><h4>适合</h4><p>需要构建低延迟网页自动化/浏览器 Agent 的开发者，尤其关注减少模型调用和协议往返开销的团队</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>git clone https://github.com/browser-use/jev-ultrafast.git &amp;&amp; cd jev-ultrafast &amp;&amp; uv sync &amp;&amp; cp .env.example .env &amp;&amp; uv run jev</code></pre><button type="button" data-copy aria-label="复制 browser-use/jev-ultrafast 的上手命令">复制</button></div><p>需自行配置 TYPESAFE_API_KEY 和 TEXT_MODEL_API_KEY（如 OpenRouter），并通过 Browser Harness 连接 Chrome</p>  </div><ul class="notes" aria-label="提示"><li>自动化操作 Google Flights、Wikipedia 等第三方网站，可能受目标网站服务条款限制</li><li>依赖 TypeSafe 商业 API 和第三方文本模型服务，实际使用会产生外部 API 调用成本</li></ul></div>
 
+    </details>
+    <details class="row" id="google/artemis">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">google/artemis</span><span class="flags"><span class="warn-n">⚠ 1 条提示</span></span></span>
+        <span class="right num">★ 10,493<span class="d">+2,038</span></span>
+        <span class="tl">Google 出品的自然语言驱动 Android 自动化测试与操作框架</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/google/artemis">GitHub ↗</a>    · Python · Apache-2.0 · 创建 2026-08-13 · 最后推送 2026-09-12
+  </p>
+<div class="f"><h4>定位</h4><p>将自然语言指令转化为可靠的 Android 端到端自动化操作，支持测试与日常任务执行，并通过 MCP 与 AI 编程助手集成</p></div><div class="f"><h4>能做什么</h4><ul><li>观察-行动的多模态定位，结合无障碍层级、OCR 与视觉模型识别界面元素</li><li>原生 MCP 服务器，供 Antigravity、Claude Code、Codex 等 IDE 驱动真机执行任务</li><li>Flash 与 Pro 双执行模式，分别面向快速响应和深度规划验证场景</li><li>自动采集 Logcat 日志与截图，支持长时间探索性与稳定性测试</li><li>提供 Web 可视化控制台、CLI 和 Python SDK 多种使用方式</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方数据：在 Google Research 的 AndroidWorld 基准（20+ 应用、100+ 多步任务）上完成率超 99%</li><li>Flash 模式单步响应约 3-5 秒，采用历史压缩而非截断以支持长流程任务</li></ul></div><div class="f"><h4>适合</h4><p>移动应用测试工程师、需要 Android 自动化的开发者，以及使用 AI 编程助手做移动端调试的团队</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>git clone https://github.com/google/artemis.git &amp;&amp; cd artemis &amp;&amp; ./start.sh</code></pre><button type="button" data-copy aria-label="复制 google/artemis 的上手命令">复制</button></div><p>需先通过 USB 调试连接 Android 设备或模拟器，一键脚本会自动安装 ADB、scrcpy 等依赖</p>  </div><ul class="notes" aria-label="提示"><li>会在测试设备上安装无障碍辅助服务并读取屏幕内容，需注意在授权设备上使用</li></ul></div>
 
-<section class="block" id="cat-1" data-cat>
-  <h2 class="sec">编程 Agent 与运行框架<small>6 个</small></h2>
-  
-  <details class="card" id="xai-org/grok-build">
-    <summary>
-      <div class="s-title">
-        <h3>xai-org/grok-build</h3>
-        <span class="s-stars num">★ 27,132</span>
-        
-        <span class="badge up num">+201 本周</span>
-        <span class="badge warn">⚠ 2 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">xAI 出品的终端 AI 编程助手，全屏 TUI 交互，可编辑代码、执行命令</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/xai-org/grok-build">GitHub ↗</a>
-        · Rust · Apache-2.0 · 创建 2026-07-14 · 更新 2026-09-23
-      </div>
-      <div class="field"><h4>定位</h4><p>Grok Build（grok）是 xAI（SpaceXAI）开发的终端 AI 编程 Agent，理解代码库、编辑文件、执行 shell 命令、搜索网页并管理长任务，可交互使用也可无头运行于 CI 或嵌入编辑器。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>全屏、支持鼠标操作的终端 TUI 界面</li><li>可编辑文件、执行 shell 命令、联网搜索</li><li>支持交互式、无头脚本化（CI）和通过 ACP 协议嵌入编辑器三种运行模式</li><li>支持 MCP 服务器、插件、Hooks、技能（skills）和沙箱运行</li><li>官方提供 macOS/Linux/Windows 预编译二进制，源码从内部 monorepo 定期同步</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>由 xAI 官方发布，Star 数已近 2.7 万，增长迅速</li><li>部分工具实现移植自 openai/codex 与 sst/opencode 项目</li></ul></div>
-      <div class="field"><h4>适合</h4><p>使用命令行工作、希望借助 AI Agent 辅助编码、调试和自动化任务的开发者</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>curl -fsSL https://x.ai/cli/install.sh | bash</code></pre><button type="button" data-copy>复制</button></div>
-        <p>安装后运行 grok，首次启动会打开浏览器完成身份认证</p>
-      </div>
-      <ul class="risks"><li>不接受外部代码贡献，仓库为只读同步性质</li><li>首次启动需通过浏览器登录 xAI 账号完成认证，涉及账号授权</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="browser-use/jev-ultrafast">
-    <summary>
-      <div class="s-title">
-        <h3>browser-use/jev-ultrafast</h3>
-        <span class="s-stars num">★ 20,908</span>
-        <span class="badge new">新上榜</span>
-        
-        <span class="badge warn">⚠ 2 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">超快浏览器操作 Agent，用动态索引动作空间替代截图驱动方案</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/browser-use/jev-ultrafast">GitHub ↗</a> · <a href="https://browser-use.com">主页 ↗</a>
-        · Python · MIT · 创建 2026-09-16 · 更新 2026-09-25
-      </div>
-      <div class="field"><h4>定位</h4><p>一个浏览器自动化 Agent 框架，通过结构化 DOM 快照生成动态索引动作空间，一次网络请求内同时选出操作和目标元素，仅在需要输入文本时调用小型 LLM 生成内容，以降低延迟。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>每次观察生成带编号的可操作元素表，动态定义可执行动作空间</li><li>操作预测与目标预测合并为一次 TypeSafe 网络请求，减少往返次数</li><li>默认不依赖截图，直接消费结构化页面状态，本地调试界面才启用截图</li><li>执行前校验目标元素页面新鲜度与遮挡情况，降低误操作风险</li><li>代码库精简，核心循环、DOM 快照、浏览器执行等模块均可直接阅读</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>项目方数据：Google Flights 单程航班搜索任务7.1秒完成，含模型调用与页面加载等待</li><li>项目方数据：与对比版本相比，浏览器协议调用次数从1092次降至101次，任务耗时中位数下降25%</li></ul></div>
-      <div class="field"><h4>适合</h4><p>需要构建低延迟网页自动化/浏览器 Agent 的开发者，尤其关注减少模型调用和协议往返开销的团队</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>git clone https://github.com/browser-use/jev-ultrafast.git &amp;&amp; cd jev-ultrafast &amp;&amp; uv sync &amp;&amp; cp .env.example .env &amp;&amp; uv run jev</code></pre><button type="button" data-copy>复制</button></div>
-        <p>需自行配置 TYPESAFE_API_KEY 和 TEXT_MODEL_API_KEY（如 OpenRouter），并通过 Browser Harness 连接 Chrome</p>
-      </div>
-      <ul class="risks"><li>自动化操作 Google Flights、Wikipedia 等第三方网站，可能受目标网站服务条款限制</li><li>依赖 TypeSafe 商业 API 和第三方文本模型服务，实际使用会产生外部 API 调用成本</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="google/artemis">
-    <summary>
-      <div class="s-title">
-        <h3>google/artemis</h3>
-        <span class="s-stars num">★ 10,493</span>
-        
-        <span class="badge up num">+2,038 本周</span>
-        <span class="badge warn">⚠ 1 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">Google 出品的自然语言驱动 Android 自动化测试与操作框架</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/google/artemis">GitHub ↗</a>
-        · Python · Apache-2.0 · 创建 2026-08-13 · 更新 2026-09-12
-      </div>
-      <div class="field"><h4>定位</h4><p>将自然语言指令转化为可靠的 Android 端到端自动化操作，支持测试与日常任务执行，并通过 MCP 与 AI 编程助手集成</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>观察-行动的多模态定位，结合无障碍层级、OCR 与视觉模型识别界面元素</li><li>原生 MCP 服务器，供 Antigravity、Claude Code、Codex 等 IDE 驱动真机执行任务</li><li>Flash 与 Pro 双执行模式，分别面向快速响应和深度规划验证场景</li><li>自动采集 Logcat 日志与截图，支持长时间探索性与稳定性测试</li><li>提供 Web 可视化控制台、CLI 和 Python SDK 多种使用方式</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>项目方数据：在 Google Research 的 AndroidWorld 基准（20+ 应用、100+ 多步任务）上完成率超 99%</li><li>Flash 模式单步响应约 3-5 秒，采用历史压缩而非截断以支持长流程任务</li></ul></div>
-      <div class="field"><h4>适合</h4><p>移动应用测试工程师、需要 Android 自动化的开发者，以及使用 AI 编程助手做移动端调试的团队</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>git clone https://github.com/google/artemis.git &amp;&amp; cd artemis &amp;&amp; ./start.sh</code></pre><button type="button" data-copy>复制</button></div>
-        <p>需先通过 USB 调试连接 Android 设备或模拟器，一键脚本会自动安装 ADB、scrcpy 等依赖</p>
-      </div>
-      <ul class="risks"><li>会在测试设备上安装无障碍辅助服务并读取屏幕内容，需注意在授权设备上使用</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="tamaratran/fast-jev-compaction">
-    <summary>
-      <div class="s-title">
-        <h3>tamaratran/fast-jev-compaction</h3>
-        <span class="s-stars num">★ 7,042</span>
-        
-        <span class="badge up num">+1,600 本周</span>
-        <span class="badge warn">⚠ 3 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">Claude Code 插件：逐条为工具调用打分，取代压缩摘要，保留内容全为原文</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/tamaratran/fast-jev-compaction">GitHub ↗</a>
-        · TypeScript · MIT · 创建 2026-09-17 · 更新 2026-09-18
-      </div>
-      <div class="field"><h4>定位</h4><p>上下文压缩常用LLM生成摘要而丢失细节，本项目改用Jev模型对每次工具调用和结果打分，决定保留、截断或删除，保留部分始终逐字不变；可作Claude Code插件替换内置压缩，也可作npm库单独使用。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>对每次工具调用和结果单独打分，只做保留/截断/删除决策，不做摘要改写</li><li>保留的用户、助手文本及工具结果均逐字保留、绝不改写或概括</li><li>通过TypeSafe的Jev模型API评分，可配置token上限、保留窗口、阈值等参数</li><li>同时提供npm库和Claude Code插件两种形式，插件在压缩效果不足时自动回退内置摘要</li><li>附带SwiftUI动画演示程序，用于录屏展示压缩决策过程</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>与常见摘要式压缩不同，只删减不改写，避免文件路径、报错等细节因概括而丢失</li><li>项目方数据：GitHub已获5442星、297 fork</li></ul></div>
-      <div class="field"><h4>适合</h4><p>使用Claude Code进行长会话开发、担心上下文压缩丢失关键细节的工程师</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>npm install fast-jev-compaction</code></pre><button type="button" data-copy>复制</button></div>
-        <p>需先设置TYPESAFE_API_KEY；作为Claude Code插件需添加marketplace并安装，且要求2.1.274+版本</p>
-      </div>
-      <ul class="risks"><li>需要将完整对话历史发送给第三方TypeSafe的Jev API进行打分，存在会话数据外传的隐私风险</li><li>依赖Claude Code尚处早期访问阶段的function hooks特性，需手动开启实验性开关才能使用</li><li>功能运行依赖外部API密钥和第三方服务可用性，非完全自托管方案</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="zai-org/ZCode">
-    <summary>
-      <div class="s-title">
-        <h3>zai-org/ZCode</h3>
-        <span class="s-stars num">★ 6,933</span>
-        <span class="badge new">新上榜</span>
-        
-        
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">Z.ai 出品的 AI 编程工作台，桌面、Web、终端三端合一的编码 Agent</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/zai-org/ZCode">GitHub ↗</a> · <a href="https://zcode.z.ai/">主页 ↗</a>
-        · TypeScript · Apache-2.0 · 创建 2026-09-20 · 更新 2026-09-24
-      </div>
-      <div class="field"><h4>定位</h4><p>面向开发者的编程 Agent 工具，统一 zcode 命令支持 TUI 终端、本地 Web 界面和 Electron 桌面应用，本仓库开源客户端、后端服务与 Agent CLI/运行时源码。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>单一 zcode 命令切换 TUI 终端、Web 界面和桌面应用三种形态</li><li>内置 HTTP/WebSocket 后端服务，支持本地和远程项目连接（SSH/WSL）</li><li>Web 模式支持局域网访问、端口自定义与访问令牌认证</li><li>提供 Agent 客户端 SDK、共享 UI 组件和 Provider 扩展能力</li><li>完整打包发布流程，含安装脚本、校验摘要和多平台桌面构建</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>同一套 Agent 运行时同时驱动桌面、Web、终端三种交互形态，架构统一</li><li>支持 SSH/WSL 远程开发场景，资源通过 SFTP 上传而非依赖公网 CDN</li></ul></div>
-      <div class="field"><h4>适合</h4><p>需要在终端、浏览器或桌面环境中使用 AI 编程 Agent 的开发者，以及希望自建或定制编码工具链的团队</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>pnpm bootstrap</code></pre><button type="button" data-copy>复制</button></div>
-        <p>初始化后可用 pnpm dev:desktop 跑桌面版，或用 zcode / zcode --web 启动命令行发行包</p>
-      </div>
-      
-    </div>
-  </details>
-  
-  <details class="card" id="XiaoDuoYa/codex-with-chatgpt">
-    <summary>
-      <div class="s-title">
-        <h3>XiaoDuoYa/codex-with-chatgpt</h3>
-        <span class="s-stars num">★ 6,789</span>
-        
-        <span class="badge up num">+1,064 本周</span>
-        
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">让付费ChatGPT网页版当规划审查大脑，Codex 负责执行编码任务</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/XiaoDuoYa/codex-with-chatgpt">GitHub ↗</a>
-        · TypeScript · MIT · 创建 2026-08-28 · 更新 2026-09-13
-      </div>
-      <div class="field"><h4>定位</h4><p>通过只读MCP桥接把ChatGPT网页版接入Codex编码会话：ChatGPT负责思考规划和代码审查，Codex保留全部执行权，仓库代码不上传，只按需读取所需的少量代码。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>只读MCP桥接提供9个工具，供ChatGPT按需读取工作区文件、git状态与测试结果</li><li>OAuth 2.1加一次性配对码鉴权，无token访问公网端点直接401</li><li>单工作区单边界，路径规范化处理防止符号链接与路径穿越攻击</li><li>.env、密钥、SSH凭证等敏感文件默认拒绝读取，可用.c2cignore自定义规则</li><li>Codex执行后ChatGPT查看真实git diff和测试记录做独立审查，不轻信测试通过的说法</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>不需要API Key、不用逆向代理，直接组合官方ChatGPT网页版和Codex CLI使用</li><li>项目方称已完成端到端验证，含150个测试覆盖路径安全、OAuth、配对和MCP流程</li></ul></div>
-      <div class="field"><h4>适合</h4><p>已订阅ChatGPT Plus/Pro并使用Codex CLI编码、希望用网页版闲置额度做规划审查以节省API用量的开发者</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>pnpm install &amp;&amp; pnpm build</code></pre><button type="button" data-copy>复制</button></div>
-        <p>构建后运行c2c setup完成桥接、隧道和配对，也可让Codex按README提供的一段指令全自动安装配置</p>
-      </div>
-      
-    </div>
-  </details>
-  
+    </details>
+    <details class="row" id="tamaratran/fast-jev-compaction">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">tamaratran/fast-jev-compaction</span><span class="flags"><span class="warn-n">⚠ 3 条提示</span></span></span>
+        <span class="right num">★ 7,042<span class="d">+1,600</span></span>
+        <span class="tl">Claude Code 插件：逐条为工具调用打分，取代压缩摘要，保留内容全为原文</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/tamaratran/fast-jev-compaction">GitHub ↗</a>    · TypeScript · MIT · 创建 2026-09-17 · 最后推送 2026-09-18
+  </p>
+<div class="f"><h4>定位</h4><p>上下文压缩常用LLM生成摘要而丢失细节，本项目改用Jev模型对每次工具调用和结果打分，决定保留、截断或删除，保留部分始终逐字不变；可作Claude Code插件替换内置压缩，也可作npm库单独使用。</p></div><div class="f"><h4>能做什么</h4><ul><li>对每次工具调用和结果单独打分，只做保留/截断/删除决策，不做摘要改写</li><li>保留的用户、助手文本及工具结果均逐字保留、绝不改写或概括</li><li>通过TypeSafe的Jev模型API评分，可配置token上限、保留窗口、阈值等参数</li><li>同时提供npm库和Claude Code插件两种形式，插件在压缩效果不足时自动回退内置摘要</li><li>附带SwiftUI动画演示程序，用于录屏展示压缩决策过程</li></ul></div><div class="f"><h4>亮点</h4><ul><li>与常见摘要式压缩不同，只删减不改写，避免文件路径、报错等细节因概括而丢失</li><li>项目方数据：GitHub已获5442星、297 fork</li></ul></div><div class="f"><h4>适合</h4><p>使用Claude Code进行长会话开发、担心上下文压缩丢失关键细节的工程师</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>npm install fast-jev-compaction</code></pre><button type="button" data-copy aria-label="复制 tamaratran/fast-jev-compaction 的上手命令">复制</button></div><p>需先设置TYPESAFE_API_KEY；作为Claude Code插件需添加marketplace并安装，且要求2.1.274+版本</p>  </div><ul class="notes" aria-label="提示"><li>需要将完整对话历史发送给第三方TypeSafe的Jev API进行打分，存在会话数据外传的隐私风险</li><li>依赖Claude Code尚处早期访问阶段的function hooks特性，需手动开启实验性开关才能使用</li><li>功能运行依赖外部API密钥和第三方服务可用性，非完全自托管方案</li></ul></div>
+
+    </details>
+    <details class="row" id="zai-org/ZCode">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">zai-org/ZCode</span><span class="flags"><span class="tag new">新上榜</span></span></span>
+        <span class="right num">★ 6,933</span>
+        <span class="tl">Z.ai 出品的 AI 编程工作台，桌面、Web、终端三端合一的编码 Agent</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/zai-org/ZCode">GitHub ↗</a> · <a href="https://zcode.z.ai/">主页 ↗</a>    · TypeScript · Apache-2.0 · 创建 2026-09-20 · 最后推送 2026-09-24
+  </p>
+<div class="f"><h4>定位</h4><p>面向开发者的编程 Agent 工具，统一 zcode 命令支持 TUI 终端、本地 Web 界面和 Electron 桌面应用，本仓库开源客户端、后端服务与 Agent CLI/运行时源码。</p></div><div class="f"><h4>能做什么</h4><ul><li>单一 zcode 命令切换 TUI 终端、Web 界面和桌面应用三种形态</li><li>内置 HTTP/WebSocket 后端服务，支持本地和远程项目连接（SSH/WSL）</li><li>Web 模式支持局域网访问、端口自定义与访问令牌认证</li><li>提供 Agent 客户端 SDK、共享 UI 组件和 Provider 扩展能力</li><li>完整打包发布流程，含安装脚本、校验摘要和多平台桌面构建</li></ul></div><div class="f"><h4>亮点</h4><ul><li>同一套 Agent 运行时同时驱动桌面、Web、终端三种交互形态，架构统一</li><li>支持 SSH/WSL 远程开发场景，资源通过 SFTP 上传而非依赖公网 CDN</li></ul></div><div class="f"><h4>适合</h4><p>需要在终端、浏览器或桌面环境中使用 AI 编程 Agent 的开发者，以及希望自建或定制编码工具链的团队</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>pnpm bootstrap</code></pre><button type="button" data-copy aria-label="复制 zai-org/ZCode 的上手命令">复制</button></div><p>初始化后可用 pnpm dev:desktop 跑桌面版，或用 zcode / zcode --web 启动命令行发行包</p>  </div></div>
+
+    </details>
+    <details class="row" id="XiaoDuoYa/codex-with-chatgpt">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">XiaoDuoYa/codex-with-chatgpt</span></span>
+        <span class="right num">★ 6,789<span class="d">+1,064</span></span>
+        <span class="tl">让付费ChatGPT网页版当规划审查大脑，Codex 负责执行编码任务</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/XiaoDuoYa/codex-with-chatgpt">GitHub ↗</a>    · TypeScript · MIT · 创建 2026-08-28 · 最后推送 2026-09-13
+  </p>
+<div class="f"><h4>定位</h4><p>通过只读MCP桥接把ChatGPT网页版接入Codex编码会话：ChatGPT负责思考规划和代码审查，Codex保留全部执行权，仓库代码不上传，只按需读取所需的少量代码。</p></div><div class="f"><h4>能做什么</h4><ul><li>只读MCP桥接提供9个工具，供ChatGPT按需读取工作区文件、git状态与测试结果</li><li>OAuth 2.1加一次性配对码鉴权，无token访问公网端点直接401</li><li>单工作区单边界，路径规范化处理防止符号链接与路径穿越攻击</li><li>.env、密钥、SSH凭证等敏感文件默认拒绝读取，可用.c2cignore自定义规则</li><li>Codex执行后ChatGPT查看真实git diff和测试记录做独立审查，不轻信测试通过的说法</li></ul></div><div class="f"><h4>亮点</h4><ul><li>不需要API Key、不用逆向代理，直接组合官方ChatGPT网页版和Codex CLI使用</li><li>项目方称已完成端到端验证，含150个测试覆盖路径安全、OAuth、配对和MCP流程</li></ul></div><div class="f"><h4>适合</h4><p>已订阅ChatGPT Plus/Pro并使用Codex CLI编码、希望用网页版闲置额度做规划审查以节省API用量的开发者</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>pnpm install &amp;&amp; pnpm build</code></pre><button type="button" data-copy aria-label="复制 XiaoDuoYa/codex-with-chatgpt 的上手命令">复制</button></div><p>构建后运行c2c setup完成桥接、隧道和配对，也可让Codex按README提供的一段指令全自动安装配置</p>  </div></div>
+
+    </details>
+  </div>
+  <div class="cat-group">
+    <h3>Agent 平台与基础设施<span class="n num">8</span></h3>
+    <details class="row" id="yc-software/qm">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">yc-software/qm</span><span class="flags"><span class="warn-n">⚠ 1 条提示</span></span></span>
+        <span class="right num">★ 15,268<span class="d">+82</span></span>
+        <span class="tl">面向团队的多人协作 Agent 框架，同时支持 Slack 与网页端</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/yc-software/qm">GitHub ↗</a> · <a href="https://x.com/qm__dev">主页 ↗</a>    · TypeScript · MIT · 创建 2026-07-29 · 最后推送 2026-09-28
+  </p>
+<div class="f"><h4>定位</h4><p>QM 是为创业公司打造的多人 Agent 协作框架，每位员工拥有独立作用域和沙箱，也能在频道、项目中与 Agent 协同工作，底层模型与 harness 可自由切换。</p></div><div class="f"><h4>能做什么</h4><ul><li>个人与共享作用域并存，可在 Slack 频道和项目中协同使用 Agent</li><li>支持 Pi、OpenCode、Codex、Claude Code 等多种 harness 和模型切换</li><li>内置定时任务、监控和 webhook，可在无人值守时自动执行后台工作</li><li>可搭建内部 Web 应用并按权限发布给指定成员</li><li>Skills 按作用域共享，支持管理员提升权限及从 Git 仓库导入技能包</li></ul></div><div class="f"><h4>亮点</h4><ul><li>安全策略分 Strict/Auto/Dangerous 三级，共享策略分 Isolated/Open，可按组织和作用域精细控制</li><li>每个用户和房间拥有独立的持久化沙箱、记忆与权限，核心运行时与企业部署配置分离</li></ul></div><div class="f"><h4>适合</h4><p>需要为团队搭建协作式 AI Agent 工作环境的创业公司工程与运维团队</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>npm exec --yes --package=@yc-software/qm@latest -- qm init . --org &lt;slug&gt; --target &lt;fly-or-aws&gt;</code></pre><button type="button" data-copy aria-label="复制 yc-software/qm 的上手命令">复制</button></div><p>需创建自有部署仓库并接入自己的云账号（Fly 或 AWS），非开箱即用的本地工具</p>  </div><ul class="notes" aria-label="提示"><li>Agent 以用户自身身份和权限执行操作并被审计记录，组织需自行把控权限边界和数据共享范围</li></ul></div>
+
+    </details>
+    <details class="row" id="dataelement/dsh-desktop">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">dataelement/dsh-desktop</span><span class="flags"><span class="warn-n">⚠ 2 条提示</span></span></span>
+        <span class="right num">★ 10,085<span class="d">+1,994</span></span>
+        <span class="tl">将 DeepSeek Harness 打包成本地优先的跨平台桌面应用</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/dataelement/dsh-desktop">GitHub ↗</a> · <a href="https://dshdesktop.com">主页 ↗</a>    · TypeScript · MIT · 创建 2026-08-13 · 最后推送 2026-09-28
+  </p>
+<div class="f"><h4>定位</h4><p>DSH Desktop 是 DeepSeek Harness（Agent 运行时 + Web UI）的桌面封装产品，自动启动本地运行环境并打开完整界面，统一管理配置文件、插件、工作区与模型设置。</p></div><div class="f"><h4>能做什么</h4><ul><li>自动启动/停止 Harness，无需单独 CLI 或浏览器标签页</li><li>支持导入导出 .dshpreset 便携式 Agent 预设包，带冲突检查与信任提示</li><li>内置 PPT 模式，提供 16 套模板 192 种版式，生成可编辑 PPTX</li><li>安全模式可临时屏蔽第三方插件，识别故障插件并引导恢复</li><li>支持手机通过局域网或临时隧道连接继续会话</li></ul></div><div class="f"><h4>亮点</h4><ul><li>macOS 版本经 Apple 签名与公证，Windows 版本经代码签名</li><li>渲染进程无 Node.js 权限、启用上下文隔离与沙箱，会话数据存于应用目录之外</li></ul></div><div class="f"><h4>适合</h4><p>需要在本地运行 DeepSeek Harness、希望获得原生桌面体验、插件管理和跨设备续接会话的开发者与重度用户</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>open -a &#34;DSH Desktop&#34; --args --safe-mode</code></pre><button type="button" data-copy aria-label="复制 dataelement/dsh-desktop 的上手命令">复制</button></div><p>需先从官网或 GitHub Releases 下载安装包；该命令用于以安全模式启动以排查插件故障</p>  </div><ul class="notes" aria-label="提示"><li>当前为早期预览版本，基于快速迭代的 dsh@0.1.5-rc.2，稳定性和插件兼容性有限</li><li>手机远程访问依赖 Cloudflare Quick Tunnel 或 Pinggy 等第三方临时隧道服务</li></ul></div>
+
+    </details>
+    <details class="row" id="unicity-aos/aos-ce">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">unicity-aos/aos-ce</span><span class="flags"><span class="warn-n">⚠ 1 条提示</span></span></span>
+        <span class="right num">★ 8,462<span class="d">+-1</span></span>
+        <span class="tl">面向智能体的开放操作系统，提供CLI、能力胶囊与运行时管理</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/unicity-aos/aos-ce">GitHub ↗</a>    · Rust · Apache-2.0 · 创建 2026-07-12 · 最后推送 2026-09-22
+  </p>
+<div class="f"><h4>定位</h4><p>AOS Community Edition 是为智能体设计的可审查、可组合运行环境，提供 aos CLI、HTTP API、官方 capsule 集合及 MCP 接入，供开发者搭建和治理agent系统。</p></div><div class="f"><h4>能做什么</h4><ul><li>aos CLI与HTTP API统一管理运行时、发行版与capsule</li><li>内置22个官方生产级capsule作为可组合用户态构建块</li><li>aos mcp serve支持Codex、Claude、Grok等客户端接入</li><li>Forge工具辅助智能体检查系统、发现缺口并构建最小权限capsule</li><li>发布物附带校验和、Sigstore签名与构建溯源证明</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方称安装全部22个capsule约需2分钟等待（受限流批次影响），为自报数据</li><li>支持stable、dev、nightly等多签名发布渠道，元数据未签名时安装会失败关闭</li></ul></div><div class="f"><h4>适合</h4><p>需要为Codex、Claude、Grok等智能体提供可控本地运行环境、权限管理与可组合能力扩展的开发者</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>curl --proto &#39;=https&#39; --tlsv1.2 -fsSL https://aos.unicity.ai/install.sh | sh</code></pre><button type="button" data-copy aria-label="复制 unicity-aos/aos-ce 的上手命令">复制</button></div><p>安装后执行aos init完成初始化，可加--offline离线使用本地已打包的capsule资源。</p>  </div><ul class="notes" aria-label="提示"><li>fork/star 比例异常（22/8462），热度可能有水分</li></ul></div>
+
+    </details>
+    <details class="row" id="deeplethe/utopia">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">deeplethe/utopia</span><span class="flags"><span class="warn-n">⚠ 2 条提示</span></span></span>
+        <span class="right num">★ 7,903<span class="d">+-1,592</span></span>
+        <span class="tl">开源企业级世界模型，双时态知识图谱驱动的知识治理与决策系统</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/deeplethe/utopia">GitHub ↗</a>    · Rust · Apache-2.0 · 创建 2026-08-07 · 最后推送 2026-09-28
+  </p>
+<div class="f"><h4>定位</h4><p>DeepLethe打造的开源企业知识引擎，将时间感知与本体内置于底层，知识随材料自动演化，冲突检测、推理与决策均基于本体运行，可离线部署构建可信决策核心与合规审计链。</p></div><div class="f"><h4>能做什么</h4><ul><li>支持PDF/DOCX等多格式文档及网页、GitHub、Jira、Notion等数据源定时同步</li><li>全文检索(Tantivy)与向量检索(pgvector)融合，答案流式输出并附来源引用</li><li>内置Agent可搜索文档、遍历图谱、查询数据库，并通过MCP接入Claude Desktop等客户端</li><li>双时态知识图谱：修正事实不覆盖旧版本，保留世界真实状态与系统认知两条时间线</li><li>本体驱动的冲突检测与推理，实体合并可撤销，决策过程留痕形成审计日志</li></ul></div><div class="f"><h4>亮点</h4><ul><li>单个Rust二进制加PostgreSQL即可运行，无需额外中间件，支持全离线部署</li><li>自研Ontology2SQL方法在BIRD Mini-Dev文本转SQL基准上表现领先（项目方数据）</li></ul></div><div class="f"><h4>适合</h4><p>需要自建可信知识库、决策审计追踪的企业技术团队，以及关注知识图谱、GraphRAG与Agent记忆系统的开发者</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>docker compose --profile app up -d</code></pre><button type="button" data-copy aria-label="复制 deeplethe/utopia 的上手命令">复制</button></div><p>先clone仓库并准备Docker环境，启动后访问 http://localhost:1516 注册即成为管理员</p>  </div><ul class="notes" aria-label="提示"><li>项目仍处于v0.1早期阶段，数据库schema随版本演进且迁移不可回滚，升级需谨慎备份</li><li>官方提示暴露到公网前需先阅读SECURITY.md，存在安全配置风险</li></ul></div>
+
+    </details>
+    <details class="row" id="Human-Agent-Society/reef">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">Human-Agent-Society/reef</span><span class="flags"><span class="tag new">新上榜</span><span class="warn-n">⚠ 1 条提示</span></span></span>
+        <span class="right num">★ 6,638</span>
+        <span class="tl">开源的智能体持续自我进化基础设施，连接推理、反馈、训练与版本发布</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/Human-Agent-Society/reef">GitHub ↗</a> · <a href="https://reefinfra.ai">主页 ↗</a>    · Python · Apache-2.0 · 创建 2026-08-31 · 最后推送 2026-09-28
+  </p>
+<div class="f"><h4>定位</h4><p>Reef 是首个开源的持续自我进化智能体基础设施，把推理服务、反馈收集、训练学习、版本发布整合成闭环，支持训练模型权重或优化智能体harness两种进化路径。</p></div><div class="f"><h4>能做什么</h4><ul><li>四步闭环：提供推理服务、匹配用户反馈、生成候选更新、评估后发布新版本</li><li>支持用Slime、SGLang训练模型权重，或优化harness的提示词、规则与技能</li><li>推理接口兼容OpenAI与Anthropic格式，可直接接入/v1/chat/completions</li><li>内置Reefine等多种recipe，覆盖科学发现、连续任务学习、真实使用反馈等场景</li><li>更新期间保持服务在线，具备版本历史管理与回滚能力</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方数据：在AIME2025、Terminal-Bench、IMOAnswerBench等基准上验证了多个recipe的改进效果</li><li>宣称是唯一兼具在线推理、权重训练、版本管理与harness进化四种能力的开源框架</li></ul></div><div class="f"><h4>适合</h4><p>需要让智能体从真实交互中持续学习的AI工程师，以及需要做RL训练或优化coding agent harness的团队</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>uv pip install reef-infra</code></pre><button type="button" data-copy aria-label="复制 Human-Agent-Society/reef 的上手命令">复制</button></div><p>需先用uv创建并激活虚拟环境；权重训练需配套GPU栈，harness进化只需一个模型API即可体验</p>  </div><ul class="notes" aria-label="提示"><li>harness自我进化功能会让模型以coding agent身份自动修改并执行代码变更，需在沙箱或可信环境中运行</li></ul></div>
+
+    </details>
+    <details class="row" id="truefoundry/trueforge">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">truefoundry/trueforge</span><span class="flags"><span class="warn-n">⚠ 1 条提示</span></span></span>
+        <span class="right num">★ 5,989<span class="d">+128</span></span>
+        <span class="tl">开源的 Agent 运行时，把 LLM 变成可用的智能体</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/truefoundry/trueforge">GitHub ↗</a> · <a href="https://trueforge.dev">主页 ↗</a>    · TypeScript · MIT · 创建 2026-07-23 · 最后推送 2026-09-28
+  </p>
+<div class="f"><h4>定位</h4><p>TrueForge 承担 Agent 执行循环——模型调用、工具、沙箱、审批、上下文管理，并通过聊天界面、HTTP API/SDK、可嵌入 UI 三种方式对外提供，省去自建运行时的重复劳动。</p></div><div class="f"><h4>能做什么</h4><ul><li>支持 OpenAI、Anthropic、Gemini 等多模型及任意 OpenAI 兼容接口</li><li>可接入远程 MCP 工具，支持 Header 认证和 OAuth</li><li>支持 SKILL.md 技能包，按需在沙箱中加载</li><li>沙箱作为工具按需提供隔离代码/文件执行环境，密钥留在运行时内</li><li>内置工具审批、追问用户、生成式 UI 等人工检查点</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方数据：在相同任务和模型下，成本低于 Claude Managed Agents 和 deepagents，精度相当</li></ul></div><div class="f"><h4>适合</h4><p>需要快速搭建生产级 Agent 运行时的开发者和团队，尤其是已用 MCP/多模型但缺少统一执行框架的场景</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>npx @truefoundry/trueforge@latest</code></pre><button type="button" data-copy aria-label="复制 truefoundry/trueforge 的上手命令">复制</button></div><p>本地模式单进程+SQLite适合个人试用；团队或生产建议用 Docker Compose、Helm 或 Railway 的托管模式</p>  </div><ul class="notes" aria-label="提示"><li>本地模式默认无登录且数据存于本地 SQLite 文件，官方提示仅限本机使用，不适合暴露到公网</li></ul></div>
+
+    </details>
+    <details class="row" id="CopilotKit/OpenBot">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">CopilotKit/OpenBot</span><span class="flags"><span class="warn-n">⚠ 2 条提示</span></span></span>
+        <span class="right num">★ 5,656<span class="d">+420</span></span>
+        <span class="tl">自托管AI协作者平台，每个Agent配专属浏览器、文件和操作审批网关</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/CopilotKit/OpenBot">GitHub ↗</a> · <a href="https://www.copilotkit.ai/openbot">主页 ↗</a>    · TypeScript · MIT · 创建 2026-08-17 · 最后推送 2026-09-27
+  </p>
+<div class="f"><h4>定位</h4><p>OpenBot是可部署在自有基础设施上的开源Agent平台模板，通过AG-UI协议接入任意Agent框架，每个Bot拥有独立电脑（浏览器、文件、工具），所有操作经统一网关审批并留痕。</p></div><div class="f"><h4>能做什么</h4><ul><li>每个Bot拥有独立容器、workspace卷和浏览器profile，可选gVisor沙箱隔离</li><li>统一网关先鉴权记录再执行，CEL策略引擎默认拒绝未授权操作</li><li>支持Google Drive、Notion等MCP服务器，工具按Bot逐一授权</li><li>Bot遇登录墙或2FA时可移交人工接管，全程操作可审计追溯</li><li>内置13个示例协作者（费用审核、会议纪要、发布说明等），配置化定义</li></ul></div><div class="f"><h4>亮点</h4><ul><li>基于AG-UI协议，可接入LangGraph、CrewAI、Mastra、Pydantic AI等任意Agent框架</li><li>Docker Compose一键部署，数据存于自有PostgreSQL，不绑定任何模型厂商</li><li>官方明确定位为&#34;模板而非产品&#34;，需克隆源码后自行定制部署，无托管版本</li></ul></div><div class="f"><h4>适合</h4><p>需要在自有基础设施上部署可控AI协作者的企业技术团队，尤其关注操作审计、权限治理和多Agent框架接入的场景</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>docker run -p 3001:3001 --env-file .env -e EMBEDDED_POSTGRES=on -v openbot-data:/var/lib/postgresql ghcr.io/copilotkit/openbot:latest</code></pre><button type="button" data-copy aria-label="复制 CopilotKit/OpenBot 的上手命令">复制</button></div><p>需先获取CopilotKit Intelligence项目密钥和模型API Key并写入.env，再执行bun install和启动脚本</p>  </div><ul class="notes" aria-label="提示"><li>Bot使用独立浏览器登录第三方网站执行自动化操作，可能违反目标站点的服务条款</li><li>处于Alpha早期开发阶段，官方提示存在较多不稳定问题</li></ul></div>
+
+    </details>
+    <details class="row" id="TencentCloud/Octop">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">TencentCloud/Octop</span><span class="flags"><span class="tag new">新上榜</span></span></span>
+        <span class="right num">★ 5,358</span>
+        <span class="tl">腾讯云出品的自托管多用户多智能体 AI 助手</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/TencentCloud/Octop">GitHub ↗</a> · <a href="https://octop.cloud">主页 ↗</a>    · Python · MIT · 创建 2026-07-08 · 最后推送 2026-09-28
+  </p>
+<div class="f"><h4>定位</h4><p>面向家庭和小团队的自托管 AI 助手平台，单进程运行 Web 控制台、CLI、IM 渠道和定时任务，数据全部留在本地。</p></div><div class="f"><h4>能做什么</h4><ul><li>多用户专家团队，管理员统一分配，内置专家库和专家市场</li><li>支持飞书、钉钉、QQ、微信、Telegram、Discord、企业微信等 IM 渠道接入</li><li>可插拔工作区后端：本地磁盘、Docker 沙盒、PostgreSQL 或 COS/S3</li><li>ACP 双向集成，可调用或被 OpenCode、Claude Code 等外部编码 Agent 调用</li><li>内置浏览器自动化、远程桌面、终端 AI 及 RAG 知识库</li></ul></div><div class="f"><h4>亮点</h4><ul><li>单进程架构整合 Web、CLI、IM、定时任务，重启后从控制面数据库完整恢复状态</li><li>记忆随工作区迁移，配合专家共享池和 MBTI 人格模板打造差异化 Agent</li></ul></div><div class="f"><h4>适合</h4><p>希望自建私有 AI 助手的开发者、注重数据隐私的家庭用户及需要跨 IM 协同的小团队</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>curl -fsSL https://finnie-1258344699.cos.ap-guangzhou.myqcloud.com/octop/install.sh | bash</code></pre><button type="button" data-copy aria-label="复制 TencentCloud/Octop 的上手命令">复制</button></div><p>安装脚本自动用 uv 配置 Python 3.12 虚拟环境，也提供桌面客户端安装包和 FnOS NAS 版本。</p>  </div></div>
+
+    </details>
+  </div>
+  <div class="cat-group">
+    <h3>AI 应用产品<span class="n num">4</span></h3>
+    <details class="row" id="trycompai/crm">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">trycompai/crm</span><span class="flags"><span class="warn-n">⚠ 1 条提示</span></span></span>
+        <span class="right num">★ 10,931<span class="d">+252</span></span>
+        <span class="tl">开源CRM，AI Agent是核心而非附加聊天框</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/trycompai/crm">GitHub ↗</a> · <a href="https://trycrm.ai">主页 ↗</a>    · TypeScript · MIT · 创建 2026-07-31 · 最后推送 2026-09-11
+  </p>
+<div class="f"><h4>定位</h4><p>Comp AI CRM 把自主研究型Agent作为CRM的运行主体，Agent独立部署、自定调度、调研客户信息并按证据强弱决定是否落库，而不是给传统CRM表单加个聊天框。</p></div><div class="f"><h4>能做什么</h4><ul><li>Agent独立部署运行，拥有自己的任务队列、调度计划和研究预算</li><li>18个内置工具加4个技能文件，按证据强度分级录入，杜绝置信度打分</li><li>沙箱支持bash/grep/glob执行，默认deny-all出站，且不挂载数据库凭证</li><li>无需任何外部API Key即可运行，靠已有邮件与会议记录做基础调研</li><li>每个联系人/公司/交易都有Agent标签页，可查看执行步骤和决策理由</li></ul></div><div class="f"><h4>亮点</h4><ul><li>设计理念强调工具只报告观测事实、拒绝AI自评置信度，弱证据仅生成待人工确认的建议</li><li>沙箱环境无网络无数据库访问权限，从架构上防止客户数据经由Shell命令泄露</li></ul></div><div class="f"><h4>适合</h4><p>需要AI自动调研、维护和补全客户资料的销售/CRM团队，以及关注Agent系统架构设计的开发者</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>git clone https://github.com/trycompai/crm.git &amp;&amp; cd crm</code></pre><button type="button" data-copy aria-label="复制 trycompai/crm 的上手命令">复制</button></div><p>需先装好Bun和Docker，配置.env后依次执行bun install、docker compose up -d、数据库迁移与bun run dev</p>  </div><ul class="notes" aria-label="提示"><li>需接入Google/Microsoft账号授权读取Gmail、日历及LinkedIn数据，涉及第三方账号权限和隐私合规问题</li></ul></div>
+
+    </details>
+    <details class="row" id="genspark-ai/genoffice">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">genspark-ai/genoffice</span></span>
+        <span class="right num">★ 8,017<span class="d">+652</span></span>
+        <span class="tl">开源 AI 办公套件，本地编辑真正的 Word/Excel/PPT/PDF 文件</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/genspark-ai/genoffice">GitHub ↗</a> · <a href="https://genoffice.ai/">主页 ↗</a>    · TypeScript · Apache-2.0 · 创建 2026-07-31 · 最后推送 2026-09-28
+  </p>
+<div class="f"><h4>定位</h4><p>GenOffice 是免费开源的 Office 替代品，内置 AI 编辑器直接读写 .docx/.xlsx/.pptx，并提供 CLI 与 Agent 技能，让 Claude Code、Codex、Cursor 等在本地创建和修改真实办公文件。</p></div><div class="f"><h4>能做什么</h4><ul><li>支持 docx/xlsx/pptx/PDF/Markdown/HTML 编辑，未修改部分逐字节保留原文件</li><li>AI 编辑以追踪修改和差异呈现，可一键回滚，表格生成活公式而非纯数字</li><li>文件全部在本地打开、编辑、保存和转换，PDF 转 Word/Excel/PPT 也在设备端完成</li><li>可自带 API Key，支持 Claude、OpenAI、Gemini、DeepSeek 等十余家模型及本地服务</li><li>附带 genoffice CLI、Agent 技能和 MCP 服务器，支持编码 Agent 直接操作文件</li></ul></div><div class="f"><h4>亮点</h4><ul><li>7190 星，Apache-2.0 协议，支持 macOS、Windows、Linux 三平台原生应用</li><li>MCP 服务器提供 29 个工具，可让 Claude Desktop 等客户端直接构建 Word 文档</li></ul></div><div class="f"><h4>适合</h4><p>需要用真实办公文件格式做 AI 协作的个人和团队，以及希望编码 Agent 生成正式文档的开发者</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>npx skills add genspark-ai/genoffice</code></pre><button type="button" data-copy aria-label="复制 genspark-ai/genoffice 的上手命令">复制</button></div><p>安装 GenOffice 应用后即含 genoffice CLI，也可通过该命令为 Claude Code、Cursor 等安装 Agent 技能</p>  </div></div>
+
+    </details>
+    <details class="row" id="jev-chat/jev-chat-jarvis">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">jev-chat/jev-chat-jarvis</span><span class="flags"><span class="tag new">新上榜</span><span class="warn-n">⚠ 2 条提示</span></span></span>
+        <span class="right num">★ 6,810</span>
+        <span class="tl">装在手机上的AI对话副驾：读懂聊天、给出候选回复，发不发由你决定</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/jev-chat/jev-chat-jarvis">GitHub ↗</a>    · Kotlin · MIT · 创建 2026-09-21 · 最后推送 2026-09-28
+  </p>
+<div class="f"><h4>定位</h4><p>Android无障碍服务读取QQ/X/飞书聊天界面，交给大模型判断意图并生成候选回复，一键填入输入框，发送与否由用户自己决定。</p></div><div class="f"><h4>能做什么</h4><ul><li>判断模型先分析对方意图、危险等级、是否该马上回，再起草3条候选回复</li><li>无障碍服务只读屏幕内容，不hook、不改包、不碰App账号或数据库</li><li>本地知识库与联系人档案，分析时自动带入命中的笔记和历史背景</li><li>判断/回复/视觉三路接口可分别配置，支持OpenRouter等多家模型预设</li><li>回复仅通过ACTION_SET_TEXT填入输入框，从不自动发送，不碰转账红包</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方称QQ、X真机全链路跑通，飞书靠离线OCR兜底；微信Android版已下架故不支持</li><li>密钥、知识库与截图OCR均在本机完成不上传，但触发分析时聊天内容会发给用户自配的模型服务商</li></ul></div><div class="f"><h4>适合</h4><p>使用QQ、X、飞书聊天，希望AI辅助分析对方意图并起草回复、但仍要自己决定是否发送的Android用户</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>adb install -r apk/jev-assistant-v1.4-release.apk</code></pre><button type="button" data-copy aria-label="复制 jev-chat/jev-chat-jarvis 的上手命令">复制</button></div><p>安装后需在设置中填入判断接口API Key（如OpenRouter），并开启无障碍、悬浮窗、自启动权限</p>  </div><ul class="notes" aria-label="提示"><li>触发分析时聊天文字及启用的背景信息会发送给用户自行配置的第三方模型服务商，存在隐私数据外传</li><li>通过无障碍服务读取聊天App界面内容并辅助生成回复，可能涉及相关平台服务条款合规问题</li></ul></div>
+
+    </details>
+    <details class="row" id="aipoch/open-science">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">aipoch/open-science</span><span class="flags"><span class="tag new">新上榜</span></span></span>
+        <span class="right num">★ 5,159</span>
+        <span class="tl">本地优先、模型无关的开源 AI 科研工作台桌面应用</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/aipoch/open-science">GitHub ↗</a> · <a href="https://aipoch.com/open-science">主页 ↗</a>    · TypeScript · Apache-2.0 · 创建 2026-07-03 · 最后推送 2026-09-28
+  </p>
+<div class="f"><h4>定位</h4><p>面向科研人员的桌面级研究工作台，用自然语言描述研究目标，由 AI 智能体调用工具、执行代码、查询科研数据，产出可追溯证据链的报告与图表。</p></div><div class="f"><h4>能做什么</h4><ul><li>内置23个科学技能，另有525个技能可从市场一键安装</li><li>24个内置连接器，支持自定义本地/远程MCP连接器</li><li>本地运行Python/R Notebook，支持SSH远程与Slurm提交</li><li>产物版本不可变并附带溯源信息，可查看生成代码与执行证据</li><li>可选Reviewer自动复核代理执行结果，给出通过/警告/失败判定</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方数据：在BiomniBench-DA Public 50对比中以79.05分排名第一</li><li>文献库支持PDF管理、开放获取全文查找及图表提取</li></ul></div><div class="f"><h4>适合</h4><p>从事计算与数据密集型研究的科学家和研究者，涵盖生命科学、化学、材料、物理、环境科学等领域</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>brew install --cask open-science</code></pre><button type="button" data-copy aria-label="复制 aipoch/open-science 的上手命令">复制</button></div><p>macOS可用Homebrew安装，其余平台从官网下载对应安装包，完成设置向导后即可创建项目开始研究</p>  </div></div>
+
+    </details>
+  </div>
+  <div class="cat-group">
+    <h3>本地推理与模型<span class="n num">2</span></h3>
+    <details class="row" id="FareedKhan-dev/kimi-k3-in-c">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">FareedKhan-dev/kimi-k3-in-c</span></span>
+        <span class="right num">★ 8,727<span class="d">+608</span></span>
+        <span class="tl">用纯C99在单CPU、8GB内存上运行2.78万亿参数Kimi K3模型的推理引擎</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/FareedKhan-dev/kimi-k3-in-c">GitHub ↗</a> · <a href="https://medium.com/@fareedkhandev/building-kimi-k3-in-c-to-run-a-2-8t-model-on-consumer-hardware-a5792cbf3b59">主页 ↗</a>    · C · Apache-2.0 · 创建 2026-08-01 · 最后推送 2026-09-22
+  </p>
+<div class="f"><h4>定位</h4><p>面向超大规模MoE模型的CPU推理引擎，通过流式加载1.45TB专家权重、LRU缓存和4bit量化，把1.56TB检查点压缩到8GB内存运行，不同内存预算下输出字节级一致。</p></div><div class="f"><h4>能做什么</h4><ul><li>无BLAS无框架无GPU依赖，纯C99代码可跨Linux/macOS/Windows移植</li><li>密集主干层可流式读取，1.45TB路由专家权重不常驻内存按需读取</li><li>LRU缓存管理专家权重，配合4bit量化(MXFP4)和AVX2 SIMD内核</li><li>提供laptop到server等多档内存预设，8GB到224GB均可运行</li><li>内置测试套件，用PyTorch参考结果逐层验证推理正确性</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方数据：8GB内存下生成约32.69秒/token，127GB内存下约10.69秒/token</li><li>不同内存预算（8GB~224GB）下生成结果字节级完全一致，仅速度不同</li><li>完整检查点1.56TB，通过流式读取与打包主干把内存下限降到8GB</li></ul></div><div class="f"><h4>适合</h4><p>对底层推理引擎实现、CPU上运行超大MoE模型、系统编程感兴趣的工程师和研究者</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>git clone https://github.com/FareedKhan-dev/kimi-k3-in-c.git &amp;&amp; cd kimi-k3-in-c &amp;&amp; make -j &amp;&amp; make test</code></pre><button type="button" data-copy aria-label="复制 FareedKhan-dev/kimi-k3-in-c 的上手命令">复制</button></div><p>该命令只构建并验证引擎，无需下载模型；实际生成文本需另外下载1.56TB检查点并打包主干层。</p>  </div></div>
+
+    </details>
+    <details class="row" id="drumih/turbo-fieldfare">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">drumih/turbo-fieldfare</span></span>
+        <span class="right num">★ 6,834<span class="d">+45</span></span>
+        <span class="tl">用Swift+Metal专为Gemma 4 26B打造的运行时，8GB内存Mac也能跑26B大模型</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/drumih/turbo-fieldfare">GitHub ↗</a>    · Swift · Apache-2.0 · 创建 2026-07-17 · 最后推送 2026-09-27
+  </p>
+<div class="f"><h4>定位</h4><p>面向Apple Silicon Mac的模型专用推理引擎，通过流式加载专家权重把26B参数模型的内存占用压到约2GB，而非通用的MLX/llama.cpp包装器。</p></div><div class="f"><h4>能做什么</h4><ul><li>仅保留1.35GB共享核心与KV缓存常驻内存，按需从SSD流式加载专家权重</li><li>提供原生Mac App、命令行CLI和本地OpenAI兼容Server三种使用方式</li><li>支持视觉理解，需额外安装约1.1GB的图像模型包(M2及以上)</li><li>CLI和Server支持多轮对话、函数调用声明及采样参数自定义</li><li>内置流式安装器，边下载边重打包为.gturbo格式，避免占用双份磁盘空间</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方数据：8GB M2 MacBook Air上解码速度5.1-6.3 tok/s，24GB M5 Pro上可达31-35 tok/s</li><li>模型专用运行时而非通用推理框架包装器，针对Gemma 4 26B-A4B做了103项内核/缓存/IO优化实验</li></ul></div><div class="f"><h4>适合</h4><p>拥有Apple Silicon Mac(尤其8GB内存机型)、想在本地运行大模型又不想升级硬件的开发者和爱好者</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>git clone https://github.com/drumih/turbo-fieldfare.git &amp;&amp; cd turbo-fieldfare &amp;&amp; swift build -c release &amp;&amp; .build/release/TurboFieldfareMac</code></pre><button type="button" data-copy aria-label="复制 drumih/turbo-fieldfare 的上手命令">复制</button></div><p>首次运行需下载约15GB模型文件；仅支持macOS 26+Metal 4+Xcode 26的arm64 Apple Silicon Mac。</p>  </div></div>
+
+    </details>
+  </div>
+  <div class="cat-group">
+    <h3>Skills 与写作/设计<span class="n num">7</span></h3>
+    <details class="row" id="hypit-ai/hypit">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">hypit-ai/hypit</span><span class="flags"><span class="warn-n">⚠ 3 条提示</span></span></span>
+        <span class="right num">★ 16,889<span class="d">+4,816</span></span>
+        <span class="tl">让 AI 智能体一键克隆爆款视频，批量产出可复用的完整制作工作流</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/hypit-ai/hypit">GitHub ↗</a> · <a href="https://hypit.ai">主页 ↗</a>    · TypeScript · NOASSERTION · 创建 2026-07-29 · 最后推送 2026-09-26
+  </p>
+<div class="f"><h4>定位</h4><p>Hypit 为 Claude Code、Codex 等编码智能体提供一套视频创作语言与系统，把参考视频克隆成可编辑、可重复运行的完整工作流，而非一次性成片。</p></div><div class="f"><h4>能做什么</h4><ul><li>克隆任意参考视频为完整工作流：镜头、字幕、B-roll、特效一并生成</li><li>以词而非秒为时间锚点，修改文案后时间轴自动重排</li><li>组件可插拔，可替换主播、字幕样式或自写自定义组件</li><li>支持代码渲染视频，无需调用生成模型即可完成合成</li><li>单次编排可衍生上百条变体，适配广告投放和多语言本地化</li></ul></div><div class="f"><h4>亮点</h4><ul><li>开源免费，无席位费、渲染费或水印，仅模型服务按用量单独计费（项目方数据）</li><li>自研 SVML 标记语言与编译器，把视频描述编译为可重跑的完整合成工程</li></ul></div><div class="f"><h4>适合</h4><p>需要批量制作短视频广告、UGC、社媒克隆视频的营销团队，以及使用 Claude Code、Codex 等编码智能体的开发者</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>npx skills add hypit-ai/hypit -g</code></pre><button type="button" data-copy aria-label="复制 hypit-ai/hypit 的上手命令">复制</button></div><p>安装为 Agent Skill 后在项目目录用 /hypit 指令让智能体克隆或新建视频，首次使用会自动检查并准备可执行程序</p>  </div><ul class="notes" aria-label="提示"><li>采用自定义的 Hypit Open Source License，非标准开源协议，使用前需自行确认条款</li><li>克隆他人短视频或广告素材制作衍生内容可能涉及版权或平台服务条款风险</li><li>许可证未声明或非标准，商用前请确认授权</li></ul></div>
+
+    </details>
+    <details class="row" id="petergyang/no-ai-slop">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">petergyang/no-ai-slop</span></span>
+        <span class="right num">★ 11,451<span class="d">+584</span></span>
+        <span class="tl">一个 Claude/ChatGPT/Codex 技能，专门清除文字中 20 多种&#34;AI 腔&#34;套路</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/petergyang/no-ai-slop">GitHub ↗</a> · <a href="https://creatoreconomy.so/p/use-my-no-ai-slop-skill-to-remove-20-ai-slop-patterns">主页 ↗</a>    · Python · MIT · 创建 2026-07-07 · 最后推送 2026-09-02
+  </p>
+<div class="f"><h4>定位</h4><p>面向用 AI 辅助写作或编辑的用户，识别并去除&#34;这不是X，而是Y&#34;等 AI 套话模式，同时保留个人写作风格，可作为编辑器或检测器使用。</p></div><div class="f"><h4>能做什么</h4><ul><li>检测并清除二元对比、故作深刻等20多种AI套话模式</li><li>支持纯编辑模式和仅检测不猜测模式</li><li>保留原作者的词汇、语感和幽默风格</li><li>可反向生成讽刺性AI套话文案娱乐用</li><li>提供ChatGPT插件和Codex/Claude Code技能两种接入方式</li></ul></div><div class="f"><h4>亮点</h4><ul><li>GitHub星标超1万，上线两个月内迅速走红</li></ul></div><div class="f"><h4>适合</h4><p>用AI辅助写作、编辑文章或社交媒体内容，希望去除机械AI腔调、保留个人风格的写作者和内容创作者</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>npx skills add petergyang/no-ai-slop --skill no-ai-slop --global --yes</code></pre><button type="button" data-copy aria-label="复制 petergyang/no-ai-slop 的上手命令">复制</button></div><p>安装后在Claude Code等工具中用 /no-ai-slop 加待编辑文字调用即可</p>  </div></div>
+
+    </details>
+    <details class="row" id="Vincentwei1021/video-shotcraft">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">Vincentwei1021/video-shotcraft</span><span class="flags"><span class="warn-n">⚠ 3 条提示</span></span></span>
+        <span class="right num">★ 9,745<span class="d">+621</span></span>
+        <span class="tl">让 Claude Code / Codex 用 Remotion 自动产出电影感产品宣传视频的 Agent Skill</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/Vincentwei1021/video-shotcraft">GitHub ↗</a> · <a href="https://vincentwei1021.github.io/video-shotcraft/">主页 ↗</a>    · TypeScript · Apache-2.0 · 创建 2026-07-19 · 最后推送 2026-09-27
+  </p>
+<div class="f"><h4>定位</h4><p>面向 Claude Code / Codex 的 Agent Skill，将模型变成动效设计工作室，用 Remotion 自动分镜、动画和音效设计出电影感产品宣传片</p></div><div class="f"><h4>能做什么</h4><ul><li>157 张分镜配方卡，含用途、时长、参数与实现要点</li><li>214 种运镜风格与动效预览，可在在线 Gallery 搜索筛选</li><li>内置 Ink Press 完整视频模板，36.2 秒 1920×1080 30fps</li><li>交付后可用浏览器 Motion Workbench 继续剪辑并用 Remotion 导出</li><li>支持导出为剪映（JianYing CN）工程，可二次编辑字幕与音轨</li></ul></div><div class="f"><h4>亮点</h4><ul><li>提供 157 张结构化分镜配方卡和对应 Remotion 组件实现，而非单纯的提示词模板</li><li>内置真实产品截图 2.5D 运镜、卡点音效和 149 条分类 SFX 素材</li></ul></div><div class="f"><h4>适合</h4><p>使用 Claude Code / Codex 制作产品宣传视频的开发者、独立开发者和营销/设计人员</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>npx skills add Vincentwei1021/video-shotcraft</code></pre><button type="button" data-copy aria-label="复制 Vincentwei1021/video-shotcraft 的上手命令">复制</button></div><p>也可直接把仓库链接发给 Agent 让其自动安装，或 clone 后软链到 ~/.claude/skills 目录</p>  </div><ul class="notes" aria-label="提示"><li>Remotion 本身有独立许可证，个人和小团队免费，公司使用可能需付费授权</li><li>模板中的产品截图为演示素材，发布前需自行替换并核查是否含需匿名化的数据</li><li>音频素材来自 Mixkit 等来源，需遵守各自许可条款</li></ul></div>
+
+    </details>
+    <details class="row" id="jakubkrehel/skills">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">jakubkrehel/skills</span></span>
+        <span class="right num">★ 7,277<span class="d">+329</span></span>
+        <span class="tl">一套面向 AI Agent 的界面设计技能集，帮助打造更好的 UI</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/jakubkrehel/skills">GitHub ↗</a> · <a href="https://jakub.kr/skills">主页 ↗</a>    · Markdown · MIT · 创建 2026-07-10 · 最后推送 2026-08-29
+  </p>
+<div class="f"><h4>定位</h4><p>为 Claude 等 Agent 提供可插拔的设计技能包，覆盖 UI、排版、色彩、无障碍、布局与文案，让 Agent 按专业标准审查和改进界面。</p></div><div class="f"><h4>能做什么</h4><ul><li>better-ui 涵盖圆角、光学对齐、图标、点击区域、动画等界面细节</li><li>better-typography 处理字号、间距、可变字体、断行截断等排版问题</li><li>better-colors 生成调色板、语义化 token 并检查对比度</li><li>better-accessibility 帮助项目符合无障碍标准</li><li>interface-review、break、variant 支持界面审查与多方案迭代</li></ul></div><div class="f"><h4>亮点</h4><ul><li>作者将个人设计工程博客 Interfaces 的内容整理成可复用技能</li><li>可作为 Claude Code 插件直接安装使用</li></ul></div><div class="f"><h4>适合</h4><p>使用 Claude 等 Agent 工具进行前端/UI 开发的设计工程师和开发者</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>npx skills add jakubkrehel/skills</code></pre><button type="button" data-copy aria-label="复制 jakubkrehel/skills 的上手命令">复制</button></div><p>也可作为 Claude Code 插件安装：/plugin marketplace add jakubkrehel/skills</p>  </div></div>
+
+    </details>
+    <details class="row" id="larashero3-dotcom/lieflat-charts">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">larashero3-dotcom/lieflat-charts</span><span class="flags"><span class="warn-n">⚠ 3 条提示</span></span></span>
+        <span class="right num">★ 5,749<span class="d">+155</span></span>
+        <span class="tl">面向 AI Agent 的数据可视化 Skill，一键把数据变成精致可交互的 HTML 图表</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/larashero3-dotcom/lieflat-charts">GitHub ↗</a>    · HTML · NOASSERTION · 创建 2026-07-16 · 最后推送 2026-09-05
+  </p>
+<div class="f"><h4>定位</h4><p>面向 AI Agent 的数据可视化 Skill，遵循 Agent Skills 格式，让 Claude Code、Codex 等 Agent 把数据自动生成为有编辑设计感的可交互 HTML 图表或整页报告。</p></div><div class="f"><h4>能做什么</h4><ul><li>49 种图型：Lupi 编辑叙事型、Glance 快速判断型、Basics 基础型三套视觉体系</li><li>提供 12 套中英双语整页报告模板，覆盖年报、周报、dashboard 等场景</li><li>内置 Mono 及青瓷蓝、椰林绿、编辑部红三种彩色预设，Agent 可自动选色</li><li>支持网络图、路径图等独立交互大图，基于 SVG/Chart.js/ECharts 实现</li><li>遵循 Agent Skills 格式，可安装到 moxt、Claude Code、Codex 等兼容 SKILL.md 的工具</li></ul></div><div class="f"><h4>亮点</h4><ul><li>GitHub 5500+ star，专注把数据转成有编辑设计感的 HTML 图表而非通用图表库</li><li>设计规则围绕数据契约展开：先判断数据结构再选图型，而非先选模板</li></ul></div><div class="f"><h4>适合</h4><p>需要用 AI Agent 快速生成图表和报告的内容创作者、分析师及 Claude Code/Codex 用户</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>npx skills add https://github.com/larashero3-dotcom/lieflat-charts --skill lieflat-charts</code></pre><button type="button" data-copy aria-label="复制 larashero3-dotcom/lieflat-charts 的上手命令">复制</button></div><p>安装后直接对 Agent 描述数据和用途即可生成图表；推荐在 moxt.ai 中使用以获得完整工作区体验。</p>  </div><ul class="notes" aria-label="提示"><li>采用 PolyForm Noncommercial License，仅限学习和非商业使用，商业使用需另行取得许可</li><li>部分图表模板通过 CDN 加载 Chart.js/ECharts，离线环境无法完整显示</li><li>许可证未声明或非标准，商用前请确认授权</li></ul></div>
+
+    </details>
+    <details class="row" id="s1dashu/ip-as-logo-skill">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">s1dashu/ip-as-logo-skill</span><span class="flags"><span class="warn-n">⚠ 2 条提示</span></span></span>
+        <span class="right num">★ 5,614<span class="d">+235</span></span>
+        <span class="tl">面向AI Agent的极简可爱IP吉祥物/Logo生成技能包</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/s1dashu/ip-as-logo-skill">GitHub ↗</a> · <a href="https://ipaslogo.com">主页 ↗</a>    · 语言未标注 · MIT · 创建 2026-08-18 · 最后推送 2026-08-22
+  </p>
+<div class="f"><h4>定位</h4><p>遵循开放Agent Skills格式的指令文档，指导兼容AI Agent（需搭载顶尖图像模型）生成极简、圆润、带轻微新拟物质感的公司吉祥物形象，不绑定特定Agent产品。</p></div><div class="f"><h4>能做什么</h4><ul><li>主体由4-7个大块基础形状构成，严格限制视觉复杂度</li><li>默认三色方案：两个主体色加一个命名纯色背景</li><li>主体固定从左下或右下角凸显，占比约85%-95%</li><li>用户确认方向后自动生成三方向共六张独立候选图</li><li>兼容Codex、Doubao、Coze、Manus、Gemini Apps等Agent</li></ul></div><div class="f"><h4>亮点</h4><ul><li>官网ipaslogo.com提供免费商用Logo库，无需自备兼容Agent即可下载</li><li>仓库仅含单个SKILL.md指令文档，无脚本或生成依赖，轻量易安装</li></ul></div><div class="f"><h4>适合</h4><p>需要快速产出品牌吉祥物或Logo草案的产品设计师、独立开发者，以及已在使用Codex等AI Agent的团队</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>npx skills@latest add s1dashu/ip-as-logo-skill</code></pre><button type="button" data-copy aria-label="复制 s1dashu/ip-as-logo-skill 的上手命令">复制</button></div><p>安装后需在兼容Agent中启用顶尖图像模型（如GPT Image 2、Nano Banana Pro）才能实际生成图像</p>  </div><ul class="notes" aria-label="提示"><li>生成效果依赖第三方图像模型且具随机性，项目方不做合规或质量自动校验</li><li>快照当日已 37 天未更新（最后推送 2026-08-22）</li></ul></div>
+
+    </details>
+    <details class="row" id="Hisn00w/ASu-skills">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">Hisn00w/ASu-skills</span><span class="flags"><span class="tag new">新上榜</span><span class="warn-n">⚠ 2 条提示</span></span></span>
+        <span class="right num">★ 5,182</span>
+        <span class="tl">面向求职场景的九个 AI Skill 插件包，覆盖简历、投递、面试全流程</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/Hisn00w/ASu-skills">GitHub ↗</a>    · HTML · MIT · 创建 2026-08-12 · 最后推送 2026-09-28
+  </p>
+<div class="f"><h4>定位</h4><p>面向 Claude Code、Codex 等 AI Agent 平台的求职技能插件包，提供从开源贡献积累经历、简历制作、岗位匹配到投递填表、面试演练、进度管理的九个可单独调用入口。</p></div><div class="f"><h4>能做什么</h4><ul><li>/contributor 寻找开源问题、核对贡献规则后辅助提交 PR 积累经历</li><li>/great-resume 与 /make-resume 完成岗位定位改写并生成可编辑 HTML 简历</li><li>/job-match 对照 JD 生成要求-证据矩阵和投递建议</li><li>/job-apply 连接浏览器自动填写招聘申请表，停在提交前供用户核对</li><li>/interview 与 /offer 支持追问式面试演练和校招投递进度跟踪</li></ul></div><div class="f"><h4>亮点</h4><ul><li>同时支持 Codex、Claude Code、TraeWork、Qoder、Cursor 等多平台安装</li><li>强调事实边界，不编造经历数据，关键操作均需用户逐项确认后才提交</li></ul></div><div class="f"><h4>适合</h4><p>求职中的学生和开发者，尤其是需要系统整理项目经历、制作简历、准备面试的求职者</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>/plugin marketplace add Hisn00w/ASu-skills</code></pre><button type="button" data-copy aria-label="复制 Hisn00w/ASu-skills 的上手命令">复制</button></div><p>适用于 Claude Code，安装后执行 /plugin install asu-skills@asu 并按提示 reload-plugins</p>  </div><ul class="notes" aria-label="提示"><li>/job-apply 涉及自动化操作已登录浏览器填写招聘网站表单，需留意平台服务条款风险</li><li>/contributor 会代为提交开源 PR，需确保符合目标仓库的贡献规范，避免滥用</li></ul></div>
+
+    </details>
+  </div>
+  <div class="cat-group">
+    <h3>开发者工具与集成<span class="n num">3</span></h3>
+    <details class="row" id="guillaumemeyer/watermarks-remover">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">guillaumemeyer/watermarks-remover</span><span class="flags"><span class="warn-n">⚠ 1 条提示</span></span></span>
+        <span class="right num">★ 22,967<span class="d">+506</span></span>
+        <span class="tl">去除AI生成内容水印与溯源标记的Agent Skill及本地服务</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/guillaumemeyer/watermarks-remover">GitHub ↗</a> · <a href="https://github.com/guillaumemeyer/watermarks-remover">主页 ↗</a>    · Python · MIT · 创建 2026-08-11 · 最后推送 2026-09-26
+  </p>
+<div class="f"><h4>定位</h4><p>面向Claude Code、Cursor、Grok等Agent主机的Skill/插件，配合纯Python本地服务，清除自有文本与文件中的多厂商AI水印和溯源标记。</p></div><div class="f"><h4>能做什么</h4><ul><li>支持Claude、Gemini/SynthID、OpenAI等多厂商水印检测与清除</li><li>覆盖图片、文档、音视频等二十余种文件格式的C2PA/EXIF/XMP元数据清理</li><li>提供PostToolUse钩子，在Agent写文件时自动检测或清理水印</li><li>纯Python标准库实现无需额外依赖，一条命令即可启动本地服务</li><li>支持Claude Code插件市场、Cursor、Grok等多种主机的安装方式</li></ul></div><div class="f"><h4>亮点</h4><ul><li>同时处理不可见Unicode字符、统计型文本水印和文件元数据三类溯源标记</li><li>提供确定性钩子而非仅依赖模型指令，保证Agent写文件时的清理可靠执行</li></ul></div><div class="f"><h4>适合</h4><p>使用AI生成工具创作、需要清理自有内容中溯源标记的开发者、创作者及Agent工具集成者</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>python3 install_skill.py --skill remove-ai-marks --target claude-code</code></pre><button type="button" data-copy aria-label="复制 guillaumemeyer/watermarks-remover 的上手命令">复制</button></div><p>安装Skill后还需运行make serve启动本地HTTP服务，Skill通过HTTP调用该服务完成实际清理</p>  </div><ul class="notes" aria-label="提示"><li>用于去除AI生成内容的溯源与水印标识，可能涉及AI内容标识相关法规合规问题</li></ul></div>
+
+    </details>
+    <details class="row" id="miuuyy/codex-chatgpt-web">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">miuuyy/codex-chatgpt-web</span><span class="flags"><span class="warn-n">⚠ 3 条提示</span></span></span>
+        <span class="right num">★ 12,212<span class="d">+2,166</span></span>
+        <span class="tl">让Codex的模型选择器直接调用你的ChatGPT网页版账号（含Pro），不占用Codex额度</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/miuuyy/codex-chatgpt-web">GitHub ↗</a>    · TypeScript · MIT · 创建 2026-07-26 · 最后推送 2026-09-28
+  </p>
+<div class="f"><h4>定位</h4><p>通过浏览器自动化和MCP，把ChatGPT网页版账号（含Pro）接入Codex原生模型选择器，使用网页版独立的用量额度，同时保留上下文、工具调用、流式与图片能力。</p></div><div class="f"><h4>能做什么</h4><ul><li>浏览器自动化登录ChatGPT网页版，作为Codex原生模型直接使用</li><li>Full harness模式通过MCP和OpenAI tunnel-client把ChatGPT工具调用接回Codex当前任务</li><li>提供仅浏览器自动发送、完整harness带工具、零风险手动粘贴三种模式</li><li>自带浏览器与运行环境，无需单独安装Chrome、Node或Bun</li><li>按账号类型（Free/Go、Plus、Pro）自动识别可用的模型档位</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方称使用ChatGPT网页版独立用量额度，不消耗Codex或Work自身配额</li><li>官方明确说明这是非官方浏览器自动化方案而非OpenAI API，界面变动可能导致功能失效</li></ul></div><div class="f"><h4>适合</h4><p>希望在Codex里用自己ChatGPT Plus/Pro账号能力、且能接受浏览器自动化方案的开发者</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>git clone https://github.com/miuuyy/codex-chatgpt-web.git &amp;&amp; cd codex-chatgpt-web &amp;&amp; bun run app</code></pre><button type="button" data-copy aria-label="复制 miuuyy/codex-chatgpt-web 的上手命令">复制</button></div><p>该路径需要Bun 1.4.0；也可用官方脚本一键安装启动器（提供macOS/Linux/Windows安装命令）</p>  </div><ul class="notes" aria-label="提示"><li>依赖浏览器自动化操作个人ChatGPT账号页面，可能违反OpenAI服务条款并存在封号风险</li><li>安装包尚未做平台签名，安装时macOS Gatekeeper或Windows SmartScreen会发出警告</li><li>浏览器登录状态是敏感凭证，本机同用户进程可访问，需在受信任设备使用</li></ul></div>
+
+    </details>
+    <details class="row" id="trailhq/Graft">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">trailhq/Graft</span></span>
+        <span class="right num">★ 9,320<span class="d">+471</span></span>
+        <span class="tl">给 Claude Code、Cursor 等编码 Agent 装上代码知识图谱，减少重复探索代码库</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/trailhq/Graft">GitHub ↗</a> · <a href="https://trailhq.com/graft">主页 ↗</a>    · TypeScript · MIT · 创建 2026-07-03 · 最后推送 2026-09-28
+  </p>
+<div class="f"><h4>定位</h4><p>Graft 为代码库构建一份可读的 Markdown 知识图谱，写入仓库供各类编码 Agent 直接读取，避免每次任务从零探索代码，从而更省钱、更快、更准确。</p></div><div class="f"><h4>能做什么</h4><ul><li>graft init 自动为 Claude Code 等 Agent 接入统计栏、钩子和 MCP 配置</li><li>两阶段构图：LLM 总结每个文件，再分组成带类型链接的节点</li><li>结构层用 tree-sitter 解析，$0 成本、无需模型密钥，支持23种语言</li><li>每次查询前自动增量刷新图谱，反映未提交的最新代码改动</li><li>graft/ 目录作为本地可再生缓存不提交，团队成员各自 build 生成</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方基准测试：工具调用减少46%，token节省42%，耗时减少60%</li><li>项目方SWE-bench Verified测试：正确率从54%提升到66%（+12分）</li><li>支持OpenAI、Anthropic、OpenRouter等多家模型提供商，可用自有API密钥</li></ul></div><div class="f"><h4>适合</h4><p>使用Claude Code、Cursor、Codex、Gemini等AI编码助手的开发者和团队</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>npm install -g @nanonets/graft &amp;&amp; graft init</code></pre><button type="button" data-copy aria-label="复制 trailhq/Graft 的上手命令">复制</button></div><p>安装后运行graft init选择要接入的编码Agent，自动构建图谱并完成配置</p>  </div></div>
+
+    </details>
+  </div>
+  <div class="cat-group">
+    <h3>其他<span class="n num">1</span></h3>
+    <details class="row" id="bojieli/ai-infra-book">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">bojieli/ai-infra-book</span><span class="flags"><span class="tag new">新上榜</span></span></span>
+        <span class="right num">★ 5,438</span>
+        <span class="tl">从硬件约束与模型架构出发，量化推导 LLM 推理训练系统设计的开源书稿</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/bojieli/ai-infra-book">GitHub ↗</a> · <a href="https://bojieli.github.io/ai-infra-book/">主页 ↗</a>    · Python · Apache-2.0 · 创建 2026-08-22 · 最后推送 2026-09-26
+  </p>
+<div class="f"><h4>定位</h4><p>《深入理解 AI Agent》作者的姊妹篇，用量化估算方法系统讲解 LLM 推理与训练系统设计，覆盖加速器、算子、网络、调度等十二章内容，配套计算工具与实验代码。</p></div><div class="f"><h4>能做什么</h4><ul><li>十二章覆盖模型架构、加速器、算子运行时、数据中心网络、推理与训练系统等主题</li><li>配套 Python 计算工具可复算书中数字，也可替换模型和硬件重新估算</li><li>按章节组织实验代码与运行记录，需 GPU 的实验注明硬件与依赖</li><li>提供简体中文、英文、繁体中文三语 PDF、EPUB 及在线阅读版本</li><li>全书正文为 Markdown，持续开源修订，欢迎勘误与翻译贡献</li></ul></div><div class="f"><h4>亮点</h4><ul><li>姊妹篇《深入理解 AI Agent》在 GitHub 获得 45k+ Star（项目方数据）</li><li>方法论强调&#34;从约束推导设计&#34;：先算硬件理论上限，再对照实测找差距来源</li></ul></div><div class="f"><h4>适合</h4><p>已调用或部署过大模型、想弄清推理训练系统底层原理的应用工程师、系统/网络/芯片工程师及相关研究者</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>git clone https://github.com/bojieli/ai-infra-book.git</code></pre><button type="button" data-copy aria-label="复制 bojieli/ai-infra-book 的上手命令">复制</button></div><p>克隆后可用 calc.py 复算书中算例，静态计算仅需 Python 3.10+ 标准库，无需 GPU 或模型权重</p>  </div></div>
+
+    </details>
+  </div>
+  <div class="cat-group">
+    <h3>安全相关<span class="n num">2</span></h3>
+    <details class="row" id="MDX-Tom/gpt-instruct">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">MDX-Tom/gpt-instruct</span><span class="flags"><span class="warn-n">⚠ 2 条提示</span></span></span>
+        <span class="right num">★ 8,894<span class="d">+285</span></span>
+        <span class="tl">针对 Codex/GPT 的越狱提示词与配套自动化评测工具包</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/MDX-Tom/gpt-instruct">GitHub ↗</a> · <a href="https://mdx-tom.github.io/gpt-instruct/">主页 ↗</a>    · Python · MIT · 创建 2026-07-11 · 最后推送 2026-09-07
+  </p>
+<div class="f"><h4>定位</h4><p>面向 Codex CLI 的破甲提示词项目，维护稳定版与新版两条产品线，配合部署脚本和 A/B/C 三级回归测试门禁验证提示词效果。</p></div><div class="f"><h4>能做什么</h4><ul><li>提供 gpt-5.6-sol-v45 稳定版与 gpt-6-astra-v1 正式版两条提示词产品线</li><li>codex-instruct.py 脚本支持一键部署、预览（--dry-run）和回滚（--reset）</li><li>A/B/C 三级发布门禁，含 66 例 Issue 回归测试与 120 例原始测试样例</li><li>保留历史版本、SHA 校验值和测试证据，强调可复现的评测流程</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方数据：gpt-6-astra-v1 全量 B 测试通过 52/66 cases、60/74 turns</li><li>README 明确声明不用于商业化，定位为提升 AI 安全的研究项目</li></ul></div><div class="f"><h4>适合</h4><p>研究或使用 Codex/GPT 越狱提示词、关注 LLM 安全测试方法论的开发者和安全研究人员</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>git clone https://github.com/MDX-Tom/gpt-instruct.git</code></pre><button type="button" data-copy aria-label="复制 MDX-Tom/gpt-instruct 的上手命令">复制</button></div><p>clone 后运行 codex-instruct.py --apply 部署提示词到 Codex 配置，支持 --dry-run 预览</p>  </div><ul class="notes" aria-label="提示"><li>项目本质为绕过 AI 模型安全限制的越狱（破甲）提示词</li><li>README 明确提示破甲活动存在账号封禁风险，建议使用日抛账号</li></ul></div>
+
+    </details>
+    <details class="row" id="elder-plinius/T3MP3ST">
+      <summary>
+        <span class="caret" aria-hidden="true">▶</span>
+        <span><span class="nm">elder-plinius/T3MP3ST</span><span class="flags"><span class="warn-n">⚠ 2 条提示</span></span></span>
+        <span class="right num">★ 6,267<span class="d">+70</span></span>
+        <span class="tl">多智能体自动化红队框架，把你的AI编程Agent变成渗透测试军火库</span>
+      </summary>
+      <div class="detail">
+  <p class="meta num">
+    <a href="https://github.com/elder-plinius/T3MP3ST">GitHub ↗</a>    · TypeScript · AGPL-3.0 · 创建 2026-07-02 · 最后推送 2026-09-08
+  </p>
+<div class="f"><h4>定位</h4><p>复用本地已在使用的AI编程Agent（Claude Code、Codex等）或离线本地模型作为决策大脑，驱动侦察-利用-报告全流程渗透测试，无需额外API密钥。</p></div><div class="f"><h4>能做什么</h4><ul><li>调用本地已登录的AI编程Agent或Ollama/LM Studio等离线模型作为大脑，无需新密钥</li><li>覆盖Web应用、CTF、源码审计等成熟场景，云、移动、二进制等仍为脚手架阶段</li><li>提供War Room浏览器界面和CLI两种操作方式</li><li>内置verify-claims命令，一键从提交数据复现README中所有基准结果</li><li>支持Docker部署，服务默认仅绑定127.0.0.1本地地址</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方数据：在XBOW官方104题挑战集上pass@1达90.1%，高于XBOW自评的85%</li><li>所有基准数字可通过npm run verify-claims从公开提交的原始数据复现，27项全部通过</li></ul></div><div class="f"><h4>适合</h4><p>已获得授权的安全研究员、渗透测试人员和红队从业者</p></div><div class="f"><h4>上手</h4>
+<div class="cmd"><pre><code>npm install
+npm run server</code></pre><button type="button" data-copy aria-label="复制 elder-plinius/T3MP3ST 的上手命令">复制</button></div><p>启动后访问 http://127.0.0.1:3333/ui/ 打开War Room，在设置中连接本地Agent或配置模型密钥</p>  </div><ul class="notes" aria-label="提示"><li>这是进攻性安全工具，仅限对已获得明确书面授权的目标使用，未授权访问计算机系统在多数司法辖区属违法行为</li><li>使用第三方托管模型（如Novita）时会将目标数据和提示词发送至该服务商，需自行评估隐私和数据安全风险</li></ul></div>
+
+    </details>
+  </div>
 </section>
 
-<section class="block" id="cat-2" data-cat>
-  <h2 class="sec">Agent 平台与基础设施<small>8 个</small></h2>
-  
-  <details class="card" id="yc-software/qm">
-    <summary>
-      <div class="s-title">
-        <h3>yc-software/qm</h3>
-        <span class="s-stars num">★ 15,268</span>
-        
-        <span class="badge up num">+82 本周</span>
-        <span class="badge warn">⚠ 1 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">面向团队的多人协作 Agent 框架，同时支持 Slack 与网页端</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/yc-software/qm">GitHub ↗</a> · <a href="https://x.com/qm__dev">主页 ↗</a>
-        · TypeScript · MIT · 创建 2026-07-29 · 更新 2026-09-28
-      </div>
-      <div class="field"><h4>定位</h4><p>QM 是为创业公司打造的多人 Agent 协作框架，每位员工拥有独立作用域和沙箱，也能在频道、项目中与 Agent 协同工作，底层模型与 harness 可自由切换。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>个人与共享作用域并存，可在 Slack 频道和项目中协同使用 Agent</li><li>支持 Pi、OpenCode、Codex、Claude Code 等多种 harness 和模型切换</li><li>内置定时任务、监控和 webhook，可在无人值守时自动执行后台工作</li><li>可搭建内部 Web 应用并按权限发布给指定成员</li><li>Skills 按作用域共享，支持管理员提升权限及从 Git 仓库导入技能包</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>安全策略分 Strict/Auto/Dangerous 三级，共享策略分 Isolated/Open，可按组织和作用域精细控制</li><li>每个用户和房间拥有独立的持久化沙箱、记忆与权限，核心运行时与企业部署配置分离</li></ul></div>
-      <div class="field"><h4>适合</h4><p>需要为团队搭建协作式 AI Agent 工作环境的创业公司工程与运维团队</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>npm exec --yes --package=@yc-software/qm@latest -- qm init . --org &lt;slug&gt; --target &lt;fly-or-aws&gt;</code></pre><button type="button" data-copy>复制</button></div>
-        <p>需创建自有部署仓库并接入自己的云账号（Fly 或 AWS），非开箱即用的本地工具</p>
-      </div>
-      <ul class="risks"><li>Agent 以用户自身身份和权限执行操作并被审计记录，组织需自行把控权限边界和数据共享范围</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="dataelement/dsh-desktop">
-    <summary>
-      <div class="s-title">
-        <h3>dataelement/dsh-desktop</h3>
-        <span class="s-stars num">★ 10,085</span>
-        
-        <span class="badge up num">+1,994 本周</span>
-        <span class="badge warn">⚠ 2 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">将 DeepSeek Harness 打包成本地优先的跨平台桌面应用</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/dataelement/dsh-desktop">GitHub ↗</a> · <a href="https://dshdesktop.com">主页 ↗</a>
-        · TypeScript · MIT · 创建 2026-08-13 · 更新 2026-09-28
-      </div>
-      <div class="field"><h4>定位</h4><p>DSH Desktop 是 DeepSeek Harness（Agent 运行时 + Web UI）的桌面封装产品，自动启动本地运行环境并打开完整界面，统一管理配置文件、插件、工作区与模型设置。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>自动启动/停止 Harness，无需单独 CLI 或浏览器标签页</li><li>支持导入导出 .dshpreset 便携式 Agent 预设包，带冲突检查与信任提示</li><li>内置 PPT 模式，提供 16 套模板 192 种版式，生成可编辑 PPTX</li><li>安全模式可临时屏蔽第三方插件，识别故障插件并引导恢复</li><li>支持手机通过局域网或临时隧道连接继续会话</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>macOS 版本经 Apple 签名与公证，Windows 版本经代码签名</li><li>渲染进程无 Node.js 权限、启用上下文隔离与沙箱，会话数据存于应用目录之外</li></ul></div>
-      <div class="field"><h4>适合</h4><p>需要在本地运行 DeepSeek Harness、希望获得原生桌面体验、插件管理和跨设备续接会话的开发者与重度用户</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>open -a &#34;DSH Desktop&#34; --args --safe-mode</code></pre><button type="button" data-copy>复制</button></div>
-        <p>需先从官网或 GitHub Releases 下载安装包；该命令用于以安全模式启动以排查插件故障</p>
-      </div>
-      <ul class="risks"><li>当前为早期预览版本，基于快速迭代的 dsh@0.1.5-rc.2，稳定性和插件兼容性有限</li><li>手机远程访问依赖 Cloudflare Quick Tunnel 或 Pinggy 等第三方临时隧道服务</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="unicity-aos/aos-ce">
-    <summary>
-      <div class="s-title">
-        <h3>unicity-aos/aos-ce</h3>
-        <span class="s-stars num">★ 8,462</span>
-        
-        <span class="badge up num">+-1 本周</span>
-        <span class="badge warn">⚠ 1 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">面向智能体的开放操作系统，提供CLI、能力胶囊与运行时管理</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/unicity-aos/aos-ce">GitHub ↗</a>
-        · Rust · Apache-2.0 · 创建 2026-07-12 · 更新 2026-09-22
-      </div>
-      <div class="field"><h4>定位</h4><p>AOS Community Edition 是为智能体设计的可审查、可组合运行环境，提供 aos CLI、HTTP API、官方 capsule 集合及 MCP 接入，供开发者搭建和治理agent系统。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>aos CLI与HTTP API统一管理运行时、发行版与capsule</li><li>内置22个官方生产级capsule作为可组合用户态构建块</li><li>aos mcp serve支持Codex、Claude、Grok等客户端接入</li><li>Forge工具辅助智能体检查系统、发现缺口并构建最小权限capsule</li><li>发布物附带校验和、Sigstore签名与构建溯源证明</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>项目方称安装全部22个capsule约需2分钟等待（受限流批次影响），为自报数据</li><li>支持stable、dev、nightly等多签名发布渠道，元数据未签名时安装会失败关闭</li></ul></div>
-      <div class="field"><h4>适合</h4><p>需要为Codex、Claude、Grok等智能体提供可控本地运行环境、权限管理与可组合能力扩展的开发者</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>curl --proto &#39;=https&#39; --tlsv1.2 -fsSL https://aos.unicity.ai/install.sh | sh</code></pre><button type="button" data-copy>复制</button></div>
-        <p>安装后执行aos init完成初始化，可加--offline离线使用本地已打包的capsule资源。</p>
-      </div>
-      <ul class="risks"><li>fork/star 比例异常（22/8462），热度可能有水分</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="deeplethe/utopia">
-    <summary>
-      <div class="s-title">
-        <h3>deeplethe/utopia</h3>
-        <span class="s-stars num">★ 7,903</span>
-        
-        <span class="badge up num">+-1,592 本周</span>
-        <span class="badge warn">⚠ 2 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">开源企业级世界模型，双时态知识图谱驱动的知识治理与决策系统</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/deeplethe/utopia">GitHub ↗</a>
-        · Rust · Apache-2.0 · 创建 2026-08-07 · 更新 2026-09-28
-      </div>
-      <div class="field"><h4>定位</h4><p>DeepLethe打造的开源企业知识引擎，将时间感知与本体内置于底层，知识随材料自动演化，冲突检测、推理与决策均基于本体运行，可离线部署构建可信决策核心与合规审计链。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>支持PDF/DOCX等多格式文档及网页、GitHub、Jira、Notion等数据源定时同步</li><li>全文检索(Tantivy)与向量检索(pgvector)融合，答案流式输出并附来源引用</li><li>内置Agent可搜索文档、遍历图谱、查询数据库，并通过MCP接入Claude Desktop等客户端</li><li>双时态知识图谱：修正事实不覆盖旧版本，保留世界真实状态与系统认知两条时间线</li><li>本体驱动的冲突检测与推理，实体合并可撤销，决策过程留痕形成审计日志</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>单个Rust二进制加PostgreSQL即可运行，无需额外中间件，支持全离线部署</li><li>自研Ontology2SQL方法在BIRD Mini-Dev文本转SQL基准上表现领先（项目方数据）</li></ul></div>
-      <div class="field"><h4>适合</h4><p>需要自建可信知识库、决策审计追踪的企业技术团队，以及关注知识图谱、GraphRAG与Agent记忆系统的开发者</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>docker compose --profile app up -d</code></pre><button type="button" data-copy>复制</button></div>
-        <p>先clone仓库并准备Docker环境，启动后访问 http://localhost:1516 注册即成为管理员</p>
-      </div>
-      <ul class="risks"><li>项目仍处于v0.1早期阶段，数据库schema随版本演进且迁移不可回滚，升级需谨慎备份</li><li>官方提示暴露到公网前需先阅读SECURITY.md，存在安全配置风险</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="Human-Agent-Society/reef">
-    <summary>
-      <div class="s-title">
-        <h3>Human-Agent-Society/reef</h3>
-        <span class="s-stars num">★ 6,638</span>
-        <span class="badge new">新上榜</span>
-        
-        <span class="badge warn">⚠ 1 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">开源的智能体持续自我进化基础设施，连接推理、反馈、训练与版本发布</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/Human-Agent-Society/reef">GitHub ↗</a> · <a href="https://reefinfra.ai">主页 ↗</a>
-        · Python · Apache-2.0 · 创建 2026-08-31 · 更新 2026-09-28
-      </div>
-      <div class="field"><h4>定位</h4><p>Reef 是首个开源的持续自我进化智能体基础设施，把推理服务、反馈收集、训练学习、版本发布整合成闭环，支持训练模型权重或优化智能体harness两种进化路径。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>四步闭环：提供推理服务、匹配用户反馈、生成候选更新、评估后发布新版本</li><li>支持用Slime、SGLang训练模型权重，或优化harness的提示词、规则与技能</li><li>推理接口兼容OpenAI与Anthropic格式，可直接接入/v1/chat/completions</li><li>内置Reefine等多种recipe，覆盖科学发现、连续任务学习、真实使用反馈等场景</li><li>更新期间保持服务在线，具备版本历史管理与回滚能力</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>项目方数据：在AIME2025、Terminal-Bench、IMOAnswerBench等基准上验证了多个recipe的改进效果</li><li>宣称是唯一兼具在线推理、权重训练、版本管理与harness进化四种能力的开源框架</li></ul></div>
-      <div class="field"><h4>适合</h4><p>需要让智能体从真实交互中持续学习的AI工程师，以及需要做RL训练或优化coding agent harness的团队</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>uv pip install reef-infra</code></pre><button type="button" data-copy>复制</button></div>
-        <p>需先用uv创建并激活虚拟环境；权重训练需配套GPU栈，harness进化只需一个模型API即可体验</p>
-      </div>
-      <ul class="risks"><li>harness自我进化功能会让模型以coding agent身份自动修改并执行代码变更，需在沙箱或可信环境中运行</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="truefoundry/trueforge">
-    <summary>
-      <div class="s-title">
-        <h3>truefoundry/trueforge</h3>
-        <span class="s-stars num">★ 5,989</span>
-        
-        <span class="badge up num">+128 本周</span>
-        <span class="badge warn">⚠ 1 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">开源的 Agent 运行时，把 LLM 变成可用的智能体</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/truefoundry/trueforge">GitHub ↗</a> · <a href="https://trueforge.dev">主页 ↗</a>
-        · TypeScript · MIT · 创建 2026-07-23 · 更新 2026-09-28
-      </div>
-      <div class="field"><h4>定位</h4><p>TrueForge 承担 Agent 执行循环——模型调用、工具、沙箱、审批、上下文管理，并通过聊天界面、HTTP API/SDK、可嵌入 UI 三种方式对外提供，省去自建运行时的重复劳动。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>支持 OpenAI、Anthropic、Gemini 等多模型及任意 OpenAI 兼容接口</li><li>可接入远程 MCP 工具，支持 Header 认证和 OAuth</li><li>支持 SKILL.md 技能包，按需在沙箱中加载</li><li>沙箱作为工具按需提供隔离代码/文件执行环境，密钥留在运行时内</li><li>内置工具审批、追问用户、生成式 UI 等人工检查点</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>项目方数据：在相同任务和模型下，成本低于 Claude Managed Agents 和 deepagents，精度相当</li></ul></div>
-      <div class="field"><h4>适合</h4><p>需要快速搭建生产级 Agent 运行时的开发者和团队，尤其是已用 MCP/多模型但缺少统一执行框架的场景</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>npx @truefoundry/trueforge@latest</code></pre><button type="button" data-copy>复制</button></div>
-        <p>本地模式单进程+SQLite适合个人试用；团队或生产建议用 Docker Compose、Helm 或 Railway 的托管模式</p>
-      </div>
-      <ul class="risks"><li>本地模式默认无登录且数据存于本地 SQLite 文件，官方提示仅限本机使用，不适合暴露到公网</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="CopilotKit/OpenBot">
-    <summary>
-      <div class="s-title">
-        <h3>CopilotKit/OpenBot</h3>
-        <span class="s-stars num">★ 5,656</span>
-        
-        <span class="badge up num">+420 本周</span>
-        <span class="badge warn">⚠ 2 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">自托管AI协作者平台，每个Agent配专属浏览器、文件和操作审批网关</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/CopilotKit/OpenBot">GitHub ↗</a> · <a href="https://www.copilotkit.ai/openbot">主页 ↗</a>
-        · TypeScript · MIT · 创建 2026-08-17 · 更新 2026-09-27
-      </div>
-      <div class="field"><h4>定位</h4><p>OpenBot是可部署在自有基础设施上的开源Agent平台模板，通过AG-UI协议接入任意Agent框架，每个Bot拥有独立电脑（浏览器、文件、工具），所有操作经统一网关审批并留痕。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>每个Bot拥有独立容器、workspace卷和浏览器profile，可选gVisor沙箱隔离</li><li>统一网关先鉴权记录再执行，CEL策略引擎默认拒绝未授权操作</li><li>支持Google Drive、Notion等MCP服务器，工具按Bot逐一授权</li><li>Bot遇登录墙或2FA时可移交人工接管，全程操作可审计追溯</li><li>内置13个示例协作者（费用审核、会议纪要、发布说明等），配置化定义</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>基于AG-UI协议，可接入LangGraph、CrewAI、Mastra、Pydantic AI等任意Agent框架</li><li>Docker Compose一键部署，数据存于自有PostgreSQL，不绑定任何模型厂商</li><li>官方明确定位为&#34;模板而非产品&#34;，需克隆源码后自行定制部署，无托管版本</li></ul></div>
-      <div class="field"><h4>适合</h4><p>需要在自有基础设施上部署可控AI协作者的企业技术团队，尤其关注操作审计、权限治理和多Agent框架接入的场景</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>docker run -p 3001:3001 --env-file .env -e EMBEDDED_POSTGRES=on -v openbot-data:/var/lib/postgresql ghcr.io/copilotkit/openbot:latest</code></pre><button type="button" data-copy>复制</button></div>
-        <p>需先获取CopilotKit Intelligence项目密钥和模型API Key并写入.env，再执行bun install和启动脚本</p>
-      </div>
-      <ul class="risks"><li>Bot使用独立浏览器登录第三方网站执行自动化操作，可能违反目标站点的服务条款</li><li>处于Alpha早期开发阶段，官方提示存在较多不稳定问题</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="TencentCloud/Octop">
-    <summary>
-      <div class="s-title">
-        <h3>TencentCloud/Octop</h3>
-        <span class="s-stars num">★ 5,358</span>
-        <span class="badge new">新上榜</span>
-        
-        
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">腾讯云出品的自托管多用户多智能体 AI 助手</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/TencentCloud/Octop">GitHub ↗</a> · <a href="https://octop.cloud">主页 ↗</a>
-        · Python · MIT · 创建 2026-07-08 · 更新 2026-09-28
-      </div>
-      <div class="field"><h4>定位</h4><p>面向家庭和小团队的自托管 AI 助手平台，单进程运行 Web 控制台、CLI、IM 渠道和定时任务，数据全部留在本地。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>多用户专家团队，管理员统一分配，内置专家库和专家市场</li><li>支持飞书、钉钉、QQ、微信、Telegram、Discord、企业微信等 IM 渠道接入</li><li>可插拔工作区后端：本地磁盘、Docker 沙盒、PostgreSQL 或 COS/S3</li><li>ACP 双向集成，可调用或被 OpenCode、Claude Code 等外部编码 Agent 调用</li><li>内置浏览器自动化、远程桌面、终端 AI 及 RAG 知识库</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>单进程架构整合 Web、CLI、IM、定时任务，重启后从控制面数据库完整恢复状态</li><li>记忆随工作区迁移，配合专家共享池和 MBTI 人格模板打造差异化 Agent</li></ul></div>
-      <div class="field"><h4>适合</h4><p>希望自建私有 AI 助手的开发者、注重数据隐私的家庭用户及需要跨 IM 协同的小团队</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>curl -fsSL https://finnie-1258344699.cos.ap-guangzhou.myqcloud.com/octop/install.sh | bash</code></pre><button type="button" data-copy>复制</button></div>
-        <p>安装脚本自动用 uv 配置 Python 3.12 虚拟环境，也提供桌面客户端安装包和 FnOS NAS 版本。</p>
-      </div>
-      
-    </div>
-  </details>
-  
+<section class="blk" id="issues" aria-labelledby="h-issues">
+  <div class="blk-head"><h2 id="h-issues">往期</h2></div>
+  <ol class="issues num">
+    <li><a href="../archive/2026-10-12.html">第 4 期</a>        <span>2026 年 10 月 12 日</span><span class="aside">34 个项目</span></li>
+    <li><a href="../archive/2026-10-05.html">第 3 期</a>        <span>2026 年 10 月 5 日</span><span class="aside">33 个项目</span></li>
+    <li class="tmp"><a href="../archive/2026-09-30.html">临时更新</a>        <span>2026 年 9 月 30 日</span><span class="aside">33 个项目</span></li>
+    <li><span class="cur" aria-current="page">第 2 期</span><span class="aside">本页</span>        <span>2026 年 9 月 28 日</span><span class="aside">33 个项目</span></li>
+    <li><a href="../archive/2026-09-21.html">第 1 期</a>        <span>2026 年 9 月 21 日</span><span class="aside">26 个项目</span></li>
+    <li class="tmp"><a href="../archive/2026-09-19.html">临时更新</a>        <span>2026 年 9 月 19 日</span><span class="aside">27 个项目</span></li>
+  </ol>
 </section>
-
-<section class="block" id="cat-3" data-cat>
-  <h2 class="sec">AI 应用产品<small>4 个</small></h2>
-  
-  <details class="card" id="trycompai/crm">
-    <summary>
-      <div class="s-title">
-        <h3>trycompai/crm</h3>
-        <span class="s-stars num">★ 10,931</span>
-        
-        <span class="badge up num">+252 本周</span>
-        <span class="badge warn">⚠ 1 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">开源CRM，AI Agent是核心而非附加聊天框</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/trycompai/crm">GitHub ↗</a> · <a href="https://trycrm.ai">主页 ↗</a>
-        · TypeScript · MIT · 创建 2026-07-31 · 更新 2026-09-11
-      </div>
-      <div class="field"><h4>定位</h4><p>Comp AI CRM 把自主研究型Agent作为CRM的运行主体，Agent独立部署、自定调度、调研客户信息并按证据强弱决定是否落库，而不是给传统CRM表单加个聊天框。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>Agent独立部署运行，拥有自己的任务队列、调度计划和研究预算</li><li>18个内置工具加4个技能文件，按证据强度分级录入，杜绝置信度打分</li><li>沙箱支持bash/grep/glob执行，默认deny-all出站，且不挂载数据库凭证</li><li>无需任何外部API Key即可运行，靠已有邮件与会议记录做基础调研</li><li>每个联系人/公司/交易都有Agent标签页，可查看执行步骤和决策理由</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>设计理念强调工具只报告观测事实、拒绝AI自评置信度，弱证据仅生成待人工确认的建议</li><li>沙箱环境无网络无数据库访问权限，从架构上防止客户数据经由Shell命令泄露</li></ul></div>
-      <div class="field"><h4>适合</h4><p>需要AI自动调研、维护和补全客户资料的销售/CRM团队，以及关注Agent系统架构设计的开发者</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>git clone https://github.com/trycompai/crm.git &amp;&amp; cd crm</code></pre><button type="button" data-copy>复制</button></div>
-        <p>需先装好Bun和Docker，配置.env后依次执行bun install、docker compose up -d、数据库迁移与bun run dev</p>
-      </div>
-      <ul class="risks"><li>需接入Google/Microsoft账号授权读取Gmail、日历及LinkedIn数据，涉及第三方账号权限和隐私合规问题</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="genspark-ai/genoffice">
-    <summary>
-      <div class="s-title">
-        <h3>genspark-ai/genoffice</h3>
-        <span class="s-stars num">★ 8,017</span>
-        
-        <span class="badge up num">+652 本周</span>
-        
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">开源 AI 办公套件，本地编辑真正的 Word/Excel/PPT/PDF 文件</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/genspark-ai/genoffice">GitHub ↗</a> · <a href="https://genoffice.ai/">主页 ↗</a>
-        · TypeScript · Apache-2.0 · 创建 2026-07-31 · 更新 2026-09-28
-      </div>
-      <div class="field"><h4>定位</h4><p>GenOffice 是免费开源的 Office 替代品，内置 AI 编辑器直接读写 .docx/.xlsx/.pptx，并提供 CLI 与 Agent 技能，让 Claude Code、Codex、Cursor 等在本地创建和修改真实办公文件。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>支持 docx/xlsx/pptx/PDF/Markdown/HTML 编辑，未修改部分逐字节保留原文件</li><li>AI 编辑以追踪修改和差异呈现，可一键回滚，表格生成活公式而非纯数字</li><li>文件全部在本地打开、编辑、保存和转换，PDF 转 Word/Excel/PPT 也在设备端完成</li><li>可自带 API Key，支持 Claude、OpenAI、Gemini、DeepSeek 等十余家模型及本地服务</li><li>附带 genoffice CLI、Agent 技能和 MCP 服务器，支持编码 Agent 直接操作文件</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>7190 星，Apache-2.0 协议，支持 macOS、Windows、Linux 三平台原生应用</li><li>MCP 服务器提供 29 个工具，可让 Claude Desktop 等客户端直接构建 Word 文档</li></ul></div>
-      <div class="field"><h4>适合</h4><p>需要用真实办公文件格式做 AI 协作的个人和团队，以及希望编码 Agent 生成正式文档的开发者</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>npx skills add genspark-ai/genoffice</code></pre><button type="button" data-copy>复制</button></div>
-        <p>安装 GenOffice 应用后即含 genoffice CLI，也可通过该命令为 Claude Code、Cursor 等安装 Agent 技能</p>
-      </div>
-      
-    </div>
-  </details>
-  
-  <details class="card" id="jev-chat/jev-chat-jarvis">
-    <summary>
-      <div class="s-title">
-        <h3>jev-chat/jev-chat-jarvis</h3>
-        <span class="s-stars num">★ 6,810</span>
-        <span class="badge new">新上榜</span>
-        
-        <span class="badge warn">⚠ 2 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">装在手机上的AI对话副驾：读懂聊天、给出候选回复，发不发由你决定</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/jev-chat/jev-chat-jarvis">GitHub ↗</a>
-        · Kotlin · MIT · 创建 2026-09-21 · 更新 2026-09-28
-      </div>
-      <div class="field"><h4>定位</h4><p>Android无障碍服务读取QQ/X/飞书聊天界面，交给大模型判断意图并生成候选回复，一键填入输入框，发送与否由用户自己决定。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>判断模型先分析对方意图、危险等级、是否该马上回，再起草3条候选回复</li><li>无障碍服务只读屏幕内容，不hook、不改包、不碰App账号或数据库</li><li>本地知识库与联系人档案，分析时自动带入命中的笔记和历史背景</li><li>判断/回复/视觉三路接口可分别配置，支持OpenRouter等多家模型预设</li><li>回复仅通过ACTION_SET_TEXT填入输入框，从不自动发送，不碰转账红包</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>项目方称QQ、X真机全链路跑通，飞书靠离线OCR兜底；微信Android版已下架故不支持</li><li>密钥、知识库与截图OCR均在本机完成不上传，但触发分析时聊天内容会发给用户自配的模型服务商</li></ul></div>
-      <div class="field"><h4>适合</h4><p>使用QQ、X、飞书聊天，希望AI辅助分析对方意图并起草回复、但仍要自己决定是否发送的Android用户</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>adb install -r apk/jev-assistant-v1.4-release.apk</code></pre><button type="button" data-copy>复制</button></div>
-        <p>安装后需在设置中填入判断接口API Key（如OpenRouter），并开启无障碍、悬浮窗、自启动权限</p>
-      </div>
-      <ul class="risks"><li>触发分析时聊天文字及启用的背景信息会发送给用户自行配置的第三方模型服务商，存在隐私数据外传</li><li>通过无障碍服务读取聊天App界面内容并辅助生成回复，可能涉及相关平台服务条款合规问题</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="aipoch/open-science">
-    <summary>
-      <div class="s-title">
-        <h3>aipoch/open-science</h3>
-        <span class="s-stars num">★ 5,159</span>
-        <span class="badge new">新上榜</span>
-        
-        
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">本地优先、模型无关的开源 AI 科研工作台桌面应用</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/aipoch/open-science">GitHub ↗</a> · <a href="https://aipoch.com/open-science">主页 ↗</a>
-        · TypeScript · Apache-2.0 · 创建 2026-07-03 · 更新 2026-09-28
-      </div>
-      <div class="field"><h4>定位</h4><p>面向科研人员的桌面级研究工作台，用自然语言描述研究目标，由 AI 智能体调用工具、执行代码、查询科研数据，产出可追溯证据链的报告与图表。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>内置23个科学技能，另有525个技能可从市场一键安装</li><li>24个内置连接器，支持自定义本地/远程MCP连接器</li><li>本地运行Python/R Notebook，支持SSH远程与Slurm提交</li><li>产物版本不可变并附带溯源信息，可查看生成代码与执行证据</li><li>可选Reviewer自动复核代理执行结果，给出通过/警告/失败判定</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>项目方数据：在BiomniBench-DA Public 50对比中以79.05分排名第一</li><li>文献库支持PDF管理、开放获取全文查找及图表提取</li></ul></div>
-      <div class="field"><h4>适合</h4><p>从事计算与数据密集型研究的科学家和研究者，涵盖生命科学、化学、材料、物理、环境科学等领域</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>brew install --cask open-science</code></pre><button type="button" data-copy>复制</button></div>
-        <p>macOS可用Homebrew安装，其余平台从官网下载对应安装包，完成设置向导后即可创建项目开始研究</p>
-      </div>
-      
-    </div>
-  </details>
-  
-</section>
-
-<section class="block" id="cat-4" data-cat>
-  <h2 class="sec">本地推理与模型<small>2 个</small></h2>
-  
-  <details class="card" id="FareedKhan-dev/kimi-k3-in-c">
-    <summary>
-      <div class="s-title">
-        <h3>FareedKhan-dev/kimi-k3-in-c</h3>
-        <span class="s-stars num">★ 8,727</span>
-        
-        <span class="badge up num">+608 本周</span>
-        
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">用纯C99在单CPU、8GB内存上运行2.78万亿参数Kimi K3模型的推理引擎</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/FareedKhan-dev/kimi-k3-in-c">GitHub ↗</a> · <a href="https://medium.com/@fareedkhandev/building-kimi-k3-in-c-to-run-a-2-8t-model-on-consumer-hardware-a5792cbf3b59">主页 ↗</a>
-        · C · Apache-2.0 · 创建 2026-08-01 · 更新 2026-09-22
-      </div>
-      <div class="field"><h4>定位</h4><p>面向超大规模MoE模型的CPU推理引擎，通过流式加载1.45TB专家权重、LRU缓存和4bit量化，把1.56TB检查点压缩到8GB内存运行，不同内存预算下输出字节级一致。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>无BLAS无框架无GPU依赖，纯C99代码可跨Linux/macOS/Windows移植</li><li>密集主干层可流式读取，1.45TB路由专家权重不常驻内存按需读取</li><li>LRU缓存管理专家权重，配合4bit量化(MXFP4)和AVX2 SIMD内核</li><li>提供laptop到server等多档内存预设，8GB到224GB均可运行</li><li>内置测试套件，用PyTorch参考结果逐层验证推理正确性</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>项目方数据：8GB内存下生成约32.69秒/token，127GB内存下约10.69秒/token</li><li>不同内存预算（8GB~224GB）下生成结果字节级完全一致，仅速度不同</li><li>完整检查点1.56TB，通过流式读取与打包主干把内存下限降到8GB</li></ul></div>
-      <div class="field"><h4>适合</h4><p>对底层推理引擎实现、CPU上运行超大MoE模型、系统编程感兴趣的工程师和研究者</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>git clone https://github.com/FareedKhan-dev/kimi-k3-in-c.git &amp;&amp; cd kimi-k3-in-c &amp;&amp; make -j &amp;&amp; make test</code></pre><button type="button" data-copy>复制</button></div>
-        <p>该命令只构建并验证引擎，无需下载模型；实际生成文本需另外下载1.56TB检查点并打包主干层。</p>
-      </div>
-      
-    </div>
-  </details>
-  
-  <details class="card" id="drumih/turbo-fieldfare">
-    <summary>
-      <div class="s-title">
-        <h3>drumih/turbo-fieldfare</h3>
-        <span class="s-stars num">★ 6,834</span>
-        
-        <span class="badge up num">+45 本周</span>
-        
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">用Swift+Metal专为Gemma 4 26B打造的运行时，8GB内存Mac也能跑26B大模型</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/drumih/turbo-fieldfare">GitHub ↗</a>
-        · Swift · Apache-2.0 · 创建 2026-07-17 · 更新 2026-09-27
-      </div>
-      <div class="field"><h4>定位</h4><p>面向Apple Silicon Mac的模型专用推理引擎，通过流式加载专家权重把26B参数模型的内存占用压到约2GB，而非通用的MLX/llama.cpp包装器。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>仅保留1.35GB共享核心与KV缓存常驻内存，按需从SSD流式加载专家权重</li><li>提供原生Mac App、命令行CLI和本地OpenAI兼容Server三种使用方式</li><li>支持视觉理解，需额外安装约1.1GB的图像模型包(M2及以上)</li><li>CLI和Server支持多轮对话、函数调用声明及采样参数自定义</li><li>内置流式安装器，边下载边重打包为.gturbo格式，避免占用双份磁盘空间</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>项目方数据：8GB M2 MacBook Air上解码速度5.1-6.3 tok/s，24GB M5 Pro上可达31-35 tok/s</li><li>模型专用运行时而非通用推理框架包装器，针对Gemma 4 26B-A4B做了103项内核/缓存/IO优化实验</li></ul></div>
-      <div class="field"><h4>适合</h4><p>拥有Apple Silicon Mac(尤其8GB内存机型)、想在本地运行大模型又不想升级硬件的开发者和爱好者</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>git clone https://github.com/drumih/turbo-fieldfare.git &amp;&amp; cd turbo-fieldfare &amp;&amp; swift build -c release &amp;&amp; .build/release/TurboFieldfareMac</code></pre><button type="button" data-copy>复制</button></div>
-        <p>首次运行需下载约15GB模型文件；仅支持macOS 26+Metal 4+Xcode 26的arm64 Apple Silicon Mac。</p>
-      </div>
-      
-    </div>
-  </details>
-  
-</section>
-
-<section class="block" id="cat-5" data-cat>
-  <h2 class="sec">Skills 与写作/设计<small>7 个</small></h2>
-  
-  <details class="card" id="hypit-ai/hypit">
-    <summary>
-      <div class="s-title">
-        <h3>hypit-ai/hypit</h3>
-        <span class="s-stars num">★ 16,889</span>
-        
-        <span class="badge up num">+4,816 本周</span>
-        <span class="badge warn">⚠ 3 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">让 AI 智能体一键克隆爆款视频，批量产出可复用的完整制作工作流</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/hypit-ai/hypit">GitHub ↗</a> · <a href="https://hypit.ai">主页 ↗</a>
-        · TypeScript · NOASSERTION · 创建 2026-07-29 · 更新 2026-09-26
-      </div>
-      <div class="field"><h4>定位</h4><p>Hypit 为 Claude Code、Codex 等编码智能体提供一套视频创作语言与系统，把参考视频克隆成可编辑、可重复运行的完整工作流，而非一次性成片。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>克隆任意参考视频为完整工作流：镜头、字幕、B-roll、特效一并生成</li><li>以词而非秒为时间锚点，修改文案后时间轴自动重排</li><li>组件可插拔，可替换主播、字幕样式或自写自定义组件</li><li>支持代码渲染视频，无需调用生成模型即可完成合成</li><li>单次编排可衍生上百条变体，适配广告投放和多语言本地化</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>开源免费，无席位费、渲染费或水印，仅模型服务按用量单独计费（项目方数据）</li><li>自研 SVML 标记语言与编译器，把视频描述编译为可重跑的完整合成工程</li></ul></div>
-      <div class="field"><h4>适合</h4><p>需要批量制作短视频广告、UGC、社媒克隆视频的营销团队，以及使用 Claude Code、Codex 等编码智能体的开发者</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>npx skills add hypit-ai/hypit -g</code></pre><button type="button" data-copy>复制</button></div>
-        <p>安装为 Agent Skill 后在项目目录用 /hypit 指令让智能体克隆或新建视频，首次使用会自动检查并准备可执行程序</p>
-      </div>
-      <ul class="risks"><li>采用自定义的 Hypit Open Source License，非标准开源协议，使用前需自行确认条款</li><li>克隆他人短视频或广告素材制作衍生内容可能涉及版权或平台服务条款风险</li><li>许可证未声明或非标准，商用前请确认授权</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="petergyang/no-ai-slop">
-    <summary>
-      <div class="s-title">
-        <h3>petergyang/no-ai-slop</h3>
-        <span class="s-stars num">★ 11,451</span>
-        
-        <span class="badge up num">+584 本周</span>
-        
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">一个 Claude/ChatGPT/Codex 技能，专门清除文字中 20 多种&#34;AI 腔&#34;套路</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/petergyang/no-ai-slop">GitHub ↗</a> · <a href="https://creatoreconomy.so/p/use-my-no-ai-slop-skill-to-remove-20-ai-slop-patterns">主页 ↗</a>
-        · Python · MIT · 创建 2026-07-07 · 更新 2026-09-02
-      </div>
-      <div class="field"><h4>定位</h4><p>面向用 AI 辅助写作或编辑的用户，识别并去除&#34;这不是X，而是Y&#34;等 AI 套话模式，同时保留个人写作风格，可作为编辑器或检测器使用。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>检测并清除二元对比、故作深刻等20多种AI套话模式</li><li>支持纯编辑模式和仅检测不猜测模式</li><li>保留原作者的词汇、语感和幽默风格</li><li>可反向生成讽刺性AI套话文案娱乐用</li><li>提供ChatGPT插件和Codex/Claude Code技能两种接入方式</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>GitHub星标超1万，上线两个月内迅速走红</li></ul></div>
-      <div class="field"><h4>适合</h4><p>用AI辅助写作、编辑文章或社交媒体内容，希望去除机械AI腔调、保留个人风格的写作者和内容创作者</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>npx skills add petergyang/no-ai-slop --skill no-ai-slop --global --yes</code></pre><button type="button" data-copy>复制</button></div>
-        <p>安装后在Claude Code等工具中用 /no-ai-slop 加待编辑文字调用即可</p>
-      </div>
-      
-    </div>
-  </details>
-  
-  <details class="card" id="Vincentwei1021/video-shotcraft">
-    <summary>
-      <div class="s-title">
-        <h3>Vincentwei1021/video-shotcraft</h3>
-        <span class="s-stars num">★ 9,745</span>
-        
-        <span class="badge up num">+621 本周</span>
-        <span class="badge warn">⚠ 3 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">让 Claude Code / Codex 用 Remotion 自动产出电影感产品宣传视频的 Agent Skill</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/Vincentwei1021/video-shotcraft">GitHub ↗</a> · <a href="https://vincentwei1021.github.io/video-shotcraft/">主页 ↗</a>
-        · TypeScript · Apache-2.0 · 创建 2026-07-19 · 更新 2026-09-27
-      </div>
-      <div class="field"><h4>定位</h4><p>面向 Claude Code / Codex 的 Agent Skill，将模型变成动效设计工作室，用 Remotion 自动分镜、动画和音效设计出电影感产品宣传片</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>157 张分镜配方卡，含用途、时长、参数与实现要点</li><li>214 种运镜风格与动效预览，可在在线 Gallery 搜索筛选</li><li>内置 Ink Press 完整视频模板，36.2 秒 1920×1080 30fps</li><li>交付后可用浏览器 Motion Workbench 继续剪辑并用 Remotion 导出</li><li>支持导出为剪映（JianYing CN）工程，可二次编辑字幕与音轨</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>提供 157 张结构化分镜配方卡和对应 Remotion 组件实现，而非单纯的提示词模板</li><li>内置真实产品截图 2.5D 运镜、卡点音效和 149 条分类 SFX 素材</li></ul></div>
-      <div class="field"><h4>适合</h4><p>使用 Claude Code / Codex 制作产品宣传视频的开发者、独立开发者和营销/设计人员</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>npx skills add Vincentwei1021/video-shotcraft</code></pre><button type="button" data-copy>复制</button></div>
-        <p>也可直接把仓库链接发给 Agent 让其自动安装，或 clone 后软链到 ~/.claude/skills 目录</p>
-      </div>
-      <ul class="risks"><li>Remotion 本身有独立许可证，个人和小团队免费，公司使用可能需付费授权</li><li>模板中的产品截图为演示素材，发布前需自行替换并核查是否含需匿名化的数据</li><li>音频素材来自 Mixkit 等来源，需遵守各自许可条款</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="jakubkrehel/skills">
-    <summary>
-      <div class="s-title">
-        <h3>jakubkrehel/skills</h3>
-        <span class="s-stars num">★ 7,277</span>
-        
-        <span class="badge up num">+329 本周</span>
-        
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">一套面向 AI Agent 的界面设计技能集，帮助打造更好的 UI</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/jakubkrehel/skills">GitHub ↗</a> · <a href="https://jakub.kr/skills">主页 ↗</a>
-        · Markdown · MIT · 创建 2026-07-10 · 更新 2026-08-29
-      </div>
-      <div class="field"><h4>定位</h4><p>为 Claude 等 Agent 提供可插拔的设计技能包，覆盖 UI、排版、色彩、无障碍、布局与文案，让 Agent 按专业标准审查和改进界面。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>better-ui 涵盖圆角、光学对齐、图标、点击区域、动画等界面细节</li><li>better-typography 处理字号、间距、可变字体、断行截断等排版问题</li><li>better-colors 生成调色板、语义化 token 并检查对比度</li><li>better-accessibility 帮助项目符合无障碍标准</li><li>interface-review、break、variant 支持界面审查与多方案迭代</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>作者将个人设计工程博客 Interfaces 的内容整理成可复用技能</li><li>可作为 Claude Code 插件直接安装使用</li></ul></div>
-      <div class="field"><h4>适合</h4><p>使用 Claude 等 Agent 工具进行前端/UI 开发的设计工程师和开发者</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>npx skills add jakubkrehel/skills</code></pre><button type="button" data-copy>复制</button></div>
-        <p>也可作为 Claude Code 插件安装：/plugin marketplace add jakubkrehel/skills</p>
-      </div>
-      
-    </div>
-  </details>
-  
-  <details class="card" id="larashero3-dotcom/lieflat-charts">
-    <summary>
-      <div class="s-title">
-        <h3>larashero3-dotcom/lieflat-charts</h3>
-        <span class="s-stars num">★ 5,749</span>
-        
-        <span class="badge up num">+155 本周</span>
-        <span class="badge warn">⚠ 3 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">面向 AI Agent 的数据可视化 Skill，一键把数据变成精致可交互的 HTML 图表</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/larashero3-dotcom/lieflat-charts">GitHub ↗</a>
-        · HTML · NOASSERTION · 创建 2026-07-16 · 更新 2026-09-05
-      </div>
-      <div class="field"><h4>定位</h4><p>面向 AI Agent 的数据可视化 Skill，遵循 Agent Skills 格式，让 Claude Code、Codex 等 Agent 把数据自动生成为有编辑设计感的可交互 HTML 图表或整页报告。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>49 种图型：Lupi 编辑叙事型、Glance 快速判断型、Basics 基础型三套视觉体系</li><li>提供 12 套中英双语整页报告模板，覆盖年报、周报、dashboard 等场景</li><li>内置 Mono 及青瓷蓝、椰林绿、编辑部红三种彩色预设，Agent 可自动选色</li><li>支持网络图、路径图等独立交互大图，基于 SVG/Chart.js/ECharts 实现</li><li>遵循 Agent Skills 格式，可安装到 moxt、Claude Code、Codex 等兼容 SKILL.md 的工具</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>GitHub 5500+ star，专注把数据转成有编辑设计感的 HTML 图表而非通用图表库</li><li>设计规则围绕数据契约展开：先判断数据结构再选图型，而非先选模板</li></ul></div>
-      <div class="field"><h4>适合</h4><p>需要用 AI Agent 快速生成图表和报告的内容创作者、分析师及 Claude Code/Codex 用户</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>npx skills add https://github.com/larashero3-dotcom/lieflat-charts --skill lieflat-charts</code></pre><button type="button" data-copy>复制</button></div>
-        <p>安装后直接对 Agent 描述数据和用途即可生成图表；推荐在 moxt.ai 中使用以获得完整工作区体验。</p>
-      </div>
-      <ul class="risks"><li>采用 PolyForm Noncommercial License，仅限学习和非商业使用，商业使用需另行取得许可</li><li>部分图表模板通过 CDN 加载 Chart.js/ECharts，离线环境无法完整显示</li><li>许可证未声明或非标准，商用前请确认授权</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="s1dashu/ip-as-logo-skill">
-    <summary>
-      <div class="s-title">
-        <h3>s1dashu/ip-as-logo-skill</h3>
-        <span class="s-stars num">★ 5,614</span>
-        
-        <span class="badge up num">+235 本周</span>
-        <span class="badge warn">⚠ 2 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">面向AI Agent的极简可爱IP吉祥物/Logo生成技能包</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/s1dashu/ip-as-logo-skill">GitHub ↗</a> · <a href="https://ipaslogo.com">主页 ↗</a>
-        · — · MIT · 创建 2026-08-18 · 更新 2026-08-22
-      </div>
-      <div class="field"><h4>定位</h4><p>遵循开放Agent Skills格式的指令文档，指导兼容AI Agent（需搭载顶尖图像模型）生成极简、圆润、带轻微新拟物质感的公司吉祥物形象，不绑定特定Agent产品。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>主体由4-7个大块基础形状构成，严格限制视觉复杂度</li><li>默认三色方案：两个主体色加一个命名纯色背景</li><li>主体固定从左下或右下角凸显，占比约85%-95%</li><li>用户确认方向后自动生成三方向共六张独立候选图</li><li>兼容Codex、Doubao、Coze、Manus、Gemini Apps等Agent</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>官网ipaslogo.com提供免费商用Logo库，无需自备兼容Agent即可下载</li><li>仓库仅含单个SKILL.md指令文档，无脚本或生成依赖，轻量易安装</li></ul></div>
-      <div class="field"><h4>适合</h4><p>需要快速产出品牌吉祥物或Logo草案的产品设计师、独立开发者，以及已在使用Codex等AI Agent的团队</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>npx skills@latest add s1dashu/ip-as-logo-skill</code></pre><button type="button" data-copy>复制</button></div>
-        <p>安装后需在兼容Agent中启用顶尖图像模型（如GPT Image 2、Nano Banana Pro）才能实际生成图像</p>
-      </div>
-      <ul class="risks"><li>生成效果依赖第三方图像模型且具随机性，项目方不做合规或质量自动校验</li><li>已 37 天未更新</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="Hisn00w/ASu-skills">
-    <summary>
-      <div class="s-title">
-        <h3>Hisn00w/ASu-skills</h3>
-        <span class="s-stars num">★ 5,182</span>
-        <span class="badge new">新上榜</span>
-        
-        <span class="badge warn">⚠ 2 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">面向求职场景的九个 AI Skill 插件包，覆盖简历、投递、面试全流程</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/Hisn00w/ASu-skills">GitHub ↗</a>
-        · HTML · MIT · 创建 2026-08-12 · 更新 2026-09-28
-      </div>
-      <div class="field"><h4>定位</h4><p>面向 Claude Code、Codex 等 AI Agent 平台的求职技能插件包，提供从开源贡献积累经历、简历制作、岗位匹配到投递填表、面试演练、进度管理的九个可单独调用入口。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>/contributor 寻找开源问题、核对贡献规则后辅助提交 PR 积累经历</li><li>/great-resume 与 /make-resume 完成岗位定位改写并生成可编辑 HTML 简历</li><li>/job-match 对照 JD 生成要求-证据矩阵和投递建议</li><li>/job-apply 连接浏览器自动填写招聘申请表，停在提交前供用户核对</li><li>/interview 与 /offer 支持追问式面试演练和校招投递进度跟踪</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>同时支持 Codex、Claude Code、TraeWork、Qoder、Cursor 等多平台安装</li><li>强调事实边界，不编造经历数据，关键操作均需用户逐项确认后才提交</li></ul></div>
-      <div class="field"><h4>适合</h4><p>求职中的学生和开发者，尤其是需要系统整理项目经历、制作简历、准备面试的求职者</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>/plugin marketplace add Hisn00w/ASu-skills</code></pre><button type="button" data-copy>复制</button></div>
-        <p>适用于 Claude Code，安装后执行 /plugin install asu-skills@asu 并按提示 reload-plugins</p>
-      </div>
-      <ul class="risks"><li>/job-apply 涉及自动化操作已登录浏览器填写招聘网站表单，需留意平台服务条款风险</li><li>/contributor 会代为提交开源 PR，需确保符合目标仓库的贡献规范，避免滥用</li></ul>
-    </div>
-  </details>
-  
-</section>
-
-<section class="block" id="cat-6" data-cat>
-  <h2 class="sec">开发者工具与集成<small>3 个</small></h2>
-  
-  <details class="card" id="guillaumemeyer/watermarks-remover">
-    <summary>
-      <div class="s-title">
-        <h3>guillaumemeyer/watermarks-remover</h3>
-        <span class="s-stars num">★ 22,967</span>
-        
-        <span class="badge up num">+506 本周</span>
-        <span class="badge warn">⚠ 1 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">去除AI生成内容水印与溯源标记的Agent Skill及本地服务</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/guillaumemeyer/watermarks-remover">GitHub ↗</a> · <a href="https://github.com/guillaumemeyer/watermarks-remover">主页 ↗</a>
-        · Python · MIT · 创建 2026-08-11 · 更新 2026-09-26
-      </div>
-      <div class="field"><h4>定位</h4><p>面向Claude Code、Cursor、Grok等Agent主机的Skill/插件，配合纯Python本地服务，清除自有文本与文件中的多厂商AI水印和溯源标记。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>支持Claude、Gemini/SynthID、OpenAI等多厂商水印检测与清除</li><li>覆盖图片、文档、音视频等二十余种文件格式的C2PA/EXIF/XMP元数据清理</li><li>提供PostToolUse钩子，在Agent写文件时自动检测或清理水印</li><li>纯Python标准库实现无需额外依赖，一条命令即可启动本地服务</li><li>支持Claude Code插件市场、Cursor、Grok等多种主机的安装方式</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>同时处理不可见Unicode字符、统计型文本水印和文件元数据三类溯源标记</li><li>提供确定性钩子而非仅依赖模型指令，保证Agent写文件时的清理可靠执行</li></ul></div>
-      <div class="field"><h4>适合</h4><p>使用AI生成工具创作、需要清理自有内容中溯源标记的开发者、创作者及Agent工具集成者</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>python3 install_skill.py --skill remove-ai-marks --target claude-code</code></pre><button type="button" data-copy>复制</button></div>
-        <p>安装Skill后还需运行make serve启动本地HTTP服务，Skill通过HTTP调用该服务完成实际清理</p>
-      </div>
-      <ul class="risks"><li>用于去除AI生成内容的溯源与水印标识，可能涉及AI内容标识相关法规合规问题</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="miuuyy/codex-chatgpt-web">
-    <summary>
-      <div class="s-title">
-        <h3>miuuyy/codex-chatgpt-web</h3>
-        <span class="s-stars num">★ 12,212</span>
-        
-        <span class="badge up num">+2,166 本周</span>
-        <span class="badge warn">⚠ 3 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">让Codex的模型选择器直接调用你的ChatGPT网页版账号（含Pro），不占用Codex额度</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/miuuyy/codex-chatgpt-web">GitHub ↗</a>
-        · TypeScript · MIT · 创建 2026-07-26 · 更新 2026-09-28
-      </div>
-      <div class="field"><h4>定位</h4><p>通过浏览器自动化和MCP，把ChatGPT网页版账号（含Pro）接入Codex原生模型选择器，使用网页版独立的用量额度，同时保留上下文、工具调用、流式与图片能力。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>浏览器自动化登录ChatGPT网页版，作为Codex原生模型直接使用</li><li>Full harness模式通过MCP和OpenAI tunnel-client把ChatGPT工具调用接回Codex当前任务</li><li>提供仅浏览器自动发送、完整harness带工具、零风险手动粘贴三种模式</li><li>自带浏览器与运行环境，无需单独安装Chrome、Node或Bun</li><li>按账号类型（Free/Go、Plus、Pro）自动识别可用的模型档位</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>项目方称使用ChatGPT网页版独立用量额度，不消耗Codex或Work自身配额</li><li>官方明确说明这是非官方浏览器自动化方案而非OpenAI API，界面变动可能导致功能失效</li></ul></div>
-      <div class="field"><h4>适合</h4><p>希望在Codex里用自己ChatGPT Plus/Pro账号能力、且能接受浏览器自动化方案的开发者</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>git clone https://github.com/miuuyy/codex-chatgpt-web.git &amp;&amp; cd codex-chatgpt-web &amp;&amp; bun run app</code></pre><button type="button" data-copy>复制</button></div>
-        <p>该路径需要Bun 1.4.0；也可用官方脚本一键安装启动器（提供macOS/Linux/Windows安装命令）</p>
-      </div>
-      <ul class="risks"><li>依赖浏览器自动化操作个人ChatGPT账号页面，可能违反OpenAI服务条款并存在封号风险</li><li>安装包尚未做平台签名，安装时macOS Gatekeeper或Windows SmartScreen会发出警告</li><li>浏览器登录状态是敏感凭证，本机同用户进程可访问，需在受信任设备使用</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="trailhq/Graft">
-    <summary>
-      <div class="s-title">
-        <h3>trailhq/Graft</h3>
-        <span class="s-stars num">★ 9,320</span>
-        
-        <span class="badge up num">+471 本周</span>
-        
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">给 Claude Code、Cursor 等编码 Agent 装上代码知识图谱，减少重复探索代码库</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/trailhq/Graft">GitHub ↗</a> · <a href="https://trailhq.com/graft">主页 ↗</a>
-        · TypeScript · MIT · 创建 2026-07-03 · 更新 2026-09-28
-      </div>
-      <div class="field"><h4>定位</h4><p>Graft 为代码库构建一份可读的 Markdown 知识图谱，写入仓库供各类编码 Agent 直接读取，避免每次任务从零探索代码，从而更省钱、更快、更准确。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>graft init 自动为 Claude Code 等 Agent 接入统计栏、钩子和 MCP 配置</li><li>两阶段构图：LLM 总结每个文件，再分组成带类型链接的节点</li><li>结构层用 tree-sitter 解析，$0 成本、无需模型密钥，支持23种语言</li><li>每次查询前自动增量刷新图谱，反映未提交的最新代码改动</li><li>graft/ 目录作为本地可再生缓存不提交，团队成员各自 build 生成</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>项目方基准测试：工具调用减少46%，token节省42%，耗时减少60%</li><li>项目方SWE-bench Verified测试：正确率从54%提升到66%（+12分）</li><li>支持OpenAI、Anthropic、OpenRouter等多家模型提供商，可用自有API密钥</li></ul></div>
-      <div class="field"><h4>适合</h4><p>使用Claude Code、Cursor、Codex、Gemini等AI编码助手的开发者和团队</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>npm install -g @nanonets/graft &amp;&amp; graft init</code></pre><button type="button" data-copy>复制</button></div>
-        <p>安装后运行graft init选择要接入的编码Agent，自动构建图谱并完成配置</p>
-      </div>
-      
-    </div>
-  </details>
-  
-</section>
-
-<section class="block" id="cat-7" data-cat>
-  <h2 class="sec">安全相关<small>2 个</small></h2>
-  
-  <details class="card" id="MDX-Tom/gpt-instruct">
-    <summary>
-      <div class="s-title">
-        <h3>MDX-Tom/gpt-instruct</h3>
-        <span class="s-stars num">★ 8,894</span>
-        
-        <span class="badge up num">+285 本周</span>
-        <span class="badge warn">⚠ 2 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">针对 Codex/GPT 的越狱提示词与配套自动化评测工具包</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/MDX-Tom/gpt-instruct">GitHub ↗</a> · <a href="https://mdx-tom.github.io/gpt-instruct/">主页 ↗</a>
-        · Python · MIT · 创建 2026-07-11 · 更新 2026-09-07
-      </div>
-      <div class="field"><h4>定位</h4><p>面向 Codex CLI 的破甲提示词项目，维护稳定版与新版两条产品线，配合部署脚本和 A/B/C 三级回归测试门禁验证提示词效果。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>提供 gpt-5.6-sol-v45 稳定版与 gpt-6-astra-v1 正式版两条提示词产品线</li><li>codex-instruct.py 脚本支持一键部署、预览（--dry-run）和回滚（--reset）</li><li>A/B/C 三级发布门禁，含 66 例 Issue 回归测试与 120 例原始测试样例</li><li>保留历史版本、SHA 校验值和测试证据，强调可复现的评测流程</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>项目方数据：gpt-6-astra-v1 全量 B 测试通过 52/66 cases、60/74 turns</li><li>README 明确声明不用于商业化，定位为提升 AI 安全的研究项目</li></ul></div>
-      <div class="field"><h4>适合</h4><p>研究或使用 Codex/GPT 越狱提示词、关注 LLM 安全测试方法论的开发者和安全研究人员</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>git clone https://github.com/MDX-Tom/gpt-instruct.git</code></pre><button type="button" data-copy>复制</button></div>
-        <p>clone 后运行 codex-instruct.py --apply 部署提示词到 Codex 配置，支持 --dry-run 预览</p>
-      </div>
-      <ul class="risks"><li>项目本质为绕过 AI 模型安全限制的越狱（破甲）提示词</li><li>README 明确提示破甲活动存在账号封禁风险，建议使用日抛账号</li></ul>
-    </div>
-  </details>
-  
-  <details class="card" id="elder-plinius/T3MP3ST">
-    <summary>
-      <div class="s-title">
-        <h3>elder-plinius/T3MP3ST</h3>
-        <span class="s-stars num">★ 6,267</span>
-        
-        <span class="badge up num">+70 本周</span>
-        <span class="badge warn">⚠ 2 项提示</span>
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">多智能体自动化红队框架，把你的AI编程Agent变成渗透测试军火库</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/elder-plinius/T3MP3ST">GitHub ↗</a>
-        · TypeScript · AGPL-3.0 · 创建 2026-07-02 · 更新 2026-09-08
-      </div>
-      <div class="field"><h4>定位</h4><p>复用本地已在使用的AI编程Agent（Claude Code、Codex等）或离线本地模型作为决策大脑，驱动侦察-利用-报告全流程渗透测试，无需额外API密钥。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>调用本地已登录的AI编程Agent或Ollama/LM Studio等离线模型作为大脑，无需新密钥</li><li>覆盖Web应用、CTF、源码审计等成熟场景，云、移动、二进制等仍为脚手架阶段</li><li>提供War Room浏览器界面和CLI两种操作方式</li><li>内置verify-claims命令，一键从提交数据复现README中所有基准结果</li><li>支持Docker部署，服务默认仅绑定127.0.0.1本地地址</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>项目方数据：在XBOW官方104题挑战集上pass@1达90.1%，高于XBOW自评的85%</li><li>所有基准数字可通过npm run verify-claims从公开提交的原始数据复现，27项全部通过</li></ul></div>
-      <div class="field"><h4>适合</h4><p>已获得授权的安全研究员、渗透测试人员和红队从业者</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>npm install
-npm run server</code></pre><button type="button" data-copy>复制</button></div>
-        <p>启动后访问 http://127.0.0.1:3333/ui/ 打开War Room，在设置中连接本地Agent或配置模型密钥</p>
-      </div>
-      <ul class="risks"><li>这是进攻性安全工具，仅限对已获得明确书面授权的目标使用，未授权访问计算机系统在多数司法辖区属违法行为</li><li>使用第三方托管模型（如Novita）时会将目标数据和提示词发送至该服务商，需自行评估隐私和数据安全风险</li></ul>
-    </div>
-  </details>
-  
-</section>
-
-<section class="block" id="cat-8" data-cat>
-  <h2 class="sec">其他<small>1 个</small></h2>
-  
-  <details class="card" id="bojieli/ai-infra-book">
-    <summary>
-      <div class="s-title">
-        <h3>bojieli/ai-infra-book</h3>
-        <span class="s-stars num">★ 5,438</span>
-        <span class="badge new">新上榜</span>
-        
-        
-      </div>
-      <span class="s-toggle" aria-hidden="true"></span>
-      <div class="s-tagline">从硬件约束与模型架构出发，量化推导 LLM 推理训练系统设计的开源书稿</div>
-    </summary>
-    <div class="c-body prose">
-      <div class="c-meta num">
-        <a href="https://github.com/bojieli/ai-infra-book">GitHub ↗</a> · <a href="https://bojieli.github.io/ai-infra-book/">主页 ↗</a>
-        · Python · Apache-2.0 · 创建 2026-08-22 · 更新 2026-09-26
-      </div>
-      <div class="field"><h4>定位</h4><p>《深入理解 AI Agent》作者的姊妹篇，用量化估算方法系统讲解 LLM 推理与训练系统设计，覆盖加速器、算子、网络、调度等十二章内容，配套计算工具与实验代码。</p></div>
-      <div class="field"><h4>能做什么</h4><ul><li>十二章覆盖模型架构、加速器、算子运行时、数据中心网络、推理与训练系统等主题</li><li>配套 Python 计算工具可复算书中数字，也可替换模型和硬件重新估算</li><li>按章节组织实验代码与运行记录，需 GPU 的实验注明硬件与依赖</li><li>提供简体中文、英文、繁体中文三语 PDF、EPUB 及在线阅读版本</li><li>全书正文为 Markdown，持续开源修订，欢迎勘误与翻译贡献</li></ul></div>
-      <div class="field"><h4>亮点</h4><ul><li>姊妹篇《深入理解 AI Agent》在 GitHub 获得 45k+ Star（项目方数据）</li><li>方法论强调&#34;从约束推导设计&#34;：先算硬件理论上限，再对照实测找差距来源</li></ul></div>
-      <div class="field"><h4>适合</h4><p>已调用或部署过大模型、想弄清推理训练系统底层原理的应用工程师、系统/网络/芯片工程师及相关研究者</p></div>
-      <div class="field"><h4>上手</h4>
-        <div class="cmd"><pre><code>git clone https://github.com/bojieli/ai-infra-book.git</code></pre><button type="button" data-copy>复制</button></div>
-        <p>克隆后可用 calc.py 复算书中算例，静态计算仅需 Python 3.10+ 标准库，无需 GPU 或模型权重</p>
-      </div>
-      
-    </div>
-  </details>
-  
-</section>
-
-
-
-
-
-<footer>
-  数据来源 GitHub Search API，每周一北京时间 09:00 更新。介绍由 claude-sonnet-5 根据 README 自动生成，性能数字多为项目方自报，仅供参考。<br>
-  检索式：<code>ai OR llm OR agent OR gpt OR mcp OR claude created:&gt;=2026-06-30 stars:&gt;5000</code>
-</footer>
 </main>
+
+<footer><div class="wrap"><div class="in">
+  <p>数据来自 GitHub Search API，快照日期 2026-09-28；页内星数均为当日数值。介绍由 claude-sonnet-5 根据 README 生成，性能数字多为项目方自报。</p>
+  <p>检索式：<code>ai OR llm OR agent OR gpt OR mcp OR claude created:&gt;=2026-06-30 stars:&gt;5000</code></p>
+  <p>每周一自动更新 · <a href="../feed.xml">RSS</a> · <a href="https://github.com/drgg/ai-trending-radar">源码</a> · 生成于 2026-10-18 · 设计规格见仓库 <code>design/issue/DESIGN.md</code></p>
+</div></div></footer>
 
 <script>
 (function(){
-  var cards = [].slice.call(document.querySelectorAll("details.card"));
+  var rows = [].slice.call(document.querySelectorAll("details.row"));
   function openHash(){
     var id = decodeURIComponent(location.hash.slice(1));
     var el = id && document.getElementById(id);
-    if (el && el.tagName === "DETAILS") { el.open = true; el.scrollIntoView(); }
+    if (el && el.tagName === "DETAILS"){ el.open = true; el.scrollIntoView(); el.querySelector("summary").focus({preventScroll:true}); }
   }
-  window.addEventListener("hashchange", openHash); openHash();
+  addEventListener("hashchange", openHash); openHash();
 
-  document.querySelectorAll("[data-toggle]").forEach(function(b){
-    b.addEventListener("click", function(){
-      var open = b.dataset.toggle === "open";
-      cards.forEach(function(c){ c.open = open; });
-    });
+  document.querySelectorAll("[data-all]").forEach(function(b){
+    b.addEventListener("click", function(){ var o = b.dataset.all === "open"; rows.forEach(function(r){ r.open = o; }); });
   });
+
+  // 打印时名录全部展开，打完还原
+  var was = [];
+  addEventListener("beforeprint", function(){ was = rows.map(function(r){ return r.open; }); rows.forEach(function(r){ r.open = true; }); });
+  addEventListener("afterprint", function(){ rows.forEach(function(r, i){ r.open = was[i]; }); });
 
   document.querySelectorAll("[data-copy]").forEach(function(b){
     b.addEventListener("click", function(){
       var text = b.previousElementSibling.innerText;
-      var flash = function(msg){ b.textContent = msg; setTimeout(function(){ b.textContent = "复制"; }, 1500); };
-      var fallback = function(){  // 剪贴板 API 不可用或被拒绝时退回旧方法
-        var ta = document.createElement("textarea");
-        ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
-        document.body.appendChild(ta); ta.select();
-        var ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
-        document.body.removeChild(ta);
-        flash(ok ? "已复制" : "请手动复制");
+      var flash = function(m){ b.textContent = m; setTimeout(function(){ b.textContent = "复制"; }, 1500); };
+      var fallback = function(){
+        var ta = document.createElement("textarea"); ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.select(); var ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+        document.body.removeChild(ta); flash(ok ? "已复制" : "请手动复制");
       };
-      if (navigator.clipboard) navigator.clipboard.writeText(text).then(function(){ flash("已复制"); }, fallback);
-      else fallback();
+      if (navigator.clipboard) navigator.clipboard.writeText(text).then(function(){ flash("已复制"); }, fallback); else fallback();
     });
   });
 
-  var links = {};
-  document.querySelectorAll("nav.cats a").forEach(function(a){ links[a.getAttribute("href").slice(1)] = a; });
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if (!en.isIntersecting) return;
-        Object.keys(links).forEach(function(k){ links[k].classList.toggle("active", k === en.target.id); });
-        var a = links[en.target.id];
-        if (a && a.scrollIntoView) a.parentNode.scrollLeft = a.offsetLeft - 16;
-      });
-    }, {rootMargin: "-60px 0px -70% 0px"});
-    document.querySelectorAll("#overview,[data-cat]").forEach(function(s){ io.observe(s); });
+  // 只有真的横向溢出的命令框才进 Tab 顺序
+  function markScroll(){
+    document.querySelectorAll(".cmd pre").forEach(function(p){
+      var over = p.scrollWidth > p.clientWidth + 1;
+      if (over){ p.tabIndex = 0; p.setAttribute("role", "region"); p.setAttribute("aria-label", p.textContent.slice(0, 40) + "（可横向滚动）"); }
+      else { p.removeAttribute("tabindex"); p.removeAttribute("role"); p.removeAttribute("aria-label"); }
+    });
   }
+  markScroll(); addEventListener("resize", markScroll);
+  document.querySelectorAll("details.row").forEach(function(r){ r.addEventListener("toggle", markScroll); });
 })();
 </script>
 </body>

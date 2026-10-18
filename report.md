@@ -1,23 +1,25 @@
-# GitHub 近 90 天 AI 热门项目（Stars > 5000）
+# GitHub AI 热门项目周报 · 第 4 期 · 2026-10-12：新上榜 6 · 移出 5
 
-- 数据快照：2026-10-12　共 34 个项目
+- 收录：2026-07-14 至 2026-10-12 创建、Stars > 5,000 的 AI 项目，共 34 个
 
 ## 本期变化
-对比 2026-10-05：
+较第 3 期（2026-10-05，7 天）：
 - 新上榜：Ebony-Vinyl/dsh-our-free-model、yetone/magpie、Albert-Weasker/niubigeo、rehan-remade/universal-modder、miqdadbadjuber/anti-slop、yi1108/printfilm
-- 移出：petergyang/no-ai-slop、MDX-Tom/gpt-instruct、unicity-aos/aos-ce、jakubkrehel/skills、TencentCloud/Octop
-- 涨幅榜：lexmount/moli +8754、hypit-ai/hypit +2020、dataelement/dsh-desktop +1498、KKKKhazix/AIHOT +1420、Vincentwei1021/video-shotcraft +1052
+- 移出：petergyang/no-ai-slop（创建于 2026-07-07，已超出 90 天收录窗口）；MDX-Tom/gpt-instruct（创建于 2026-07-11，已超出 90 天收录窗口）；unicity-aos/aos-ce（创建于 2026-07-12，已超出 90 天收录窗口）；jakubkrehel/skills（创建于 2026-07-10，已超出 90 天收录窗口）；TencentCloud/Octop（创建于 2026-07-08，已超出 90 天收录窗口）
+- 涨星：lexmount/moli +8,754、hypit-ai/hypit +2,020、dataelement/dsh-desktop +1,498、KKKKhazix/AIHOT +1,420、Vincentwei1021/video-shotcraft +1,052
 
-## 趋势小结
+## 编者按
 - Agent运行时基建成热点，提供执行循环、沙箱与团队协作，如grok-build、trueforge、OpenBot。
 - Claude/Codex技能包生态繁荣，覆盖设计视频求职场景，如video-shotcraft、ASu-skills。
 - 部分项目打通跨平台AI配额，省钱喂养编程Agent，如codex-chatgpt-web、magpie。
 - 本地推理持续突破极限，消费级硬件跑起万亿参数模型，如kimi-k3-in-c、turbo-fieldfare。
 - Agent原生应用崛起，让AI直接调研写作替代传统SaaS，如crm、niubigeo、AIHOT。
 
-## 编程 Agent 与运行框架
+## 名录
 
-### [xai-org/grok-build](https://github.com/xai-org/grok-build) ⭐ 27,320
+### 编程 Agent 与运行框架
+
+#### [xai-org/grok-build](https://github.com/xai-org/grok-build) ⭐ 27,320
 
 > xAI 推出的终端 AI 编程 Agent，全屏 TUI，可编辑代码、执行命令、搜索网页。
 
@@ -34,7 +36,7 @@
 - **适合**：需要终端 AI 编程助手的开发者，尤其是希望在 CLI、CI 或编辑器中集成编码 Agent 的 Grok 用户
 - **上手**：`curl -fsSL https://x.ai/cli/install.sh | bash` 适用于 macOS/Linux；Windows 用 PowerShell 命令安装。首次启动 grok 会打开浏览器完成身份验证。
 
-### [zai-org/ZCode](https://github.com/zai-org/ZCode) ⭐ 7,698
+#### [zai-org/ZCode](https://github.com/zai-org/ZCode) ⭐ 7,698
 
 > Z.ai 出品的编程 Agent 工作台，提供桌面、Web 与终端三种界面
 
@@ -51,7 +53,7 @@
 - **适合**：需要本地部署或自定义编程 Agent 工作台的开发者和团队
 - **上手**：`pnpm bootstrap` 安装 workspace 依赖并准备桌面本地运行资源，随后可用 pnpm dev:desktop 启动开发环境
 
-### [tamaratran/fast-jev-compaction](https://github.com/tamaratran/fast-jev-compaction) ⭐ 7,589
+#### [tamaratran/fast-jev-compaction](https://github.com/tamaratran/fast-jev-compaction) ⭐ 7,589
 
 > Claude Code插件，用外部模型逐条打分决定去留，替代摘要式上下文压缩
 
@@ -69,7 +71,7 @@
 - **上手**：`claude plugin marketplace add tamaratran/fast-jev-compaction` 需先在settings.json开启CLAUDE_CODE_ENABLE_FUNCTION_HOOKS并配置TYPESAFE_API_KEY，再执行plugin install完…
 - ⚠️ 会将对话中的工具调用、输入参数和文本内容发送给第三方TypeSafe API用于打分，存在隐私或代码泄露风险。
 
-### [rehan-remade/universal-modder](https://github.com/rehan-remade/universal-modder) ⭐ 6,757
+#### [rehan-remade/universal-modder](https://github.com/rehan-remade/universal-modder) ⭐ 6,757
 
 > 让 Claude Code 等编程 agent 给你拥有的任意 PC 游戏做 mod 的技能与工具包
 
@@ -86,7 +88,7 @@
 - **适合**：愿意用编程 agent 给自己拥有的 PC 游戏做 mod、逆向研究的开发者和玩家
 - **上手**：`/plugin marketplace add rehan-remade/universal-modder` 适用于 Claude Code，之后再执行 /plugin install universal-modder@universal-modder 完成安装
 
-### [ApodexAI/FrontierAgent](https://github.com/ApodexAI/FrontierAgent) ⭐ 5,227
+#### [ApodexAI/FrontierAgent](https://github.com/ApodexAI/FrontierAgent) ⭐ 5,227
 
 > 开源终端智能体运行时，提供 ReAct 单智能体与 Agent Team 多智能体两种工作模式
 
@@ -103,9 +105,9 @@
 - **适合**：需要终端智能体处理长周期研究、文件分析或多智能体协作任务的开发者与研究者
 - **上手**：`uv run frontier-agent --mode react --cwd /path/to/project` 需先 git clone 仓库、执行 uv sync 安装依赖，并在 .env 中配置 OpenAI 兼容模型端点
 
-## Agent 平台与基础设施
+### Agent 平台与基础设施
 
-### [browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast) ⭐ 22,663
+#### [browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast) ⭐ 22,663
 
 > 用动态索引动作空间驱动浏览器执行单一自然语言目标的实验性网页Agent
 
@@ -123,7 +125,7 @@
 - **上手**：`uv run jev` 先执行git clone、uv sync并在.env中配置TYPESAFE_API_KEY和TEXT_MODEL_API_KEY，再运行此命令打开本地调试页面
 - ⚠️ 核心功能是自动化操作Google Flights、Wikipedia等第三方网页完成任务，可能违反对方服务条款，存在账号风险
 
-### [lexmount/moli](https://github.com/lexmount/moli) ⭐ 16,669
+#### [lexmount/moli](https://github.com/lexmount/moli) ⭐ 16,669
 
 > 面向 AI Agent 的轻量无头浏览器，按需渲染，资源占用低，用 Rust 编写
 
@@ -141,7 +143,7 @@
 - **适合**：需要网页抓取、构建爬虫或 Agent 浏览自动化的开发者，尤其是对资源占用和启动速度敏感的场景
 - **上手**：`curl --proto '=https' --tlsv1.2 -fsSL https://github.com/lexmount/moli/releases/latest/download/moli-installer.sh | sh` Linux/macOS 下载并安装预编译二进制；Windows 需在 PowerShell 中运行对应的 .ps1 安装脚本
 
-### [yc-software/qm](https://github.com/yc-software/qm) ⭐ 15,386
+#### [yc-software/qm](https://github.com/yc-software/qm) ⭐ 15,386
 
 > 面向团队的多人协作 Agent 工作平台，支持 Slack 与网页端
 
@@ -158,7 +160,7 @@
 - **适合**：需要为团队搭建内部协作型 AI Agent 系统的初创公司技术团队或运维人员
 - **上手**：`npm exec --yes --package=@yc-software/qm@latest -- qm init . --org <slug> --target <fly-or-aws>` 需先创建组织自有的部署仓库依赖 @yc-software/qm，init 后按引导完成基础设施、登录和连接器配置，部署在自己的云账户中
 
-### [dataelement/dsh-desktop](https://github.com/dataelement/dsh-desktop) ⭐ 13,403
+#### [dataelement/dsh-desktop](https://github.com/dataelement/dsh-desktop) ⭐ 13,403
 
 > 本地优先的跨平台桌面应用，封装 DeepSeek Harness 的 Agent 运行时与 Web 界面
 
@@ -176,7 +178,7 @@
 - **适合**：需要在本地运行 DeepSeek Harness、管理 Agent 插件与多工作区的 macOS 或 Windows 用户
 - ⚠️ 可选的手机远程访问功能通过 Cloudflare Quick Tunnel 或 Pinggy 等第三方隧道转发本地数据
 
-### [yetone/magpie](https://github.com/yetone/magpie) ⭐ 9,785
+#### [yetone/magpie](https://github.com/yetone/magpie) ⭐ 9,785
 
 > 本地网关统一管理，让各编程 Agent 共用任意模型或订阅账号
 
@@ -194,7 +196,7 @@
 - **上手**：`curl -fsSL https://usemagpie.ai/install.sh | sh` 安装后在应用内 Providers 页添加供应商或登录订阅，再为每个 Agent 选择模型；也可用 magpie CLI 完成同样操作。
 - ⚠️ 会读取 Claude Code、Codex 等本机登录凭证（包括系统 Keychain），将一个厂商订阅账号的模型跨 Agent 复用，可能违反相应厂商的服务条款
 
-### [deeplethe/utopia](https://github.com/deeplethe/utopia) ⭐ 8,273
+#### [deeplethe/utopia](https://github.com/deeplethe/utopia) ⭐ 8,273
 
 > 开源企业级"世界模型"，基于双时态知识图谱的自治知识库系统
 
@@ -212,7 +214,7 @@
 - **适合**：需要知识图谱、RAG与审计追溯能力的企业技术团队、法务合规人员，以及接入MCP开发Agent的工程师
 - **上手**：`docker compose --profile app up -d` 先clone仓库并进入目录，再执行该命令，访问 http://localhost:1516 注册，首个账号自动成为管理员。
 
-### [Human-Agent-Society/reef](https://github.com/Human-Agent-Society/reef) ⭐ 7,531
+#### [Human-Agent-Society/reef](https://github.com/Human-Agent-Society/reef) ⭐ 7,531
 
 > 开源的持续自我改进 Agent 基础设施，衔接推理、反馈、训练与版本发布
 
@@ -230,7 +232,7 @@
 - **上手**：`uv pip install reef-infra` 需先用 uv 创建并激活虚拟环境；若需版本/检查点功能还要系统安装 git-lfs。
 - ⚠️ Reefine 默认在本地无鉴权启动（需手动设 REEF_TOKEN 才要求认证），其编码会话默认不在沙箱中运行命令，README 提醒需自行隔离安装目录与运行环境。
 
-### [CopilotKit/OpenBot](https://github.com/CopilotKit/OpenBot) ⭐ 6,365
+#### [CopilotKit/OpenBot](https://github.com/CopilotKit/OpenBot) ⭐ 6,365
 
 > 开源AI协作者平台，为每个Agent分配独立电脑并记录全部操作
 
@@ -249,7 +251,7 @@
 - ⚠️ 核心功能是让Agent使用自带登录态的浏览器自动化操作第三方网站，可能涉及违反目标网站服务条款的风险
 - ⚠️ 默认.env.example开启OPENBOT_SINGLE_USER=true，将所有请求视为管理员身份，需手动开启登录后才能对外部署
 
-### [truefoundry/trueforge](https://github.com/truefoundry/trueforge) ⭐ 6,160
+#### [truefoundry/trueforge](https://github.com/truefoundry/trueforge) ⭐ 6,160
 
 > 开源agent harness，为LLM提供执行循环、沙箱、审批等运行时能力
 
@@ -267,9 +269,9 @@
 - **上手**：`npx @truefoundry/trueforge@latest` 本地模式为单进程+SQLite，仅限本机试用；团队或生产环境需用Docker Compose、Helm或Railway的托管模式。
 - ⚠️ 本地模式默认无登录认证，README明确警告仅限本机使用，不可直接暴露到公网作为生产部署
 
-## AI 应用产品
+### AI 应用产品
 
-### [trycompai/crm](https://github.com/trycompai/crm) ⭐ 11,230
+#### [trycompai/crm](https://github.com/trycompai/crm) ⭐ 11,230
 
 > 开源 agent 原生 CRM，AI agent 自主调研并记录客户信息，而非聊天侧边栏
 
@@ -286,9 +288,9 @@
 - **适合**：需要 AI 自动调研、补全客户资料的销售/增长团队，以及希望自托管、具备工程能力的技术团队
 - **上手**：`git clone https://github.com/trycompai/crm.git && cd crm` 需 Bun 和 Docker，克隆后配置 .env、docker compose 启动 Postgres、执行迁移后运行 bun run dev
 - ⚠️ agent 的 research_person、enrich_company 等工具会调用第三方服务（如 LinkedIn 数据）调研联系人个人信息，涉及第三方隐私数据采集合规问题
-- ⚠️ 已 31 天未更新
+- ⚠️ 快照当日已 31 天未更新（最后推送 2026-09-11）
 
-### [genspark-ai/genoffice](https://github.com/genspark-ai/genoffice) ⭐ 9,360
+#### [genspark-ai/genoffice](https://github.com/genspark-ai/genoffice) ⭐ 9,360
 
 > 开源免费的AI办公套件，本地编辑Word/Excel/PPT/PDF并内置AI代理
 
@@ -305,7 +307,7 @@
 - **适合**：需要AI辅助处理Word/Excel/PPT/PDF文档，或希望让Claude Code、Cursor等编程Agent直接生成真实办公文件的个人与团队
 - **上手**：`npx skills add genspark-ai/genoffice` 该命令将GenOffice的Agent Skill安装进支持Skill的编程Agent；配合随桌面应用安装的genoffice命令行使用。
 
-### [jev-chat/jev-chat-jarvis](https://github.com/jev-chat/jev-chat-jarvis) ⭐ 7,633
+#### [jev-chat/jev-chat-jarvis](https://github.com/jev-chat/jev-chat-jarvis) ⭐ 7,633
 
 > 读手机屏幕聊天内容，AI判断对方意图并生成回复候选，发送仍由你手动确认
 
@@ -325,7 +327,7 @@
 - ⚠️ 触发分析时，聊天文字及你启用的背景信息会发送给你自行配置的第三方大模型服务商，涉及对方聊天内容外流的隐私问题。
 - ⚠️ 核心功能靠无障碍服务读取QQ、X、飞书等App的聊天界面内容并自动填入回复文本框，可能涉及相关App服务条款限制。
 
-### [Albert-Weasker/niubigeo](https://github.com/Albert-Weasker/niubigeo) ⭐ 7,301
+#### [Albert-Weasker/niubigeo](https://github.com/Albert-Weasker/niubigeo) ⭐ 7,301
 
 > 开源自托管工具，用真实AI模型回答追踪品牌在AI答案中的曝光与竞品
 
@@ -344,7 +346,7 @@
 - **上手**：`git clone --branch v0.3.0 --depth 1 https://github.com/Albert-Weasker/niubigeo.git` 需Node.js 22.13+及OpenRouter API Key，克隆后npm ci、配置.env，再npm run server启动，访问localhost:8787。
 - ⚠️ 使用时需将域名、关键词、竞品列表等可能具有商业敏感性的研究数据发送给所选的外部模型API服务。
 
-### [KKKKhazix/AIHOT](https://github.com/KKKKhazix/AIHOT) ⭐ 7,266
+#### [KKKKhazix/AIHOT](https://github.com/KKKKhazix/AIHOT) ⭐ 7,266
 
 > 自动找热点、写日报的自托管网站框架，换上信源和标准就是你的行业热点站
 
@@ -364,7 +366,7 @@ cd myhot
 node scripts/init-env.ts --llm-key <你的模型 API Key>
 docker compose up -d --build` 需要 Docker、Node.js 24 和 OpenAI 兼容的模型 API Key，完成后访问 localhost:3000，后台在 /admin
 
-### [yi1108/printfilm](https://github.com/yi1108/printfilm) ⭐ 5,133
+#### [yi1108/printfilm](https://github.com/yi1108/printfilm) ⭐ 5,133
 
 > 模板驱动的AI短视频与AI漫剧创作平台，从文案到成片
 
@@ -382,9 +384,9 @@ docker compose up -d --build` 需要 Docker、Node.js 24 和 OpenAI 兼容的模
 - **适合**：面向需要批量产出短视频广告或短剧内容的团队，以及想自托管AI视频生成工具链的开发者
 - **上手**：`docker compose --env-file deploy/.env.docker up -d` 需先克隆仓库、复制并编辑deploy/.env.docker（设置数据库密码、SECRET_KEY及TokenFree API Key）后再执行此命令
 
-## 本地推理与模型
+### 本地推理与模型
 
-### [FareedKhan-dev/kimi-k3-in-c](https://github.com/FareedKhan-dev/kimi-k3-in-c) ⭐ 9,010
+#### [FareedKhan-dev/kimi-k3-in-c](https://github.com/FareedKhan-dev/kimi-k3-in-c) ⭐ 9,010
 
 > 用纯C99在单CPU上以8GB内存运行2.78万亿参数的Kimi K3模型
 
@@ -405,7 +407,7 @@ cd kimi-k3-in-c
 make -j
 make test` 无需下载模型即可完成构建和测试，约一分钟；完整推理需下载1.56TB权重并打包trunk后运行
 
-### [drumih/turbo-fieldfare](https://github.com/drumih/turbo-fieldfare) ⭐ 6,880
+#### [drumih/turbo-fieldfare](https://github.com/drumih/turbo-fieldfare) ⭐ 6,880
 
 > 让260亿参数Gemma4模型在8GB内存Mac上用约2GB内存推理
 
@@ -423,9 +425,9 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - **上手**：`swift build -c release && .build/release/TurboFieldfareMac` 克隆仓库后构建运行，首次启动应用需在界面中选择Download下载安装约15GB模型，完成后方可加载生成。
 - ⚠️ README明确提示本地OpenAI兼容服务器无远程认证和TLS，只应在loopback地址运行，不可直接暴露到公网
 
-## Skills 与写作/设计
+### Skills 与写作/设计
 
-### [guillaumemeyer/watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover) ⭐ 23,887
+#### [guillaumemeyer/watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover) ⭐ 23,887
 
 > Claude Agent Skill + 本地服务，去除文本和文件中的多厂商 AI 水印与溯源标记
 
@@ -443,7 +445,7 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - **上手**：`python3 install_skill.py --skill remove-ai-marks --target claude-code` 安装 Claude Code 个人版 Skill，需额外启动本地服务（make serve）配合使用
 - ⚠️ 去除 AI 内容的水印与溯源标记（如 C2PA、SynthID）可能涉及规避 AI 内容标识相关法规的风险
 
-### [hypit-ai/hypit](https://github.com/hypit-ai/hypit) ⭐ 21,324
+#### [hypit-ai/hypit](https://github.com/hypit-ai/hypit) ⭐ 21,324
 
 > 让 Claude Code 等编程 Agent 克隆任意视频，批量生成素材、字幕与特效的完整工作流
 
@@ -462,7 +464,7 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - ⚠️ 仓库采用自定义的 Hypit Open Source License，非常见开源许可证，GitHub 元数据显示许可证未明确判定（NOASSERTION），使用前需自行核实条款
 - ⚠️ 许可证未声明或非标准，商用前请确认授权
 
-### [Vincentwei1021/video-shotcraft](https://github.com/Vincentwei1021/video-shotcraft) ⭐ 11,357
+#### [Vincentwei1021/video-shotcraft](https://github.com/Vincentwei1021/video-shotcraft) ⭐ 11,357
 
 > 面向 Claude Code / Codex 的 Agent Skill，用 Remotion 制作电影感产品宣传片
 
@@ -481,7 +483,7 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - **上手**：`npx skills add Vincentwei1021/video-shotcraft` 安装后需在 Claude Code 或 Codex 中对话式调用，也可 git clone 后手动软链到 skills 目录
 - ⚠️ 渲染视频依赖的 Remotion 框架有独立许可证，个人与小团队免费，公司使用可能需付费许可（项目方说明）
 
-### [larashero3-dotcom/lieflat-charts](https://github.com/larashero3-dotcom/lieflat-charts) ⭐ 6,060
+#### [larashero3-dotcom/lieflat-charts](https://github.com/larashero3-dotcom/lieflat-charts) ⭐ 6,060
 
 > 面向 AI Agent 的数据可视化 Skill，把数据转化为精致可交互的 HTML 图表与报告
 
@@ -499,9 +501,9 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - **上手**：`npx skills add https://github.com/larashero3-dotcom/lieflat-charts --skill lieflat-charts` 安装后向 Agent 发送数据可视化需求即可生成 HTML 图表；也可手动克隆到 ~/.claude/skills 或 ~/.codex/skills 目录下。
 - ⚠️ 许可证为 PolyForm Noncommercial License 1.0.0，仅允许学习、修改、分享和非商业使用，商业使用需另行取得许可。
 - ⚠️ 许可证未声明或非标准，商用前请确认授权
-- ⚠️ 已 37 天未更新
+- ⚠️ 快照当日已 37 天未更新（最后推送 2026-09-05）
 
-### [s1dashu/ip-as-logo-skill](https://github.com/s1dashu/ip-as-logo-skill) ⭐ 5,911
+#### [s1dashu/ip-as-logo-skill](https://github.com/s1dashu/ip-as-logo-skill) ⭐ 5,911
 
 > 面向AI Agent的技能包，指导生成极简可爱的IP吉祥物风格Logo图像
 
@@ -517,9 +519,9 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
   - 官网提供预生成的IP吉祥物图片库，供没有兼容Agent的用户直接免费下载并商用
 - **适合**：需要为产品设计简约吉祥物或Logo素材的设计师、产品团队，以及使用Codex、Coze、豆包等兼容AI Agent的用户
 - **上手**：`npx skills@latest add s1dashu/ip-as-logo-skill` 安装后在支持的Agent中启用，并确保配置了顶级图像模型，再用自然语言描述所需吉祥物即可生成
-- ⚠️ 已 51 天未更新
+- ⚠️ 快照当日已 51 天未更新（最后推送 2026-08-22）
 
-### [miqdadbadjuber/anti-slop](https://github.com/miqdadbadjuber/anti-slop) ⭐ 5,874
+#### [miqdadbadjuber/anti-slop](https://github.com/miqdadbadjuber/anti-slop) ⭐ 5,874
 
 > 一套规则集，让 AI 编程 Agent 别再写出千篇一律的 UI、水文案和 AI 味代码
 
@@ -536,7 +538,7 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - **适合**：使用 AI 编程 Agent 做前端/文案/代码工作、希望减少千篇一律 AI 风格输出的开发者
 - **上手**：`npx antislop-ai` 运行后按提示选择要安装的技能、安装范围和使用的 Agent，即可完成安装
 
-### [Hisn00w/ASu-skills](https://github.com/Hisn00w/ASu-skills) ⭐ 5,562
+#### [Hisn00w/ASu-skills](https://github.com/Hisn00w/ASu-skills) ⭐ 5,562
 
 > 面向求职场景的 AI Skills 插件包，覆盖开源贡献、简历制作到投递跟进全流程
 
@@ -554,9 +556,9 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - **上手**：`/plugin marketplace add Hisn00w/ASu-skills` Claude Code 下执行该命令后还需执行 /plugin install asu-skills@asu 并按提示 /reload-plugins
 - ⚠️ /job-apply 需连接用户已登录的浏览器自动填写招聘网站申请表，自动化操作第三方网页存在违反网站服务条款的风险
 
-## 开发者工具与集成
+### 开发者工具与集成
 
-### [miuuyy/codex-chatgpt-web](https://github.com/miuuyy/codex-chatgpt-web) ⭐ 14,043
+#### [miuuyy/codex-chatgpt-web](https://github.com/miuuyy/codex-chatgpt-web) ⭐ 14,043
 
 > 让 Codex 把 ChatGPT 网页版（含 Pro）当作模型使用，不消耗 Codex 配额
 
@@ -575,7 +577,7 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - ⚠️ README 明确说明这是非官方的浏览器自动化，通过模拟登录操作 ChatGPT 网页版，可能违反 OpenAI 服务条款并有账号风险
 - ⚠️ 浏览器登录状态是敏感凭证，本地同用户进程可访问回环监听端口，需在可信设备使用
 
-### [google/artemis](https://github.com/google/artemis) ⭐ 11,387
+#### [google/artemis](https://github.com/google/artemis) ⭐ 11,387
 
 > 用自然语言驱动安卓自动化测试，集成主流AI编程助手的MCP工具
 
@@ -592,7 +594,7 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - **适合**：需要为安卓应用做自动化测试，或希望用AI编程助手驱动设备操作与问题诊断的开发者和测试工程师
 - **上手**：`git clone https://github.com/google/artemis.git && cd artemis && ./start.sh` 需已连接安卓设备（开启USB调试）或模拟器，脚本自动安装ADB等工具链并启动Web控制台
 
-### [Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) ⭐ 9,910
+#### [Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) ⭐ 9,910
 
 > dsh 插件，免登录免 Key 白嫖前沿大模型，并可接入第三方账号渠道
 
@@ -613,7 +615,7 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - ⚠️ Kilo 免费渠道的上游声明可能记录 prompt 用于改进服务，官方提示请勿发送敏感内容
 - ⚠️ 局域网转发为可选功能，开启后同网段内持有 Key 的任何人都可消耗本机免费额度，需在可信网络使用
 
-### [XiaoDuoYa/codex-with-chatgpt](https://github.com/XiaoDuoYa/codex-with-chatgpt) ⭐ 7,282
+#### [XiaoDuoYa/codex-with-chatgpt](https://github.com/XiaoDuoYa/codex-with-chatgpt) ⭐ 7,282
 
 > 让 ChatGPT 网页版做规划审查，Codex 负责执行代码的 MCP 桥接工具
 
@@ -631,9 +633,9 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - **上手**：`pnpm install` 克隆仓库后执行 pnpm build 构建，再把 skill/ 安装为 Codex Skill 并运行 c2c setup 完成配对
 - ⚠️ 核心流程通过 Computer Use 方式与 ChatGPT 网页版自动交换状态消息并驱动会话，可能涉及 ChatGPT 服务条款风险
 
-## 其他
+### 其他
 
-### [bojieli/ai-infra-book](https://github.com/bojieli/ai-infra-book) ⭐ 6,245
+#### [bojieli/ai-infra-book](https://github.com/bojieli/ai-infra-book) ⭐ 6,245
 
 > 从硬件约束出发，量化推导 LLM 推理与训练系统设计的开源电子书
 
