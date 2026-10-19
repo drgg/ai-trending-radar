@@ -1,0 +1,26 @@
+{
+  "is_ai_product": true,
+  "category": "Skills 与写作/设计",
+  "tagline": "收录用Claude Opus 5.5生成的病毒视频及对应提示词的清单",
+  "positioning": "持续更新的开源清单，收集创作者用Claude Opus 5.5生成病毒视频时所用的提示词，并在Skillry网站提供原视频与AI复刻版对比观看。",
+  "features": [
+    "收录703条提示词，其中418条在Skillry网站配有实时复刻视频",
+    "按动效、解说、3D场景、游戏互动等类别整理",
+    "每条提示词附带创作者原始发布帖子的链接",
+    "提示词可直接复制给Claude Opus 5.5等agent，生成HTML/Canvas/SVG/Three.js动画代码",
+    "定期更新，最近一次新增10个视频和285条提示词"
+  ],
+  "highlights": [
+    "项目方数据：已收录703条提示词，其中418条配有Skillry网站实时复刻视频"
+  ],
+  "audience": "想获取Claude等AI生成创意动画、动效视频灵感的开发者、创意编程爱好者和内容创作者",
+  "quickstart_cmd": "",
+  "quickstart_note": "打开prompts目录下的提示词文件，复制Prompt内容粘贴给Claude Opus 5.5使用",
+  "risks": [
+    "视频和提示词版权归原创作者所有，仓库仅托管简短预览片段，使用时需注意版权归属"
+  ],
+  "readme_sha": "d6a22a120bc2e3b1b4ec9bc549f98c8af4655eb6",
+  "generated_at": "2026-10-19",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}

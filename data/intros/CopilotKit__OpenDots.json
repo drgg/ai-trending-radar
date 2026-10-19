@@ -1,0 +1,28 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "开源的常驻 AI 坐席模板，每个 Dot 拥有专属电脑，支持网页、通话与 Slack 协作",
+  "positioning": "OpenDots 是基于 CopilotKit 和 AG-UI 构建的开源模板，用于搭建具有持久记忆、独立浏览器与文件系统的专属 AI 代理（Dot），需自行部署和配置基础设施，而非现成产品。",
+  "features": [
+    "Spaces 文档工作区：浏览、编辑页面，支持嵌套子页面及网格/列表视图切换",
+    "Specialist Dots：自定义名称、角色、指令和可用工具的专属代理",
+    "Dot computers：每个 Dot 可配备容器化电脑，支持浏览器、文件和终端操作（需配置 OpenBot）",
+    "人工审核：保存页面或执行非只读工具前弹出批准/拒绝卡片，需人工确认",
+    "支持文字对话、语音通话和 Slack 提及三种交互方式"
+  ],
+  "highlights": [
+    "项目是可自部署的开源模板而非托管产品，仍处于早期开发阶段",
+    "Dot 电脑功能需额外搭建 OpenBot 等服务，未配置时不会在主机上执行任何命令"
+  ],
+  "audience": "需要搭建可定制、持久化 AI 代理工作流的开发者和技术团队，愿意自行部署和配置基础设施",
+  "quickstart_cmd": "git clone https://github.com/CopilotKit/OpenDots.git\ncd OpenDots\nnpm ci\ncp .env.example .env\nnpm run dev",
+  "quickstart_note": "启动后访问 http://127.0.0.1:5173，创建 Space 和 Dot；需另配置 Intelligence 项目与模型才能开始对话",
+  "risks": [
+    "核心功能包含浏览器自动化操作第三方网页，并可通过 Composio 操作用户的邮箱、日历等真实账号，存在服务条款风险",
+    "默认情况下，网页搜索查询会发送给 Parallel，托管模式下对话消息发送至 CopilotKit 云端，涉及用户数据外发第三方"
+  ],
+  "readme_sha": "aa8a3048ff08ff98d7a2498804def91816be7908",
+  "generated_at": "2026-10-19",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,25 @@
+{
+  "audience": "需要开源参数化 CAD 工具的工程师、硬件爱好者，以及想用 AI Agent 自动化建模的开发者",
+  "category": "其他",
+  "features": [
+    "基于自研求解器的草图约束系统，支持重合、垂直、相切、对称等约束及参数驱动的尺寸",
+    "参数化特征时间线：拉伸、旋转、扫描、放样、圆角、倒角、壳体、钻孔、阵列，可编辑/抑制/重排/删除",
+    "装配支持嵌套组件、关节、运动仿真与干涉检测；钣金支持折弯、展开与平面图生成",
+    "文件导入导出覆盖 STEP、IGES、3MF、STL、OBJ、glTF，并支持 FreeCAD、Rhino 格式导入",
+    "内置 MCP 服务器，可让 AI Agent 通过指令直接进行参数化建模"
+  ],
+  "highlights": [
+    "项目方数据：76 个公开参考零件中 75 个的体积、面积、质心和边界框与解析或 FreeCAD 计算结果一致，余下 1 个为已知 bug",
+    "社区案例：一台科学探测车通过 MCP 服务器生成，含 3323 步特征时间线，重建无错误"
+  ],
+  "is_ai_product": false,
+  "positioning": "SolidCraft 是一款用纯 Rust 实现的开源参数化 CAD 软件，提供草图约束与特征时间线建模，支持桌面、Web 和通过 MCP 让 AI Agent 直接建模，当前处于\"早期但可用于简单零件\"阶段。",
+  "quickstart_cmd": "winget install bherbruck.SolidCraft",
+  "quickstart_note": "适用于 Windows；macOS 提供 DMG 安装包，Linux 提供 AppImage/deb/rpm/Snap，也可直接在网页中试用，无需安装",
+  "risks": [],
+  "tagline": "纯 Rust 编写的开源参数化 3D CAD 软件，支持桌面、网页和 MCP 自动化建模",
+  "readme_sha": "94386e1ad2857016267f82536460119f4968410c",
+  "generated_at": "2026-10-19",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}

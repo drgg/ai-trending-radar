@@ -1,0 +1,28 @@
+{
+  "audience": "使用 ChatGPT 处理编程等本地任务，希望让其操作本地文件、终端与浏览器并进行多代理协作的开发者",
+  "category": "Agent 平台与基础设施",
+  "features": [
+    "通过 MCP 让 ChatGPT 读写本地文件、运行终端命令并保持终端会话",
+    "浏览器扩展观察并自动化 ChatGPT 网页界面，本地记录对话内容",
+    "支持多个 worker 并行拆分任务，各自保留上下文可继续衔接",
+    "Goal/Loop 跟踪未完成工作，可在任务进行中插入修正指令",
+    "Compact & Resume 将会话与 worker 历史带入新对话继续"
+  ],
+  "highlights": [
+    "项目声明不用于绕过 ChatGPT 使用限制或安全控制，仅用于服务条款允许范围内的工作流",
+    "Windows 安装包未经发布者签名，macOS 版本未签名未经公证，需手动核对发布校验和"
+  ],
+  "is_ai_product": true,
+  "positioning": "独立开源的跨平台桌面应用，通过 MCP 把本地文件、终端和浏览器接入 ChatGPT 网页端，支持多 worker 协作完成编程等任务，非 OpenAI 官方产品。",
+  "quickstart_cmd": "",
+  "quickstart_note": "",
+  "risks": [
+    "浏览器扩展会观察并自动化 ChatGPT 网页界面且在本地记录对话内容，README 提示这不是公开的 ChatGPT 自动化 API，可能触及 OpenAI 服务条款限制",
+    "Windows 安装包未经发布者签名，macOS 版本未签名未经公证，需用户自行核对发布校验和后安装"
+  ],
+  "tagline": "通过 MCP 让 ChatGPT 读写本地文件、运行终端并操作浏览器的跨平台桌面应用",
+  "readme_sha": "b641109c6333b9d1a4f667e819db78ee7f1acc91",
+  "generated_at": "2026-10-19",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}

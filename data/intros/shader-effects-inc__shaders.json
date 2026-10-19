@@ -1,0 +1,25 @@
+{
+  "audience": "使用 React、Vue、Svelte、Solid 或原生 JS，需要给界面加视觉特效的前端开发者",
+  "category": "开发者工具与集成",
+  "features": [
+    "200+ WebGPU 特效组件，涵盖渐变、噪点、玻璃、光效、转场等，可嵌套混合",
+    "同一套 API 覆盖 React、Vue、Svelte、Solid、JavaScript 五种入口",
+    "可视化设计编辑器，拖拽调参后导出对应框架的组件代码，免费使用",
+    "CLI 连接账号后可安装、同步设计器中选定的组件到项目",
+    "可选 MCP 服务器和 Agent Skill，供 Claude Code、Cursor 等编码助手查找并安装组件"
+  ],
+  "highlights": [
+    "项目方数据：已被 16,000+ 设计工程师用于数千个网站",
+    "核心引擎及各框架组件包使用 MIT 协议；设计编辑器、预设库等平台功能另有单独条款"
+  ],
+  "is_ai_product": false,
+  "positioning": "为前端框架提供声明式 WebGPU 特效组件库，附带可视化设计编辑器导出代码，并通过 CLI、MCP 服务器和 Agent Skill 与编码助手集成。",
+  "quickstart_cmd": "npm install shaders",
+  "quickstart_note": "安装后按所用框架从 shaders/react、shaders/vue 等子路径导入组件使用。",
+  "risks": [],
+  "tagline": "面向 React/Vue/Svelte/Solid/JS 的 WebGPU 特效组件库",
+  "readme_sha": "ff7c236c8825ee7d2c96b9e85a501dec38caf454",
+  "generated_at": "2026-10-19",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,27 @@
+{
+  "is_ai_product": true,
+  "category": "开发者工具与集成",
+  "tagline": "常驻 Mac 刘海/灵动岛的小伙伴，实时监控并批准 Claude Code、Codex 等 AI 编程代理",
+  "positioning": "一款开源 Mac/Windows/Linux 常驻应用，在刘海或屏幕顶部显示 AI 编程代理的运行状态，可直接批准权限请求，并通过 iPhone/Android 远程操作。",
+  "features": [
+    "实时显示 Claude Code、Codex、Cursor、Gemini CLI 等代理的会话、文件修改和命令执行步骤",
+    "在刘海/灵动岛内一键 Allow/Deny 权限请求，支持 AskUserQuestion 单选或多选",
+    "iPhone 端通过 Live Activity 和锁屏通知远程批准权限，需 Face ID 确认",
+    "可选的 Flow 语音输入功能，支持系统识别或离线 Parakeet 识别（仅 Apple 芯片）",
+    "可选的通话录音转写、摘要与待办事项提取（Notetaker），完成后自动删除音频"
+  ],
+  "highlights": [
+    "代码以 MIT 协议开源，角色 Mochi 的名称、形象和音效版权保留给作者",
+    "iPhone 会话通过用户私有 iCloud CloudKit 同步，项目名、命令和问题均加密，不经过 Coucou 自家服务器"
+  ],
+  "audience": "使用 Claude Code、Codex、Cursor 等 AI 编程代理的开发者，尤其是习惯用 Mac 刘海/灵动岛交互的用户",
+  "quickstart_cmd": "",
+  "quickstart_note": "",
+  "risks": [
+    "Notetaker 通话录音转写功能需自行告知通话对象正在录音，以符合当地录音同意相关法规"
+  ],
+  "readme_sha": "b7d0aa75a35ddd14e388470a46e4b28168cf5c3d",
+  "generated_at": "2026-10-19",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}

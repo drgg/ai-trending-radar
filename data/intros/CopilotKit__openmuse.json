@@ -1,0 +1,30 @@
+{
+  "audience": "希望自建个人AI代理、需要浏览器/终端/邮件日历自动化能力，并愿意自行部署与二次开发的开发者和团队",
+  "category": "AI 应用产品",
+  "features": [
+    "持久化Chromium浏览器配合可选隔离Linux终端，可浏览网页、执行命令、管理文件和传输PDF",
+    "任务系统支持计划、暂停/恢复/取消/重试与人工审批，SQL租约可恢复中断的工作",
+    "可选接入Google OAuth读写Gmail和日历，发送邮件或修改日程前均需人工审核",
+    "目标追踪功能可定期检查公开网页的文本变化或价格阈值并去重告警",
+    "财务模块可导入交易CSV，生成消费分类汇总和储蓄目标建议"
+  ],
+  "highlights": [
+    "项目自称为Alpha阶段，开放式推理、真实Google账号接入和Rich Threads功能均需额外配置才能使用",
+    "可通过Render一键部署API、Web和私有浏览器三个服务，支持移除浏览器服务后仍保留聊天与任务功能"
+  ],
+  "is_ai_product": true,
+  "positioning": "基于CopilotKit与AG-UI构建的个人智能代理开源模板，提供持久化浏览器、可选Linux终端和文件工作区，支持邮件、日历、PDF处理与财务追踪等任务，供团队自行部署和定制。",
+  "quickstart_cmd": "pnpm dev",
+  "quickstart_note": "需先完成git clone、pnpm install --frozen-lockfile、配置.env及CopilotKit项目密钥，再另开终端执行pnpm dev:web",
+  "risks": [
+    "浏览器工作模块可直接操作真实网页并支持“接管”会话，以此方式自动化访问第三方网站可能违反其服务条款",
+    "默认部署仅限本地回环访问，README提示远程/公开部署需自行配置HTTPS和网络访问限制，否则存在安全隐患",
+    "默认开启的网页搜索会把对话或任务中的内容发送给第三方Parallel搜索服务",
+    "连接Gmail和日历需Google OAuth授权，代理可读取邮件与日程等个人数据（发送/修改前需人工审核）"
+  ],
+  "tagline": "开源个人代理应用，可操作浏览器、终端与文件，持续执行任务并保留工作记录",
+  "readme_sha": "c1c6982caaf25dbff5a3920286489bde494e7752",
+  "generated_at": "2026-10-19",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}

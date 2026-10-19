@@ -1,0 +1,26 @@
+{
+  "is_ai_product": true,
+  "category": "AI 应用产品",
+  "tagline": "免费开源、本地优先的跨平台视频剪辑软件，CapCut 替代品",
+  "positioning": "面向创作者的免费开源视频编辑器，覆盖字幕、配音、抠像、关键帧、特效等常见剪辑需求，全部本地运行，无水印无订阅，内置 MCP 服务器和 JSON-RPC API 供脚本和 AI Agent 调用。",
+  "features": [
+    "本地 Whisper 自动生成字幕，可选模型大小",
+    "文本转语音及语音克隆，几秒录音即可克隆音色",
+    "背景/人物抠像，支持自动识别或手动涂抹蒙版",
+    "关键帧动画与曲线编辑器，支持位置、缩放、透明度等参数",
+    "100 种 GPU 渲染特效、滤镜与转场，预览实时生效"
+  ],
+  "highlights": [
+    "无水印、无需账号、无订阅，素材不上传，可完全离线使用",
+    "内置 MCP 服务器和 JSON-RPC API，可供 Claude 等 AI Agent 或脚本直接驱动剪辑",
+    "Rust 原生引擎配合 GPU 合成器，支持代理文件和硬件解码，4K 素材可流畅拖动"
+  ],
+  "audience": "需要免费、无水印、离线剪辑短视频或视频的创作者，以及想用脚本或 AI Agent 自动化剪辑流程的开发者。",
+  "quickstart_cmd": "cargo run -p concat",
+  "quickstart_note": "需先安装 Rust 1.93+、FFmpeg 7+ 开发库、cmake 及 C++ 编译器，在 src 目录下执行；也可从官网下载安装包。",
+  "risks": [],
+  "readme_sha": "e9665dc9113c5fc20b1e55436a6fb7639058a50c",
+  "generated_at": "2026-10-19",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}

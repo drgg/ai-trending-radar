@@ -1,0 +1,25 @@
+{
+  "audience": "需要为技术文档、博客或产品页制作讲解性插图的开发者，尤其是 Claude Code 等编码 Agent 用户",
+  "category": "Skills 与写作/设计",
+  "features": [
+    "把技术概念转化为对应的物理机械等轴测插图，如缓存命中变成指销锁",
+    "用数十个实色阴影部件拼装，置于带标题、提示和实时数值的卡片中",
+    "支持纯 SVG、SVG+WebGL 特效（火焰/水波等）、beta 版真 3D 旋转部件三种形式",
+    "构建后启动无头 Chrome 自动放大检查每个关节，核实图形正确性",
+    "可产出 standalone HTML、独立 SVG 文件或 React/Next.js 组件源码"
+  ],
+  "highlights": [
+    "项目方称无需 API Key、无需 npm install，仅依赖 Node 内置模块",
+    "同时支持 Claude Code、Antigravity、OpenCode、Codex、MiniMax Code 五种编码 Agent"
+  ],
+  "is_ai_product": true,
+  "positioning": "Anatomy 是一个 Agent Skill，供 Claude Code、Codex、OpenCode 等编码 Agent 调用，根据用户描述的技术概念自动构造对应的物理机械，生成可交互的等轴测插图。",
+  "quickstart_cmd": "npx skills add wheresryan22/anatomy -g",
+  "quickstart_note": "安装后在 Claude Code 等终端输入 /anatomy 并描述要讲解的技术概念即可生成插图",
+  "risks": [],
+  "tagline": "让 Claude Code 等编码 Agent 把技术概念画成可交互等轴测插图的 Skill",
+  "readme_sha": "fa98bff1a617aa8e5edf1b7b87c866815b6fa1bc",
+  "generated_at": "2026-10-19",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}

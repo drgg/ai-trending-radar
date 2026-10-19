@@ -1,0 +1,27 @@
+{
+  "is_ai_product": true,
+  "category": "开发者工具与集成",
+  "tagline": "为 Claude 提供的免费 SEO MCP 服务器，配套开源 SEO/GEO 技能包",
+  "positioning": "基于 MCP 协议的 SEO 数据连接器，搭配 MIT 协议的 Claude Skills，用用户自己的 Google Search Console、GA4、Google Ads 数据而非估算数据做关键词研究、排名追踪、审计、反链和 AI 可见度分析，DataForSEO 补充竞品与 SERP 数据。",
+  "features": [
+    "提供 seo-audit、keyword-research、rank-tracking 等8个 Claude Skills，覆盖审计、选词、排名、竞品、反链、AI可见度场景",
+    "排名数据来自用户真实 Google Search Console，流量数据来自真实 GA4，而非 SERP 抓取估算",
+    "关键词搜索量取自 Google Ads 关键词规划师，竞品关键词、反链、SERP 数据内置 DataForSEO 接口",
+    "ai-visibility 技能读取 GA4 的 AI 引荐流量报告，识别 ChatGPT、Perplexity、Claude、Gemini 引用的页面",
+    "可选连接已有订阅的 Ahrefs、Semrush 数据源"
+  ],
+  "highlights": [
+    "README 称多数“开源 SEO 工具”只是 DataForSEO API 的壳，托管版会在每次调用上加收约28%费用（项目方说法）",
+    "连接器免费接入、技能代码 MIT 开源，数据通过用户自己连接的 GSC/GA4/广告账号获取，不额外加价"
+  ],
+  "audience": "使用 Claude Code/Desktop 的 SEO 从业者和营销开发者，希望基于自身 Google 数据而非估算做排名与内容分析",
+  "quickstart_cmd": "claude mcp add ryze --transport http https://connector.get-ryze.ai/mcp",
+  "quickstart_note": "添加连接器后需 Google 登录并授权 Search Console/GA4/广告账号，再安装 open-seo-mcp-skills 插件使用",
+  "risks": [
+    "需要将 Google Search Console、GA4、Google Ads 等账号数据连接至第三方 Ryze 云端服务，涉及真实业务数据外传"
+  ],
+  "readme_sha": "bfa0b6d1502f6b2c6e50d73047c2f87a8b4443b3",
+  "generated_at": "2026-10-19",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}

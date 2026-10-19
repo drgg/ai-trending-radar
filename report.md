@@ -1,77 +1,25 @@
-# GitHub AI 热门项目周报 · 第 4 期 · 2026-10-12：新上榜 6 · 移出 5
+# GitHub AI 热门项目周报 · 第 5 期 · 2026-10-19：新上榜 9 · 移出 4
 
-- 收录：2026-07-14 至 2026-10-12 创建、Stars > 5,000 的 AI 项目，共 34 个
+- 收录：2026-07-21 至 2026-10-19 创建、Stars > 5,000 的 AI 项目，共 39 个
 
 ## 本期变化
-较第 3 期（2026-10-05，7 天）：
-- 新上榜：Ebony-Vinyl/dsh-our-free-model、yetone/magpie、Albert-Weasker/niubigeo、rehan-remade/universal-modder、miqdadbadjuber/anti-slop、yi1108/printfilm
-- 移出：petergyang/no-ai-slop（创建于 2026-07-07，已超出 90 天收录窗口）；MDX-Tom/gpt-instruct（创建于 2026-07-11，已超出 90 天收录窗口）；unicity-aos/aos-ce（创建于 2026-07-12，已超出 90 天收录窗口）；jakubkrehel/skills（创建于 2026-07-10，已超出 90 天收录窗口）；TencentCloud/Octop（创建于 2026-07-08，已超出 90 天收录窗口）
-- 涨星：lexmount/moli +8,754、hypit-ai/hypit +2,020、dataelement/dsh-desktop +1,498、KKKKhazix/AIHOT +1,420、Vincentwei1021/video-shotcraft +1,052
+较第 4 期（2026-10-12，7 天）：
+- 新上榜：wheresryan22/anatomy、jub0t/Concat、yihui-dev/awesome-opus5-5-videos、Ryze-AI-Adgent/open-seo-mcp-skills、CopilotKit/OpenDots、Louis-CFM/coucou、CopilotKit/openmuse、monid-ai/monid、totec448-spec/chat-on-steroids
+- 移出：xai-org/grok-build（创建于 2026-07-14，已超出 90 天收录窗口）；Vincentwei1021/video-shotcraft（创建于 2026-07-19，已超出 90 天收录窗口）；drumih/turbo-fieldfare（创建于 2026-07-17，已超出 90 天收录窗口）；larashero3-dotcom/lieflat-charts（创建于 2026-07-16，已超出 90 天收录窗口）
+- 涨星：Ebony-Vinyl/dsh-our-free-model +15,627、yetone/magpie +6,499、lexmount/moli +2,851、hypit-ai/hypit +2,314、dataelement/dsh-desktop +1,922
 
 ## 编者按
-- Agent运行时基建成热点，提供执行循环、沙箱与团队协作，如grok-build、trueforge、OpenBot。
-- Claude/Codex技能包生态繁荣，覆盖设计视频求职场景，如video-shotcraft、ASu-skills。
-- 部分项目打通跨平台AI配额，省钱喂养编程Agent，如codex-chatgpt-web、magpie。
-- 本地推理持续突破极限，消费级硬件跑起万亿参数模型，如kimi-k3-in-c、turbo-fieldfare。
-- Agent原生应用崛起，让AI直接调研写作替代传统SaaS，如crm、niubigeo、AIHOT。
+- Agent 基础设施层持续火热，多个项目聚焦网关、运行时与持续自我改进框架，如 magpie、reef、trueforge
+- 薅模型配额与白嫖算力需求旺盛，dsh-our-free-model、codex-chatgpt-web 等绕过官方限额走红
+- Claude Code 等编程 Agent 的 Skills 生态加速扩张，anatomy、anti-slop、watermarks-remover 覆盖设计与规范场景
+- 浏览器/桌面操作型 Agent 持续演进，jev-ultrafast、moli、chat-on-steroids 主打轻量与自然语言驱动
+- AI 原生办公与创作应用崛起，genoffice、Concat 试图替代传统办公与剪辑软件
 
 ## 名录
 
 ### 编程 Agent 与运行框架
 
-#### [xai-org/grok-build](https://github.com/xai-org/grok-build) ⭐ 27,320
-
-> xAI 推出的终端 AI 编程 Agent，全屏 TUI，可编辑代码、执行命令、搜索网页。
-
-- **定位**：grok 是 xAI（SpaceXAI）推出的终端 AI 编程 Agent，以全屏 TUI 运行，理解代码库并执行文件编辑、命令、网页搜索等任务，支持交互模式、无头脚本/CI 及通过 ACP 的编辑器集成。
-- **能做什么**：
-  - 理解代码库并自动编辑文件
-  - 执行 shell 命令、搜索网页
-  - 管理长时间运行的任务
-  - 支持交互式全屏 TUI、无头脚本/CI 模式
-  - 可通过 Agent Client Protocol（ACP）嵌入编辑器
-- **亮点**：
-  - 由 xAI（SpaceXAI）官方开发并维护，代码定期从内部 monorepo 同步
-  - README 未给出具体性能或基准数字
-- **适合**：需要终端 AI 编程助手的开发者，尤其是希望在 CLI、CI 或编辑器中集成编码 Agent 的 Grok 用户
-- **上手**：`curl -fsSL https://x.ai/cli/install.sh | bash` 适用于 macOS/Linux；Windows 用 PowerShell 命令安装。首次启动 grok 会打开浏览器完成身份验证。
-
-#### [zai-org/ZCode](https://github.com/zai-org/ZCode) ⭐ 7,698
-
-> Z.ai 出品的编程 Agent 工作台，提供桌面、Web 与终端三种界面
-
-- **定位**：ZCode 是 AI 编程工作台，整合桌面应用、浏览器界面和终端 Agent，仓库包含客户端、后端服务、共享 UI 以及 Agent CLI 与运行时源码。
-- **能做什么**：
-  - 提供桌面应用（Electron）、Web 界面和终端 TUI/CLI 三种使用形态，共用同一后端服务
-  - 命令行发行包统一用 zcode 命令启动，无参数进入 TUI，加 --web 启动网页界面
-  - 可选支持 SSH/WSL 远程开发，本地构建资源通过 SFTP 上传，不经 CDN
-  - Web 服务默认只监听 127.0.0.1，局域网访问需显式开启 --host 0.0.0.0
-  - 可通过环境变量自定义数据目录、后端工作区路径及内置 Provider 配置文件
-- **亮点**：
-  - 仓库同时开源客户端、后端服务、共享 UI 与 Agent CLI/运行时完整源码，采用 Apache-2.0 许可
-  - README 标注已更新至 ZCode v3.14.3 版本（项目方数据）
-- **适合**：需要本地部署或自定义编程 Agent 工作台的开发者和团队
-- **上手**：`pnpm bootstrap` 安装 workspace 依赖并准备桌面本地运行资源，随后可用 pnpm dev:desktop 启动开发环境
-
-#### [tamaratran/fast-jev-compaction](https://github.com/tamaratran/fast-jev-compaction) ⭐ 7,589
-
-> Claude Code插件，用外部模型逐条打分决定去留，替代摘要式上下文压缩
-
-- **定位**：Claude Code 触发上下文压缩时，用名为Jev的外部模型逐条给工具调用和结果打分，决定保留、截断或删除，替代默认的LLM摘要压缩方式。
-- **能做什么**：
-  - 对每条工具调用和结果打分，决定保留、截断前300字符或整条删除
-  - 保留内容均为原文，不做摘要式改写，用户与助手文本始终完整
-  - 问题超出单次请求token上限时自动分批并发请求，再合并结果
-  - 可作为Claude Code插件直接替换内置compaction，也可作npm库单独调用
-  - 压缩失败或减幅不足时自动回退到Claude Code内置摘要
-- **亮点**：
-  - 用逐条保留概率代替摘要改写，声称可避免文件路径、报错等细节在压缩中丢失（项目方说法）
-  - 完整对话状态会随每批请求重复发送给打分服务，接近状态上限时单次压缩需多次请求（项目方文档）
-- **适合**：使用 Claude Code 处理长会话、希望上下文压缩保留原文细节而非摘要的开发者
-- **上手**：`claude plugin marketplace add tamaratran/fast-jev-compaction` 需先在settings.json开启CLAUDE_CODE_ENABLE_FUNCTION_HOOKS并配置TYPESAFE_API_KEY，再执行plugin install完…
-- ⚠️ 会将对话中的工具调用、输入参数和文本内容发送给第三方TypeSafe API用于打分，存在隐私或代码泄露风险。
-
-#### [rehan-remade/universal-modder](https://github.com/rehan-remade/universal-modder) ⭐ 6,757
+#### [rehan-remade/universal-modder](https://github.com/rehan-remade/universal-modder) ⭐ 8,368
 
 > 让 Claude Code 等编程 agent 给你拥有的任意 PC 游戏做 mod 的技能与工具包
 
@@ -88,7 +36,43 @@
 - **适合**：愿意用编程 agent 给自己拥有的 PC 游戏做 mod、逆向研究的开发者和玩家
 - **上手**：`/plugin marketplace add rehan-remade/universal-modder` 适用于 Claude Code，之后再执行 /plugin install universal-modder@universal-modder 完成安装
 
-#### [ApodexAI/FrontierAgent](https://github.com/ApodexAI/FrontierAgent) ⭐ 5,227
+#### [zai-org/ZCode](https://github.com/zai-org/ZCode) ⭐ 7,943
+
+> Z.ai 出品的编程 Agent 工作台，提供桌面、Web 与终端三种界面
+
+- **定位**：ZCode 是 AI 编程工作台，整合桌面应用、浏览器界面和终端 Agent，仓库包含客户端、后端服务、共享 UI 以及 Agent CLI 与运行时源码。
+- **能做什么**：
+  - 提供桌面应用（Electron）、Web 界面和终端 TUI/CLI 三种使用形态，共用同一后端服务
+  - 命令行发行包统一用 zcode 命令启动，无参数进入 TUI，加 --web 启动网页界面
+  - 可选支持 SSH/WSL 远程开发，本地构建资源通过 SFTP 上传，不经 CDN
+  - Web 服务默认只监听 127.0.0.1，局域网访问需显式开启 --host 0.0.0.0
+  - 可通过环境变量自定义数据目录、后端工作区路径及内置 Provider 配置文件
+- **亮点**：
+  - 仓库同时开源客户端、后端服务、共享 UI 与 Agent CLI/运行时完整源码，采用 Apache-2.0 许可
+  - README 标注已更新至 ZCode v3.14.3 版本（项目方数据）
+- **适合**：需要本地部署或自定义编程 Agent 工作台的开发者和团队
+- **上手**：`pnpm bootstrap` 安装 workspace 依赖并准备桌面本地运行资源，随后可用 pnpm dev:desktop 启动开发环境
+
+#### [tamaratran/fast-jev-compaction](https://github.com/tamaratran/fast-jev-compaction) ⭐ 7,688
+
+> Claude Code插件，用外部模型逐条打分决定去留，替代摘要式上下文压缩
+
+- **定位**：Claude Code 触发上下文压缩时，用名为Jev的外部模型逐条给工具调用和结果打分，决定保留、截断或删除，替代默认的LLM摘要压缩方式。
+- **能做什么**：
+  - 对每条工具调用和结果打分，决定保留、截断前300字符或整条删除
+  - 保留内容均为原文，不做摘要式改写，用户与助手文本始终完整
+  - 问题超出单次请求token上限时自动分批并发请求，再合并结果
+  - 可作为Claude Code插件直接替换内置compaction，也可作npm库单独调用
+  - 压缩失败或减幅不足时自动回退到Claude Code内置摘要
+- **亮点**：
+  - 用逐条保留概率代替摘要改写，声称可避免文件路径、报错等细节在压缩中丢失（项目方说法）
+  - 完整对话状态会随每批请求重复发送给打分服务，接近状态上限时单次压缩需多次请求（项目方文档）
+- **适合**：使用 Claude Code 处理长会话、希望上下文压缩保留原文细节而非摘要的开发者
+- **上手**：`claude plugin marketplace add tamaratran/fast-jev-compaction` 需先在settings.json开启CLAUDE_CODE_ENABLE_FUNCTION_HOOKS并配置TYPESAFE_API_KEY，再执行plugin install完…
+- ⚠️ 会将对话中的工具调用、输入参数和文本内容发送给第三方TypeSafe API用于打分，存在隐私或代码泄露风险。
+- ⚠️ 快照当日已 31 天未更新（最后推送 2026-09-18）
+
+#### [ApodexAI/FrontierAgent](https://github.com/ApodexAI/FrontierAgent) ⭐ 5,331
 
 > 开源终端智能体运行时，提供 ReAct 单智能体与 Agent Team 多智能体两种工作模式
 
@@ -107,7 +91,7 @@
 
 ### Agent 平台与基础设施
 
-#### [browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast) ⭐ 22,663
+#### [browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast) ⭐ 23,237
 
 > 用动态索引动作空间驱动浏览器执行单一自然语言目标的实验性网页Agent
 
@@ -125,7 +109,7 @@
 - **上手**：`uv run jev` 先执行git clone、uv sync并在.env中配置TYPESAFE_API_KEY和TEXT_MODEL_API_KEY，再运行此命令打开本地调试页面
 - ⚠️ 核心功能是自动化操作Google Flights、Wikipedia等第三方网页完成任务，可能违反对方服务条款，存在账号风险
 
-#### [lexmount/moli](https://github.com/lexmount/moli) ⭐ 16,669
+#### [lexmount/moli](https://github.com/lexmount/moli) ⭐ 19,520
 
 > 面向 AI Agent 的轻量无头浏览器，按需渲染，资源占用低，用 Rust 编写
 
@@ -143,42 +127,7 @@
 - **适合**：需要网页抓取、构建爬虫或 Agent 浏览自动化的开发者，尤其是对资源占用和启动速度敏感的场景
 - **上手**：`curl --proto '=https' --tlsv1.2 -fsSL https://github.com/lexmount/moli/releases/latest/download/moli-installer.sh | sh` Linux/macOS 下载并安装预编译二进制；Windows 需在 PowerShell 中运行对应的 .ps1 安装脚本
 
-#### [yc-software/qm](https://github.com/yc-software/qm) ⭐ 15,386
-
-> 面向团队的多人协作 Agent 工作平台，支持 Slack 与网页端
-
-- **定位**：为初创公司设计的多人协作 Agent 系统，部署在自有云账户、使用自有模型和密钥，员工拥有独立工作区并可在频道中共同使用 Agent。
-- **能做什么**：
-  - 个人与共享作用域并存，可在 Slack 频道、群组、项目中协作
-  - Slack 与网页端共享同一身份和配置
-  - 支持 Pi、OpenCode、Codex、Claude Code 等多种 harness 和模型切换
-  - 可创建内部 Web 应用并按权限发布给指定人员
-  - 支持定时任务、监控和入站 webhook 等后台运行能力
-- **亮点**：
-  - 安全策略分 Strict（逐步需人工审批）、Auto（默认，阻断私网访问）、Dangerous 三档，可选内容审查功能
-  - 共享策略默认 Isolated，资源默认不跨作用域共享，可选 Open 模式按授权共享
-- **适合**：需要为团队搭建内部协作型 AI Agent 系统的初创公司技术团队或运维人员
-- **上手**：`npm exec --yes --package=@yc-software/qm@latest -- qm init . --org <slug> --target <fly-or-aws>` 需先创建组织自有的部署仓库依赖 @yc-software/qm，init 后按引导完成基础设施、登录和连接器配置，部署在自己的云账户中
-
-#### [dataelement/dsh-desktop](https://github.com/dataelement/dsh-desktop) ⭐ 13,403
-
-> 本地优先的跨平台桌面应用，封装 DeepSeek Harness 的 Agent 运行时与 Web 界面
-
-- **定位**：将本地运行的 DeepSeek Harness 打包为安装版桌面应用，自动启动运行时，在本地就绪后打开完整 Harness 界面，用户数据保存在应用目录之外。
-- **能做什么**：
-  - 自动启动和停止 Harness，无需单独 CLI 或浏览器标签页
-  - 支持官方 DeepSeek 模型及主流第三方模型提供商
-  - 内置 PPT 模式，可将素材转为可编辑 PPTX（项目方称含16模板192布局）
-  - 支持导入导出 .dshpreset 格式的完整自定义 Agent 预设包
-  - 提供 Safe Mode 临时屏蔽第三方插件，并给出故障诊断与恢复指引
-- **亮点**：
-  - 基于快速演进中的 @deepseek-ai/dsh@0.2.0-rc.2 构建，项目方称为早期预览版
-  - macOS 版经 Apple 签名并公证，Windows x64 安装包已代码签名
-  - 内置离线 DOCX/PPTX/XLSX 技能，macOS 和 Windows 自带所需 Python 库
-- **适合**：需要在本地运行 DeepSeek Harness、管理 Agent 插件与多工作区的 macOS 或 Windows 用户
-- ⚠️ 可选的手机远程访问功能通过 Cloudflare Quick Tunnel 或 Pinggy 等第三方隧道转发本地数据
-
-#### [yetone/magpie](https://github.com/yetone/magpie) ⭐ 9,785
+#### [yetone/magpie](https://github.com/yetone/magpie) ⭐ 16,284
 
 > 本地网关统一管理，让各编程 Agent 共用任意模型或订阅账号
 
@@ -196,7 +145,42 @@
 - **上手**：`curl -fsSL https://usemagpie.ai/install.sh | sh` 安装后在应用内 Providers 页添加供应商或登录订阅，再为每个 Agent 选择模型；也可用 magpie CLI 完成同样操作。
 - ⚠️ 会读取 Claude Code、Codex 等本机登录凭证（包括系统 Keychain），将一个厂商订阅账号的模型跨 Agent 复用，可能违反相应厂商的服务条款
 
-#### [deeplethe/utopia](https://github.com/deeplethe/utopia) ⭐ 8,273
+#### [yc-software/qm](https://github.com/yc-software/qm) ⭐ 15,445
+
+> 面向团队的多人协作 Agent 工作平台，支持 Slack 与网页端
+
+- **定位**：为初创公司设计的多人协作 Agent 系统，部署在自有云账户、使用自有模型和密钥，员工拥有独立工作区并可在频道中共同使用 Agent。
+- **能做什么**：
+  - 个人与共享作用域并存，可在 Slack 频道、群组、项目中协作
+  - Slack 与网页端共享同一身份和配置
+  - 支持 Pi、OpenCode、Codex、Claude Code 等多种 harness 和模型切换
+  - 可创建内部 Web 应用并按权限发布给指定人员
+  - 支持定时任务、监控和入站 webhook 等后台运行能力
+- **亮点**：
+  - 安全策略分 Strict（逐步需人工审批）、Auto（默认，阻断私网访问）、Dangerous 三档，可选内容审查功能
+  - 共享策略默认 Isolated，资源默认不跨作用域共享，可选 Open 模式按授权共享
+- **适合**：需要为团队搭建内部协作型 AI Agent 系统的初创公司技术团队或运维人员
+- **上手**：`npm exec --yes --package=@yc-software/qm@latest -- qm init . --org <slug> --target <fly-or-aws>` 需先创建组织自有的部署仓库依赖 @yc-software/qm，init 后按引导完成基础设施、登录和连接器配置，部署在自己的云账户中
+
+#### [dataelement/dsh-desktop](https://github.com/dataelement/dsh-desktop) ⭐ 15,325
+
+> 本地优先的跨平台桌面应用，封装 DeepSeek Harness 的 Agent 运行时与 Web 界面
+
+- **定位**：将本地运行的 DeepSeek Harness 打包为安装版桌面应用，自动启动运行时，在本地就绪后打开完整 Harness 界面，用户数据保存在应用目录之外。
+- **能做什么**：
+  - 自动启动和停止 Harness，无需单独 CLI 或浏览器标签页
+  - 支持官方 DeepSeek 模型及主流第三方模型提供商
+  - 内置 PPT 模式，可将素材转为可编辑 PPTX（项目方称含16模板192布局）
+  - 支持导入导出 .dshpreset 格式的完整自定义 Agent 预设包
+  - 提供 Safe Mode 临时屏蔽第三方插件，并给出故障诊断与恢复指引
+- **亮点**：
+  - 基于快速演进中的 @deepseek-ai/dsh@0.2.0-rc.2 构建，项目方称为早期预览版
+  - macOS 版经 Apple 签名并公证，Windows x64 安装包已代码签名
+  - 内置离线 DOCX/PPTX/XLSX 技能，macOS 和 Windows 自带所需 Python 库
+- **适合**：需要在本地运行 DeepSeek Harness、管理 Agent 插件与多工作区的 macOS 或 Windows 用户
+- ⚠️ 可选的手机远程访问功能通过 Cloudflare Quick Tunnel 或 Pinggy 等第三方隧道转发本地数据
+
+#### [deeplethe/utopia](https://github.com/deeplethe/utopia) ⭐ 8,441
 
 > 开源企业级"世界模型"，基于双时态知识图谱的自治知识库系统
 
@@ -214,7 +198,7 @@
 - **适合**：需要知识图谱、RAG与审计追溯能力的企业技术团队、法务合规人员，以及接入MCP开发Agent的工程师
 - **上手**：`docker compose --profile app up -d` 先clone仓库并进入目录，再执行该命令，访问 http://localhost:1516 注册，首个账号自动成为管理员。
 
-#### [Human-Agent-Society/reef](https://github.com/Human-Agent-Society/reef) ⭐ 7,531
+#### [Human-Agent-Society/reef](https://github.com/Human-Agent-Society/reef) ⭐ 7,647
 
 > 开源的持续自我改进 Agent 基础设施，衔接推理、反馈、训练与版本发布
 
@@ -232,7 +216,7 @@
 - **上手**：`uv pip install reef-infra` 需先用 uv 创建并激活虚拟环境；若需版本/检查点功能还要系统安装 git-lfs。
 - ⚠️ Reefine 默认在本地无鉴权启动（需手动设 REEF_TOKEN 才要求认证），其编码会话默认不在沙箱中运行命令，README 提醒需自行隔离安装目录与运行环境。
 
-#### [CopilotKit/OpenBot](https://github.com/CopilotKit/OpenBot) ⭐ 6,365
+#### [CopilotKit/OpenBot](https://github.com/CopilotKit/OpenBot) ⭐ 6,647
 
 > 开源AI协作者平台，为每个Agent分配独立电脑并记录全部操作
 
@@ -251,7 +235,7 @@
 - ⚠️ 核心功能是让Agent使用自带登录态的浏览器自动化操作第三方网站，可能涉及违反目标网站服务条款的风险
 - ⚠️ 默认.env.example开启OPENBOT_SINGLE_USER=true，将所有请求视为管理员身份，需手动开启登录后才能对外部署
 
-#### [truefoundry/trueforge](https://github.com/truefoundry/trueforge) ⭐ 6,160
+#### [truefoundry/trueforge](https://github.com/truefoundry/trueforge) ⭐ 6,293
 
 > 开源agent harness，为LLM提供执行循环、沙箱、审批等运行时能力
 
@@ -269,9 +253,68 @@
 - **上手**：`npx @truefoundry/trueforge@latest` 本地模式为单进程+SQLite，仅限本机试用；团队或生产环境需用Docker Compose、Helm或Railway的托管模式。
 - ⚠️ 本地模式默认无登录认证，README明确警告仅限本机使用，不可直接暴露到公网作为生产部署
 
+#### [CopilotKit/OpenDots](https://github.com/CopilotKit/OpenDots) ⭐ 5,579
+
+> 开源的常驻 AI 坐席模板，每个 Dot 拥有专属电脑，支持网页、通话与 Slack 协作
+
+- **定位**：OpenDots 是基于 CopilotKit 和 AG-UI 构建的开源模板，用于搭建具有持久记忆、独立浏览器与文件系统的专属 AI 代理（Dot），需自行部署和配置基础设施，而非现成产品。
+- **能做什么**：
+  - Spaces 文档工作区：浏览、编辑页面，支持嵌套子页面及网格/列表视图切换
+  - Specialist Dots：自定义名称、角色、指令和可用工具的专属代理
+  - Dot computers：每个 Dot 可配备容器化电脑，支持浏览器、文件和终端操作（需配置 OpenBot）
+  - 人工审核：保存页面或执行非只读工具前弹出批准/拒绝卡片，需人工确认
+  - 支持文字对话、语音通话和 Slack 提及三种交互方式
+- **亮点**：
+  - 项目是可自部署的开源模板而非托管产品，仍处于早期开发阶段
+  - Dot 电脑功能需额外搭建 OpenBot 等服务，未配置时不会在主机上执行任何命令
+- **适合**：需要搭建可定制、持久化 AI 代理工作流的开发者和技术团队，愿意自行部署和配置基础设施
+- **上手**：`git clone https://github.com/CopilotKit/OpenDots.git
+cd OpenDots
+npm ci
+cp .env.example .env
+npm run dev` 启动后访问 http://127.0.0.1:5173，创建 Space 和 Dot；需另配置 Intelligence 项目与模型才能开始对话
+- ⚠️ 核心功能包含浏览器自动化操作第三方网页，并可通过 Composio 操作用户的邮箱、日历等真实账号，存在服务条款风险
+- ⚠️ 默认情况下，网页搜索查询会发送给 Parallel，托管模式下对话消息发送至 CopilotKit 云端，涉及用户数据外发第三方
+
+#### [monid-ai/monid](https://github.com/monid-ai/monid) ⭐ 5,145
+
+> 面向 AI agent 工具调用的聚合层，一个 Base URL 和密钥接入多家供应商 API
+
+- **定位**：类似 OpenRouter，但面向 AI agent 调用的第三方工具（网页搜索/抓取、企业与人物信息、社交、生成类 API 等），提供统一调用协议、按次计费引擎与声明式连接器格式用于扩展供应商。
+- **能做什么**：
+  - 一个 Base URL 和密钥访问 72+ 服务商、2000+ 工具（项目方数据）
+  - discover 接口按任务对全目录排名，返回价格、健康状态及 p50/p95 延迟
+  - 按调用结算用量，在原始响应上计费，供应商错误或空结果按零用量结算
+  - 连接器为声明式定义（provider + endpoint），新增供应商通过 PR 合并后即可被所有 agent 调用
+  - 可选让 coding agent 依据 AGENT.md 自动编写连接器代码
+- **亮点**：
+  - 号称可用一个 Base URL 和密钥调用覆盖 72+ 服务商的 2000+ 工具（项目方数据，未提供第三方验证）
+- **适合**：需要让 AI agent 调用第三方工具（搜索、数据抓取、企业/人物信息、内容生成等）并统一管理密钥与费用的开发者
+- **上手**：`git clone https://github.com/monid-ai/monid.git
+cd monid
+deno task check && deno task test` 需先安装 Deno 2.x；测试基于已录制的响应回放（188 个测试），无需网络或真实供应商密钥。
+
+#### [totec448-spec/chat-on-steroids](https://github.com/totec448-spec/chat-on-steroids) ⭐ 5,038
+
+> 通过 MCP 让 ChatGPT 读写本地文件、运行终端并操作浏览器的跨平台桌面应用
+
+- **定位**：独立开源的跨平台桌面应用，通过 MCP 把本地文件、终端和浏览器接入 ChatGPT 网页端，支持多 worker 协作完成编程等任务，非 OpenAI 官方产品。
+- **能做什么**：
+  - 通过 MCP 让 ChatGPT 读写本地文件、运行终端命令并保持终端会话
+  - 浏览器扩展观察并自动化 ChatGPT 网页界面，本地记录对话内容
+  - 支持多个 worker 并行拆分任务，各自保留上下文可继续衔接
+  - Goal/Loop 跟踪未完成工作，可在任务进行中插入修正指令
+  - Compact & Resume 将会话与 worker 历史带入新对话继续
+- **亮点**：
+  - 项目声明不用于绕过 ChatGPT 使用限制或安全控制，仅用于服务条款允许范围内的工作流
+  - Windows 安装包未经发布者签名，macOS 版本未签名未经公证，需手动核对发布校验和
+- **适合**：使用 ChatGPT 处理编程等本地任务，希望让其操作本地文件、终端与浏览器并进行多代理协作的开发者
+- ⚠️ 浏览器扩展会观察并自动化 ChatGPT 网页界面且在本地记录对话内容，README 提示这不是公开的 ChatGPT 自动化 API，可能触及 OpenAI 服务条款限制
+- ⚠️ Windows 安装包未经发布者签名，macOS 版本未签名未经公证，需用户自行核对发布校验和后安装
+
 ### AI 应用产品
 
-#### [trycompai/crm](https://github.com/trycompai/crm) ⭐ 11,230
+#### [trycompai/crm](https://github.com/trycompai/crm) ⭐ 11,452
 
 > 开源 agent 原生 CRM，AI agent 自主调研并记录客户信息，而非聊天侧边栏
 
@@ -288,9 +331,9 @@
 - **适合**：需要 AI 自动调研、补全客户资料的销售/增长团队，以及希望自托管、具备工程能力的技术团队
 - **上手**：`git clone https://github.com/trycompai/crm.git && cd crm` 需 Bun 和 Docker，克隆后配置 .env、docker compose 启动 Postgres、执行迁移后运行 bun run dev
 - ⚠️ agent 的 research_person、enrich_company 等工具会调用第三方服务（如 LinkedIn 数据）调研联系人个人信息，涉及第三方隐私数据采集合规问题
-- ⚠️ 快照当日已 31 天未更新（最后推送 2026-09-11）
+- ⚠️ 快照当日已 38 天未更新（最后推送 2026-09-11）
 
-#### [genspark-ai/genoffice](https://github.com/genspark-ai/genoffice) ⭐ 9,360
+#### [genspark-ai/genoffice](https://github.com/genspark-ai/genoffice) ⭐ 9,971
 
 > 开源免费的AI办公套件，本地编辑Word/Excel/PPT/PDF并内置AI代理
 
@@ -307,27 +350,25 @@
 - **适合**：需要AI辅助处理Word/Excel/PPT/PDF文档，或希望让Claude Code、Cursor等编程Agent直接生成真实办公文件的个人与团队
 - **上手**：`npx skills add genspark-ai/genoffice` 该命令将GenOffice的Agent Skill安装进支持Skill的编程Agent；配合随桌面应用安装的genoffice命令行使用。
 
-#### [jev-chat/jev-chat-jarvis](https://github.com/jev-chat/jev-chat-jarvis) ⭐ 7,633
+#### [jub0t/Concat](https://github.com/jub0t/Concat) ⭐ 9,136
 
-> 读手机屏幕聊天内容，AI判断对方意图并生成回复候选，发送仍由你手动确认
+> 免费开源、本地优先的跨平台视频剪辑软件，CapCut 替代品
 
-- **定位**：面向普通用户的手机聊天回复辅助工具，通过无障碍服务读取QQ、X、飞书等App聊天界面内容，调用用户自配置的大模型判断对方意图并生成候选回复，由用户手动决定是否发送，不修改App本身。
+- **定位**：面向创作者的免费开源视频编辑器，覆盖字幕、配音、抠像、关键帧、特效等常见剪辑需求，全部本地运行，无水印无订阅，内置 MCP 服务器和 JSON-RPC API 供脚本和 AI Agent 调用。
 - **能做什么**：
-  - 无障碍服务读取QQ、X、飞书聊天界面，不hook、不改包、不读数据库
-  - 判断模型给出对方意图、危险等级（1-9）与最佳动作，再生成3条候选回复
-  - 候选回复一键填入输入框，发送始终由用户手动点击，不碰转账红包
-  - 本地知识库与联系人档案，分析时按标签匹配自动带上笔记和历史（历史默认关闭，可选开启）
-  - 判断、回复、视觉三路接口可分别配置，内置OpenRouter等多家预设
+  - 本地 Whisper 自动生成字幕，可选模型大小
+  - 文本转语音及语音克隆，几秒录音即可克隆音色
+  - 背景/人物抠像，支持自动识别或手动涂抹蒙版
+  - 关键帧动画与曲线编辑器，支持位置、缩放、透明度等参数
+  - 100 种 GPU 渲染特效、滤镜与转场，预览实时生效
 - **亮点**：
-  - 先用判断模型给出意图和危险等级，再据此起草回复，而非直接让模型编回复（项目方设计思路）
-  - 不hook、不改包、不走App接口或账号体系，只用系统无障碍服务读屏，截图仅本机OCR不上传
-  - 微信Android版已全面下架，当前版本不采集、不分析、不处理微信内容
-- **适合**：在QQ、X、飞书等App上聊天、希望AI辅助判断对方意图并起草回复的Android手机用户（仅支持Android 11+ ARM64机型）
-- **上手**：`adb install -r apk/jev-assistant-v1.4-release.apk` 需先从仓库下载签名release APK，安装后在设置填入模型API Key，再按向导开启无障碍、悬浮窗等权限
-- ⚠️ 触发分析时，聊天文字及你启用的背景信息会发送给你自行配置的第三方大模型服务商，涉及对方聊天内容外流的隐私问题。
-- ⚠️ 核心功能靠无障碍服务读取QQ、X、飞书等App的聊天界面内容并自动填入回复文本框，可能涉及相关App服务条款限制。
+  - 无水印、无需账号、无订阅，素材不上传，可完全离线使用
+  - 内置 MCP 服务器和 JSON-RPC API，可供 Claude 等 AI Agent 或脚本直接驱动剪辑
+  - Rust 原生引擎配合 GPU 合成器，支持代理文件和硬件解码，4K 素材可流畅拖动
+- **适合**：需要免费、无水印、离线剪辑短视频或视频的创作者，以及想用脚本或 AI Agent 自动化剪辑流程的开发者。
+- **上手**：`cargo run -p concat` 需先安装 Rust 1.93+、FFmpeg 7+ 开发库、cmake 及 C++ 编译器，在 src 目录下执行；也可从官网下载安装包。
 
-#### [Albert-Weasker/niubigeo](https://github.com/Albert-Weasker/niubigeo) ⭐ 7,301
+#### [Albert-Weasker/niubigeo](https://github.com/Albert-Weasker/niubigeo) ⭐ 8,294
 
 > 开源自托管工具，用真实AI模型回答追踪品牌在AI答案中的曝光与竞品
 
@@ -346,7 +387,7 @@
 - **上手**：`git clone --branch v0.3.0 --depth 1 https://github.com/Albert-Weasker/niubigeo.git` 需Node.js 22.13+及OpenRouter API Key，克隆后npm ci、配置.env，再npm run server启动，访问localhost:8787。
 - ⚠️ 使用时需将域名、关键词、竞品列表等可能具有商业敏感性的研究数据发送给所选的外部模型API服务。
 
-#### [KKKKhazix/AIHOT](https://github.com/KKKKhazix/AIHOT) ⭐ 7,266
+#### [KKKKhazix/AIHOT](https://github.com/KKKKhazix/AIHOT) ⭐ 8,033
 
 > 自动找热点、写日报的自托管网站框架，换上信源和标准就是你的行业热点站
 
@@ -366,7 +407,48 @@ cd myhot
 node scripts/init-env.ts --llm-key <你的模型 API Key>
 docker compose up -d --build` 需要 Docker、Node.js 24 和 OpenAI 兼容的模型 API Key，完成后访问 localhost:3000，后台在 /admin
 
-#### [yi1108/printfilm](https://github.com/yi1108/printfilm) ⭐ 5,133
+#### [jev-chat/jev-chat-jarvis](https://github.com/jev-chat/jev-chat-jarvis) ⭐ 7,897
+
+> 读手机屏幕聊天内容，AI判断对方意图并生成回复候选，发送仍由你手动确认
+
+- **定位**：面向普通用户的手机聊天回复辅助工具，通过无障碍服务读取QQ、X、飞书等App聊天界面内容，调用用户自配置的大模型判断对方意图并生成候选回复，由用户手动决定是否发送，不修改App本身。
+- **能做什么**：
+  - 无障碍服务读取QQ、X、飞书聊天界面，不hook、不改包、不读数据库
+  - 判断模型给出对方意图、危险等级（1-9）与最佳动作，再生成3条候选回复
+  - 候选回复一键填入输入框，发送始终由用户手动点击，不碰转账红包
+  - 本地知识库与联系人档案，分析时按标签匹配自动带上笔记和历史（历史默认关闭，可选开启）
+  - 判断、回复、视觉三路接口可分别配置，内置OpenRouter等多家预设
+- **亮点**：
+  - 先用判断模型给出意图和危险等级，再据此起草回复，而非直接让模型编回复（项目方设计思路）
+  - 不hook、不改包、不走App接口或账号体系，只用系统无障碍服务读屏，截图仅本机OCR不上传
+  - 微信Android版已全面下架，当前版本不采集、不分析、不处理微信内容
+- **适合**：在QQ、X、飞书等App上聊天、希望AI辅助判断对方意图并起草回复的Android手机用户（仅支持Android 11+ ARM64机型）
+- **上手**：`adb install -r apk/jev-assistant-v1.4-release.apk` 需先从仓库下载签名release APK，安装后在设置填入模型API Key，再按向导开启无障碍、悬浮窗等权限
+- ⚠️ 触发分析时，聊天文字及你启用的背景信息会发送给你自行配置的第三方大模型服务商，涉及对方聊天内容外流的隐私问题。
+- ⚠️ 核心功能靠无障碍服务读取QQ、X、飞书等App的聊天界面内容并自动填入回复文本框，可能涉及相关App服务条款限制。
+
+#### [CopilotKit/openmuse](https://github.com/CopilotKit/openmuse) ⭐ 5,242
+
+> 开源个人代理应用，可操作浏览器、终端与文件，持续执行任务并保留工作记录
+
+- **定位**：基于CopilotKit与AG-UI构建的个人智能代理开源模板，提供持久化浏览器、可选Linux终端和文件工作区，支持邮件、日历、PDF处理与财务追踪等任务，供团队自行部署和定制。
+- **能做什么**：
+  - 持久化Chromium浏览器配合可选隔离Linux终端，可浏览网页、执行命令、管理文件和传输PDF
+  - 任务系统支持计划、暂停/恢复/取消/重试与人工审批，SQL租约可恢复中断的工作
+  - 可选接入Google OAuth读写Gmail和日历，发送邮件或修改日程前均需人工审核
+  - 目标追踪功能可定期检查公开网页的文本变化或价格阈值并去重告警
+  - 财务模块可导入交易CSV，生成消费分类汇总和储蓄目标建议
+- **亮点**：
+  - 项目自称为Alpha阶段，开放式推理、真实Google账号接入和Rich Threads功能均需额外配置才能使用
+  - 可通过Render一键部署API、Web和私有浏览器三个服务，支持移除浏览器服务后仍保留聊天与任务功能
+- **适合**：希望自建个人AI代理、需要浏览器/终端/邮件日历自动化能力，并愿意自行部署与二次开发的开发者和团队
+- **上手**：`pnpm dev` 需先完成git clone、pnpm install --frozen-lockfile、配置.env及CopilotKit项目密钥，再另开终端执行pnpm dev:web
+- ⚠️ 浏览器工作模块可直接操作真实网页并支持“接管”会话，以此方式自动化访问第三方网站可能违反其服务条款
+- ⚠️ 默认部署仅限本地回环访问，README提示远程/公开部署需自行配置HTTPS和网络访问限制，否则存在安全隐患
+- ⚠️ 默认开启的网页搜索会把对话或任务中的内容发送给第三方Parallel搜索服务
+- ⚠️ 连接Gmail和日历需Google OAuth授权，代理可读取邮件与日程等个人数据（发送/修改前需人工审核）
+
+#### [yi1108/printfilm](https://github.com/yi1108/printfilm) ⭐ 5,178
 
 > 模板驱动的AI短视频与AI漫剧创作平台，从文案到成片
 
@@ -386,7 +468,7 @@ docker compose up -d --build` 需要 Docker、Node.js 24 和 OpenAI 兼容的模
 
 ### 本地推理与模型
 
-#### [FareedKhan-dev/kimi-k3-in-c](https://github.com/FareedKhan-dev/kimi-k3-in-c) ⭐ 9,010
+#### [FareedKhan-dev/kimi-k3-in-c](https://github.com/FareedKhan-dev/kimi-k3-in-c) ⭐ 9,102
 
 > 用纯C99在单CPU上以8GB内存运行2.78万亿参数的Kimi K3模型
 
@@ -407,27 +489,9 @@ cd kimi-k3-in-c
 make -j
 make test` 无需下载模型即可完成构建和测试，约一分钟；完整推理需下载1.56TB权重并打包trunk后运行
 
-#### [drumih/turbo-fieldfare](https://github.com/drumih/turbo-fieldfare) ⭐ 6,880
-
-> 让260亿参数Gemma4模型在8GB内存Mac上用约2GB内存推理
-
-- **定位**：面向Apple Silicon Mac（含8GB内存机型）的本地大模型推理工具，用专家流式加载技术让260亿参数的Gemma4 26B-A4B在约2GB内存预算下运行。
-- **能做什么**：
-  - 按token从SSD流式加载所需专家权重，无需把14.3GB完整模型载入内存
-  - 自研Swift+Metal运行时，专为该模型定制，不是MLX或llama.cpp的封装
-  - 提供Mac原生应用、命令行工具、本地OpenAI兼容服务器三种使用方式
-  - 可选安装约1.1GB视觉塔组件支持图像输入，需M2及以上芯片
-  - 本地服务器支持函数工具声明，但需客户端自行授权并执行调用
-- **亮点**：
-  - 项目方数据：8GB内存M2 MacBook Air上测得解码速度5.1-6.3 tok/s
-  - 项目方数据：24GB内存M5 Pro上测得解码速度31-35 tok/s
-- **适合**：拥有8GB内存等低配Apple Silicon Mac、希望本地运行大模型做推理实验的开发者和爱好者
-- **上手**：`swift build -c release && .build/release/TurboFieldfareMac` 克隆仓库后构建运行，首次启动应用需在界面中选择Download下载安装约15GB模型，完成后方可加载生成。
-- ⚠️ README明确提示本地OpenAI兼容服务器无远程认证和TLS，只应在loopback地址运行，不可直接暴露到公网
-
 ### Skills 与写作/设计
 
-#### [guillaumemeyer/watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover) ⭐ 23,887
+#### [guillaumemeyer/watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover) ⭐ 24,390
 
 > Claude Agent Skill + 本地服务，去除文本和文件中的多厂商 AI 水印与溯源标记
 
@@ -445,7 +509,7 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - **上手**：`python3 install_skill.py --skill remove-ai-marks --target claude-code` 安装 Claude Code 个人版 Skill，需额外启动本地服务（make serve）配合使用
 - ⚠️ 去除 AI 内容的水印与溯源标记（如 C2PA、SynthID）可能涉及规避 AI 内容标识相关法规的风险
 
-#### [hypit-ai/hypit](https://github.com/hypit-ai/hypit) ⭐ 21,324
+#### [hypit-ai/hypit](https://github.com/hypit-ai/hypit) ⭐ 23,638
 
 > 让 Claude Code 等编程 Agent 克隆任意视频，批量生成素材、字幕与特效的完整工作流
 
@@ -464,64 +528,24 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - ⚠️ 仓库采用自定义的 Hypit Open Source License，非常见开源许可证，GitHub 元数据显示许可证未明确判定（NOASSERTION），使用前需自行核实条款
 - ⚠️ 许可证未声明或非标准，商用前请确认授权
 
-#### [Vincentwei1021/video-shotcraft](https://github.com/Vincentwei1021/video-shotcraft) ⭐ 11,357
+#### [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) ⭐ 16,256
 
-> 面向 Claude Code / Codex 的 Agent Skill，用 Remotion 制作电影感产品宣传片
+> 让 Claude Code 等编码 Agent 把技术概念画成可交互等轴测插图的 Skill
 
-- **定位**：这是一个 Agent Skill，内置分镜配方卡库、运动预览库和可运行的 Remotion 视频模板，让 Claude Code 或 Codex 直接把产品截图编排、动画化、配乐成成片宣传视频。
+- **定位**：Anatomy 是一个 Agent Skill，供 Claude Code、Codex、OpenCode 等编码 Agent 调用，根据用户描述的技术概念自动构造对应的物理机械，生成可交互的等轴测插图。
 - **能做什么**：
-  - 157 个分镜配方卡，含用途、时长、参数与实现注意事项
-  - 214 个运动预览，可在在线 Gallery 搜索筛选及复制镜头名
-  - 内置 Ink Press 完整模板：36.2 秒、1080p、30fps、10 个镜头
-  - 交付后可用浏览器端 Motion Workbench 二次编辑并重新渲染
-  - 支持真实网页截图、2.5D 镜头运动、节拍同步剪辑与电影级音效
+  - 把技术概念转化为对应的物理机械等轴测插图，如缓存命中变成指销锁
+  - 用数十个实色阴影部件拼装，置于带标题、提示和实时数值的卡片中
+  - 支持纯 SVG、SVG+WebGL 特效（火焰/水波等）、beta 版真 3D 旋转部件三种形式
+  - 构建后启动无头 Chrome 自动放大检查每个关节，核实图形正确性
+  - 可产出 standalone HTML、独立 SVG 文件或 React/Next.js 组件源码
 - **亮点**：
-  - 新增的 48 张分镜卡经过 8 轮逐帧比对参考素材筛选产出（项目方数据）
-  - 剪映（CapCut CN）项目导出功能已在 macOS 剪映专业版 11.2 上验证，Windows 未测试
-  - Motion Workbench 的预览与渲染结果达到像素级一致（项目方数据）
-- **适合**：使用 Claude Code 或 Codex 的开发者和团队，需要为产品制作宣传、发布或演示视频
-- **上手**：`npx skills add Vincentwei1021/video-shotcraft` 安装后需在 Claude Code 或 Codex 中对话式调用，也可 git clone 后手动软链到 skills 目录
-- ⚠️ 渲染视频依赖的 Remotion 框架有独立许可证，个人与小团队免费，公司使用可能需付费许可（项目方说明）
+  - 项目方称无需 API Key、无需 npm install，仅依赖 Node 内置模块
+  - 同时支持 Claude Code、Antigravity、OpenCode、Codex、MiniMax Code 五种编码 Agent
+- **适合**：需要为技术文档、博客或产品页制作讲解性插图的开发者，尤其是 Claude Code 等编码 Agent 用户
+- **上手**：`npx skills add wheresryan22/anatomy -g` 安装后在 Claude Code 等终端输入 /anatomy 并描述要讲解的技术概念即可生成插图
 
-#### [larashero3-dotcom/lieflat-charts](https://github.com/larashero3-dotcom/lieflat-charts) ⭐ 6,060
-
-> 面向 AI Agent 的数据可视化 Skill，把数据转化为精致可交互的 HTML 图表与报告
-
-- **定位**：遵循 Agent Skills 格式的数据可视化与报告生成 skill，可供 moxt、Claude Code、Codex 等兼容 SKILL.md 的 AI agent 调用，默认生成单张图表，整页报告需用户明确要求。
-- **能做什么**：
-  - 提供 Lupi（编辑叙事）、Glance（快速判断）、Basics（基础图型）三种视觉风格，另有网络、路径、流向等独立交互大图
-  - 支持 Mono 黑白灰及青瓷蓝、椰林绿、编辑部红三色预设，按场景自动选色
-  - 共 49 个图型模板，catalog.md 提供数据契约索引
-  - 需用户明确要求报告、年报、白皮书等才生成整页 HTML 报告，可选 12 套中英双语模板
-  - 部分模板（Glance、Circular、Force 及报告模板 R11/R12）通过 CDN 加载 Chart.js 或 ECharts…
-- **亮点**：
-  - 项目方称该 skill 在 Moxt 工作区完成设计与验证，可在同一工作区持续预览和修改图表与数据
-  - 用统一字体、留白、线条和明度体系区分“编辑叙事”与“快速判断”两种阅读速度，而非单一图表模板
-- **适合**：使用 Claude Code、Codex、moxt 等 AI Agent 的用户，需要把数据快速转化为可发布 HTML 图表或报告
-- **上手**：`npx skills add https://github.com/larashero3-dotcom/lieflat-charts --skill lieflat-charts` 安装后向 Agent 发送数据可视化需求即可生成 HTML 图表；也可手动克隆到 ~/.claude/skills 或 ~/.codex/skills 目录下。
-- ⚠️ 许可证为 PolyForm Noncommercial License 1.0.0，仅允许学习、修改、分享和非商业使用，商业使用需另行取得许可。
-- ⚠️ 许可证未声明或非标准，商用前请确认授权
-- ⚠️ 快照当日已 37 天未更新（最后推送 2026-09-05）
-
-#### [s1dashu/ip-as-logo-skill](https://github.com/s1dashu/ip-as-logo-skill) ⭐ 5,911
-
-> 面向AI Agent的技能包，指导生成极简可爱的IP吉祥物风格Logo图像
-
-- **定位**：ip-as-logo是遵循Agent Skills开放格式的技能包，指导兼容的AI Agent按固定规则生成简化、圆润、带轻微拟物质感的IP吉祥物图像，可用作企业吉祥物或Logo素材，不绑定特定Agent产品。
-- **能做什么**：
-  - 指导生成由4-7个大色块构成的圆润极简吉祥物轮廓，去除多余细节
-  - 默认采用三种语义色：两个IP主色加一个背景色，背景饱和度略调低
-  - 用户确认方向后默认批量产出6张图，三张左下出场三张右下出场
-  - 开放主题时默认以常见动物为吉祥物主体，物品、机械等需有明确产品理由
-  - 兼容Codex、Coze、豆包、Manus、Gemini Apps等Agent，需配合GPT Image 2等顶级图像模型
-- **亮点**：
-  - 项目方称技能不回退使用SVG，若没有顶级图像模型，需用户明确同意才使用替代模型，且不保证效果等同
-  - 官网提供预生成的IP吉祥物图片库，供没有兼容Agent的用户直接免费下载并商用
-- **适合**：需要为产品设计简约吉祥物或Logo素材的设计师、产品团队，以及使用Codex、Coze、豆包等兼容AI Agent的用户
-- **上手**：`npx skills@latest add s1dashu/ip-as-logo-skill` 安装后在支持的Agent中启用，并确保配置了顶级图像模型，再用自然语言描述所需吉祥物即可生成
-- ⚠️ 快照当日已 51 天未更新（最后推送 2026-08-22）
-
-#### [miqdadbadjuber/anti-slop](https://github.com/miqdadbadjuber/anti-slop) ⭐ 5,874
+#### [miqdadbadjuber/anti-slop](https://github.com/miqdadbadjuber/anti-slop) ⭐ 6,464
 
 > 一套规则集，让 AI 编程 Agent 别再写出千篇一律的 UI、水文案和 AI 味代码
 
@@ -538,7 +562,42 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - **适合**：使用 AI 编程 Agent 做前端/文案/代码工作、希望减少千篇一律 AI 风格输出的开发者
 - **上手**：`npx antislop-ai` 运行后按提示选择要安装的技能、安装范围和使用的 Agent，即可完成安装
 
-#### [Hisn00w/ASu-skills](https://github.com/Hisn00w/ASu-skills) ⭐ 5,562
+#### [yihui-dev/awesome-opus5-5-videos](https://github.com/yihui-dev/awesome-opus5-5-videos) ⭐ 6,327
+
+> 收录用Claude Opus 5.5生成的病毒视频及对应提示词的清单
+
+- **定位**：持续更新的开源清单，收集创作者用Claude Opus 5.5生成病毒视频时所用的提示词，并在Skillry网站提供原视频与AI复刻版对比观看。
+- **能做什么**：
+  - 收录703条提示词，其中418条在Skillry网站配有实时复刻视频
+  - 按动效、解说、3D场景、游戏互动等类别整理
+  - 每条提示词附带创作者原始发布帖子的链接
+  - 提示词可直接复制给Claude Opus 5.5等agent，生成HTML/Canvas/SVG/Three.js动画代码
+  - 定期更新，最近一次新增10个视频和285条提示词
+- **亮点**：
+  - 项目方数据：已收录703条提示词，其中418条配有Skillry网站实时复刻视频
+- **适合**：想获取Claude等AI生成创意动画、动效视频灵感的开发者、创意编程爱好者和内容创作者
+- **上手**：打开prompts目录下的提示词文件，复制Prompt内容粘贴给Claude Opus 5.5使用
+- ⚠️ 视频和提示词版权归原创作者所有，仓库仅托管简短预览片段，使用时需注意版权归属
+
+#### [s1dashu/ip-as-logo-skill](https://github.com/s1dashu/ip-as-logo-skill) ⭐ 6,041
+
+> 面向AI Agent的技能包，指导生成极简可爱的IP吉祥物风格Logo图像
+
+- **定位**：ip-as-logo是遵循Agent Skills开放格式的技能包，指导兼容的AI Agent按固定规则生成简化、圆润、带轻微拟物质感的IP吉祥物图像，可用作企业吉祥物或Logo素材，不绑定特定Agent产品。
+- **能做什么**：
+  - 指导生成由4-7个大色块构成的圆润极简吉祥物轮廓，去除多余细节
+  - 默认采用三种语义色：两个IP主色加一个背景色，背景饱和度略调低
+  - 用户确认方向后默认批量产出6张图，三张左下出场三张右下出场
+  - 开放主题时默认以常见动物为吉祥物主体，物品、机械等需有明确产品理由
+  - 兼容Codex、Coze、豆包、Manus、Gemini Apps等Agent，需配合GPT Image 2等顶级图像模型
+- **亮点**：
+  - 项目方称技能不回退使用SVG，若没有顶级图像模型，需用户明确同意才使用替代模型，且不保证效果等同
+  - 官网提供预生成的IP吉祥物图片库，供没有兼容Agent的用户直接免费下载并商用
+- **适合**：需要为产品设计简约吉祥物或Logo素材的设计师、产品团队，以及使用Codex、Coze、豆包等兼容AI Agent的用户
+- **上手**：`npx skills@latest add s1dashu/ip-as-logo-skill` 安装后在支持的Agent中启用，并确保配置了顶级图像模型，再用自然语言描述所需吉祥物即可生成
+- ⚠️ 快照当日已 58 天未更新（最后推送 2026-08-22）
+
+#### [Hisn00w/ASu-skills](https://github.com/Hisn00w/ASu-skills) ⭐ 5,779
 
 > 面向求职场景的 AI Skills 插件包，覆盖开源贡献、简历制作到投递跟进全流程
 
@@ -558,43 +617,7 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 
 ### 开发者工具与集成
 
-#### [miuuyy/codex-chatgpt-web](https://github.com/miuuyy/codex-chatgpt-web) ⭐ 14,043
-
-> 让 Codex 把 ChatGPT 网页版（含 Pro）当作模型使用，不消耗 Codex 配额
-
-- **定位**：一款浏览器自动化桌面工具，通过内置浏览器登录 ChatGPT 网页版，让 Codex 的模型选择器中可用 ChatGPT Web 各档模型，使用网页版自己的用量限制而非 Codex 或 Work 配额。
-- **能做什么**：
-  - 在 Codex 原生模型选择器中接入 ChatGPT Web 模型，支持上下文、工具调用、流式输出和图片
-  - 内置浏览器与运行时，无需单独安装 Chrome、Node 或 Bun
-  - 可选 Full harness 模式，通过 MCP 把 ChatGPT 工具调用接回 Codex 任务的文件与终端
-  - 提供 Zero Risk 模式，手动粘贴发送提示词，不读取或操作 ChatGPT 页面
-  - 支持跨后端子代理协议切换（Compatibility V1 或 Native）
-- **亮点**：
-  - 项目方说明 Full harness 模式的隧道连接为单向出站，不开放公网入口或端口转发
-  - Plus Medium/High 模式下测得的上下文窗口为 9万 tokens，开启实验性 3倍上下文后可达 27万 tokens（项目方…
-- **适合**：希望用 ChatGPT 网页版（含 Pro）账号额度为 Codex 提供模型，又不想消耗 Codex 自身配额的开发者
-- **上手**：`curl -fsSL https://github.com/miuuyy/codex-chatgpt-web/releases/latest/download/install-launcher.sh | sh` 安装启动器后需在内置浏览器登录 ChatGPT 并完成安装模型步骤，再重启 Codex 一次
-- ⚠️ README 明确说明这是非官方的浏览器自动化，通过模拟登录操作 ChatGPT 网页版，可能违反 OpenAI 服务条款并有账号风险
-- ⚠️ 浏览器登录状态是敏感凭证，本地同用户进程可访问回环监听端口，需在可信设备使用
-
-#### [google/artemis](https://github.com/google/artemis) ⭐ 11,387
-
-> 用自然语言驱动安卓自动化测试，集成主流AI编程助手的MCP工具
-
-- **定位**：Google出品的安卓自动化工具，将自然语言指令转化为跨应用测试和日常任务执行，通过MCP与Antigravity、Codex、Claude Code等AI编程助手集成，支持日志采集与截图诊断。
-- **能做什么**：
-  - 跨应用自动化：根据自然语言指令执行安卓测试流程与日常任务
-  - 多模态定位：元素索引为主，坐标与视觉识别作为自定义界面的后备方案
-  - MCP集成：Antigravity、Claude Code、Windsurf等IDE可直接操控测试设备并采集Logcat与截图
-  - 双执行模式：Flash快速响应约3-5秒/步，Pro模式支持规划、校验与长时间探索测试
-  - 提供Web可视化控制台、MCP服务器、命令行与Python SDK四种使用方式
-- **亮点**：
-  - 在Google Research的AndroidWorld基准（20+应用、100+多步任务）上达到99%+任务完成率（项目方数据）
-  - Apache-2.0许可，Google官方项目
-- **适合**：需要为安卓应用做自动化测试，或希望用AI编程助手驱动设备操作与问题诊断的开发者和测试工程师
-- **上手**：`git clone https://github.com/google/artemis.git && cd artemis && ./start.sh` 需已连接安卓设备（开启USB调试）或模拟器，脚本自动安装ADB等工具链并启动Web控制台
-
-#### [Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) ⭐ 9,910
+#### [Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) ⭐ 25,537
 
 > dsh 插件，免登录免 Key 白嫖前沿大模型，并可接入第三方账号渠道
 
@@ -615,7 +638,43 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - ⚠️ Kilo 免费渠道的上游声明可能记录 prompt 用于改进服务，官方提示请勿发送敏感内容
 - ⚠️ 局域网转发为可选功能，开启后同网段内持有 Key 的任何人都可消耗本机免费额度，需在可信网络使用
 
-#### [XiaoDuoYa/codex-with-chatgpt](https://github.com/XiaoDuoYa/codex-with-chatgpt) ⭐ 7,282
+#### [miuuyy/codex-chatgpt-web](https://github.com/miuuyy/codex-chatgpt-web) ⭐ 14,568
+
+> 让 Codex 把 ChatGPT 网页版（含 Pro）当作模型使用，不消耗 Codex 配额
+
+- **定位**：一款浏览器自动化桌面工具，通过内置浏览器登录 ChatGPT 网页版，让 Codex 的模型选择器中可用 ChatGPT Web 各档模型，使用网页版自己的用量限制而非 Codex 或 Work 配额。
+- **能做什么**：
+  - 在 Codex 原生模型选择器中接入 ChatGPT Web 模型，支持上下文、工具调用、流式输出和图片
+  - 内置浏览器与运行时，无需单独安装 Chrome、Node 或 Bun
+  - 可选 Full harness 模式，通过 MCP 把 ChatGPT 工具调用接回 Codex 任务的文件与终端
+  - 提供 Zero Risk 模式，手动粘贴发送提示词，不读取或操作 ChatGPT 页面
+  - 支持跨后端子代理协议切换（Compatibility V1 或 Native）
+- **亮点**：
+  - 项目方说明 Full harness 模式的隧道连接为单向出站，不开放公网入口或端口转发
+  - Plus Medium/High 模式下测得的上下文窗口为 9万 tokens，开启实验性 3倍上下文后可达 27万 tokens（项目方…
+- **适合**：希望用 ChatGPT 网页版（含 Pro）账号额度为 Codex 提供模型，又不想消耗 Codex 自身配额的开发者
+- **上手**：`curl -fsSL https://github.com/miuuyy/codex-chatgpt-web/releases/latest/download/install-launcher.sh | sh` 安装启动器后需在内置浏览器登录 ChatGPT 并完成安装模型步骤，再重启 Codex 一次
+- ⚠️ README 明确说明这是非官方的浏览器自动化，通过模拟登录操作 ChatGPT 网页版，可能违反 OpenAI 服务条款并有账号风险
+- ⚠️ 浏览器登录状态是敏感凭证，本地同用户进程可访问回环监听端口，需在可信设备使用
+
+#### [google/artemis](https://github.com/google/artemis) ⭐ 12,582
+
+> 用自然语言驱动安卓自动化测试，集成主流AI编程助手的MCP工具
+
+- **定位**：Google出品的安卓自动化工具，将自然语言指令转化为跨应用测试和日常任务执行，通过MCP与Antigravity、Codex、Claude Code等AI编程助手集成，支持日志采集与截图诊断。
+- **能做什么**：
+  - 跨应用自动化：根据自然语言指令执行安卓测试流程与日常任务
+  - 多模态定位：元素索引为主，坐标与视觉识别作为自定义界面的后备方案
+  - MCP集成：Antigravity、Claude Code、Windsurf等IDE可直接操控测试设备并采集Logcat与截图
+  - 双执行模式：Flash快速响应约3-5秒/步，Pro模式支持规划、校验与长时间探索测试
+  - 提供Web可视化控制台、MCP服务器、命令行与Python SDK四种使用方式
+- **亮点**：
+  - 在Google Research的AndroidWorld基准（20+应用、100+多步任务）上达到99%+任务完成率（项目方数据）
+  - Apache-2.0许可，Google官方项目
+- **适合**：需要为安卓应用做自动化测试，或希望用AI编程助手驱动设备操作与问题诊断的开发者和测试工程师
+- **上手**：`git clone https://github.com/google/artemis.git && cd artemis && ./start.sh` 需已连接安卓设备（开启USB调试）或模拟器，脚本自动安装ADB等工具链并启动Web控制台
+
+#### [XiaoDuoYa/codex-with-chatgpt](https://github.com/XiaoDuoYa/codex-with-chatgpt) ⭐ 7,456
 
 > 让 ChatGPT 网页版做规划审查，Codex 负责执行代码的 MCP 桥接工具
 
@@ -633,9 +692,44 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - **上手**：`pnpm install` 克隆仓库后执行 pnpm build 构建，再把 skill/ 安装为 Codex Skill 并运行 c2c setup 完成配对
 - ⚠️ 核心流程通过 Computer Use 方式与 ChatGPT 网页版自动交换状态消息并驱动会话，可能涉及 ChatGPT 服务条款风险
 
+#### [Ryze-AI-Adgent/open-seo-mcp-skills](https://github.com/Ryze-AI-Adgent/open-seo-mcp-skills) ⭐ 6,070
+
+> 为 Claude 提供的免费 SEO MCP 服务器，配套开源 SEO/GEO 技能包
+
+- **定位**：基于 MCP 协议的 SEO 数据连接器，搭配 MIT 协议的 Claude Skills，用用户自己的 Google Search Console、GA4、Google Ads 数据而非估算数据做关键词研究、排名追踪、审计、反链和 AI 可见度分析，DataForSEO 补充…
+- **能做什么**：
+  - 提供 seo-audit、keyword-research、rank-tracking 等8个 Claude Skills，覆盖审计、选词…
+  - 排名数据来自用户真实 Google Search Console，流量数据来自真实 GA4，而非 SERP 抓取估算
+  - 关键词搜索量取自 Google Ads 关键词规划师，竞品关键词、反链、SERP 数据内置 DataForSEO 接口
+  - ai-visibility 技能读取 GA4 的 AI 引荐流量报告，识别 ChatGPT、Perplexity、Claude、Gemin…
+  - 可选连接已有订阅的 Ahrefs、Semrush 数据源
+- **亮点**：
+  - README 称多数“开源 SEO 工具”只是 DataForSEO API 的壳，托管版会在每次调用上加收约28%费用（项目方说法）
+  - 连接器免费接入、技能代码 MIT 开源，数据通过用户自己连接的 GSC/GA4/广告账号获取，不额外加价
+- **适合**：使用 Claude Code/Desktop 的 SEO 从业者和营销开发者，希望基于自身 Google 数据而非估算做排名与内容分析
+- **上手**：`claude mcp add ryze --transport http https://connector.get-ryze.ai/mcp` 添加连接器后需 Google 登录并授权 Search Console/GA4/广告账号，再安装 open-seo-mcp-skills 插件使用
+- ⚠️ 需要将 Google Search Console、GA4、Google Ads 等账号数据连接至第三方 Ryze 云端服务，涉及真实业务数据外传
+
+#### [Louis-CFM/coucou](https://github.com/Louis-CFM/coucou) ⭐ 5,542
+
+> 常驻 Mac 刘海/灵动岛的小伙伴，实时监控并批准 Claude Code、Codex 等 AI 编程代理
+
+- **定位**：一款开源 Mac/Windows/Linux 常驻应用，在刘海或屏幕顶部显示 AI 编程代理的运行状态，可直接批准权限请求，并通过 iPhone/Android 远程操作。
+- **能做什么**：
+  - 实时显示 Claude Code、Codex、Cursor、Gemini CLI 等代理的会话、文件修改和命令执行步骤
+  - 在刘海/灵动岛内一键 Allow/Deny 权限请求，支持 AskUserQuestion 单选或多选
+  - iPhone 端通过 Live Activity 和锁屏通知远程批准权限，需 Face ID 确认
+  - 可选的 Flow 语音输入功能，支持系统识别或离线 Parakeet 识别（仅 Apple 芯片）
+  - 可选的通话录音转写、摘要与待办事项提取（Notetaker），完成后自动删除音频
+- **亮点**：
+  - 代码以 MIT 协议开源，角色 Mochi 的名称、形象和音效版权保留给作者
+  - iPhone 会话通过用户私有 iCloud CloudKit 同步，项目名、命令和问题均加密，不经过 Coucou 自家服务器
+- **适合**：使用 Claude Code、Codex、Cursor 等 AI 编程代理的开发者，尤其是习惯用 Mac 刘海/灵动岛交互的用户
+- ⚠️ Notetaker 通话录音转写功能需自行告知通话对象正在录音，以符合当地录音同意相关法规
+
 ### 其他
 
-#### [bojieli/ai-infra-book](https://github.com/bojieli/ai-infra-book) ⭐ 6,245
+#### [bojieli/ai-infra-book](https://github.com/bojieli/ai-infra-book) ⭐ 6,710
 
 > 从硬件约束出发，量化推导 LLM 推理与训练系统设计的开源电子书
 
@@ -652,5 +746,6 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - **上手**：`git clone https://github.com/bojieli/ai-infra-book.git` 克隆后可用 python3 calculations/calc.py 复算书中数字，静态计算无需 GPU 或模型权重
 
 ## 已排除（判定与 AI 无关）
-- DuarteSantos8/openGym：自托管的健身与体重追踪应用，可用Docker部署在自己的服务器上，提供训练计划、记录、进度分析和多设备同步，替代依赖云端账号的商业健身App。
 - Mak5er/AirCard：一款 macOS 应用，通过 USB 连接 iPhone，利用名为 airlift 的系统漏洞为 Apple Wallet 卡片和锁屏密码键盘替换自定义图案，无需越狱设备。
+- tangency-labs/solidcraft：SolidCraft 是一款用纯 Rust 实现的开源参数化 CAD 软件，提供草图约束与特征时间线建模，支持桌面、Web 和通过 MCP 让 AI Agent 直接建模，当前处于"早期但可用于简单零件"阶段。
+- shader-effects-inc/shaders：为前端框架提供声明式 WebGPU 特效组件库，附带可视化设计编辑器导出代码，并通过 CLI、MCP 服务器和 Agent Skill 与编码助手集成。
