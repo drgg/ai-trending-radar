@@ -185,8 +185,13 @@ def _annotate(cl, raw, cfg, summ, main_entries):
     likely |= {x["full_name"] for x in raw["young"] if x["stars"] >= rc["young_intro_min"]}
     likely |= {x["full_name"] for x in [x for x in raw["surge"] if x["last7"] >= rc["surge_intro_min"]][:rc["surge_intro_max"] + 10]}
     todo = [x for n, x in listed.items() if n not in main_tag]
+    from summarize import TAGLINE_DIR
     for x in todo:
-        if x["full_name"] in likely and not summ.has_tagline(x["full_name"]):
+        if summ.has_tagline(x["full_name"]):
+            continue
+        # 可能写介绍的，和按旧规则判为无关、这次要重判的（只看英文描述容易误判），补读 README
+        rejudge = (TAGLINE_DIR / (x["full_name"].replace("/", "__") + ".json")).exists()
+        if x["full_name"] in likely or rejudge:
             fetch.add_readme(cl.s, x, 1500)
     tags = summ.taglines(todo)
     excluded = []

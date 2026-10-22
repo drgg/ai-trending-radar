@@ -8,6 +8,15 @@ from datetime import date
 from pathlib import Path
 
 INTRO_DIR = Path(__file__).resolve().parent.parent / "data" / "intros"
+# 「是否与 AI 相关」的判断规则，主榜介绍和短期榜一句话共用。
+# 改动规则时加一：之前判为「无关」的缓存会在下次运行时按新规则重判，判为相关的不动（不必全部重写）。
+AI_RULE_VERSION = 2
+AI_RULE = """is_ai_product：项目的核心是否与 AI/LLM/Agent 相关。以下都算 true：
+- 核心功能依赖 AI 模型（生成、理解、推理、Agent 自主执行等）
+- 核心用途是给 AI Agent 或 LLM 用的：插件、技能包、MCP 服务、提示词或规范集合、Agent 的界面或客户端、模型 API 的代理与转发、给 Agent 调用的库和渲染工具
+只有核心功能本身与 AI 无关时才算 false，例如：只是用 AI 编程工具写出来的普通应用（游戏、渲染器、主屏、健身记录、邮件工具）、只是顺带提供一个 MCP 接口的 CAD 或组件库、加密货币机器人、系统工具。
+拿不准时看它的主要使用者是人还是 AI Agent。"""
+
 PROMPT_VERSION = 4  # 改动 schema 或提示词时加一，旧缓存会自动重新生成
 
 SYSTEM = """你是一名技术编辑，为中文读者撰写 GitHub 热门 AI 项目的简介。读者会快速浏览，简短比全面更重要。
@@ -43,7 +52,7 @@ category 按项目的核心功能选择，分类名本身要让读者一眼看�
 - 只有防御、检测、审计、合规类工具才选“安全防护与合规”
 - 核心功能属于其他类别、只是附带服务条款风险的（例如浏览器自动化），按功能归类，风险写进 risks
 
-is_ai_product：项目的核心是否与 AI/LLM/Agent 相关。仅因 README 顺带提到 AI 关键词、或本身是加密货币机器人、网络工具等无关项目时为 false。"""
+""" + AI_RULE
 
 
 LENGTH_LIMITS = {"tagline": 40, "positioning": 100, "audience": 60, "quickstart_note": 60,
@@ -87,8 +96,9 @@ TAGLINE_DIR = Path(__file__).resolve().parent.parent / "data" / "taglines"
 
 TAGLINE_SYSTEM = """你是一名技术编辑，为中文读者给一批 GitHub 仓库各写一句定位。
 - tagline：一句话说清它是什么、给谁用，不超过 40 字（中文字符和英文单词各算 1 字）；只依据给出的描述、topics 和 README 摘录，材料不足时据仓库名和描述谨慎概括，不编造功能，不写星数和热度
-- is_ai_product：项目的核心是否与 AI/LLM/Agent 相关。只是顺带提到 AI、或本身是游戏、加密货币机器人、普通工具库等无关项目时为 false
-按输入顺序逐个返回，full_name 原样照抄。"""
+按输入顺序逐个返回，full_name 原样照抄。
+
+""" + AI_RULE
 
 TAGLINE_SCHEMA = {
     "type": "object",
@@ -199,6 +209,8 @@ class Summarizer:
             return False
         if cached.get("placeholder") or cached.get("prompt_version", 1) != PROMPT_VERSION:
             return True
+        if not cached.get("is_ai_product", True) and cached.get("ai_rule", 1) < AI_RULE_VERSION:
+            return True  # 按旧规则判为「无关」的，按新规则重判
         if cached.get("readme_sha") == repo.get("readme_sha"):
             return False
         age = (today - date.fromisoformat(cached["generated_at"])).days
@@ -223,7 +235,7 @@ class Summarizer:
                     return json.loads(path.read_text(encoding="utf-8"))
                 intro = self._placeholder(repo)
         intro.update(readme_sha=repo.get("readme_sha"), generated_at=today.isoformat(),
-                     prompt_version=PROMPT_VERSION,
+                     prompt_version=PROMPT_VERSION, ai_rule=AI_RULE_VERSION,
                      model=None if intro.get("placeholder") else self.cfg["model"])
         path.write_text(json.dumps(intro, ensure_ascii=False, indent=2), encoding="utf-8")
         return intro
@@ -274,7 +286,12 @@ class Summarizer:
 
     # ---------- 短期榜的一句话定位（批量） ----------
     def has_tagline(self, full_name):
-        return (TAGLINE_DIR / (full_name.replace("/", "__") + ".json")).exists()
+        """有可直接用的缓存（重判对象不算，重判时要补读 README，只看英文描述容易误判）。"""
+        p = TAGLINE_DIR / (full_name.replace("/", "__") + ".json")
+        if not p.exists():
+            return False
+        rec = json.loads(p.read_text(encoding="utf-8"))
+        return rec["is_ai_product"] or rec.get("ai_rule", 1) >= AI_RULE_VERSION
 
     def taglines(self, repos, batch=20):
         """每次调用处理一批仓库，返回 {full_name: {"tagline", "is_ai_product"}}。按仓库缓存，写过的不再写。"""
@@ -282,8 +299,10 @@ class Summarizer:
         out, todo = {}, []
         for r in repos:
             p = TAGLINE_DIR / (r["full_name"].replace("/", "__") + ".json")
-            if p.exists():
-                out[r["full_name"]] = json.loads(p.read_text(encoding="utf-8"))
+            rec = json.loads(p.read_text(encoding="utf-8")) if p.exists() else None
+            # 按旧规则判为「无关」的重判；判为相关的不动
+            if rec and (rec["is_ai_product"] or rec.get("ai_rule", 1) >= AI_RULE_VERSION):
+                out[r["full_name"]] = rec
             else:
                 todo.append(r)
         if self.dry_run:
@@ -306,7 +325,7 @@ class Summarizer:
                 name = item["full_name"]
                 if name not in {r["full_name"] for r in chunk}:
                     continue
-                rec = {"tagline": item["tagline"], "is_ai_product": item["is_ai_product"],
+                rec = {"tagline": item["tagline"], "is_ai_product": item["is_ai_product"], "ai_rule": AI_RULE_VERSION,
                        "generated_at": date.today().isoformat(), "model": self.cfg["model"]}
                 (TAGLINE_DIR / (name.replace("/", "__") + ".json")).write_text(
                     json.dumps(rec, ensure_ascii=False, indent=1), encoding="utf-8")
