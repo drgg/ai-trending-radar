@@ -32,6 +32,20 @@ def write(ctx, cfg):
         lines += [f"- {x['full_name']}：{x['reason']}" for x in ctx["dropped"]] or ["本期没有项目移出。"]
         lines += ["", f"### 涨星（{p['days']} 天）"]
         lines += [f"- {g['full_name']} **+{g['delta']:,}**（现 {g['stars']:,}）" for g in ctx["gainers"]] or ["无"]
+    R = ctx.get("rising")
+    if R:
+        st = "，".join(f"{k} 的 {v} 个" for k, v in R["surge_stats"])
+        lines += ["", f"### 升星榜（近 7 天 {R['last7']}）", f"近 7 天涨星 {st}；{R['surge_accel']} 个在加速，"
+                  f"{R['surge_older']} 个创建已超过 {R['window_days']} 天。前 10："]
+        top = [x for _, _, items in R["surge_groups"] for x in items][:10]
+        lines += [f"- **[{x['full_name']}]({x['html_url']})** +{x['last7']:,}（前 7 天 +{x['prev7']:,}）"
+                  f"{' 🔺加速' if x['accel'] else ''}　{x['tagline']}" for x in top]
+        nb = [x for _, items in R["newborn_groups"] for x in items]
+        lines += ["", f"### 新星（创建于 {R['newborn_range']}，≥{R['rc']['newborn_min']}★）"]
+        lines += [f"- **[{x['full_name']}]({x['html_url']})** ★ {x['stars']:,}　{x['tagline']}" for x in nb] or ["本期没有。"]
+        if R["young_featured"]:
+            lines += ["", f"### 新锐（创建于 {R['young_range']}，≥{R['rc']['young_intro_min']:,}★）",
+                      "、".join(f"[{x['full_name']}]({x['html_url']}) ★{x['stars']:,}" for x in R["young_featured"])]
     if ctx["trends_plain"]:
         lines += ["", "### 编者按"] + [f"- {t}" for t in ctx["trends_plain"]]
     lines += ["", "---", "这条 Issue 由每周自动运行创建；新一期发布时会自动关闭。"]

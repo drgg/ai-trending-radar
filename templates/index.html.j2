@@ -75,6 +75,8 @@ section.blk{margin-top:48px}
 .callout .empty{font-size:14px;color:var(--ink-2)}
 .new-item{background:var(--accent-wash);border-radius:8px;padding:16px}
 .new-item+.new-item{margin-top:12px}
+.new-more{margin-top:4px;font-size:14px}
+.new-more .warn-n{font-size:13px;color:var(--warn-ink)}
 .tag{display:inline-block;font-size:13px;font-weight:600;line-height:1.5;padding:0 8px;border-radius:4px;white-space:nowrap}
 .tag.new{color:var(--accent);box-shadow:inset 0 0 0 1px currentColor}
 .tag.cat{color:var(--muted);box-shadow:inset 0 0 0 1px var(--line-strong);font-weight:400}
@@ -143,6 +145,33 @@ details[open]>summary .caret{transform:rotate(90deg);color:var(--muted)}
 .tmp-note{margin-top:16px;padding:8px 12px;background:var(--surface);border-radius:8px;font-size:14px;color:var(--ink-2)}
 .issues li.tmp{font-size:14px;color:var(--muted)}
 .issues li.tmp a{color:var(--muted)}
+/* 短期榜 */
+.stat-line{font-size:14px;color:var(--ink-2);margin:0 0 16px}
+.stat-line b{color:var(--ink);font-weight:600}
+.tier-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;margin:24px 0 0;padding-bottom:8px;border-bottom:1px solid var(--line-strong)}
+.tier-head h3{font-size:16px}
+.tier-head .aside{font-size:13px;color:var(--muted)}
+.young-stat{margin-top:12px}
+.tier-sub{font-size:13px;font-weight:600;color:var(--muted);margin:16px 0 0}
+.sub-blk+.sub-blk{margin-top:32px}
+.rk-list{list-style:none;margin:0;padding:0}
+.rk-list li{display:grid;grid-template-columns:1fr auto;gap:0 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.rk-list .nm{font-weight:600;overflow-wrap:anywhere}
+.rk-list .flags{display:inline-flex;gap:8px;margin-left:8px;vertical-align:1px}
+.rk-list .fig{text-align:right;white-space:nowrap;font-size:14px;color:var(--muted)}
+.rk-list .fig .g{color:var(--up);font-weight:600;font-size:16px}
+.rk-list .tl{grid-column:1/-1;font-size:14px;color:var(--ink-2);line-height:1.6}
+.rk-list .meta{grid-column:1/-1;font-size:13px;color:var(--muted)}
+.tag.accel{color:var(--up);box-shadow:inset 0 0 0 1px currentColor}
+.tag.main{color:var(--muted);box-shadow:inset 0 0 0 1px var(--line-strong);font-weight:400}
+details.more{margin-top:16px}
+details.more>summary{cursor:pointer;font-size:14px;color:var(--ink-2)}
+details.more>summary:hover{color:var(--accent)}
+details.more>.names,details.more>.stat-line{margin-top:12px}
+.names{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 24px;font-size:14px;line-height:1.6}
+.names li{overflow-wrap:anywhere}
+.names .g{color:var(--up)}
+.names .s{color:var(--muted)}
 .excluded{margin-top:24px;font-size:14px;color:var(--muted)}
 
 /* 往期 */
@@ -198,6 +227,15 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
 </div>
 {% endmacro %}
 
+{% macro rrow(x, kind) %}
+<li>
+  <span><a class="nm" href="{{ ('#' ~ x.full_name) if x.in_main else x.html_url }}">{{ x.full_name }}</a>{% if x.accel or x.in_main %}<span class="flags">{% if x.accel %}<span class="tag accel">加速</span>{% endif %}{% if x.in_main %}<span class="tag main">主榜</span>{% endif %}</span>{% endif %}</span>
+  <span class="fig num">{% if kind == 'surge' %}<span class="g">+{{ '{:,}'.format(x.last7) }}</span>{% else %}★ {{ '{:,}'.format(x.stars) }}{% endif %}</span>
+  <span class="tl">{{ x.tagline }}</span>
+  <span class="meta num">{% if kind == 'surge' %}前 7 天 +{{ '{:,}'.format(x.prev7) }} · 现 ★ {{ '{:,}'.format(x.stars) }} · {% elif kind == 'young' and x.last7 is not none %}近 7 天 +{{ '{:,}'.format(x.last7) }} · {% endif %}创建 {{ x.created_at }}（{{ x.age }} 天）</span>
+</li>
+{% endmacro %}
+
 <header class="mast"><div class="wrap"><div class="mast-in">
   <div class="eyebrow">AI 热门项目周报</div>
   <h1>{{ label }}{% if official and not prev %} · 创刊号{% endif %}</h1>
@@ -212,8 +250,12 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
     <dt>本期变化</dt>
     <dd><a href="#changes">新上榜 {{ new|length }} · 移出 {{ dropped|length }} · 涨星前 {{ gainers|length }}</a></dd>
     {% endif %}
+    {% if rising %}
+    <dt>短期榜</dt>
+    <dd><a href="#surge">升星 {{ rising.surge_n }}</a> · <a href="#newcomers">新星 {{ rising.newborn_n }} · 新锐 {{ rising.young_n }}</a></dd>
+    {% endif %}
     <dt>目录</dt>
-    <dd><a href="#changes">本期变化</a> · {% if trends %}<a href="#editorial">编者按</a> · {% endif %}<a href="#index">名录</a> · <a href="#issues">往期</a></dd>
+    <dd><a href="#changes">本期变化</a> · {% if rising %}<a href="#surge">升星榜</a> · <a href="#newcomers">新星与新锐</a> · {% endif %}{% if trends %}<a href="#editorial">编者按</a> · {% endif %}<a href="#index">名录</a> · <a href="#issues">往期</a></dd>
     <dt>订阅</dt>
     <dd><a href="{{ root }}feed.xml">RSS</a> · 每期发布时在 <a href="{{ repo_url }}/issues?q=label%3A%E5%91%A8%E6%8A%A5">GitHub Issues</a> 推送（Watch 仓库即可收到）</dd>
   </dl>
@@ -239,7 +281,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat{% if e.v.category in warn %} warn{% endif %}">{% if e.v.category in warn %}⚠ {% endif %}{{ e.v.category }}</span>
         </div>
         <p class="tagline">{{ e.v.tagline }}</p>
-        {{ detail(e) }}
+        <p class="new-more num"><a href="#{{ e.full_name }}">完整介绍 →</a>{% if e.notes %} · <span class="warn-n">⚠ {{ e.notes|length }} 条提示</span>{% endif %}</p>
       </article>
       {% else %}
       <p class="empty">本期没有新上榜的项目。</p>
@@ -272,6 +314,51 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
   {% endif %}
   </div>
 </section>
+
+{% if rising %}{% set R = rising %}
+<section class="blk" id="surge" aria-labelledby="h-surge">
+  <div class="blk-head"><h2 id="h-surge">升星榜</h2><span class="aside num">近 7 天新增星数 · {{ R.last7 }}，对比前 7 天 {{ R.prev7 }}（UTC 完整自然日）</span></div>
+  <p class="stat-line num">在 {{ '{:,}'.format(R.pool) }} 个近一年创建的 AI 项目里，近 7 天涨星{% for k, v in R.surge_stats %}{{ '，' if not loop.first else ' ' }}{{ k }} 的 <b>{{ v }}</b> 个{% endfor %}。其中 {{ R.surge_accel }} 个在加速（达到前 7 天的 {{ R.rc.accel_ratio }} 倍），{{ R.surge_older }} 个创建已超过 {{ R.window_days }} 天、主榜收不到，{{ R.surge_in_main }} 个已在主榜。下列 {{ R.surge_featured_n }} 个附一句话介绍，其余只列名字。</p>
+  {% for name, note, items in R.surge_groups if items %}
+  <div class="tier-head"><h3>{{ name }}</h3><span class="aside num">{{ note }} · {{ items|length }} 个</span></div>
+  <ol class="rk-list">{% for x in items %}{{ rrow(x, 'surge') }}{% endfor %}</ol>
+  {% endfor %}
+  {% if R.surge_rest %}
+  <details class="more"><summary>其余 {{ R.surge_rest|length }} 个（近 7 天 ≥{{ '{:,}'.format(R.rc.surge_list_min) }}，只列名字）</summary>
+    <ul class="names num">{% for x in R.surge_rest %}<li><a href="{{ ('#' ~ x.full_name) if x.in_main else x.html_url }}">{{ x.full_name }}</a> <span class="g">+{{ '{:,}'.format(x.last7) }}</span></li>{% endfor %}</ul>
+  </details>
+  {% endif %}
+  {% if R.suspects %}
+  <details class="more"><summary>⚠ 疑似刷星 {{ R.suspects|length }} 个，未列入</summary>
+    <p class="stat-line">同一作者有 ≥{{ R.rc.spam_same_owner }} 个项目在同一周各涨 ≥{{ '{:,}'.format(R.rc.spam_min_each) }} 星：{{ R.spam_owners|join('、') }}。只是统计特征，不等于定论。</p>
+    <ul class="names num">{% for x in R.suspects %}<li><a href="{{ x.html_url }}">{{ x.full_name }}</a> <span class="s">+{{ '{:,}'.format(x.last7) }}</span></li>{% endfor %}</ul>
+  </details>
+  {% endif %}
+</section>
+
+<section class="blk" id="newcomers" aria-labelledby="h-new">
+  <div class="blk-head"><h2 id="h-new">新星与新锐</h2><span class="aside num">按创建时间分段、互不重叠；超过 {{ '{:,}'.format(R.main_min) }}★ 的进主榜</span></div>
+  <div class="sub-blk">
+    <div class="tier-head"><h3>新星</h3><span class="aside num">创建于 {{ R.newborn_range }} · ≥{{ R.rc.newborn_min }}★ · {{ R.newborn_n }} 个</span></div>
+    {% if R.newborn_n %}
+    {% for label, items in R.newborn_groups %}
+    <p class="tier-sub num">{{ label }} · {{ items|length }} 个</p>
+    <ol class="rk-list">{% for x in items %}{{ rrow(x, 'newborn') }}{% endfor %}</ol>
+    {% endfor %}
+    {% else %}<p class="empty">这 7 天里创建的项目还没有超过 {{ R.rc.newborn_min }}★ 的。</p>{% endif %}
+  </div>
+  <div class="sub-blk">
+    <div class="tier-head"><h3>新锐</h3><span class="aside num">创建于 {{ R.young_range }} · ≥{{ '{:,}'.format(R.rc.young_list_min) }}★ · {{ R.young_n }} 个</span></div>
+    <p class="stat-line young-stat num">≥{{ '{:,}'.format(R.rc.young_intro_min) }}★ <b>{{ R.young_featured|length }}</b> 个（附介绍），{{ '{:,}'.format(R.rc.young_list_min) }}–{{ '{:,}'.format(R.rc.young_intro_min - 1) }}★ <b>{{ R.young_rest|length }}</b> 个（只列名字）</p>
+    <ol class="rk-list">{% for x in R.young_featured %}{{ rrow(x, 'young') }}{% endfor %}</ol>
+    {% if R.young_rest %}
+    <details class="more" open><summary>{{ '{:,}'.format(R.rc.young_list_min) }}–{{ '{:,}'.format(R.rc.young_intro_min - 1) }}★ 的 {{ R.young_rest|length }} 个（只列名字）</summary>
+      <ul class="names num">{% for x in R.young_rest %}<li><a href="{{ x.html_url }}">{{ x.full_name }}</a> <span class="s">★ {{ '{:,}'.format(x.stars) }}</span></li>{% endfor %}</ul>
+    </details>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
 
 {% if trends %}
 <section class="blk" id="editorial" aria-labelledby="h-ed">

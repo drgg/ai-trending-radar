@@ -15,6 +15,23 @@ readme_max_chars: 12000  # 送给模型的 README 摘录长度上限
 # 变化摘要
 top_gainers: 5
 
+# 短期榜（scripts/rising.py）。时间窗口按 UTC 完整自然日：近 7 天 = 运行日前 7 天，前 7 天 = 再往前 7 天
+rising:
+  newborn_min: 500        # 新星：近 7 天创建，≥500★（≤主榜门槛），每个都写一句话
+  newborn_tiers: [500, 1000, 2000]
+  young_list_min: 1000    # 新锐：8–30 天创建，≥1000★ 列名字
+  young_intro_min: 2000   #       ≥2000★ 写一句话
+  surge_list_min: 1000    # 升星：近 7 天涨 ≥1000 列名字
+  surge_intro_min: 2000   #       ≥2000 写一句话（猛涨），最多 surge_intro_max 个
+  surge_intro_max: 20
+  surge_boom: 5000        #       ≥5000 标「暴涨」
+  accel_ratio: 2          # 近 7 天 ≥ 前 7 天 × 2 标「加速」
+  pool_recent_min: 1000   # 测速池：≤90 天创建 ≥1000★ + 91–365 天创建 ≥5000★（控制在 GITHUB_TOKEN 每小时 1000 次以内）
+  pool_old_min: 5000
+  spam_same_owner: 4      # 同一作者 ≥4 个项目同一周各涨 ≥spam_min_each，整组判为疑似刷星、不进榜
+  spam_min_each: 1000     # 2026-10-23 实测：500 会误伤一次推出系列技能包的正常作者（4 个涨 730–1411），
+                          # 1000 只命中 8 个仓库各涨 2200–4600、含名为「B」的仓库的作者。误伤会隐藏正常项目，宁可漏判
+
 # 发布地址：RSS、通知里的链接用它拼
 site_url: https://drgg.github.io/ai-trending-radar
 repo_url: https://github.com/drgg/ai-trending-radar

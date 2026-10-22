@@ -20,7 +20,7 @@ SITE = ROOT / "site"
 ARCHIVE = SITE / "archive"
 
 # 衬线标题只用这些字，scripts/fetch_font.py 按它下载字体子集；改了标题文字要重跑那个脚本
-HEADING_GLYPHS = "".join(sorted(set("第期创刊号临时更新本期变化编者按名录往期0123456789· ")))
+HEADING_GLYPHS = "".join(sorted(set("第期创刊号临时更新本期变化编者按名录往期升星榜新锐与0123456789· ")))
 
 # 兜底长度：模型偶尔超出提示词里的字数上限
 LIMITS = {"tagline": 60, "positioning": 140, "item": 70, "audience": 90, "note": 90}
@@ -93,6 +93,42 @@ def _link_names(text, ranked):
     return Markup(out)
 
 
+def rising_view(r, cfg):
+    """短期榜整理成模板直接用的结构；早期快照没有 rising 字段时返回 None。"""
+    if not r:
+        return None
+    rc, st = cfg["rising"], r["stats"]
+    md = lambda s: s[5:]  # noqa: E731  "2026-10-16" → "10-16"
+    w = r["window"]
+    surge_f = [x for x in r["surge"] if x["featured"]]
+    tiers = [("暴涨", f"近 7 天 ≥{rc['surge_boom']:,}"), ("猛涨", f"近 7 天 {rc['surge_intro_min']:,}–{rc['surge_boom'] - 1:,}")]
+    nb = r["newborn"]
+    nb_tiers = sorted(rc["newborn_tiers"], reverse=True)
+    nb_groups = []
+    for i, t in enumerate(nb_tiers):
+        hi = nb_tiers[i - 1] if i else None
+        items = [x for x in nb if x["stars"] >= t and (hi is None or x["stars"] < hi)]
+        if items:
+            nb_groups.append((f"≥{t:,}★" if hi is None else f"{t:,}–{hi - 1:,}★", items))
+    return {
+        "last7": f"{md(w['last7'][0])} 至 {md(w['last7'][1])}", "prev7": f"{md(w['prev7'][0])} 至 {md(w['prev7'][1])}",
+        "surge_groups": [(name, note, [x for x in surge_f if x["tier"] == name]) for name, note in tiers],
+        "surge_rest": [x for x in r["surge"] if not x["featured"]],
+        "surge_stats": [("≥" + f"{int(k[1:]):,}", v) for k, v in st["surge"].items()], "surge_accel": st["surge_accel"], "surge_in_main": st["surge_in_main"],
+        "surge_older": st["surge_older_than_main"], "pool": st["pool"],
+        "surge_n": len(r["surge"]), "surge_featured_n": len(surge_f),
+        "newborn_groups": nb_groups, "newborn_n": len(nb), "newborn_stats": st["newborn"],
+        "young_featured": [x for x in r["young"] if x["featured"]],
+        "young_rest": [x for x in r["young"] if not x["featured"]],
+        "young_n": len(r["young"]),
+        "suspects": r["suspects"], "spam_owners": st["spam_owners"], "excluded": r.get("excluded", []),
+        "rc": rc, "window_days": cfg["window_days"], "main_min": cfg["min_stars"],
+        "newborn_range": f"{md(w['last7'][0])} 至 {md(w['last7'][1])}",
+        "young_range": "{} 至 {}".format(*(
+            (dt.date.fromisoformat(w["last7"][1]) - dt.timedelta(days=n)).isoformat()[5:] for n in (29, 7))),
+    }
+
+
 def issue_context(snap, snaps, cfg):
     d = dt.date.fromisoformat(snap["date"])
     issues = [s for s in snaps if diff.is_issue(s)]
@@ -130,6 +166,7 @@ def issue_context(snap, snaps, cfg):
         trends_plain=snap["trends"],
         noted=sum(1 for e in ranked if e["notes"]),
         warn=cfg.get("warn_categories") or {},
+        rising=rising_view(snap.get("rising"), cfg),
     )
 
 
@@ -183,6 +220,16 @@ def _summary_html(c, url):
         if c["gainers"]:
             parts.append("<h3>涨星</h3><ul>" + "".join(
                 f"<li>{escape(g['full_name'])} +{g['delta']:,}</li>" for g in c["gainers"]) + "</ul>")
+    R = c.get("rising")
+    if R:
+        top = [x for _, _, items in R["surge_groups"] for x in items][:5]
+        parts.append(f"<h3>升星榜（近 7 天 {escape(R['last7'])}）</h3><ul>" + "".join(
+            f"<li>{escape(x['full_name'])} +{x['last7']:,}{'（加速）' if x['accel'] else ''} — {escape(x['tagline'])}</li>"
+            for x in top) + "</ul>")
+        nb = [x for _, items in R["newborn_groups"] for x in items]
+        if nb:
+            parts.append("<h3>新星</h3><ul>" + "".join(
+                f"<li>{escape(x['full_name'])} ★ {x['stars']:,} — {escape(x['tagline'])}</li>" for x in nb) + "</ul>")
     if c["trends_plain"]:
         parts.append("<h3>编者按</h3><ul>" + "".join(f"<li>{escape(t)}</li>" for t in c["trends_plain"]) + "</ul>")
     parts.append(f'<p><a href="{escape(url)}">阅读完整一期 →</a></p>')
@@ -226,6 +273,32 @@ def _markdown(c):
         out.append("- 新上榜：" + ("、".join(e["full_name"] for e in c["new"]) or "无"))
         out.append("- 移出：" + ("；".join(f"{x['full_name']}（{x['reason']}）" for x in c["dropped"]) or "无"))
         out.append("- 涨星：" + ("、".join(f"{g['full_name']} +{g['delta']:,}" for g in c["gainers"]) or "无"))
+    R = c.get("rising")
+    if R:
+        st = "，".join(f"{k} 的 {v} 个" for k, v in R["surge_stats"])
+        out += ["", f"## 升星榜（近 7 天 {R['last7']}，对比前 7 天 {R['prev7']}）", "",
+                f"测了 {R['pool']:,} 个近一年创建的 AI 项目：近 7 天涨星 {st}；{R['surge_accel']} 个在加速，"
+                f"{R['surge_older']} 个创建已超过 {R['window_days']} 天，{R['surge_in_main']} 个已在主榜。"]
+        for name, note, items in R["surge_groups"]:
+            if items:
+                out += ["", f"### {name}（{note}）"] + [
+                    f"- [{x['full_name']}]({x['html_url']}) **+{x['last7']:,}**（前 7 天 +{x['prev7']:,}，现 {x['stars']:,}★）"
+                    f"{'　加速' if x['accel'] else ''}{'　主榜' if x['in_main'] else ''}：{x['tagline']}" for x in items]
+        if R["surge_rest"]:
+            out += ["", f"其余 {len(R['surge_rest'])} 个：" + "、".join(f"{x['full_name']} +{x['last7']:,}" for x in R["surge_rest"])]
+        if R["suspects"]:
+            out += ["", f"⚠️ 疑似刷星（同一作者 ≥{R['rc']['spam_same_owner']} 个项目同周各涨 ≥{R['rc']['spam_min_each']:,}），未列入："
+                    + "、".join(f"{x['full_name']} +{x['last7']:,}" for x in R["suspects"])]
+        out += ["", f"## 新星（创建于 {R['newborn_range']}，≥{R['rc']['newborn_min']}★）"]
+        for label, items in R["newborn_groups"]:
+            out += ["", f"**{label}**"] + [f"- [{x['full_name']}]({x['html_url']}) ★ {x['stars']:,}：{x['tagline']}" for x in items]
+        if not R["newborn_groups"]:
+            out.append("本期没有。")
+        out += ["", f"## 新锐（创建于 {R['young_range']}，≥{R['rc']['young_list_min']:,}★）", ""]
+        out += [f"- [{x['full_name']}]({x['html_url']}) ★ {x['stars']:,}：{x['tagline']}" for x in R["young_featured"]]
+        if R["young_rest"]:
+            out += ["", f"{R['rc']['young_list_min']:,}–{R['rc']['young_intro_min'] - 1:,}★ 的 {len(R['young_rest'])} 个："
+                    + "、".join(f"{x['full_name']} ★{x['stars']:,}" for x in R["young_rest"])]
     if c["trends_plain"]:
         out += ["", "## 编者按"] + [f"- {b}" for b in c["trends_plain"]]
     out += ["", "## 名录"]

@@ -83,6 +83,24 @@ def _schema(categories):
     return {"type": "object", "properties": props, "required": FIELDS, "additionalProperties": False}
 
 
+TAGLINE_DIR = Path(__file__).resolve().parent.parent / "data" / "taglines"
+
+TAGLINE_SYSTEM = """你是一名技术编辑，为中文读者给一批 GitHub 仓库各写一句定位。
+- tagline：一句话说清它是什么、给谁用，不超过 40 字（中文字符和英文单词各算 1 字）；只依据给出的描述、topics 和 README 摘录，材料不足时据仓库名和描述谨慎概括，不编造功能，不写星数和热度
+- is_ai_product：项目的核心是否与 AI/LLM/Agent 相关。只是顺带提到 AI、或本身是游戏、加密货币机器人、普通工具库等无关项目时为 false
+按输入顺序逐个返回，full_name 原样照抄。"""
+
+TAGLINE_SCHEMA = {
+    "type": "object",
+    "properties": {"items": {"type": "array", "items": {
+        "type": "object",
+        "properties": {"full_name": {"type": "string"}, "tagline": {"type": "string"},
+                       "is_ai_product": {"type": "boolean"}},
+        "required": ["full_name", "tagline", "is_ai_product"], "additionalProperties": False}}},
+    "required": ["items"],
+    "additionalProperties": False,
+}
+
 TREND_SCHEMA = {
     "type": "object",
     "properties": {"bullets": {"type": "array", "items": {"type": "string"}}},
@@ -253,3 +271,44 @@ class Summarizer:
         except Exception as e:
             print(f"  ! 趋势小结生成失败：{e}")
             return []
+
+    # ---------- 短期榜的一句话定位（批量） ----------
+    def has_tagline(self, full_name):
+        return (TAGLINE_DIR / (full_name.replace("/", "__") + ".json")).exists()
+
+    def taglines(self, repos, batch=20):
+        """每次调用处理一批仓库，返回 {full_name: {"tagline", "is_ai_product"}}。按仓库缓存，写过的不再写。"""
+        TAGLINE_DIR.mkdir(parents=True, exist_ok=True)
+        out, todo = {}, []
+        for r in repos:
+            p = TAGLINE_DIR / (r["full_name"].replace("/", "__") + ".json")
+            if p.exists():
+                out[r["full_name"]] = json.loads(p.read_text(encoding="utf-8"))
+            else:
+                todo.append(r)
+        if self.dry_run:
+            return {**out, **{r["full_name"]: {"tagline": r["description"] or "（暂无描述）", "is_ai_product": True}
+                              for r in todo}}
+        for i in range(0, len(todo), batch):
+            chunk = todo[i:i + batch]
+            payload = [{"full_name": r["full_name"], "description": r["description"], "topics": r.get("topics", []),
+                        "language": r.get("language"), "readme_excerpt": (r.get("readme") or "")[:1500]}
+                       for r in chunk]
+            try:
+                res = self._ask(TAGLINE_SYSTEM, json.dumps(payload, ensure_ascii=False, indent=1), TAGLINE_SCHEMA,
+                                max_tokens=6000)["items"]
+            except AuthError:
+                raise
+            except Exception as e:  # 一批失败就用描述兜底、不缓存，下次运行再试
+                print(f"  ! 一句话定位第 {i // batch + 1} 批失败：{e}")
+                continue
+            for item in res:
+                name = item["full_name"]
+                if name not in {r["full_name"] for r in chunk}:
+                    continue
+                rec = {"tagline": item["tagline"], "is_ai_product": item["is_ai_product"],
+                       "generated_at": date.today().isoformat(), "model": self.cfg["model"]}
+                (TAGLINE_DIR / (name.replace("/", "__") + ".json")).write_text(
+                    json.dumps(rec, ensure_ascii=False, indent=1), encoding="utf-8")
+                out[name] = rec
+        return out

@@ -20,6 +20,7 @@ import diff
 import fetch
 import notify
 import render
+import rising
 from summarize import AuthError, Summarizer
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -90,6 +91,15 @@ def main():
         entries.append({**repo, "intro": intro, "flags": risk_flags(repo, cfg, today), "delta": None})
     print(f"   上榜 {len(entries)}，排除 {len(excluded)}，模型调用 {summ.calls} 次")
 
+    print("②b 短期榜：新星 / 新锐 / 升星…")
+    try:
+        rising_data = rising.build(cfg, today, entries, summ)
+    except AuthError as e:
+        sys.exit(f"✗ {e}\n  已中止：本期不写快照、不更新页面。请检查 CLAUDE_CODE_OAUTH_TOKEN。")
+    except Exception as e:  # 短期榜出错不影响主榜照常出刊
+        print(f"  ! 短期榜失败，本期不含短期榜：{type(e).__name__}: {e}")
+        rising_data = None
+
     official = args.issue and not args.dry_run
     print(f"③ 对比上一个正式期…（本次{'是正式一期' if official else '是临时更新，不编期号、不通知'}）")
     prev = diff.previous_issue(today.isoformat())
@@ -98,7 +108,7 @@ def main():
 
     snapshot = {"date": today.isoformat(), "issue": official, "query": query, "window_days": cfg["window_days"],
                 "min_stars": cfg["min_stars"], "model": cfg["model"], "dry_run": args.dry_run,
-                "entries": entries, "excluded": excluded, "diff": changes, "trends": trends}
+                "entries": entries, "excluded": excluded, "diff": changes, "trends": trends, "rising": rising_data}
     diff.SNAP_DIR.mkdir(parents=True, exist_ok=True)
     (diff.SNAP_DIR / f"{today.isoformat()}.json").write_text(
         json.dumps(snapshot, ensure_ascii=False, indent=1), encoding="utf-8")
