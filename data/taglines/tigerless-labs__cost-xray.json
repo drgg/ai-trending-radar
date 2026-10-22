@@ -1,6 +1,7 @@
 {
- "tagline": "可视化Claude Code与Codex实际发送的API请求内容与费用，供开发者排查成本",
- "is_ai_product": false,
+ "tagline": "捕获并拆解Claude Code/Codex实际API请求内容，按来源精确核算每次调用的花费",
+ "is_ai_product": true,
+ "ai_rule": 2,
  "generated_at": "2026-10-22",
  "model": "claude-sonnet-5"
 }

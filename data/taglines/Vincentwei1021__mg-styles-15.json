@@ -1,6 +1,7 @@
 {
- "tagline": "15 种由 Claude Opus 5.5 一句提示写代码生成的动态设计风格展示",
+ "tagline": "Claude Opus 5.5一句提示写代码做出的15种动态设计风格展示，含完整提示词与源码",
  "is_ai_product": false,
+ "ai_rule": 2,
  "generated_at": "2026-10-22",
  "model": "claude-sonnet-5"
 }

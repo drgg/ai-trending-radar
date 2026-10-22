@@ -1,6 +1,7 @@
 {
- "tagline": "面向 AI 应用聊天界面的开源设计系统，提供 React/Tailwind 玻璃风组件",
- "is_ai_product": false,
+ "tagline": "面向AI应用的玻璃质感设计系统，含React/Tailwind组件，适合聊天与Agent界面开发者",
+ "is_ai_product": true,
+ "ai_rule": 2,
  "generated_at": "2026-10-22",
  "model": "claude-sonnet-5"
 }

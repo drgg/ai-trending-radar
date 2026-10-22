@@ -1,6 +1,7 @@
 {
- "tagline": "逆向工程工具与学习资源精选清单，覆盖二进制、固件与协议分析",
+ "tagline": "逆向工程工具与学习资源精选列表，覆盖二进制、固件、协议，面向安全研究者",
  "is_ai_product": false,
+ "ai_rule": 2,
  "generated_at": "2026-10-22",
  "model": "claude-sonnet-5"
 }

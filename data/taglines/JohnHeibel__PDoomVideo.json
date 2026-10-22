@@ -1,6 +1,7 @@
 {
- "tagline": "完全由 Claude Opus 5.5 生成的音乐视频源码，展示 AI 编码动画能力",
+ "tagline": "Claude Opus 5.5全自动写代码生成的音乐视频源码，展示AI做动画的能力",
  "is_ai_product": false,
+ "ai_rule": 2,
  "generated_at": "2026-10-22",
  "model": "claude-sonnet-5"
 }

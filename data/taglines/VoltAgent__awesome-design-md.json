@@ -1,6 +1,7 @@
 {
- "tagline": "收集各品牌设计系统DESIGN.md文件，供编码智能体生成匹配UI，面向开发者",
- "is_ai_product": false,
+ "tagline": "收录各品牌设计系统提炼的DESIGN.md文件集合，供AI编程Agent生成风格一致的UI",
+ "is_ai_product": true,
+ "ai_rule": 2,
  "generated_at": "2026-10-22",
  "model": "claude-sonnet-5"
 }

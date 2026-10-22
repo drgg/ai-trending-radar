@@ -1,6 +1,7 @@
 {
- "tagline": "纯WebGPU从零实现的实时海洋渲染器，单个HTML文件即可运行",
+ "tagline": "纯WebGPU从零实现的实时海洋渲染器，单个HTML文件即可运行，用Claude Code写成",
  "is_ai_product": false,
+ "ai_rule": 2,
  "generated_at": "2026-10-22",
  "model": "claude-sonnet-5"
 }

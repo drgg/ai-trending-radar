@@ -1,6 +1,7 @@
 {
- "tagline": "将HTML和动画渲染为视频的框架，专为编程Agent调用设计",
- "is_ai_product": false,
+ "tagline": "把HTML/CSS渲染成MP4视频的开源框架，专为AI编码Agent设计，支持MCP与技能包",
+ "is_ai_product": true,
+ "ai_rule": 2,
  "generated_at": "2026-10-22",
  "model": "claude-sonnet-5"
 }

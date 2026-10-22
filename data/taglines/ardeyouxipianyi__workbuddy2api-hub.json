@@ -1,6 +1,7 @@
 {
- "tagline": "WorkBuddy多账号反代网关，兼容Codex/Claude Code/DSH等AI客户端接口",
- "is_ai_product": false,
+ "tagline": "腾讯WorkBuddy多账号反代网关，转成OpenAI兼容接口，供Codex/Claude Code等客户端调用",
+ "is_ai_product": true,
+ "ai_rule": 2,
  "generated_at": "2026-10-22",
  "model": "claude-sonnet-5"
 }

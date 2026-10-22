@@ -1,26 +1,26 @@
 {
-  "audience": "持有 iOS 18 及以上系统 iPhone、使用 Mac 且不想越狱就想自定义 Apple Wallet 卡面或锁屏密码键盘样式的用户",
+  "is_ai_product": false,
   "category": "其他",
-  "tagline": "无需越狱，在 Mac 上为 iOS 18+ 的 Apple Wallet 卡片和锁屏密码键盘换肤",
-  "positioning": "一款 macOS 应用，通过 USB 连接 iPhone，利用名为 airlift 的系统漏洞为 Apple Wallet 卡片和锁屏密码键盘替换自定义图案，无需越狱设备。",
+  "tagline": "无需越狱，为 iOS 18+ Apple Wallet 卡片和锁屏密码键盘自定义外观的 macOS 工具",
+  "positioning": "一款 macOS 应用，借助 airlift（AirTraffic 同步漏洞）在未越狱的 iPhone 上为 Apple Wallet 卡片换肤、为锁屏密码键盘应用自定义主题。",
   "features": [
-    "为 Apple Pay/Wallet 中的卡片设置自定义图案、材质或银行 Logo",
-    "将 .passthm 主题应用到 iOS 18+ 锁屏密码键盘按钮",
-    "内置主题创作工具，可用单张壁纸切片或逐个按键制作主题",
-    "支持导入并编辑已有的 Cowabunga/Nugget 主题包",
-    "macOS 通用二进制，依赖已预打包，无需 Homebrew 或 Python 环境"
+    "为 Apple Pay / Wallet 卡片指定自定义图案、材质或银行标志",
+    "将 .passthm 主题的密码键盘样式应用到 iOS 18+ 锁屏",
+    "内置主题创建器，可用单张壁纸切片或逐键编辑生成 .passthm",
+    "支持编辑已有 Cowabunga/Nugget 主题包并重新导出或刷写",
+    "连接 iPhone 后扫描检测卡片哈希，支持单卡或批量刷写外观"
   ],
   "highlights": [
-    "无需越狱，依赖名为 airlift 的 AirTraffic 同步漏洞实现卡面与密码键盘定制",
-    "项目方称已在 iOS 27 版本上测试通过",
-    "原生支持 Apple Silicon 与 Intel Mac，macOS 端零前置依赖"
+    "项目方声明支持 iOS 18.0–27.0.1 及 27.2 beta 1–2，27.2 beta 3 起底层漏洞已被 Apple 修补失效",
+    "macOS 应用自带所需设备通信与图像处理组件，无需安装 Homebrew 或 Python 包"
   ],
+  "audience": "希望在不越狱的情况下自定义 Apple Wallet 卡片外观或锁屏密码键盘主题的 iPhone 用户（需配合 Mac 使用）",
   "quickstart_cmd": "git clone https://github.com/mak5er/AirCard.git",
-  "quickstart_note": "克隆后需执行 cd AirCard && chmod +x build.sh && ./build.sh 编译出 AirCard.app；普通用户可直接从 Releases 下载 DMG。",
+  "quickstart_note": "从源码构建：clone 后执行 chmod +x build.sh 和 ./build.sh，生成通用二进制 app 和 dmg；也可直接下载 Releases 中的 DMG 安装。",
   "risks": [],
-  "is_ai_product": false,
-  "readme_sha": "76d09fbd754d1c51cb8bdc976bf54eed3e9260af",
-  "generated_at": "2026-10-05",
+  "readme_sha": "b069696a6c87f00655a2124fc24acd2470271343",
+  "generated_at": "2026-10-22",
   "prompt_version": 4,
+  "ai_rule": 2,
   "model": "claude-sonnet-5"
 }

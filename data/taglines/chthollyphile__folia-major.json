@@ -1,6 +1,7 @@
 {
- "tagline": "主打绚丽歌词动画效果的本地及多平台在线音乐播放器，面向音乐爱好者",
+ "tagline": "支持本地/Navidrome/多平台在线音源的沉浸式歌词动画播放器，AI生成配色主题",
  "is_ai_product": false,
+ "ai_rule": 2,
  "generated_at": "2026-10-22",
  "model": "claude-sonnet-5"
 }

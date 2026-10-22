@@ -1,6 +1,7 @@
 {
- "tagline": "按发送邮件量计费的开源 Newsletter 平台，可自托管替代 beehiiv",
+ "tagline": "按发送量计费的开源newsletter工具，可自托管，也支持AI Agent通过MCP发送邮件",
  "is_ai_product": false,
+ "ai_rule": 2,
  "generated_at": "2026-10-22",
  "model": "claude-sonnet-5"
 }
