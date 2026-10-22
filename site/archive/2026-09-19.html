@@ -90,7 +90,8 @@ section.blk{margin-top:48px}
 .gainers .now{grid-column:1/-1;font-size:13px;color:var(--muted)}
 .dropped .why{grid-column:1/-1;font-size:14px;color:var(--ink-2)}
 
-/* 编者按 */
+/* 近期趋势 */
+.lead{font-size:18px;line-height:1.8;margin:0 0 24px}
 .editorial{padding-left:24px;border-left:3px solid var(--line-strong)}
 .editorial li+li{margin-top:12px}
 .editorial li::marker{color:var(--muted)}
@@ -218,13 +219,17 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
     <dt>较上期</dt>
     <dd>没有更早的正式期可以对比</dd>
     <dt>目录</dt>
-    <dd><a href="#changes">本期变化</a> · <a href="#editorial">编者按</a> · <a href="#index">名录</a> · <a href="#issues">往期</a></dd>
+    <dd><a href="#outlook">近期趋势</a> · <a href="#changes">本期变化</a> · <a href="#index">名录</a> · <a href="#issues">往期</a></dd>
     <dt>订阅</dt>
     <dd><a href="../feed.xml">RSS</a> · 每期发布时在 <a href="https://github.com/drgg/ai-trending-radar/issues?q=label%3A%E5%91%A8%E6%8A%A5">GitHub Issues</a> 推送（Watch 仓库即可收到）</dd>
   </dl>
 </div></div></header>
 
 <main class="wrap">
+
+<section class="blk" id="outlook" aria-labelledby="h-outlook">
+  <div class="blk-head"><h2 id="h-outlook">近期趋势</h2><span class="aside">由 claude-sonnet-5 综合本期主榜、升星、新星新锐和前几期归纳；点项目名看详情</span></div>
+<ol class="editorial"><li>面向具体场景的 Agent Skill 包大量涌现，从去水印到视频、图表、Logo一应俱全，如 <a href="#guillaumemeyer/watermarks-remover">watermarks-remover</a>、<a href="#Vincentwei1021/video-shotcraft">video-shotcraft</a>、<a href="#larashero3-dotcom/lieflat-charts">lieflat-charts</a></li><li>Agent 基础设施加速平台化、操作系统化，出现能力胶囊与统一网关等新形态，如 <a href="#unicity-aos/aos-ce">aos-ce</a>、<a href="#oomol-lab/open-connector">open-connector</a>、<a href="#CopilotKit/OpenBot">OpenBot</a></li><li>编程 Agent 开始复用已登录的浏览器与订阅账号以降低成本，如 <a href="#Tencent/BrowserSkill">BrowserSkill</a>、<a href="#miuuyy/codex-chatgpt-web">codex-chatgpt-web</a></li><li>本地轻量化推理持续突破，千亿级大模型可在普通CPU或8GB内存设备运行，如 <a href="#FareedKhan-dev/kimi-k3-in-c">kimi-k3-in-c</a>、<a href="#drumih/turbo-fieldfare">turbo-fieldfare</a></li><li>AI安全对抗类工具增多，越狱评测与红队框架同步发展，如 <a href="#MDX-Tom/gpt-instruct">gpt-instruct</a>、<a href="#elder-plinius/T3MP3ST">T3MP3ST</a></li></ol></section>
 
 <section class="blk" id="changes" aria-labelledby="h-changes">
   <div class="blk-head"><h2 id="h-changes">本期变化</h2></div>
@@ -233,10 +238,6 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
 </section>
 
 
-<section class="blk" id="editorial" aria-labelledby="h-ed">
-  <div class="blk-head"><h2 id="h-ed">编者按</h2><span class="aside">由 claude-sonnet-5 读完本期全部项目后归纳，点项目名看详情</span></div>
-  <ol class="editorial"><li>面向具体场景的 Agent Skill 包大量涌现，从去水印到视频、图表、Logo一应俱全，如 <a href="#guillaumemeyer/watermarks-remover">watermarks-remover</a>、<a href="#Vincentwei1021/video-shotcraft">video-shotcraft</a>、<a href="#larashero3-dotcom/lieflat-charts">lieflat-charts</a></li><li>Agent 基础设施加速平台化、操作系统化，出现能力胶囊与统一网关等新形态，如 <a href="#unicity-aos/aos-ce">aos-ce</a>、<a href="#oomol-lab/open-connector">open-connector</a>、<a href="#CopilotKit/OpenBot">OpenBot</a></li><li>编程 Agent 开始复用已登录的浏览器与订阅账号以降低成本，如 <a href="#Tencent/BrowserSkill">BrowserSkill</a>、<a href="#miuuyy/codex-chatgpt-web">codex-chatgpt-web</a></li><li>本地轻量化推理持续突破，千亿级大模型可在普通CPU或8GB内存设备运行，如 <a href="#FareedKhan-dev/kimi-k3-in-c">kimi-k3-in-c</a>、<a href="#drumih/turbo-fieldfare">turbo-fieldfare</a></li><li>AI安全对抗类工具增多，越狱评测与红队框架同步发展，如 <a href="#MDX-Tom/gpt-instruct">gpt-instruct</a>、<a href="#elder-plinius/T3MP3ST">T3MP3ST</a></li></ol>
-</section>
 
 <section class="blk" id="index" aria-labelledby="h-index">
   <div class="blk-head"><h2 id="h-index">名录</h2><span class="aside num">27 个项目 · 按分类 · 分类内按星数 · 19 个带提示</span></div>

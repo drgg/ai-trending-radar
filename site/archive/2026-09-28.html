@@ -90,7 +90,8 @@ section.blk{margin-top:48px}
 .gainers .now{grid-column:1/-1;font-size:13px;color:var(--muted)}
 .dropped .why{grid-column:1/-1;font-size:14px;color:var(--ink-2)}
 
-/* 编者按 */
+/* 近期趋势 */
+.lead{font-size:18px;line-height:1.8;margin:0 0 24px}
 .editorial{padding-left:24px;border-left:3px solid var(--line-strong)}
 .editorial li+li{margin-top:12px}
 .editorial li::marker{color:var(--muted)}
@@ -220,13 +221,17 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
     <dt>本期变化</dt>
     <dd><a href="#changes">新上榜 8 · 移出 1 · 涨星前 5</a></dd>
     <dt>目录</dt>
-    <dd><a href="#changes">本期变化</a> · <a href="#editorial">编者按</a> · <a href="#index">名录</a> · <a href="#issues">往期</a></dd>
+    <dd><a href="#outlook">近期趋势</a> · <a href="#changes">本期变化</a> · <a href="#index">名录</a> · <a href="#issues">往期</a></dd>
     <dt>订阅</dt>
     <dd><a href="../feed.xml">RSS</a> · 每期发布时在 <a href="https://github.com/drgg/ai-trending-radar/issues?q=label%3A%E5%91%A8%E6%8A%A5">GitHub Issues</a> 推送（Watch 仓库即可收到）</dd>
   </dl>
 </div></div></header>
 
 <main class="wrap">
+
+<section class="blk" id="outlook" aria-labelledby="h-outlook">
+  <div class="blk-head"><h2 id="h-outlook">近期趋势</h2><span class="aside">由 claude-sonnet-5 综合本期主榜、升星、新星新锐和前几期归纳；点项目名看详情</span></div>
+<ol class="editorial"><li>面向AI Agent的垂直技能包大量涌现，覆盖设计、简历、可视化等场景，如<a href="#petergyang/no-ai-slop">no-ai-slop</a>、<a href="#Hisn00w/ASu-skills">ASu-skills</a>、<a href="#s1dashu/ip-as-logo-skill">ip-as-logo-skill</a></li><li>开源Agent运行时/操作系统成基础设施热点，强调协作与自进化，如<a href="#unicity-aos/aos-ce">aos-ce</a>、<a href="#Human-Agent-Society/reef">reef</a>、<a href="#deeplethe/utopia">utopia</a></li><li>编程Agent工具持续迭代，终端桌面一体化与上下文管理并进，如<a href="#xai-org/grok-build">grok-build</a>、<a href="#zai-org/ZCode">ZCode</a>、<a href="#tamaratran/fast-jev-compaction">fast-jev-compaction</a></li><li>消费级硬件跑超大模型的极限推理引擎受关注，如<a href="#FareedKhan-dev/kimi-k3-in-c">kimi-k3-in-c</a>、<a href="#drumih/turbo-fieldfare">turbo-fieldfare</a></li><li>AI安全与红队自动化工具浮现，越狱与渗透测试框架同步增长，如<a href="#elder-plinius/T3MP3ST">T3MP3ST</a>、<a href="#MDX-Tom/gpt-instruct">gpt-instruct</a></li></ol></section>
 
 <section class="blk" id="changes" aria-labelledby="h-changes">
   <div class="blk-head"><h2 id="h-changes">本期变化</h2><span class="aside num">较第 1 期 · 09-21 至 09-28，7 天</span></div>
@@ -342,10 +347,6 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
 </section>
 
 
-<section class="blk" id="editorial" aria-labelledby="h-ed">
-  <div class="blk-head"><h2 id="h-ed">编者按</h2><span class="aside">由 claude-sonnet-5 读完本期全部项目后归纳，点项目名看详情</span></div>
-  <ol class="editorial"><li>面向AI Agent的垂直技能包大量涌现，覆盖设计、简历、可视化等场景，如no-ai-slop、<a href="#Hisn00w/ASu-skills">ASu-skills</a>、<a href="#s1dashu/ip-as-logo-skill">ip-as-logo-skill</a></li><li>开源Agent运行时/操作系统成基础设施热点，强调协作与自进化，如aos-ce、<a href="#Human-Agent-Society/reef">reef</a>、<a href="#deeplethe/utopia">utopia</a></li><li>编程Agent工具持续迭代，终端桌面一体化与上下文管理并进，如grok-build、<a href="#zai-org/ZCode">ZCode</a>、<a href="#tamaratran/fast-jev-compaction">fast-jev-compaction</a></li><li>消费级硬件跑超大模型的极限推理引擎受关注，如kimi-k3-in-c、<a href="#drumih/turbo-fieldfare">turbo-fieldfare</a></li><li>AI安全与红队自动化工具浮现，越狱与渗透测试框架同步增长，如T3MP3ST、<a href="#MDX-Tom/gpt-instruct">gpt-instruct</a></li></ol>
-</section>
 
 <section class="blk" id="index" aria-labelledby="h-index">
   <div class="blk-head"><h2 id="h-index">名录</h2><span class="aside num">33 个项目 · 按分类 · 分类内按星数 · 绿色 +N 为较第 1 期（7 天）的增量 · 22 个带提示</span></div>

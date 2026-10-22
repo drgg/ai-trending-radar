@@ -90,7 +90,8 @@ section.blk{margin-top:48px}
 .gainers .now{grid-column:1/-1;font-size:13px;color:var(--muted)}
 .dropped .why{grid-column:1/-1;font-size:14px;color:var(--ink-2)}
 
-/* 编者按 */
+/* 近期趋势 */
+.lead{font-size:18px;line-height:1.8;margin:0 0 24px}
 .editorial{padding-left:24px;border-left:3px solid var(--line-strong)}
 .editorial li+li{margin-top:12px}
 .editorial li::marker{color:var(--muted)}
@@ -220,13 +221,17 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
     <dt>本期变化</dt>
     <dd><a href="#changes">新上榜 0 · 移出 0 · 涨星前 5</a></dd>
     <dt>目录</dt>
-    <dd><a href="#changes">本期变化</a> · <a href="#editorial">编者按</a> · <a href="#index">名录</a> · <a href="#issues">往期</a></dd>
+    <dd><a href="#outlook">近期趋势</a> · <a href="#changes">本期变化</a> · <a href="#index">名录</a> · <a href="#issues">往期</a></dd>
     <dt>订阅</dt>
     <dd><a href="../feed.xml">RSS</a> · 每期发布时在 <a href="https://github.com/drgg/ai-trending-radar/issues?q=label%3A%E5%91%A8%E6%8A%A5">GitHub Issues</a> 推送（Watch 仓库即可收到）</dd>
   </dl>
 </div></div></header>
 
 <main class="wrap">
+
+<section class="blk" id="outlook" aria-labelledby="h-outlook">
+  <div class="blk-head"><h2 id="h-outlook">近期趋势</h2><span class="aside">由 claude-sonnet-5 综合本期主榜、升星、新星新锐和前几期归纳；点项目名看详情</span></div>
+<ol class="editorial"><li>Agent Skills生态持续繁荣，覆盖写作、设计、图表等垂直场景，如<a href="#petergyang/no-ai-slop">no-ai-slop</a>、<a href="#Vincentwei1021/video-shotcraft">video-shotcraft</a>、<a href="#larashero3-dotcom/lieflat-charts">lieflat-charts</a></li><li>编程Agent与运行框架竞争激烈，<a href="#xai-org/grok-build">grok-build</a>、<a href="#zai-org/ZCode">ZCode</a>、<a href="#truefoundry/trueforge">trueforge</a>等争相打造终端级AI编程体验</li><li>本地推理突破硬件极限，<a href="#FareedKhan-dev/kimi-k3-in-c">kimi-k3-in-c</a>、<a href="#drumih/turbo-fieldfare">turbo-fieldfare</a>让万亿参数模型跑进消费级设备</li><li>Agent平台基础设施强调自托管与可审计，<a href="#TencentCloud/Octop">Octop</a>、<a href="#CopilotKit/OpenBot">OpenBot</a>、<a href="#deeplethe/utopia">utopia</a>聚焦企业级多智能体协作治理</li><li>安全与红队工具链受关注，<a href="#MDX-Tom/gpt-instruct">gpt-instruct</a>、<a href="#elder-plinius/T3MP3ST">T3MP3ST</a>揭示AI编程Agent的攻防两面性</li></ol></section>
 
 <section class="blk" id="changes" aria-labelledby="h-changes">
   <div class="blk-head"><h2 id="h-changes">本期变化</h2><span class="aside num">较第 2 期 · 09-28 至 09-30，2 天</span></div>
@@ -259,10 +264,6 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
 </section>
 
 
-<section class="blk" id="editorial" aria-labelledby="h-ed">
-  <div class="blk-head"><h2 id="h-ed">编者按</h2><span class="aside">由 claude-sonnet-5 读完本期全部项目后归纳，点项目名看详情</span></div>
-  <ol class="editorial"><li>Agent Skills生态持续繁荣，覆盖写作、设计、图表等垂直场景，如no-ai-slop、<a href="#Vincentwei1021/video-shotcraft">video-shotcraft</a>、<a href="#larashero3-dotcom/lieflat-charts">lieflat-charts</a></li><li>编程Agent与运行框架竞争激烈，<a href="#xai-org/grok-build">grok-build</a>、<a href="#zai-org/ZCode">ZCode</a>、trueforge等争相打造终端级AI编程体验</li><li>本地推理突破硬件极限，<a href="#FareedKhan-dev/kimi-k3-in-c">kimi-k3-in-c</a>、turbo-fieldfare让万亿参数模型跑进消费级设备</li><li>Agent平台基础设施强调自托管与可审计，<a href="#TencentCloud/Octop">Octop</a>、<a href="#CopilotKit/OpenBot">OpenBot</a>、utopia聚焦企业级多智能体协作治理</li><li>安全与红队工具链受关注，<a href="#MDX-Tom/gpt-instruct">gpt-instruct</a>、T3MP3ST揭示AI编程Agent的攻防两面性</li></ol>
-</section>
 
 <section class="blk" id="index" aria-labelledby="h-index">
   <div class="blk-head"><h2 id="h-index">名录</h2><span class="aside num">33 个项目 · 按分类 · 分类内按星数 · 绿色 +N 为较第 2 期（2 天）的增量 · 23 个带提示</span></div>

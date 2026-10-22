@@ -90,7 +90,8 @@ section.blk{margin-top:48px}
 .gainers .now{grid-column:1/-1;font-size:13px;color:var(--muted)}
 .dropped .why{grid-column:1/-1;font-size:14px;color:var(--ink-2)}
 
-/* 编者按 */
+/* 近期趋势 */
+.lead{font-size:18px;line-height:1.8;margin:0 0 24px}
 .editorial{padding-left:24px;border-left:3px solid var(--line-strong)}
 .editorial li+li{margin-top:12px}
 .editorial li::marker{color:var(--muted)}
@@ -222,13 +223,17 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
     <dt>短期榜</dt>
     <dd><a href="#surge">升星 87</a> · <a href="#newcomers">新星 11 · 新锐 42</a></dd>
     <dt>目录</dt>
-    <dd><a href="#changes">本期变化</a> · <a href="#surge">升星榜</a> · <a href="#newcomers">新星与新锐</a> · <a href="#editorial">编者按</a> · <a href="#index">名录</a> · <a href="#issues">往期</a></dd>
+    <dd><a href="#outlook">近期趋势</a> · <a href="#changes">本期变化</a> · <a href="#surge">升星榜</a> · <a href="#newcomers">新星与新锐</a> · <a href="#index">名录</a> · <a href="#issues">往期</a></dd>
     <dt>订阅</dt>
     <dd><a href="feed.xml">RSS</a> · 每期发布时在 <a href="https://github.com/drgg/ai-trending-radar/issues?q=label%3A%E5%91%A8%E6%8A%A5">GitHub Issues</a> 推送（Watch 仓库即可收到）</dd>
   </dl>
 </div></div></header>
 
 <main class="wrap">
+
+<section class="blk" id="outlook" aria-labelledby="h-outlook">
+  <div class="blk-head"><h2 id="h-outlook">近期趋势</h2><span class="aside">由 claude-sonnet-5 综合本期主榜、升星、新星新锐和前几期归纳；点项目名看详情</span></div>
+<p class="lead prose">测试段落，用于排查结构化输出错误，内容无实际意义，仅检测参数是否能被正确解析和接受。</p><ol class="editorial"><li>测试要点一。</li><li>测试要点二。</li><li>测试要点三。</li></ol></section>
 
 <section class="blk" id="changes" aria-labelledby="h-changes">
   <div class="blk-head"><h2 id="h-changes">本期变化</h2><span class="aside num">较第 5 期 · 10-19 至 10-22，3 天</span></div>
@@ -239,7 +244,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
         <div class="item-title">
           <span class="tag new">新上榜</span>
           <h3 id="new-1"><a href="https://github.com/lemomo-ai/lemo-opuscar">lemomo-ai/lemo-opuscar</a></h3>
-          <span class="stars num">★ 5,512</span>
+          <span class="stars num">★ 5,518</span>
           <span class="tag cat">Skills 与写作/设计</span>
         </div>
         <p class="tagline">Claude Code 插件：59 种影片风格，均由 Claude Opus 5.5 写代码生成演示片</p>
@@ -249,7 +254,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
         <div class="item-title">
           <span class="tag new">新上榜</span>
           <h3 id="new-2"><a href="https://github.com/elie222/rakazo">elie222/rakazo</a></h3>
-          <span class="stars num">★ 5,236</span>
+          <span class="stars num">★ 5,240</span>
           <span class="tag cat">Agent 平台与基础设施</span>
         </div>
         <p class="tagline">开源自托管AI助理机器人平台，可自选模型与沙箱计算机，Grok Bot等产品的开源替代。</p>
@@ -260,16 +265,16 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
     <div>
       <div class="sub-head"><h3>涨星</h3><span class="aside num">3 天内增量前 5</span></div>
       <ol class="gainers num">
-        <li><a class="nm" href="#Ebony-Vinyl/dsh-our-free-model">Ebony-Vinyl/dsh-our-free-model</a><span class="d">+11,145</span>
-            <span class="now">现 36,682 星 · dsh 插件，免登录免 Key 白嫖前沿大模型，并可接入第三方账号渠道</span></li>
-        <li><a class="nm" href="#yetone/magpie">yetone/magpie</a><span class="d">+3,206</span>
-            <span class="now">现 19,490 星 · 本地网关统一管理，让各编程 Agent 共用任意模型或订阅账号</span></li>
-        <li><a class="nm" href="#yihui-dev/awesome-opus5-5-videos">yihui-dev/awesome-opus5-5-videos</a><span class="d">+2,871</span>
-            <span class="now">现 9,198 星 · 收录用Claude Opus 5.5生成的病毒视频及对应提示词的清单</span></li>
-        <li><a class="nm" href="#wheresryan22/anatomy">wheresryan22/anatomy</a><span class="d">+2,843</span>
-            <span class="now">现 19,099 星 · 让 Claude Code 等编码 Agent 把技术概念画成可交互等轴测插图的 Skill</span></li>
-        <li><a class="nm" href="#jub0t/Concat">jub0t/Concat</a><span class="d">+1,692</span>
-            <span class="now">现 10,828 星 · 免费开源、本地优先的跨平台视频剪辑软件，CapCut 替代品</span></li>
+        <li><a class="nm" href="#Ebony-Vinyl/dsh-our-free-model">Ebony-Vinyl/dsh-our-free-model</a><span class="d">+11,160</span>
+            <span class="now">现 36,697 星 · dsh 插件，免登录免 Key 白嫖前沿大模型，并可接入第三方账号渠道</span></li>
+        <li><a class="nm" href="#yetone/magpie">yetone/magpie</a><span class="d">+3,208</span>
+            <span class="now">现 19,492 星 · 本地网关统一管理，让各编程 Agent 共用任意模型或订阅账号</span></li>
+        <li><a class="nm" href="#yihui-dev/awesome-opus5-5-videos">yihui-dev/awesome-opus5-5-videos</a><span class="d">+2,885</span>
+            <span class="now">现 9,212 星 · 收录用Claude Opus 5.5生成的病毒视频及对应提示词的清单</span></li>
+        <li><a class="nm" href="#wheresryan22/anatomy">wheresryan22/anatomy</a><span class="d">+2,855</span>
+            <span class="now">现 19,111 星 · 让 Claude Code 等编码 Agent 把技术概念画成可交互等轴测插图的 Skill</span></li>
+        <li><a class="nm" href="#jub0t/Concat">jub0t/Concat</a><span class="d">+1,706</span>
+            <span class="now">现 10,842 星 · 免费开源、本地优先的跨平台视频剪辑软件，CapCut 替代品</span></li>
       </ol>
     </div>
 
@@ -287,131 +292,131 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
   <div class="blk-head"><h2 id="h-surge">升星榜</h2><span class="aside num">近 7 天新增星数 · 10-15 至 10-21，对比前 7 天 10-08 至 10-14（UTC 完整自然日）</span></div>
   <p class="stat-line num">在 763 个近一年创建的 AI 项目里，近 7 天涨星 ≥1,000 的 <b>87</b> 个，≥2,000 的 <b>47</b> 个，≥5,000 的 <b>15</b> 个。其中 22 个在加速（达到前 7 天的 2 倍），55 个创建已超过 90 天、主榜收不到，12 个已在主榜。下列 20 个附一句话介绍，其余只列名字。</p>
   <div class="tier-head"><h3>暴涨</h3><span class="aside num">近 7 天 ≥5,000 · 15 个</span></div>
-  <ol class="rk-list"><li>
+  <ol class="rk-list"><li id="s-morluto/rea">
   <span><a class="nm" href="https://github.com/morluto/rea">morluto/rea</a></span>
-  <span class="fig num"><span class="g">+109,826</span></span>
+  <span class="fig num"><span class="g">+109,824</span></span>
   <span class="tl">基于 AI agent 与 MCP 的逆向工程工具，深入分析应用行为与二进制</span>
-  <span class="meta num">前 7 天 +233,062 · 现 ★ 365,511 · 创建 2026-04-14（191 天）</span>
+  <span class="meta num">前 7 天 +233,062 · 现 ★ 365,693 · 创建 2026-04-14（191 天）</span>
 </li>
-<li>
+<li id="s-Ebony-Vinyl/dsh-our-free-model">
   <span><a class="nm" href="#Ebony-Vinyl/dsh-our-free-model">Ebony-Vinyl/dsh-our-free-model</a><span class="flags"><span class="tag main">主榜</span></span></span>
-  <span class="fig num"><span class="g">+18,833</span></span>
+  <span class="fig num"><span class="g">+18,832</span></span>
   <span class="tl">dsh 插件，免登录免 Key 白嫖前沿大模型，并可接入第三方账号渠道</span>
-  <span class="meta num">前 7 天 +12,627 · 现 ★ 36,682 · 创建 2026-09-24（28 天）</span>
+  <span class="meta num">前 7 天 +12,627 · 现 ★ 36,697 · 创建 2026-09-24（28 天）</span>
 </li>
-<li>
+<li id="s-ai-job-search-dev/ai-job-search">
   <span><a class="nm" href="https://github.com/ai-job-search-dev/ai-job-search">ai-job-search-dev/ai-job-search</a><span class="flags"><span class="tag accel">加速</span></span></span>
   <span class="fig num"><span class="g">+16,374</span></span>
   <span class="tl">基于Claude Code的AI求职框架，自动评估职位、定制简历、写求职信、做面试准备</span>
-  <span class="meta num">前 7 天 +1,676 · 现 ★ 63,502 · 创建 2026-03-18（218 天）</span>
+  <span class="meta num">前 7 天 +1,676 · 现 ★ 63,519 · 创建 2026-03-18（218 天）</span>
 </li>
-<li>
+<li id="s-debpalash/VoiceStudio">
   <span><a class="nm" href="https://github.com/debpalash/VoiceStudio">debpalash/VoiceStudio</a></span>
   <span class="fig num"><span class="g">+13,795</span></span>
   <span class="tl">本地优先的开源语音工具：声音克隆、视频配音、转录与有声书制作</span>
-  <span class="meta num">前 7 天 +12,438 · 现 ★ 81,629 · 创建 2026-04-09（196 天）</span>
+  <span class="meta num">前 7 天 +12,438 · 现 ★ 81,662 · 创建 2026-04-09（196 天）</span>
 </li>
-<li>
+<li id="s-stablyai/orca">
   <span><a class="nm" href="https://github.com/stablyai/orca">stablyai/orca</a></span>
   <span class="fig num"><span class="g">+9,225</span></span>
   <span class="tl">多Agent编排IDE，并行驱动Codex、Claude Code等编程代理，支持桌面/移动/远程</span>
-  <span class="meta num">前 7 天 +5,551 · 现 ★ 102,653 · 创建 2026-03-17（219 天）</span>
+  <span class="meta num">前 7 天 +5,550 · 现 ★ 102,681 · 创建 2026-03-17（219 天）</span>
 </li>
-<li>
+<li id="s-mattpocock/skills">
   <span><a class="nm" href="https://github.com/mattpocock/skills">mattpocock/skills</a></span>
   <span class="fig num"><span class="g">+8,726</span></span>
   <span class="tl">面向真实工程师的AI Agent技能集合，适配Claude Code等多种编程助手</span>
-  <span class="meta num">前 7 天 +12,131 · 现 ★ 300,808 · 创建 2026-02-03（261 天）</span>
+  <span class="meta num">前 7 天 +12,131 · 现 ★ 300,827 · 创建 2026-02-03（261 天）</span>
 </li>
-<li>
+<li id="s-DietrichGebert/ponytail">
   <span><a class="nm" href="https://github.com/DietrichGebert/ponytail">DietrichGebert/ponytail</a></span>
   <span class="fig num"><span class="g">+8,594</span></span>
   <span class="tl">让AI编程Agent像资深工程师一样精简代码的技能插件</span>
-  <span class="meta num">前 7 天 +6,387 · 现 ★ 173,277 · 创建 2026-06-12（132 天）</span>
+  <span class="meta num">前 7 天 +6,386 · 现 ★ 173,319 · 创建 2026-06-12（132 天）</span>
 </li>
-<li>
+<li id="s-xerj-org/xerj">
   <span><a class="nm" href="https://github.com/xerj-org/xerj">xerj-org/xerj</a><span class="flags"><span class="tag accel">加速</span></span></span>
-  <span class="fig num"><span class="g">+8,351</span></span>
+  <span class="fig num"><span class="g">+8,350</span></span>
   <span class="tl">本地优先的搜索引擎与MCP服务器，为AI Agent提供代码/文档混合检索与记忆</span>
-  <span class="meta num">前 7 天 +1,463 · 现 ★ 13,094 · 创建 2026-06-30（114 天）</span>
+  <span class="meta num">前 7 天 +1,463 · 现 ★ 13,098 · 创建 2026-06-30（114 天）</span>
 </li>
-<li>
+<li id="s-cloudflare/security-audit-skill">
   <span><a class="nm" href="https://github.com/cloudflare/security-audit-skill">cloudflare/security-audit-skill</a><span class="flags"><span class="tag accel">加速</span></span></span>
   <span class="fig num"><span class="g">+7,784</span></span>
   <span class="tl">面向编程Agent的多阶段安全审计技能，输出可验证的结构化漏洞报告</span>
-  <span class="meta num">前 7 天 +3,463 · 现 ★ 39,260 · 创建 2026-06-18（126 天）</span>
+  <span class="meta num">前 7 天 +3,463 · 现 ★ 39,341 · 创建 2026-06-18（126 天）</span>
 </li>
-<li>
+<li id="s-wheresryan22/anatomy">
   <span><a class="nm" href="#wheresryan22/anatomy">wheresryan22/anatomy</a><span class="flags"><span class="tag main">主榜</span></span></span>
   <span class="fig num"><span class="g">+7,503</span></span>
   <span class="tl">让 Claude Code 等编码 Agent 把技术概念画成可交互等轴测插图的 Skill</span>
-  <span class="meta num">前 7 天 +11,208 · 现 ★ 19,101 · 创建 2026-10-08（14 天）</span>
+  <span class="meta num">前 7 天 +11,208 · 现 ★ 19,111 · 创建 2026-10-08（14 天）</span>
 </li>
-<li>
+<li id="s-affaan-m/ECC">
   <span><a class="nm" href="https://github.com/affaan-m/ECC">affaan-m/ECC</a></span>
   <span class="fig num"><span class="g">+6,650</span></span>
   <span class="tl">面向Claude Code等编程Agent的工程优化系统：技能、记忆与安全能力</span>
-  <span class="meta num">前 7 天 +5,121 · 现 ★ 286,432 · 创建 2026-01-18（277 天）</span>
+  <span class="meta num">前 7 天 +5,121 · 现 ★ 286,460 · 创建 2026-01-18（277 天）</span>
 </li>
-<li>
+<li id="s-yetone/magpie">
   <span><a class="nm" href="#yetone/magpie">yetone/magpie</a><span class="flags"><span class="tag main">主榜</span></span></span>
   <span class="fig num"><span class="g">+6,091</span></span>
   <span class="tl">本地网关统一管理，让各编程 Agent 共用任意模型或订阅账号</span>
-  <span class="meta num">前 7 天 +6,747 · 现 ★ 19,490 · 创建 2026-09-23（29 天）</span>
+  <span class="meta num">前 7 天 +6,747 · 现 ★ 19,492 · 创建 2026-09-23（29 天）</span>
 </li>
-<li>
+<li id="s-heygen-com/hyperframes">
   <span><a class="nm" href="https://github.com/heygen-com/hyperframes">heygen-com/hyperframes</a></span>
   <span class="fig num"><span class="g">+5,599</span></span>
   <span class="tl">把HTML/CSS渲染成MP4视频的开源框架，专为AI编码Agent设计，支持MCP与技能包</span>
-  <span class="meta num">前 7 天 +5,275 · 现 ★ 69,940 · 创建 2026-03-10（226 天）</span>
+  <span class="meta num">前 7 天 +5,275 · 现 ★ 69,956 · 创建 2026-03-10（226 天）</span>
 </li>
-<li>
+<li id="s-anthropics/claude-plugins-official">
   <span><a class="nm" href="https://github.com/anthropics/claude-plugins-official">anthropics/claude-plugins-official</a><span class="flags"><span class="tag accel">加速</span></span></span>
   <span class="fig num"><span class="g">+5,599</span></span>
   <span class="tl">Anthropic官方维护的Claude Code插件目录</span>
-  <span class="meta num">前 7 天 +670 · 现 ★ 43,859 · 创建 2025-11-20（336 天）</span>
+  <span class="meta num">前 7 天 +670 · 现 ★ 43,870 · 创建 2025-11-20（336 天）</span>
 </li>
-<li>
+<li id="s-Graphify-Labs/graphify">
   <span><a class="nm" href="https://github.com/Graphify-Labs/graphify">Graphify-Labs/graphify</a><span class="flags"><span class="tag accel">加速</span></span></span>
-  <span class="fig num"><span class="g">+5,523</span></span>
+  <span class="fig num"><span class="g">+5,522</span></span>
   <span class="tl">将代码库及文档转为可查询知识图谱的Agent技能，支持多种编程助手</span>
-  <span class="meta num">前 7 天 +2,244 · 现 ★ 132,824 · 创建 2026-04-03（202 天）</span>
+  <span class="meta num">前 7 天 +2,244 · 现 ★ 132,853 · 创建 2026-04-03（202 天）</span>
 </li>
 </ol>
   <div class="tier-head"><h3>猛涨</h3><span class="aside num">近 7 天 2,000–4,999 · 5 个</span></div>
-  <ol class="rk-list"><li>
+  <ol class="rk-list"><li id="s-jub0t/Concat">
   <span><a class="nm" href="#jub0t/Concat">jub0t/Concat</a><span class="flags"><span class="tag accel">加速</span><span class="tag main">主榜</span></span></span>
   <span class="fig num"><span class="g">+4,842</span></span>
   <span class="tl">免费开源、本地优先的跨平台视频剪辑软件，CapCut 替代品</span>
-  <span class="meta num">前 7 天 +1,592 · 现 ★ 10,830 · 创建 2026-08-25（58 天）</span>
+  <span class="meta num">前 7 天 +1,592 · 现 ★ 10,842 · 创建 2026-08-25（58 天）</span>
 </li>
-<li>
+<li id="s-ifixai-ai/iFixAi">
   <span><a class="nm" href="https://github.com/ifixai-ai/iFixAi">ifixai-ai/iFixAi</a></span>
-  <span class="fig num"><span class="g">+4,495</span></span>
+  <span class="fig num"><span class="g">+4,494</span></span>
   <span class="tl">独立审计AI Agent是否按业务目标真正执行任务的诊断工具</span>
-  <span class="meta num">前 7 天 +5,575 · 现 ★ 33,134 · 创建 2026-04-27（178 天）</span>
+  <span class="meta num">前 7 天 +5,575 · 现 ★ 33,145 · 创建 2026-04-27（178 天）</span>
 </li>
-<li>
+<li id="s-cathrynlavery/diagram-design">
   <span><a class="nm" href="https://github.com/cathrynlavery/diagram-design">cathrynlavery/diagram-design</a></span>
   <span class="fig num"><span class="g">+4,267</span></span>
   <span class="tl">为编程Agent打造的图表绘制技能，输出品牌化HTML+SVG图表</span>
-  <span class="meta num">前 7 天 +10,303 · 现 ★ 59,999 · 创建 2026-04-16（189 天）</span>
+  <span class="meta num">前 7 天 +10,303 · 现 ★ 60,009 · 创建 2026-04-16（189 天）</span>
 </li>
-<li>
+<li id="s-Leonxlnx/taste-skill">
   <span><a class="nm" href="https://github.com/Leonxlnx/taste-skill">Leonxlnx/taste-skill</a></span>
   <span class="fig num"><span class="g">+4,183</span></span>
   <span class="tl">赋予编程Agent审美直觉的技能包：艺术指导、参考图与浏览器自查</span>
-  <span class="meta num">前 7 天 +3,259 · 现 ★ 101,084 · 创建 2026-02-19（245 天）</span>
+  <span class="meta num">前 7 天 +3,259 · 现 ★ 101,095 · 创建 2026-02-19（245 天）</span>
 </li>
-<li>
+<li id="s-tashfeenahmed/freellmapi">
   <span><a class="nm" href="https://github.com/tashfeenahmed/freellmapi">tashfeenahmed/freellmapi</a></span>
   <span class="fig num"><span class="g">+3,758</span></span>
   <span class="tl">聚合34家免费LLM提供商的统一API路由工具，智能切换与故障转移</span>
-  <span class="meta num">前 7 天 +3,666 · 现 ★ 39,525 · 创建 2026-04-21（184 天）</span>
+  <span class="meta num">前 7 天 +3,666 · 现 ★ 39,544 · 创建 2026-04-21（184 天）</span>
 </li>
 </ol>
   <details class="more"><summary>其余 67 个（近 7 天 ≥1,000，只列名字）</summary>
-    <ul class="names num"><li><a href="#yihui-dev/awesome-opus5-5-videos">yihui-dev/awesome-opus5-5-videos</a> <span class="g">+3,650</span></li><li><a href="https://github.com/paperclipai/paperclip">paperclipai/paperclip</a> <span class="g">+3,628</span></li><li><a href="https://github.com/tt-a1i/archify">tt-a1i/archify</a> <span class="g">+3,628</span></li><li><a href="https://github.com/Panniantong/Agent-Reach">Panniantong/Agent-Reach</a> <span class="g">+3,424</span></li><li><a href="https://github.com/pbakaus/impeccable">pbakaus/impeccable</a> <span class="g">+3,394</span></li><li><a href="https://github.com/HKUDS/CLI-Anything">HKUDS/CLI-Anything</a> <span class="g">+3,354</span></li><li><a href="https://github.com/hugohe3/ppt-master">hugohe3/ppt-master</a> <span class="g">+3,326</span></li><li><a href="https://github.com/akitaonrails/ai-memory">akitaonrails/ai-memory</a> <span class="g">+3,228</span></li><li><a href="https://github.com/cheaper-inference/OmniRoute">cheaper-inference/OmniRoute</a> <span class="g">+3,013</span></li><li><a href="https://github.com/rohitg00/ai-engineering-from-scratch">rohitg00/ai-engineering-from-scratch</a> <span class="g">+2,985</span></li><li><a href="https://github.com/vectorize-io/hindsight">vectorize-io/hindsight</a> <span class="g">+2,819</span></li><li><a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill">nextlevelbuilder/ui-ux-pro-max-skill</a> <span class="g">+2,816</span></li><li><a href="https://github.com/addyosmani/agent-skills">addyosmani/agent-skills</a> <span class="g">+2,749</span></li><li><a href="#lemomo-ai/lemo-opuscar">lemomo-ai/lemo-opuscar</a> <span class="g">+2,666</span></li><li><a href="#hypit-ai/hypit">hypit-ai/hypit</a> <span class="g">+2,564</span></li><li><a href="https://github.com/calesthio/OpenMontage">calesthio/OpenMontage</a> <span class="g">+2,434</span></li><li><a href="https://github.com/blader/humanizer">blader/humanizer</a> <span class="g">+2,414</span></li><li><a href="https://github.com/multica-ai/andrej-karpathy-skills">multica-ai/andrej-karpathy-skills</a> <span class="g">+2,404</span></li><li><a href="https://github.com/mksglu/context-mode">mksglu/context-mode</a> <span class="g">+2,399</span></li><li><a href="https://github.com/JuliusBrussee/caveman">JuliusBrussee/caveman</a> <span class="g">+2,377</span></li><li><a href="https://github.com/kuafuai/andee">kuafuai/andee</a> <span class="g">+2,244</span></li><li><a href="#dataelement/dsh-desktop">dataelement/dsh-desktop</a> <span class="g">+2,182</span></li><li><a href="https://github.com/headroomlabs-ai/headroom">headroomlabs-ai/headroom</a> <span class="g">+2,114</span></li><li><a href="https://github.com/Arekejoker/qwen21-nsfw-pose-skill">Arekejoker/qwen21-nsfw-pose-skill</a> <span class="g">+2,104</span></li><li><a href="https://github.com/nexu-io/open-design">nexu-io/open-design</a> <span class="g">+2,095</span></li><li><a href="https://github.com/Leonxlnx/earshot">Leonxlnx/earshot</a> <span class="g">+2,065</span></li><li><a href="https://github.com/Alishahryar1/free-claude-code">Alishahryar1/free-claude-code</a> <span class="g">+2,060</span></li><li><a href="#google/artemis">google/artemis</a> <span class="g">+1,972</span></li><li><a href="https://github.com/earthtojake/text-to-cad">earthtojake/text-to-cad</a> <span class="g">+1,921</span></li><li><a href="https://github.com/PC2005-cloud/dsh-pet">PC2005-cloud/dsh-pet</a> <span class="g">+1,915</span></li><li><a href="https://github.com/career-ops-hq/career-ops">career-ops-hq/career-ops</a> <span class="g">+1,869</span></li><li><a href="https://github.com/perplexityai/SPACE">perplexityai/SPACE</a> <span class="g">+1,798</span></li><li><a href="#monid-ai/monid">monid-ai/monid</a> <span class="g">+1,746</span></li><li><a href="#lexmount/moli">lexmount/moli</a> <span class="g">+1,671</span></li><li><a href="https://github.com/anthropics/knowledge-work-plugins">anthropics/knowledge-work-plugins</a> <span class="g">+1,548</span></li><li><a href="https://github.com/Jakeschincariol/replica-skill">Jakeschincariol/replica-skill</a> <span class="g">+1,533</span></li><li><a href="https://github.com/openfilm/openfilm">openfilm/openfilm</a> <span class="g">+1,533</span></li><li><a href="https://github.com/VoltAgent/awesome-design-md">VoltAgent/awesome-design-md</a> <span class="g">+1,475</span></li><li><a href="https://github.com/openJiuwen-ai/jiuwenswarm">openJiuwen-ai/jiuwenswarm</a> <span class="g">+1,456</span></li><li><a href="https://github.com/deeplethe/solid-glass">deeplethe/solid-glass</a> <span class="g">+1,434</span></li><li><a href="https://github.com/Folkbench/folkbench">Folkbench/folkbench</a> <span class="g">+1,389</span></li><li><a href="https://github.com/Imbad0202/academic-research-skills">Imbad0202/academic-research-skills</a> <span class="g">+1,382</span></li><li><a href="https://github.com/Ephemeral-AI-Lab/layerfs">Ephemeral-AI-Lab/layerfs</a> <span class="g">+1,349</span></li><li><a href="https://github.com/onehumanbeing/esp32-iphone-agent">onehumanbeing/esp32-iphone-agent</a> <span class="g">+1,330</span></li><li><a href="https://github.com/alchaincyf/huashu-motion">alchaincyf/huashu-motion</a> <span class="g">+1,325</span></li><li><a href="https://github.com/aicodeking/leanrea">aicodeking/leanrea</a> <span class="g">+1,314</span></li><li><a href="https://github.com/Thysrael/Horizon">Thysrael/Horizon</a> <span class="g">+1,301</span></li><li><a href="https://github.com/TencentCloud/Octop">TencentCloud/Octop</a> <span class="g">+1,295</span></li><li><a href="https://github.com/walkinglabs/learn-harness-engineering">walkinglabs/learn-harness-engineering</a> <span class="g">+1,287</span></li><li><a href="https://github.com/Egonex-AI/Understand-Anything">Egonex-AI/Understand-Anything</a> <span class="g">+1,282</span></li><li><a href="https://github.com/citrolabs/ego-lite">citrolabs/ego-lite</a> <span class="g">+1,256</span></li><li><a href="https://github.com/ardeyouxipianyi/workbuddy2api-hub">ardeyouxipianyi/workbuddy2api-hub</a> <span class="g">+1,224</span></li><li><a href="https://github.com/tigerless-labs/cost-xray">tigerless-labs/cost-xray</a> <span class="g">+1,221</span></li><li><a href="https://github.com/HBAI-Ltd/Toonflow-app">HBAI-Ltd/Toonflow-app</a> <span class="g">+1,215</span></li><li><a href="https://github.com/herdrdev/herdr">herdrdev/herdr</a> <span class="g">+1,207</span></li><li><a href="https://github.com/Ansub/tv-detox">Ansub/tv-detox</a> <span class="g">+1,185</span></li><li><a href="#elie222/rakazo">elie222/rakazo</a> <span class="g">+1,149</span></li><li><a href="https://github.com/bowenliang123/dsh-context">bowenliang123/dsh-context</a> <span class="g">+1,140</span></li><li><a href="https://github.com/coreyhaines31/marketingskills">coreyhaines31/marketingskills</a> <span class="g">+1,127</span></li><li><a href="https://github.com/ayghri/i-have-adhd">ayghri/i-have-adhd</a> <span class="g">+1,119</span></li><li><a href="https://github.com/openclaw/openclaw">openclaw/openclaw</a> <span class="g">+1,107</span></li><li><a href="https://github.com/vercel-labs/skills">vercel-labs/skills</a> <span class="g">+1,058</span></li><li><a href="https://github.com/zhaoxuya520/reverse-skill">zhaoxuya520/reverse-skill</a> <span class="g">+1,041</span></li><li><a href="https://github.com/MaryCache/imozuru">MaryCache/imozuru</a> <span class="g">+1,036</span></li><li><a href="https://github.com/nano-muse/nanoMuse">nano-muse/nanoMuse</a> <span class="g">+1,007</span></li><li><a href="https://github.com/tigerless-labs/agent-memory">tigerless-labs/agent-memory</a> <span class="g">+1,002</span></li><li><a href="https://github.com/larashero3-dotcom/lieflat-less-ai-tone">larashero3-dotcom/lieflat-less-ai-tone</a> <span class="g">+1,002</span></li></ul>
+    <ul class="names num"><li><a href="#yihui-dev/awesome-opus5-5-videos">yihui-dev/awesome-opus5-5-videos</a> <span class="g">+3,650</span></li><li><a href="https://github.com/paperclipai/paperclip">paperclipai/paperclip</a> <span class="g">+3,628</span></li><li><a href="https://github.com/tt-a1i/archify">tt-a1i/archify</a> <span class="g">+3,628</span></li><li><a href="https://github.com/Panniantong/Agent-Reach">Panniantong/Agent-Reach</a> <span class="g">+3,424</span></li><li><a href="https://github.com/pbakaus/impeccable">pbakaus/impeccable</a> <span class="g">+3,394</span></li><li><a href="https://github.com/HKUDS/CLI-Anything">HKUDS/CLI-Anything</a> <span class="g">+3,354</span></li><li><a href="https://github.com/hugohe3/ppt-master">hugohe3/ppt-master</a> <span class="g">+3,326</span></li><li><a href="https://github.com/akitaonrails/ai-memory">akitaonrails/ai-memory</a> <span class="g">+3,228</span></li><li><a href="https://github.com/cheaper-inference/OmniRoute">cheaper-inference/OmniRoute</a> <span class="g">+3,013</span></li><li><a href="https://github.com/rohitg00/ai-engineering-from-scratch">rohitg00/ai-engineering-from-scratch</a> <span class="g">+2,985</span></li><li><a href="https://github.com/vectorize-io/hindsight">vectorize-io/hindsight</a> <span class="g">+2,819</span></li><li><a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill">nextlevelbuilder/ui-ux-pro-max-skill</a> <span class="g">+2,816</span></li><li><a href="https://github.com/addyosmani/agent-skills">addyosmani/agent-skills</a> <span class="g">+2,749</span></li><li><a href="#lemomo-ai/lemo-opuscar">lemomo-ai/lemo-opuscar</a> <span class="g">+2,666</span></li><li><a href="#hypit-ai/hypit">hypit-ai/hypit</a> <span class="g">+2,564</span></li><li><a href="https://github.com/calesthio/OpenMontage">calesthio/OpenMontage</a> <span class="g">+2,434</span></li><li><a href="https://github.com/blader/humanizer">blader/humanizer</a> <span class="g">+2,414</span></li><li><a href="https://github.com/multica-ai/andrej-karpathy-skills">multica-ai/andrej-karpathy-skills</a> <span class="g">+2,403</span></li><li><a href="https://github.com/mksglu/context-mode">mksglu/context-mode</a> <span class="g">+2,399</span></li><li><a href="https://github.com/JuliusBrussee/caveman">JuliusBrussee/caveman</a> <span class="g">+2,376</span></li><li><a href="https://github.com/kuafuai/andee">kuafuai/andee</a> <span class="g">+2,244</span></li><li><a href="#dataelement/dsh-desktop">dataelement/dsh-desktop</a> <span class="g">+2,182</span></li><li><a href="https://github.com/headroomlabs-ai/headroom">headroomlabs-ai/headroom</a> <span class="g">+2,114</span></li><li><a href="https://github.com/Arekejoker/qwen21-nsfw-pose-skill">Arekejoker/qwen21-nsfw-pose-skill</a> <span class="g">+2,104</span></li><li><a href="https://github.com/nexu-io/open-design">nexu-io/open-design</a> <span class="g">+2,095</span></li><li><a href="https://github.com/Leonxlnx/earshot">Leonxlnx/earshot</a> <span class="g">+2,065</span></li><li><a href="https://github.com/Alishahryar1/free-claude-code">Alishahryar1/free-claude-code</a> <span class="g">+2,060</span></li><li><a href="#google/artemis">google/artemis</a> <span class="g">+1,972</span></li><li><a href="https://github.com/earthtojake/text-to-cad">earthtojake/text-to-cad</a> <span class="g">+1,921</span></li><li><a href="https://github.com/PC2005-cloud/dsh-pet">PC2005-cloud/dsh-pet</a> <span class="g">+1,915</span></li><li><a href="https://github.com/career-ops-hq/career-ops">career-ops-hq/career-ops</a> <span class="g">+1,869</span></li><li><a href="https://github.com/perplexityai/SPACE">perplexityai/SPACE</a> <span class="g">+1,798</span></li><li><a href="#monid-ai/monid">monid-ai/monid</a> <span class="g">+1,746</span></li><li><a href="#lexmount/moli">lexmount/moli</a> <span class="g">+1,671</span></li><li><a href="https://github.com/anthropics/knowledge-work-plugins">anthropics/knowledge-work-plugins</a> <span class="g">+1,548</span></li><li><a href="https://github.com/Jakeschincariol/replica-skill">Jakeschincariol/replica-skill</a> <span class="g">+1,533</span></li><li><a href="https://github.com/openfilm/openfilm">openfilm/openfilm</a> <span class="g">+1,533</span></li><li><a href="https://github.com/VoltAgent/awesome-design-md">VoltAgent/awesome-design-md</a> <span class="g">+1,475</span></li><li><a href="https://github.com/openJiuwen-ai/jiuwenswarm">openJiuwen-ai/jiuwenswarm</a> <span class="g">+1,456</span></li><li><a href="https://github.com/deeplethe/solid-glass">deeplethe/solid-glass</a> <span class="g">+1,434</span></li><li><a href="https://github.com/Folkbench/folkbench">Folkbench/folkbench</a> <span class="g">+1,389</span></li><li><a href="https://github.com/Imbad0202/academic-research-skills">Imbad0202/academic-research-skills</a> <span class="g">+1,382</span></li><li><a href="https://github.com/Ephemeral-AI-Lab/layerfs">Ephemeral-AI-Lab/layerfs</a> <span class="g">+1,349</span></li><li><a href="https://github.com/onehumanbeing/esp32-iphone-agent">onehumanbeing/esp32-iphone-agent</a> <span class="g">+1,330</span></li><li><a href="https://github.com/alchaincyf/huashu-motion">alchaincyf/huashu-motion</a> <span class="g">+1,325</span></li><li><a href="https://github.com/aicodeking/leanrea">aicodeking/leanrea</a> <span class="g">+1,314</span></li><li><a href="https://github.com/Thysrael/Horizon">Thysrael/Horizon</a> <span class="g">+1,301</span></li><li><a href="https://github.com/TencentCloud/Octop">TencentCloud/Octop</a> <span class="g">+1,295</span></li><li><a href="https://github.com/walkinglabs/learn-harness-engineering">walkinglabs/learn-harness-engineering</a> <span class="g">+1,287</span></li><li><a href="https://github.com/Egonex-AI/Understand-Anything">Egonex-AI/Understand-Anything</a> <span class="g">+1,282</span></li><li><a href="https://github.com/citrolabs/ego-lite">citrolabs/ego-lite</a> <span class="g">+1,256</span></li><li><a href="https://github.com/ardeyouxipianyi/workbuddy2api-hub">ardeyouxipianyi/workbuddy2api-hub</a> <span class="g">+1,224</span></li><li><a href="https://github.com/tigerless-labs/cost-xray">tigerless-labs/cost-xray</a> <span class="g">+1,221</span></li><li><a href="https://github.com/HBAI-Ltd/Toonflow-app">HBAI-Ltd/Toonflow-app</a> <span class="g">+1,215</span></li><li><a href="https://github.com/herdrdev/herdr">herdrdev/herdr</a> <span class="g">+1,207</span></li><li><a href="https://github.com/Ansub/tv-detox">Ansub/tv-detox</a> <span class="g">+1,184</span></li><li><a href="#elie222/rakazo">elie222/rakazo</a> <span class="g">+1,149</span></li><li><a href="https://github.com/bowenliang123/dsh-context">bowenliang123/dsh-context</a> <span class="g">+1,140</span></li><li><a href="https://github.com/coreyhaines31/marketingskills">coreyhaines31/marketingskills</a> <span class="g">+1,127</span></li><li><a href="https://github.com/ayghri/i-have-adhd">ayghri/i-have-adhd</a> <span class="g">+1,119</span></li><li><a href="https://github.com/openclaw/openclaw">openclaw/openclaw</a> <span class="g">+1,107</span></li><li><a href="https://github.com/vercel-labs/skills">vercel-labs/skills</a> <span class="g">+1,058</span></li><li><a href="https://github.com/zhaoxuya520/reverse-skill">zhaoxuya520/reverse-skill</a> <span class="g">+1,041</span></li><li><a href="https://github.com/MaryCache/imozuru">MaryCache/imozuru</a> <span class="g">+1,036</span></li><li><a href="https://github.com/nano-muse/nanoMuse">nano-muse/nanoMuse</a> <span class="g">+1,007</span></li><li><a href="https://github.com/tigerless-labs/agent-memory">tigerless-labs/agent-memory</a> <span class="g">+1,002</span></li><li><a href="https://github.com/larashero3-dotcom/lieflat-less-ai-tone">larashero3-dotcom/lieflat-less-ai-tone</a> <span class="g">+1,002</span></li></ul>
   </details>
   <details class="more"><summary>⚠ 疑似刷星 8 个，未列入</summary>
     <p class="stat-line">同一作者有 ≥4 个项目在同一周各涨 ≥1,000 星：AhmadHassan-BTed。只是统计特征，不等于定论。</p>
@@ -424,73 +429,73 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
   <div class="sub-blk">
     <div class="tier-head"><h3>新星</h3><span class="aside num">创建于 10-15 至 10-21 · ≥500★ · 11 个</span></div>
     <p class="tier-sub num">≥2,000★ · 1 个</p>
-    <ol class="rk-list"><li>
+    <ol class="rk-list"><li id="n-Leonxlnx/earshot">
   <span><a class="nm" href="https://github.com/Leonxlnx/earshot">Leonxlnx/earshot</a></span>
-  <span class="fig num">★ 2,141</span>
+  <span class="fig num">★ 2,143</span>
   <span class="tl">让编程Agent能听声音、做音效的本地CLI/MCP工具</span>
   <span class="meta num">创建 2026-10-15（7 天）</span>
 </li>
 </ol>
     <p class="tier-sub num">1,000–1,999★ · 4 个</p>
-    <ol class="rk-list"><li>
+    <ol class="rk-list"><li id="n-alchaincyf/huashu-motion">
   <span><a class="nm" href="https://github.com/alchaincyf/huashu-motion">alchaincyf/huashu-motion</a></span>
-  <span class="fig num">★ 1,429</span>
+  <span class="fig num">★ 1,432</span>
   <span class="tl">让Claude Code等编程Agent一键生成带配乐的商业宣传片技能</span>
   <span class="meta num">创建 2026-10-18（4 天）</span>
 </li>
-<li>
+<li id="n-aicodeking/leanrea">
   <span><a class="nm" href="https://github.com/aicodeking/leanrea">aicodeking/leanrea</a></span>
-  <span class="fig num">★ 1,363</span>
+  <span class="fig num">★ 1,364</span>
   <span class="tl">替代REA的8KB逆向工程Agent技能，无需MCP更快更省</span>
   <span class="meta num">创建 2026-10-17（5 天）</span>
 </li>
-<li>
+<li id="n-Ansub/tv-detox">
   <span><a class="nm" href="https://github.com/Ansub/tv-detox">Ansub/tv-detox</a></span>
-  <span class="fig num">★ 1,274</span>
+  <span class="fig num">★ 1,278</span>
   <span class="tl">用Claude Code或Codex清理提速老安卓电视的提示词工具</span>
   <span class="meta num">创建 2026-10-18（4 天）</span>
 </li>
-<li>
+<li id="n-reason-machines/reason-network">
   <span><a class="nm" href="https://github.com/reason-machines/reason-network">reason-machines/reason-network</a></span>
-  <span class="fig num">★ 1,057</span>
+  <span class="fig num">★ 1,060</span>
   <span class="tl">让团队各自的编程Agent互相通信的端到端加密点对点网络</span>
   <span class="meta num">创建 2026-10-16（6 天）</span>
 </li>
 </ol>
     <p class="tier-sub num">500–999★ · 6 个</p>
-    <ol class="rk-list"><li>
+    <ol class="rk-list"><li id="n-feder-cr/git-ai">
   <span><a class="nm" href="https://github.com/feder-cr/git-ai">feder-cr/git-ai</a></span>
-  <span class="fig num">★ 963</span>
+  <span class="fig num">★ 964</span>
   <span class="tl">为AI编程Agent设计的开源版本控制系统，复刻Anthropic Scion</span>
   <span class="meta num">创建 2026-10-15（7 天）</span>
 </li>
-<li>
+<li id="n-zcbacxc/mcd-party-planner">
   <span><a class="nm" href="https://github.com/zcbacxc/mcd-party-planner">zcbacxc/mcd-party-planner</a></span>
-  <span class="fig num">★ 839</span>
+  <span class="fig num">★ 850</span>
   <span class="tl">基于麦当劳MCP的聚会团餐规划助手，按预算算出真实价格方案</span>
   <span class="meta num">创建 2026-10-15（7 天）</span>
 </li>
-<li>
+<li id="n-cranebeaker/coop-anything">
   <span><a class="nm" href="https://github.com/cranebeaker/coop-anything">cranebeaker/coop-anything</a></span>
-  <span class="fig num">★ 836</span>
+  <span class="fig num">★ 838</span>
   <span class="tl">让AI Agent给任意单人游戏自动加装联机合作功能的MCP工具</span>
   <span class="meta num">创建 2026-10-16（6 天）</span>
 </li>
-<li>
+<li id="n-mistralai/timestral">
   <span><a class="nm" href="https://github.com/mistralai/timestral">mistralai/timestral</a></span>
-  <span class="fig num">★ 758</span>
+  <span class="fig num">★ 760</span>
   <span class="tl">Mistral AI出品的时间序列预测基础模型，支持多变量概率预测</span>
   <span class="meta num">创建 2026-10-15（7 天）</span>
 </li>
-<li>
+<li id="n-dominikmartn/harp">
   <span><a class="nm" href="https://github.com/dominikmartn/harp">dominikmartn/harp</a></span>
-  <span class="fig num">★ 578</span>
+  <span class="fig num">★ 581</span>
   <span class="tl">管理多个Claude Code/Codex编程Agent的终端侧边栏，Warp非官方分支</span>
   <span class="meta num">创建 2026-10-20（2 天）</span>
 </li>
-<li>
+<li id="n-VITASID57/bluntcore-intimacy-lab">
   <span><a class="nm" href="https://github.com/VITASID57/bluntcore-intimacy-lab">VITASID57/bluntcore-intimacy-lab</a></span>
-  <span class="fig num">★ 569</span>
+  <span class="fig num">★ 570</span>
   <span class="tl">记录人机恋爱、成人AI对话与破限研究的个人实验笔记仓库</span>
   <span class="meta num">创建 2026-10-16（6 天）</span>
 </li>
@@ -499,119 +504,115 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
   <div class="sub-blk">
     <div class="tier-head"><h3>新锐</h3><span class="aside num">创建于 09-22 至 10-14 · ≥1,000★ · 42 个</span></div>
     <p class="stat-line young-stat num">≥2,000★ <b>17</b> 个（附介绍），1,000–1,999★ <b>25</b> 个（只列名字）</p>
-    <ol class="rk-list"><li>
+    <ol class="rk-list"><li id="y-Jakeschincariol/replica-skill">
   <span><a class="nm" href="https://github.com/Jakeschincariol/replica-skill">Jakeschincariol/replica-skill</a></span>
-  <span class="fig num">★ 4,571</span>
+  <span class="fig num">★ 4,600</span>
   <span class="tl">11个免费Claude技能，逆向克隆任意App并修复用户痛点</span>
   <span class="meta num">近 7 天 +1,533 · 创建 2026-10-03（19 天）</span>
 </li>
-<li>
+<li id="y-QingYunA/answer-me-with-html">
   <span><a class="nm" href="https://github.com/QingYunA/answer-me-with-html">QingYunA/answer-me-with-html</a></span>
   <span class="fig num">★ 4,250</span>
   <span class="tl">让AI Agent用一页HTML图文解答复杂问题的技能工具</span>
   <span class="meta num">近 7 天 +828 · 创建 2026-10-02（20 天）</span>
 </li>
-<li>
+<li id="y-kaankiziltug/logo-design-skill">
   <span><a class="nm" href="https://github.com/kaankiziltug/logo-design-skill">kaankiziltug/logo-design-skill</a></span>
-  <span class="fig num">★ 4,156</span>
+  <span class="fig num">★ 4,160</span>
   <span class="tl">面向Claude/Codex等AI Agent的Logo设计技能与千例素材库</span>
   <span class="meta num">近 7 天 +685 · 创建 2026-09-26（26 天）</span>
 </li>
-<li>
+<li id="y-nykooi1/vibe-wise">
   <span><a class="nm" href="https://github.com/nykooi1/vibe-wise">nykooi1/vibe-wise</a></span>
   <span class="fig num">★ 3,863</span>
   <span class="tl">Claude Code/Codex插件，AI写代码同时引导你学习设计思路</span>
   <span class="meta num">近 7 天 +264 · 创建 2026-09-29（23 天）</span>
 </li>
-<li>
+<li id="y-Arekejoker/qwen21-nsfw-pose-skill">
   <span><a class="nm" href="https://github.com/Arekejoker/qwen21-nsfw-pose-skill">Arekejoker/qwen21-nsfw-pose-skill</a></span>
   <span class="fig num">★ 3,629</span>
   <span class="tl">基于Qwen-Image的NSFW姿势出图Agent技能，含136姿势控制库</span>
   <span class="meta num">近 7 天 +2,104 · 创建 2026-10-13（9 天）</span>
 </li>
-<li>
+<li id="y-onehumanbeing/esp32-iphone-agent">
   <span><a class="nm" href="https://github.com/onehumanbeing/esp32-iphone-agent">onehumanbeing/esp32-iphone-agent</a></span>
   <span class="fig num">★ 3,551</span>
   <span class="tl">用7美元ESP32让AI视觉模型操控真实iPhone，免Mac免越狱</span>
   <span class="meta num">近 7 天 +1,330 · 创建 2026-10-11（11 天）</span>
 </li>
-<li>
+<li id="y-feitangyuan/onetake">
   <span><a class="nm" href="https://github.com/feitangyuan/onetake">feitangyuan/onetake</a></span>
   <span class="fig num">★ 2,988</span>
   <span class="tl">Claude Agent技能，生成一镜到底连贯运镜的产品发布动效片</span>
   <span class="meta num">近 7 天 +477 · 创建 2026-09-26（26 天）</span>
 </li>
-<li>
+<li id="y-dzhng/jevgrep">
   <span><a class="nm" href="https://github.com/dzhng/jevgrep">dzhng/jevgrep</a></span>
-  <span class="fig num">★ 2,846</span>
+  <span class="fig num">★ 2,847</span>
   <span class="tl">给 Claude Code/Codex 等编码 Agent 用的语义代码搜索 CLI，用 Jev 定位相关文件</span>
   <span class="meta num">近 7 天 +161 · 创建 2026-09-26（26 天）</span>
 </li>
-<li>
+<li id="y-Folkbench/folkbench">
   <span><a class="nm" href="https://github.com/Folkbench/folkbench">Folkbench/folkbench</a></span>
   <span class="fig num">★ 2,701</span>
   <span class="tl">AI API 中转站评测榜单与切换工具，帮 Claude Code/Codex 用户选稳定低价线路</span>
   <span class="meta num">近 7 天 +1,389 · 创建 2026-10-02（20 天）</span>
 </li>
-<li>
+<li id="y-nanaism/yomiyasu">
   <span><a class="nm" href="https://github.com/nanaism/yomiyasu">nanaism/yomiyasu</a></span>
   <span class="fig num">★ 2,403</span>
   <span class="tl">给 AI 编码 Agent 用的 Skill，把生成的日语文本润色得更自然流畅</span>
   <span class="meta num">近 7 天 +421 · 创建 2026-09-30（22 天）</span>
 </li>
-<li>
+<li id="y-nano-muse/nanoMuse">
   <span><a class="nm" href="https://github.com/nano-muse/nanoMuse">nano-muse/nanoMuse</a></span>
-  <span class="fig num">★ 2,302</span>
+  <span class="fig num">★ 2,303</span>
   <span class="tl">跨手机、电脑和浏览器运行的开源个人 AI Agent，记住你并代为执行任务</span>
   <span class="meta num">近 7 天 +1,007 · 创建 2026-09-23（29 天）</span>
 </li>
-<li>
+<li id="y-deeplethe/solid-glass">
   <span><a class="nm" href="https://github.com/deeplethe/solid-glass">deeplethe/solid-glass</a></span>
   <span class="fig num">★ 2,113</span>
   <span class="tl">面向AI应用的玻璃质感设计系统，含React/Tailwind组件，适合聊天与Agent界面开发者</span>
   <span class="meta num">近 7 天 +1,434 · 创建 2026-10-12（10 天）</span>
 </li>
-<li>
+<li id="y-openfilm/openfilm">
   <span><a class="nm" href="https://github.com/openfilm/openfilm">openfilm/openfilm</a><span class="flags"><span class="tag accel">加速</span></span></span>
-  <span class="fig num">★ 2,087</span>
+  <span class="fig num">★ 2,095</span>
   <span class="tl">开源 AI 视频 Agent，让编码 Agent 制作视频并支持可视化编辑</span>
   <span class="meta num">近 7 天 +1,533 · 创建 2026-10-04（18 天）</span>
 </li>
-<li>
+<li id="y-amontlabs/lcu">
   <span><a class="nm" href="https://github.com/amontlabs/lcu">amontlabs/lcu</a></span>
-  <span class="fig num">★ 2,082</span>
+  <span class="fig num">★ 2,083</span>
   <span class="tl">把 Codex 电脑操作能力解耦出来，供 Claude Code 等任意 Agent 调用</span>
   <span class="meta num">近 7 天 +957 · 创建 2026-09-22（30 天）</span>
 </li>
-<li>
+<li id="y-academa-labs/manimgx">
   <span><a class="nm" href="https://github.com/academa-labs/manimgx">academa-labs/manimgx</a></span>
   <span class="fig num">★ 2,028</span>
   <span class="tl">Rust GPU加速、兼容Manim API的数学/3D视频渲染引擎，专为AI编程Agent优化</span>
   <span class="meta num">近 7 天 +752 · 创建 2026-10-05（17 天）</span>
 </li>
-<li>
+<li id="y-oil-oil/oil-ui">
   <span><a class="nm" href="https://github.com/oil-oil/oil-ui">oil-oil/oil-ui</a></span>
   <span class="fig num">★ 2,017</span>
   <span class="tl">给 Claude Code、Codex 等 AI Agent 用的 UI 设计 Skill，多方案对比与还原</span>
   <span class="meta num">近 7 天 +507 · 创建 2026-09-30（22 天）</span>
 </li>
-<li>
+<li id="y-jiwoochris/artex-global">
   <span><a class="nm" href="https://github.com/jiwoochris/artex-global">jiwoochris/artex-global</a></span>
-  <span class="fig num">★ 2,001</span>
+  <span class="fig num">★ 2,004</span>
   <span class="tl">韩语版 AI 自主渗透测试框架，上游为 Autumn-27/ARTEX</span>
   <span class="meta num">近 7 天 +439 · 创建 2026-10-03（19 天）</span>
 </li>
 </ol>
     <details class="more" open><summary>1,000–1,999★ 的 25 个（只列名字）</summary>
-      <ul class="names num"><li><a href="https://github.com/perplexityai/SPACE">perplexityai/SPACE</a> <span class="s">★ 1,871</span></li><li><a href="https://github.com/angusdevgo/Seep-Reverse-Lab">angusdevgo/Seep-Reverse-Lab</a> <span class="s">★ 1,797</span></li><li><a href="https://github.com/glanderness/BeefTV">glanderness/BeefTV</a> <span class="s">★ 1,775</span></li><li><a href="https://github.com/wuyoscar/AISafetyHot-Hub">wuyoscar/AISafetyHot-Hub</a> <span class="s">★ 1,702</span></li><li><a href="https://github.com/trhhubsd/ARTEX">trhhubsd/ARTEX</a> <span class="s">★ 1,699</span></li><li><a href="https://github.com/zhuyansen/new-term-radar">zhuyansen/new-term-radar</a> <span class="s">★ 1,679</span></li><li><a href="https://github.com/JohnHeibel/ClaudeAnimationBase">JohnHeibel/ClaudeAnimationBase</a> <span class="s">★ 1,565</span></li><li><a href="https://github.com/mw00/project-maya">mw00/project-maya</a> <span class="s">★ 1,485</span></li><li><a href="https://github.com/Jakeschincariol/founder-skill">Jakeschincariol/founder-skill</a> <span class="s">★ 1,414</span></li><li><a href="https://github.com/rociiu/talorys">rociiu/talorys</a> <span class="s">★ 1,371</span></li><li><a href="https://github.com/goodnight000/api-anything">goodnight000/api-anything</a> <span class="s">★ 1,354</span></li><li><a href="https://github.com/Caho1/open-claude-ui">Caho1/open-claude-ui</a> <span class="s">★ 1,330</span></li><li><a href="https://github.com/mikehasa/golive-skill">mikehasa/golive-skill</a> <span class="s">★ 1,318</span></li><li><a href="https://github.com/StartLuxLabs/StartLux-Decision">StartLuxLabs/StartLux-Decision</a> <span class="s">★ 1,210</span></li><li><a href="https://github.com/echris6/motion-video-kit">echris6/motion-video-kit</a> <span class="s">★ 1,167</span></li><li><a href="https://github.com/riba2534/claude-opus-5-5-demo">riba2534/claude-opus-5-5-demo</a> <span class="s">★ 1,163</span></li><li><a href="https://github.com/AgnesAI-Labs/agnes-harness">AgnesAI-Labs/agnes-harness</a> <span class="s">★ 1,160</span></li><li><a href="https://github.com/jwuthri-cloud/Tracely-ai">jwuthri-cloud/Tracely-ai</a> <span class="s">★ 1,150</span></li><li><a href="https://github.com/sirioberati/Genjustsu-Open-Source-Workflow">sirioberati/Genjustsu-Open-Source-Workflow</a> <span class="s">★ 1,147</span></li><li><a href="https://github.com/MaryCache/imozuru">MaryCache/imozuru</a> <span class="s">★ 1,100</span></li><li><a href="https://github.com/openai/mcp-extensions">openai/mcp-extensions</a> <span class="s">★ 1,098</span></li><li><a href="https://github.com/YeonwooSung/my-claude-code-mods">YeonwooSung/my-claude-code-mods</a> <span class="s">★ 1,098</span></li><li><a href="https://github.com/timoncool/YuE2-Studio">timoncool/YuE2-Studio</a> <span class="s">★ 1,085</span></li><li><a href="https://github.com/Harvil1/codeAgent">Harvil1/codeAgent</a> <span class="s">★ 1,026</span></li><li><a href="https://github.com/Edwardxlai/easyread">Edwardxlai/easyread</a> <span class="s">★ 1,010</span></li></ul>
+      <ul class="names num"><li><a href="https://github.com/perplexityai/SPACE">perplexityai/SPACE</a> <span class="s">★ 1,873</span></li><li><a href="https://github.com/angusdevgo/Seep-Reverse-Lab">angusdevgo/Seep-Reverse-Lab</a> <span class="s">★ 1,797</span></li><li><a href="https://github.com/glanderness/BeefTV">glanderness/BeefTV</a> <span class="s">★ 1,776</span></li><li><a href="https://github.com/wuyoscar/AISafetyHot-Hub">wuyoscar/AISafetyHot-Hub</a> <span class="s">★ 1,703</span></li><li><a href="https://github.com/trhhubsd/ARTEX">trhhubsd/ARTEX</a> <span class="s">★ 1,699</span></li><li><a href="https://github.com/zhuyansen/new-term-radar">zhuyansen/new-term-radar</a> <span class="s">★ 1,682</span></li><li><a href="https://github.com/JohnHeibel/ClaudeAnimationBase">JohnHeibel/ClaudeAnimationBase</a> <span class="s">★ 1,566</span></li><li><a href="https://github.com/mw00/project-maya">mw00/project-maya</a> <span class="s">★ 1,487</span></li><li><a href="https://github.com/Jakeschincariol/founder-skill">Jakeschincariol/founder-skill</a> <span class="s">★ 1,419</span></li><li><a href="https://github.com/rociiu/talorys">rociiu/talorys</a> <span class="s">★ 1,372</span></li><li><a href="https://github.com/goodnight000/api-anything">goodnight000/api-anything</a> <span class="s">★ 1,354</span></li><li><a href="https://github.com/Caho1/open-claude-ui">Caho1/open-claude-ui</a> <span class="s">★ 1,330</span></li><li><a href="https://github.com/mikehasa/golive-skill">mikehasa/golive-skill</a> <span class="s">★ 1,318</span></li><li><a href="https://github.com/StartLuxLabs/StartLux-Decision">StartLuxLabs/StartLux-Decision</a> <span class="s">★ 1,212</span></li><li><a href="https://github.com/echris6/motion-video-kit">echris6/motion-video-kit</a> <span class="s">★ 1,167</span></li><li><a href="https://github.com/riba2534/claude-opus-5-5-demo">riba2534/claude-opus-5-5-demo</a> <span class="s">★ 1,163</span></li><li><a href="https://github.com/AgnesAI-Labs/agnes-harness">AgnesAI-Labs/agnes-harness</a> <span class="s">★ 1,161</span></li><li><a href="https://github.com/jwuthri-cloud/Tracely-ai">jwuthri-cloud/Tracely-ai</a> <span class="s">★ 1,151</span></li><li><a href="https://github.com/sirioberati/Genjustsu-Open-Source-Workflow">sirioberati/Genjustsu-Open-Source-Workflow</a> <span class="s">★ 1,148</span></li><li><a href="https://github.com/MaryCache/imozuru">MaryCache/imozuru</a> <span class="s">★ 1,101</span></li><li><a href="https://github.com/openai/mcp-extensions">openai/mcp-extensions</a> <span class="s">★ 1,098</span></li><li><a href="https://github.com/YeonwooSung/my-claude-code-mods">YeonwooSung/my-claude-code-mods</a> <span class="s">★ 1,098</span></li><li><a href="https://github.com/timoncool/YuE2-Studio">timoncool/YuE2-Studio</a> <span class="s">★ 1,085</span></li><li><a href="https://github.com/Harvil1/codeAgent">Harvil1/codeAgent</a> <span class="s">★ 1,026</span></li><li><a href="https://github.com/Edwardxlai/easyread">Edwardxlai/easyread</a> <span class="s">★ 1,010</span></li></ul>
     </details>
   </div>
 </section>
 
-<section class="blk" id="editorial" aria-labelledby="h-ed">
-  <div class="blk-head"><h2 id="h-ed">编者按</h2><span class="aside">由 claude-sonnet-5 读完本期全部项目后归纳，点项目名看详情</span></div>
-  <ol class="editorial"><li>Agent基础设施成最大赛道，<a href="#lexmount/moli">moli</a>、<a href="#yetone/magpie">magpie</a>、OpenBot等竞逐持久化Agent运行环境</li><li>薅模型与省配额需求旺盛，<a href="#Ebony-Vinyl/dsh-our-free-model">dsh-our-free-model</a>、codex-chatgpt-web打通账号互通</li><li>Claude Code技能包密集涌现，<a href="#wheresryan22/anatomy">anatomy</a>、anti-slop聚焦垂直场景能力扩展</li><li>开源自托管替代商业产品趋势明显，<a href="#genspark-ai/genoffice">genoffice</a>、<a href="#jub0t/Concat">Concat</a>、rakazo对标大厂付费应用</li><li>视频生成与AI痕迹检测并存，hypit与watermarks-remover形成对立技术链</li></ol>
-</section>
 
 <section class="blk" id="index" aria-labelledby="h-index">
   <div class="blk-head"><h2 id="h-index">名录</h2><span class="aside num">40 个项目 · 按分类 · 分类内按星数 · 绿色 +N 为较第 5 期（3 天）的增量 · 23 个带提示</span></div>
@@ -625,7 +626,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">rehan-remade/universal-modder</span></span>
-        <span class="right num">★ 8,713<span class="d">+345</span></span>
+        <span class="right num">★ 8,715<span class="d">+347</span></span>
         <span class="tl">让 Claude Code 等编程 agent 给你拥有的任意 PC 游戏做 mod 的技能与工具包</span>
       </summary>
       <div class="detail">
@@ -670,7 +671,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">ApodexAI/FrontierAgent</span></span>
-        <span class="right num">★ 5,292<span class="d">+-39</span></span>
+        <span class="right num">★ 5,293<span class="d">+-38</span></span>
         <span class="tl">开源终端智能体运行时，提供 ReAct 单智能体与 Agent Team 多智能体两种工作模式</span>
       </summary>
       <div class="detail">
@@ -688,7 +689,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">browser-use/jev-ultrafast</span><span class="flags"><span class="warn-n">⚠ 1 条提示</span></span></span>
-        <span class="right num">★ 23,488<span class="d">+251</span></span>
+        <span class="right num">★ 23,490<span class="d">+253</span></span>
         <span class="tl">用动态索引动作空间驱动浏览器执行单一自然语言目标的实验性网页Agent</span>
       </summary>
       <div class="detail">
@@ -703,7 +704,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">lexmount/moli</span></span>
-        <span class="right num">★ 20,114<span class="d">+594</span></span>
+        <span class="right num">★ 20,118<span class="d">+598</span></span>
         <span class="tl">面向 AI Agent 的轻量无头浏览器，按需渲染，资源占用低，用 Rust 编写</span>
       </summary>
       <div class="detail">
@@ -718,7 +719,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">yetone/magpie</span><span class="flags"><span class="warn-n">⚠ 1 条提示</span></span></span>
-        <span class="right num">★ 19,490<span class="d">+3,206</span></span>
+        <span class="right num">★ 19,492<span class="d">+3,208</span></span>
         <span class="tl">本地网关统一管理，让各编程 Agent 共用任意模型或订阅账号</span>
       </summary>
       <div class="detail">
@@ -792,7 +793,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">CopilotKit/OpenBot</span><span class="flags"><span class="warn-n">⚠ 2 条提示</span></span></span>
-        <span class="right num">★ 6,924<span class="d">+277</span></span>
+        <span class="right num">★ 6,929<span class="d">+282</span></span>
         <span class="tl">开源AI协作者平台，为每个Agent分配独立电脑并记录全部操作</span>
       </summary>
       <div class="detail">
@@ -807,7 +808,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">CopilotKit/OpenDots</span><span class="flags"><span class="warn-n">⚠ 2 条提示</span></span></span>
-        <span class="right num">★ 5,880<span class="d">+301</span></span>
+        <span class="right num">★ 5,884<span class="d">+305</span></span>
         <span class="tl">开源的常驻 AI 坐席模板，每个 Dot 拥有专属电脑，支持网页、通话与 Slack 协作</span>
       </summary>
       <div class="detail">
@@ -843,7 +844,7 @@ deno task check &amp;&amp; deno task test</code></pre><button type="button" data
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">elie222/rakazo</span><span class="flags"><span class="tag new">新上榜</span></span></span>
-        <span class="right num">★ 5,236</span>
+        <span class="right num">★ 5,240</span>
         <span class="tl">开源自托管AI助理机器人平台，可自选模型与沙箱计算机，Grok Bot等产品的开源替代。</span>
       </summary>
       <div class="detail">
@@ -890,7 +891,7 @@ deno task check &amp;&amp; deno task test</code></pre><button type="button" data
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">jub0t/Concat</span></span>
-        <span class="right num">★ 10,828<span class="d">+1,692</span></span>
+        <span class="right num">★ 10,842<span class="d">+1,706</span></span>
         <span class="tl">免费开源、本地优先的跨平台视频剪辑软件，CapCut 替代品</span>
       </summary>
       <div class="detail">
@@ -905,7 +906,7 @@ deno task check &amp;&amp; deno task test</code></pre><button type="button" data
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">genspark-ai/genoffice</span></span>
-        <span class="right num">★ 10,517<span class="d">+546</span></span>
+        <span class="right num">★ 10,523<span class="d">+552</span></span>
         <span class="tl">开源免费的AI办公套件，本地编辑Word/Excel/PPT/PDF并内置AI代理</span>
       </summary>
       <div class="detail">
@@ -920,7 +921,7 @@ deno task check &amp;&amp; deno task test</code></pre><button type="button" data
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">Albert-Weasker/niubigeo</span><span class="flags"><span class="warn-n">⚠ 1 条提示</span></span></span>
-        <span class="right num">★ 8,576<span class="d">+282</span></span>
+        <span class="right num">★ 8,579<span class="d">+285</span></span>
         <span class="tl">开源自托管工具，用真实AI模型回答追踪品牌在AI答案中的曝光与竞品</span>
       </summary>
       <div class="detail">
@@ -968,7 +969,7 @@ docker compose up -d --build</code></pre><button type="button" data-copy aria-la
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">yi1108/printfilm</span></span>
-        <span class="right num">★ 6,147<span class="d">+969</span></span>
+        <span class="right num">★ 6,157<span class="d">+979</span></span>
         <span class="tl">模板驱动的AI短视频与AI漫剧创作平台，从文案到成片</span>
       </summary>
       <div class="detail">
@@ -1001,7 +1002,7 @@ docker compose up -d --build</code></pre><button type="button" data-copy aria-la
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">FareedKhan-dev/kimi-k3-in-c</span></span>
-        <span class="right num">★ 9,157<span class="d">+55</span></span>
+        <span class="right num">★ 9,158<span class="d">+56</span></span>
         <span class="tl">用纯C99在单CPU上以8GB内存运行2.78万亿参数的Kimi K3模型</span>
       </summary>
       <div class="detail">
@@ -1022,7 +1023,7 @@ make test</code></pre><button type="button" data-copy aria-label="复制 FareedK
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">hypit-ai/hypit</span><span class="flags"><span class="warn-n">⚠ 2 条提示</span></span></span>
-        <span class="right num">★ 24,814<span class="d">+1,176</span></span>
+        <span class="right num">★ 24,821<span class="d">+1,183</span></span>
         <span class="tl">让 Claude Code 等编程 Agent 克隆任意视频，批量生成素材、字幕与特效的完整工作流</span>
       </summary>
       <div class="detail">
@@ -1037,7 +1038,7 @@ make test</code></pre><button type="button" data-copy aria-label="复制 FareedK
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">guillaumemeyer/watermarks-remover</span><span class="flags"><span class="warn-n">⚠ 1 条提示</span></span></span>
-        <span class="right num">★ 24,662<span class="d">+272</span></span>
+        <span class="right num">★ 24,666<span class="d">+276</span></span>
         <span class="tl">Claude Agent Skill + 本地服务，去除文本和文件中的多厂商 AI 水印与溯源标记</span>
       </summary>
       <div class="detail">
@@ -1052,7 +1053,7 @@ make test</code></pre><button type="button" data-copy aria-label="复制 FareedK
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">wheresryan22/anatomy</span></span>
-        <span class="right num">★ 19,099<span class="d">+2,843</span></span>
+        <span class="right num">★ 19,111<span class="d">+2,855</span></span>
         <span class="tl">让 Claude Code 等编码 Agent 把技术概念画成可交互等轴测插图的 Skill</span>
       </summary>
       <div class="detail">
@@ -1067,7 +1068,7 @@ make test</code></pre><button type="button" data-copy aria-label="复制 FareedK
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">yihui-dev/awesome-opus5-5-videos</span><span class="flags"><span class="warn-n">⚠ 1 条提示</span></span></span>
-        <span class="right num">★ 9,198<span class="d">+2,871</span></span>
+        <span class="right num">★ 9,212<span class="d">+2,885</span></span>
         <span class="tl">收录用Claude Opus 5.5生成的病毒视频及对应提示词的清单</span>
       </summary>
       <div class="detail">
@@ -1082,7 +1083,7 @@ make test</code></pre><button type="button" data-copy aria-label="复制 FareedK
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">miqdadbadjuber/anti-slop</span></span>
-        <span class="right num">★ 6,871<span class="d">+407</span></span>
+        <span class="right num">★ 6,875<span class="d">+411</span></span>
         <span class="tl">一套规则集，让 AI 编程 Agent 别再写出千篇一律的 UI、水文案和 AI 味代码</span>
       </summary>
       <div class="detail">
@@ -1127,7 +1128,7 @@ make test</code></pre><button type="button" data-copy aria-label="复制 FareedK
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">lemomo-ai/lemo-opuscar</span><span class="flags"><span class="tag new">新上榜</span><span class="warn-n">⚠ 1 条提示</span></span></span>
-        <span class="right num">★ 5,512</span>
+        <span class="right num">★ 5,518</span>
         <span class="tl">Claude Code 插件：59 种影片风格，均由 Claude Opus 5.5 写代码生成演示片</span>
       </summary>
       <div class="detail">
@@ -1145,7 +1146,7 @@ make test</code></pre><button type="button" data-copy aria-label="复制 FareedK
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">Ebony-Vinyl/dsh-our-free-model</span><span class="flags"><span class="warn-n">⚠ 3 条提示</span></span></span>
-        <span class="right num">★ 36,682<span class="d">+11,145</span></span>
+        <span class="right num">★ 36,697<span class="d">+11,160</span></span>
         <span class="tl">dsh 插件，免登录免 Key 白嫖前沿大模型，并可接入第三方账号渠道</span>
       </summary>
       <div class="detail">
@@ -1160,7 +1161,7 @@ make test</code></pre><button type="button" data-copy aria-label="复制 FareedK
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">miuuyy/codex-chatgpt-web</span><span class="flags"><span class="warn-n">⚠ 2 条提示</span></span></span>
-        <span class="right num">★ 14,825<span class="d">+257</span></span>
+        <span class="right num">★ 14,826<span class="d">+258</span></span>
         <span class="tl">让 Codex 把 ChatGPT 网页版（含 Pro）当作模型使用，不消耗 Codex 配额</span>
       </summary>
       <div class="detail">
@@ -1175,7 +1176,7 @@ make test</code></pre><button type="button" data-copy aria-label="复制 FareedK
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">google/artemis</span></span>
-        <span class="right num">★ 13,802<span class="d">+1,220</span></span>
+        <span class="right num">★ 13,805<span class="d">+1,223</span></span>
         <span class="tl">用自然语言驱动安卓自动化测试，集成主流AI编程助手的MCP工具</span>
       </summary>
       <div class="detail">
@@ -1220,7 +1221,7 @@ make test</code></pre><button type="button" data-copy aria-label="复制 FareedK
       <summary>
         <span class="caret" aria-hidden="true">▶</span>
         <span><span class="nm">Louis-CFM/coucou</span><span class="flags"><span class="warn-n">⚠ 1 条提示</span></span></span>
-        <span class="right num">★ 6,213<span class="d">+671</span></span>
+        <span class="right num">★ 6,219<span class="d">+677</span></span>
         <span class="tl">常驻 Mac 刘海/灵动岛的小伙伴，实时监控并批准 Claude Code、Codex 等 AI 编程代理</span>
       </summary>
       <div class="detail">
