@@ -35,7 +35,9 @@ jobs:
 
       - name: Install Claude Code CLI
         if: inputs.mode != 'render'
-        run: npm install -g @anthropic-ai/claude-code
+        run: |
+          npm install -g @anthropic-ai/claude-code
+          claude --version   # 每次装最新版；出问题时对照版本
 
       - name: Run pipeline
         env:

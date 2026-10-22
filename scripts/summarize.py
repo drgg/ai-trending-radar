@@ -121,6 +121,28 @@ OUTLOOK_SYSTEM = """你是一名技术编辑，为每周一期的 GitHub AI 项�
 - 只陈述材料里有的事实；不用「爆发」「颠覆」「引爆」「火爆」这类词，不写营销腔
 - 区分方向和个例：一个项目涨得多不等于一个方向在升温，至少要有两个以上项目佐证才能称为趋势"""
 
+# 只匹配具体短语：单独的「测试」会误伤「自动化测试工具在升温」这类正常内容
+_PLACEHOLDER = ("测试段落", "测试要点", "无实际意义", "占位内容", "仅用于测试", "排查结构化输出", "lorem ipsum")
+
+
+def outlook_problems(paragraph, bullets, names):
+    """近期趋势发布前的硬检查。返回问题列表，空 = 合格。"""
+    problems = []
+    n = text_len(paragraph or "")
+    if not 100 <= n <= 350:
+        problems.append(f"段落 {n} 字，不在 100–350 之间")
+    if not 3 <= len(bullets) <= 6:
+        problems.append(f"要点 {len(bullets)} 条，不在 3–6 之间")
+    text = (paragraph or "") + "".join(bullets)
+    hits = [w for w in _PLACEHOLDER if w in text.lower()]
+    if hits:
+        problems.append(f"含占位用语 {hits}")
+    mentioned = [s for s in names if re.search(rf"(?<![A-Za-z0-9_/-]){re.escape(s)}(?![A-Za-z0-9_-])", text)]
+    if len(mentioned) < 2:
+        problems.append(f"只点名了 {len(mentioned)} 个本期项目，至少要 2 个")
+    return problems
+
+
 OUTLOOK_SCHEMA = {
     "type": "object",
     "properties": {"paragraph": {"type": "string"},
@@ -183,6 +205,9 @@ class Summarizer:
             if any(m in msg for m in _AUTH_MARKERS):
                 raise AuthError(f"Claude 认证失败：{msg}")
             raise RuntimeError(f"claude 调用失败（{out.get('subtype')}）：{msg}")
+        # 记下诊断信息：内容校验不过时打进日志（2026-10-23 线上曾「成功」返回一段测试占位文字）
+        self.last_meta = {k: out.get(k) for k in ("subtype", "num_turns", "stop_reason", "terminal_reason")}
+        self.last_meta["result_head"] = str(out.get("result", ""))[:200]
         data = out.get("structured_output")
         return data if data is not None else json.loads(out["result"])
 
@@ -312,14 +337,23 @@ class Summarizer:
                 said = s.get("outlook") or "；".join(s.get("trends", []))
                 if said:
                     parts.append(f"- {s['date']}：{said}")
-        try:
-            r = self._ask(OUTLOOK_SYSTEM, chr(10).join(parts), OUTLOOK_SCHEMA, max_tokens=6000)
-            return r["paragraph"], r["bullets"]
-        except AuthError:
-            raise
-        except Exception as e:
-            print(f"  ! 近期趋势生成失败：{e}")
-            return "", []
+        names = {e["full_name"].split("/")[1] for e in entries}
+        if rising:
+            names |= {x["full_name"].split("/")[1] for k in ("surge", "newborn", "young") for x in rising[k]}
+        for attempt in (1, 2):
+            try:
+                r = self._ask(OUTLOOK_SYSTEM, chr(10).join(parts), OUTLOOK_SCHEMA, max_tokens=6000)
+            except AuthError:
+                raise
+            except Exception as e:
+                print(f"  ! 近期趋势第 {attempt} 次生成失败：{e}")
+                continue
+            problems = outlook_problems(r["paragraph"], r["bullets"], names)
+            if not problems:
+                return r["paragraph"], r["bullets"]
+            print(f"  ! 近期趋势第 {attempt} 次内容不合格：{'；'.join(problems)}；CLI 诊断：{getattr(self, 'last_meta', None)}")
+        print("  ! 近期趋势两次都不合格，本期不显示（宁缺毋滥）")
+        return "", []
 
     # ---------- 短期榜的一句话定位（批量） ----------
     def has_tagline(self, full_name):
