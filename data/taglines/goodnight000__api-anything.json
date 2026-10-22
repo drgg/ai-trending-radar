@@ -1,0 +1,6 @@
+{
+ "tagline": "把任意网站转成可供 AI agent 调用的 API，网站改版时自动修复",
+ "is_ai_product": true,
+ "generated_at": "2026-10-22",
+ "model": "claude-sonnet-5"
+}

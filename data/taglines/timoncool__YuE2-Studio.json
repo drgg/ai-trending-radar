@@ -1,0 +1,6 @@
+{
+ "tagline": "本地 GPU 运行的 AI 作曲软件，生成带人声歌曲与可编辑乐谱",
+ "is_ai_product": true,
+ "generated_at": "2026-10-22",
+ "model": "claude-sonnet-5"
+}

@@ -1,0 +1,6 @@
+{
+ "tagline": "在工具输出进入LLM前压缩数据，为编程Agent和RAG场景节省大量token",
+ "is_ai_product": true,
+ "generated_at": "2026-10-22",
+ "model": "claude-sonnet-5"
+}

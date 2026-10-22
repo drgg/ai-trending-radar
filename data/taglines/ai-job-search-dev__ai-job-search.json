@@ -1,0 +1,6 @@
+{
+ "tagline": "基于Claude Code的AI求职框架，自动评估职位、定制简历、写求职信、做面试准备",
+ "is_ai_product": true,
+ "generated_at": "2026-10-22",
+ "model": "claude-sonnet-5"
+}

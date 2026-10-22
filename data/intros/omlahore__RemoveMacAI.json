@@ -1,0 +1,26 @@
+{
+  "audience": "注重隐私、想清理系统臃肿功能的 Mac 用户，以及需要批量管理多台 Mac 的 IT 管理员。",
+  "category": "其他",
+  "features": [
+    "关闭 Siri、写作工具、ChatGPT 集成等 Apple Intelligence 功能并删除已下载的模型文件",
+    "关闭 Mac 分析、个性化广告、Siri/搜索改进等隐私相关设置",
+    "关闭弹窗、动画、媒体键等干扰项，并可逐个关闭其他 App 安装的后台更新程序",
+    "清理旧安装包、模拟器、构建缓存等占用空间的文件",
+    "提供 Recommended 和 Maximum privacy 两种预设，支持导出配置文件供 Jamf、Kandji、Intune 等 MDM 批量部署"
+  ],
+  "highlights": [
+    "每项改动先展示后确认，并记录到本地日志，可用 removemacai revert 一键撤销所有改动",
+    "项目方称不发出任何网络请求、不收集数据，且不修改 /System 下内容，SIP 保持开启",
+    "被 The Verge、Ars Technica、The Register、MacRumors 等媒体报道"
+  ],
+  "is_ai_product": false,
+  "positioning": "面向 Apple Silicon Mac 的系统精简工具，提供原生 App 和命令行两种形式，用于关闭 Apple Intelligence、系统分析、广告和弹窗等功能并回收磁盘空间，所有改动可预览、可撤销。",
+  "quickstart_cmd": "curl -fsSL https://raw.githubusercontent.com/omlahore/RemoveMacAI/main/install.sh | bash",
+  "quickstart_note": "该命令直接运行命令行版本，不安装任何文件；也可用 brew install omlahore/tap/removemacai 安装。",
+  "risks": [],
+  "tagline": "macOS 系统精简工具，可关闭 Apple Intelligence、分析广告和弹窗，改动均可撤销。",
+  "readme_sha": "fac0049c358f4f461df25d59ab210fc750278bac",
+  "generated_at": "2026-10-22",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}

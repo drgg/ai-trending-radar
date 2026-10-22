@@ -73,6 +73,8 @@ section.blk{margin-top:48px}
 .callout .empty{font-size:14px;color:var(--ink-2)}
 .new-item{background:var(--accent-wash);border-radius:8px;padding:16px}
 .new-item+.new-item{margin-top:12px}
+.new-more{margin-top:4px;font-size:14px}
+.new-more .warn-n{font-size:13px;color:var(--warn-ink)}
 .tag{display:inline-block;font-size:13px;font-weight:600;line-height:1.5;padding:0 8px;border-radius:4px;white-space:nowrap}
 .tag.new{color:var(--accent);box-shadow:inset 0 0 0 1px currentColor}
 .tag.cat{color:var(--muted);box-shadow:inset 0 0 0 1px var(--line-strong);font-weight:400}
@@ -141,6 +143,33 @@ details[open]>summary .caret{transform:rotate(90deg);color:var(--muted)}
 .tmp-note{margin-top:16px;padding:8px 12px;background:var(--surface);border-radius:8px;font-size:14px;color:var(--ink-2)}
 .issues li.tmp{font-size:14px;color:var(--muted)}
 .issues li.tmp a{color:var(--muted)}
+/* 短期榜 */
+.stat-line{font-size:14px;color:var(--ink-2);margin:0 0 16px}
+.stat-line b{color:var(--ink);font-weight:600}
+.tier-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;margin:24px 0 0;padding-bottom:8px;border-bottom:1px solid var(--line-strong)}
+.tier-head h3{font-size:16px}
+.tier-head .aside{font-size:13px;color:var(--muted)}
+.young-stat{margin-top:12px}
+.tier-sub{font-size:13px;font-weight:600;color:var(--muted);margin:16px 0 0}
+.sub-blk+.sub-blk{margin-top:32px}
+.rk-list{list-style:none;margin:0;padding:0}
+.rk-list li{display:grid;grid-template-columns:1fr auto;gap:0 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.rk-list .nm{font-weight:600;overflow-wrap:anywhere}
+.rk-list .flags{display:inline-flex;gap:8px;margin-left:8px;vertical-align:1px}
+.rk-list .fig{text-align:right;white-space:nowrap;font-size:14px;color:var(--muted)}
+.rk-list .fig .g{color:var(--up);font-weight:600;font-size:16px}
+.rk-list .tl{grid-column:1/-1;font-size:14px;color:var(--ink-2);line-height:1.6}
+.rk-list .meta{grid-column:1/-1;font-size:13px;color:var(--muted)}
+.tag.accel{color:var(--up);box-shadow:inset 0 0 0 1px currentColor}
+.tag.main{color:var(--muted);box-shadow:inset 0 0 0 1px var(--line-strong);font-weight:400}
+details.more{margin-top:16px}
+details.more>summary{cursor:pointer;font-size:14px;color:var(--ink-2)}
+details.more>summary:hover{color:var(--accent)}
+details.more>.names,details.more>.stat-line{margin-top:12px}
+.names{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 24px;font-size:14px;line-height:1.6}
+.names li{overflow-wrap:anywhere}
+.names .g{color:var(--up)}
+.names .s{color:var(--muted)}
 .excluded{margin-top:24px;font-size:14px;color:var(--muted)}
 
 /* 往期 */
@@ -178,6 +207,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
 <script>document.documentElement.classList.add("js")</script>
 
 
+
 <header class="mast"><div class="wrap"><div class="mast-in">
   <div class="eyebrow">AI 热门项目周报</div>
   <h1>第 3 期</h1>
@@ -211,13 +241,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">Agent 平台与基础设施</span>
         </div>
         <p class="tagline">面向 AI Agent 的轻量无头浏览器，按需渲染，资源占用低，用 Rust 编写</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/lexmount/moli">GitHub ↗</a> · <a href="https://browser.lexmount.com">主页 ↗</a>    · Rust · Apache-2.0 · 创建 2026-08-10 · 最后推送 2026-10-05
-  </p>
-<div class="f"><h4>定位</h4><p>Moli 是用 Rust 自研的生产级无头浏览器内核，非 Chromium 封装，默认只读取 DOM/样式状态，仅在截图等场景按需触发布局与绘制，供 AI Agent 抓取网页、搜索和执行浏览器自动化任务。</p></div><div class="f"><h4>能做什么</h4><ul><li>支持 CLI、CDP、WebDriver Classic、WebDriver BiDi 四种接口，Playwright 可直接通过 CDP…</li><li>默认只读 DOM/样式不触发布局绘制，加 --layout 可选开启真实布局、坐标输入与截图</li><li>可选 --resource、--image、--font 等参数按需加载图片、字体、音视频资源</li><li>CLI 可直接输出 HTML、Markdown、JSON、语义树等格式，适合抓取与检索场景</li><li>基于 html5ever、V8、Servo/Stylo、Taffy+Parley 等组件自研内核，不依赖 Chromium</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方数据：192个公开网页抓取测试中，Moli成功率53.6%、内存占用73MiB，内存远低于Chrome Headless的773MiB</li><li>项目方数据：Lexbench 1308项任务测试中，Moli 0.1.1通过率81.88%，低于作为参照的Chrome的99.85%</li><li>项目方数据：同一任务集下，Moli中位CPU时间与峰值内存约为Chrome的15%和13%</li></ul></div><div class="f"><h4>适合</h4><p>需要网页抓取、构建爬虫或 Agent 浏览自动化的开发者，尤其是对资源占用和启动速度敏感的场景</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>curl --proto &#39;=https&#39; --tlsv1.2 -fsSL https://github.com/lexmount/moli/releases/latest/download/moli-installer.sh | sh</code></pre><button type="button" data-copy aria-label="复制 lexmount/moli 的上手命令">复制</button></div><p>Linux/macOS 下载并安装预编译二进制；Windows 需在 PowerShell 中运行对应的 .ps1 安装脚本</p>  </div></div>
-
+        <p class="new-more num"><a href="#lexmount/moli">完整介绍 →</a></p>
       </article>
       <article class="new-item" aria-labelledby="new-2">
         <div class="item-title">
@@ -227,16 +251,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">AI 应用产品</span>
         </div>
         <p class="tagline">自动找热点、写日报的自托管网站框架，换上信源和标准就是你的行业热点站</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/KKKKhazix/AIHOT">GitHub ↗</a> · <a href="https://aihot.news">主页 ↗</a>    · TypeScript · MIT · 创建 2026-09-28 · 最后推送 2026-10-04
-  </p>
-<div class="f"><h4>定位</h4><p>AIHOT 开源的网站引擎和框架，用大模型自动抓取信源、筛选打分、聚簇事件、生成日报周报月报；换上自己行业的信源和提示词，即可搭建专属行业热点站。</p></div><div class="f"><h4>能做什么</h4><ul><li>支持 RSS、网页、JSON、X、微信公众号等六种信源及自定义推送，分三级设门槛</li><li>大模型先预筛，再独立打两次分，按信源分级门槛决定是否入选精选，提示词全公开可改</li><li>同一事件的不同来源报道自动聚簇，按独立来源数量计算热度，48小时内重复来源不多算</li><li>每天自动生成日报（默认08:00），每周周报、每月月报从日报汇编而成</li><li>提供 RSS、公开 API、MCP、llms.txt 等多种接口，同一份内容同时给人看和给 Agent 用</li></ul></div><div class="f"><h4>亮点</h4><ul><li>所有提示词原文和入选门槛均开源，可用自己标注的样本在 SelectBench 中校准评分标准</li><li>仓库是 AIHOT 线上同款引擎代码，但不含其信源名单和运营数据，示范信源仅18个海外AI资讯源</li></ul></div><div class="f"><h4>适合</h4><p>想为自己所在行业（法律、HR、金融等）搭建热点聚合与日报网站的自托管用户和开发者</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>git clone https://github.com/KKKKhazix/AIHOT.git myhot
-cd myhot
-node scripts/init-env.ts --llm-key &lt;你的模型 API Key&gt;
-docker compose up -d --build</code></pre><button type="button" data-copy aria-label="复制 KKKKhazix/AIHOT 的上手命令">复制</button></div><p>需要 Docker、Node.js 24 和 OpenAI 兼容的模型 API Key，完成后访问 localhost:3000，后台在 /admin</p>  </div></div>
-
+        <p class="new-more num"><a href="#KKKKhazix/AIHOT">完整介绍 →</a></p>
       </article>
       <article class="new-item" aria-labelledby="new-3">
         <div class="item-title">
@@ -246,13 +261,7 @@ docker compose up -d --build</code></pre><button type="button" data-copy aria-la
           <span class="tag cat">编程 Agent 与运行框架</span>
         </div>
         <p class="tagline">开源终端智能体运行时，提供 ReAct 单智能体与 Agent Team 多智能体两种工作模式</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/ApodexAI/FrontierAgent">GitHub ↗</a> · <a href="https://www.apodex.ai">主页 ↗</a>    · Python · Apache-2.0 · 创建 2026-08-22 · 最后推送 2026-10-05
-  </p>
-<div class="f"><h4>定位</h4><p>面向长周期研究和文件类任务的开源智能体运行时，内置终端 TUI，提供 ReAct 单智能体与 Agent Team 多智能体两种工作流，同一引擎也用于 Apodex 模型的评测基准。</p></div><div class="f"><h4>能做什么</h4><ul><li>ReAct 模式：单个有状态智能体在任务沙箱内研究、读写文件、执行命令并迭代</li><li>Agent Team 模式：协调器维护任务看板，调度并行子智能体并汇总报告合成结果</li><li>任务沙箱分 /inputs 只读、/workspace 可写、/outputs 产出，校验失败默认拒绝</li><li>支持运行中插话：输入新指令会在安全节点注入，不打断正在执行的任务</li><li>写操作默认需审批确认，会话带检查点与本地追踪，支持 /revert 回滚和 --resume 续跑</li></ul></div><div class="f"><h4>亮点</h4><ul><li>同一工作流引擎既驱动终端 TUI 产品，也用于跑 FrontierSearchBench/FrontierChallenge 等内置评测基…</li><li>macOS/Linux 一条命令即可安装运行，无需预装环境，Docker 为可选而非必需依赖</li></ul></div><div class="f"><h4>适合</h4><p>需要终端智能体处理长周期研究、文件分析或多智能体协作任务的开发者与研究者</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>uv run frontier-agent --mode react --cwd /path/to/project</code></pre><button type="button" data-copy aria-label="复制 ApodexAI/FrontierAgent 的上手命令">复制</button></div><p>需先 git clone 仓库、执行 uv sync 安装依赖，并在 .env 中配置 OpenAI 兼容模型端点</p>  </div></div>
-
+        <p class="new-more num"><a href="#ApodexAI/FrontierAgent">完整介绍 →</a></p>
       </article>
     </div>
 
@@ -285,6 +294,7 @@ docker compose up -d --build</code></pre><button type="button" data-copy aria-la
     </div>
   </div>
 </section>
+
 
 <section class="blk" id="editorial" aria-labelledby="h-ed">
   <div class="blk-head"><h2 id="h-ed">编者按</h2><span class="aside">由 claude-sonnet-5 读完本期全部项目后归纳，点项目名看详情</span></div>
@@ -827,6 +837,7 @@ make test</code></pre><button type="button" data-copy aria-label="复制 FareedK
 <section class="blk" id="issues" aria-labelledby="h-issues">
   <div class="blk-head"><h2 id="h-issues">往期</h2></div>
   <ol class="issues num">
+    <li class="tmp"><a href="../archive/2026-10-22.html">临时更新</a>        <span>2026 年 10 月 22 日</span><span class="aside">40 个项目</span></li>
     <li><a href="../archive/2026-10-19.html">第 5 期</a>        <span>2026 年 10 月 19 日</span><span class="aside">39 个项目</span></li>
     <li><a href="../archive/2026-10-12.html">第 4 期</a>        <span>2026 年 10 月 12 日</span><span class="aside">34 个项目</span></li>
     <li><span class="cur" aria-current="page">第 3 期</span><span class="aside">本页</span>        <span>2026 年 10 月 5 日</span><span class="aside">33 个项目</span></li>
@@ -841,7 +852,7 @@ make test</code></pre><button type="button" data-copy aria-label="复制 FareedK
 <footer><div class="wrap"><div class="in">
   <p>数据来自 GitHub Search API，快照日期 2026-10-05；页内星数均为当日数值。介绍由 claude-sonnet-5 根据 README 生成，性能数字多为项目方自报。</p>
   <p>检索式：<code>ai OR llm OR agent OR gpt OR mcp OR claude created:&gt;=2026-07-07 stars:&gt;5000</code></p>
-  <p>每周一自动更新 · <a href="../feed.xml">RSS</a> · <a href="https://github.com/drgg/ai-trending-radar">源码</a> · 生成于 2026-10-19 · 设计规格见仓库 <code>design/issue/DESIGN.md</code></p>
+  <p>每周一自动更新 · <a href="../feed.xml">RSS</a> · <a href="https://github.com/drgg/ai-trending-radar">源码</a> · 生成于 2026-10-22 · 设计规格见仓库 <code>design/issue/DESIGN.md</code></p>
 </div></div></footer>
 
 <script>

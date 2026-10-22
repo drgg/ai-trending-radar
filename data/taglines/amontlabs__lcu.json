@@ -1,0 +1,6 @@
+{
+ "tagline": "把 Codex 电脑操作能力解耦出来，供 Claude Code 等任意 Agent 调用",
+ "is_ai_product": true,
+ "generated_at": "2026-10-22",
+ "model": "claude-sonnet-5"
+}

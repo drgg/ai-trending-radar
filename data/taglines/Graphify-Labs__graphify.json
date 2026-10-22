@@ -1,0 +1,6 @@
+{
+ "tagline": "将代码库及文档转为可查询知识图谱的Agent技能，支持多种编程助手",
+ "is_ai_product": true,
+ "generated_at": "2026-10-22",
+ "model": "claude-sonnet-5"
+}

@@ -1,0 +1,6 @@
+{
+ "tagline": "面向 AI agent 的追踪式 CI/CD，评估、聚类失败案例并阻止回归 PR",
+ "is_ai_product": true,
+ "generated_at": "2026-10-22",
+ "model": "claude-sonnet-5"
+}

@@ -73,6 +73,8 @@ section.blk{margin-top:48px}
 .callout .empty{font-size:14px;color:var(--ink-2)}
 .new-item{background:var(--accent-wash);border-radius:8px;padding:16px}
 .new-item+.new-item{margin-top:12px}
+.new-more{margin-top:4px;font-size:14px}
+.new-more .warn-n{font-size:13px;color:var(--warn-ink)}
 .tag{display:inline-block;font-size:13px;font-weight:600;line-height:1.5;padding:0 8px;border-radius:4px;white-space:nowrap}
 .tag.new{color:var(--accent);box-shadow:inset 0 0 0 1px currentColor}
 .tag.cat{color:var(--muted);box-shadow:inset 0 0 0 1px var(--line-strong);font-weight:400}
@@ -141,6 +143,33 @@ details[open]>summary .caret{transform:rotate(90deg);color:var(--muted)}
 .tmp-note{margin-top:16px;padding:8px 12px;background:var(--surface);border-radius:8px;font-size:14px;color:var(--ink-2)}
 .issues li.tmp{font-size:14px;color:var(--muted)}
 .issues li.tmp a{color:var(--muted)}
+/* 短期榜 */
+.stat-line{font-size:14px;color:var(--ink-2);margin:0 0 16px}
+.stat-line b{color:var(--ink);font-weight:600}
+.tier-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;margin:24px 0 0;padding-bottom:8px;border-bottom:1px solid var(--line-strong)}
+.tier-head h3{font-size:16px}
+.tier-head .aside{font-size:13px;color:var(--muted)}
+.young-stat{margin-top:12px}
+.tier-sub{font-size:13px;font-weight:600;color:var(--muted);margin:16px 0 0}
+.sub-blk+.sub-blk{margin-top:32px}
+.rk-list{list-style:none;margin:0;padding:0}
+.rk-list li{display:grid;grid-template-columns:1fr auto;gap:0 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.rk-list .nm{font-weight:600;overflow-wrap:anywhere}
+.rk-list .flags{display:inline-flex;gap:8px;margin-left:8px;vertical-align:1px}
+.rk-list .fig{text-align:right;white-space:nowrap;font-size:14px;color:var(--muted)}
+.rk-list .fig .g{color:var(--up);font-weight:600;font-size:16px}
+.rk-list .tl{grid-column:1/-1;font-size:14px;color:var(--ink-2);line-height:1.6}
+.rk-list .meta{grid-column:1/-1;font-size:13px;color:var(--muted)}
+.tag.accel{color:var(--up);box-shadow:inset 0 0 0 1px currentColor}
+.tag.main{color:var(--muted);box-shadow:inset 0 0 0 1px var(--line-strong);font-weight:400}
+details.more{margin-top:16px}
+details.more>summary{cursor:pointer;font-size:14px;color:var(--ink-2)}
+details.more>summary:hover{color:var(--accent)}
+details.more>.names,details.more>.stat-line{margin-top:12px}
+.names{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 24px;font-size:14px;line-height:1.6}
+.names li{overflow-wrap:anywhere}
+.names .g{color:var(--up)}
+.names .s{color:var(--muted)}
 .excluded{margin-top:24px;font-size:14px;color:var(--muted)}
 
 /* 往期 */
@@ -178,6 +207,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
 <script>document.documentElement.classList.add("js")</script>
 
 
+
 <header class="mast"><div class="wrap"><div class="mast-in">
   <div class="eyebrow">AI 热门项目周报</div>
   <h1>第 4 期</h1>
@@ -211,13 +241,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">开发者工具与集成</span>
         </div>
         <p class="tagline">dsh 插件，免登录免 Key 白嫖前沿大模型，并可接入第三方账号渠道</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/Ebony-Vinyl/dsh-our-free-model">GitHub ↗</a>    · JavaScript · MIT · 创建 2026-09-24 · 最后推送 2026-10-12
-  </p>
-<div class="f"><h4>定位</h4><p>dsh（DeepSeek Harness）的免费模型插件，免登录免 Key 直连开放网关提供前沿模型，并内置十余个第三方账号渠道与自带 Key 聚合接入，附带本地 OpenAI/Anthropic 兼容网关。</p></div><div class="f"><h4>能做什么</h4><ul><li>免费车道直连 OpenCode Zen 网关与 Kilo AI 公共网关，模型清单随上游实时刷新，不保存静态快照</li><li>内置十一个第三方账号渠道（华为云等）及本地网关，凭据只写入宿主凭据库</li><li>聚合渠道支持自带 Key 接入 76 家提供商，含 OpenRouter、Groq、Gemini 等</li><li>思考强度分三档，对应硬性输出 token 预算；另提供工具输出压缩与降级链路由以节省 Token</li><li>本地网关兼容 OpenAI 与 Anthropic Messages 接口，可选开启局域网转发</li></ul></div><div class="f"><h4>亮点</h4><ul><li>免费模型来源公开：免费车道直连 OpenCode Zen 与 Kilo AI 网关，不经第三方中转</li><li>用量看板（Token 热力图、速度、首字延迟）数据全部留在本机，不上传任何数据</li><li>EAC 渠道（桌面端专属）需服务器侧校验 GitHub 登录并 star 本仓库才放行对话</li></ul></div><div class="f"><h4>适合</h4><p>使用 dsh（DeepSeek Harness）的开发者，想免登录、免 API Key 使用前沿大模型，或接入多家第三方账号渠道与自带 Key 渠道的用户</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>dsh plugin --profile web add /绝对路径/dsh-our-free-model</code></pre><button type="button" data-copy aria-label="复制 Ebony-Vinyl/dsh-our-free-model 的上手命令">复制</button></div><p>适用于纯 dsh web profile，安装后需重启应用一次；桌面端请使用应用内插件管理器安装，不支持此命令。</p>  </div><ul class="notes" aria-label="提示"><li>内置的十三个第三方账号渠道需登录对应公司账号并自动领取每日积分调用其网关，可能违反对方服务条款并有封号风险</li><li>Kilo 免费渠道的上游声明可能记录 prompt 用于改进服务，官方提示请勿发送敏感内容</li><li>局域网转发为可选功能，开启后同网段内持有 Key 的任何人都可消耗本机免费额度，需在可信网络使用</li></ul></div>
-
+        <p class="new-more num"><a href="#Ebony-Vinyl/dsh-our-free-model">完整介绍 →</a> · <span class="warn-n">⚠ 3 条提示</span></p>
       </article>
       <article class="new-item" aria-labelledby="new-2">
         <div class="item-title">
@@ -227,13 +251,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">Agent 平台与基础设施</span>
         </div>
         <p class="tagline">本地网关统一管理，让各编程 Agent 共用任意模型或订阅账号</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/yetone/magpie">GitHub ↗</a> · <a href="https://usemagpie.ai">主页 ↗</a>    · Go · MIT · 创建 2026-09-23 · 最后推送 2026-10-12
-  </p>
-<div class="f"><h4>定位</h4><p>一个本地网关加菜单栏工具，让任意编程 Agent 可以切换使用任意供应商的模型或已登录的订阅账号，并在配额用尽时自动切换账号。</p></div><div class="f"><h4>能做什么</h4><ul><li>菜单栏应用+本地网关，统一管理各编程 Agent 的模型配置，自动改写对应配置文件</li><li>支持 Claude Code、Codex、Gemini CLI、OpenCode、Cursor CLI 等 40 多种 Agent</li><li>Provider 可用 API Key、已登录的订阅账号（Claude/ChatGPT/Copilot/Gemini/Grok）或本地模型…</li><li>路由组支持多账号/模型故障转移（smart、order、rotate、usage、pace 等模式），配额用尽自动切到下一个</li><li>提供用量费用统计、配额预警及 Bun 插件/网关中间件扩展</li></ul></div><div class="f"><h4>亮点</h4><ul><li>本地网关可在 OpenAI Chat/Responses、Anthropic Messages、Gemini 四种协议间互相翻译，覆盖流式…</li><li>通过读取 Claude Code、Codex 等本机登录凭证（含 Keychain），把已有订阅账号的模型开放给其它 Agent 使用</li></ul></div><div class="f"><h4>适合</h4><p>同时使用多个编程 Agent（Claude Code、Codex、Gemini CLI 等）、多个模型供应商或多个订阅账号的开发者</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>curl -fsSL https://usemagpie.ai/install.sh | sh</code></pre><button type="button" data-copy aria-label="复制 yetone/magpie 的上手命令">复制</button></div><p>安装后在应用内 Providers 页添加供应商或登录订阅，再为每个 Agent 选择模型；也可用 magpie CLI 完成同样操作。</p>  </div><ul class="notes" aria-label="提示"><li>会读取 Claude Code、Codex 等本机登录凭证（包括系统 Keychain），将一个厂商订阅账号的模型跨 Agent 复用，可能违反相应厂商的服务条款</li></ul></div>
-
+        <p class="new-more num"><a href="#yetone/magpie">完整介绍 →</a> · <span class="warn-n">⚠ 1 条提示</span></p>
       </article>
       <article class="new-item" aria-labelledby="new-3">
         <div class="item-title">
@@ -243,13 +261,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">AI 应用产品</span>
         </div>
         <p class="tagline">开源自托管工具，用真实AI模型回答追踪品牌在AI答案中的曝光与竞品</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/Albert-Weasker/niubigeo">GitHub ↗</a> · <a href="https://niubigeo.ai/">主页 ↗</a>    · TypeScript · Apache-2.0 · 创建 2026-09-03 · 最后推送 2026-10-10
-  </p>
-<div class="f"><h4>定位</h4><p>面向希望了解AI模型如何描述自家产品、提及哪些竞品、引用哪些来源的团队，强调可追溯证据而非黑盒评分，自托管部署并自备模型API Key，Apache-2.0开源。</p></div><div class="f"><h4>能做什么</h4><ul><li>输入域名测试，对比多个AI模型对产品的描述及提及的竞品</li><li>支持OpenRouter等多家模型供应商，可在同一测试中混用不同来源模型</li><li>保留原始回答、引用来源及历史测试记录，可逐条核查</li><li>v0.3新增关键词监测模块（Beta）：分类测试、定时运行并用Diff View比较前后快照变化</li><li>自托管部署，研究数据保存在自己的环境中</li></ul></div><div class="f"><h4>亮点</h4><ul><li>设计理念是展示原始模型回答与引用来源作为证据链，而非直接输出单一可见度分数</li><li>项目方称自托管可替代每年5000美元以上的GEO SaaS服务，但该说法未提供第三方验证数据</li><li>当前v0.3版本尚未包含独立的竞品检测仪表盘，功能限于关键词监测、历史记录与变化对比</li></ul></div><div class="f"><h4>适合</h4><p>需要监测自身产品在AI模型回答中曝光度、竞品及引用来源的产品、营销或SEO团队，愿自托管并自备模型API Key。</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>git clone --branch v0.3.0 --depth 1 https://github.com/Albert-Weasker/niubigeo.git</code></pre><button type="button" data-copy aria-label="复制 Albert-Weasker/niubigeo 的上手命令">复制</button></div><p>需Node.js 22.13+及OpenRouter API Key，克隆后npm ci、配置.env，再npm run server启动，访问localhost:8787。</p>  </div><ul class="notes" aria-label="提示"><li>使用时需将域名、关键词、竞品列表等可能具有商业敏感性的研究数据发送给所选的外部模型API服务。</li></ul></div>
-
+        <p class="new-more num"><a href="#Albert-Weasker/niubigeo">完整介绍 →</a> · <span class="warn-n">⚠ 1 条提示</span></p>
       </article>
       <article class="new-item" aria-labelledby="new-4">
         <div class="item-title">
@@ -259,13 +271,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">编程 Agent 与运行框架</span>
         </div>
         <p class="tagline">让 Claude Code 等编程 agent 给你拥有的任意 PC 游戏做 mod 的技能与工具包</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/rehan-remade/universal-modder">GitHub ↗</a>    · Python · MIT · 创建 2026-09-30 · 最后推送 2026-10-12
-  </p>
-<div class="f"><h4>定位</h4><p>为 Claude Code、Codex、Gemini CLI 等编程 agent 提供技能、fal MCP 和 um CLI，驱动 agent 对本地已安装的 PC 游戏进行侦察、逆向、建 mod、生成素材并在游戏内验证。</p></div><div class="f"><h4>能做什么</h4><ul><li>提供 Agent Skills 格式技能、fal MCP 服务器和 um CLI，支持 Claude Code/Codex/Gemini…</li><li>标准流程：查知识库、侦察定路线、读代码建切片、生成素材并验证、录视频写笔记</li><li>用 fal 生成图像/3D/音频素材；无 fal key 时可用本地 ComfyUI 生成图像</li><li>知识库收录各游戏改模实录：版本、路线、验证方式和踩坑经验，完成后可提交 PR 共享</li><li>内置规则：仅限自己拥有的单机/多人游戏，拒绝注入反作弊服务器、绕过 DRM，会先询问</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方展示了 Terraria、AoE2 DE、GTA V×Minecraft 等实际改模案例，均附完整知识库笔记</li><li>同时支持 Claude Code、Codex、Gemini CLI、VS Code/Copilot、Cursor、OpenCode 等多种…</li></ul></div><div class="f"><h4>适合</h4><p>愿意用编程 agent 给自己拥有的 PC 游戏做 mod、逆向研究的开发者和玩家</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>/plugin marketplace add rehan-remade/universal-modder</code></pre><button type="button" data-copy aria-label="复制 rehan-remade/universal-modder 的上手命令">复制</button></div><p>适用于 Claude Code，之后再执行 /plugin install universal-modder@universal-modder 完成安装</p>  </div></div>
-
+        <p class="new-more num"><a href="#rehan-remade/universal-modder">完整介绍 →</a></p>
       </article>
       <article class="new-item" aria-labelledby="new-5">
         <div class="item-title">
@@ -275,13 +281,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">Skills 与写作/设计</span>
         </div>
         <p class="tagline">一套规则集，让 AI 编程 Agent 别再写出千篇一律的 UI、水文案和 AI 味代码</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/miqdadbadjuber/anti-slop">GitHub ↗</a>    · JavaScript · MIT · 创建 2026-08-07 · 最后推送 2026-10-04
-  </p>
-<div class="f"><h4>定位</h4><p>面向 AI 编程 Agent 的规则过滤器，不规定配色、字体、布局，只负责剔除常见的 AI 生成痕迹，方向仍由使用者自己决定。</p></div><div class="f"><h4>能做什么</h4><ul><li>38 条强制规则，分 Hard Gate、Purpose-Gate、Quality Locks 三层</li><li>Liveliness Toolkit：ENERGY/RHYTHM/MOTION 三个维度加设计检查，避免结果过于呆板</li><li>交付前的 Delivery Gate，输出四段式 PASS/FAIL 报告</li><li>六个独立技能，按 UI、文案、无障碍、响应式、代码注释等场景分别加载</li><li>支持 during（边做边守则）和 after（事后审查）两种使用模式，可设为全局默认</li></ul></div><div class="f"><h4>亮点</h4><ul><li>以安装器、skills.sh 目录、各 Agent 插件市场、单文件四种方式安装，覆盖 Claude Code、Codex、Cursor…</li><li>README 明确说明自身不能生成设计方向，只负责过滤，呆板结果意味着缺少方向而非过滤器失效</li></ul></div><div class="f"><h4>适合</h4><p>使用 AI 编程 Agent 做前端/文案/代码工作、希望减少千篇一律 AI 风格输出的开发者</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>npx antislop-ai</code></pre><button type="button" data-copy aria-label="复制 miqdadbadjuber/anti-slop 的上手命令">复制</button></div><p>运行后按提示选择要安装的技能、安装范围和使用的 Agent，即可完成安装</p>  </div></div>
-
+        <p class="new-more num"><a href="#miqdadbadjuber/anti-slop">完整介绍 →</a></p>
       </article>
       <article class="new-item" aria-labelledby="new-6">
         <div class="item-title">
@@ -291,13 +291,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">AI 应用产品</span>
         </div>
         <p class="tagline">模板驱动的AI短视频与AI漫剧创作平台，从文案到成片</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/yi1108/printfilm">GitHub ↗</a> · <a href="https://www.printfilm.com">主页 ↗</a>    · Python · MIT · 创建 2026-09-10 · 最后推送 2026-10-08
-  </p>
-<div class="f"><h4>定位</h4><p>面向短视频获客与短剧创作的自托管平台，提供从主题/剧本到分镜、生图、生视频、合成成片的完整流水线，也支持单点生图生视频；基于TokenFree兼容接口调用模型，可Docker一键部署。</p></div><div class="f"><h4>能做什么</h4><ul><li>AI漫剧：从一句话生成大纲/剧本，解析成分镜后编辑，角色场景资产可复用</li><li>AI短视频：20+内置风格模板，支持full（图+视频+合成）或image_text（静图）模式</li><li>工具中心：文生图、图生图、图生产品、文生视频、视频生视频、电商拼图等单点能力</li><li>管理后台与开放API：用户/订单/模板/任务中心/模型路由，提供/api/v1生图生视频接口</li><li>口播由Seedance出片时自动生成，无需单独配音；成片由FFmpeg合成</li></ul></div><div class="f"><h4>亮点</h4><ul><li>漫剧与短视频共用一套生成能力，模型可在管理后台切换而无需改代码</li><li>任务调度、执行、轮询均在进程内完成，无需单独部署Celery Worker</li><li>Docker镜像公开可直接拉取，无需登录即可一键启动</li></ul></div><div class="f"><h4>适合</h4><p>面向需要批量产出短视频广告或短剧内容的团队，以及想自托管AI视频生成工具链的开发者</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>docker compose --env-file deploy/.env.docker up -d</code></pre><button type="button" data-copy aria-label="复制 yi1108/printfilm 的上手命令">复制</button></div><p>需先克隆仓库、复制并编辑deploy/.env.docker（设置数据库密码、SECRET_KEY及TokenFree API Key）后再执行此命令</p>  </div></div>
-
+        <p class="new-more num"><a href="#yi1108/printfilm">完整介绍 →</a></p>
       </article>
     </div>
 
@@ -334,6 +328,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
     </div>
   </div>
 </section>
+
 
 <section class="blk" id="editorial" aria-labelledby="h-ed">
   <div class="blk-head"><h2 id="h-ed">编者按</h2><span class="aside">由 claude-sonnet-5 读完本期全部项目后归纳，点项目名看详情</span></div>
@@ -888,6 +883,7 @@ make test</code></pre><button type="button" data-copy aria-label="复制 FareedK
 <section class="blk" id="issues" aria-labelledby="h-issues">
   <div class="blk-head"><h2 id="h-issues">往期</h2></div>
   <ol class="issues num">
+    <li class="tmp"><a href="../archive/2026-10-22.html">临时更新</a>        <span>2026 年 10 月 22 日</span><span class="aside">40 个项目</span></li>
     <li><a href="../archive/2026-10-19.html">第 5 期</a>        <span>2026 年 10 月 19 日</span><span class="aside">39 个项目</span></li>
     <li><span class="cur" aria-current="page">第 4 期</span><span class="aside">本页</span>        <span>2026 年 10 月 12 日</span><span class="aside">34 个项目</span></li>
     <li><a href="../archive/2026-10-05.html">第 3 期</a>        <span>2026 年 10 月 5 日</span><span class="aside">33 个项目</span></li>
@@ -902,7 +898,7 @@ make test</code></pre><button type="button" data-copy aria-label="复制 FareedK
 <footer><div class="wrap"><div class="in">
   <p>数据来自 GitHub Search API，快照日期 2026-10-12；页内星数均为当日数值。介绍由 claude-sonnet-5 根据 README 生成，性能数字多为项目方自报。</p>
   <p>检索式：<code>ai OR llm OR agent OR gpt OR mcp OR claude created:&gt;=2026-07-14 stars:&gt;5000</code></p>
-  <p>每周一自动更新 · <a href="../feed.xml">RSS</a> · <a href="https://github.com/drgg/ai-trending-radar">源码</a> · 生成于 2026-10-19 · 设计规格见仓库 <code>design/issue/DESIGN.md</code></p>
+  <p>每周一自动更新 · <a href="../feed.xml">RSS</a> · <a href="https://github.com/drgg/ai-trending-radar">源码</a> · 生成于 2026-10-22 · 设计规格见仓库 <code>design/issue/DESIGN.md</code></p>
 </div></div></footer>
 
 <script>

@@ -73,6 +73,8 @@ section.blk{margin-top:48px}
 .callout .empty{font-size:14px;color:var(--ink-2)}
 .new-item{background:var(--accent-wash);border-radius:8px;padding:16px}
 .new-item+.new-item{margin-top:12px}
+.new-more{margin-top:4px;font-size:14px}
+.new-more .warn-n{font-size:13px;color:var(--warn-ink)}
 .tag{display:inline-block;font-size:13px;font-weight:600;line-height:1.5;padding:0 8px;border-radius:4px;white-space:nowrap}
 .tag.new{color:var(--accent);box-shadow:inset 0 0 0 1px currentColor}
 .tag.cat{color:var(--muted);box-shadow:inset 0 0 0 1px var(--line-strong);font-weight:400}
@@ -141,6 +143,33 @@ details[open]>summary .caret{transform:rotate(90deg);color:var(--muted)}
 .tmp-note{margin-top:16px;padding:8px 12px;background:var(--surface);border-radius:8px;font-size:14px;color:var(--ink-2)}
 .issues li.tmp{font-size:14px;color:var(--muted)}
 .issues li.tmp a{color:var(--muted)}
+/* 短期榜 */
+.stat-line{font-size:14px;color:var(--ink-2);margin:0 0 16px}
+.stat-line b{color:var(--ink);font-weight:600}
+.tier-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;margin:24px 0 0;padding-bottom:8px;border-bottom:1px solid var(--line-strong)}
+.tier-head h3{font-size:16px}
+.tier-head .aside{font-size:13px;color:var(--muted)}
+.young-stat{margin-top:12px}
+.tier-sub{font-size:13px;font-weight:600;color:var(--muted);margin:16px 0 0}
+.sub-blk+.sub-blk{margin-top:32px}
+.rk-list{list-style:none;margin:0;padding:0}
+.rk-list li{display:grid;grid-template-columns:1fr auto;gap:0 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.rk-list .nm{font-weight:600;overflow-wrap:anywhere}
+.rk-list .flags{display:inline-flex;gap:8px;margin-left:8px;vertical-align:1px}
+.rk-list .fig{text-align:right;white-space:nowrap;font-size:14px;color:var(--muted)}
+.rk-list .fig .g{color:var(--up);font-weight:600;font-size:16px}
+.rk-list .tl{grid-column:1/-1;font-size:14px;color:var(--ink-2);line-height:1.6}
+.rk-list .meta{grid-column:1/-1;font-size:13px;color:var(--muted)}
+.tag.accel{color:var(--up);box-shadow:inset 0 0 0 1px currentColor}
+.tag.main{color:var(--muted);box-shadow:inset 0 0 0 1px var(--line-strong);font-weight:400}
+details.more{margin-top:16px}
+details.more>summary{cursor:pointer;font-size:14px;color:var(--ink-2)}
+details.more>summary:hover{color:var(--accent)}
+details.more>.names,details.more>.stat-line{margin-top:12px}
+.names{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 24px;font-size:14px;line-height:1.6}
+.names li{overflow-wrap:anywhere}
+.names .g{color:var(--up)}
+.names .s{color:var(--muted)}
 .excluded{margin-top:24px;font-size:14px;color:var(--muted)}
 
 /* 往期 */
@@ -178,6 +207,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
 <script>document.documentElement.classList.add("js")</script>
 
 
+
 <header class="mast"><div class="wrap"><div class="mast-in">
   <div class="eyebrow">AI 热门项目周报</div>
   <h1>第 2 期</h1>
@@ -211,13 +241,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">编程 Agent 与运行框架</span>
         </div>
         <p class="tagline">超快浏览器操作 Agent，用动态索引动作空间替代截图驱动方案</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/browser-use/jev-ultrafast">GitHub ↗</a> · <a href="https://browser-use.com">主页 ↗</a>    · Python · MIT · 创建 2026-09-16 · 最后推送 2026-09-25
-  </p>
-<div class="f"><h4>定位</h4><p>一个浏览器自动化 Agent 框架，通过结构化 DOM 快照生成动态索引动作空间，一次网络请求内同时选出操作和目标元素，仅在需要输入文本时调用小型 LLM 生成内容，以降低延迟。</p></div><div class="f"><h4>能做什么</h4><ul><li>每次观察生成带编号的可操作元素表，动态定义可执行动作空间</li><li>操作预测与目标预测合并为一次 TypeSafe 网络请求，减少往返次数</li><li>默认不依赖截图，直接消费结构化页面状态，本地调试界面才启用截图</li><li>执行前校验目标元素页面新鲜度与遮挡情况，降低误操作风险</li><li>代码库精简，核心循环、DOM 快照、浏览器执行等模块均可直接阅读</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方数据：Google Flights 单程航班搜索任务7.1秒完成，含模型调用与页面加载等待</li><li>项目方数据：与对比版本相比，浏览器协议调用次数从1092次降至101次，任务耗时中位数下降25%</li></ul></div><div class="f"><h4>适合</h4><p>需要构建低延迟网页自动化/浏览器 Agent 的开发者，尤其关注减少模型调用和协议往返开销的团队</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>git clone https://github.com/browser-use/jev-ultrafast.git &amp;&amp; cd jev-ultrafast &amp;&amp; uv sync &amp;&amp; cp .env.example .env &amp;&amp; uv run jev</code></pre><button type="button" data-copy aria-label="复制 browser-use/jev-ultrafast 的上手命令">复制</button></div><p>需自行配置 TYPESAFE_API_KEY 和 TEXT_MODEL_API_KEY（如 OpenRouter），并通过 Browser Harness 连接 Chrome</p>  </div><ul class="notes" aria-label="提示"><li>自动化操作 Google Flights、Wikipedia 等第三方网站，可能受目标网站服务条款限制</li><li>依赖 TypeSafe 商业 API 和第三方文本模型服务，实际使用会产生外部 API 调用成本</li></ul></div>
-
+        <p class="new-more num"><a href="#browser-use/jev-ultrafast">完整介绍 →</a> · <span class="warn-n">⚠ 2 条提示</span></p>
       </article>
       <article class="new-item" aria-labelledby="new-2">
         <div class="item-title">
@@ -227,13 +251,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">编程 Agent 与运行框架</span>
         </div>
         <p class="tagline">Z.ai 出品的 AI 编程工作台，桌面、Web、终端三端合一的编码 Agent</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/zai-org/ZCode">GitHub ↗</a> · <a href="https://zcode.z.ai/">主页 ↗</a>    · TypeScript · Apache-2.0 · 创建 2026-09-20 · 最后推送 2026-09-24
-  </p>
-<div class="f"><h4>定位</h4><p>面向开发者的编程 Agent 工具，统一 zcode 命令支持 TUI 终端、本地 Web 界面和 Electron 桌面应用，本仓库开源客户端、后端服务与 Agent CLI/运行时源码。</p></div><div class="f"><h4>能做什么</h4><ul><li>单一 zcode 命令切换 TUI 终端、Web 界面和桌面应用三种形态</li><li>内置 HTTP/WebSocket 后端服务，支持本地和远程项目连接（SSH/WSL）</li><li>Web 模式支持局域网访问、端口自定义与访问令牌认证</li><li>提供 Agent 客户端 SDK、共享 UI 组件和 Provider 扩展能力</li><li>完整打包发布流程，含安装脚本、校验摘要和多平台桌面构建</li></ul></div><div class="f"><h4>亮点</h4><ul><li>同一套 Agent 运行时同时驱动桌面、Web、终端三种交互形态，架构统一</li><li>支持 SSH/WSL 远程开发场景，资源通过 SFTP 上传而非依赖公网 CDN</li></ul></div><div class="f"><h4>适合</h4><p>需要在终端、浏览器或桌面环境中使用 AI 编程 Agent 的开发者，以及希望自建或定制编码工具链的团队</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>pnpm bootstrap</code></pre><button type="button" data-copy aria-label="复制 zai-org/ZCode 的上手命令">复制</button></div><p>初始化后可用 pnpm dev:desktop 跑桌面版，或用 zcode / zcode --web 启动命令行发行包</p>  </div></div>
-
+        <p class="new-more num"><a href="#zai-org/ZCode">完整介绍 →</a></p>
       </article>
       <article class="new-item" aria-labelledby="new-3">
         <div class="item-title">
@@ -243,13 +261,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">AI 应用产品</span>
         </div>
         <p class="tagline">装在手机上的AI对话副驾：读懂聊天、给出候选回复，发不发由你决定</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/jev-chat/jev-chat-jarvis">GitHub ↗</a>    · Kotlin · MIT · 创建 2026-09-21 · 最后推送 2026-09-28
-  </p>
-<div class="f"><h4>定位</h4><p>Android无障碍服务读取QQ/X/飞书聊天界面，交给大模型判断意图并生成候选回复，一键填入输入框，发送与否由用户自己决定。</p></div><div class="f"><h4>能做什么</h4><ul><li>判断模型先分析对方意图、危险等级、是否该马上回，再起草3条候选回复</li><li>无障碍服务只读屏幕内容，不hook、不改包、不碰App账号或数据库</li><li>本地知识库与联系人档案，分析时自动带入命中的笔记和历史背景</li><li>判断/回复/视觉三路接口可分别配置，支持OpenRouter等多家模型预设</li><li>回复仅通过ACTION_SET_TEXT填入输入框，从不自动发送，不碰转账红包</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方称QQ、X真机全链路跑通，飞书靠离线OCR兜底；微信Android版已下架故不支持</li><li>密钥、知识库与截图OCR均在本机完成不上传，但触发分析时聊天内容会发给用户自配的模型服务商</li></ul></div><div class="f"><h4>适合</h4><p>使用QQ、X、飞书聊天，希望AI辅助分析对方意图并起草回复、但仍要自己决定是否发送的Android用户</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>adb install -r apk/jev-assistant-v1.4-release.apk</code></pre><button type="button" data-copy aria-label="复制 jev-chat/jev-chat-jarvis 的上手命令">复制</button></div><p>安装后需在设置中填入判断接口API Key（如OpenRouter），并开启无障碍、悬浮窗、自启动权限</p>  </div><ul class="notes" aria-label="提示"><li>触发分析时聊天文字及启用的背景信息会发送给用户自行配置的第三方模型服务商，存在隐私数据外传</li><li>通过无障碍服务读取聊天App界面内容并辅助生成回复，可能涉及相关平台服务条款合规问题</li></ul></div>
-
+        <p class="new-more num"><a href="#jev-chat/jev-chat-jarvis">完整介绍 →</a> · <span class="warn-n">⚠ 2 条提示</span></p>
       </article>
       <article class="new-item" aria-labelledby="new-4">
         <div class="item-title">
@@ -259,13 +271,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">Agent 平台与基础设施</span>
         </div>
         <p class="tagline">开源的智能体持续自我进化基础设施，连接推理、反馈、训练与版本发布</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/Human-Agent-Society/reef">GitHub ↗</a> · <a href="https://reefinfra.ai">主页 ↗</a>    · Python · Apache-2.0 · 创建 2026-08-31 · 最后推送 2026-09-28
-  </p>
-<div class="f"><h4>定位</h4><p>Reef 是首个开源的持续自我进化智能体基础设施，把推理服务、反馈收集、训练学习、版本发布整合成闭环，支持训练模型权重或优化智能体harness两种进化路径。</p></div><div class="f"><h4>能做什么</h4><ul><li>四步闭环：提供推理服务、匹配用户反馈、生成候选更新、评估后发布新版本</li><li>支持用Slime、SGLang训练模型权重，或优化harness的提示词、规则与技能</li><li>推理接口兼容OpenAI与Anthropic格式，可直接接入/v1/chat/completions</li><li>内置Reefine等多种recipe，覆盖科学发现、连续任务学习、真实使用反馈等场景</li><li>更新期间保持服务在线，具备版本历史管理与回滚能力</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方数据：在AIME2025、Terminal-Bench、IMOAnswerBench等基准上验证了多个recipe的改进效果</li><li>宣称是唯一兼具在线推理、权重训练、版本管理与harness进化四种能力的开源框架</li></ul></div><div class="f"><h4>适合</h4><p>需要让智能体从真实交互中持续学习的AI工程师，以及需要做RL训练或优化coding agent harness的团队</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>uv pip install reef-infra</code></pre><button type="button" data-copy aria-label="复制 Human-Agent-Society/reef 的上手命令">复制</button></div><p>需先用uv创建并激活虚拟环境；权重训练需配套GPU栈，harness进化只需一个模型API即可体验</p>  </div><ul class="notes" aria-label="提示"><li>harness自我进化功能会让模型以coding agent身份自动修改并执行代码变更，需在沙箱或可信环境中运行</li></ul></div>
-
+        <p class="new-more num"><a href="#Human-Agent-Society/reef">完整介绍 →</a> · <span class="warn-n">⚠ 1 条提示</span></p>
       </article>
       <article class="new-item" aria-labelledby="new-5">
         <div class="item-title">
@@ -275,13 +281,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">其他</span>
         </div>
         <p class="tagline">从硬件约束与模型架构出发，量化推导 LLM 推理训练系统设计的开源书稿</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/bojieli/ai-infra-book">GitHub ↗</a> · <a href="https://bojieli.github.io/ai-infra-book/">主页 ↗</a>    · Python · Apache-2.0 · 创建 2026-08-22 · 最后推送 2026-09-26
-  </p>
-<div class="f"><h4>定位</h4><p>《深入理解 AI Agent》作者的姊妹篇，用量化估算方法系统讲解 LLM 推理与训练系统设计，覆盖加速器、算子、网络、调度等十二章内容，配套计算工具与实验代码。</p></div><div class="f"><h4>能做什么</h4><ul><li>十二章覆盖模型架构、加速器、算子运行时、数据中心网络、推理与训练系统等主题</li><li>配套 Python 计算工具可复算书中数字，也可替换模型和硬件重新估算</li><li>按章节组织实验代码与运行记录，需 GPU 的实验注明硬件与依赖</li><li>提供简体中文、英文、繁体中文三语 PDF、EPUB 及在线阅读版本</li><li>全书正文为 Markdown，持续开源修订，欢迎勘误与翻译贡献</li></ul></div><div class="f"><h4>亮点</h4><ul><li>姊妹篇《深入理解 AI Agent》在 GitHub 获得 45k+ Star（项目方数据）</li><li>方法论强调&#34;从约束推导设计&#34;：先算硬件理论上限，再对照实测找差距来源</li></ul></div><div class="f"><h4>适合</h4><p>已调用或部署过大模型、想弄清推理训练系统底层原理的应用工程师、系统/网络/芯片工程师及相关研究者</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>git clone https://github.com/bojieli/ai-infra-book.git</code></pre><button type="button" data-copy aria-label="复制 bojieli/ai-infra-book 的上手命令">复制</button></div><p>克隆后可用 calc.py 复算书中算例，静态计算仅需 Python 3.10+ 标准库，无需 GPU 或模型权重</p>  </div></div>
-
+        <p class="new-more num"><a href="#bojieli/ai-infra-book">完整介绍 →</a></p>
       </article>
       <article class="new-item" aria-labelledby="new-6">
         <div class="item-title">
@@ -291,13 +291,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">Agent 平台与基础设施</span>
         </div>
         <p class="tagline">腾讯云出品的自托管多用户多智能体 AI 助手</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/TencentCloud/Octop">GitHub ↗</a> · <a href="https://octop.cloud">主页 ↗</a>    · Python · MIT · 创建 2026-07-08 · 最后推送 2026-09-28
-  </p>
-<div class="f"><h4>定位</h4><p>面向家庭和小团队的自托管 AI 助手平台，单进程运行 Web 控制台、CLI、IM 渠道和定时任务，数据全部留在本地。</p></div><div class="f"><h4>能做什么</h4><ul><li>多用户专家团队，管理员统一分配，内置专家库和专家市场</li><li>支持飞书、钉钉、QQ、微信、Telegram、Discord、企业微信等 IM 渠道接入</li><li>可插拔工作区后端：本地磁盘、Docker 沙盒、PostgreSQL 或 COS/S3</li><li>ACP 双向集成，可调用或被 OpenCode、Claude Code 等外部编码 Agent 调用</li><li>内置浏览器自动化、远程桌面、终端 AI 及 RAG 知识库</li></ul></div><div class="f"><h4>亮点</h4><ul><li>单进程架构整合 Web、CLI、IM、定时任务，重启后从控制面数据库完整恢复状态</li><li>记忆随工作区迁移，配合专家共享池和 MBTI 人格模板打造差异化 Agent</li></ul></div><div class="f"><h4>适合</h4><p>希望自建私有 AI 助手的开发者、注重数据隐私的家庭用户及需要跨 IM 协同的小团队</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>curl -fsSL https://finnie-1258344699.cos.ap-guangzhou.myqcloud.com/octop/install.sh | bash</code></pre><button type="button" data-copy aria-label="复制 TencentCloud/Octop 的上手命令">复制</button></div><p>安装脚本自动用 uv 配置 Python 3.12 虚拟环境，也提供桌面客户端安装包和 FnOS NAS 版本。</p>  </div></div>
-
+        <p class="new-more num"><a href="#TencentCloud/Octop">完整介绍 →</a></p>
       </article>
       <article class="new-item" aria-labelledby="new-7">
         <div class="item-title">
@@ -307,13 +301,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">Skills 与写作/设计</span>
         </div>
         <p class="tagline">面向求职场景的九个 AI Skill 插件包，覆盖简历、投递、面试全流程</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/Hisn00w/ASu-skills">GitHub ↗</a>    · HTML · MIT · 创建 2026-08-12 · 最后推送 2026-09-28
-  </p>
-<div class="f"><h4>定位</h4><p>面向 Claude Code、Codex 等 AI Agent 平台的求职技能插件包，提供从开源贡献积累经历、简历制作、岗位匹配到投递填表、面试演练、进度管理的九个可单独调用入口。</p></div><div class="f"><h4>能做什么</h4><ul><li>/contributor 寻找开源问题、核对贡献规则后辅助提交 PR 积累经历</li><li>/great-resume 与 /make-resume 完成岗位定位改写并生成可编辑 HTML 简历</li><li>/job-match 对照 JD 生成要求-证据矩阵和投递建议</li><li>/job-apply 连接浏览器自动填写招聘申请表，停在提交前供用户核对</li><li>/interview 与 /offer 支持追问式面试演练和校招投递进度跟踪</li></ul></div><div class="f"><h4>亮点</h4><ul><li>同时支持 Codex、Claude Code、TraeWork、Qoder、Cursor 等多平台安装</li><li>强调事实边界，不编造经历数据，关键操作均需用户逐项确认后才提交</li></ul></div><div class="f"><h4>适合</h4><p>求职中的学生和开发者，尤其是需要系统整理项目经历、制作简历、准备面试的求职者</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>/plugin marketplace add Hisn00w/ASu-skills</code></pre><button type="button" data-copy aria-label="复制 Hisn00w/ASu-skills 的上手命令">复制</button></div><p>适用于 Claude Code，安装后执行 /plugin install asu-skills@asu 并按提示 reload-plugins</p>  </div><ul class="notes" aria-label="提示"><li>/job-apply 涉及自动化操作已登录浏览器填写招聘网站表单，需留意平台服务条款风险</li><li>/contributor 会代为提交开源 PR，需确保符合目标仓库的贡献规范，避免滥用</li></ul></div>
-
+        <p class="new-more num"><a href="#Hisn00w/ASu-skills">完整介绍 →</a> · <span class="warn-n">⚠ 2 条提示</span></p>
       </article>
       <article class="new-item" aria-labelledby="new-8">
         <div class="item-title">
@@ -323,13 +311,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">AI 应用产品</span>
         </div>
         <p class="tagline">本地优先、模型无关的开源 AI 科研工作台桌面应用</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/aipoch/open-science">GitHub ↗</a> · <a href="https://aipoch.com/open-science">主页 ↗</a>    · TypeScript · Apache-2.0 · 创建 2026-07-03 · 最后推送 2026-09-28
-  </p>
-<div class="f"><h4>定位</h4><p>面向科研人员的桌面级研究工作台，用自然语言描述研究目标，由 AI 智能体调用工具、执行代码、查询科研数据，产出可追溯证据链的报告与图表。</p></div><div class="f"><h4>能做什么</h4><ul><li>内置23个科学技能，另有525个技能可从市场一键安装</li><li>24个内置连接器，支持自定义本地/远程MCP连接器</li><li>本地运行Python/R Notebook，支持SSH远程与Slurm提交</li><li>产物版本不可变并附带溯源信息，可查看生成代码与执行证据</li><li>可选Reviewer自动复核代理执行结果，给出通过/警告/失败判定</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方数据：在BiomniBench-DA Public 50对比中以79.05分排名第一</li><li>文献库支持PDF管理、开放获取全文查找及图表提取</li></ul></div><div class="f"><h4>适合</h4><p>从事计算与数据密集型研究的科学家和研究者，涵盖生命科学、化学、材料、物理、环境科学等领域</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>brew install --cask open-science</code></pre><button type="button" data-copy aria-label="复制 aipoch/open-science 的上手命令">复制</button></div><p>macOS可用Homebrew安装，其余平台从官网下载对应安装包，完成设置向导后即可创建项目开始研究</p>  </div></div>
-
+        <p class="new-more num"><a href="#aipoch/open-science">完整介绍 →</a></p>
       </article>
     </div>
 
@@ -358,6 +340,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
     </div>
   </div>
 </section>
+
 
 <section class="blk" id="editorial" aria-labelledby="h-ed">
   <div class="blk-head"><h2 id="h-ed">编者按</h2><span class="aside">由 claude-sonnet-5 读完本期全部项目后归纳，点项目名看详情</span></div>
@@ -895,6 +878,7 @@ npm run server</code></pre><button type="button" data-copy aria-label="复制 el
 <section class="blk" id="issues" aria-labelledby="h-issues">
   <div class="blk-head"><h2 id="h-issues">往期</h2></div>
   <ol class="issues num">
+    <li class="tmp"><a href="../archive/2026-10-22.html">临时更新</a>        <span>2026 年 10 月 22 日</span><span class="aside">40 个项目</span></li>
     <li><a href="../archive/2026-10-19.html">第 5 期</a>        <span>2026 年 10 月 19 日</span><span class="aside">39 个项目</span></li>
     <li><a href="../archive/2026-10-12.html">第 4 期</a>        <span>2026 年 10 月 12 日</span><span class="aside">34 个项目</span></li>
     <li><a href="../archive/2026-10-05.html">第 3 期</a>        <span>2026 年 10 月 5 日</span><span class="aside">33 个项目</span></li>
@@ -909,7 +893,7 @@ npm run server</code></pre><button type="button" data-copy aria-label="复制 el
 <footer><div class="wrap"><div class="in">
   <p>数据来自 GitHub Search API，快照日期 2026-09-28；页内星数均为当日数值。介绍由 claude-sonnet-5 根据 README 生成，性能数字多为项目方自报。</p>
   <p>检索式：<code>ai OR llm OR agent OR gpt OR mcp OR claude created:&gt;=2026-06-30 stars:&gt;5000</code></p>
-  <p>每周一自动更新 · <a href="../feed.xml">RSS</a> · <a href="https://github.com/drgg/ai-trending-radar">源码</a> · 生成于 2026-10-19 · 设计规格见仓库 <code>design/issue/DESIGN.md</code></p>
+  <p>每周一自动更新 · <a href="../feed.xml">RSS</a> · <a href="https://github.com/drgg/ai-trending-radar">源码</a> · 生成于 2026-10-22 · 设计规格见仓库 <code>design/issue/DESIGN.md</code></p>
 </div></div></footer>
 
 <script>

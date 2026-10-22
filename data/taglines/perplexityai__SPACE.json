@@ -1,0 +1,6 @@
+{
+ "tagline": "面向 Agent 代码执行的可插拔沙箱平台，隔离运行 AI 生成的代码",
+ "is_ai_product": true,
+ "generated_at": "2026-10-22",
+ "model": "claude-sonnet-5"
+}

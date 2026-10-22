@@ -1,0 +1,25 @@
+{
+  "audience": "希望自托管、可自选模型与沙箱环境的开发者及注重数据自主权的个人用户",
+  "category": "Agent 平台与基础设施",
+  "features": [
+    "机器人拥有独立对话、记忆、例行任务和历史记录，持久在线运行",
+    "可选语音模式，需自备ElevenLabs、OpenAI、Cartesia或Fish Audio密钥",
+    "提供共享Team Computer与隔离Private Computer两类沙箱环境",
+    "机器人具备浏览器、终端、文件及图形化桌面操作能力",
+    "可通过Composio、Pipedream Connect、远程MCP、OpenAPI等方式接入第三方应用"
+  ],
+  "highlights": [
+    "支持Docker、E2B、Daytona、CreateOS、Boat等多种沙箱计算机后端，可自选模型与计算资源提供商",
+    "提供发布镜像一键自托管部署，也支持从源码本地开发运行"
+  ],
+  "is_ai_product": true,
+  "positioning": "Rakazo是开源自托管AI智能体平台，提供持久化\"队友\"机器人，可在网页、Electron桌面端、iOS和Android上使用，自带或连接模型与沙箱计算机资源，作为Grok Bot、Meta Muse等产品的开源替代。",
+  "quickstart_cmd": "mkdir -p rakazo && cd rakazo && curl -fsSLO https://raw.githubusercontent.com/elie222/rakazo/main/infra/compose/install-images.sh && bash install-images.sh",
+  "quickstart_note": "使用Docker发布镜像自动安装，启动后访问127.0.0.1:5173创建账号并连接模型即可使用。",
+  "risks": [],
+  "tagline": "开源自托管AI助理机器人平台，可自选模型与沙箱计算机，Grok Bot等产品的开源替代。",
+  "readme_sha": "45c474b044f22abe77b6467f8dfdecde862f53a5",
+  "generated_at": "2026-10-22",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}

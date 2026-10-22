@@ -1,0 +1,27 @@
+{
+  "audience": "使用 Claude Code 制作短片、动态图形或风格化视觉内容的创作者和开发者",
+  "category": "Skills 与写作/设计",
+  "features": [
+    "内置59种现成影片风格，涵盖手绘、东亚传统、版画、信息图、动画等多个类别",
+    "画面用 Canvas/WebGL 逐帧代码渲染，配乐取自免费样本库，旁白用文字转语音合成",
+    "不使用视频生成模型，也不使用实拍素材，画面、音乐、配音全部由代理写代码生成",
+    "可选把现成风格改造成专属风格，或从空白页定制新风格并保存到本地复用",
+    "作为 Claude Code 插件/技能安装，在终端用一句话描述题材和风格即可生成影片"
+  ],
+  "highlights": [
+    "风格提示专为 Claude Opus 5.5 调优，README 提示其他模型可能难以还原效果",
+    "项目方数据：制作一部影片约需代理 30-60 分钟及较多 token 消耗"
+  ],
+  "is_ai_product": true,
+  "positioning": "面向 Claude Code 的影片风格工具箱，提供 59 种预制风格供直接使用，也支持改造现有风格或从零定制专属风格；每种风格含风格提示词及一部完全由代码绘制的演示片。",
+  "quickstart_cmd": "claude plugin marketplace add lemomo-ai/lemo-opuscar",
+  "quickstart_note": "需再执行 claude plugin install lemo-opuscar@lemolab；首次使用会把风格库下载到 ~/lemo-opuscar",
+  "risks": [
+    "部分示例影片的旁白音轨（Edge TTS、Doubao TTS 等）未采用 CC BY 4.0 许可，README 明确要求不要复用，素材版权责任需用户自行承担"
+  ],
+  "tagline": "Claude Code 插件：59 种影片风格，均由 Claude Opus 5.5 写代码生成演示片",
+  "readme_sha": "1b1a4ccb38cc0073a37491f476ffd695f5550ec2",
+  "generated_at": "2026-10-22",
+  "prompt_version": 4,
+  "model": "claude-sonnet-5"
+}

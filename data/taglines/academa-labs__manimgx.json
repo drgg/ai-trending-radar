@@ -1,0 +1,6 @@
+{
+ "tagline": "兼容 Manim API 的 Rust GPU 动画引擎，供 Agent 快速渲染数学/3D 视频",
+ "is_ai_product": false,
+ "generated_at": "2026-10-22",
+ "model": "claude-sonnet-5"
+}

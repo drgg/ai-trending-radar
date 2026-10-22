@@ -1,0 +1,6 @@
+{
+ "tagline": "0.8B~27B 开源决策模型，一次推理给出校准概率，支持多种推理引擎",
+ "is_ai_product": true,
+ "generated_at": "2026-10-22",
+ "model": "claude-sonnet-5"
+}

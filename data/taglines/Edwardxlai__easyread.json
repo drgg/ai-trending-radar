@@ -1,0 +1,6 @@
+{
+ "tagline": "本地 PDF 英文论文翻译工具，中英对照并支持边读边问 AI",
+ "is_ai_product": true,
+ "generated_at": "2026-10-22",
+ "model": "claude-sonnet-5"
+}

@@ -73,6 +73,8 @@ section.blk{margin-top:48px}
 .callout .empty{font-size:14px;color:var(--ink-2)}
 .new-item{background:var(--accent-wash);border-radius:8px;padding:16px}
 .new-item+.new-item{margin-top:12px}
+.new-more{margin-top:4px;font-size:14px}
+.new-more .warn-n{font-size:13px;color:var(--warn-ink)}
 .tag{display:inline-block;font-size:13px;font-weight:600;line-height:1.5;padding:0 8px;border-radius:4px;white-space:nowrap}
 .tag.new{color:var(--accent);box-shadow:inset 0 0 0 1px currentColor}
 .tag.cat{color:var(--muted);box-shadow:inset 0 0 0 1px var(--line-strong);font-weight:400}
@@ -141,6 +143,33 @@ details[open]>summary .caret{transform:rotate(90deg);color:var(--muted)}
 .tmp-note{margin-top:16px;padding:8px 12px;background:var(--surface);border-radius:8px;font-size:14px;color:var(--ink-2)}
 .issues li.tmp{font-size:14px;color:var(--muted)}
 .issues li.tmp a{color:var(--muted)}
+/* 短期榜 */
+.stat-line{font-size:14px;color:var(--ink-2);margin:0 0 16px}
+.stat-line b{color:var(--ink);font-weight:600}
+.tier-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;margin:24px 0 0;padding-bottom:8px;border-bottom:1px solid var(--line-strong)}
+.tier-head h3{font-size:16px}
+.tier-head .aside{font-size:13px;color:var(--muted)}
+.young-stat{margin-top:12px}
+.tier-sub{font-size:13px;font-weight:600;color:var(--muted);margin:16px 0 0}
+.sub-blk+.sub-blk{margin-top:32px}
+.rk-list{list-style:none;margin:0;padding:0}
+.rk-list li{display:grid;grid-template-columns:1fr auto;gap:0 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.rk-list .nm{font-weight:600;overflow-wrap:anywhere}
+.rk-list .flags{display:inline-flex;gap:8px;margin-left:8px;vertical-align:1px}
+.rk-list .fig{text-align:right;white-space:nowrap;font-size:14px;color:var(--muted)}
+.rk-list .fig .g{color:var(--up);font-weight:600;font-size:16px}
+.rk-list .tl{grid-column:1/-1;font-size:14px;color:var(--ink-2);line-height:1.6}
+.rk-list .meta{grid-column:1/-1;font-size:13px;color:var(--muted)}
+.tag.accel{color:var(--up);box-shadow:inset 0 0 0 1px currentColor}
+.tag.main{color:var(--muted);box-shadow:inset 0 0 0 1px var(--line-strong);font-weight:400}
+details.more{margin-top:16px}
+details.more>summary{cursor:pointer;font-size:14px;color:var(--ink-2)}
+details.more>summary:hover{color:var(--accent)}
+details.more>.names,details.more>.stat-line{margin-top:12px}
+.names{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 24px;font-size:14px;line-height:1.6}
+.names li{overflow-wrap:anywhere}
+.names .g{color:var(--up)}
+.names .s{color:var(--muted)}
 .excluded{margin-top:24px;font-size:14px;color:var(--muted)}
 
 /* 往期 */
@@ -178,10 +207,11 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
 <script>document.documentElement.classList.add("js")</script>
 
 
+
 <header class="mast"><div class="wrap"><div class="mast-in">
   <div class="eyebrow">AI 热门项目周报</div>
   <h1>第 5 期</h1>
-  <p class="dateline num">2026 年 10 月 19 日</p>
+  <p class="dateline num">2026 年 10 月 19 日 · 这是存档，<a href="../index.html">看最新一期 →</a></p>
   <dl class="props num">
     <dt>收录</dt>
     <dd>2026-07-21 至 2026-10-19 创建、Stars &gt; 5,000 的 AI 项目，共 39 个</dd>
@@ -211,13 +241,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">Skills 与写作/设计</span>
         </div>
         <p class="tagline">让 Claude Code 等编码 Agent 把技术概念画成可交互等轴测插图的 Skill</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/wheresryan22/anatomy">GitHub ↗</a> · <a href="https://skills.wheresryan.sh/anatomy">主页 ↗</a>    · JavaScript · MIT · 创建 2026-10-08 · 最后推送 2026-10-18
-  </p>
-<div class="f"><h4>定位</h4><p>Anatomy 是一个 Agent Skill，供 Claude Code、Codex、OpenCode 等编码 Agent 调用，根据用户描述的技术概念自动构造对应的物理机械，生成可交互的等轴测插图。</p></div><div class="f"><h4>能做什么</h4><ul><li>把技术概念转化为对应的物理机械等轴测插图，如缓存命中变成指销锁</li><li>用数十个实色阴影部件拼装，置于带标题、提示和实时数值的卡片中</li><li>支持纯 SVG、SVG+WebGL 特效（火焰/水波等）、beta 版真 3D 旋转部件三种形式</li><li>构建后启动无头 Chrome 自动放大检查每个关节，核实图形正确性</li><li>可产出 standalone HTML、独立 SVG 文件或 React/Next.js 组件源码</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方称无需 API Key、无需 npm install，仅依赖 Node 内置模块</li><li>同时支持 Claude Code、Antigravity、OpenCode、Codex、MiniMax Code 五种编码 Agent</li></ul></div><div class="f"><h4>适合</h4><p>需要为技术文档、博客或产品页制作讲解性插图的开发者，尤其是 Claude Code 等编码 Agent 用户</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>npx skills add wheresryan22/anatomy -g</code></pre><button type="button" data-copy aria-label="复制 wheresryan22/anatomy 的上手命令">复制</button></div><p>安装后在 Claude Code 等终端输入 /anatomy 并描述要讲解的技术概念即可生成插图</p>  </div></div>
-
+        <p class="new-more num"><a href="#wheresryan22/anatomy">完整介绍 →</a></p>
       </article>
       <article class="new-item" aria-labelledby="new-2">
         <div class="item-title">
@@ -227,13 +251,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">AI 应用产品</span>
         </div>
         <p class="tagline">免费开源、本地优先的跨平台视频剪辑软件，CapCut 替代品</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/jub0t/Concat">GitHub ↗</a> · <a href="https://concat.standalones.org">主页 ↗</a>    · Rust · AGPL-3.0 · 创建 2026-08-25 · 最后推送 2026-10-19
-  </p>
-<div class="f"><h4>定位</h4><p>面向创作者的免费开源视频编辑器，覆盖字幕、配音、抠像、关键帧、特效等常见剪辑需求，全部本地运行，无水印无订阅，内置 MCP 服务器和 JSON-RPC API 供脚本和 AI Agent 调用。</p></div><div class="f"><h4>能做什么</h4><ul><li>本地 Whisper 自动生成字幕，可选模型大小</li><li>文本转语音及语音克隆，几秒录音即可克隆音色</li><li>背景/人物抠像，支持自动识别或手动涂抹蒙版</li><li>关键帧动画与曲线编辑器，支持位置、缩放、透明度等参数</li><li>100 种 GPU 渲染特效、滤镜与转场，预览实时生效</li></ul></div><div class="f"><h4>亮点</h4><ul><li>无水印、无需账号、无订阅，素材不上传，可完全离线使用</li><li>内置 MCP 服务器和 JSON-RPC API，可供 Claude 等 AI Agent 或脚本直接驱动剪辑</li><li>Rust 原生引擎配合 GPU 合成器，支持代理文件和硬件解码，4K 素材可流畅拖动</li></ul></div><div class="f"><h4>适合</h4><p>需要免费、无水印、离线剪辑短视频或视频的创作者，以及想用脚本或 AI Agent 自动化剪辑流程的开发者。</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>cargo run -p concat</code></pre><button type="button" data-copy aria-label="复制 jub0t/Concat 的上手命令">复制</button></div><p>需先安装 Rust 1.93+、FFmpeg 7+ 开发库、cmake 及 C++ 编译器，在 src 目录下执行；也可从官网下载安装包。</p>  </div></div>
-
+        <p class="new-more num"><a href="#jub0t/Concat">完整介绍 →</a></p>
       </article>
       <article class="new-item" aria-labelledby="new-3">
         <div class="item-title">
@@ -243,13 +261,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">Skills 与写作/设计</span>
         </div>
         <p class="tagline">收录用Claude Opus 5.5生成的病毒视频及对应提示词的清单</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/yihui-dev/awesome-opus5-5-videos">GitHub ↗</a> · <a href="https://skillry.dev/ai-videos/opus-5-5">主页 ↗</a>    · 语言未标注 · MIT · 创建 2026-09-27 · 最后推送 2026-10-13
-  </p>
-<div class="f"><h4>定位</h4><p>持续更新的开源清单，收集创作者用Claude Opus 5.5生成病毒视频时所用的提示词，并在Skillry网站提供原视频与AI复刻版对比观看。</p></div><div class="f"><h4>能做什么</h4><ul><li>收录703条提示词，其中418条在Skillry网站配有实时复刻视频</li><li>按动效、解说、3D场景、游戏互动等类别整理</li><li>每条提示词附带创作者原始发布帖子的链接</li><li>提示词可直接复制给Claude Opus 5.5等agent，生成HTML/Canvas/SVG/Three.js动画代码</li><li>定期更新，最近一次新增10个视频和285条提示词</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目方数据：已收录703条提示词，其中418条配有Skillry网站实时复刻视频</li></ul></div><div class="f"><h4>适合</h4><p>想获取Claude等AI生成创意动画、动效视频灵感的开发者、创意编程爱好者和内容创作者</p></div><div class="f"><h4>上手</h4>
-<p>打开prompts目录下的提示词文件，复制Prompt内容粘贴给Claude Opus 5.5使用</p>  </div><ul class="notes" aria-label="提示"><li>视频和提示词版权归原创作者所有，仓库仅托管简短预览片段，使用时需注意版权归属</li></ul></div>
-
+        <p class="new-more num"><a href="#yihui-dev/awesome-opus5-5-videos">完整介绍 →</a> · <span class="warn-n">⚠ 1 条提示</span></p>
       </article>
       <article class="new-item" aria-labelledby="new-4">
         <div class="item-title">
@@ -259,13 +271,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">开发者工具与集成</span>
         </div>
         <p class="tagline">为 Claude 提供的免费 SEO MCP 服务器，配套开源 SEO/GEO 技能包</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/Ryze-AI-Adgent/open-seo-mcp-skills">GitHub ↗</a> · <a href="https://www.get-ryze.ai/how-to-connect-claude-to-google-meta-ads-mcp">主页 ↗</a>    · Shell · MIT · 创建 2026-08-29 · 最后推送 2026-10-13
-  </p>
-<div class="f"><h4>定位</h4><p>基于 MCP 协议的 SEO 数据连接器，搭配 MIT 协议的 Claude Skills，用用户自己的 Google Search Console、GA4、Google Ads 数据而非估算数据做关键词研究、排名追踪、审计、反链和 AI 可见度分析，DataForSEO 补充…</p></div><div class="f"><h4>能做什么</h4><ul><li>提供 seo-audit、keyword-research、rank-tracking 等8个 Claude Skills，覆盖审计、选词…</li><li>排名数据来自用户真实 Google Search Console，流量数据来自真实 GA4，而非 SERP 抓取估算</li><li>关键词搜索量取自 Google Ads 关键词规划师，竞品关键词、反链、SERP 数据内置 DataForSEO 接口</li><li>ai-visibility 技能读取 GA4 的 AI 引荐流量报告，识别 ChatGPT、Perplexity、Claude、Gemin…</li><li>可选连接已有订阅的 Ahrefs、Semrush 数据源</li></ul></div><div class="f"><h4>亮点</h4><ul><li>README 称多数“开源 SEO 工具”只是 DataForSEO API 的壳，托管版会在每次调用上加收约28%费用（项目方说法）</li><li>连接器免费接入、技能代码 MIT 开源，数据通过用户自己连接的 GSC/GA4/广告账号获取，不额外加价</li></ul></div><div class="f"><h4>适合</h4><p>使用 Claude Code/Desktop 的 SEO 从业者和营销开发者，希望基于自身 Google 数据而非估算做排名与内容分析</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>claude mcp add ryze --transport http https://connector.get-ryze.ai/mcp</code></pre><button type="button" data-copy aria-label="复制 Ryze-AI-Adgent/open-seo-mcp-skills 的上手命令">复制</button></div><p>添加连接器后需 Google 登录并授权 Search Console/GA4/广告账号，再安装 open-seo-mcp-skills 插件使用</p>  </div><ul class="notes" aria-label="提示"><li>需要将 Google Search Console、GA4、Google Ads 等账号数据连接至第三方 Ryze 云端服务，涉及真实业务数据外传</li></ul></div>
-
+        <p class="new-more num"><a href="#Ryze-AI-Adgent/open-seo-mcp-skills">完整介绍 →</a> · <span class="warn-n">⚠ 1 条提示</span></p>
       </article>
       <article class="new-item" aria-labelledby="new-5">
         <div class="item-title">
@@ -275,17 +281,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
           <span class="tag cat">Agent 平台与基础设施</span>
         </div>
         <p class="tagline">开源的常驻 AI 坐席模板，每个 Dot 拥有专属电脑，支持网页、通话与 Slack 协作</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/CopilotKit/OpenDots">GitHub ↗</a> · <a href="https://www.copilotkit.ai/opendots">主页 ↗</a>    · TypeScript · MIT · 创建 2026-09-29 · 最后推送 2026-10-15
-  </p>
-<div class="f"><h4>定位</h4><p>OpenDots 是基于 CopilotKit 和 AG-UI 构建的开源模板，用于搭建具有持久记忆、独立浏览器与文件系统的专属 AI 代理（Dot），需自行部署和配置基础设施，而非现成产品。</p></div><div class="f"><h4>能做什么</h4><ul><li>Spaces 文档工作区：浏览、编辑页面，支持嵌套子页面及网格/列表视图切换</li><li>Specialist Dots：自定义名称、角色、指令和可用工具的专属代理</li><li>Dot computers：每个 Dot 可配备容器化电脑，支持浏览器、文件和终端操作（需配置 OpenBot）</li><li>人工审核：保存页面或执行非只读工具前弹出批准/拒绝卡片，需人工确认</li><li>支持文字对话、语音通话和 Slack 提及三种交互方式</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目是可自部署的开源模板而非托管产品，仍处于早期开发阶段</li><li>Dot 电脑功能需额外搭建 OpenBot 等服务，未配置时不会在主机上执行任何命令</li></ul></div><div class="f"><h4>适合</h4><p>需要搭建可定制、持久化 AI 代理工作流的开发者和技术团队，愿意自行部署和配置基础设施</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>git clone https://github.com/CopilotKit/OpenDots.git
-cd OpenDots
-npm ci
-cp .env.example .env
-npm run dev</code></pre><button type="button" data-copy aria-label="复制 CopilotKit/OpenDots 的上手命令">复制</button></div><p>启动后访问 http://127.0.0.1:5173，创建 Space 和 Dot；需另配置 Intelligence 项目与模型才能开始对话</p>  </div><ul class="notes" aria-label="提示"><li>核心功能包含浏览器自动化操作第三方网页，并可通过 Composio 操作用户的邮箱、日历等真实账号，存在服务条款风险</li><li>默认情况下，网页搜索查询会发送给 Parallel，托管模式下对话消息发送至 CopilotKit 云端，涉及用户数据外发第三方</li></ul></div>
-
+        <p class="new-more num"><a href="#CopilotKit/OpenDots">完整介绍 →</a> · <span class="warn-n">⚠ 2 条提示</span></p>
       </article>
       <article class="new-item" aria-labelledby="new-6">
         <div class="item-title">
@@ -295,12 +291,7 @@ npm run dev</code></pre><button type="button" data-copy aria-label="复制 Copil
           <span class="tag cat">开发者工具与集成</span>
         </div>
         <p class="tagline">常驻 Mac 刘海/灵动岛的小伙伴，实时监控并批准 Claude Code、Codex 等 AI 编程代理</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/Louis-CFM/coucou">GitHub ↗</a> · <a href="https://louis-cfm.github.io/coucou/">主页 ↗</a>    · Swift · MIT · 创建 2026-09-27 · 最后推送 2026-10-18
-  </p>
-<div class="f"><h4>定位</h4><p>一款开源 Mac/Windows/Linux 常驻应用，在刘海或屏幕顶部显示 AI 编程代理的运行状态，可直接批准权限请求，并通过 iPhone/Android 远程操作。</p></div><div class="f"><h4>能做什么</h4><ul><li>实时显示 Claude Code、Codex、Cursor、Gemini CLI 等代理的会话、文件修改和命令执行步骤</li><li>在刘海/灵动岛内一键 Allow/Deny 权限请求，支持 AskUserQuestion 单选或多选</li><li>iPhone 端通过 Live Activity 和锁屏通知远程批准权限，需 Face ID 确认</li><li>可选的 Flow 语音输入功能，支持系统识别或离线 Parakeet 识别（仅 Apple 芯片）</li><li>可选的通话录音转写、摘要与待办事项提取（Notetaker），完成后自动删除音频</li></ul></div><div class="f"><h4>亮点</h4><ul><li>代码以 MIT 协议开源，角色 Mochi 的名称、形象和音效版权保留给作者</li><li>iPhone 会话通过用户私有 iCloud CloudKit 同步，项目名、命令和问题均加密，不经过 Coucou 自家服务器</li></ul></div><div class="f"><h4>适合</h4><p>使用 Claude Code、Codex、Cursor 等 AI 编程代理的开发者，尤其是习惯用 Mac 刘海/灵动岛交互的用户</p></div><ul class="notes" aria-label="提示"><li>Notetaker 通话录音转写功能需自行告知通话对象正在录音，以符合当地录音同意相关法规</li></ul></div>
-
+        <p class="new-more num"><a href="#Louis-CFM/coucou">完整介绍 →</a> · <span class="warn-n">⚠ 1 条提示</span></p>
       </article>
       <article class="new-item" aria-labelledby="new-7">
         <div class="item-title">
@@ -310,13 +301,7 @@ npm run dev</code></pre><button type="button" data-copy aria-label="复制 Copil
           <span class="tag cat">AI 应用产品</span>
         </div>
         <p class="tagline">开源个人代理应用，可操作浏览器、终端与文件，持续执行任务并保留工作记录</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/CopilotKit/openmuse">GitHub ↗</a>    · TypeScript · MIT · 创建 2026-09-15 · 最后推送 2026-10-15
-  </p>
-<div class="f"><h4>定位</h4><p>基于CopilotKit与AG-UI构建的个人智能代理开源模板，提供持久化浏览器、可选Linux终端和文件工作区，支持邮件、日历、PDF处理与财务追踪等任务，供团队自行部署和定制。</p></div><div class="f"><h4>能做什么</h4><ul><li>持久化Chromium浏览器配合可选隔离Linux终端，可浏览网页、执行命令、管理文件和传输PDF</li><li>任务系统支持计划、暂停/恢复/取消/重试与人工审批，SQL租约可恢复中断的工作</li><li>可选接入Google OAuth读写Gmail和日历，发送邮件或修改日程前均需人工审核</li><li>目标追踪功能可定期检查公开网页的文本变化或价格阈值并去重告警</li><li>财务模块可导入交易CSV，生成消费分类汇总和储蓄目标建议</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目自称为Alpha阶段，开放式推理、真实Google账号接入和Rich Threads功能均需额外配置才能使用</li><li>可通过Render一键部署API、Web和私有浏览器三个服务，支持移除浏览器服务后仍保留聊天与任务功能</li></ul></div><div class="f"><h4>适合</h4><p>希望自建个人AI代理、需要浏览器/终端/邮件日历自动化能力，并愿意自行部署与二次开发的开发者和团队</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>pnpm dev</code></pre><button type="button" data-copy aria-label="复制 CopilotKit/openmuse 的上手命令">复制</button></div><p>需先完成git clone、pnpm install --frozen-lockfile、配置.env及CopilotKit项目密钥，再另开终端执行pnpm dev:web</p>  </div><ul class="notes" aria-label="提示"><li>浏览器工作模块可直接操作真实网页并支持“接管”会话，以此方式自动化访问第三方网站可能违反其服务条款</li><li>默认部署仅限本地回环访问，README提示远程/公开部署需自行配置HTTPS和网络访问限制，否则存在安全隐患</li><li>默认开启的网页搜索会把对话或任务中的内容发送给第三方Parallel搜索服务</li><li>连接Gmail和日历需Google OAuth授权，代理可读取邮件与日程等个人数据（发送/修改前需人工审核）</li></ul></div>
-
+        <p class="new-more num"><a href="#CopilotKit/openmuse">完整介绍 →</a> · <span class="warn-n">⚠ 4 条提示</span></p>
       </article>
       <article class="new-item" aria-labelledby="new-8">
         <div class="item-title">
@@ -326,15 +311,7 @@ npm run dev</code></pre><button type="button" data-copy aria-label="复制 Copil
           <span class="tag cat">Agent 平台与基础设施</span>
         </div>
         <p class="tagline">面向 AI agent 工具调用的聚合层，一个 Base URL 和密钥接入多家供应商 API</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/monid-ai/monid">GitHub ↗</a> · <a href="https://monid.ai">主页 ↗</a>    · TypeScript · MIT · 创建 2026-08-26 · 最后推送 2026-10-16
-  </p>
-<div class="f"><h4>定位</h4><p>类似 OpenRouter，但面向 AI agent 调用的第三方工具（网页搜索/抓取、企业与人物信息、社交、生成类 API 等），提供统一调用协议、按次计费引擎与声明式连接器格式用于扩展供应商。</p></div><div class="f"><h4>能做什么</h4><ul><li>一个 Base URL 和密钥访问 72+ 服务商、2000+ 工具（项目方数据）</li><li>discover 接口按任务对全目录排名，返回价格、健康状态及 p50/p95 延迟</li><li>按调用结算用量，在原始响应上计费，供应商错误或空结果按零用量结算</li><li>连接器为声明式定义（provider + endpoint），新增供应商通过 PR 合并后即可被所有 agent 调用</li><li>可选让 coding agent 依据 AGENT.md 自动编写连接器代码</li></ul></div><div class="f"><h4>亮点</h4><ul><li>号称可用一个 Base URL 和密钥调用覆盖 72+ 服务商的 2000+ 工具（项目方数据，未提供第三方验证）</li></ul></div><div class="f"><h4>适合</h4><p>需要让 AI agent 调用第三方工具（搜索、数据抓取、企业/人物信息、内容生成等）并统一管理密钥与费用的开发者</p></div><div class="f"><h4>上手</h4>
-<div class="cmd"><pre><code>git clone https://github.com/monid-ai/monid.git
-cd monid
-deno task check &amp;&amp; deno task test</code></pre><button type="button" data-copy aria-label="复制 monid-ai/monid 的上手命令">复制</button></div><p>需先安装 Deno 2.x；测试基于已录制的响应回放（188 个测试），无需网络或真实供应商密钥。</p>  </div></div>
-
+        <p class="new-more num"><a href="#monid-ai/monid">完整介绍 →</a></p>
       </article>
       <article class="new-item" aria-labelledby="new-9">
         <div class="item-title">
@@ -344,12 +321,7 @@ deno task check &amp;&amp; deno task test</code></pre><button type="button" data
           <span class="tag cat">Agent 平台与基础设施</span>
         </div>
         <p class="tagline">通过 MCP 让 ChatGPT 读写本地文件、运行终端并操作浏览器的跨平台桌面应用</p>
-        <div class="detail">
-  <p class="meta num">
-    <a href="https://github.com/totec448-spec/chat-on-steroids">GitHub ↗</a>    · TypeScript · MIT · 创建 2026-08-22 · 最后推送 2026-10-19
-  </p>
-<div class="f"><h4>定位</h4><p>独立开源的跨平台桌面应用，通过 MCP 把本地文件、终端和浏览器接入 ChatGPT 网页端，支持多 worker 协作完成编程等任务，非 OpenAI 官方产品。</p></div><div class="f"><h4>能做什么</h4><ul><li>通过 MCP 让 ChatGPT 读写本地文件、运行终端命令并保持终端会话</li><li>浏览器扩展观察并自动化 ChatGPT 网页界面，本地记录对话内容</li><li>支持多个 worker 并行拆分任务，各自保留上下文可继续衔接</li><li>Goal/Loop 跟踪未完成工作，可在任务进行中插入修正指令</li><li>Compact &amp; Resume 将会话与 worker 历史带入新对话继续</li></ul></div><div class="f"><h4>亮点</h4><ul><li>项目声明不用于绕过 ChatGPT 使用限制或安全控制，仅用于服务条款允许范围内的工作流</li><li>Windows 安装包未经发布者签名，macOS 版本未签名未经公证，需手动核对发布校验和</li></ul></div><div class="f"><h4>适合</h4><p>使用 ChatGPT 处理编程等本地任务，希望让其操作本地文件、终端与浏览器并进行多代理协作的开发者</p></div><ul class="notes" aria-label="提示"><li>浏览器扩展会观察并自动化 ChatGPT 网页界面且在本地记录对话内容，README 提示这不是公开的 ChatGPT 自动化 API，可能触及 OpenAI 服务条款限制</li><li>Windows 安装包未经发布者签名，macOS 版本未签名未经公证，需用户自行核对发布校验和后安装</li></ul></div>
-
+        <p class="new-more num"><a href="#totec448-spec/chat-on-steroids">完整介绍 →</a> · <span class="warn-n">⚠ 2 条提示</span></p>
       </article>
     </div>
 
@@ -384,6 +356,7 @@ deno task check &amp;&amp; deno task test</code></pre><button type="button" data
     </div>
   </div>
 </section>
+
 
 <section class="blk" id="editorial" aria-labelledby="h-ed">
   <div class="blk-head"><h2 id="h-ed">编者按</h2><span class="aside">由 claude-sonnet-5 读完本期全部项目后归纳，点项目名看详情</span></div>
@@ -1017,6 +990,7 @@ make test</code></pre><button type="button" data-copy aria-label="复制 FareedK
 <section class="blk" id="issues" aria-labelledby="h-issues">
   <div class="blk-head"><h2 id="h-issues">往期</h2></div>
   <ol class="issues num">
+    <li class="tmp"><a href="../archive/2026-10-22.html">临时更新</a>        <span>2026 年 10 月 22 日</span><span class="aside">40 个项目</span></li>
     <li><span class="cur" aria-current="page">第 5 期</span><span class="aside">本页</span>        <span>2026 年 10 月 19 日</span><span class="aside">39 个项目</span></li>
     <li><a href="../archive/2026-10-12.html">第 4 期</a>        <span>2026 年 10 月 12 日</span><span class="aside">34 个项目</span></li>
     <li><a href="../archive/2026-10-05.html">第 3 期</a>        <span>2026 年 10 月 5 日</span><span class="aside">33 个项目</span></li>
@@ -1031,7 +1005,7 @@ make test</code></pre><button type="button" data-copy aria-label="复制 FareedK
 <footer><div class="wrap"><div class="in">
   <p>数据来自 GitHub Search API，快照日期 2026-10-19；页内星数均为当日数值。介绍由 claude-sonnet-5 根据 README 生成，性能数字多为项目方自报。</p>
   <p>检索式：<code>ai OR llm OR agent OR gpt OR mcp OR claude created:&gt;=2026-07-21 stars:&gt;5000</code></p>
-  <p>每周一自动更新 · <a href="../feed.xml">RSS</a> · <a href="https://github.com/drgg/ai-trending-radar">源码</a> · 生成于 2026-10-19 · 设计规格见仓库 <code>design/issue/DESIGN.md</code></p>
+  <p>每周一自动更新 · <a href="../feed.xml">RSS</a> · <a href="https://github.com/drgg/ai-trending-radar">源码</a> · 生成于 2026-10-22 · 设计规格见仓库 <code>design/issue/DESIGN.md</code></p>
 </div></div></footer>
 
 <script>

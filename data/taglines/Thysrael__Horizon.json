@@ -1,0 +1,6 @@
+{
+ "tagline": "AI新闻雷达，自动生成中英文每日简报，面向需要信息聚合的用户",
+ "is_ai_product": true,
+ "generated_at": "2026-10-22",
+ "model": "claude-sonnet-5"
+}

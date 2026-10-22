@@ -73,6 +73,8 @@ section.blk{margin-top:48px}
 .callout .empty{font-size:14px;color:var(--ink-2)}
 .new-item{background:var(--accent-wash);border-radius:8px;padding:16px}
 .new-item+.new-item{margin-top:12px}
+.new-more{margin-top:4px;font-size:14px}
+.new-more .warn-n{font-size:13px;color:var(--warn-ink)}
 .tag{display:inline-block;font-size:13px;font-weight:600;line-height:1.5;padding:0 8px;border-radius:4px;white-space:nowrap}
 .tag.new{color:var(--accent);box-shadow:inset 0 0 0 1px currentColor}
 .tag.cat{color:var(--muted);box-shadow:inset 0 0 0 1px var(--line-strong);font-weight:400}
@@ -141,6 +143,33 @@ details[open]>summary .caret{transform:rotate(90deg);color:var(--muted)}
 .tmp-note{margin-top:16px;padding:8px 12px;background:var(--surface);border-radius:8px;font-size:14px;color:var(--ink-2)}
 .issues li.tmp{font-size:14px;color:var(--muted)}
 .issues li.tmp a{color:var(--muted)}
+/* 短期榜 */
+.stat-line{font-size:14px;color:var(--ink-2);margin:0 0 16px}
+.stat-line b{color:var(--ink);font-weight:600}
+.tier-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;margin:24px 0 0;padding-bottom:8px;border-bottom:1px solid var(--line-strong)}
+.tier-head h3{font-size:16px}
+.tier-head .aside{font-size:13px;color:var(--muted)}
+.young-stat{margin-top:12px}
+.tier-sub{font-size:13px;font-weight:600;color:var(--muted);margin:16px 0 0}
+.sub-blk+.sub-blk{margin-top:32px}
+.rk-list{list-style:none;margin:0;padding:0}
+.rk-list li{display:grid;grid-template-columns:1fr auto;gap:0 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.rk-list .nm{font-weight:600;overflow-wrap:anywhere}
+.rk-list .flags{display:inline-flex;gap:8px;margin-left:8px;vertical-align:1px}
+.rk-list .fig{text-align:right;white-space:nowrap;font-size:14px;color:var(--muted)}
+.rk-list .fig .g{color:var(--up);font-weight:600;font-size:16px}
+.rk-list .tl{grid-column:1/-1;font-size:14px;color:var(--ink-2);line-height:1.6}
+.rk-list .meta{grid-column:1/-1;font-size:13px;color:var(--muted)}
+.tag.accel{color:var(--up);box-shadow:inset 0 0 0 1px currentColor}
+.tag.main{color:var(--muted);box-shadow:inset 0 0 0 1px var(--line-strong);font-weight:400}
+details.more{margin-top:16px}
+details.more>summary{cursor:pointer;font-size:14px;color:var(--ink-2)}
+details.more>summary:hover{color:var(--accent)}
+details.more>.names,details.more>.stat-line{margin-top:12px}
+.names{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 24px;font-size:14px;line-height:1.6}
+.names li{overflow-wrap:anywhere}
+.names .g{color:var(--up)}
+.names .s{color:var(--muted)}
 .excluded{margin-top:24px;font-size:14px;color:var(--muted)}
 
 /* 往期 */
@@ -178,6 +207,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
 <script>document.documentElement.classList.add("js")</script>
 
 
+
 <header class="mast"><div class="wrap"><div class="mast-in">
   <div class="eyebrow">AI 热门项目周报</div>
   <h1>临时更新</h1>
@@ -201,6 +231,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
   <div class="callout">
 <p>这次运行之前还没有正式期，没有可对比的数据。全部 27 个项目见 <a href="#index">名录</a>。</p>  </div>
 </section>
+
 
 <section class="blk" id="editorial" aria-labelledby="h-ed">
   <div class="blk-head"><h2 id="h-ed">编者按</h2><span class="aside">由 claude-sonnet-5 读完本期全部项目后归纳，点项目名看详情</span></div>
@@ -645,6 +676,7 @@ npm run server</code></pre><button type="button" data-copy aria-label="复制 el
 <section class="blk" id="issues" aria-labelledby="h-issues">
   <div class="blk-head"><h2 id="h-issues">往期</h2></div>
   <ol class="issues num">
+    <li class="tmp"><a href="../archive/2026-10-22.html">临时更新</a>        <span>2026 年 10 月 22 日</span><span class="aside">40 个项目</span></li>
     <li><a href="../archive/2026-10-19.html">第 5 期</a>        <span>2026 年 10 月 19 日</span><span class="aside">39 个项目</span></li>
     <li><a href="../archive/2026-10-12.html">第 4 期</a>        <span>2026 年 10 月 12 日</span><span class="aside">34 个项目</span></li>
     <li><a href="../archive/2026-10-05.html">第 3 期</a>        <span>2026 年 10 月 5 日</span><span class="aside">33 个项目</span></li>
@@ -659,7 +691,7 @@ npm run server</code></pre><button type="button" data-copy aria-label="复制 el
 <footer><div class="wrap"><div class="in">
   <p>数据来自 GitHub Search API，快照日期 2026-09-19；页内星数均为当日数值。介绍由 claude-sonnet-5 根据 README 生成，性能数字多为项目方自报。</p>
   <p>检索式：<code>ai OR llm OR agent OR gpt OR mcp OR claude created:&gt;=2026-06-21 stars:&gt;5000</code></p>
-  <p>每周一自动更新 · <a href="../feed.xml">RSS</a> · <a href="https://github.com/drgg/ai-trending-radar">源码</a> · 生成于 2026-10-19 · 设计规格见仓库 <code>design/issue/DESIGN.md</code></p>
+  <p>每周一自动更新 · <a href="../feed.xml">RSS</a> · <a href="https://github.com/drgg/ai-trending-radar">源码</a> · 生成于 2026-10-22 · 设计规格见仓库 <code>design/issue/DESIGN.md</code></p>
 </div></div></footer>
 
 <script>

@@ -1,0 +1,6 @@
+{
+ "tagline": "给 Claude Code/Codex 等编码 Agent 用的语义代码搜索 CLI，用 Jev 定位相关文件",
+ "is_ai_product": true,
+ "generated_at": "2026-10-22",
+ "model": "claude-sonnet-5"
+}

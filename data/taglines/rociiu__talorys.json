@@ -1,0 +1,6 @@
+{
+ "tagline": "一键部署到自己 Cloudflare 账号的私人 AI 助理，支持聊天、记忆与定时提醒",
+ "is_ai_product": true,
+ "generated_at": "2026-10-22",
+ "model": "claude-sonnet-5"
+}
