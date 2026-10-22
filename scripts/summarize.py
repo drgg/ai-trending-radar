@@ -111,10 +111,21 @@ TAGLINE_SCHEMA = {
     "additionalProperties": False,
 }
 
-TREND_SCHEMA = {
+OUTLOOK_SYSTEM = """你是一名技术编辑，为每周一期的 GitHub AI 项目周报写页首的「近期趋势」。读者每周都来，只想知道最近在发生什么变化。
+写两样东西：
+- paragraph：一段 150–250 字的分析（严格不超过 250 字，中文字符和英文单词各算 1 字）。先说正在升温的方向（用「加速」项目、新星佐证），再说仍在延续的方向，有降温迹象的一句带过
+- bullets：3–5 条要点，每条一句话、不超过 60 字
+要求：
+- 每个判断都要有材料里的依据：点名代表项目（只写仓库名，不带所有者），可以引用星数增量
+- 和「前几期已经写过的趋势」相比：同样的结论只有出现新证据时才写，并点明「延续」；不要换个说法重复
+- 只陈述材料里有的事实；不用「爆发」「颠覆」「引爆」「火爆」这类词，不写营销腔
+- 区分方向和个例：一个项目涨得多不等于一个方向在升温，至少要有两个以上项目佐证才能称为趋势"""
+
+OUTLOOK_SCHEMA = {
     "type": "object",
-    "properties": {"bullets": {"type": "array", "items": {"type": "string"}}},
-    "required": ["bullets"],
+    "properties": {"paragraph": {"type": "string"},
+                   "bullets": {"type": "array", "items": {"type": "string"}}},
+    "required": ["paragraph", "bullets"],
     "additionalProperties": False,
 }
 
@@ -269,20 +280,46 @@ class Summarizer:
                 "audience": "", "quickstart_cmd": "", "quickstart_note": "", "risks": []}
 
     # ---------- 趋势小结 ----------
-    def trends(self, entries):
+    def outlook(self, entries, changes, rising, recent):
+        """页首「近期趋势」：一段分析 + 3–5 条要点。综合本期主榜变化、升星 / 新星 / 新锐和前几期的趋势。
+        recent：最近几个正式期快照（旧 → 新），用来避免每周重复同样的结论。返回 (paragraph, bullets)。"""
         if self.dry_run or not entries:
-            return ["（dry-run 模式，未生成趋势小结）"] if self.dry_run else []
-        lines = [f"- {e['full_name']}（{e['stars']}★，{e['intro']['category']}）："
-                 f"{e['intro'].get('tagline') or e['intro']['positioning']}"
-                 for e in entries]
+            return ("（dry-run 模式，未生成近期趋势）", []) if self.dry_run else ("", [])
+        by = {e["full_name"]: e for e in entries}
+        tag = lambda e: e["intro"].get("tagline") or e["intro"].get("positioning", "")  # noqa: E731
+        cats = {}
+        for e in entries:
+            cats[e["intro"]["category"]] = cats.get(e["intro"]["category"], 0) + 1
+        parts = ["## 本期主榜（近 90 天创建、星数最高）",
+                 "分类分布：" + "、".join(f"{c} {n}" for c, n in sorted(cats.items(), key=lambda x: -x[1])),
+                 "新上榜：" + ("；".join(f"{n.split('/')[1]}（{tag(by[n])}）" for n in changes["new"] if n in by) or "无"),
+                 f"移出：{len(changes['dropped'])} 个（多为创建满 90 天）"]
+        if rising:
+            parts += ["", "## 升星榜（近 7 天新增星数，括号里是前 7 天；「加速」= 达到前 7 天 2 倍）"]
+            parts += [f"- {x['full_name'].split('/')[1]} +{x['last7']}（前 7 天 +{x['prev7']}，创建 {x['age']} 天）"
+                      f"{' 加速' if x.get('accel') else ''}：{x['tagline']}" for x in rising["surge"][:25]]
+            st = rising["stats"]
+            parts.append(f"统计：近 7 天涨 ≥1000 的 {len(rising['surge'])} 个，其中加速 {st['surge_accel']} 个、"
+                         f"创建超过 90 天 {st['surge_older_than_main']} 个")
+            parts += ["", "## 新星（近 7 天创建）"]
+            parts += [f"- {x['full_name'].split('/')[1]} ★{x['stars']}：{x['tagline']}" for x in rising["newborn"]] or ["无"]
+            parts += ["", "## 新锐（创建 8–30 天，≥2000★）"]
+            parts += [f"- {x['full_name'].split('/')[1]} ★{x['stars']}：{x['tagline']}"
+                      for x in rising["young"] if x.get("featured")] or ["无"]
+        if recent:
+            parts += ["", "## 前几期已经写过的趋势（旧 → 新）"]
+            for s in recent:
+                said = s.get("outlook") or "；".join(s.get("trends", []))
+                if said:
+                    parts.append(f"- {s['date']}：{said}")
         try:
-            return self._ask("你是一名技术编辑。", "以下是本期 GitHub 近三个月新建且星数最高的 AI 项目：\n"
-                             + "\n".join(lines)
-                             + "\n\n请用 3–5 条中文要点总结本期趋势。每条一句话、不超过 60 字，点名 1–3 个代表项目（只写仓库名，不带所有者）。",
-                             TREND_SCHEMA, max_tokens=4000)["bullets"]
+            r = self._ask(OUTLOOK_SYSTEM, chr(10).join(parts), OUTLOOK_SCHEMA, max_tokens=6000)
+            return r["paragraph"], r["bullets"]
+        except AuthError:
+            raise
         except Exception as e:
-            print(f"  ! 趋势小结生成失败：{e}")
-            return []
+            print(f"  ! 近期趋势生成失败：{e}")
+            return "", []
 
     # ---------- 短期榜的一句话定位（批量） ----------
     def has_tagline(self, full_name):

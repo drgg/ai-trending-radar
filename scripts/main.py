@@ -104,11 +104,12 @@ def main():
     print(f"③ 对比上一个正式期…（本次{'是正式一期' if official else '是临时更新，不编期号、不通知'}）")
     prev = diff.previous_issue(today.isoformat())
     changes = diff.compute(entries, prev, cfg["top_gainers"])
-    trends = summ.trends(entries)
+    recent = [s for s in diff.load_all() if diff.is_issue(s) and s["date"] < today.isoformat()][-3:]
+    outlook, trends = summ.outlook(entries, changes, rising_data, recent)
 
     snapshot = {"date": today.isoformat(), "issue": official, "query": query, "window_days": cfg["window_days"],
                 "min_stars": cfg["min_stars"], "model": cfg["model"], "dry_run": args.dry_run,
-                "entries": entries, "excluded": excluded, "diff": changes, "trends": trends, "rising": rising_data}
+                "entries": entries, "excluded": excluded, "diff": changes, "outlook": outlook, "trends": trends, "rising": rising_data}
     diff.SNAP_DIR.mkdir(parents=True, exist_ok=True)
     (diff.SNAP_DIR / f"{today.isoformat()}.json").write_text(
         json.dumps(snapshot, ensure_ascii=False, indent=1), encoding="utf-8")

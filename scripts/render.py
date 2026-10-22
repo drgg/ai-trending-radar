@@ -20,7 +20,7 @@ SITE = ROOT / "site"
 ARCHIVE = SITE / "archive"
 
 # 衬线标题只用这些字，scripts/fetch_font.py 按它下载字体子集；改了标题文字要重跑那个脚本
-HEADING_GLYPHS = "".join(sorted(set("第期创刊号临时更新本期变化编者按名录往期升星榜新锐与0123456789· ")))
+HEADING_GLYPHS = "".join(sorted(set("第期创刊号临时更新本期变化编者按名录往期升星榜新锐与近趋势0123456789· ")))
 
 # 兜底长度：模型偶尔超出提示词里的字数上限
 LIMITS = {"tagline": 60, "positioning": 140, "item": 70, "audience": 90, "note": 90}
@@ -83,13 +83,29 @@ def _absolutize(flag, e):
                   lambda m: f"快照当日已 {m.group(1)} 天未更新（最后推送 {e['pushed_at']}）", flag)
 
 
-def _link_names(text, ranked):
-    """编者按里点名的项目短名 → 页内锚点。长名先匹配，免得被短名截走。"""
-    names = sorted(((e["full_name"].split("/")[1], e["full_name"]) for e in ranked), key=lambda x: -len(x[0]))
+def _link_targets(ranked, rising):
+    """趋势里点名的项目短名 → 链接。主榜跳名录；升星 / 新星 / 新锐写了介绍的跳各自那一行；只列名字的跳 GitHub。"""
+    out = {}
+    for e in ranked:
+        out.setdefault(e["full_name"].split("/")[1], "#" + e["full_name"])
+    if rising:
+        for key, pre in (("surge", "s"), ("newborn", "n"), ("young", "y")):
+            for x in rising[key]:
+                if x.get("featured"):
+                    out.setdefault(x["full_name"].split("/")[1], f"#{pre}-{x['full_name']}")
+        for key in ("surge", "newborn", "young"):
+            for x in rising[key]:
+                out.setdefault(x["full_name"].split("/")[1], x["html_url"])
+    return out
+
+
+def _link_names(text, targets):
+    """短名 → 链接，每个只链第一次出现。长名先匹配，免得被短名截走。
+    边界只看 ASCII：Python 的 \\w 也匹配汉字，「VoiceStudio单周」这种紧挨汉字的写法会匹配不上。"""
     out = str(escape(text))
-    for short, full in names:
-        out = re.sub(rf"(?<![\w/#-]){re.escape(short)}(?![\w-])",
-                     f'<a href="#{escape(full)}">{escape(short)}</a>', out, count=1)
+    for short in sorted(targets, key=len, reverse=True):
+        out = re.sub(rf"(?<![A-Za-z0-9_/#.-]){re.escape(short)}(?![A-Za-z0-9_-])",
+                     f'<a href="{escape(targets[short])}">{escape(short)}</a>', out, count=1)
     return Markup(out)
 
 
@@ -141,6 +157,7 @@ def issue_context(snap, snaps, cfg):
     for e in ranked:
         e["notes"] = e["v"]["risks"] + [_absolutize(f, e) for f in e["flags"]]
     win_start = d - dt.timedelta(days=snap["window_days"])
+    links = _link_targets(ranked, snap.get("rising"))
 
     dropped = []
     for x in changes["dropped"]:
@@ -162,8 +179,10 @@ def issue_context(snap, snaps, cfg):
         new=[by_name[n] for n in changes["new"] if n in by_name],
         gainers=[{**g, "e": by_name.get(g["full_name"])} for g in changes["gainers"]],
         dropped=dropped,
-        trends=[_link_names(t, ranked) for t in snap["trends"]],
+        trends=[_link_names(t, links) for t in snap["trends"]],
         trends_plain=snap["trends"],
+        outlook=_link_names(snap["outlook"], links) if snap.get("outlook") else "",
+        outlook_plain=snap.get("outlook", ""),
         noted=sum(1 for e in ranked if e["notes"]),
         warn=cfg.get("warn_categories") or {},
         rising=rising_view(snap.get("rising"), cfg),
@@ -204,8 +223,10 @@ def render_site(cfg, snaps=None):
 
 
 def _summary_html(c, url):
-    """RSS 条目正文：本期变化 + 编者按，阅读器里不点开也能看个大概。"""
+    """RSS 条目正文：近期趋势 + 本期变化 + 短期榜，阅读器里不点开也能看个大概。"""
     parts = []
+    if c["outlook_plain"]:
+        parts.append(f"<h3>近期趋势</h3><p>{escape(c['outlook_plain'])}</p>")
     if not c["prev"]:
         parts.append(f"<p>创刊号，共收录 {len(c['ranked'])} 个项目。</p>")
     else:
@@ -230,8 +251,8 @@ def _summary_html(c, url):
         if nb:
             parts.append("<h3>新星</h3><ul>" + "".join(
                 f"<li>{escape(x['full_name'])} ★ {x['stars']:,} — {escape(x['tagline'])}</li>" for x in nb) + "</ul>")
-    if c["trends_plain"]:
-        parts.append("<h3>编者按</h3><ul>" + "".join(f"<li>{escape(t)}</li>" for t in c["trends_plain"]) + "</ul>")
+    if c["trends_plain"] and not c["outlook_plain"]:  # 早期快照只有要点
+        parts.append("<h3>近期趋势</h3><ul>" + "".join(f"<li>{escape(t)}</li>" for t in c["trends_plain"]) + "</ul>")
     parts.append(f'<p><a href="{escape(url)}">阅读完整一期 →</a></p>')
     return "".join(parts)
 
@@ -265,6 +286,8 @@ def _markdown(c):
     s = c["s"]
     out = [f"# GitHub AI 热门项目周报 · {title_of(c)}", "",
            f"- 收录：{c['win']} 创建、Stars > {s['min_stars']:,} 的 AI 项目，共 {len(c['ranked'])} 个", ""]
+    if c["outlook_plain"] or c["trends_plain"]:
+        out += ["## 近期趋势", ""] + ([c["outlook_plain"], ""] if c["outlook_plain"] else []) + [f"- {b}" for b in c["trends_plain"]] + [""]
     out.append("## 本期变化")
     if not c["prev"]:
         out.append("创刊号，暂无对比。")
@@ -299,8 +322,6 @@ def _markdown(c):
         if R["young_rest"]:
             out += ["", f"{R['rc']['young_list_min']:,}–{R['rc']['young_intro_min'] - 1:,}★ 的 {len(R['young_rest'])} 个："
                     + "、".join(f"{x['full_name']} ★{x['stars']:,}" for x in R["young_rest"])]
-    if c["trends_plain"]:
-        out += ["", "## 编者按"] + [f"- {b}" for b in c["trends_plain"]]
     out += ["", "## 名录"]
     for cat, es in c["groups"]:
         out += ["", f"### {cat}"]

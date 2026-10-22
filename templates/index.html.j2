@@ -92,7 +92,8 @@ section.blk{margin-top:48px}
 .gainers .now{grid-column:1/-1;font-size:13px;color:var(--muted)}
 .dropped .why{grid-column:1/-1;font-size:14px;color:var(--ink-2)}
 
-/* 编者按 */
+/* 近期趋势 */
+.lead{font-size:18px;line-height:1.8;margin:0 0 24px}
 .editorial{padding-left:24px;border-left:3px solid var(--line-strong)}
 .editorial li+li{margin-top:12px}
 .editorial li::marker{color:var(--muted)}
@@ -228,7 +229,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
 {% endmacro %}
 
 {% macro rrow(x, kind) %}
-<li>
+<li id="{{ kind[0] }}-{{ x.full_name }}">
   <span><a class="nm" href="{{ ('#' ~ x.full_name) if x.in_main else x.html_url }}">{{ x.full_name }}</a>{% if x.accel or x.in_main %}<span class="flags">{% if x.accel %}<span class="tag accel">加速</span>{% endif %}{% if x.in_main %}<span class="tag main">主榜</span>{% endif %}</span>{% endif %}</span>
   <span class="fig num">{% if kind == 'surge' %}<span class="g">+{{ '{:,}'.format(x.last7) }}</span>{% else %}★ {{ '{:,}'.format(x.stars) }}{% endif %}</span>
   <span class="tl">{{ x.tagline }}</span>
@@ -255,13 +256,21 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
     <dd><a href="#surge">升星 {{ rising.surge_n }}</a> · <a href="#newcomers">新星 {{ rising.newborn_n }} · 新锐 {{ rising.young_n }}</a></dd>
     {% endif %}
     <dt>目录</dt>
-    <dd><a href="#changes">本期变化</a> · {% if rising %}<a href="#surge">升星榜</a> · <a href="#newcomers">新星与新锐</a> · {% endif %}{% if trends %}<a href="#editorial">编者按</a> · {% endif %}<a href="#index">名录</a> · <a href="#issues">往期</a></dd>
+    <dd>{% if outlook or trends %}<a href="#outlook">近期趋势</a> · {% endif %}<a href="#changes">本期变化</a> · {% if rising %}<a href="#surge">升星榜</a> · <a href="#newcomers">新星与新锐</a> · {% endif %}<a href="#index">名录</a> · <a href="#issues">往期</a></dd>
     <dt>订阅</dt>
     <dd><a href="{{ root }}feed.xml">RSS</a> · 每期发布时在 <a href="{{ repo_url }}/issues?q=label%3A%E5%91%A8%E6%8A%A5">GitHub Issues</a> 推送（Watch 仓库即可收到）</dd>
   </dl>
 </div></div></header>
 
 <main class="wrap">
+
+{% if outlook or trends %}
+<section class="blk" id="outlook" aria-labelledby="h-outlook">
+  <div class="blk-head"><h2 id="h-outlook">近期趋势</h2><span class="aside">由 {{ s.model }} 综合本期主榜、升星、新星新锐和前几期归纳；点项目名看详情</span></div>
+  {% if outlook %}<p class="lead prose">{{ outlook }}</p>{% endif %}
+  {% if trends %}<ol class="editorial">{% for t in trends %}<li>{{ t }}</li>{% endfor %}</ol>{% endif %}
+</section>
+{% endif %}
 
 <section class="blk" id="changes" aria-labelledby="h-changes">
   <div class="blk-head"><h2 id="h-changes">本期变化</h2>{% if prev %}<span class="aside num">较第 {{ prev.no }} 期 · {{ prev.md }} 至 {{ s.date[5:] }}，{{ prev.days }} 天</span>{% endif %}</div>
@@ -360,12 +369,6 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
 </section>
 {% endif %}
 
-{% if trends %}
-<section class="blk" id="editorial" aria-labelledby="h-ed">
-  <div class="blk-head"><h2 id="h-ed">编者按</h2><span class="aside">由 {{ s.model }} 读完本期全部项目后归纳，点项目名看详情</span></div>
-  <ol class="editorial">{% for t in trends %}<li>{{ t }}</li>{% endfor %}</ol>
-</section>
-{% endif %}
 
 <section class="blk" id="index" aria-labelledby="h-index">
   <div class="blk-head"><h2 id="h-index">名录</h2><span class="aside num">{{ ranked|length }} 个项目 · 按分类 · 分类内按星数{% if prev %} · 绿色 +N 为较第 {{ prev.no }} 期（{{ prev.days }} 天）的增量{% endif %}{% if noted %} · {{ noted }} 个带提示{% endif %}</span></div>

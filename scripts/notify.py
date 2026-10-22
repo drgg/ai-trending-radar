@@ -20,6 +20,8 @@ def write(ctx, cfg):
     page = f"{site}/archive/{s['date']}.html"
     mention = os.environ.get("NOTIFY_MENTION", "").strip()
     lines = [f"{'@' + mention + ' ' if mention else ''}第 {ctx['no']} 期已发布：[网页版]({site}/) · [本期存档]({page}) · [RSS]({site}/feed.xml)", ""]
+    if ctx.get("outlook_plain") or ctx["trends_plain"]:
+        lines += ["### 近期趋势"] + ([ctx["outlook_plain"]] if ctx.get("outlook_plain") else []) + [f"- {t}" for t in ctx["trends_plain"]] + [""]
     if not ctx["prev"]:
         lines.append(f"创刊号，共收录 {len(ctx['ranked'])} 个项目。")
     else:
@@ -46,8 +48,6 @@ def write(ctx, cfg):
         if R["young_featured"]:
             lines += ["", f"### 新锐（创建于 {R['young_range']}，≥{R['rc']['young_intro_min']:,}★）",
                       "、".join(f"[{x['full_name']}]({x['html_url']}) ★{x['stars']:,}" for x in R["young_featured"])]
-    if ctx["trends_plain"]:
-        lines += ["", "### 编者按"] + [f"- {t}" for t in ctx["trends_plain"]]
     lines += ["", "---", "这条 Issue 由每周自动运行创建；新一期发布时会自动关闭。"]
     key = f"第 {ctx['no']} 期 · {s['date']}"
     (OUT / "key.txt").write_text(key, encoding="utf-8")
