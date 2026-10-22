@@ -4,45 +4,47 @@
 
 ## 近期趋势
 
-测试段落，用于排查结构化输出错误，内容无实际意义，仅检测参数是否能被正确解析和接受。
+本期最突出的升温方向是AI生成视频类技能：lemo-opuscar新上榜专攻影片风格生成，Concat加速冲高，huashu-motion、onetake、openfilm、manimgx等新星新锐同步涌现，覆盖配乐、运镜、数学动画等场景。逆向工程类Agent工具同步走强：rea单周涨十万星，leanrea、replica-skill紧随其后，形成新方向。延续方面，Skills生态持续细分，security-audit-skill、graphify加速增长，logo-design-skill、oil-ui等新锐补充；薅配额与白嫖算力需求不减，dsh-our-free-model、folkbench延续此前趋势。本地压缩推理类项目本期证据稀薄，热度有所降温。
 
-- 测试要点一。
-- 测试要点二。
-- 测试要点三。
+- 视频生成类技能密集上新，lemo-opuscar进主榜，Concat加速至4842星，huashu-motion新星破1400星。
+- 逆向工程Agent工具同步走强，rea单周涨超10万星，leanrea、replica-skill紧随补位，形成新方向。
+- Skills生态延续细分，security-audit-skill、graphify加速增长，logo-design-skill等新锐入场。
+- 薅配额与白嫖算力需求延续，dsh-our-free-model涨1.88万星，folkbench新增中转评测工具。
+- 本地压缩推理类项目本期缺乏新证据，热度较前几期有所降温。
 
 ## 本期变化
 较第 5 期（2026-10-19，3 天）：
 - 新上榜：lemomo-ai/lemo-opuscar、elie222/rakazo
 - 移出：truefoundry/trueforge（创建于 2026-07-23，已超出 90 天收录窗口）
-- 涨星：Ebony-Vinyl/dsh-our-free-model +11,160、yetone/magpie +3,208、yihui-dev/awesome-opus5-5-videos +2,885、wheresryan22/anatomy +2,855、jub0t/Concat +1,706
+- 涨星：Ebony-Vinyl/dsh-our-free-model +11,162、yetone/magpie +3,209、yihui-dev/awesome-opus5-5-videos +2,886、wheresryan22/anatomy +2,859、jub0t/Concat +1,706
 
 ## 升星榜（近 7 天 10-15 至 10-21，对比前 7 天 10-08 至 10-14）
 
 测了 763 个近一年创建的 AI 项目：近 7 天涨星 ≥1,000 的 87 个，≥2,000 的 47 个，≥5,000 的 15 个；22 个在加速，55 个创建已超过 90 天，12 个已在主榜。
 
 ### 暴涨（近 7 天 ≥5,000）
-- [morluto/rea](https://github.com/morluto/rea) **+109,824**（前 7 天 +233,062，现 365,693★）：基于 AI agent 与 MCP 的逆向工程工具，深入分析应用行为与二进制
-- [Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) **+18,832**（前 7 天 +12,627，现 36,697★）　主榜：dsh 插件，免登录免 Key 白嫖前沿大模型，并可接入第三方账号渠道
-- [ai-job-search-dev/ai-job-search](https://github.com/ai-job-search-dev/ai-job-search) **+16,374**（前 7 天 +1,676，现 63,519★）　加速：基于Claude Code的AI求职框架，自动评估职位、定制简历、写求职信、做面试准备
-- [debpalash/VoiceStudio](https://github.com/debpalash/VoiceStudio) **+13,795**（前 7 天 +12,438，现 81,662★）：本地优先的开源语音工具：声音克隆、视频配音、转录与有声书制作
-- [stablyai/orca](https://github.com/stablyai/orca) **+9,225**（前 7 天 +5,550，现 102,681★）：多Agent编排IDE，并行驱动Codex、Claude Code等编程代理，支持桌面/移动/远程
-- [mattpocock/skills](https://github.com/mattpocock/skills) **+8,726**（前 7 天 +12,131，现 300,827★）：面向真实工程师的AI Agent技能集合，适配Claude Code等多种编程助手
-- [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) **+8,594**（前 7 天 +6,386，现 173,319★）：让AI编程Agent像资深工程师一样精简代码的技能插件
-- [xerj-org/xerj](https://github.com/xerj-org/xerj) **+8,350**（前 7 天 +1,463，现 13,098★）　加速：本地优先的搜索引擎与MCP服务器，为AI Agent提供代码/文档混合检索与记忆
-- [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) **+7,784**（前 7 天 +3,463，现 39,341★）　加速：面向编程Agent的多阶段安全审计技能，输出可验证的结构化漏洞报告
-- [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) **+7,503**（前 7 天 +11,208，现 19,111★）　主榜：让 Claude Code 等编码 Agent 把技术概念画成可交互等轴测插图的 Skill
-- [affaan-m/ECC](https://github.com/affaan-m/ECC) **+6,650**（前 7 天 +5,121，现 286,460★）：面向Claude Code等编程Agent的工程优化系统：技能、记忆与安全能力
-- [yetone/magpie](https://github.com/yetone/magpie) **+6,091**（前 7 天 +6,747，现 19,492★）　主榜：本地网关统一管理，让各编程 Agent 共用任意模型或订阅账号
-- [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) **+5,599**（前 7 天 +5,275，现 69,956★）：把HTML/CSS渲染成MP4视频的开源框架，专为AI编码Agent设计，支持MCP与技能包
+- [morluto/rea](https://github.com/morluto/rea) **+109,824**（前 7 天 +233,062，现 365,729★）：基于 AI agent 与 MCP 的逆向工程工具，深入分析应用行为与二进制
+- [Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) **+18,831**（前 7 天 +12,627，现 36,699★）　主榜：dsh 插件，免登录免 Key 白嫖前沿大模型，并可接入第三方账号渠道
+- [ai-job-search-dev/ai-job-search](https://github.com/ai-job-search-dev/ai-job-search) **+16,374**（前 7 天 +1,676，现 63,521★）　加速：基于Claude Code的AI求职框架，自动评估职位、定制简历、写求职信、做面试准备
+- [debpalash/VoiceStudio](https://github.com/debpalash/VoiceStudio) **+13,795**（前 7 天 +12,437，现 81,667★）：本地优先的开源语音工具：声音克隆、视频配音、转录与有声书制作
+- [stablyai/orca](https://github.com/stablyai/orca) **+9,225**（前 7 天 +5,550，现 102,688★）：多Agent编排IDE，并行驱动Codex、Claude Code等编程代理，支持桌面/移动/远程
+- [mattpocock/skills](https://github.com/mattpocock/skills) **+8,726**（前 7 天 +12,131，现 300,828★）：面向真实工程师的AI Agent技能集合，适配Claude Code等多种编程助手
+- [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) **+8,594**（前 7 天 +6,386，现 173,332★）：让AI编程Agent像资深工程师一样精简代码的技能插件
+- [xerj-org/xerj](https://github.com/xerj-org/xerj) **+8,350**（前 7 天 +1,463，现 13,099★）　加速：本地优先的搜索引擎与MCP服务器，为AI Agent提供代码/文档混合检索与记忆
+- [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) **+7,784**（前 7 天 +3,463，现 39,359★）　加速：面向编程Agent的多阶段安全审计技能，输出可验证的结构化漏洞报告
+- [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) **+7,503**（前 7 天 +11,208，现 19,115★）　主榜：让 Claude Code 等编码 Agent 把技术概念画成可交互等轴测插图的 Skill
+- [affaan-m/ECC](https://github.com/affaan-m/ECC) **+6,650**（前 7 天 +5,121，现 286,467★）：面向Claude Code等编程Agent的工程优化系统：技能、记忆与安全能力
+- [yetone/magpie](https://github.com/yetone/magpie) **+6,091**（前 7 天 +6,747，现 19,493★）　主榜：本地网关统一管理，让各编程 Agent 共用任意模型或订阅账号
+- [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) **+5,599**（前 7 天 +5,275，现 69,958★）：把HTML/CSS渲染成MP4视频的开源框架，专为AI编码Agent设计，支持MCP与技能包
 - [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) **+5,599**（前 7 天 +670，现 43,870★）　加速：Anthropic官方维护的Claude Code插件目录
-- [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) **+5,522**（前 7 天 +2,244，现 132,853★）　加速：将代码库及文档转为可查询知识图谱的Agent技能，支持多种编程助手
+- [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) **+5,522**（前 7 天 +2,244，现 132,857★）　加速：将代码库及文档转为可查询知识图谱的Agent技能，支持多种编程助手
 
 ### 猛涨（近 7 天 2,000–4,999）
 - [jub0t/Concat](https://github.com/jub0t/Concat) **+4,842**（前 7 天 +1,592，现 10,842★）　加速　主榜：免费开源、本地优先的跨平台视频剪辑软件，CapCut 替代品
-- [ifixai-ai/iFixAi](https://github.com/ifixai-ai/iFixAi) **+4,494**（前 7 天 +5,575，现 33,145★）：独立审计AI Agent是否按业务目标真正执行任务的诊断工具
-- [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) **+4,267**（前 7 天 +10,303，现 60,009★）：为编程Agent打造的图表绘制技能，输出品牌化HTML+SVG图表
-- [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) **+4,183**（前 7 天 +3,259，现 101,095★）：赋予编程Agent审美直觉的技能包：艺术指导、参考图与浏览器自查
-- [tashfeenahmed/freellmapi](https://github.com/tashfeenahmed/freellmapi) **+3,758**（前 7 天 +3,666，现 39,544★）：聚合34家免费LLM提供商的统一API路由工具，智能切换与故障转移
+- [ifixai-ai/iFixAi](https://github.com/ifixai-ai/iFixAi) **+4,494**（前 7 天 +5,575，现 33,146★）：独立审计AI Agent是否按业务目标真正执行任务的诊断工具
+- [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) **+4,267**（前 7 天 +10,303，现 60,011★）：为编程Agent打造的图表绘制技能，输出品牌化HTML+SVG图表
+- [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) **+4,183**（前 7 天 +3,259，现 101,097★）：赋予编程Agent审美直觉的技能包：艺术指导、参考图与浏览器自查
+- [tashfeenahmed/freellmapi](https://github.com/tashfeenahmed/freellmapi) **+3,758**（前 7 天 +3,666，现 39,546★）：聚合34家免费LLM提供商的统一API路由工具，智能切换与故障转移
 
 其余 67 个：yihui-dev/awesome-opus5-5-videos +3,650、paperclipai/paperclip +3,628、tt-a1i/archify +3,628、Panniantong/Agent-Reach +3,424、pbakaus/impeccable +3,394、HKUDS/CLI-Anything +3,354、hugohe3/ppt-master +3,326、akitaonrails/ai-memory +3,228、cheaper-inference/OmniRoute +3,013、rohitg00/ai-engineering-from-scratch +2,985、vectorize-io/hindsight +2,819、nextlevelbuilder/ui-ux-pro-max-skill +2,816、addyosmani/agent-skills +2,749、lemomo-ai/lemo-opuscar +2,666、hypit-ai/hypit +2,564、calesthio/OpenMontage +2,434、blader/humanizer +2,414、multica-ai/andrej-karpathy-skills +2,403、mksglu/context-mode +2,399、JuliusBrussee/caveman +2,376、kuafuai/andee +2,244、dataelement/dsh-desktop +2,182、headroomlabs-ai/headroom +2,114、Arekejoker/qwen21-nsfw-pose-skill +2,104、nexu-io/open-design +2,095、Leonxlnx/earshot +2,065、Alishahryar1/free-claude-code +2,060、google/artemis +1,972、earthtojake/text-to-cad +1,921、PC2005-cloud/dsh-pet +1,915、career-ops-hq/career-ops +1,869、perplexityai/SPACE +1,798、monid-ai/monid +1,746、lexmount/moli +1,671、anthropics/knowledge-work-plugins +1,548、Jakeschincariol/replica-skill +1,533、openfilm/openfilm +1,533、VoltAgent/awesome-design-md +1,475、openJiuwen-ai/jiuwenswarm +1,456、deeplethe/solid-glass +1,434、Folkbench/folkbench +1,389、Imbad0202/academic-research-skills +1,382、Ephemeral-AI-Lab/layerfs +1,349、onehumanbeing/esp32-iphone-agent +1,330、alchaincyf/huashu-motion +1,325、aicodeking/leanrea +1,314、Thysrael/Horizon +1,301、TencentCloud/Octop +1,295、walkinglabs/learn-harness-engineering +1,287、Egonex-AI/Understand-Anything +1,282、citrolabs/ego-lite +1,256、ardeyouxipianyi/workbuddy2api-hub +1,224、tigerless-labs/cost-xray +1,221、HBAI-Ltd/Toonflow-app +1,215、herdrdev/herdr +1,207、Ansub/tv-detox +1,184、elie222/rakazo +1,149、bowenliang123/dsh-context +1,140、coreyhaines31/marketingskills +1,127、ayghri/i-have-adhd +1,119、openclaw/openclaw +1,107、vercel-labs/skills +1,058、zhaoxuya520/reverse-skill +1,041、MaryCache/imozuru +1,036、nano-muse/nanoMuse +1,007、tigerless-labs/agent-memory +1,002、larashero3-dotcom/lieflat-less-ai-tone +1,002
 
@@ -56,12 +58,12 @@
 **1,000–1,999★**
 - [alchaincyf/huashu-motion](https://github.com/alchaincyf/huashu-motion) ★ 1,432：让Claude Code等编程Agent一键生成带配乐的商业宣传片技能
 - [aicodeking/leanrea](https://github.com/aicodeking/leanrea) ★ 1,364：替代REA的8KB逆向工程Agent技能，无需MCP更快更省
-- [Ansub/tv-detox](https://github.com/Ansub/tv-detox) ★ 1,278：用Claude Code或Codex清理提速老安卓电视的提示词工具
+- [Ansub/tv-detox](https://github.com/Ansub/tv-detox) ★ 1,280：用Claude Code或Codex清理提速老安卓电视的提示词工具
 - [reason-machines/reason-network](https://github.com/reason-machines/reason-network) ★ 1,060：让团队各自的编程Agent互相通信的端到端加密点对点网络
 
 **500–999★**
 - [feder-cr/git-ai](https://github.com/feder-cr/git-ai) ★ 964：为AI编程Agent设计的开源版本控制系统，复刻Anthropic Scion
-- [zcbacxc/mcd-party-planner](https://github.com/zcbacxc/mcd-party-planner) ★ 850：基于麦当劳MCP的聚会团餐规划助手，按预算算出真实价格方案
+- [zcbacxc/mcd-party-planner](https://github.com/zcbacxc/mcd-party-planner) ★ 853：基于麦当劳MCP的聚会团餐规划助手，按预算算出真实价格方案
 - [cranebeaker/coop-anything](https://github.com/cranebeaker/coop-anything) ★ 838：让AI Agent给任意单人游戏自动加装联机合作功能的MCP工具
 - [mistralai/timestral](https://github.com/mistralai/timestral) ★ 760：Mistral AI出品的时间序列预测基础模型，支持多变量概率预测
 - [dominikmartn/harp](https://github.com/dominikmartn/harp) ★ 581：管理多个Claude Code/Codex编程Agent的终端侧边栏，Warp非官方分支
@@ -69,14 +71,14 @@
 
 ## 新锐（创建于 09-22 至 10-14，≥1,000★）
 
-- [Jakeschincariol/replica-skill](https://github.com/Jakeschincariol/replica-skill) ★ 4,600：11个免费Claude技能，逆向克隆任意App并修复用户痛点
+- [Jakeschincariol/replica-skill](https://github.com/Jakeschincariol/replica-skill) ★ 4,603：11个免费Claude技能，逆向克隆任意App并修复用户痛点
 - [QingYunA/answer-me-with-html](https://github.com/QingYunA/answer-me-with-html) ★ 4,250：让AI Agent用一页HTML图文解答复杂问题的技能工具
 - [kaankiziltug/logo-design-skill](https://github.com/kaankiziltug/logo-design-skill) ★ 4,160：面向Claude/Codex等AI Agent的Logo设计技能与千例素材库
 - [nykooi1/vibe-wise](https://github.com/nykooi1/vibe-wise) ★ 3,863：Claude Code/Codex插件，AI写代码同时引导你学习设计思路
 - [Arekejoker/qwen21-nsfw-pose-skill](https://github.com/Arekejoker/qwen21-nsfw-pose-skill) ★ 3,629：基于Qwen-Image的NSFW姿势出图Agent技能，含136姿势控制库
 - [onehumanbeing/esp32-iphone-agent](https://github.com/onehumanbeing/esp32-iphone-agent) ★ 3,551：用7美元ESP32让AI视觉模型操控真实iPhone，免Mac免越狱
 - [feitangyuan/onetake](https://github.com/feitangyuan/onetake) ★ 2,988：Claude Agent技能，生成一镜到底连贯运镜的产品发布动效片
-- [dzhng/jevgrep](https://github.com/dzhng/jevgrep) ★ 2,847：给 Claude Code/Codex 等编码 Agent 用的语义代码搜索 CLI，用 Jev 定位相关文件
+- [dzhng/jevgrep](https://github.com/dzhng/jevgrep) ★ 2,848：给 Claude Code/Codex 等编码 Agent 用的语义代码搜索 CLI，用 Jev 定位相关文件
 - [Folkbench/folkbench](https://github.com/Folkbench/folkbench) ★ 2,701：AI API 中转站评测榜单与切换工具，帮 Claude Code/Codex 用户选稳定低价线路
 - [nanaism/yomiyasu](https://github.com/nanaism/yomiyasu) ★ 2,403：给 AI 编码 Agent 用的 Skill，把生成的日语文本润色得更自然流畅
 - [nano-muse/nanoMuse](https://github.com/nano-muse/nanoMuse) ★ 2,303：跨手机、电脑和浏览器运行的开源个人 AI Agent，记住你并代为执行任务
@@ -85,9 +87,9 @@
 - [amontlabs/lcu](https://github.com/amontlabs/lcu) ★ 2,083：把 Codex 电脑操作能力解耦出来，供 Claude Code 等任意 Agent 调用
 - [academa-labs/manimgx](https://github.com/academa-labs/manimgx) ★ 2,028：Rust GPU加速、兼容Manim API的数学/3D视频渲染引擎，专为AI编程Agent优化
 - [oil-oil/oil-ui](https://github.com/oil-oil/oil-ui) ★ 2,017：给 Claude Code、Codex 等 AI Agent 用的 UI 设计 Skill，多方案对比与还原
-- [jiwoochris/artex-global](https://github.com/jiwoochris/artex-global) ★ 2,004：韩语版 AI 自主渗透测试框架，上游为 Autumn-27/ARTEX
+- [jiwoochris/artex-global](https://github.com/jiwoochris/artex-global) ★ 2,005：韩语版 AI 自主渗透测试框架，上游为 Autumn-27/ARTEX
 
-1,000–1,999★ 的 25 个：perplexityai/SPACE ★1,873、angusdevgo/Seep-Reverse-Lab ★1,797、glanderness/BeefTV ★1,776、wuyoscar/AISafetyHot-Hub ★1,703、trhhubsd/ARTEX ★1,699、zhuyansen/new-term-radar ★1,682、JohnHeibel/ClaudeAnimationBase ★1,566、mw00/project-maya ★1,487、Jakeschincariol/founder-skill ★1,419、rociiu/talorys ★1,372、goodnight000/api-anything ★1,354、Caho1/open-claude-ui ★1,330、mikehasa/golive-skill ★1,318、StartLuxLabs/StartLux-Decision ★1,212、echris6/motion-video-kit ★1,167、riba2534/claude-opus-5-5-demo ★1,163、AgnesAI-Labs/agnes-harness ★1,161、jwuthri-cloud/Tracely-ai ★1,151、sirioberati/Genjustsu-Open-Source-Workflow ★1,148、MaryCache/imozuru ★1,101、openai/mcp-extensions ★1,098、YeonwooSung/my-claude-code-mods ★1,098、timoncool/YuE2-Studio ★1,085、Harvil1/codeAgent ★1,026、Edwardxlai/easyread ★1,010
+1,000–1,999★ 的 25 个：perplexityai/SPACE ★1,873、angusdevgo/Seep-Reverse-Lab ★1,797、glanderness/BeefTV ★1,776、wuyoscar/AISafetyHot-Hub ★1,703、trhhubsd/ARTEX ★1,699、zhuyansen/new-term-radar ★1,682、JohnHeibel/ClaudeAnimationBase ★1,566、mw00/project-maya ★1,490、Jakeschincariol/founder-skill ★1,420、rociiu/talorys ★1,372、goodnight000/api-anything ★1,354、Caho1/open-claude-ui ★1,330、mikehasa/golive-skill ★1,318、StartLuxLabs/StartLux-Decision ★1,212、echris6/motion-video-kit ★1,167、riba2534/claude-opus-5-5-demo ★1,163、AgnesAI-Labs/agnes-harness ★1,161、jwuthri-cloud/Tracely-ai ★1,151、sirioberati/Genjustsu-Open-Source-Workflow ★1,148、MaryCache/imozuru ★1,101、openai/mcp-extensions ★1,098、YeonwooSung/my-claude-code-mods ★1,098、timoncool/YuE2-Studio ★1,085、Harvil1/codeAgent ★1,026、Edwardxlai/easyread ★1,010
 
 ## 名录
 
@@ -183,7 +185,7 @@
 - **上手**：`uv run jev` 先执行git clone、uv sync并在.env中配置TYPESAFE_API_KEY和TEXT_MODEL_API_KEY，再运行此命令打开本地调试页面
 - ⚠️ 核心功能是自动化操作Google Flights、Wikipedia等第三方网页完成任务，可能违反对方服务条款，存在账号风险
 
-#### [lexmount/moli](https://github.com/lexmount/moli) ⭐ 20,118
+#### [lexmount/moli](https://github.com/lexmount/moli) ⭐ 20,119
 
 > 面向 AI Agent 的轻量无头浏览器，按需渲染，资源占用低，用 Rust 编写
 
@@ -201,7 +203,7 @@
 - **适合**：需要网页抓取、构建爬虫或 Agent 浏览自动化的开发者，尤其是对资源占用和启动速度敏感的场景
 - **上手**：`curl --proto '=https' --tlsv1.2 -fsSL https://github.com/lexmount/moli/releases/latest/download/moli-installer.sh | sh` Linux/macOS 下载并安装预编译二进制；Windows 需在 PowerShell 中运行对应的 .ps1 安装脚本
 
-#### [yetone/magpie](https://github.com/yetone/magpie) ⭐ 19,492
+#### [yetone/magpie](https://github.com/yetone/magpie) ⭐ 19,493
 
 > 本地网关统一管理，让各编程 Agent 共用任意模型或订阅账号
 
@@ -290,7 +292,7 @@
 - **上手**：`uv pip install reef-infra` 需先用 uv 创建并激活虚拟环境；若需版本/检查点功能还要系统安装 git-lfs。
 - ⚠️ Reefine 默认在本地无鉴权启动（需手动设 REEF_TOKEN 才要求认证），其编码会话默认不在沙箱中运行命令，README 提醒需自行隔离安装目录与运行环境。
 
-#### [CopilotKit/OpenBot](https://github.com/CopilotKit/OpenBot) ⭐ 6,929
+#### [CopilotKit/OpenBot](https://github.com/CopilotKit/OpenBot) ⭐ 6,931
 
 > 开源AI协作者平台，为每个Agent分配独立电脑并记录全部操作
 
@@ -423,7 +425,7 @@ deno task check && deno task test` 需先安装 Deno 2.x；测试基于已录制
 - **适合**：需要免费、无水印、离线剪辑短视频或视频的创作者，以及想用脚本或 AI Agent 自动化剪辑流程的开发者。
 - **上手**：`cargo run -p concat` 需先安装 Rust 1.93+、FFmpeg 7+ 开发库、cmake 及 C++ 编译器，在 src 目录下执行；也可从官网下载安装包。
 
-#### [genspark-ai/genoffice](https://github.com/genspark-ai/genoffice) ⭐ 10,523
+#### [genspark-ai/genoffice](https://github.com/genspark-ai/genoffice) ⭐ 10,524
 
 > 开源免费的AI办公套件，本地编辑Word/Excel/PPT/PDF并内置AI代理
 
@@ -499,7 +501,7 @@ docker compose up -d --build` 需要 Docker、Node.js 24 和 OpenAI 兼容的模
 - ⚠️ 触发分析时，聊天文字及你启用的背景信息会发送给你自行配置的第三方大模型服务商，涉及对方聊天内容外流的隐私问题。
 - ⚠️ 核心功能靠无障碍服务读取QQ、X、飞书等App的聊天界面内容并自动填入回复文本框，可能涉及相关App服务条款限制。
 
-#### [yi1108/printfilm](https://github.com/yi1108/printfilm) ⭐ 6,157
+#### [yi1108/printfilm](https://github.com/yi1108/printfilm) ⭐ 6,159
 
 > 模板驱动的AI短视频与AI漫剧创作平台，从文案到成片
 
@@ -563,7 +565,7 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 
 ### Skills 与写作/设计
 
-#### [hypit-ai/hypit](https://github.com/hypit-ai/hypit) ⭐ 24,821
+#### [hypit-ai/hypit](https://github.com/hypit-ai/hypit) ⭐ 24,824
 
 > 让 Claude Code 等编程 Agent 克隆任意视频，批量生成素材、字幕与特效的完整工作流
 
@@ -582,7 +584,7 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - ⚠️ 仓库采用自定义的 Hypit Open Source License，非常见开源许可证，GitHub 元数据显示许可证未明确判定（NOASSERTION），使用前需自行核实条款
 - ⚠️ 许可证未声明或非标准，商用前请确认授权
 
-#### [guillaumemeyer/watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover) ⭐ 24,666
+#### [guillaumemeyer/watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover) ⭐ 24,667
 
 > Claude Agent Skill + 本地服务，去除文本和文件中的多厂商 AI 水印与溯源标记
 
@@ -600,7 +602,7 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - **上手**：`python3 install_skill.py --skill remove-ai-marks --target claude-code` 安装 Claude Code 个人版 Skill，需额外启动本地服务（make serve）配合使用
 - ⚠️ 去除 AI 内容的水印与溯源标记（如 C2PA、SynthID）可能涉及规避 AI 内容标识相关法规的风险
 
-#### [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) ⭐ 19,111
+#### [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) ⭐ 19,115
 
 > 让 Claude Code 等编码 Agent 把技术概念画成可交互等轴测插图的 Skill
 
@@ -617,7 +619,7 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - **适合**：需要为技术文档、博客或产品页制作讲解性插图的开发者，尤其是 Claude Code 等编码 Agent 用户
 - **上手**：`npx skills add wheresryan22/anatomy -g` 安装后在 Claude Code 等终端输入 /anatomy 并描述要讲解的技术概念即可生成插图
 
-#### [yihui-dev/awesome-opus5-5-videos](https://github.com/yihui-dev/awesome-opus5-5-videos) ⭐ 9,212
+#### [yihui-dev/awesome-opus5-5-videos](https://github.com/yihui-dev/awesome-opus5-5-videos) ⭐ 9,213
 
 > 收录用Claude Opus 5.5生成的病毒视频及对应提示词的清单
 
@@ -634,7 +636,7 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - **上手**：打开prompts目录下的提示词文件，复制Prompt内容粘贴给Claude Opus 5.5使用
 - ⚠️ 视频和提示词版权归原创作者所有，仓库仅托管简短预览片段，使用时需注意版权归属
 
-#### [miqdadbadjuber/anti-slop](https://github.com/miqdadbadjuber/anti-slop) ⭐ 6,875
+#### [miqdadbadjuber/anti-slop](https://github.com/miqdadbadjuber/anti-slop) ⭐ 6,876
 
 > 一套规则集，让 AI 编程 Agent 别再写出千篇一律的 UI、水文案和 AI 味代码
 
@@ -707,7 +709,7 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 
 ### 开发者工具与集成
 
-#### [Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) ⭐ 36,697
+#### [Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) ⭐ 36,699
 
 > dsh 插件，免登录免 Key 白嫖前沿大模型，并可接入第三方账号渠道
 
@@ -728,7 +730,7 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - ⚠️ Kilo 免费渠道的上游声明可能记录 prompt 用于改进服务，官方提示请勿发送敏感内容
 - ⚠️ 局域网转发为可选功能，开启后同网段内持有 Key 的任何人都可消耗本机免费额度，需在可信网络使用
 
-#### [miuuyy/codex-chatgpt-web](https://github.com/miuuyy/codex-chatgpt-web) ⭐ 14,826
+#### [miuuyy/codex-chatgpt-web](https://github.com/miuuyy/codex-chatgpt-web) ⭐ 14,827
 
 > 让 Codex 把 ChatGPT 网页版（含 Pro）当作模型使用，不消耗 Codex 配额
 
@@ -800,7 +802,7 @@ make test` 无需下载模型即可完成构建和测试，约一分钟；完整
 - **上手**：`claude mcp add ryze --transport http https://connector.get-ryze.ai/mcp` 添加连接器后需 Google 登录并授权 Search Console/GA4/广告账号，再安装 open-seo-mcp-skills 插件使用
 - ⚠️ 需要将 Google Search Console、GA4、Google Ads 等账号数据连接至第三方 Ryze 云端服务，涉及真实业务数据外传
 
-#### [Louis-CFM/coucou](https://github.com/Louis-CFM/coucou) ⭐ 6,219
+#### [Louis-CFM/coucou](https://github.com/Louis-CFM/coucou) ⭐ 6,220
 
 > 常驻 Mac 刘海/灵动岛的小伙伴，实时监控并批准 Claude Code、Codex 等 AI 编程代理
 

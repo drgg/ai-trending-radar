@@ -11,7 +11,7 @@
    "full_name": "Ebony-Vinyl/dsh-our-free-model",
    "html_url": "https://github.com/Ebony-Vinyl/dsh-our-free-model",
    "description": "在 dsh 里装上这个插件即可，无需登录、注册或填 API Key，就能使用包括 DeepSeek V4.1 Flash、Kimi K3 在内的前沿模型——完全免费，不限量。 All you do is install this plugin in dsh: no login, no sign-up, no API key — the frontier models are just there, DeepSeek V4.1 Flash and Kimi K3 among them. Completely free, with no usage cap.",
-   "stars": 36697,
+   "stars": 36699,
    "forks": 1052,
    "language": "JavaScript",
    "license": "MIT",
@@ -62,13 +62,13 @@
     "model": "claude-sonnet-5"
    },
    "flags": [],
-   "delta": 11160
+   "delta": 11162
   },
   {
    "full_name": "hypit-ai/hypit",
    "html_url": "https://github.com/hypit-ai/hypit",
    "description": "Clone any viral video with AI agents. Not just a script, the whole workflow: swap the face, the words, the B-roll, ship 100 variants in one command, and get your 100M views.",
-   "stars": 24821,
+   "stars": 24824,
    "forks": 2806,
    "language": "TypeScript",
    "license": "NOASSERTION",
@@ -128,13 +128,13 @@
    "flags": [
     "许可证未声明或非标准，商用前请确认授权"
    ],
-   "delta": 1183
+   "delta": 1186
   },
   {
    "full_name": "guillaumemeyer/watermarks-remover",
    "html_url": "https://github.com/guillaumemeyer/watermarks-remover",
    "description": "A privacy-first app that strips AI watermarks from content you own.",
-   "stars": 24666,
+   "stars": 24667,
    "forks": 2831,
    "language": "Python",
    "license": "MIT",
@@ -187,7 +187,7 @@
     "model": "claude-sonnet-5"
    },
    "flags": [],
-   "delta": 276
+   "delta": 277
   },
   {
    "full_name": "browser-use/jev-ultrafast",
@@ -236,7 +236,7 @@
    "full_name": "lexmount/moli",
    "html_url": "https://github.com/lexmount/moli",
    "description": "Best headless browser for AI agents. Lite, Fast, High-Compatibility. Built in Rust",
-   "stars": 20118,
+   "stars": 20119,
    "forks": 542,
    "language": "Rust",
    "license": "Apache-2.0",
@@ -287,13 +287,13 @@
     "model": "claude-sonnet-5"
    },
    "flags": [],
-   "delta": 598
+   "delta": 599
   },
   {
    "full_name": "yetone/magpie",
    "html_url": "https://github.com/yetone/magpie",
    "description": "Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.",
-   "stars": 19492,
+   "stars": 19493,
    "forks": 1473,
    "language": "Go",
    "license": "MIT",
@@ -337,13 +337,13 @@
     "model": "claude-sonnet-5"
    },
    "flags": [],
-   "delta": 3208
+   "delta": 3209
   },
   {
    "full_name": "wheresryan22/anatomy",
    "html_url": "https://github.com/wheresryan22/anatomy",
    "description": "An agent skill for creating detailed, interactive isometric illustrations of real-world machines and complex systems. Generates polished SVGs with optional WebGL shaders and 3D effects.",
-   "stars": 19111,
+   "stars": 19115,
    "forks": 1491,
    "language": "JavaScript",
    "license": "MIT",
@@ -383,7 +383,7 @@
     "model": "claude-sonnet-5"
    },
    "flags": [],
-   "delta": 2855
+   "delta": 2859
   },
   {
    "full_name": "dataelement/dsh-desktop",
@@ -491,7 +491,7 @@
    "full_name": "miuuyy/codex-chatgpt-web",
    "html_url": "https://github.com/miuuyy/codex-chatgpt-web",
    "description": "Use ChatGPT Web (including Pro) as a native model in Codex — with context, tools, streaming and images, without using Codex quota.",
-   "stars": 14826,
+   "stars": 14827,
    "forks": 1166,
    "language": "TypeScript",
    "license": "MIT",
@@ -540,7 +540,7 @@
     "model": "claude-sonnet-5"
    },
    "flags": [],
-   "delta": 258
+   "delta": 259
   },
   {
    "full_name": "google/artemis",
@@ -694,7 +694,7 @@
    "full_name": "genspark-ai/genoffice",
    "html_url": "https://github.com/genspark-ai/genoffice",
    "description": "Free, open-source AI Office suite: Docs, Sheets, Slides, PDF, Markdown and HTML editors with a built-in AI agent, plus a `genoffice` CLI and agent skill so Claude Code, Codex and Cursor can create and edit real .docx/.xlsx/.pptx files locally. Bring your own key. macOS, Windows & Linux.",
-   "stars": 10523,
+   "stars": 10524,
    "forks": 1394,
    "language": "TypeScript",
    "license": "Apache-2.0",
@@ -750,13 +750,13 @@
     "model": "claude-sonnet-5"
    },
    "flags": [],
-   "delta": 552
+   "delta": 553
   },
   {
    "full_name": "yihui-dev/awesome-opus5-5-videos",
    "html_url": "https://github.com/yihui-dev/awesome-opus5-5-videos",
    "description": "A growing collection of viral videos made with Claude Opus 5.5 and the prompts behind them. Watch each original next to a live remake on Skillry. Updated regularly.",
-   "stars": 9212,
+   "stars": 9213,
    "forks": 926,
    "language": null,
    "license": "MIT",
@@ -802,7 +802,7 @@
     "model": "claude-sonnet-5"
    },
    "flags": [],
-   "delta": 2885
+   "delta": 2886
   },
   {
    "full_name": "FareedKhan-dev/kimi-k3-in-c",
@@ -1322,7 +1322,7 @@
    "full_name": "CopilotKit/OpenBot",
    "html_url": "https://github.com/CopilotKit/OpenBot",
    "description": "Open-source AI coworkers that each get a computer of their own: a browser, files and tools, with every action decided before it happens and recorded after. Bring any AG-UI agent.",
-   "stars": 6929,
+   "stars": 6931,
    "forks": 943,
    "language": "TypeScript",
    "license": "MIT",
@@ -1368,13 +1368,13 @@
     "model": "claude-sonnet-5"
    },
    "flags": [],
-   "delta": 282
+   "delta": 284
   },
   {
    "full_name": "miqdadbadjuber/anti-slop",
    "html_url": "https://github.com/miqdadbadjuber/anti-slop",
    "description": "Rules for an AI coding agent to filter out generic AI-generated UI designs, text, and code.",
-   "stars": 6875,
+   "stars": 6876,
    "forks": 465,
    "language": "JavaScript",
    "license": "MIT",
@@ -1420,7 +1420,7 @@
     "model": "claude-sonnet-5"
    },
    "flags": [],
-   "delta": 411
+   "delta": 412
   },
   {
    "full_name": "bojieli/ai-infra-book",
@@ -1546,7 +1546,7 @@
    "full_name": "Louis-CFM/coucou",
    "html_url": "https://github.com/Louis-CFM/coucou",
    "description": "A tiny friend in your Mac's notch and on your iPhone that keeps an eye on your AI coding agents: Claude Code, Codex, Cursor, Gemini CLI, Antigravity and more. Approve from the notch or your Lock Screen.",
-   "stars": 6219,
+   "stars": 6220,
    "forks": 1004,
    "language": "Swift",
    "license": "MIT",
@@ -1604,13 +1604,13 @@
     "model": "claude-sonnet-5"
    },
    "flags": [],
-   "delta": 677
+   "delta": 678
   },
   {
    "full_name": "yi1108/printfilm",
    "html_url": "https://github.com/yi1108/printfilm",
    "description": "PRINTFILM: AI short-video marketing and AI short-drama creation platform",
-   "stars": 6157,
+   "stars": 6159,
    "forks": 699,
    "language": "Python",
    "license": "MIT",
@@ -1651,7 +1651,7 @@
     "model": "claude-sonnet-5"
    },
    "flags": [],
-   "delta": 979
+   "delta": 981
   },
   {
    "full_name": "s1dashu/ip-as-logo-skill",
@@ -2103,7 +2103,7 @@
   {
    "full_name": "tangency-labs/solidcraft",
    "html_url": "https://github.com/tangency-labs/solidcraft",
-   "stars": 9299,
+   "stars": 9300,
    "reason": "面向工程师与爱好者的开源参数化CAD应用，提供草图约束、特征时间线、装配与钣金建模，支持桌面、浏览器、命令行及MCP接口，目前为早期版本，适合简单零件。"
   },
   {
@@ -2121,7 +2121,7 @@
   {
    "full_name": "omlahore/RemoveMacAI",
    "html_url": "https://github.com/omlahore/RemoveMacAI",
-   "stars": 5147,
+   "stars": 5148,
    "reason": "面向 macOS 用户的系统精简工具，可关闭 Apple Intelligence 及其模型、分析上报、广告和弹窗等功能，提供图形界面和命令行两种形式，所有改动可随时查看并撤销。"
   }
  ],
@@ -2142,23 +2142,23 @@
   "gainers": [
    {
     "full_name": "Ebony-Vinyl/dsh-our-free-model",
-    "delta": 11160,
-    "stars": 36697
+    "delta": 11162,
+    "stars": 36699
    },
    {
     "full_name": "yetone/magpie",
-    "delta": 3208,
-    "stars": 19492
+    "delta": 3209,
+    "stars": 19493
    },
    {
     "full_name": "yihui-dev/awesome-opus5-5-videos",
-    "delta": 2885,
-    "stars": 9212
+    "delta": 2886,
+    "stars": 9213
    },
    {
     "full_name": "wheresryan22/anatomy",
-    "delta": 2855,
-    "stars": 19111
+    "delta": 2859,
+    "stars": 19115
    },
    {
     "full_name": "jub0t/Concat",
@@ -2167,11 +2167,13 @@
    }
   ]
  },
- "outlook": "测试段落，用于排查结构化输出错误，内容无实际意义，仅检测参数是否能被正确解析和接受。",
+ "outlook": "本期最突出的升温方向是AI生成视频类技能：lemo-opuscar新上榜专攻影片风格生成，Concat加速冲高，huashu-motion、onetake、openfilm、manimgx等新星新锐同步涌现，覆盖配乐、运镜、数学动画等场景。逆向工程类Agent工具同步走强：rea单周涨十万星，leanrea、replica-skill紧随其后，形成新方向。延续方面，Skills生态持续细分，security-audit-skill、graphify加速增长，logo-design-skill、oil-ui等新锐补充；薅配额与白嫖算力需求不减，dsh-our-free-model、folkbench延续此前趋势。本地压缩推理类项目本期证据稀薄，热度有所降温。",
  "trends": [
-  "测试要点一。",
-  "测试要点二。",
-  "测试要点三。"
+  "视频生成类技能密集上新，lemo-opuscar进主榜，Concat加速至4842星，huashu-motion新星破1400星。",
+  "逆向工程Agent工具同步走强，rea单周涨超10万星，leanrea、replica-skill紧随补位，形成新方向。",
+  "Skills生态延续细分，security-audit-skill、graphify加速增长，logo-design-skill等新锐入场。",
+  "薅配额与白嫖算力需求延续，dsh-our-free-model涨1.88万星，folkbench新增中转评测工具。",
+  "本地压缩推理类项目本期缺乏新证据，热度较前几期有所降温。"
  ],
  "rising": {
   "window": {
@@ -2240,7 +2242,7 @@
     "full_name": "Ansub/tv-detox",
     "html_url": "https://github.com/Ansub/tv-detox",
     "owner": "Ansub",
-    "stars": 1278,
+    "stars": 1280,
     "forks": 131,
     "created_at": "2026-10-18",
     "description": "Make an old Android TV fast again with Claude Code or Codex: a tiny ad-free home screen plus the prompt to clean it up",
@@ -2291,7 +2293,7 @@
     "full_name": "zcbacxc/mcd-party-planner",
     "html_url": "https://github.com/zcbacxc/mcd-party-planner",
     "owner": "zcbacxc",
-    "stars": 850,
+    "stars": 853,
     "forks": 52,
     "created_at": "2026-10-15",
     "description": "麦当劳 MCP 聚会/团餐组织助手 — 基于 Model Context Protocol 的派对预订与团餐规划 CLI/Skill",
@@ -2378,8 +2380,8 @@
     "full_name": "Jakeschincariol/replica-skill",
     "html_url": "https://github.com/Jakeschincariol/replica-skill",
     "owner": "Jakeschincariol",
-    "stars": 4600,
-    "forks": 808,
+    "stars": 4603,
+    "forks": 809,
     "created_at": "2026-10-03",
     "description": "Eleven free Claude skills that clone any app: reverse-engineer it, rebuild it, test it for bugs, then fix what its users hate. Free, MIT.",
     "language": "Python",
@@ -2497,8 +2499,8 @@
     "full_name": "dzhng/jevgrep",
     "html_url": "https://github.com/dzhng/jevgrep",
     "owner": "dzhng",
-    "stars": 2847,
-    "forks": 209,
+    "stars": 2848,
+    "forks": 210,
     "created_at": "2026-09-26",
     "description": "Find code by asking what it does. A CLI for coding agents that uses Jev to discover relevant files and source context.",
     "language": "TypeScript",
@@ -2650,7 +2652,7 @@
     "full_name": "jiwoochris/artex-global",
     "html_url": "https://github.com/jiwoochris/artex-global",
     "owner": "jiwoochris",
-    "stars": 2004,
+    "stars": 2005,
     "forks": 2183,
     "created_at": "2026-10-03",
     "description": "ARTEX 한국어판 · AI 자율 침투 테스트 프레임워크(upstream: Autumn-27/ARTEX, AGPL-3.0)",
@@ -2736,7 +2738,7 @@
     "html_url": "https://github.com/trhhubsd/ARTEX",
     "owner": "trhhubsd",
     "stars": 1699,
-    "forks": 833,
+    "forks": 834,
     "created_at": "2026-10-08",
     "description": "ARTEX · AI autonomous penetration testing system (multi-agent LLM, Go + Next.js) · AI 自主渗透测试系统 · 百度 agent+ 攻防挑战赛冠军",
     "language": "Go",
@@ -2786,7 +2788,7 @@
     "full_name": "mw00/project-maya",
     "html_url": "https://github.com/mw00/project-maya",
     "owner": "mw00",
-    "stars": 1487,
+    "stars": 1490,
     "forks": 182,
     "created_at": "2026-10-06",
     "description": "Project Maya - run GLM-5.3-Flash (321B MoE) and DeepSeek-V4.1-Flash-1017 (748B MoE) privately on your own GPU(s), from one card to 16, NVIDIA or AMD, Linux or Windows. Engine, server, dashboard, OpenAI- and Anthropic-compatible API, quant tools.",
@@ -2803,7 +2805,7 @@
     "full_name": "Jakeschincariol/founder-skill",
     "html_url": "https://github.com/Jakeschincariol/founder-skill",
     "owner": "Jakeschincariol",
-    "stars": 1419,
+    "stars": 1420,
     "forks": 185,
     "created_at": "2026-10-07",
     "description": "Eleven free Claude skills that test a business before you launch it: a board trained on Hormozi, Thiel and Jobs, a marketing director, a CFO, and a consumer panel of 100 buyer agents. Free, MIT.",
@@ -2838,7 +2840,7 @@
     "html_url": "https://github.com/goodnight000/api-anything",
     "owner": "goodnight000",
     "stars": 1354,
-    "forks": 141,
+    "forks": 142,
     "created_at": "2026-09-27",
     "description": "Turn any website into an API your agent can call. Learns from the site's own frontend, heals itself when the site changes.",
     "language": "TypeScript",
@@ -3094,8 +3096,8 @@
     "full_name": "morluto/rea",
     "html_url": "https://github.com/morluto/rea",
     "owner": "morluto",
-    "stars": 365693,
-    "forks": 91650,
+    "stars": 365729,
+    "forks": 91660,
     "created_at": "2026-04-14",
     "description": "Reverse engineer anything with agents, from app behavior down to native binaries.",
     "language": "TypeScript",
@@ -3112,14 +3114,14 @@
     "full_name": "Ebony-Vinyl/dsh-our-free-model",
     "html_url": "https://github.com/Ebony-Vinyl/dsh-our-free-model",
     "owner": "Ebony-Vinyl",
-    "stars": 36697,
+    "stars": 36699,
     "forks": 1052,
     "created_at": "2026-09-24",
     "description": "在 dsh 里装上这个插件即可，无需登录、注册或填 API Key，就能使用包括 DeepSeek V4.1 Flash、Kimi K3 在内的前沿模型——完全免费，不限量。 All you do is install this plugin in dsh: no login, no sign-up, no API key — the frontier models are just there, DeepSeek V4.1 Flash and Kimi K3 among them. Completely free, with no usage cap.",
     "language": "JavaScript",
     "in_main": true,
     "age": 28,
-    "last7": 18832,
+    "last7": 18831,
     "prev7": 12627,
     "accel": false,
     "tagline": "dsh 插件，免登录免 Key 白嫖前沿大模型，并可接入第三方账号渠道",
@@ -3130,8 +3132,8 @@
     "full_name": "ai-job-search-dev/ai-job-search",
     "html_url": "https://github.com/ai-job-search-dev/ai-job-search",
     "owner": "ai-job-search-dev",
-    "stars": 63519,
-    "forks": 19629,
+    "stars": 63521,
+    "forks": 19632,
     "created_at": "2026-03-18",
     "description": "The job search that runs on your machine. AI job application framework built on Claude Code: evaluate postings, tailor CVs, write cover letters, prep interviews. Fork it and own it.",
     "language": "Python",
@@ -3148,15 +3150,15 @@
     "full_name": "debpalash/VoiceStudio",
     "html_url": "https://github.com/debpalash/VoiceStudio",
     "owner": "debpalash",
-    "stars": 81662,
-    "forks": 9015,
+    "stars": 81667,
+    "forks": 9016,
     "created_at": "2026-04-09",
     "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
     "language": "Python",
     "in_main": false,
     "age": 196,
     "last7": 13795,
-    "prev7": 12438,
+    "prev7": 12437,
     "accel": false,
     "tagline": "本地优先的开源语音工具：声音克隆、视频配音、转录与有声书制作",
     "featured": true,
@@ -3166,7 +3168,7 @@
     "full_name": "stablyai/orca",
     "html_url": "https://github.com/stablyai/orca",
     "owner": "stablyai",
-    "stars": 102681,
+    "stars": 102688,
     "forks": 6486,
     "created_at": "2026-03-17",
     "description": "Orca is the place for working with a fleet of agents (e.g. Grok Bot, Claude Code). Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.",
@@ -3184,7 +3186,7 @@
     "full_name": "mattpocock/skills",
     "html_url": "https://github.com/mattpocock/skills",
     "owner": "mattpocock",
-    "stars": 300827,
+    "stars": 300828,
     "forks": 25276,
     "created_at": "2026-02-03",
     "description": "Skills for Real Engineers. Straight from my .agents directory.",
@@ -3202,7 +3204,7 @@
     "full_name": "DietrichGebert/ponytail",
     "html_url": "https://github.com/DietrichGebert/ponytail",
     "owner": "DietrichGebert",
-    "stars": 173319,
+    "stars": 173332,
     "forks": 9435,
     "created_at": "2026-06-12",
     "description": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
@@ -3220,7 +3222,7 @@
     "full_name": "xerj-org/xerj",
     "html_url": "https://github.com/xerj-org/xerj",
     "owner": "xerj-org",
-    "stars": 13098,
+    "stars": 13099,
     "forks": 930,
     "created_at": "2026-06-30",
     "description": "Local-first search engine and MCP server for AI agents. One Rust binary indexes code, docs, logs, JSONL/CSV and PDFs for BM25 full-text, vector and hybrid search, code search without grep, agent memory and RAG. Elasticsearch-compatible API; Corpus Hub serves hundreds of reference memory corpora.",
@@ -3238,7 +3240,7 @@
     "full_name": "cloudflare/security-audit-skill",
     "html_url": "https://github.com/cloudflare/security-audit-skill",
     "owner": "cloudflare",
-    "stars": 39341,
+    "stars": 39359,
     "forks": 2450,
     "created_at": "2026-06-18",
     "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
@@ -3256,7 +3258,7 @@
     "full_name": "wheresryan22/anatomy",
     "html_url": "https://github.com/wheresryan22/anatomy",
     "owner": "wheresryan22",
-    "stars": 19111,
+    "stars": 19115,
     "forks": 1491,
     "created_at": "2026-10-08",
     "description": "An agent skill for creating detailed, interactive isometric illustrations of real-world machines and complex systems. Generates polished SVGs with optional WebGL shaders and 3D effects.",
@@ -3274,7 +3276,7 @@
     "full_name": "affaan-m/ECC",
     "html_url": "https://github.com/affaan-m/ECC",
     "owner": "affaan-m",
-    "stars": 286460,
+    "stars": 286467,
     "forks": 42491,
     "created_at": "2026-01-18",
     "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
@@ -3292,7 +3294,7 @@
     "full_name": "yetone/magpie",
     "html_url": "https://github.com/yetone/magpie",
     "owner": "yetone",
-    "stars": 19492,
+    "stars": 19493,
     "forks": 1473,
     "created_at": "2026-09-23",
     "description": "Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.",
@@ -3310,8 +3312,8 @@
     "full_name": "heygen-com/hyperframes",
     "html_url": "https://github.com/heygen-com/hyperframes",
     "owner": "heygen-com",
-    "stars": 69956,
-    "forks": 6329,
+    "stars": 69958,
+    "forks": 6330,
     "created_at": "2026-03-10",
     "description": "Write HTML. Render video. Built for agents.",
     "language": "TypeScript",
@@ -3346,7 +3348,7 @@
     "full_name": "Graphify-Labs/graphify",
     "html_url": "https://github.com/Graphify-Labs/graphify",
     "owner": "Graphify-Labs",
-    "stars": 132853,
+    "stars": 132857,
     "forks": 12713,
     "created_at": "2026-04-03",
     "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
@@ -3382,7 +3384,7 @@
     "full_name": "ifixai-ai/iFixAi",
     "html_url": "https://github.com/ifixai-ai/iFixAi",
     "owner": "ifixai-ai",
-    "stars": 33145,
+    "stars": 33146,
     "forks": 1707,
     "created_at": "2026-04-27",
     "description": "Independent Auditing of AI Agents. Run by human or the agent itself, to answer the most crucial question in the AI Agent Economy. Is the agent doing what is supposed to do? With iFixAi you can have this answer in less than 120 seconds.",
@@ -3400,7 +3402,7 @@
     "full_name": "cathrynlavery/diagram-design",
     "html_url": "https://github.com/cathrynlavery/diagram-design",
     "owner": "cathrynlavery",
-    "stars": 60009,
+    "stars": 60011,
     "forks": 3866,
     "created_at": "2026-04-16",
     "description": "Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory Droid, Qoder, and Pi. 45 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop.",
@@ -3418,7 +3420,7 @@
     "full_name": "Leonxlnx/taste-skill",
     "html_url": "https://github.com/Leonxlnx/taste-skill",
     "owner": "Leonxlnx",
-    "stars": 101095,
+    "stars": 101097,
     "forks": 6833,
     "created_at": "2026-02-19",
     "description": "Agent skills that give coding agents taste: art direction, reference images and a browser check instead of generic AI pages",
@@ -3436,8 +3438,8 @@
     "full_name": "tashfeenahmed/freellmapi",
     "html_url": "https://github.com/tashfeenahmed/freellmapi",
     "owner": "tashfeenahmed",
-    "stars": 39544,
-    "forks": 5343,
+    "stars": 39546,
+    "forks": 5345,
     "created_at": "2026-04-21",
     "description": "7.4 billion tokens per month. 34 free LLM providers. 635 free model endpoints. All behind one /v1 endpoint, plus any custom OpenAI-compatible endpoint. Smart routing, automatic failover, encrypted keys. Personal experimentation only.",
     "language": "TypeScript",
@@ -3454,7 +3456,7 @@
     "full_name": "yihui-dev/awesome-opus5-5-videos",
     "html_url": "https://github.com/yihui-dev/awesome-opus5-5-videos",
     "owner": "yihui-dev",
-    "stars": 9212,
+    "stars": 9213,
     "forks": 926,
     "created_at": "2026-09-27",
     "description": "A growing collection of viral videos made with Claude Opus 5.5 and the prompts behind them. Watch each original next to a live remake on Skillry. Updated regularly.",
@@ -3472,7 +3474,7 @@
     "full_name": "paperclipai/paperclip",
     "html_url": "https://github.com/paperclipai/paperclip",
     "owner": "paperclipai",
-    "stars": 106130,
+    "stars": 106132,
     "forks": 17651,
     "created_at": "2026-03-02",
     "description": "The open-source app everyone uses to manage agents at work",
@@ -3508,7 +3510,7 @@
     "full_name": "Panniantong/Agent-Reach",
     "html_url": "https://github.com/Panniantong/Agent-Reach",
     "owner": "Panniantong",
-    "stars": 101004,
+    "stars": 101005,
     "forks": 8903,
     "created_at": "2026-02-24",
     "description": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.",
@@ -3526,7 +3528,7 @@
     "full_name": "pbakaus/impeccable",
     "html_url": "https://github.com/pbakaus/impeccable",
     "owner": "pbakaus",
-    "stars": 84945,
+    "stars": 84950,
     "forks": 5069,
     "created_at": "2025-11-16",
     "description": "The design language that makes your AI harness better at design.",
@@ -3544,7 +3546,7 @@
     "full_name": "HKUDS/CLI-Anything",
     "html_url": "https://github.com/HKUDS/CLI-Anything",
     "owner": "HKUDS",
-    "stars": 56214,
+    "stars": 56217,
     "forks": 5065,
     "created_at": "2026-03-08",
     "description": "\"CLI-Anything: Making ALL Software Agent-Native\" -- CLI-Hub: https://clianything.cc/",
@@ -3580,7 +3582,7 @@
     "full_name": "akitaonrails/ai-memory",
     "html_url": "https://github.com/akitaonrails/ai-memory",
     "owner": "akitaonrails",
-    "stars": 12750,
+    "stars": 12753,
     "forks": 894,
     "created_at": "2026-05-21",
     "description": "Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors",
@@ -3598,7 +3600,7 @@
     "full_name": "cheaper-inference/OmniRoute",
     "html_url": "https://github.com/cheaper-inference/OmniRoute",
     "owner": "cheaper-inference",
-    "stars": 79849,
+    "stars": 79855,
     "forks": 11627,
     "created_at": "2026-02-13",
     "description": "Never stop coding. Free MIT AI gateway: one endpoint, 375 providers (150+ free), 1,400+ models Kimi, Claude, GPT, Gemini, GLM, DeepSeek, MiniMax. Works with Claude Code, Codex, Cursor, OpenCode, Cline & Copilot. Quota-aware auto-fallback, RTK+Caveman compression saves 15-95% tokens, MCP/A2A, Desktop/PWA. Built by 900+ contributors",
@@ -3634,7 +3636,7 @@
     "full_name": "vectorize-io/hindsight",
     "html_url": "https://github.com/vectorize-io/hindsight",
     "owner": "vectorize-io",
-    "stars": 52714,
+    "stars": 52716,
     "forks": 6211,
     "created_at": "2025-10-30",
     "description": "Hindsight: Agent Memory That Learns",
@@ -3652,7 +3654,7 @@
     "full_name": "nextlevelbuilder/ui-ux-pro-max-skill",
     "html_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
     "owner": "nextlevelbuilder",
-    "stars": 138976,
+    "stars": 138978,
     "forks": 14721,
     "created_at": "2025-11-30",
     "description": "An AI skill that provides design intelligence for building professional UI/UX across multiple platforms.",
@@ -3670,7 +3672,7 @@
     "full_name": "addyosmani/agent-skills",
     "html_url": "https://github.com/addyosmani/agent-skills",
     "owner": "addyosmani",
-    "stars": 109643,
+    "stars": 109642,
     "forks": 11433,
     "created_at": "2026-02-15",
     "description": "Production-grade engineering skills for AI coding agents.",
@@ -3706,7 +3708,7 @@
     "full_name": "hypit-ai/hypit",
     "html_url": "https://github.com/hypit-ai/hypit",
     "owner": "hypit-ai",
-    "stars": 24821,
+    "stars": 24824,
     "forks": 2806,
     "created_at": "2026-07-29",
     "description": "Clone any viral video with AI agents. Not just a script, the whole workflow: swap the face, the words, the B-roll, ship 100 variants in one command, and get your 100M views.",
@@ -3724,8 +3726,8 @@
     "full_name": "calesthio/OpenMontage",
     "html_url": "https://github.com/calesthio/OpenMontage",
     "owner": "calesthio",
-    "stars": 70877,
-    "forks": 9160,
+    "stars": 70878,
+    "forks": 9161,
     "created_at": "2026-03-29",
     "description": "World's first open-source, agentic video production system. 12 production pipelines, 100+ tools, 700+ agent skill and production-knowledge files. Turn your AI coding assistant into a full video production studio.",
     "language": "Python",
@@ -3760,7 +3762,7 @@
     "full_name": "multica-ai/andrej-karpathy-skills",
     "html_url": "https://github.com/multica-ai/andrej-karpathy-skills",
     "owner": "multica-ai",
-    "stars": 222490,
+    "stars": 222494,
     "forks": 22311,
     "created_at": "2026-01-27",
     "description": "A single CLAUDE.md file to improve Claude Code behavior, derived from Andrej Karpathy's observations on LLM coding pitfalls.",
@@ -3796,7 +3798,7 @@
     "full_name": "JuliusBrussee/caveman",
     "html_url": "https://github.com/JuliusBrussee/caveman",
     "owner": "JuliusBrussee",
-    "stars": 114389,
+    "stars": 114390,
     "forks": 6594,
     "created_at": "2026-04-04",
     "description": "🪨 why use many token when few token do trick. Viral skill + proxy for coding agents that cuts 65% of tokens by talking like a caveman.",
@@ -3922,7 +3924,7 @@
     "full_name": "Alishahryar1/free-claude-code",
     "html_url": "https://github.com/Alishahryar1/free-claude-code",
     "owner": "Alishahryar1",
-    "stars": 62646,
+    "stars": 62647,
     "forks": 9796,
     "created_at": "2026-01-28",
     "description": "Use Claude Code, Codex, VSCode, Pi, and OpenCode (and 6 other harnesses) for free (1.3B+ free tokens) from your terminal, app, IDE, or phone, and now from the browser with native browser sessions (multi-harness + multi-model) like OpenClaw (voice supported + ToS friendly)",
@@ -3958,7 +3960,7 @@
     "full_name": "earthtojake/text-to-cad",
     "html_url": "https://github.com/earthtojake/text-to-cad",
     "owner": "earthtojake",
-    "stars": 22527,
+    "stars": 22529,
     "forks": 2199,
     "created_at": "2026-04-22",
     "description": "Give your agent CAD superpowers.",
@@ -4048,7 +4050,7 @@
     "full_name": "lexmount/moli",
     "html_url": "https://github.com/lexmount/moli",
     "owner": "lexmount",
-    "stars": 20118,
+    "stars": 20119,
     "forks": 542,
     "created_at": "2026-08-10",
     "description": "Best headless browser for AI agents. Lite, Fast, High-Compatibility. Built in Rust",
@@ -4066,7 +4068,7 @@
     "full_name": "anthropics/knowledge-work-plugins",
     "html_url": "https://github.com/anthropics/knowledge-work-plugins",
     "owner": "anthropics",
-    "stars": 31528,
+    "stars": 31531,
     "forks": 3529,
     "created_at": "2026-01-23",
     "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
@@ -4084,8 +4086,8 @@
     "full_name": "Jakeschincariol/replica-skill",
     "html_url": "https://github.com/Jakeschincariol/replica-skill",
     "owner": "Jakeschincariol",
-    "stars": 4600,
-    "forks": 808,
+    "stars": 4603,
+    "forks": 809,
     "created_at": "2026-10-03",
     "description": "Eleven free Claude skills that clone any app: reverse-engineer it, rebuild it, test it for bugs, then fix what its users hate. Free, MIT.",
     "language": "Python",
@@ -4120,7 +4122,7 @@
     "full_name": "VoltAgent/awesome-design-md",
     "html_url": "https://github.com/VoltAgent/awesome-design-md",
     "owner": "VoltAgent",
-    "stars": 122939,
+    "stars": 122941,
     "forks": 13641,
     "created_at": "2026-03-31",
     "description": "A collection of DESIGN.md files analysis by popular brand design systems. Drop one into your project and let coding agents generate a matching UI.",
@@ -4336,7 +4338,7 @@
     "full_name": "Egonex-AI/Understand-Anything",
     "html_url": "https://github.com/Egonex-AI/Understand-Anything",
     "owner": "Egonex-AI",
-    "stars": 87712,
+    "stars": 87713,
     "forks": 7400,
     "created_at": "2026-03-15",
     "description": "Graphs that teach > graphs that impress. Turn any code into an interactive knowledge graph you can explore, search, and ask questions about. Works with Claude Code, Codex, Cursor, Copilot, Gemini CLI, and more.",
@@ -4354,7 +4356,7 @@
     "full_name": "citrolabs/ego-lite",
     "html_url": "https://github.com/citrolabs/ego-lite",
     "owner": "citrolabs",
-    "stars": 18791,
+    "stars": 18792,
     "forks": 1035,
     "created_at": "2026-04-16",
     "description": "The fastest browser for AI agents to run browser automation, built for sharing your logged-in browser state with your AI agents, like Codex or Claude Code, without disturbing you. Zero cost, zero config.",
@@ -4426,7 +4428,7 @@
     "full_name": "herdrdev/herdr",
     "html_url": "https://github.com/herdrdev/herdr",
     "owner": "herdrdev",
-    "stars": 45387,
+    "stars": 45388,
     "forks": 3606,
     "created_at": "2026-03-27",
     "description": "the runtime your coding agents live on",
@@ -4444,7 +4446,7 @@
     "full_name": "Ansub/tv-detox",
     "html_url": "https://github.com/Ansub/tv-detox",
     "owner": "Ansub",
-    "stars": 1278,
+    "stars": 1280,
     "forks": 131,
     "created_at": "2026-10-18",
     "description": "Make an old Android TV fast again with Claude Code or Codex: a tiny ad-free home screen plus the prompt to clean it up",
@@ -4498,8 +4500,8 @@
     "full_name": "coreyhaines31/marketingskills",
     "html_url": "https://github.com/coreyhaines31/marketingskills",
     "owner": "coreyhaines31",
-    "stars": 56014,
-    "forks": 8287,
+    "stars": 56016,
+    "forks": 8288,
     "created_at": "2026-01-15",
     "description": "Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.",
     "language": "JavaScript",
@@ -4516,8 +4518,8 @@
     "full_name": "ayghri/i-have-adhd",
     "html_url": "https://github.com/ayghri/i-have-adhd",
     "owner": "ayghri",
-    "stars": 58325,
-    "forks": 3378,
+    "stars": 58327,
+    "forks": 3377,
     "created_at": "2026-05-13",
     "description": "A skill to stop your coding agent from burying the answer. ADHD-friendly output.",
     "language": "Python",
@@ -4552,7 +4554,7 @@
     "full_name": "vercel-labs/skills",
     "html_url": "https://github.com/vercel-labs/skills",
     "owner": "vercel-labs",
-    "stars": 36138,
+    "stars": 36139,
     "forks": 3098,
     "created_at": "2026-01-14",
     "description": "The open agent skills tool - npx skills",
@@ -4661,7 +4663,7 @@
    {
     "full_name": "AhmadHassan-BTed/Turnitout-Humanizer",
     "html_url": "https://github.com/AhmadHassan-BTed/Turnitout-Humanizer",
-    "stars": 5111,
+    "stars": 5115,
     "last7": 4130,
     "prev7": 94,
     "created_at": "2026-07-10"
@@ -4669,7 +4671,7 @@
    {
     "full_name": "AhmadHassan-BTed/Jantt",
     "html_url": "https://github.com/AhmadHassan-BTed/Jantt",
-    "stars": 3478,
+    "stars": 3479,
     "last7": 2848,
     "prev7": 87,
     "created_at": "2026-08-28"
@@ -4677,7 +4679,7 @@
    {
     "full_name": "AhmadHassan-BTed/OpenHeart",
     "html_url": "https://github.com/AhmadHassan-BTed/OpenHeart",
-    "stars": 3402,
+    "stars": 3403,
     "last7": 2748,
     "prev7": 88,
     "created_at": "2026-08-08"
@@ -4685,7 +4687,7 @@
    {
     "full_name": "AhmadHassan-BTed/SilentSniffer",
     "html_url": "https://github.com/AhmadHassan-BTed/SilentSniffer",
-    "stars": 3416,
+    "stars": 3417,
     "last7": 2726,
     "prev7": 86,
     "created_at": "2026-04-26"
@@ -4693,7 +4695,7 @@
    {
     "full_name": "AhmadHassan-BTed/B",
     "html_url": "https://github.com/AhmadHassan-BTed/B",
-    "stars": 2967,
+    "stars": 2968,
     "last7": 2412,
     "prev7": 87,
     "created_at": "2026-05-02"
@@ -4701,7 +4703,7 @@
    {
     "full_name": "AhmadHassan-BTed/AhmadHassan-BTed",
     "html_url": "https://github.com/AhmadHassan-BTed/AhmadHassan-BTed",
-    "stars": 2991,
+    "stars": 2993,
     "last7": 2380,
     "prev7": 94,
     "created_at": "2026-05-09"
@@ -4709,7 +4711,7 @@
    {
     "full_name": "AhmadHassan-BTed/AutoSwarm-Shadow-Adapter",
     "html_url": "https://github.com/AhmadHassan-BTed/AutoSwarm-Shadow-Adapter",
-    "stars": 2761,
+    "stars": 2762,
     "last7": 2226,
     "prev7": 86,
     "created_at": "2026-07-25"
@@ -4717,7 +4719,7 @@
    {
     "full_name": "AhmadHassan-BTed/RoseWish",
     "html_url": "https://github.com/AhmadHassan-BTed/RoseWish",
-    "stars": 2631,
+    "stars": 2632,
     "last7": 2093,
     "prev7": 86,
     "created_at": "2026-04-26"
@@ -4746,7 +4748,7 @@
    "spam_owners": [
     "AhmadHassan-BTed"
    ],
-   "api_calls": 868
+   "api_calls": 867
   },
   "excluded": [
    {
