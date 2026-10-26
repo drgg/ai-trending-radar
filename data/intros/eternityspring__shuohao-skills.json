@@ -1,0 +1,26 @@
+{
+  "is_ai_product": true,
+  "category": "Skills 与写作/设计",
+  "tagline": "面向AI短剧制作的Agent Skills集合，含拆角色、排大纲、出设定、写剧本、切分镜七个技能",
+  "positioning": "面向AI短剧制作全流程的Agent-agnostic技能集合，从小说到可拍摄素材：角色设定、大纲改编、场景道具、剧本、开场站位、分镜，可在Claude Code与Codex等任意支持SKILL.md的Agent中运行。",
+  "features": [
+    "novel-outline：将小说改编为短剧大纲，含改编说明、角色表、分集梗概、道具表，14项质量门脚本校验",
+    "novel-characters：依据大纲生成角色圣经，含小传、设计/配音提示词、模型表",
+    "character-refs：独立技能，实际生成角色参考图，可选ComfyUI（Qwen Image）、Codex图像生成或GPT Image 2 API",
+    "novel-script：生成分场剧本与逐角色台词书，自动估算分集时长，前3个节拍设冷开场钩子门槛",
+    "novel-storyboard：生成segment/cut/keyframe分镜，含MiniMax H3提示词对齐，实际生成关键帧图像"
+  ],
+  "highlights": [
+    "各技能自带脚本化质量门校验（大纲14项、剧本10项、分镜18项等），为脚本自动检查而非模型自评",
+    "安装脚本以符号链接方式接入Claude Code/Codex技能目录，git pull后无需重新安装即可生效"
+  ],
+  "audience": "使用Claude Code、Codex等Agent制作AI短剧的创作者、独立开发者或内容团队",
+  "quickstart_cmd": "git clone https://github.com/eternityspring/shuohao-skills.git\ncd shuohao-skills\n./scripts/install.sh",
+  "quickstart_note": "安装脚本自动检测Claude Code与Codex并以符号链接接入技能目录，其他Agent可手动复制或软链SKILL.md目录。",
+  "risks": [],
+  "readme_sha": "300471bea884446fc9228e3dec2767ad93ff2b99",
+  "generated_at": "2026-10-26",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "claude-sonnet-5"
+}

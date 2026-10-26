@@ -1,0 +1,7 @@
+{
+ "tagline": "上传图片AI鉴定麦门身份并推荐套餐领券的小工具",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-10-26",
+ "model": "claude-sonnet-5"
+}

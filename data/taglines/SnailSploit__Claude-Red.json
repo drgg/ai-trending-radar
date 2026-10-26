@@ -1,0 +1,7 @@
+{
+ "tagline": "面向Claude Skills系统的红队攻防技能库，覆盖SQLi到EDR绕过等攻击面",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-10-26",
+ "model": "claude-sonnet-5"
+}

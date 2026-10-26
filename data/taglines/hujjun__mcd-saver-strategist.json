@@ -1,0 +1,7 @@
+{
+ "tagline": "计算麦当劳优惠券最省组合的AI Agent点餐省钱技能",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-10-26",
+ "model": "claude-sonnet-5"
+}

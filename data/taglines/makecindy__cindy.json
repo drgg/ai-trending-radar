@@ -1,0 +1,7 @@
+{
+ "tagline": "开源、开箱即用的跨平台AI Agent，帮用户把想法直接变成执行结果",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-10-26",
+ "model": "claude-sonnet-5"
+}

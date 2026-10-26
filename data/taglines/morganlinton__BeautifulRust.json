@@ -1,0 +1,7 @@
+{
+ "tagline": "教AI编程助手写出规范地道Rust代码的Claude Code技能包",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-10-26",
+ "model": "claude-sonnet-5"
+}

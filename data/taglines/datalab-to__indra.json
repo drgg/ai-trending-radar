@@ -1,0 +1,7 @@
+{
+ "tagline": "百万参数轻量OCR模型，CPU上运行速度远超Tesseract",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-10-26",
+ "model": "claude-sonnet-5"
+}

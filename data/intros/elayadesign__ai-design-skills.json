@@ -1,0 +1,26 @@
+{
+  "audience": "使用 Claude Code、Cursor、Codex、Windsurf 等 AI 编程工具做前端或落地页设计的开发者与设计师",
+  "category": "Skills 与写作/设计",
+  "features": [
+    "每个技能是独立文件夹，按需安装，复制到对应工具的规则目录即可使用",
+    "landing-page-design 技能通过提问生成落地页结构、转化文案及完整视觉系统",
+    "design-to-motion 技能把静态设计转为像素级动画演示，导出 MP4 和 GIF",
+    "支持 Claude Code、Cursor、Codex、Windsurf、Cline 等多种 AI 编程工具",
+    "技能文件中的设计参数（字体、颜色、间距、动效）集中在一处，fork 后可直接修改定制"
+  ],
+  "highlights": [
+    "目前只提供两项技能（落地页设计、设计转动画），README 说明后续会持续新增",
+    "部分内容借鉴了其他 MIT 许可的开源技能库（如 taste-skill、animation-principles）并在文中注明出处"
+  ],
+  "is_ai_product": true,
+  "positioning": "开源的设计技能包集合，为 Claude Code、Cursor、Codex、Windsurf 等能读取 Markdown 规则文件的 AI 编程工具提供可复制的设计技能，当前含落地页设计和设计转动画两项，持续增加中。",
+  "quickstart_cmd": "mkdir -p .claude/skills\ngit clone https://github.com/elayadesign/ai-design-skills.git /tmp/ai-design-skills\ncp -r /tmp/ai-design-skills/skills/<skill-name> .claude/skills/",
+  "quickstart_note": "以 Claude Code 为例，克隆仓库后复制所需技能文件夹到 .claude/skills/；其他工具路径不同（如 Cursor 用 .cursor/rules）。",
+  "risks": [],
+  "tagline": "给 AI 编程工具用的设计技能包集合，以 Markdown 规则文件形式提供",
+  "readme_sha": "99387ba735fabf044220ca8799e2b7aef4b82b41",
+  "generated_at": "2026-10-26",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,7 @@
+{
+ "tagline": "安装前扫描Claude Code/Codex/MCP技能包，检测恶意代码与提示词注入等安全风险",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-10-26",
+ "model": "claude-sonnet-5"
+}

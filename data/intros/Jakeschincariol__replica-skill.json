@@ -1,0 +1,27 @@
+{
+  "audience": "想快速复刻竞品应用原型、做产品复刻练习或验证创业点子的独立开发者和产品经理",
+  "category": "Skills 与写作/设计",
+  "features": [
+    "recon 从公开页面和自有账号逆向解析目标应用的界面、流程与数据模型",
+    "architect/design/build/backend 依次规划架构、重建设计系统并实现前后端功能",
+    "test 自动测试全部流程并记录 bug，diff 给出克隆版与原应用的功能对比评分",
+    "entrepreneur 读取真实用户评价，提炼差评痛点并生成修复方案和差异化定位",
+    "brand/launch/deploy 重新命名换皮、扫除原应用痕迹、生成落地页并部署上线"
+  ],
+  "highlights": [
+    "强调 clean-room 式重建：只还原功能和交互流程，不复制原应用的代码、Logo、文案或内容",
+    "配套6个工具均为标准库 Python 脚本，不联网，可本地运行，无需 pip 安装",
+    "免费、MIT 许可，无需注册或 API Key"
+  ],
+  "is_ai_product": true,
+  "positioning": "一套免费 MIT 协议的 Claude Skills 组合，按11个步骤逆向分析、重建、测试、评分并上线任意应用的克隆版，强调仅还原功能和交互流程，不复制原应用代码、素材或品牌。",
+  "quickstart_cmd": "/plugin marketplace add Jakeschincariol/replica-skill\n/plugin install replica-skill@replica-skill",
+  "quickstart_note": "需在 Claude Code 中安装为插件；也可直接向 Claude 粘贴仓库链接说\"install skill\"，无需安装 Python 依赖",
+  "risks": [],
+  "tagline": "11个 Claude Skills，按流程逆向、重建、测试并修复任意应用的克隆版",
+  "readme_sha": "ba440b4539d4fe3505fdc045ffff0c74c56e180d",
+  "generated_at": "2026-10-26",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "claude-sonnet-5"
+}

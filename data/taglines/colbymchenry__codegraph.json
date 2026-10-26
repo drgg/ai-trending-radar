@@ -1,0 +1,7 @@
+{
+ "tagline": "预索引代码知识图谱，自动同步代码变更，供各类AI编程Agent减少token消耗",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-10-26",
+ "model": "claude-sonnet-5"
+}

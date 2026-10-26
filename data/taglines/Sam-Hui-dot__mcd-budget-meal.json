@@ -1,0 +1,7 @@
+{
+ "tagline": "基于麦当劳MCP做预算比价和餐品替换的Agent技能",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-10-26",
+ "model": "claude-sonnet-5"
+}

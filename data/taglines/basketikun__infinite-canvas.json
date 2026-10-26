@@ -1,0 +1,7 @@
+{
+ "tagline": "面向AI创作者的无限画布工作台，集成生图、视频生成与多Agent协同创作",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-10-26",
+ "model": "claude-sonnet-5"
+}
