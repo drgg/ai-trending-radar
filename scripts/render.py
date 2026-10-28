@@ -217,7 +217,10 @@ def render_site(cfg, snaps=None):
                                                         encoding="utf-8", newline="\n")
     (SITE / "index.html").write_text(tpl.render(**latest, **common, root=""), encoding="utf-8", newline="\n")
     _write_feed(cfg, [c for c in ctxs if c["official"]])
-    (ROOT / "report.md").write_text(_markdown(latest), encoding="utf-8")
+    md = _markdown(latest)
+    (ROOT / "report.md").write_text(md, encoding="utf-8")
+    (SITE / "latest.md").write_text(md, encoding="utf-8", newline="\n")
+    _write_llms(cfg, latest, ctxs)
     official = [c for c in ctxs if c["official"]]
     return official[-1] if official else None
 
@@ -280,6 +283,31 @@ def _write_feed(cfg, issues):
         ET.SubElement(e, f"{{{A}}}updated").text = f"{c['s']['date']}T01:00:00Z"
         ET.SubElement(e, f"{{{A}}}content", type="html").text = _summary_html(c, url)
     ET.ElementTree(feed).write(SITE / "feed.xml", encoding="utf-8", xml_declaration=True)
+
+
+def _write_llms(cfg, latest, ctxs):
+    """llms.txt（llmstxt.org 约定）：告诉 AI Agent 这里有什么、从哪读，只列真实存在的文件。"""
+    base = cfg.get("site_url", "").rstrip("/") + "/"
+    repo = cfg.get("repo_url", "").rstrip("/")
+    s = latest["s"]
+    lines = ["# GitHub AI 热门项目周报", "",
+             f"> 每周一期：GitHub 上近 {s['window_days']} 天新建、星数超过 {s['min_stars']:,} 的 AI 项目，"
+             "用 Claude 根据 README 为每个项目写中文介绍。先报本期变化，完整名录放在后面。", "",
+             "每周一自动更新。页面和数据都是静态文件，匿名可读，不需要 API Key。"
+             "介绍由模型生成，性能和基准数字多为项目方自报，引用前请回到项目 README 核对。", "",
+             "## 最新一期", "",
+             f"- [网页]({base}): {title_of(latest)}，收录 {len(latest['ranked'])} 个项目",
+             f"- [Markdown 版]({base}latest.md): 同一期的纯文本，适合直接交给模型阅读",
+             f"- [Atom 订阅]({base}feed.xml): 最近 20 个正式期，每期附近期趋势、本期变化和升星榜摘要",
+             "", "## 往期", ""]
+    lines += [f"- [{title_of(c).split('：')[0]}]({base}archive/{c['s']['date']}.html): 收录 {len(c['ranked'])} 个项目"
+              for c in reversed(ctxs)]
+    if repo:
+        lines += ["", "## 原始数据", "",
+                  f"- [每期快照]({repo}/tree/main/data/snapshots): 每期一个 JSON，含项目星数、中文介绍、风险提示和短期榜",
+                  f"- [收录规则]({repo}/blob/main/config.yml): 搜索关键词、时间窗口、星数门槛、短期榜与疑似刷星的判定参数"]
+    lines.append("")
+    (SITE / "llms.txt").write_text("\n".join(lines), encoding="utf-8", newline="\n")
 
 
 def _markdown(c):
