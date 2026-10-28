@@ -4,6 +4,7 @@
 
 - 网页：<https://drgg.github.io/ai-trending-radar/>
 - 订阅：[RSS](https://drgg.github.io/ai-trending-radar/feed.xml)，或 Watch 本仓库——每期发布时会开一个带「周报」标签的 Issue，上一期的自动关闭
+- 给 AI Agent：[llms.txt](https://drgg.github.io/ai-trending-radar/llms.txt) 列出最新一期、往期和原始数据的地址；[latest.md](https://drgg.github.io/ai-trending-radar/latest.md) 是最新一期的纯文本版。两者都在 render 时从快照生成
 
 ## 流程
 `fetch`（GitHub Search API）→ `summarize`（Claude，按 README sha 缓存）→ `diff`（对比上一个正式期）→ `render`（整站 HTML + RSS + Markdown）→ 部署 Pages → 开 Issue 通知

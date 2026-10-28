@@ -1,0 +1,28 @@
+# GitHub AI 热门项目周报
+
+> 每周一期：GitHub 上近 90 天新建、星数超过 5,000 的 AI 项目，用 Claude 根据 README 为每个项目写中文介绍。先报本期变化，完整名录放在后面。
+
+每周一自动更新。页面和数据都是静态文件，匿名可读，不需要 API Key。介绍由模型生成，性能和基准数字多为项目方自报，引用前请回到项目 README 核对。
+
+## 最新一期
+
+- [网页](https://drgg.github.io/ai-trending-radar/): 第 6 期 · 2026-10-26：新上榜 5 · 移出 2，收录 42 个项目
+- [Markdown 版](https://drgg.github.io/ai-trending-radar/latest.md): 同一期的纯文本，适合直接交给模型阅读
+- [Atom 订阅](https://drgg.github.io/ai-trending-radar/feed.xml): 最近 20 个正式期，每期附近期趋势、本期变化和升星榜摘要
+
+## 往期
+
+- [第 6 期 · 2026-10-26](https://drgg.github.io/ai-trending-radar/archive/2026-10-26.html): 收录 42 个项目
+- [临时更新 · 2026-10-22](https://drgg.github.io/ai-trending-radar/archive/2026-10-22.html): 收录 40 个项目
+- [第 5 期 · 2026-10-19](https://drgg.github.io/ai-trending-radar/archive/2026-10-19.html): 收录 39 个项目
+- [第 4 期 · 2026-10-12](https://drgg.github.io/ai-trending-radar/archive/2026-10-12.html): 收录 34 个项目
+- [第 3 期 · 2026-10-05](https://drgg.github.io/ai-trending-radar/archive/2026-10-05.html): 收录 33 个项目
+- [临时更新 · 2026-09-30](https://drgg.github.io/ai-trending-radar/archive/2026-09-30.html): 收录 33 个项目
+- [第 2 期 · 2026-09-28](https://drgg.github.io/ai-trending-radar/archive/2026-09-28.html): 收录 33 个项目
+- [第 1 期 · 2026-09-21](https://drgg.github.io/ai-trending-radar/archive/2026-09-21.html): 收录 26 个项目
+- [临时更新 · 2026-09-19](https://drgg.github.io/ai-trending-radar/archive/2026-09-19.html): 收录 27 个项目
+
+## 原始数据
+
+- [每期快照](https://github.com/drgg/ai-trending-radar/tree/main/data/snapshots): 每期一个 JSON，含项目星数、中文介绍、风险提示和短期榜
+- [收录规则](https://github.com/drgg/ai-trending-radar/blob/main/config.yml): 搜索关键词、时间窗口、星数门槛、短期榜与疑似刷星的判定参数
