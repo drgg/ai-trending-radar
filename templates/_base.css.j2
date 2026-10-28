@@ -1,0 +1,79 @@
+/* 周报页和分级页共用：设计令牌、基础排版、刊头、属性行、区块、标签、风险提示、页脚。规格见 design/issue/DESIGN.md */
+/* 标题衬线字体自托管：只含标题用到的几十个字（scripts/fetch_font.py），国内也能稳定加载 */
+@font-face{font-family:"Radar Serif";src:url("{{ root }}assets/fonts/serif-heading.woff2") format("woff2");font-weight:700;font-display:swap}
+:root{
+  --canvas:#fbfaf8;--surface:#f3f2ee;--line:#e4e2dc;--line-strong:#cfccc4;
+  --ink:#23221f;--ink-2:#4f4d47;--muted:#67655e;
+  --accent:#3350b0;--accent-wash:#eef1fb;--up:#1d7348;
+  --warn-wash:#fbf1e0;--warn-line:#d98a1c;--warn-ink:#7a4a00;
+  --serif:"Radar Serif","Noto Serif SC","Source Han Serif SC","Songti SC",STSong,serif;
+  --sans:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --canvas:#191918;--surface:#232321;--line:#33322f;--line-strong:#45443f;
+  --ink:#ebeae6;--ink-2:#c4c2bb;--muted:#a3a19a;
+  --accent:#8ea8ff;--accent-wash:#232b45;--up:#6fd09f;
+  --warn-wash:#2f2515;--warn-line:#b8832e;--warn-ink:#f0b862;
+}}
+:root[data-theme="dark"]{
+  --canvas:#191918;--surface:#232321;--line:#33322f;--line-strong:#45443f;
+  --ink:#ebeae6;--ink-2:#c4c2bb;--muted:#a3a19a;
+  --accent:#8ea8ff;--accent-wash:#232b45;--up:#6fd09f;
+  --warn-wash:#2f2515;--warn-line:#b8832e;--warn-ink:#f0b862;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--canvas);color:var(--ink);font:16px/1.8 var(--sans);-webkit-font-smoothing:antialiased}
+/* 正文里的链接不能只靠颜色区分（WCAG 1.4.1）：一律带淡色细下划线；独立成行的项目名不需要 */
+a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;
+  text-decoration-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+a:hover{text-decoration-color:currentColor}
+a.nm,.issues a,.item-title a{text-decoration:none}
+a.nm:hover,.issues a:hover,.item-title a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:768px;margin:0 auto;padding:0 24px}
+h1,h2{font-family:var(--serif);font-weight:700;margin:0}
+h2{font-size:24px;line-height:1.35}
+h3{font-size:18px;line-height:1.45;font-weight:600;margin:0}
+p{margin:0}
+ul,ol{margin:0;padding-left:24px}
+
+/* 刊头 */
+.mast-in{padding:64px 0 32px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.08em}
+.mast h1{font-size:36px;line-height:1.25;margin-top:8px}
+.dateline{font-size:14px;color:var(--ink-2);margin-top:4px}
+.props{margin:24px 0 0;display:grid;grid-template-columns:auto 1fr;column-gap:24px;row-gap:4px;font-size:14px;line-height:1.6}
+.props dt{color:var(--muted);font-weight:600;font-size:13px;padding-top:4px}
+.props dd{margin:0;padding-top:4px}
+
+/* 区块 */
+main{padding-bottom:64px}
+section.blk{margin-top:48px}
+.blk-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:16px}
+.blk-head .aside{font-size:14px;color:var(--muted)}
+.callout{background:var(--surface);border-radius:12px;padding:24px}
+
+.tag{display:inline-block;font-size:13px;font-weight:600;line-height:1.5;padding:0 8px;border-radius:4px;white-space:nowrap}
+.tag.new{color:var(--accent);box-shadow:inset 0 0 0 1px currentColor}
+.tag.cat{color:var(--muted);box-shadow:inset 0 0 0 1px var(--line-strong);font-weight:400}
+.notes{list-style:none;margin:16px 0 0;padding:8px 12px;background:var(--warn-wash);border-left:3px solid var(--warn-line);border-radius:0 8px 8px 0;font-size:14px;color:var(--ink)}
+.notes li{padding-left:24px;text-indent:-24px}
+.notes li::before{content:"⚠";display:inline-block;width:24px;text-indent:0;color:var(--warn-ink)}
+.notes li+li{margin-top:4px}
+
+footer .in{border-top:1px solid var(--line);padding:24px 0 48px;font-size:13px;color:var(--muted);line-height:1.7}
+footer code{font:13px var(--mono);overflow-wrap:anywhere}
+
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  .mast-in{padding-top:48px}
+  .mast h1{font-size:28px}
+  .props{grid-template-columns:1fr;row-gap:0}
+  .props dt{padding-top:12px}
+  .props dd{padding-top:0}
+  .callout{padding:16px}
+}

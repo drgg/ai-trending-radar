@@ -22,6 +22,15 @@
 - 疑似刷星：同一作者 ≥4 个项目同周各涨 ≥1000，整组不进榜，单独折叠列出
 - 一句话介绍按批生成、缓存在 `data/taglines/`；测速约 850 次 API 请求，配额见底时会等到重置再继续
 
+## 实用分级（scripts/guide.py，参数在 config.yml 的 guide 段）
+单独一页 `site/guide.html`，周报刊头的属性行里有入口。回答「这个项目我能不能用上、用在哪、要花多少力气」。
+- **范围**：主榜全部项目 + 升星榜写介绍、但不在主榜的头部项目（多是创建超过 90 天、主榜收不到的老项目）
+- **升星榜头部也写完整介绍**（`guide.surge_full_intro`）：补抓元数据和 README，和主榜共用 `data/intros/` 缓存，README 没变不重写，之后进了主榜直接复用
+- **每个项目写**：档位（`guide.tiers`，A 立即可用 … E 风险警示，从最后一档往前判断）、领域（`guide.domains`）、2–4 条应用场景、上手门槛（低 / 中 / 高）和准备事项、分档理由
+- **输入只用已写好的介绍**，不再读 README；按批生成（`guide.batch`），按项目缓存在 `data/practical/`。介绍重写过、分级提示词升级（`PRACTICAL_VERSION`）或疑似刷星判定变了才重新分级
+- 只保留最新一份；某期分级失败时周报照常出刊，分级页沿用最近一次成功的，页上写明依据哪一期
+- 用量（2026-10-29 按字数估算，未实测）：第一次补齐约 4 万 token（分级）+ 升星榜头部每个约 5 千（写介绍）；之后每周只处理新上榜和介绍变了的项目
+
 ## 正式期和临时更新
 - **正式期**：每周一的定时运行。编期号、开 Issue 通知、进 RSS
 - **临时更新**：手动运行（例如改了提示词后重新生成介绍）。照常更新页面，但不编期号、不通知
@@ -55,8 +64,8 @@ python scripts/main.py --limit 3      # 需要本机 claude 已登录或设置 C
 
 ## 目录
 - `config.yml`：关键词、时间窗口、星数门槛、模型、风险阈值、分类、网址
-- `data/snapshots/`：每期快照；`data/intros/`：介绍缓存
-- `templates/index.html.j2`：页面模板，设计规格见 `design/issue/DESIGN.md`
+- `data/snapshots/`：每期快照；`data/intros/`：介绍缓存；`data/taglines/`：短期榜一句话缓存；`data/practical/`：实用分级缓存
+- `templates/index.html.j2`：周报页模板；`templates/guide.html.j2`：分级页模板；两页共用的令牌和组件在 `templates/_base.css.j2`。设计规格见 `design/issue/DESIGN.md`
 - `site/`：生成的网页（`archive/` 为每期存档，`feed.xml` 为 RSS，`assets/fonts/` 为自托管的标题字体子集）
 - `report.md`：最新一期 Markdown
 - 标题文字改动后运行 `python scripts/fetch_font.py` 重新生成字体子集（Noto Serif SC，OFL 协议）

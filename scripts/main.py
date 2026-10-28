@@ -18,6 +18,7 @@ import yaml
 
 import diff
 import fetch
+import guide
 import notify
 import render
 import rising
@@ -100,6 +101,15 @@ def main():
         print(f"  ! 短期榜失败，本期不含短期榜：{type(e).__name__}: {e}")
         rising_data = None
 
+    print("②c 实用分级…")
+    try:
+        guide_data = guide.build(cfg, today, entries, rising_data, summ, lambda r: risk_flags(r, cfg, today))
+    except AuthError as e:
+        sys.exit(f"✗ {e}\n  已中止：本期不写快照、不更新页面。请检查 CLAUDE_CODE_OAUTH_TOKEN。")
+    except Exception as e:  # 分级出错不影响周报照常出刊，分级页沿用最近一次成功的
+        print(f"  ! 实用分级失败，本期不含分级页：{type(e).__name__}: {e}")
+        guide_data = None
+
     official = args.issue and not args.dry_run
     print(f"③ 对比上一个正式期…（本次{'是正式一期' if official else '是临时更新，不编期号、不通知'}）")
     prev = diff.previous_issue(today.isoformat())
@@ -109,7 +119,8 @@ def main():
 
     snapshot = {"date": today.isoformat(), "issue": official, "query": query, "window_days": cfg["window_days"],
                 "min_stars": cfg["min_stars"], "model": cfg["model"], "dry_run": args.dry_run,
-                "entries": entries, "excluded": excluded, "diff": changes, "outlook": outlook, "trends": trends, "rising": rising_data}
+                "entries": entries, "excluded": excluded, "diff": changes, "outlook": outlook, "trends": trends, "rising": rising_data,
+                "guide": guide_data}
     diff.SNAP_DIR.mkdir(parents=True, exist_ok=True)
     (diff.SNAP_DIR / f"{today.isoformat()}.json").write_text(
         json.dumps(snapshot, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -122,7 +133,7 @@ def main():
 def publish(cfg, notify_ok):
     """重渲染整站；最新一期是正式期时写通知文件（工作流据此开 Issue，已发过的会跳过）。"""
     latest_issue = render.render_site(cfg)
-    print("   已写 site/index.html、site/archive/*.html、site/feed.xml、report.md")
+    print("   已写 site/index.html、site/archive/*.html、site/feed.xml、report.md（有分级数据时另写 site/guide.html）")
     if notify_ok and latest_issue:
         print(f"   通知：{notify.write(latest_issue, cfg)}")
 
