@@ -152,6 +152,39 @@ OUTLOOK_SCHEMA = {
 }
 
 
+PRACTICAL_DIR = Path(__file__).resolve().parent.parent / "data" / "practical"
+PRACTICAL_VERSION = 1  # 改动分级提示词或 schema 时加一，已有分级会重新生成（介绍不动）
+PRACTICAL_FIELDS = ["tier", "domain", "scenes", "effort", "effort_note", "reason"]
+
+PRACTICAL_SYSTEM = """你是一名技术编辑，给一批 GitHub 上的热门 AI 项目按实用性分档，并写清楚能拿来做什么。读者想知道三件事：我能不能用上、用在什么场合、上手要花多少力气。
+只依据给出的介绍（由 README 整理）判断，不编造介绍里没有的功能、数据和用户群；引用项目方自报的数字要注明「项目方数据」。
+
+分档（tier）从最后一档往前逐档判断，符合就停，都不符合才归第一档：
+{rules}
+
+其余字段（中文字符和英文单词各算 1 字，严格遵守长度）：
+- domain：从给定列表里选最贴近主要用途的一个
+- scenes：2–4 条应用场景，每条不超过 45 字。写「谁在什么情况下用它做成什么」，尽量举具体例子；不要复述功能清单，不写宣传语
+- effort：上手门槛。低 = 一条命令、一个插件或一个安装包就能用；中 = 还要配模型 Key、设备、依赖或账号授权；高 = 要部署服务和数据库、二次开发，或需要专业背景
+- effort_note：上手前要准备什么，不超过 40 字
+- reason：为什么分在这一档，不超过 40 字，点出起决定作用的那一点
+字段内部不要加列表符号、编号或换行。按输入顺序逐个返回，full_name 原样照抄。"""
+
+
+def _practical_schema(gcfg):
+    s = {"type": "string"}
+    item = {"type": "object",
+            "properties": {"full_name": s,
+                           "tier": {"type": "string", "enum": [t["key"] for t in gcfg["tiers"]]},
+                           "domain": {"type": "string", "enum": gcfg["domains"]},
+                           "scenes": {"type": "array", "items": s},
+                           "effort": {"type": "string", "enum": ["低", "中", "高"]},
+                           "effort_note": s, "reason": s},
+            "required": ["full_name"] + PRACTICAL_FIELDS, "additionalProperties": False}
+    return {"type": "object", "properties": {"items": {"type": "array", "items": item}},
+            "required": ["items"], "additionalProperties": False}
+
+
 class AuthError(RuntimeError):
     """认证失败：继续调用没有意义，整期中止。"""
 
@@ -401,4 +434,64 @@ class Summarizer:
                 (TAGLINE_DIR / (name.replace("/", "__") + ".json")).write_text(
                     json.dumps(rec, ensure_ascii=False, indent=1), encoding="utf-8")
                 out[name] = rec
+        return out
+
+    # ---------- 实用分级（批量） ----------
+    def practical(self, items):
+        """items：[{full_name, stars, intro, flags, suspect}]。返回 {full_name: 分级}。
+        输入只用已写好的介绍，不再读 README；介绍重写过、提示词升级或刷星判定变了才重新分级。占位介绍不分级。"""
+        g = self.cfg["guide"]
+        PRACTICAL_DIR.mkdir(parents=True, exist_ok=True)
+        path = lambda n: PRACTICAL_DIR / (n.replace("/", "__") + ".json")  # noqa: E731
+        out, todo = {}, []
+        for it in items:
+            intro = it["intro"]
+            if intro.get("placeholder") and not self.dry_run:
+                continue
+            p = path(it["full_name"])
+            rec = json.loads(p.read_text(encoding="utf-8")) if p.exists() else None
+            if rec and rec.get("practical_version") == PRACTICAL_VERSION and rec.get("intro_at") == intro.get(
+                    "generated_at") and rec.get("suspect", False) == it.get("suspect", False):
+                out[it["full_name"]] = {k: rec[k] for k in PRACTICAL_FIELDS}
+            else:
+                todo.append(it)
+        if self.dry_run:
+            return {**out, **{it["full_name"]: {"tier": g["tiers"][0]["key"], "domain": g["domains"][-1],
+                                                 "scenes": ["（dry-run 占位，未调用模型）"], "effort": "中",
+                                                 "effort_note": "", "reason": ""} for it in todo}}
+        system = PRACTICAL_SYSTEM.format(rules="\n".join(f"- {t['key']} {t['name']}：{t['rule']}"
+                                                          for t in reversed(g["tiers"])))
+        schema = _practical_schema(g)
+        n = g.get("batch", 15)
+        for i in range(0, len(todo), n):
+            chunk = {it["full_name"]: it for it in todo[i:i + n]}
+            payload = []
+            for it in chunk.values():
+                intro = it["intro"]
+                x = {"full_name": it["full_name"], "stars": it["stars"],
+                     **{k: intro.get(k) for k in ("category", "tagline", "positioning", "features", "highlights",
+                                                  "audience", "quickstart_note", "risks")},
+                     "flags": it.get("flags", [])}
+                if it.get("suspect"):
+                    x["疑似刷星"] = True
+                payload.append(x)
+            user = ("可选的 domain：" + "、".join(g["domains"]) + "\n\n"
+                    + json.dumps(payload, ensure_ascii=False, indent=1))
+            try:
+                res = self._ask(system, user, schema, max_tokens=12000)["items"]
+            except AuthError:
+                raise
+            except Exception as e:  # 一批失败就跳过、不缓存，这批项目本期不上分级页，下次运行再试
+                print(f"  ! 实用分级第 {i // n + 1} 批失败：{e}")
+                continue
+            for r in res:
+                it = chunk.get(r["full_name"])
+                if not it or not r["scenes"]:
+                    continue
+                rec = {k: r[k] for k in PRACTICAL_FIELDS}
+                path(it["full_name"]).write_text(json.dumps(
+                    {**rec, "intro_at": it["intro"].get("generated_at"), "suspect": it.get("suspect", False),
+                     "practical_version": PRACTICAL_VERSION, "generated_at": date.today().isoformat(),
+                     "model": self.cfg["model"]}, ensure_ascii=False, indent=1), encoding="utf-8")
+                out[it["full_name"]] = rec
         return out
