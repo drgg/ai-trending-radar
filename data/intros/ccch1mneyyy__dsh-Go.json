@@ -1,0 +1,32 @@
+{
+  "is_ai_product": true,
+  "category": "AI 应用产品",
+  "tagline": "DeepSeek Harness 的 Android 客户端，手机本机运行或远程遥控电脑上的 DSH",
+  "positioning": "基于 DeepSeek Harness 的第三方 Android 客户端，社区开发，非官方。手机上跑 DSH 引擎，也可通过 SSH 或 DSHarness Remote 连接电脑、服务器上的 DSH。",
+  "features": [
+    "App 内装 Ubuntu、Node.js 与 DSH 环境，免 Root 免 Termux",
+    "通过 SSH 或 DSHarness Remote 连接远程 DSH",
+    "聊天界面支持切换模型、图片、语音与工具审批",
+    "支持适配 DSH Go 的原生工具卡、表单、面板插件",
+    "开启权限后可由本机引擎读取屏幕、点按和输入"
+  ],
+  "highlights": [
+    "本机运行需预留约 1 GB 空间，仅连远程可跳过安装",
+    "分享链接端到端加密，密钥只在链接里",
+    "可选手机操控遇付款、密码、验证码交还用户"
+  ],
+  "audience": "需要在 Android 手机上运行或遥控 DeepSeek Harness 的用户；插件作者可用仓库内 SDK 与示例开发原生界面。",
+  "quickstart_cmd": "",
+  "quickstart_note": "从 GitHub Releases 或官网下载对应架构 APK 侧载，需 Android 8.0 及以上，首次启动选择本机安装或连接远程主机。",
+  "risks": [
+    "开启手机操控后，任务所需的屏幕文字可能发送给模型，支持看图的模型还可能收到截图",
+    "“发送匿名使用统计”默认开启，需在首次引导或设置中手动关闭",
+    "仅以 APK 侧载为目标，非 Google Play 发布配置，release 本地构建默认用 debug 签名",
+    "名称、标识与吉祥物不在 AGPL 授权范围内，另有 ASSETS.md 使用条款"
+  ],
+  "readme_sha": "95505400fc9ece987c79b906f117e3569d5a018d",
+  "generated_at": "2026-11-02",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

@@ -6,13 +6,13 @@
 
 ## 最新一期
 
-- [网页](https://drgg.github.io/ai-trending-radar/): 第 7 期 · 2026-11-02：新上榜 10 · 移出 8，收录 44 个项目
+- [网页](https://drgg.github.io/ai-trending-radar/): 第 7 期 · 2026-11-02：新上榜 12 · 移出 8，收录 46 个项目
 - [Markdown 版](https://drgg.github.io/ai-trending-radar/latest.md): 同一期的纯文本，适合直接交给模型阅读
 - [Atom 订阅](https://drgg.github.io/ai-trending-radar/feed.xml): 最近 20 个正式期，每期附近期趋势、本期变化和升星榜摘要
 
 ## 往期
 
-- [第 7 期 · 2026-11-02](https://drgg.github.io/ai-trending-radar/archive/2026-11-02.html): 收录 44 个项目
+- [第 7 期 · 2026-11-02](https://drgg.github.io/ai-trending-radar/archive/2026-11-02.html): 收录 46 个项目
 - [第 6 期 · 2026-10-26](https://drgg.github.io/ai-trending-radar/archive/2026-10-26.html): 收录 42 个项目
 - [临时更新 · 2026-10-22](https://drgg.github.io/ai-trending-radar/archive/2026-10-22.html): 收录 40 个项目
 - [第 5 期 · 2026-10-19](https://drgg.github.io/ai-trending-radar/archive/2026-10-19.html): 收录 39 个项目

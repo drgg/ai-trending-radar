@@ -1,0 +1,26 @@
+{
+  "is_ai_product": true,
+  "category": "Skills 与写作/设计",
+  "tagline": "把 AI 味 UI 改造成有设计感的界面",
+  "positioning": "Claude Code 与 Codex 的 Agent Skill，先找出紫色渐变、光晕、emoji 标签等 AI 风格元素，再从产品出发确定设计方向，按设计师逐轮审查的方式修改界面。",
+  "features": [
+    "审计界面并列出每处 AI 风格元素的位置",
+    "从产品推导性格、世界与标志性细节",
+    "按间距、色彩、图标、文案、字体、布局等顺序逐轮修改",
+    "支持 Next.js、React、Vue、Svelte、Tailwind 及原生 HTML/CSS",
+    "仅凭链接即可处理线上页面，可选生成方形短视频"
+  ],
+  "highlights": [
+    "先提出设计方向再动手，可提前调整",
+    "界面已足够好时只给小幅优化建议，不推倒重来"
+  ],
+  "audience": "使用 Claude Code 或 Codex 的开发者与设计者，用于整理用 AI 生成的仪表盘、应用和落地页。",
+  "quickstart_cmd": "git clone https://github.com/heydamir/unslop\nmkdir -p ~/.claude/skills && cp -r unslop/skills/unslop ~/.claude/skills/",
+  "quickstart_note": "安装后在 Claude Code 输入 /unslop 加需求；Codex 用 $unslop，也可手动复制到 ~/.agents/skills/。",
+  "risks": [],
+  "readme_sha": "d908769e172a2b57dd9e74451e4ef735ddf53c75",
+  "generated_at": "2026-11-02",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

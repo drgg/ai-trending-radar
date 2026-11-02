@@ -1,7 +1,7 @@
 {
- "tagline": "为自主AI Agent提供安全隔离执行环境的运行时",
+ "tagline": "面向自主 AI Agent 的安全私密运行时，内核级策略隔离与验证",
  "is_ai_product": true,
  "ai_rule": 2,
- "generated_at": "2026-10-26",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

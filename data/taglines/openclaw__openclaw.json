@@ -1,6 +1,7 @@
 {
- "tagline": "跨平台真正动手执行任务的AI助手，支持本地数据自主掌控",
+ "tagline": "开源个人 AI 助手，运行在你自己的设备上并接入各类聊天平台",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

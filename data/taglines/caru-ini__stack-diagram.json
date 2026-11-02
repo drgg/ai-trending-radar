@@ -1,0 +1,7 @@
+{
+ "tagline": "Agent 技能：一句话描述技术栈，生成带官方 logo 的架构图",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
+}
