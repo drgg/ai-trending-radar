@@ -1,25 +1,29 @@
 {
   "is_ai_product": true,
   "category": "Skills 与写作/设计",
-  "tagline": "一套规则集，让 AI 编程 Agent 别再写出千篇一律的 UI、水文案和 AI 味代码",
-  "positioning": "面向 AI 编程 Agent 的规则过滤器，不规定配色、字体、布局，只负责剔除常见的 AI 生成痕迹，方向仍由使用者自己决定。",
+  "tagline": "给 AI 编程 Agent 用的规则集，过滤模板化的 UI、文案和代码",
+  "positioning": "一套以标准 Agent Skill 形式分发的规则书，包含 40 条强制规则和交付前必须运行的 PASS/FAIL 报告，目的是阻止 AI 编程 Agent 输出千篇一律的界面、文案和 AI 味代码；它只是过滤器，不规定配色、字体或版式。",
   "features": [
-    "38 条强制规则，分 Hard Gate、Purpose-Gate、Quality Locks 三层",
-    "Liveliness Toolkit：ENERGY/RHYTHM/MOTION 三个维度加设计检查，避免结果过于呆板",
-    "交付前的 Delivery Gate，输出四段式 PASS/FAIL 报告",
-    "六个独立技能，按 UI、文案、无障碍、响应式、代码注释等场景分别加载",
-    "支持 during（边做边守则）和 after（事后审查）两种使用模式，可设为全局默认"
+    "40 条强制规则，分硬性门槛、目的门槛、质量锁三层",
+    "六个技能按界面、文案、无障碍、响应式、代码注释拆分",
+    "两种模式：During 边做边约束，After 审计已有成果",
+    "交付前必须输出四块 PASS/FAIL 报告",
+    "单文件 antislop.md 可直接粘贴进任意对话框使用"
   ],
   "highlights": [
-    "以安装器、skills.sh 目录、各 Agent 插件市场、单文件四种方式安装，覆盖 Claude Code、Codex、Cursor、Cline 等十余种 Agent",
-    "README 明确说明自身不能生成设计方向，只负责过滤，呆板结果意味着缺少方向而非过滤器失效"
+    "支持 Claude Code、Codex、Cursor、Cline、Copilot 等十余种 Agent",
+    "项目方称去掉模板化内容后还需自备 DESIGN.md 提供设计方向，否则只得到没有方向感的草稿",
+    "MIT 许可，附免责声明：无代币、不接受捐赠"
   ],
-  "audience": "使用 AI 编程 Agent 做前端/文案/代码工作、希望减少千篇一律 AI 风格输出的开发者",
+  "audience": "使用 AI 编程 Agent 做界面、写文案或写代码，希望输出少一点模板化痕迹的开发者与设计者。",
   "quickstart_cmd": "npx antislop-ai",
-  "quickstart_note": "运行后按提示选择要安装的技能、安装范围和使用的 Agent，即可完成安装",
-  "risks": [],
-  "readme_sha": "3f7e17dfbfea87af3010f27f1e180eaa337af6a8",
-  "generated_at": "2026-10-12",
+  "quickstart_note": "运行后按提示选择技能、安装位置和使用的 Agent；需要 Node.js 20.12 或更新版本。",
+  "risks": [
+    "README 提示 npm 上的 antislop 属于另一个包，npx antislop 装的不是本项目；另有同名代币为骗局"
+  ],
+  "readme_sha": "dadc8f031545a00e82f2e377a51383b2a4571df7",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

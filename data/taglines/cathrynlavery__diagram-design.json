@@ -1,6 +1,7 @@
 {
- "tagline": "为编程Agent打造的图表绘制技能，输出品牌化HTML+SVG图表",
+ "tagline": "为编码 Agent 生成自包含 HTML+SVG 图表的技能，支持 45 种图型",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

@@ -1,6 +1,7 @@
 {
- "tagline": "开源 AI 视频 Agent，让编码 Agent 制作视频并支持可视化编辑",
+ "tagline": "让编码 Agent 把影��写成网页并可在浏览器编辑器里逐帧修改的 AI 视频工具。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

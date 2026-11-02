@@ -1,25 +1,29 @@
 {
   "is_ai_product": true,
   "category": "编程 Agent 与运行框架",
-  "tagline": "Z.ai 出品的编程 Agent 工作台，提供桌面、Web 与终端三种界面",
-  "positioning": "ZCode 是 AI 编程工作台，整合桌面应用、浏览器界面和终端 Agent，仓库包含客户端、后端服务、共享 UI 以及 Agent CLI 与运行时源码。",
+  "tagline": "Z.ai 推出的 AI 编程工作台，含桌面端、Web 端和终端 Agent。",
+  "positioning": "ZCode 是 AI 编程工作台，提供桌面应用、浏览器界面和终端 Agent；本仓库包含客户端、后端服务、共享 UI，以及 Agent CLI 与运行时源码。",
   "features": [
-    "提供桌面应用（Electron）、Web 界面和终端 TUI/CLI 三种使用形态，共用同一后端服务",
-    "命令行发行包统一用 zcode 命令启动，无参数进入 TUI，加 --web 启动网页界面",
-    "可选支持 SSH/WSL 远程开发，本地构建资源通过 SFTP 上传，不经 CDN",
-    "Web 服务默认只监听 127.0.0.1，局域网访问需显式开启 --host 0.0.0.0",
-    "可通过环境变量自定义数据目录、后端工作区路径及内置 Provider 配置文件"
+    "桌面版基于 Electron，另有 Web 客户端",
+    "命令行版 zcode 统一启动 TUI、Web 与 Agent",
+    "支持 SSH/WSL 远程项目，资源经 SFTP 上传",
+    "提供 UI Plugin 机制与 Excalidraw 示例",
+    "workspace 拆分桌面、Web、服务端与共享 UI"
   ],
   "highlights": [
-    "仓库同时开源客户端、后端服务、共享 UI 与 Agent CLI/运行时完整源码，采用 Apache-2.0 许可",
-    "README 标注已更新至 ZCode v3.14.3 版本（项目方数据）"
+    "命令行版默认监听 127.0.0.1，可选 --web 启动浏览器界面",
+    "监听非本机地址时默认生成访问令牌，可用 --no-token 关闭",
+    "Agent CLI 与运行时源码随仓库一并克隆，无需单独初始化"
   ],
-  "audience": "需要本地部署或自定义编程 Agent 工作台的开发者和团队",
+  "audience": "想本地开发和二次构建 AI 编程 Agent 客户端的开发者，需熟悉 Node.js、pnpm 与 Electron。",
   "quickstart_cmd": "pnpm bootstrap",
-  "quickstart_note": "安装 workspace 依赖并准备桌面本地运行资源，随后可用 pnpm dev:desktop 启动开发环境",
-  "risks": [],
-  "readme_sha": "bd6247f26035e27ffb5f6c908d736c1c4c82fca7",
-  "generated_at": "2026-10-05",
+  "quickstart_note": "需先准备 Git、Node.js 24.14.0 和 pnpm 10.33.2，命令在仓库根目录执行。",
+  "risks": [
+    "命令行 Web 模式可用 --no-token 关闭认证，README 说明监听非本机地址时才默认生成令牌，局域网暴露前需自行确认访问控制。"
+  ],
+  "readme_sha": "eb3271ca363cd4256df20fcd67405814a355ee6c",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

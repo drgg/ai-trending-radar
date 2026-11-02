@@ -1,26 +1,27 @@
 {
-  "audience": "需要开源参数化CAD工具的工程师与设计爱好者，以及希望通过MCP让AI代理自动建模的开发者",
+  "is_ai_product": false,
   "category": "其他",
+  "tagline": "纯 Rust 编写的开源参数化 3D CAD，支持桌面、浏览器和 MCP 自动化",
+  "positioning": "一个早期但可用的参数化 CAD 应用，用草图约束和特征时间线建模，同一套命令可在桌面端、浏览器、无头 CLI 和 MCP 服务器上运行。",
   "features": [
-    "草图约束求解器支持直线、圆弧、样条、文字等，尺寸由参数驱动",
-    "参数化特征时间线：拉伸、旋转、扫描、放样、圆角、倒角、壳体、孔、螺纹、阵列可编辑",
-    "装配体支持关节、运动仿真、接触集与干涉检测",
-    "钣金建模：折弯、褶边、展开/折叠及平面图样",
-    "支持STEP、IGES、3MF、STL、OBJ、glTF导入导出，提供桌面、浏览器、CLI及MCP服务器"
+    "草图约束求解器，支持参数驱动尺寸",
+    "拉伸、旋转、扫掠、放样、圆角、抽壳等特征及可编辑时间线",
+    "装配体关节、运动研究、干涉与质量属性",
+    "钣金折弯展开、塑料外壳特征",
+    "STEP/IGES/3MF/STL/OBJ/glTF 导入导出与 URDF 导出"
   ],
   "highlights": [
-    "项目方数据：76个公开参考零件中75个的体积、面积、质心、边界框与解析值或FreeCAD计算结果一致，另1个为已知bug",
-    "桌面、浏览器、命令行和MCP服务器运行同一套命令，AI代理可通过MCP直接建模"
+    "项目方数据：76 个公开参考件中 75 个体积、面积、质心、包围盒与解析值或 FreeCAD 计算值一致",
+    "桌面、Web、CLI 与 MCP 服务器共享同一套命令",
+    "内置 MCP 服务器，AI agent 可无头建模或连接运行中的应用"
   ],
-  "is_ai_product": false,
-  "positioning": "面向工程师与爱好者的开源参数化CAD应用，提供草图约束、特征时间线、装配与钣金建模，支持桌面、浏览器、命令行及MCP接口，目前为早期版本，适合简单零件。",
+  "audience": "需要开源参数化 CAD 的工程师与创客，以及希望通过 MCP 让 AI agent 驱动建模的开发者",
   "quickstart_cmd": "cargo run --release -p solidcraft -- --sample",
-  "quickstart_note": "从源码构建并运行桌面应用加载示例零件；也可用winget、Snap安装包或直接在浏览器中体验",
+  "quickstart_note": "从源码构建并启动带示例零件的桌面应用；也可直接下载各平台安装包或在浏览器试用。",
   "risks": [],
-  "tagline": "纯Rust编写的开源参数化3D CAD应用，支持桌面、浏览器及AI通过MCP建模",
-  "readme_sha": "1aecd17682e706b13230466e681eb15172c45811",
-  "generated_at": "2026-10-22",
+  "readme_sha": "32452cd7150fd287fdc9407a0c04754e4e231962",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
   "ai_rule": 2,
-  "model": "claude-sonnet-5"
+  "model": "deepseek-flash"
 }

@@ -1,7 +1,7 @@
 {
- "tagline": "让AI生成视频更有运动设计质感的Claude Code技能",
+ "tagline": "把 AI 生成的粗糙视频提升为专业动效作品的 Agent 技能",
  "is_ai_product": true,
  "ai_rule": 2,
- "generated_at": "2026-10-26",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

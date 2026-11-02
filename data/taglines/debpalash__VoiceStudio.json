@@ -1,6 +1,7 @@
 {
- "tagline": "本地优先的开源语音工具：声音克隆、视频配音、转录与有声书制作",
+ "tagline": "本地开源 ElevenLabs 替代，支持克隆、配音、转录与有声书",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

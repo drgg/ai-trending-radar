@@ -1,26 +1,30 @@
 {
-  "is_ai_product": true,
-  "category": "Skills 与写作/设计",
-  "tagline": "收录用Claude Opus 5.5生成的病毒视频及对应提示词的清单",
-  "positioning": "持续更新的开源清单，收集创作者用Claude Opus 5.5生成病毒视频时所用的提示词，并在Skillry网站提供原视频与AI复刻版对比观看。",
+  "is_ai_product": false,
+  "category": "其他",
+  "tagline": "用 Claude Opus 5.5 生成的爆款视频及其提示词合集",
+  "positioning": "收录创作者用 Claude Opus 5.5 让模型以代码形式绘制动画（HTML、Canvas、SVG、Three.js 等）做出的视频，并附上对应提示词或原始发布链接，方便读者复制 prompt 自行尝试。",
   "features": [
-    "收录703条提示词，其中418条在Skillry网站配有实时复刻视频",
-    "按动效、解说、3D场景、游戏互动等类别整理",
-    "每条提示词附带创作者原始发布帖子的链接",
-    "提示词可直接复制给Claude Opus 5.5等agent，生成HTML/Canvas/SVG/Three.js动画代码",
-    "定期更新，最近一次新增10个视频和285条提示词"
+    "prompts/ 与 data/videos.json 中共有 703 条提示词",
+    "按动效设计、科普讲解、3D 场景、游戏互动分类",
+    "每条条目链接到创作者的原始帖子",
+    "提示词只有部分公开时，文件会注明",
+    "部分视频在 Skillry 提供可对比的在线重制版本"
   ],
   "highlights": [
-    "项目方数据：已收录703条提示词，其中418条配有Skillry网站实时复刻视频"
+    "418 条提示词带 Skillry 在线重制版，可对照观看",
+    "2026-10-12 新增 285 条提示词、10 个视频",
+    "采用 MIT 许可证"
   ],
-  "audience": "想获取Claude等AI生成创意动画、动效视频灵感的开发者、创意编程爱好者和内容创作者",
+  "audience": "想用 Claude Opus 5.5 做代码动画、动效或科普视频的创作者，以及寻找现成 prompt 参考的人",
   "quickstart_cmd": "",
-  "quickstart_note": "打开prompts目录下的提示词文件，复制Prompt内容粘贴给Claude Opus 5.5使用",
+  "quickstart_note": "README 说明：打开 prompts/ 中的提示词文件，复制 Prompt 下的内容，粘贴给 Claude Opus 5.5，要求它输出单个 HTML 文件后再录制视频。",
   "risks": [
-    "视频和提示词版权归原创作者所有，仓库仅托管简短预览片段，使用时需注意版权归属"
+    "视频与提示词的版权归各创作者所有，条目可能因创作者要求而被修改或删除",
+    "页面上的 Skillry 链接带 UTM 推广参数"
   ],
   "readme_sha": "d6a22a120bc2e3b1b4ec9bc549f98c8af4655eb6",
-  "generated_at": "2026-10-19",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

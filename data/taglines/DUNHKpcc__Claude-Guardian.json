@@ -1,0 +1,7 @@
+{
+ "tagline": "评估设备、账号历史、网络与支付环境，为 Claude 账号提供防封风险自查的 Agent 技能。",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
+}

@@ -1,6 +1,7 @@
 {
- "tagline": "本地优先的开源协作式AI设计Agent工作区，支持团队与AI共创原型和网站",
+ "tagline": "本地优先、可协作的 AI 设计代理工作台，用于原型与界面创作。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

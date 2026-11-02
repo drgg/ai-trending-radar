@@ -1,27 +1,30 @@
 {
-  "audience": "正在求职、需要整理开源贡献证据、制作简历或跟进投递进度的开发者和求职者",
+  "is_ai_product": true,
   "category": "Skills 与写作/设计",
+  "tagline": "面向求职与开发的 AI Skills 插件包，含九个斜杠入口",
+  "positioning": "以插件形式接入 Codex、Claude Code、Cursor 等编码 Agent，提供开源贡献、证据复盘、简历制作、投递填写、面试追问和进度管理九个可单独调用的 Skill，共用同一套 skills 与素材目录。",
   "features": [
-    "/contributor 寻找有证据支撑的开源问题，经用户逐项确认后才提交 PR",
-    "/make-resume 生成可编辑 HTML 简历，支持 PDF 导出和可选 LaTeX 源文件",
-    "/job-match 对照 JD 与简历输出证据矩阵、硬性门槛和投递建议",
-    "/job-apply 连接已登录浏览器填写招聘网站申请表，默认停在提交前供用户核对",
-    "/offer 整理招聘邮件和投递记录，生成本地求职进度表"
+    "/contributor 找真实 issue 并提交 PR 记录贡献",
+    "/great-resume 按目标岗位改写简历并生成 HR 开场白",
+    "/make-resume 内置 18 个中文 HTML 模板，可编辑并导出 PDF",
+    "/interview 逐个追问，检验简历主张在面试中是否经得起追问",
+    "/job-apply 连接已登录浏览器填申请表，停在提交前核对"
   ],
   "highlights": [
-    "同时支持 Codex、Claude Code、TraeWork、Qoder，另提供 Cursor、OpenCode、WorkBuddy 轻量桥接",
-    "九个入口共享同一套 skills/assets/references 和证据账本，可按顺序组合成完整求职流程"
+    "多个 Skill 共享主张—证据账本，统一事实与个人边界",
+    "默认使用 ASu 单栏模板，可选 LaTeX 源文件（需主动要求）",
+    "所有入口清单以 skills.registry.json 为单一事实源"
   ],
-  "is_ai_product": true,
-  "positioning": "可安装进 Claude Code、Codex 等平台的插件包，提供九个面向求职场景的 Skill 入口，覆盖开源贡献、简历提升与制作、面试准备、岗位匹配与投递跟进。",
+  "audience": "准备校招或社招、希望用编码 Agent 梳理项目证据并优化简历和面试的中文开发者与求职者",
   "quickstart_cmd": "/plugin marketplace add Hisn00w/ASu-skills",
-  "quickstart_note": "Claude Code 下执行该命令后还需执行 /plugin install asu-skills@asu 并按提示 /reload-plugins",
+  "quickstart_note": "Claude Code 安装后还需执行 /plugin install asu-skills@asu 并 /reload-plugins",
   "risks": [
-    "/job-apply 需连接用户已登录的浏览器自动填写招聘网站申请表，自动化操作第三方网页存在违反网站服务条款的风险"
+    "/job-apply 通过浏览器扩展自动填写招聘网页，可能违反招聘网站服务条款",
+    "浏览器控制需安装 Kimi WebBridge 或 ChatGPT 浏览器扩展，页面内容经其本机服务处理"
   ],
-  "tagline": "面向求职场景的 AI Skills 插件包，覆盖开源贡献、简历制作到投递跟进全流程",
-  "readme_sha": "35907cfac7fad591af0cd1cb3143b63383343c7a",
-  "generated_at": "2026-10-05",
+  "readme_sha": "788d27d01e3dc4e0aa4d87949186333fdd5a23cc",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

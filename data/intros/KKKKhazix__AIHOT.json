@@ -1,25 +1,29 @@
 {
-  "audience": "想为自己所在行业（法律、HR、金融等）搭建热点聚合与日报网站的自托管用户和开发者",
+  "is_ai_product": true,
   "category": "AI 应用产品",
+  "tagline": "自托管行业热点站框架：大模型筛选信源、聚簇事件、生成中文日报",
+  "positioning": "AIHOT 的引擎与框架，与线上站同一份代码；把信源、分类和精选提示词换成你自己的行业，即可搭一个自动出日报的热点站。",
   "features": [
-    "支持 RSS、网页、JSON、X、微信公众号等六种信源及自定义推送，分三级设门槛",
-    "大模型先预筛，再独立打两次分，按信源分级门槛决定是否入选精选，提示词全公开可改",
-    "同一事件的不同来源报道自动聚簇，按独立来源数量计算热度，48小时内重复来源不多算",
-    "每天自动生成日报（默认08:00），每周周报、每月月报从日报汇编而成",
-    "提供 RSS、公开 API、MCP、llms.txt 等多种接口，同一份内容同时给人看和给 Agent 用"
+    "六种信源：RSS、网页列表、JSON、X 账号、微信公众号、脚本推送",
+    "提示词预筛后独立打两次分，按信源分级门槛入选",
+    "不同来源的同一事件聚为一条，按独立来源数算热度",
+    "默认每天 08:00 出日报，周一、每月 1 日出周月报",
+    "对外提供 RSS、公开 API、MCP 与 llms.txt 给 Agent 使用"
   ],
   "highlights": [
-    "所有提示词原文和入选门槛均开源，可用自己标注的样本在 SelectBench 中校准评分标准",
-    "仓库是 AIHOT 线上同款引擎代码，但不含其信源名单和运营数据，示范信源仅18个海外AI资讯源"
+    "精选提示词与入选门槛原文公开，改标准不用改代码",
+    "示范仓库带 18 个公开海外 AI 信源，不含运营数据",
+    "评分标准可用自标注样本在 SelectBench 中校准"
   ],
-  "is_ai_product": true,
-  "positioning": "AIHOT 开源的网站引擎和框架，用大模型自动抓取信源、筛选打分、聚簇事件、生成日报周报月报；换上自己行业的信源和提示词，即可搭建专属行业热点站。",
-  "quickstart_cmd": "git clone https://github.com/KKKKhazix/AIHOT.git myhot\ncd myhot\nnode scripts/init-env.ts --llm-key <你的模型 API Key>\ndocker compose up -d --build",
-  "quickstart_note": "需要 Docker、Node.js 24 和 OpenAI 兼容的模型 API Key，完成后访问 localhost:3000，后台在 /admin",
-  "risks": [],
-  "tagline": "自动找热点、写日报的自托管网站框架，换上信源和标准就是你的行业热点站",
-  "readme_sha": "91e8ba24609a8787f3e7782094f40f668437cb98",
-  "generated_at": "2026-10-05",
+  "audience": "想把某一行业资讯做成自动日报站的开发者或团队，需有 Docker、Node.js 24 和 OpenAI 兼容模型 API Key。",
+  "quickstart_cmd": "node scripts/init-env.ts --llm-key <你的模型 API Key>",
+  "quickstart_note": "需先 clone 仓库并进入目录；随后 docker compose up -d --build，打开 localhost:3000，后台在 /admin。",
+  "risks": [
+    "README 要求不要使用 AIHOT 的名字和 Logo，名称与 Logo 不在 MIT 许可范围内。"
+  ],
+  "readme_sha": "481438c3c5105c952fc7762dd3dc8f6a823333aa",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

@@ -1,6 +1,7 @@
 {
- "tagline": "本地优先的搜索引擎与MCP服务器，为AI Agent提供代码/文档混合检索与记忆",
+ "tagline": "面向 AI Agent 的本地优先搜索引擎与 MCP 服务，支持代码与文档检索",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

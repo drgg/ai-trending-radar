@@ -1,6 +1,7 @@
 {
- "tagline": "让团队各自的编程Agent互相通信的端到端加密点对点网络",
+ "tagline": "端到端加密的点对点守护进程，让团队成员各自的编码 Agent 互相发现并发消息。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

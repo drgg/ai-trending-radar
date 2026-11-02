@@ -1,0 +1,7 @@
+{
+ "tagline": "开源文档解析模型，把 PDF 和图片转成带版式的 Markdown/JSON 供 Agent 使用。",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
+}

@@ -1,6 +1,7 @@
 {
- "tagline": "赋予编程Agent审美直觉的技能包：艺术指导、参考图与浏览器自查",
+ "tagline": "给编码代理艺术方向、真实图片和浏览器自检的网页设计技能。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

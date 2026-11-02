@@ -1,6 +1,7 @@
 {
- "tagline": "基于 AI agent 与 MCP 的逆向工程工具，深入分析应用行为与二进制",
+ "tagline": "面向 AI Agent 的逆向工程 MCP，覆盖二进制、应用与运行时行为",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

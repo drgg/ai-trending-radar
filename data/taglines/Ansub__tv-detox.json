@@ -1,6 +1,7 @@
 {
- "tagline": "用Claude Code或Codex清理提速老安卓电视的提示词工具",
- "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "tagline": "配一段提示词，让 Claude Code 或 Codex 帮你清理旧 Android TV 的广告与卡顿。",
+ "is_ai_product": false,
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

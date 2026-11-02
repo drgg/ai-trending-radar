@@ -1,0 +1,30 @@
+{
+  "is_ai_product": true,
+  "category": "本地推理与模型",
+  "tagline": "在驱动加载前解锁 GeForce 显卡被限制的 Tensor Core 速率",
+  "positioning": "Linux 内核模块，在 NVIDIA 原厂驱动绑定显卡前解除 GeForce 在 FP16/BF16/TF32 上的半速限制；不改驱动、不刷 VBIOS，驱动更新后无需重做。",
+  "features": [
+    "支持 Ampere（RTX 30）稳定，Ada（RTX 40）、Turing（RTX 20）实验性",
+    "通过内核命令行 gpu_unlock.targets 指定全部或指定 PCI 地址的显卡",
+    "安装后写入 initramfs，在 nvidia 之前加载；默认不启用",
+    "挂起到内存唤醒后自动重新解锁，可用 gpu_unlock.resume=0 关闭",
+    "输出结果前后逐位一致，仅速度变化"
+  ],
+  "highlights": [
+    "项目方数据：RTX 4090 BF16 稠密矩阵乘从 165 升至 329 TFLOPS（+100%）",
+    "项目方数据：LLM prefill 提速 25–55%，LoRA/全参微调 25–50%",
+    "项目方数据：4090 在默认功耗下受功耗限制，大 GEMM 增益远低于峰值速率"
+  ],
+  "audience": "使用 RTX 20/30/40 系列显卡跑 AI 训练与推理的 Linux 用户",
+  "quickstart_cmd": "make install",
+  "quickstart_note": "需先克隆仓库并进入目录；安装后还要把 gpu_unlock.targets=all 加到内核命令行",
+  "risks": [
+    "仓库未声明许可证；README 只说明内核模块与本地打包为 GPL-2.0-only",
+    "解锁后显卡功耗与发热上升，笔记本可能因空闲断电而静默失效"
+  ],
+  "readme_sha": "46199d5eef4e30ca526eba7f12b535afaa24264c",
+  "generated_at": "2026-11-02",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

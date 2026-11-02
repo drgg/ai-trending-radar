@@ -1,6 +1,7 @@
 {
- "tagline": "让Claude Code等编程Agent一键生成带配乐的商业宣传片技能",
+ "tagline": "给编码 Agent 的技能：直出商业级产品宣传片，自动作曲并支持指画面改。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

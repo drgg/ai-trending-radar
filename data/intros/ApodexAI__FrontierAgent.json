@@ -1,25 +1,27 @@
 {
-  "audience": "需要终端智能体处理长周期研究、文件分析或多智能体协作任务的开发者与研究者",
+  "is_ai_product": true,
   "category": "编程 Agent 与运行框架",
+  "tagline": "开源的终端 AI Agent 运行时，提供 ReAct 与 Agent Team 两种工作流。",
+  "positioning": "FrontierAgent 是面向长周期研究与文件类任务的 Agent 运行时、终端产品与评测套件。框架、工具、工作流和评测层相互独立，可以分别复用。内置 TUI，在 macOS 和 Linux 上一条命令即可启动，Docker 是可选项。",
   "features": [
-    "ReAct 模式：单个有状态智能体在任务沙箱内研究、读写文件、执行命令并迭代",
-    "Agent Team 模式：协调器维护任务看板，调度并行子智能体并汇总报告合成结果",
-    "任务沙箱分 /inputs 只读、/workspace 可写、/outputs 产出，校验失败默认拒绝",
-    "支持运行中插话：输入新指令会在安全节点注入，不打断正在执行的任务",
-    "写操作默认需审批确认，会话带检查点与本地追踪，支持 /revert 回滚和 --resume 续跑"
+    "ReAct 模式：单 Agent 在有状态沙箱内检索、读写文件、执行命令并迭代。",
+    "Agent Team 模式：协调器维护任务板，向并行的子 Agent 分派独立子任务并汇总报告。",
+    "沙箱文件区：/inputs 只读、/workspace 可读写、/outputs 存放持久交付物；失败时默认拒绝。",
+    "变更需审批并显示 diff，全过程本地留痕；支持 /revert 回滚和 --resume 续跑。",
+    "自带 subprocess 评测 runner，支持并发、产物收集与失败用例单独重跑。"
   ],
   "highlights": [
-    "同一工作流引擎既驱动终端 TUI 产品，也用于跑 FrontierSearchBench/FrontierChallenge 等内置评测基准（项目方数据）",
-    "macOS/Linux 一条命令即可安装运行，无需预装环境，Docker 为可选而非必需依赖"
+    "运行中可键入新指令，指令在下一个安全轮次边界注入，不中断当前运行。",
+    "同一引擎同时驱动 TUI 和用于评测 Apodex 模型的 benchmark runner。",
+    "在 macOS 与 Docker 下 /outputs 映射到宿主机 .apodex/runs/<session-id>/outputs。"
   ],
-  "is_ai_product": true,
-  "positioning": "面向长周期研究和文件类任务的开源智能体运行时，内置终端 TUI，提供 ReAct 单智能体与 Agent Team 多智能体两种工作流，同一引擎也用于 Apodex 模型的评测基准。",
+  "audience": "需要长周期研究、仓库分析和文件交付的开发者，以及评测 Agent 工作流的研究人员。",
   "quickstart_cmd": "uv run frontier-agent --mode react --cwd /path/to/project",
-  "quickstart_note": "需先 git clone 仓库、执行 uv sync 安装依赖，并在 .env 中配置 OpenAI 兼容模型端点",
+  "quickstart_note": "先 git clone、uv sync --python 3.12 --extra dev，并将 .env.example 复制为 .env 填入 OpenAI 兼容端点。",
   "risks": [],
-  "tagline": "开源终端智能体运行时，提供 ReAct 单智能体与 Agent Team 多智能体两种工作模式",
   "readme_sha": "2097d4022db5e7b541ad1df821ad4a876b588f61",
-  "generated_at": "2026-10-05",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

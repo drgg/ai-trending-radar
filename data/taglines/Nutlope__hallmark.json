@@ -1,7 +1,7 @@
 {
- "tagline": "让Claude Code等编程助手做出不像AI生成的设计技能",
+ "tagline": "让 Claude Code、Cursor 等编码代理生成不像 AI 模板的网页设计技能。",
  "is_ai_product": true,
  "ai_rule": 2,
- "generated_at": "2026-10-26",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

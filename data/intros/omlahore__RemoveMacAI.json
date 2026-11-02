@@ -1,26 +1,29 @@
 {
   "is_ai_product": false,
   "category": "其他",
-  "tagline": "一键关闭 macOS 上的 Apple Intelligence、分析、广告和弹窗的原生应用与命令行工具",
-  "positioning": "面向 macOS 用户的系统精简工具，可关闭 Apple Intelligence 及其模型、分析上报、广告和弹窗等功能，提供图形界面和命令行两种形式，所有改动可随时查看并撤销。",
+  "tagline": "关闭并删除 macOS 的 Apple Intelligence，顺带清理遥测、广告与弹窗的 Swift 工具",
+  "positioning": "一个原生 App 加同款 CLI，用来关掉 Apple Intelligence 及其模型，并关闭系统遥测、个性化广告、弹窗和其他应用的更新器；所有改动先预览，且都可撤销。",
   "features": [
-    "关闭 Siri、Genmoji、Image Playground 等 Apple Intelligence 功能，删除并阻止其模型重新下载",
-    "关闭 Mac 分析、个性化广告、Improve Siri 等隐私相关设置",
-    "清理旧版安装包、模拟器、Xcode 构建数据等，释放磁盘空间",
-    "内置推荐与最大隐私两套预设，一键应用常见设置组合",
-    "可导出配置描述文件，供 Jamf、Kandji、Intune 等 MDM 批量部署"
+    "关闭 Siri、写作工具、Genmoji、ChatGPT 集成等 AI 功能，删除模型并阻止重新下载",
+    "关闭 Mac 分析、个性化广告、Siri 与听写改进等隐私项",
+    "调整 Finder、Dock、输入法、后台更新器和磁盘清理等系统设置",
+    "提供推荐和最大隐私两套预设，改动前逐项显示，支持整体撤销",
+    "支持导出 mobileconfig 配置描述文件，供 MDM 批量部署"
   ],
   "highlights": [
-    "不联网、不收集数据，所有改动先记录再执行，可随时撤销或一键 revert 还原",
-    "获 The Verge、Ars Technica、The Register 等科技媒体报道"
+    "所有变更记录在 journal.json，revert 可还原到修改前的值",
+    "模型通过 Apple 资产服务移除，并用本地关闭端口阻断重新下载",
+    "不修改 /System、保持 SIP 开启，除检查更新外不发起网络请求"
   ],
-  "audience": "macOS 用户，尤其是希望关闭 Apple Intelligence、减少系统遥测与广告、整理磁盘空间的隐私敏感用户及 Mac 系统管理员",
-  "quickstart_cmd": "curl -fsSL https://raw.githubusercontent.com/omlahore/RemoveMacAI/main/install.sh | bash -s app",
-  "quickstart_note": "下载最新版本并校验 SHA-256 后安装到应用程序文件夹并打开；App 未经公证，首次打开需在系统设置中允许",
-  "risks": [],
-  "readme_sha": "fac0049c358f4f461df25d59ab210fc750278bac",
-  "generated_at": "2026-10-22",
+  "audience": "希望去除 macOS 内置 AI 与遥测的 Apple 芯片 Mac 用户，以及需要批量下发配置的 Mac 管理员。",
+  "quickstart_cmd": "brew install omlahore/tap/removemacai",
+  "quickstart_note": "安装后运行 removemacai 查看 Apple Intelligence 状态并关闭；也可用 install.sh 直接运行 CLI。",
+  "risks": [
+    "关闭 Apple Intelligence 后，依赖端侧模型的应用、快捷指令 Use Model 动作、视觉智能和日历自然语言编辑将不可用"
+  ],
+  "readme_sha": "765c74a3c321f1d00794589d19b88515d7001ef4",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
   "ai_rule": 2,
-  "model": "claude-sonnet-5"
+  "model": "deepseek-flash"
 }

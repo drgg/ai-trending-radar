@@ -1,0 +1,7 @@
+{
+ "tagline": "自托管求职应用，用你选的模型按职位生成定制简历与求职信并跟踪申请。",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
+}

@@ -1,0 +1,30 @@
+{
+  "is_ai_product": true,
+  "category": "AI 应用产品",
+  "tagline": "住在 DeepSeek Harness 里的透明动画桌面宠物插件",
+  "positioning": "DeepSeek Harness 桌面宠物插件，提供 100 多段透明动画，可多开、可拖拽甩抛，并随会话状态切换动画；另含一套从提示词到素材生成的宠物制作链。",
+  "features": [
+    "100+ 段透明动画，覆盖待机、漫游、玩耍、工作、对话等",
+    "可多开，每只宠物的大小与位置可分别配置",
+    "支持浏览器 overlay、Electron 透明置顶窗和独立模式",
+    "可读余额分档播动画，跟随会话状态并推送系统通知",
+    "开放 HTTP 与 Cordis 两条接口，供其他插件调用"
+  ],
+  "highlights": [
+    "提供提示词配方、绿幕视频转透明动画的素材链和插件三件套，可复现",
+    "提供 Windows x64 绿色包，不装 DSH 也能独立运行",
+    "拖拽甩抛、双击弹弓、宠物互撞共用一套物理手感，参数可调"
+  ],
+  "audience": "DeepSeek Harness 用户、想要可二次开发桌宠插件的开发者，以及想自行生成宠物素材的创作者。",
+  "quickstart_cmd": "dsh plugin --profile <profile> add dsh-pet",
+  "quickstart_note": "web 界面把 <profile> 填 web，Electron 桌面应用填 desktop；装完需重开 DSH 才生效。",
+  "risks": [
+    "素材禁止商用，形象按 CC BY-NC-SA 4.0 授权，二创公开使用需署名原作者。",
+    "HTTP 接口只监听本机且无鉴权，其他本机进程可直接调用。"
+  ],
+  "readme_sha": "03caccd911b34cde9cff5008bea4020e618709a0",
+  "generated_at": "2026-11-02",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

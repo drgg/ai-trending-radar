@@ -1,6 +1,7 @@
 {
- "tagline": "在自己 GPU 上私有部署 GLM、DeepSeek 等大模型的推理引擎与面板",
+ "tagline": "在自有单卡至 16 卡 GPU 上私密运行 GLM、DeepSeek、MiniMax 大模型并提供兼容 API。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

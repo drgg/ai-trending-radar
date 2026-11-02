@@ -1,28 +1,31 @@
 {
   "is_ai_product": true,
-  "category": "AI 应用产品",
-  "tagline": "开源自托管工具，用真实AI模型回答追踪品牌在AI答案中的曝光与竞品",
-  "positioning": "面向希望了解AI模型如何描述自家产品、提及哪些竞品、引用哪些来源的团队，强调可追溯证据而非黑盒评分，自托管部署并自备模型API Key，Apache-2.0开源。",
+  "category": "其他",
+  "tagline": "开源自托管的 GEO 研究工具，追踪品牌和多模型在 AI 回答中的可见度",
+  "positioning": "输入域名或关键词，调用多个模型进行测试，保存原始回答、引用来源和竞品信息，并支持重复运行与定时监测，数据存放在自己环境中。",
   "features": [
-    "输入域名测试，对比多个AI模型对产品的描述及提及的竞品",
-    "支持OpenRouter等多家模型供应商，可在同一测试中混用不同来源模型",
-    "保留原始回答、引用来源及历史测试记录，可逐条核查",
-    "v0.3新增关键词监测模块（Beta）：分类测试、定时运行并用Diff View比较前后快照变化",
-    "自托管部署，研究数据保存在自己的环境中"
+    "输入域名后看各模型如何描述产品、点名哪些竞品",
+    "用不含品牌名的关键词测试谁会被 AI 推荐",
+    "保留原始回答、引用和普通链接，失败也记录",
+    "支持多模型与 OpenRouter、直连 API、自定义端点混测",
+    "关键词监测可定时运行并用 Diff View 对比变化（v0.3 Beta）"
   ],
   "highlights": [
-    "设计理念是展示原始模型回答与引用来源作为证据链，而非直接输出单一可见度分数",
-    "项目方称自托管可替代每年5000美元以上的GEO SaaS服务，但该说法未提供第三方验证数据",
-    "当前v0.3版本尚未包含独立的竞品检测仪表盘，功能限于关键词监测、历史记录与变化对比"
+    "答案到引用全链路可查，不输出单一黑盒分数",
+    "自带 20 个真实案例，无需安装或 API Key 即可阅读",
+    "每条结果保留端点、模型和搜索设置"
   ],
-  "audience": "需要监测自身产品在AI模型回答中曝光度、竞品及引用来源的产品、营销或SEO团队，愿自托管并自备模型API Key。",
-  "quickstart_cmd": "git clone --branch v0.3.0 --depth 1 https://github.com/Albert-Weasker/niubigeo.git",
-  "quickstart_note": "需Node.js 22.13+及OpenRouter API Key，克隆后npm ci、配置.env，再npm run server启动，访问localhost:8787。",
+  "audience": "关注 AI 搜索可见度（GEO）的品牌、市场与增长团队，以及希望自托管数据、自行验证结果的开发者。",
+  "quickstart_cmd": "git clone --branch v0.3.2 --depth 1 https://github.com/Albert-Weasker/niubigeo.git\ncd niubigeo\nnpm ci\ncp .env.example .env\nnpm run server",
+  "quickstart_note": "需 Node.js 22.13+，在 .env 填 OPENROUTER_API_KEY 后启动，访问 localhost:8787；模型和搜索 API 费用自付。",
   "risks": [
-    "使用时需将域名、关键词、竞品列表等可能具有商业敏感性的研究数据发送给所选的外部模型API服务。"
+    "发送给外部模型 API 的提示词会离开自托管环境，README 明确说明自托管不等于零数据暴露",
+    "工作台默认显示视频顾问卡片，点击会跳转第三方外部服务",
+    "定时监测需额外运行 monitoring worker 容器"
   ],
-  "readme_sha": "fe9df257098fcd7188a49acd41399ea57cd2b905",
-  "generated_at": "2026-10-12",
+  "readme_sha": "bae8ecc2ef8e29ca76efa038d3d2704f2d747b7e",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

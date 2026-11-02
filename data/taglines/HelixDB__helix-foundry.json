@@ -1,0 +1,7 @@
+{
+ "tagline": "连接公司数据，由 Agent 起草本体论并载入 HelixDB 成图供探索提问。",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
+}

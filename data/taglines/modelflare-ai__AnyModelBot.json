@@ -1,0 +1,7 @@
+{
+ "tagline": "本地优先的个人 AI Agent，跨模型并接入微信飞书",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
+}

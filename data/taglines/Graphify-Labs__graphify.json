@@ -1,6 +1,7 @@
 {
- "tagline": "将代码库及文档转为可查询知识图谱的Agent技能，支持多种编程助手",
+ "tagline": "把代码库与文档转成可查询知识图谱的编码代理技能，本地 AST 解析。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

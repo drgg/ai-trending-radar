@@ -1,6 +1,7 @@
 {
- "tagline": "从零构建的AI工程学习教程，涵盖LLM、Agent、深度学习等，适合AI开发者",
+ "tagline": "从零动手学习 AI 工程的开源课程，覆盖模型、检索与 Agent",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

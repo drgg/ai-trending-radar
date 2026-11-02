@@ -1,6 +1,7 @@
 {
- "tagline": "将想法、方案或代码库转为交互式图表的编程Agent技能",
+ "tagline": "把想法或代码库转成交互式架构图的 Agent 技能",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

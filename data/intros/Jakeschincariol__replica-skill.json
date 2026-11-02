@@ -1,27 +1,31 @@
 {
-  "audience": "想快速复刻竞品应用原型、做产品复刻练习或验证创业点子的独立开发者和产品经理",
+  "is_ai_product": true,
   "category": "Skills 与写作/设计",
+  "tagline": "11 个 Claude 技能，用于反向拆解并重建任意 App",
+  "positioning": "一组按顺序执行的 Claude 技能，从公开页面和自有账号中反向工程目标 App 的界面、流程与数据模型，再用全新代码重建，并做品牌替换、评分和上线。MIT 协议，无需注册或 API Key。",
   "features": [
-    "recon 从公开页面和自有账号逆向解析目标应用的界面、流程与数据模型",
-    "architect/design/build/backend 依次规划架构、重建设计系统并实现前后端功能",
-    "test 自动测试全部流程并记录 bug，diff 给出克隆版与原应用的功能对比评分",
-    "entrepreneur 读取真实用户评价，提炼差评痛点并生成修复方案和差异化定位",
-    "brand/launch/deploy 重新命名换皮、扫除原应用痕迹、生成落地页并部署上线"
+    "recon 技能从公开页面、截图、商店页和自有账号提取屏幕、流程与数据模型",
+    "architect、design、build、backend 技能规划技术栈、设计令牌并逐屏重建",
+    "test、diff 技能用 Playwright 跑流程测试，并给出对比原版的功能完成度评分",
+    "entrepreneur 技能把真实评论里的用户抱怨整理成改法和定位角度，每条带链接",
+    "brand、launch、deploy 技能负责改名换肤、写落地页与商店文案、部署上线"
   ],
   "highlights": [
-    "强调 clean-room 式重建：只还原功能和交互流程，不复制原应用的代码、Logo、文案或内容",
-    "配套6个工具均为标准库 Python 脚本，不联网，可本地运行，无需 pip 安装",
-    "免费、MIT 许可，无需注册或 API Key"
+    "11 个技能可串联执行，也可单独运行，产物统一写入项目的 replica/ 目录",
+    "6 个纯标准库 Python 工具，README 称均不联网",
+    "sweep.py 检查代码中是否残留原 App 名称、域名与配色，不通过则阻止部署"
   ],
-  "is_ai_product": true,
-  "positioning": "一套免费 MIT 协议的 Claude Skills 组合，按11个步骤逆向分析、重建、测试、评分并上线任意应用的克隆版，强调仅还原功能和交互流程，不复制原应用代码、素材或品牌。",
+  "audience": "想基于现有 App 的功能与流程做独立产品的开发者、独立创业者，需要已安装 Claude Code，Python 3.8 以上。",
   "quickstart_cmd": "/plugin marketplace add Jakeschincariol/replica-skill\n/plugin install replica-skill@replica-skill",
-  "quickstart_note": "需在 Claude Code 中安装为插件；也可直接向 Claude 粘贴仓库链接说\"install skill\"，无需安装 Python 依赖",
-  "risks": [],
-  "tagline": "11个 Claude Skills，按流程逆向、重建、测试并修复任意应用的克隆版",
+  "quickstart_note": "以插件安装后技能带 replica-skill: 前缀；也可 git clone 后把 replica-*/ 目录复制到 ~/.claude/skills/。",
+  "risks": [
+    "重建他人 App 的功能与流程可能涉及知识产权或商标纠纷，README 要求先做商标核查并在上线前咨询律师",
+    "recon 会读取自有账号内容，若账号条款禁止用于做竞品，README 称将只使用公开来源",
+    "项目只做清洁室式功能复刻，不复制源码、素材、商标与内容，但 README 也声明不保证得到完全一致的克隆结果"
+  ],
   "readme_sha": "ba440b4539d4fe3505fdc045ffff0c74c56e180d",
-  "generated_at": "2026-10-26",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
   "ai_rule": 2,
-  "model": "claude-sonnet-5"
+  "model": "deepseek-flash"
 }

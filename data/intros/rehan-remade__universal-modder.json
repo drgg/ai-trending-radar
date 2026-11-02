@@ -1,25 +1,30 @@
 {
-  "audience": "愿意用编程 agent 给自己拥有的 PC 游戏做 mod、逆向研究的开发者和玩家",
-  "category": "编程 Agent 与运行框架",
   "is_ai_product": true,
-  "tagline": "让 Claude Code 等编程 agent 给你拥有的任意 PC 游戏做 mod 的技能与工具包",
-  "positioning": "为 Claude Code、Codex、Gemini CLI 等编程 agent 提供技能、fal MCP 和 um CLI，驱动 agent 对本地已安装的 PC 游戏进行侦察、逆向、建 mod、生成素材并在游戏内验证。",
+  "category": "编程 Agent 与运行框架",
+  "tagline": "让 Claude 等编程 Agent 为任意 PC 游戏做 Mod 的技能包与工具集",
+  "positioning": "以 Agent Skills 加 fal MCP 和 um CLI 的形式，把侦察、逆向、建 Mod、生成素材、游戏内验证、录视频、写经验笔记串成 Agent 可执行的固定流程，支持 Claude Code、Codex、Gemini CLI、Cursor 等。",
   "features": [
-    "提供 Agent Skills 格式技能、fal MCP 服务器和 um CLI，支持 Claude Code/Codex/Gemini CLI/Cursor/OpenCode 等多种 agent",
-    "标准流程：查知识库、侦察定路线、读代码建切片、生成素材并验证、录视频写笔记",
-    "用 fal 生成图像/3D/音频素材；无 fal key 时可用本地 ComfyUI 生成图像",
-    "知识库收录各游戏改模实录：版本、路线、验证方式和踩坑经验，完成后可提交 PR 共享",
-    "内置规则：仅限自己拥有的单机/多人游戏，拒绝注入反作弊服务器、绕过 DRM，会先询问"
+    "固定十步流程：检索知识库、侦察选路、备份存档、读代码、做最小切片、生成素材、游戏内验证、录制、打包、写笔记",
+    "用 fal 生成图像、3D、音频素材，也可接本地 ComfyUI",
+    "knowledge/ 收录各游戏实际 Mod 经验笔记，结束可提 PR 共享",
+    "提供 um CLI，可搜索知识库、新建和检查笔记",
+    "自带三个子 Agent 编排长周期 Mod，token 消耗为数倍"
   ],
   "highlights": [
-    "项目方展示了 Terraria、AoE2 DE、GTA V×Minecraft 等实际改模案例，均附完整知识库笔记",
-    "同时支持 Claude Code、Codex、Gemini CLI、VS Code/Copilot、Cursor、OpenCode 等多种编程 agent"
+    "示例含 Terraria 的 Fal Arsenal、帝国时代 II 新文明、GTA V 内跑 Minecraft",
+    "拒绝注入带反作弊的在线游戏，不做对抗其他玩家的作弊",
+    "不附带游戏文件或反编译产物，改动前备份存档"
   ],
+  "audience": "想用 AI Agent 给自有 PC 游戏做 Mod 的玩家与 Mod 作者，需熟悉命令行与游戏引擎概念。",
   "quickstart_cmd": "/plugin marketplace add rehan-remade/universal-modder",
-  "quickstart_note": "适用于 Claude Code，之后再执行 /plugin install universal-modder@universal-modder 完成安装",
-  "risks": [],
-  "readme_sha": "de0913f2041a56d467821553d4e0f2d772d5c3d9",
-  "generated_at": "2026-10-12",
+  "quickstart_note": "Claude Code 中先加市场，再执行 /plugin install universal-modder@universal-modder；其他 Agent 各有对应安装方式。",
+  "risks": [
+    "对游戏程序做注入与逆向改动，可能违反部分游戏的用户协议或服务条款",
+    "生成的素材来自 fal 等外部付费服务，需自行确认版权与商用授权"
+  ],
+  "readme_sha": "7d762b1320094badc207b435548becbc2f85a276",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

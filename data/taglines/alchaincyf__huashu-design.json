@@ -1,7 +1,7 @@
 {
- "tagline": "面向Claude Code等Agent的HTML设计技能，一句话生成网页/PPT/原型设计稿",
+ "tagline": "一句话在 Agent 里产出网页、原型、PPTX 和动画的设计技能",
  "is_ai_product": true,
  "ai_rule": 2,
- "generated_at": "2026-10-26",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

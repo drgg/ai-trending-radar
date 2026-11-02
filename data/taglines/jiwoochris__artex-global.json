@@ -1,6 +1,7 @@
 {
- "tagline": "韩语版 AI 自主渗透测试框架，上游为 Autumn-27/ARTEX",
+ "tagline": "LLM 多智能体自主渗透测试框架国际版，供授权防御与检测研究使用。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

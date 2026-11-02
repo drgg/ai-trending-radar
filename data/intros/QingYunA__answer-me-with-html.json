@@ -1,0 +1,27 @@
+{
+  "is_ai_product": true,
+  "category": "Skills 与写作/设计",
+  "tagline": "让 AI Agent 用一页 HTML 回答复杂问题的技能",
+  "positioning": "一个面向 AI Agent 的技能：模型只写 Markdown 草稿，由随技能附带的 CLI 负责排版、配色和画图，输出单文件 HTML 页面。",
+  "features": [
+    "模型只写 Markdown，CLI 生成版面、CSS 和 SVG 图",
+    "按问题类型给出时序图、流程图、对比表、时间线等页面",
+    "提供 blueprint、shadcn、paper 三种主题，均支持明暗模式",
+    "每页为无外部依赖的单文件 HTML，可离线打开",
+    "草稿出错时 CLI 返回行号和正确示例供修正"
+  ],
+  "highlights": [
+    "项目方数据：模型输出 token 从 4893 降到 612，约为原来的 1/8",
+    "项目方数据：同样问题耗时从 31 秒降到 12 秒",
+    "项目方数据：账单只降约 15%，因为每轮仍需读取上下文"
+  ],
+  "audience": "常用 Claude Code、Codex、Cursor 等 Agent 做技术解释、方案对比和代码梳理的开发者。",
+  "quickstart_cmd": "npx skills add QingYunA/answer-me-with-html",
+  "quickstart_note": "需 Node.js 20 以上，安装器会询问装进哪些 Agent；装完无需额外配置。",
+  "risks": [],
+  "readme_sha": "df5113ae6959ada4008209be8abb5c00309ad443",
+  "generated_at": "2026-11-02",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

@@ -1,7 +1,7 @@
 {
- "tagline": "面向Claude Skills系统的红队攻防技能库，覆盖SQLi到EDR绕过等攻击面",
+ "tagline": "面向 Claude Skills 的红队攻击技能库，覆盖 SQLi 到免杀等手法。",
  "is_ai_product": true,
  "ai_rule": 2,
- "generated_at": "2026-10-26",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

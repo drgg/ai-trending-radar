@@ -1,27 +1,31 @@
 {
   "is_ai_product": true,
-  "category": "开发者工具与集成",
-  "tagline": "常驻 Mac 刘海/灵动岛的小伙伴，实时监控并批准 Claude Code、Codex 等 AI 编程代理",
-  "positioning": "一款开源 Mac/Windows/Linux 常驻应用，在刘海或屏幕顶部显示 AI 编程代理的运行状态，可直接批准权限请求，并通过 iPhone/Android 远程操作。",
+  "category": "Agent 平台与基础设施",
+  "tagline": "在 Mac 刘海和手机端实时监控并审批 AI 编程 Agent 会话的桌面伴侣",
+  "positioning": "把 Claude Code、Codex、Cursor、Gemini CLI 等 Agent 的会话状态、文件改动和权限请求收进 Mac 刘海（Windows/Linux 为屏幕顶部），并延伸到 iPhone、Android 的锁屏与小组件上，让你不离开当前工作就能批准或回答问题。",
   "features": [
-    "实时显示 Claude Code、Codex、Cursor、Gemini CLI 等代理的会话、文件修改和命令执行步骤",
-    "在刘海/灵动岛内一键 Allow/Deny 权限请求，支持 AskUserQuestion 单选或多选",
-    "iPhone 端通过 Live Activity 和锁屏通知远程批准权限，需 Face ID 确认",
-    "可选的 Flow 语音输入功能，支持系统识别或离线 Parakeet 识别（仅 Apple 芯片）",
-    "可选的通话录音转写、摘要与待办事项提取（Notetaker），完成后自动删除音频"
+    "刘海内实时展示各 Agent 会话读取、编辑、执行的内容和完整 diff",
+    "在刘海或锁屏直接 Allow / Deny / Always，并回答 AskUserQuestion 选项",
+    "一键跳到会话对应的终端窗口（macOS）",
+    "内置多供应商聊天，可用自己的 API Key 或已有订阅",
+    "附带离线听写、通话转写、邮件、集成和加密货币行情等小组件"
   ],
   "highlights": [
-    "代码以 MIT 协议开源，角色 Mochi 的名称、形象和音效版权保留给作者",
-    "iPhone 会话通过用户私有 iCloud CloudKit 同步，项目名、命令和问题均加密，不经过 Coucou 自家服务器"
+    "开源 MIT 版本，对标只展示不开放的刘海伴侣应用",
+    "iPhone 端用 Live Activity、灵动岛和可操作通知接力审批，每次 Allow 需 Face ID",
+    "无遥测无账号，密钥存系统钥匙串，数据仅发给用户接入的服务"
   ],
-  "audience": "使用 Claude Code、Codex、Cursor 等 AI 编程代理的开发者，尤其是习惯用 Mac 刘海/灵动岛交互的用户",
+  "audience": "同时运行多个 AI 编程 Agent、希望随时掌握进度并快速授权的 Mac 开发者，以及想在手机上继续盯会话的人。",
   "quickstart_cmd": "",
   "quickstart_note": "",
   "risks": [
-    "Notetaker 通话录音转写功能需自行告知通话对象正在录音，以符合当地录音同意相关法规"
+    "通过终端 CLI 订阅登录方式聊天，属于对第三方 AI 服务账号的自动化调用，可能触及服务条款",
+    "通话录制需自行告知参与者，否则涉及隐私与当地录音法规",
+    "语音助手模式下仅说话内容和相关数据会发送给 Anthropic"
   ],
-  "readme_sha": "b7d0aa75a35ddd14e388470a46e4b28168cf5c3d",
-  "generated_at": "2026-10-19",
+  "readme_sha": "0fcb7e258ba50436a36719fd4f31e96fceb7ca32",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

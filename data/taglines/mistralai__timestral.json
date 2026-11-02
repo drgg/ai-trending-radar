@@ -1,6 +1,7 @@
 {
- "tagline": "Mistral AI出品的时间序列预测基础模型，支持多变量概率预测",
+ "tagline": "Mistral AI 的多变量概率时间序列基础模型推理代码",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

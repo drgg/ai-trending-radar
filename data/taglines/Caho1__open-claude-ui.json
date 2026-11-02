@@ -1,7 +1,7 @@
 {
- "tagline": "逆向还原Claude桌面客户端UI的开源React组件库与动效引擎，供开发者复用",
- "is_ai_product": true,
+ "tagline": "逆向高保真还原 Claude 桌面端 UI 的 React 组件库与交互动效引擎，附逆向分析手册。",
+ "is_ai_product": false,
  "ai_rule": 2,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

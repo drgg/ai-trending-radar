@@ -1,7 +1,7 @@
 {
- "tagline": "面向AI智能体的苏联地区家谱档案考证研究技能包",
+ "tagline": "面向 AI Agent 的前苏联家谱研究技能，检索教会簿册、民事与军事档案并标注证据。",
  "is_ai_product": true,
  "ai_rule": 2,
- "generated_at": "2026-10-26",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

@@ -1,0 +1,7 @@
+{
+ "tagline": "阿里大规模验证的混合架构代码审查工具，确定性流水线结合 LLM Agent 做行级评论。",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
+}

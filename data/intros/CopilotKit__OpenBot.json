@@ -1,28 +1,30 @@
 {
-  "audience": "需要在自有基础设施中部署可审计、可控AI Agent系统的企业技术团队",
+  "is_ai_product": true,
   "category": "Agent 平台与基础设施",
+  "tagline": "可自托管的开源 AI 同事平台，每个 Bot 拥有独立浏览器、文件与工具",
+  "positioning": "OpenBot 是部署在自己基础设施里的 Agent 平台：Docker Compose 拉起全部组件，数据存在自己的 PostgreSQL，模型由管理员自行配置。它提供的是一个模板，并非成品；仓库里的工作区都是私有的，需要 clone 后替换 examples/ 下的示例租户。",
   "features": [
-    "基于AG-UI协议，兼容LangGraph、CrewAI等任意Agent框架",
-    "每个Bot拥有独立浏览器、文件系统和受限工具权限",
-    "网关统一管控浏览器、文件、MCP和组件操作，执行前决策、执行后记录",
-    "示例包含13个预置协作者，可通过配置文件或界面创建新协作者",
-    "支持Slack、Teams、短信等渠道继续对话，并提供审批、边界策略等管理界面"
+    "任意 AG-UI 协议 Agent 接入后即成为有独立频道的 AI 同事，不绑定框架",
+    "每个 Bot 拥有真实浏览器、独立登录态和文件，只能使用被授权的工具",
+    "所有对电脑、文件、MCP、组件的操作经统一网关先决策后记录",
+    "可在频道中观看 Bot 屏幕，必要时接管操作再交还",
+    "内置 General Assistant 与 Knowledge 两个 Bot，示例目录另备十个岗位 Bot"
   ],
   "highlights": [
-    "README称项目是\"模板而非产品\"，需克隆后自行定制，不提供托管版本",
-    "项目处于Alpha阶段，仍在积极开发中"
+    "默认 .env.example 设 OPENBOT_SINGLE_USER=true，所有请求按管理员放行，需开启登录后他人才能访问部署",
+    "项目方称本地 Intelligence 许可 30 天，可用 npx copilotkit@latest local renew 续期",
+    "自带审计与边界页面，可加拒绝规则后重试同一浏览器动作"
   ],
-  "is_ai_product": true,
-  "positioning": "自托管的AG-UI Agent治理平台，可接入任意框架构建的Agent，为每个\"Bot\"提供独立浏览器、文件和工具，所有操作需预先审批并留痕记录。",
-  "quickstart_cmd": "cp .env.example .env && bun install",
-  "quickstart_note": "需配置CopilotKit Intelligence密钥和模型Key后，执行bash scripts/start.sh启动服务",
+  "audience": "想把 AI 同事部署在自己机房、并自行改造成内部产品的工程团队；需要 Docker、Bun 1.4+ 与模型 Key。",
+  "quickstart_cmd": "bash scripts/start.sh",
+  "quickstart_note": "先 cp .env.example .env 并 bun install，完成 npx copilotkit@latest login 与 project select、运行 bun scripts/setup-learning.ts，再填 OPENAI_API_KEY；完成后访问 localhost:3010。",
   "risks": [
-    "核心功能是让Agent使用自带登录态的浏览器自动化操作第三方网站，可能涉及违反目标网站服务条款的风险",
-    "默认.env.example开启OPENBOT_SINGLE_USER=true，将所有请求视为管理员身份，需手动开启登录后才能对外部署"
+    "默认配置以单一管理员身份放行所有请求，未按 README 开启登录前不可暴露给他人访问",
+    "核心功能是让 Agent 自动化操作第三方网页并保存其登录态，可能违反目标服务条款"
   ],
-  "tagline": "开源AI协作者平台，为每个Agent分配独立电脑并记录全部操作",
-  "readme_sha": "d432c9560f26866a5d482298fc22533bcf69cd3c",
-  "generated_at": "2026-10-05",
+  "readme_sha": "e13cddd3b7f9ca94b7fc032ec42884cea7555777",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

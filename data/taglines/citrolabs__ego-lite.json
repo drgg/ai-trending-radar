@@ -1,6 +1,7 @@
 {
- "tagline": "面向AI智能体的极速浏览器，共享已登录状态供Codex等自动化操作，零配置",
+ "tagline": "专为 AI Agent 设计、可共享登录状态的浏览器，用于网页自动化。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

@@ -1,6 +1,7 @@
 {
- "tagline": "为AI编程Agent设计的开源版本控制系统，复刻Anthropic Scion",
+ "tagline": "为 AI 编码代理设计的开源版本控制系统，服务端集中处理",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

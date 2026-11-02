@@ -1,7 +1,7 @@
 {
- "tagline": "Rust GPU加速、兼容Manim API的数学/3D视频渲染引擎，专为AI编程Agent优化",
+ "tagline": "面向 Agent 的动画引擎，用 Manim 的 Python API 在 Rust GPU 核心上快速出数学与 3D 视频。",
  "is_ai_product": true,
  "ai_rule": 2,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

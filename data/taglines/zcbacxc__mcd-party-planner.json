@@ -1,6 +1,7 @@
 {
- "tagline": "基于麦当劳MCP的聚会团餐规划助手，按预算算出真实价格方案",
+ "tagline": "基于麦当劳 MCP 真实计价，为人均预算的聚会团餐生成方案并串联派对预订的 Skill/CLI。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

@@ -1,26 +1,29 @@
 {
   "is_ai_product": true,
   "category": "Agent 平台与基础设施",
-  "tagline": "面向 AI Agent 的轻量无头浏览器，按需渲染，资源占用低，用 Rust 编写",
-  "positioning": "Moli 是用 Rust 自研的生产级无头浏览器内核，非 Chromium 封装，默认只读取 DOM/样式状态，仅在截图等场景按需触发布局与绘制，供 AI Agent 抓取网页、搜索和执行浏览器自动化任务。",
+  "tagline": "用 Rust 编写的开源无头浏览器，供 AI Agent 抓取和自动化网页",
+  "positioning": "Moli 是面向 AI Agent 的无头浏览器内核，默认只处理 DOM，不构建布局也不渲染；只有需要布局或像素结果的操作才按需生成。它通过 CLI、CDP、WebDriver Classic/BiDi 统一对外调用。",
   "features": [
-    "支持 CLI、CDP、WebDriver Classic、WebDriver BiDi 四种接口，Playwright 可直接通过 CDP 连接",
-    "默认只读 DOM/样式不触发布局绘制，加 --layout 可选开启真实布局、坐标输入与截图",
-    "可选 --resource、--image、--font 等参数按需加载图片、字体、音视频资源",
-    "CLI 可直接输出 HTML、Markdown、JSON、语义树等格式，适合抓取与检索场景",
-    "基于 html5ever、V8、Servo/Stylo、Taffy+Parley 等组件自研内核，不依赖 Chromium"
+    "默认读取 DOM/样式状态，不触发布局或绘制",
+    "CLI 可直接输出 HTML、Markdown、语义树、截图与 PDF",
+    "同一端口同时提供 CDP、WebDriver Classic 和 BiDi",
+    "可选 --layout 开启真实布局、坐标输入与截图",
+    "支持 Linux、macOS、Windows，无需另装浏览器驱动"
   ],
   "highlights": [
-    "项目方数据：192个公开网页抓取测试中，Moli成功率53.6%、内存占用73MiB，内存远低于Chrome Headless的773MiB",
-    "项目方数据：Lexbench 1308项任务测试中，Moli 0.1.1通过率81.88%，低于作为参照的Chrome的99.85%",
-    "项目方数据：同一任务集下，Moli中位CPU时间与峰值内存约为Chrome的15%和13%"
+    "项目方数据：192 个公网 URL 抓取有效页 103 个，中位耗时 1.43 秒，内存 73 MiB",
+    "项目方数据：Lexbench 1,308 任务通过 1,071 个，成功率 81.88%",
+    "项目方数据：WPT 单轮通过 161.2 万个测试"
   ],
-  "audience": "需要网页抓取、构建爬虫或 Agent 浏览自动化的开发者，尤其是对资源占用和启动速度敏感的场景",
-  "quickstart_cmd": "curl --proto '=https' --tlsv1.2 -fsSL https://github.com/lexmount/moli/releases/latest/download/moli-installer.sh | sh",
-  "quickstart_note": "Linux/macOS 下载并安装预编译二进制；Windows 需在 PowerShell 中运行对应的 .ps1 安装脚本",
-  "risks": [],
-  "readme_sha": "74bebb3e439ab3ce2794f7a4ea507974e53329de",
-  "generated_at": "2026-10-05",
+  "audience": "需要为 Agent 搭建网页抓取、浏览器自动化或 RL 环境的开发者",
+  "quickstart_cmd": "curl --proto '=https' --tlsv1.2 -fsSL \\\n  https://github.com/lexmount/moli/releases/latest/download/moli-installer.sh | sh",
+  "quickstart_note": "Linux/macOS 用此脚本安装；Windows 改用 README 中的 PowerShell 安装脚本",
+  "risks": [
+    "核心用途是自动化操作第三方网站，可能违反目标站点的服务条款"
+  ],
+  "readme_sha": "bf0cc4a46393077f1df5e4066ca8c41d7b03f9c9",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

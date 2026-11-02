@@ -1,7 +1,7 @@
 {
- "tagline": "支持本地/Navidrome/多平台在线音源的沉浸式歌词动画播放器，AI生成配色主题",
+ "tagline": "主打全屏沉浸式歌词动画的多平台在线音乐播放器。",
  "is_ai_product": false,
  "ai_rule": 2,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

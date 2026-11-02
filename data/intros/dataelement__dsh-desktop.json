@@ -1,28 +1,31 @@
 {
-  "audience": "需要在本地运行 DeepSeek Harness、管理 Agent 插件与多工作区的 macOS 或 Windows 用户",
+  "is_ai_product": true,
   "category": "Agent 平台与基础设施",
+  "tagline": "把 DeepSeek Harness 封装成开箱即用的桌面应用",
+  "positioning": "DeepSeek Harness 的独立社区桌面版，自动启动本地 Harness 运行时并以原生窗口打开完整 Web 界面，会话、插件、工作区与模型设置存放在应用目录之外，升级不丢失。",
   "features": [
-    "自动启动和停止 Harness，无需单独 CLI 或浏览器标签页",
-    "支持官方 DeepSeek 模型及主流第三方模型提供商",
-    "内置 PPT 模式，可将素材转为可编辑 PPTX（项目方称含16模板192布局）",
-    "支持导入导出 .dshpreset 格式的完整自定义 Agent 预设包",
-    "提供 Safe Mode 临时屏蔽第三方插件，并给出故障诊断与恢复指引"
+    "自动启停 Harness，无需另开 CLI 或浏览器标签页",
+    "支持官方 DeepSeek 模型与主流第三方模型提供商",
+    "可选 PPT 模式：16 套模板、192 种版式，输出可编辑 PPTX",
+    "内置离线 DOCX/PPTX/XLSX 技能，附带 Python 库",
+    "涵盖 Agent 预设的 .dshpreset 包导入导出，安装前做冲突检查",
+    "可配对手机延续会话，支持局域网或临时公网隧道"
   ],
   "highlights": [
-    "基于快速演进中的 @deepseek-ai/dsh@0.2.0-rc.2 构建，项目方称为早期预览版",
-    "macOS 版经 Apple 签名并公证，Windows x64 安装包已代码签名",
-    "内置离线 DOCX/PPTX/XLSX 技能，macOS 和 Windows 自带所需 Python 库"
+    "安全模式可临时屏蔽第三方插件，从故障中恢复",
+    "启动与前端插件故障写入 harness.log 并提供引导修复",
+    "Harness 仅监听随机回环端口，渲染进程无 Node 权限并启用沙箱"
   ],
-  "is_ai_product": true,
-  "positioning": "将本地运行的 DeepSeek Harness 打包为安装版桌面应用，自动启动运行时，在本地就绪后打开完整 Harness 界面，用户数据保存在应用目录之外。",
+  "audience": "想在 macOS 或 Windows 上直接用 DeepSeek Harness 桌面界面、不想折腾命令行和浏览器标签页的用户。",
   "quickstart_cmd": "",
-  "quickstart_note": "",
+  "quickstart_note": "需从官网下载稳定版安装包，或在 GitHub Releases 选择标记 Pre-release 的预览版；预览版可能不兼容社区插件，不建议普通用户使用。",
   "risks": [
-    "可选的手机远程访问功能通过 Cloudflare Quick Tunnel 或 Pinggy 等第三方隧道转发本地数据"
+    "手机访问的 Cloudflare Quick Tunnel 会把本地会话经公网临时隧道暴露，需依赖配对密码保护",
+    "早期预览基于快速迭代的 @deepseek-ai/dsh@0.2.1-rc.3，预览版可能不兼容社区插件"
   ],
-  "tagline": "本地优先的跨平台桌面应用，封装 DeepSeek Harness 的 Agent 运行时与 Web 界面",
-  "readme_sha": "4e6ecf1f523c32cd58ad49046275ab46e72f0bdb",
-  "generated_at": "2026-10-05",
+  "readme_sha": "57b8cdf05c741bf9402829fa5be5d929aa0d0fcf",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

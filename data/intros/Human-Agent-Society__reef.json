@@ -1,27 +1,27 @@
 {
-  "audience": "需要为 Agent 构建持续学习或自我改进系统的研究者和工程团队，熟悉强化学习训练框架或 Agent harness 开发",
+  "is_ai_product": true,
   "category": "Agent 平台与基础设施",
+  "tagline": "让 Agent 从交互反馈中持续自我改进的开源基础设施",
+  "positioning": "把 Agent 推理、反馈、学习与带版本号的发布串成一个持续循环，既能训练模型权重，也能迭代 Agent 的提示词、规则与技能。",
   "features": [
-    "提供 OpenAI/Anthropic 兼容的推理接口，接收请求并记录交互供反馈匹配",
-    "支持两种学习路径：用 Slime、SGLang 训练模型权重，或优化 Agent harness（提示词、规则、技能）",
-    "按 Serve-Observe-Grow-Commit 四步处理反馈并发布更新",
-    "内置 Reefine，仅用模型 API 即可优化编码 harness，无需本地训练 GPU",
-    "支持版本管理与热更新，服务不中断即可切换到新版本"
+    "推理、记录、训练、评估发布四步闭环",
+    "兼容 OpenAI 与 Anthropic 的推理接口，返回回执关联反馈",
+    "支持训练模型权重，或用模型 API 演化 Agent harness",
+    "基于 Git LFS 的产物版本历史与不中断更新交付",
+    "内置 SFT，另有 TTT、SAO、GEPA 等配方与教程"
   ],
   "highlights": [
-    "项目方称其为首个开源的持续自我改进 Agent 基础设施（项目方说法）",
-    "同时覆盖模型权重训练与 Agent harness 优化两条自我改进路径，并提供多个任务示例配方"
+    "模型权重与 harness 两种学习面由配方决定",
+    "更新经评估后由推理服务热加载，无需重启",
+    "harness 教程用模型 API 跑通完整小循环，无需本地 GPU"
   ],
-  "is_ai_product": true,
-  "positioning": "Reef 是开源的持续自我改进 Agent 基础设施，连接 Agent 推理、反馈收集、训练与版本化发布，支持训练模型权重或优化 Agent 的提示词、规则与技能（Harness）。",
-  "quickstart_cmd": "uv pip install reef-infra",
-  "quickstart_note": "需先用 uv 创建并激活虚拟环境；若需版本/检查点功能还要系统安装 git-lfs。",
-  "risks": [
-    "Reefine 默认在本地无鉴权启动（需手动设 REEF_TOKEN 才要求认证），其编码会话默认不在沙箱中运行命令，README 提醒需自行隔离安装目录与运行环境。"
-  ],
-  "tagline": "开源的持续自我改进 Agent 基础设施，衔接推理、反馈、训练与版本发布",
-  "readme_sha": "7a7a7cc470850494e40277f4aa201598c7eddb45",
-  "generated_at": "2026-10-05",
+  "audience": "希望让 Agent 从真实使用反馈中持续变强的研发团队，以及做 Agent 强化学习与持续学习的研究者。",
+  "quickstart_cmd": "uv venv && source .venv/bin/activate\nuv pip install reef-infra",
+  "quickstart_note": "产物与检查点功能需先安装 git-lfs 系统包；源码开发则用 git lfs install 后以 -e 方式安装。",
+  "risks": [],
+  "readme_sha": "e0b3a8328b06def4fd278b2f92476bbe8cab0145",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

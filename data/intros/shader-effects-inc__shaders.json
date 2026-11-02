@@ -1,28 +1,29 @@
 {
   "is_ai_product": false,
   "category": "开发者工具与集成",
-  "tagline": "跨框架的 WebGPU 特效组件库，内置可视化设计编辑器和CLI",
-  "positioning": "面向 React、Vue、Svelte、Solid 和 JavaScript 的 WebGPU 特效组件库，提供 200+ 可组合的着色器效果组件，配有在线可视化设计编辑器和 CLI，用于把设计导出为项目代码。",
+  "tagline": "面向 React、Vue、Svelte、Solid 和 JS 的 WebGPU 效果组件库",
+  "positioning": "把 WebGPU 着色器效果封装成声明式组件，可嵌套、混合和遮罩，同一包内为各前端框架提供一致的 props；另配可视化设计编辑器，可导出代码。",
   "features": [
-    "提供200+效果组件，涵盖渐变、噪声、玻璃、金属、光效、形变等，可嵌套叠加组合",
-    "同一套 Props 支持 React、Vue、Svelte、Solid 和 JavaScript 五种入口",
-    "在线设计编辑器可视化调整参数，一键导出对应框架的组件代码（需注册账号）",
-    "CLI（npx shaders）可将账号中设计的效果同步为项目中的真实组件文件",
-    "可选安装 Agent Skill 或 MCP 服务器，供 Claude Code、Cursor 等编程 Agent 查找并安装组件"
+    "200+ 效果组件，渐变、噪声、玻璃、金属、光效、扭曲、过渡、模糊、光标效果",
+    "同一包提供 React、Vue、Svelte、Solid、JavaScript 入口，props 一致",
+    "TypeScript 编写，支持响应式更新与 SSR",
+    "CLI 连接账号后，把设计好的效果写入项目并保持同步",
+    "defineShader 加 WGSL 自定义组件，可选 std 原语组合（实验性）"
   ],
   "highlights": [
-    "项目方称已被16,000+设计工程师使用，应用于数千个网站（项目方数据）",
-    "仓库引擎与框架绑定代码为 MIT 许可，shaders.com 的设计编辑器、预设库等平台功能另有单独条款"
+    "设计编辑器可把组件树导出为对应框架代码，免费（需账号）",
+    "提供 Agent skill 与 MCP server，可让编码 Agent 查找、安装、修改效果",
+    "引擎与 npm 包为 MIT 许可，编辑器与预设另按平台条款"
   ],
-  "audience": "需要在网页中快速添加视觉特效的前端开发者，尤其是使用 React、Vue、Svelte 或 Solid 构建界面的团队",
+  "audience": "需要在前端项目里加高质量视觉效果的前端开发者与设计工程师",
   "quickstart_cmd": "npm install shaders",
-  "quickstart_note": "安装后按所用框架从 shaders/react、shaders/vue 等子路径导入组件使用",
+  "quickstart_note": "从 shaders/react、shaders/vue 等子路径导入 Shader 及效果组件；CLI 可用 npx shaders 运行",
   "risks": [
-    "设计编辑器、预设库、网站区块等平台功能免费使用但受 shaders.com 单独条款约束，不属于仓库的 MIT 许可范围"
+    "编辑器、预设及其他平台功能不受 MIT 许可覆盖，适用 shaders.com 自身条款，Pro 功能需付费"
   ],
   "readme_sha": "ff7c236c8825ee7d2c96b9e85a501dec38caf454",
-  "generated_at": "2026-10-22",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
   "ai_rule": 2,
-  "model": "claude-sonnet-5"
+  "model": "deepseek-flash"
 }

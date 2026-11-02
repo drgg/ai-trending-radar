@@ -1,26 +1,29 @@
 {
-  "audience": "面向需要批量产出短视频广告或短剧内容的团队，以及想自托管AI视频生成工具链的开发者",
+  "is_ai_product": true,
   "category": "AI 应用产品",
+  "tagline": "把文案做成带画面与配音的 AI 短视频与分集漫剧",
+  "positioning": "自托管的 AI 视频创作平台，分步完成文案、分镜、生图、图生视频和合成，漫剧与短视频共用同一套生成能力。",
   "features": [
-    "AI漫剧：从一句话生成大纲/剧本，解析成分镜后编辑，角色场景资产可复用",
-    "AI短视频：20+内置风格模板，支持full（图+视频+合成）或image_text（静图）模式",
-    "工具中心：文生图、图生图、图生产品、文生视频、视频生视频、电商拼图等单点能力",
-    "管理后台与开放API：用户/订单/模板/任务中心/模型路由，提供/api/v1生图生视频接口",
-    "口播由Seedance出片时自动生成，无需单独配音；成片由FFmpeg合成"
+    "AI 短视频分步创作：文案、分镜、生图、镜头视频、合成预览",
+    "AI 漫剧从大纲到分集成片，角色与场景资产可复用",
+    "默认 9:16 竖屏、约 60 秒，可选静图加 TTS 配音成片",
+    "每阶段停下等待人工检查，支持单镜预览与重生",
+    "管理后台配置模型路由，可选开启计费"
   ],
   "highlights": [
-    "漫剧与短视频共用一套生成能力，模型可在管理后台切换而无需改代码",
-    "任务调度、执行、轮询均在进程内完成，无需单独部署Celery Worker",
-    "Docker镜像公开可直接拉取，无需登录即可一键启动"
+    "镜像托管在公开 ACR 命名空间，拉取无需登录",
+    "进程内任务平台，无需单独部署 Celery Worker",
+    "填 ARK_MOCK=true 可在无 Key 时先看界面"
   ],
-  "is_ai_product": true,
-  "positioning": "面向短视频获客与短剧创作的自托管平台，提供从主题/剧本到分镜、生图、生视频、合成成片的完整流水线，也支持单点生图生视频；基于TokenFree兼容接口调用模型，可Docker一键部署。",
+  "audience": "需要批量制作投放短片、漫剧分集的创作者和小团队，以及希望自托管视频生成平台的开发者。",
   "quickstart_cmd": "docker compose --env-file deploy/.env.docker up -d",
-  "quickstart_note": "需先克隆仓库、复制并编辑deploy/.env.docker（设置数据库密码、SECRET_KEY及TokenFree API Key）后再执行此命令",
-  "risks": [],
-  "tagline": "模板驱动的AI短视频与AI漫剧创作平台，从文案到成片",
-  "readme_sha": "6ca59cf8358e73c1ce5726a81ca3f9b5827a3a0a",
-  "generated_at": "2026-10-12",
+  "quickstart_note": "先克隆仓库并把 deploy/.env.docker.example 复制为 deploy/.env.docker，至少修改数据库密码、SECRET_KEY 和 API Key。",
+  "risks": [
+    "README 提示生产环境须立刻更换默认密钥，并不要把示例密码直接用于部署。"
+  ],
+  "readme_sha": "3d942b632f2e5a97ea417c5a166426848fd187aa",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

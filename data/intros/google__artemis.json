@@ -1,25 +1,29 @@
 {
   "is_ai_product": true,
-  "category": "开发者工具与集成",
-  "tagline": "用自然语言驱动安卓自动化测试，集成主流AI编程助手的MCP工具",
-  "positioning": "Google出品的安卓自动化工具，将自然语言指令转化为跨应用测试和日常任务执行，通过MCP与Antigravity、Codex、Claude Code等AI编程助手集成，支持日志采集与截图诊断。",
+  "category": "Agent 平台与基础设施",
+  "tagline": "用自然语言指令驱动 Android 设备自动完成测试与日常操作",
+  "positioning": "Google 开源的 Android 自动化 Agent：把自然语言指令转成设备操作，支持跨应用流程、日志与截图采集，并通过 MCP 接入 AI 编程助手。",
   "features": [
-    "跨应用自动化：根据自然语言指令执行安卓测试流程与日常任务",
-    "多模态定位：元素索引为主，坐标与视觉识别作为自定义界面的后备方案",
-    "MCP集成：Antigravity、Claude Code、Windsurf等IDE可直接操控测试设备并采集Logcat与截图",
-    "双执行模式：Flash快速响应约3-5秒/步，Pro模式支持规划、校验与长时间探索测试",
-    "提供Web可视化控制台、MCP服务器、命令行与Python SDK四种使用方式"
+    "Flash / Pro 两种执行模式：快速响应循环与规划验证流程",
+    "多模态定位：无障碍层级、OCR 与视觉坐标兜底",
+    "MCP 服务器，可接入 Antigravity、Claude Code、Windsurf 等",
+    "提供 Web 控制台、CLI 与 Python SDK 三种用法",
+    "设备端安装无障碍助手读取屏幕布局，可随时卸载"
   ],
   "highlights": [
-    "在Google Research的AndroidWorld基准（20+应用、100+多步任务）上达到99%+任务完成率（项目方数据）",
-    "Apache-2.0许可，Google官方项目"
+    "项目方数据：AndroidWorld 基准 99%+ 任务完成率",
+    "项目方数据：Flash 模式每步约 3–5 秒，Pro 模式约 15–40 秒",
+    "start.sh 自动安装 ADB、scrcpy、FFmpeg 与依赖并配置 MCP"
   ],
-  "audience": "需要为安卓应用做自动化测试，或希望用AI编程助手驱动设备操作与问题诊断的开发者和测试工程师",
-  "quickstart_cmd": "git clone https://github.com/google/artemis.git && cd artemis && ./start.sh",
-  "quickstart_note": "需已连接安卓设备（开启USB调试）或模拟器，脚本自动安装ADB等工具链并启动Web控制台",
-  "risks": [],
+  "audience": "Android 测试工程师、把手机接入 AI 编程助手的开发者，以及需要端到端 UI 自动化的团队。",
+  "quickstart_cmd": "git clone https://github.com/google/artemis.git && cd artemis",
+  "quickstart_note": "克隆后在 macOS/Linux 运行 ./start.sh（Windows 用 .\\start.bat），需已连接开启 USB 调试的设备或模拟器。",
+  "risks": [
+    "设备端默认会安装无障碍助手服务，需在设置中手动卸载或通过环境变量禁止自动安装"
+  ],
   "readme_sha": "8683bcce336c1cc53889ea49cbbc453f4a988076",
-  "generated_at": "2026-10-05",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

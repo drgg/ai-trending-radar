@@ -1,6 +1,7 @@
 {
- "tagline": "让AI Agent给任意单人游戏自动加装联机合作功能的MCP工具",
+ "tagline": "让 AI 编码 Agent 逆向改造单机游戏，加入联机或分屏合作，含 MCP 服务与攻略手册。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

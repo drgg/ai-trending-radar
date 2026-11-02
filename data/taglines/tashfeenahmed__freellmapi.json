@@ -1,6 +1,7 @@
 {
- "tagline": "聚合34家免费LLM提供商的统一API路由工具，智能切换与故障转移",
+ "tagline": "聚合 34 家免费 LLM 提供商，用单一 OpenAI 兼容端点做智能路由与故障转移。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

@@ -1,24 +1,27 @@
 {
-  "audience": "已调用模型 API 或本地运行过模型、想弄清推理为何慢及如何降本的开发者，以及系统、网络、芯片方向的工程师、研究者和学生",
+  "is_ai_product": false,
   "category": "其他",
+  "tagline": "《深入理解 AI Infra》开源书稿，从硬件约束量化推导 LLM 推理与训练系统设计",
+  "positioning": "李博杰所著中文开源书稿，含十二章正文、PDF/EPUB、在线阅读网站、配套计算 CLI 与按章实验，方法是从硬件容量、带宽与算力出发做数量级估算。",
   "features": [
-    "全书十二章，覆盖模型架构、加速器、数据中心网络、推理优化与训练系统",
-    "配套计算工具可复算书中数字，静态计算只需 Python 3.10+ 标准库，无需 GPU 或模型权重",
-    "配套实验按章节组织，附运行方法、输入条件和结果说明，部分实验需 GPU",
-    "提供简体中文原版及英文、繁体中文、俄语社区翻译，含 PDF、EPUB 与在线阅读网站"
+    "十二章正文，覆盖加速器、超节点、网络、推理优化、训练系统与调度",
+    "配套计算工具可换模型与输入复算资源需求，纯 Python 标准库",
+    "按章组织实验与运行记录，需要 GPU 的实验另注硬件要求",
+    "提供 PDF、EPUB、在线阅读，另有英、繁、俄社区译本",
+    "正文 Markdown 为唯一来源，网站与 PDF 由其构建生成"
   ],
   "highlights": [
-    "是作者《深入理解 AI Agent》（项目方称获 50k+ Star）的姊妹篇，聚焦 AI 系统基础设施",
-    "配套计算工具静态计算无需 GPU 或模型权重，可直接复算书中资源估算数字"
+    "先按第一性原理算出硬件上限，再对照实测差距",
+    "静态计算无需 GPU 或模型权重，Python 3.10+ 即可运行",
+    "Git LFS 存储约 20 GB 资料，默认跳过，按目录单独拉取"
   ],
-  "is_ai_product": true,
-  "positioning": "李博杰撰写的开源书稿，从硬件约束和模型架构出发，用量化估算推导 LLM 推理与训练系统设计，是《深入理解 AI Agent》姊妹篇，书稿仍为初稿。",
-  "quickstart_cmd": "git clone https://github.com/bojieli/ai-infra-book.git",
-  "quickstart_note": "克隆后可用 python3 calculations/calc.py 复算书中数字，静态计算无需 GPU 或模型权重",
+  "audience": "已调用过模型 API 或本地跑过模型、想弄清模型为何慢和如何降成本的工程师，以及系统、网络、芯片方向的研究人员和学生。",
+  "quickstart_cmd": "python3 calculations/calc.py forward --model qwen3-8b --tokens 8192 --format md",
+  "quickstart_note": "需先 git clone 仓库并进入目录；可用 python3 calculations/calc.py models 查看支持的模型。",
   "risks": [],
-  "tagline": "从硬件约束出发，量化推导 LLM 推理与训练系统设计的开源电子书",
   "readme_sha": "b8595154c25f535aca03754bba40237fd4f19c63",
-  "generated_at": "2026-10-05",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

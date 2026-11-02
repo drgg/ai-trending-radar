@@ -1,6 +1,7 @@
 {
- "tagline": "为AI Agent赋予CAD建模能力的文本转CAD工具，面向机械设计与机器人开发者",
+ "tagline": "让 AI Agent 用 Python 脚本设计实体产品并导出 CAD 模型。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

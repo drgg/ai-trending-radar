@@ -1,7 +1,7 @@
 {
- "tagline": "基于麦当劳MCP做预算比价和餐品替换的Agent技能",
+ "tagline": "基于麦当劳 MCP 查询真实菜单与优惠券，按预算核价比较餐品的 AI Agent Skill。",
  "is_ai_product": true,
  "ai_rule": 2,
- "generated_at": "2026-10-26",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

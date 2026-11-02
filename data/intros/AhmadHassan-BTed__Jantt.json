@@ -1,0 +1,27 @@
+{
+  "is_ai_product": true,
+  "category": "AI 应用产品",
+  "tagline": "把声明式 JSON 渲染成可交互甘特图的零依赖 TypeScript 引擎",
+  "positioning": "面向 AI Agent 与人类协作者的时间线引擎：LLM 只输出符合 JSON Schema 的任务与依赖，Jantt 负责确定性渲染、拖拽编辑和回写状态。提供 React 组件、script 标签与 CLI 三种用法。",
+  "features": [
+    "零运行时依赖的纯 TypeScript 核心，React、HTML、CLI 均可接入",
+    "内置拓扑 DAG 求解与关键路径（CPM）计算，支持里程碑、基线与进度拖拽",
+    "内置 EVM 挣值管理与 DCMA-14 进度健康审计",
+    "提供 JSON Schema 与提示词速查表，供 LLM 生成任务数据",
+    "可选：多用户 CRDT 协作房间与角色权限"
+  ],
+  "highlights": [
+    "项目方数据：核心包 gzip 后小于 14 KB，模型生成 JSON 比生成 JSX 少 10 倍 token",
+    "声明式 JSON 契约提供边拖拽编辑边回写，形成与 AI 的双向循环",
+    "MIT 许可，附带在线 Playground 与完整 Schema 规范文档"
+  ],
+  "audience": "希望让 LLM 生成项目计划的前端与 AI 工程团队，以及需要轻量甘特图的项目管理者",
+  "quickstart_cmd": "npm install @jantt/react @jantt/core",
+  "quickstart_note": "引入 @jantt/react/dist/index.css 后以 data 传入 { tasks, categories } 即可渲染",
+  "risks": [],
+  "readme_sha": "2ad65e2b7b59a2d279ea2fc68692858dc9d1b4f8",
+  "generated_at": "2026-11-02",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

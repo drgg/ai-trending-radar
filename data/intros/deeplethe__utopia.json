@@ -1,26 +1,30 @@
 {
-  "audience": "需要知识图谱、RAG与审计追溯能力的企业技术团队、法务合规人员，以及接入MCP开发Agent的工程师",
+  "is_ai_product": true,
   "category": "Agent 平台与基础设施",
+  "tagline": "用 Rust + Postgres 构建的双时态知识图谱企业世界模型，支持 MCP 供 Agent 读取。",
+  "positioning": "面向企业的知识底座：以本体（ontology）和双时态图谱为基础层，记录事实何时成立、系统何时得知，冲突检测、推理与决策均基于该本体运行；可离线部署在自有硬件上，并保留合规审计轨迹。",
   "features": [
-    "支持PDF、Word、Excel等多格式摄取，可同步网页、GitHub等数据源",
-    "全文检索与向量检索融合排序，回答附带可追溯的引用来源",
-    "内置Agent可对话式查询知识图谱，支持MCP协议供外部Agent接入",
-    "本体驱动的实体消歧、冲突检测，支持可选的正向链式推理",
-    "决策台账记录每次确认、合并、回滚操作，且不可篡改"
+    "提取结果按可编辑的本体生成实体与事实，每条事实带有效时间与出处",
+    "纠错时关闭旧版本并链到新版本，保留世界时间与认知时间两条时间线",
+    "全文检索用 Tantivy、向量检索用 pgvector，RRF 融合，答案带内联引用",
+    "每个知识库提供 MCP 服务，Claude Desktop、Cursor 等可接入，权限可细分",
+    "支持挂载数据库，由 Agent 提议表到本体的映射，聊天可同时查询文档与数据"
   ],
   "highlights": [
-    "双时态知识图谱同时记录事实的有效时间与系统发现时间，修正时保留历史版本而非覆盖",
-    "单一Rust二进制加Postgres即可运行，无需额外组件，支持离线自部署",
-    "配套方法Ontology2SQL在BIRD Mini-Dev基准上表现突出（项目方数据）"
+    "只需一个 Rust 二进制和一个 Postgres，内置作业队列就是一张表",
+    "推理演绎默认关闭，需手动开启；推理得到的事实会被标注来源与置信度",
+    "项目方称 Ontology2SQL 方法在 BIRD Mini-Dev 的 SQLite 与 PostgreSQL 上达到 SOTA"
   ],
-  "is_ai_product": true,
-  "positioning": "DeepLethe开源的企业知识管理系统，用双时态知识图谱记录知识随时间演化的全过程，结合本体推理与冲突检测，支持离线自部署，作为Agent可信赖的决策基座与审计轨迹。",
+  "audience": "需要自托管知识底座、重视审计与时间溯源的企业团队，以及接入知识库的 Agent 开发者。",
   "quickstart_cmd": "docker compose --profile app up -d",
-  "quickstart_note": "先clone仓库并进入目录，再执行该命令，访问 http://localhost:1516 注册，首个账号自动成为管理员。",
-  "risks": [],
-  "tagline": "开源企业级\"世界模型\"，基于双时态知识图谱的自治知识库系统",
-  "readme_sha": "9f0055035416a005aa401feb7c634133efa73ea4",
-  "generated_at": "2026-10-05",
+  "quickstart_note": "需先 git clone 仓库并进入目录；打开 http://localhost:1516 注册，首个账号即管理员，抽取文档前需在管理后台配置模型端点。",
+  "risks": [
+    "README 说明 .env 中数据库密码默认值为 utopia，且仅在数据卷首次初始化时生效",
+    "项目方称决策推理、执行门禁、业务规则等功能仍在开发中，尚未完成"
+  ],
+  "readme_sha": "e29fed9d9599ada683bbb9a6ca1b43a6bd5d4ed0",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

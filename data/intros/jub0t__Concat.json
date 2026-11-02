@@ -1,26 +1,32 @@
 {
   "is_ai_product": true,
   "category": "AI 应用产品",
-  "tagline": "免费开源、本地优先的跨平台视频剪辑软件，CapCut 替代品",
-  "positioning": "面向创作者的免费开源视频编辑器，覆盖字幕、配音、抠像、关键帧、特效等常见剪辑需求，全部本地运行，无水印无订阅，内置 MCP 服务器和 JSON-RPC API 供脚本和 AI Agent 调用。",
+  "tagline": "免费开源的本地视频编辑器，作为 CapCut 的替代品，带有内置 MCP。",
+  "positioning": "面向短视频与教程剪辑的跨平台非线性编辑器，本地 Rust 引擎加 GPU 合成，剪辑、自动字幕、配音、抠像全在本机完成；同时提供 MCP 服务与 JSON-RPC API 供脚本和 AI Agent 调用。",
   "features": [
-    "本地 Whisper 自动生成字幕，可选模型大小",
-    "文本转语音及语音克隆，几秒录音即可克隆音色",
-    "背景/人物抠像，支持自动识别或手动涂抹蒙版",
-    "关键帧动画与曲线编辑器，支持位置、缩放、透明度等参数",
-    "100 种 GPU 渲染特效、滤镜与转场，预览实时生效"
+    "本地 Whisper 自动字幕，可选模型大小并套用样式",
+    "本地文本转语音与几秒录音克隆音色",
+    "人物、物体抠像，也可手绘遮罩",
+    "关键帧支持位置、缩放、旋转、不透明度、音量与曲线编辑",
+    "100 种 GPU 特效、滤镜和转场，多轨多时间线合成",
+    "导出 H.264、HEVC、AV1，最高 4K 60 与 10bit"
   ],
   "highlights": [
-    "无水印、无需账号、无订阅，素材不上传，可完全离线使用",
-    "内置 MCP 服务器和 JSON-RPC API，可供 Claude 等 AI Agent 或脚本直接驱动剪辑",
-    "Rust 原生引擎配合 GPU 合成器，支持代理文件和硬件解码，4K 素材可流畅拖动"
+    "无 watermark、无需账号、无订阅，素材不上传，可离线使用",
+    "内置 MCP 服务，用 concat --mcp 让 Claude 等 Agent 直接剪辑",
+    "支持 macOS、Windows、Linux、Android，界面 26 种语言"
   ],
-  "audience": "需要免费、无水印、离线剪辑短视频或视频的创作者，以及想用脚本或 AI Agent 自动化剪辑流程的开发者。",
-  "quickstart_cmd": "cargo run -p concat",
-  "quickstart_note": "需先安装 Rust 1.93+、FFmpeg 7+ 开发库、cmake 及 C++ 编译器，在 src 目录下执行；也可从官网下载安装包。",
-  "risks": [],
-  "readme_sha": "e9665dc9113c5fc20b1e55436a6fb7639058a50c",
-  "generated_at": "2026-10-19",
+  "audience": "做 TikTok、Reels、Shorts、YouTube 与播客切片的内容创作者，以及想用脚本或 AI Agent 批量剪视频的开发者。",
+  "quickstart_cmd": "cd src\ncargo run -p concat",
+  "quickstart_note": "从源码构建需 Rust 1.93+、FFmpeg 7+ 开发库、cmake 和 C++ 编译器；普通用户可直接下载各平台安装包。",
+  "risks": [
+    "项目自述处于 beta，功能可用但仍有粗糙之处",
+    "Windows 与 macOS 安装包未签名，需手动绕过 SmartScreen 或 quarantine 限制",
+    "音色克隆功能涉及他人声音的授权与肖像、声音权合规问题"
+  ],
+  "readme_sha": "a6ceefa86c9243d958ac61ccae0a0519ed380520",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

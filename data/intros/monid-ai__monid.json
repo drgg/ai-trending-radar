@@ -1,24 +1,27 @@
 {
-  "audience": "需要让 AI agent 调用第三方工具（搜索、数据抓取、企业/人物信息、内容生成等）并统一管理密钥与费用的开发者",
+  "is_ai_product": true,
   "category": "Agent 平台与基础设施",
+  "tagline": "给 AI Agent 用的一站式工具 API 网关，一个入口接入 2000+ 工具。",
+  "positioning": "Monid 定位为 Agent 工具领域的 OpenRouter：一个 base URL、一个密钥，Agent 即可调用 72+ 供应商的搜索、抓取、人物与公司信息、社交、市场数据、图像与语音生成等接口。本仓库是连接器层，用声明式定义描述每个接口的调用方式与计费模型。",
   "features": [
-    "一个 Base URL 和密钥访问 72+ 服务商、2000+ 工具（项目方数据）",
-    "discover 接口按任务对全目录排名，返回价格、健康状态及 p50/p95 延迟",
-    "按调用结算用量，在原始响应上计费，供应商错误或空结果按零用量结算",
-    "连接器为声明式定义（provider + endpoint），新增供应商通过 PR 合并后即可被所有 agent 调用",
-    "可选让 coding agent 依据 AGENT.md 自动编写连接器代码"
+    "连接器以声明式 TS 定义认证、输入 schema 与用量计费模型",
+    "discover 按任务跨全部供应商排序，返回价格、健康度与 p50/p95 延迟",
+    "用量按调用结算并锚定原始响应，供应商报错计为零用量",
+    "测试基于录制 fixture 回放，CI 无需网络和厂商密钥",
+    "提供 AGENT.md 与 Apify scaffold，可由编码 Agent 生成连接器"
   ],
   "highlights": [
-    "号称可用一个 Base URL 和密钥调用覆盖 72+ 服务商的 2000+ 工具（项目方数据，未提供第三方验证）"
+    "覆盖 2000+ 工具、72+ 供应商，统一 base URL 与密钥",
+    "同一产物可在本地、CI 回放与托管平台三处运行",
+    "新增供应商只需提交 PR，合并后即进入 discover 目录"
   ],
-  "is_ai_product": true,
-  "positioning": "类似 OpenRouter，但面向 AI agent 调用的第三方工具（网页搜索/抓取、企业与人物信息、社交、生成类 API 等），提供统一调用协议、按次计费引擎与声明式连接器格式用于扩展供应商。",
+  "audience": "需要为 Agent 接入多种外部工具 API 的开发者，以及希望把自家 API 上架到 Monid 的厂商。",
   "quickstart_cmd": "git clone https://github.com/monid-ai/monid.git\ncd monid\ndeno task check && deno task test",
-  "quickstart_note": "需先安装 Deno 2.x；测试基于已录制的响应回放（188 个测试），无需网络或真实供应商密钥。",
+  "quickstart_note": "需要 Deno 2.x；默认跑类型检查和 188 个离线回放测试。",
   "risks": [],
-  "tagline": "面向 AI agent 工具调用的聚合层，一个 Base URL 和密钥接入多家供应商 API",
-  "readme_sha": "a89c5f8f710a17545726b6c0de48c96f570ce8ad",
-  "generated_at": "2026-10-19",
+  "readme_sha": "135e3555b174d3708d63c6cbe8206933a30dca10",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

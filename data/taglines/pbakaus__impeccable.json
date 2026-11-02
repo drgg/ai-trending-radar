@@ -1,6 +1,7 @@
 {
- "tagline": "提升AI编程Agent前端设计审美的设计规范与自动检测工具",
+ "tagline": "给编码 Agent 用的设计词汇技能，审查并消除 AI 生成的平庸设计",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

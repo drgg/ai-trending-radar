@@ -1,6 +1,7 @@
 {
- "tagline": "多智能体 LLM 驱动的 AI 自主渗透测试系统，百度攻防赛冠军方案",
+ "tagline": "多 Agent LLM 驱动的自主渗透测试系统，Go 后端加 Next.js 前端",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

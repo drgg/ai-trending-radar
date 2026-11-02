@@ -1,0 +1,30 @@
+{
+  "is_ai_product": true,
+  "category": "编程 Agent 与运行框架",
+  "tagline": "监听 GitHub 的主动式编码 Agent 研究原型，以 DeepSeek Harness 插件包形式运行",
+  "positioning": "项目方自述这是研究原型而非 DeepSeek 官方产品，代码不保证达到生产可用标准；它为单个 GitHub 仓库服务，收到授权成员的请求后自行建立工作项、在独立会话和目录中执行，并回到原对话中答复。",
+  "features": [
+    "监听 GitHub，可选接入飞书，识别授权用户的任务请求",
+    "为每个请求建立工作项，使用独立 Agent 会话与目录执行",
+    "在原始对话中回复结果，例如提交拉取请求",
+    "提供网页面板，展示需要人工处理的事项",
+    "仅在被请求或团队规则允许时行动"
+  ],
+  "highlights": [
+    "项目方称多数工程由编码 Agent 完成",
+    "安装配置由编码 Agent 按 SETUP.md 逐步引导完成",
+    "设计原则是占用尽量少的人工注意力"
+  ],
+  "audience": "研究自主 Agent 架构的开发者，以及愿意用研究代码自建仓库级编码 Agent 的团队",
+  "quickstart_cmd": "",
+  "quickstart_note": "",
+  "risks": [
+    "项目方声明这是研究原型，可能存在缺陷，需自行审查和调整后再使用",
+    "该原型与同团队论文描述的实现并不一致，论文中部分设计尚未实现"
+  ],
+  "readme_sha": "39e1c4af122f11dd72ac0d2b34b79d6f8ae259ea",
+  "generated_at": "2026-11-02",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

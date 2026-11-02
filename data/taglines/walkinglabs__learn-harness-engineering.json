@@ -1,6 +1,7 @@
 {
- "tagline": "Harness工程零基础入门教程，带你上手AI智能体框架开发",
+ "tagline": "从零入门的 Agent Harness 工程教程。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

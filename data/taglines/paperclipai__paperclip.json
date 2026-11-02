@@ -1,6 +1,7 @@
 {
- "tagline": "开源AI Agent团队编排平台，用目标和预算管理替代任务清单",
+ "tagline": "开源 AI Agent 团队管理平台，编排目标、预算与协作",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

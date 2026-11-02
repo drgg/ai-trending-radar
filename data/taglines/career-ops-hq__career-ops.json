@@ -1,6 +1,7 @@
 {
- "tagline": "开源AI求职代理，自动筛选岗位打分、定制简历求职信并辅助投递，适合求职者",
+ "tagline": "开源 AI 求职代理：筛选职位、按 CV 打分、定制简历与求职信。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

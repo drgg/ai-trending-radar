@@ -1,6 +1,7 @@
 {
- "tagline": "免费聚合使用Claude Code、Codex等十余款AI编程工具，终端IDE浏览器通用",
+ "tagline": "把多种编码代理路由到免费模型提供商的终端与浏览器工具",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

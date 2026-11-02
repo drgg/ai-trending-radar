@@ -1,0 +1,7 @@
+{
+ "tagline": "针对 AI 逆向工程 Agent 的对抗防御方案，用投毒、耗尽与幻觉保护二进制与前端包。",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
+}

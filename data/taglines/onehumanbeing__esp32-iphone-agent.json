@@ -1,6 +1,7 @@
 {
- "tagline": "用7美元ESP32让AI视觉模型操控真实iPhone，免Mac免越狱",
+ "tagline": "用 7 美元 ESP32 让 AI 模型操控真 iPhone",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

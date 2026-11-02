@@ -1,0 +1,7 @@
+{
+ "tagline": "把 Claude Design 变成可在本地 Cursor、Codex 等 Agent 中运行的 UI 设计技能。",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
+}

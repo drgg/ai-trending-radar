@@ -1,0 +1,7 @@
+{
+ "tagline": "C++ 内核的高性能 AI 流水线引擎，用于构建和扩展 LLM 工作流。",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
+}

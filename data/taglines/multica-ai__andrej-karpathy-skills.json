@@ -1,6 +1,7 @@
 {
- "tagline": "基于Karpathy经验总结、改进Claude Code编程行为的单文件配置",
+ "tagline": "单个 CLAUDE.md 文件，用卡帕西对 LLM 编码陷阱的观察改善 Claude Code 行为。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

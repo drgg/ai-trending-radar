@@ -1,6 +1,7 @@
 {
- "tagline": "把任意代码转为可交互知识图谱，配合Claude Code等AI编码工具探索检索",
+ "tagline": "把代码库变成可交互知识图谱，帮人理解项目的多代理插件。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

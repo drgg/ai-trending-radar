@@ -1,0 +1,27 @@
+{
+  "is_ai_product": true,
+  "category": "Skills 与写作/设计",
+  "tagline": "用 AI Agent 写规格、再由零上下文子代理评审的编码插件",
+  "positioning": "EGM 是给编码 Agent 用的开源技能插件：Elephant 持有项目上下文起草设计规格，Goldfish 评审者在没有先前对话的情况下审查草稿，架构取舍仍由人决定。",
+  "features": [
+    "Elephant 代理结合项目上下文起草设计规格文档",
+    "Goldfish 子代理在零上下文下评审草稿，暴露未言明的假设",
+    "流程分头脑风暴、起草、评审三步，每步可单独使用",
+    "评审需要能新建子代理的会话，否则中止",
+    "支持 Antigravity、Claude Code、Codex 等编码 Agent"
+  ],
+  "highlights": [
+    "起草与评审由不同上下文承担，减少盲区",
+    "每节草稿暂停等人反馈，架构决策由人批准",
+    "Apache 2.0 开源，非 Google 官方支持产品"
+  ],
+  "audience": "需要对有设计取舍的功能先写规格再实现的开发者，以及使用 Claude Code、Codex、Antigravity 的编码 Agent 用户。",
+  "quickstart_cmd": "claude plugin marketplace add google/elephant-goldfish-model",
+  "quickstart_note": "安装后需另执行 claude plugin install egm@egm，并新开会话；Claude Code 中命令要加 /egm: 前缀。",
+  "risks": [],
+  "readme_sha": "2368ca78124df2b931bc274d5aa3eba2e155ea15",
+  "generated_at": "2026-11-02",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

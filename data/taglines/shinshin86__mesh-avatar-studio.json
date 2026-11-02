@@ -1,7 +1,7 @@
 {
- "tagline": "借助编程助手把插画转成可动2D网格头像的本地编辑工具",
+ "tagline": "用编码 Agent 将一张插画变成可动 2D 网格头像，并在本地编辑器微调。",
  "is_ai_product": false,
  "ai_rule": 2,
- "generated_at": "2026-10-26",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

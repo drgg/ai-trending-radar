@@ -1,0 +1,26 @@
+{
+  "is_ai_product": true,
+  "category": "Skills 与写作/设计",
+  "tagline": "让 Claude 等 AI 代理做标志设计的 Agent Skill，从需求简报产出可用的 SVG 和品牌规范。",
+  "positioning": "一个按开放 Agent Skills 格式（含 SKILL.md 的文件夹）编写的标志设计技能包，可装入 Claude Code、Gemini CLI、Codex CLI、Cursor、Copilot 等代理，把首份简报一路推进到生产级 SVG 与品牌指南。",
+  "features": [
+    "覆盖从需求调研、概念发想、几何构建、光学修正到色彩、字体、锁定的完整流程",
+    "1,400+ 真实 SVG 标志参考库，可按标志类型、行业、情绪等检索，命令行可查、本地画廊可浏览",
+    "无依赖 Python 工具：审查 SVG、生成测试表、渲染 PNG、导出图标集",
+    "流程固定在检查点停下：先给出概念总览与推荐，用户选定方向后才制作完整套件"
+  ],
+  "highlights": [
+    "参考库只用于研究构造与行业惯例，README 明确声明不用于复制",
+    "测试含 16px 像素测试、单色、反白、眯眼、镜像与竞品货架对比",
+    "README 说明技能在能看图的模型上效果最好，因为它会自行渲染 PNG 再检查"
+  ],
+  "audience": "使用 Claude Code、Gemini CLI、Codex CLI、Cursor 等支持 Agent Skills 的代理，需要做品牌标志与视觉识别设计的开发者、设计师和独立创业者。",
+  "quickstart_cmd": "/plugin marketplace add kaankiziltug/logo-design-skill",
+  "quickstart_note": "在 Claude Code 中执行后，再运行 /plugin install logo-design@logo-design-skill；其他代理需把 skills/logo-design 复制到各自的技能目录。",
+  "risks": [],
+  "readme_sha": "b6f19ffb77ea81d559b859eb77365ec1fb2be1f4",
+  "generated_at": "2026-11-02",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

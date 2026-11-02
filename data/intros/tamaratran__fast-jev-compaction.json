@@ -1,27 +1,27 @@
 {
   "is_ai_product": true,
-  "category": "编程 Agent 与运行框架",
-  "tagline": "Claude Code插件，用外部模型逐条打分决定去留，替代摘要式上下文压缩",
-  "positioning": "Claude Code 触发上下文压缩时，用名为Jev的外部模型逐条给工具调用和结果打分，决定保留、截断或删除，替代默认的LLM摘要压缩方式。",
+  "category": "Agent 平台与基础设施",
+  "tagline": "Claude Code 插件：用 Jev 打分删除过期工具调用，替代有损压缩摘要",
+  "positioning": "一个 npm 库兼 Claude Code 插件，在上下文压缩时不让模型改写历史，只对每次工具调用和结果打分，删除或截断不再需要的部分，保留内容逐字不变。",
   "features": [
-    "对每条工具调用和结果打分，决定保留、截断前300字符或整条删除",
-    "保留内容均为原文，不做摘要式改写，用户与助手文本始终完整",
-    "问题超出单次请求token上限时自动分批并发请求，再合并结果",
-    "可作为Claude Code插件直接替换内置compaction，也可作npm库单独调用",
-    "压缩失败或减幅不足时自动回退到Claude Code内置摘要"
+    "每条 tool_use 与 tool_result 配对打分，保留或删除，不重写文本",
+    "按阶段裁剪状态以塞进 25k token 上限，仍不合适则抛错",
+    "问题分批并发请求，受 30k token 请求上限约束",
+    "结果可保留、截断为前 300 字符，或整条删除",
+    "可选替换 Claude Code 内置压缩，失败时回退摘要"
   ],
   "highlights": [
-    "用逐条保留概率代替摘要改写，声称可避免文件路径、报错等细节在压缩中丢失（项目方说法）",
-    "完整对话状态会随每批请求重复发送给打分服务，接近状态上限时单次压缩需多次请求（项目方文档）"
+    "用户与助手文本逐字保留且顺序不变，只动工具调用和结果",
+    "导出 JevAsker 接口和构建、解析、裁剪等底层函数，可自接传输",
+    "删除有概率阈值，结果可被重新运行，但概率不等于可安全删除的证据"
   ],
-  "audience": "使用 Claude Code 处理长会话、希望上下文压缩保留原文细节而非摘要的开发者",
-  "quickstart_cmd": "claude plugin marketplace add tamaratran/fast-jev-compaction",
-  "quickstart_note": "需先在settings.json开启CLAUDE_CODE_ENABLE_FUNCTION_HOOKS并配置TYPESAFE_API_KEY，再执行plugin install完成安装。",
-  "risks": [
-    "会将对话中的工具调用、输入参数和文本内容发送给第三方TypeSafe API用于打分，存在隐私或代码泄露风险。"
-  ],
+  "audience": "使用 Claude Code 且在意上下文压缩丢失文件路径、报错等细节的开发者，以及需要可嵌入压缩库的工程师。",
+  "quickstart_cmd": "npm install fast-jev-compaction",
+  "quickstart_note": "需先 export TYPESAFE_API_KEY；插件方式需 Claude Code 2.1.274+ 并开启函数钩子早期访问开关。",
+  "risks": [],
   "readme_sha": "8f4f65b5567600cd8257c54fc3beb7c8f3c861d9",
-  "generated_at": "2026-10-05",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

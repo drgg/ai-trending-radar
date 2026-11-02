@@ -1,7 +1,7 @@
 {
- "tagline": "可自托管的健身与体重记录应用，支持多端同步与passkey登录，数据完全自主可控",
+ "tagline": "可自托管的开源健身与自重训练记录应用，支持 iOS、安卓和网页",
  "is_ai_product": false,
  "ai_rule": 2,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

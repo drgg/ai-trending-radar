@@ -1,7 +1,7 @@
 {
- "tagline": "百万参数轻量OCR模型，CPU上运行速度远超Tesseract",
+ "tagline": "100 万参数、CPU 上运行的 OCR 模型，把 PDF 和图片转成 Markdown、文本或 JSON。",
  "is_ai_product": true,
  "ai_rule": 2,
- "generated_at": "2026-10-26",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

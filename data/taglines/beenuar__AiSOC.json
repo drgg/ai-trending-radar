@@ -1,0 +1,7 @@
+{
+ "tagline": "开源 AI 安全运营中心，用 LLM Agent 做告警分诊与攻击调查",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
+}

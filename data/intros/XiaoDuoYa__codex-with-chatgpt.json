@@ -1,27 +1,30 @@
 {
   "is_ai_product": true,
-  "category": "开发者工具与集成",
-  "tagline": "让 ChatGPT 网页版做规划审查，Codex 负责执行代码的 MCP 桥接工具",
-  "positioning": "以 Codex Skill 形式接入，把闲置的 ChatGPT Plus/Pro 网页版额度用作编码任务的规划与审查大脑，Codex 保留全部执行权，不占用 API 额度，不用逆向代理。",
+  "category": "Agent 平台与基础设施",
+  "tagline": "用 ChatGPT 网页版做规划与审查，Codex 负责执行",
+  "positioning": "通过只读 MCP 连接把 ChatGPT 网页版接入 Codex 会话，充当规划与审查角色，代码执行权仍留在 Codex；不使用 API Key，也不做逆向代理。",
   "features": [
-    "通过只读 MCP 连接让 ChatGPT 按需读取工作区代码，仓库不整体上传",
-    "OAuth 2.1 加一次性配对码保护连接，无 token 访问返回 401，工作区不匹配返回 403",
-    ".env、密钥、SSH 凭据等敏感文件默认禁止读取，可用 .c2cignore 自定义规则",
-    "Codex 执行后，ChatGPT 通过 MCP 独立核查 git diff 和测试记录再给审查意见",
-    "安装为 Codex Skill，可选配置 Cloudflare 固定域名，默认用临时隧道并自动重连"
+    "控制面用 Computer Use 传递极小的 [C2C] 状态消息",
+    "数据面经 OAuth 2.1 保护的只读 MCP 工具读取工作区",
+    "默认拒绝 .env、密钥、SSH 等敏感文件，可用 .c2cignore 加规则",
+    "ChatGPT 执行后自查 git diff 与测试记录，独立审查",
+    "提供 c2c setup/status/doctor/pair 等 CLI 命令"
   ],
   "highlights": [
-    "服务端不存在写入、删除、shell、提交类工具，结构上保证只读，无法被提示注入绕过",
-    "项目方称测试套件覆盖 150 个用例，涉及路径安全、OAuth、配对流程和 MCP 端到端场景"
+    "服务端不提供写入和 shell 工具，只读是代码层面保证的",
+    "公开地址默认是 Cloudflare 临时隧道 URL，重启即变，可选配置固定域名",
+    "Skill 每天自动检查 GitHub 并更新"
   ],
-  "audience": "使用 Codex 编写代码、同时已订阅 ChatGPT Plus/Pro 网页版，希望用网页版额度做规划和代码审查的开发者",
-  "quickstart_cmd": "pnpm install",
-  "quickstart_note": "克隆仓库后执行 pnpm build 构建，再把 skill/ 安装为 Codex Skill 并运行 c2c setup 完成配对",
+  "audience": "已订阅 ChatGPT Plus/Pro、希望减少 API 额度消耗的 Codex 用户，包括不熟悉命令行的小白用户",
+  "quickstart_cmd": "c2c setup",
+  "quickstart_note": "需先 pnpm install && pnpm build；另需 Node.js ≥ 20、git 和 cloudflared，也可让 Codex 按整段话自动安装",
   "risks": [
-    "核心流程通过 Computer Use 方式与 ChatGPT 网页版自动交换状态消息并驱动会话，可能涉及 ChatGPT 服务条款风险"
+    "核心机制是用 Computer Use 自动操作 ChatGPT 网页版，可能违反其服务条款或有账号风险",
+    "默认公网入口是临时隧道地址，配置不当或令牌泄露会把工作区读取能力暴露出去"
   ],
   "readme_sha": "a100b6ec5fab08df8963d43b58e3c8efce75f0f1",
-  "generated_at": "2026-10-05",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

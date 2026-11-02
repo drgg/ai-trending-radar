@@ -1,6 +1,7 @@
 {
- "tagline": "为Claude Code、Cursor等AI编程助手提供专业UI/UX设计知识的技能插件",
+ "tagline": "为 AI 编码代理提供专业 UI/UX 设计智能的技能包",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

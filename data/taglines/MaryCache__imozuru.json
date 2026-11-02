@@ -1,6 +1,7 @@
 {
- "tagline": "Claude Code 技能，帮你顺藤摸瓜追溯陌生领域的原始出处",
+ "tagline": "Claude Code 技能：对陌生领域顺藤摸瓜追溯原文，产出带出处的调研报告与看板。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

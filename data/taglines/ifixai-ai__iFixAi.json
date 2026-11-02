@@ -1,6 +1,7 @@
 {
- "tagline": "独立审计AI Agent是否按业务目标真正执行任务的诊断工具",
+ "tagline": "在业务模拟中独立审计 AI 代理是否按授权行事，两分钟内出结果。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

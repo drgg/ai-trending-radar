@@ -1,0 +1,7 @@
+{
+ "tagline": "让 Claude/Codex 把代码库画成可交互的白话架构图",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
+}

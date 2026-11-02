@@ -1,6 +1,7 @@
 {
- "tagline": "让编程Agent能听声音、做音效的本地CLI/MCP工具",
+ "tagline": "给编码 Agent 装上耳朵：本地听辨、评测并生成代码合成音效的工具与 MCP。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

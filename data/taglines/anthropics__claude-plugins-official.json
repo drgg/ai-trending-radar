@@ -1,6 +1,7 @@
 {
- "tagline": "Anthropic官方维护的Claude Code插件目录",
+ "tagline": "Anthropic 官方维护的 Claude Code 高质量插件目录。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

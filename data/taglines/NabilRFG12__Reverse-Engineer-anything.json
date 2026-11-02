@@ -1,0 +1,7 @@
+{
+ "tagline": "用 Agent 逆向分析任意软件，从应用行为到原生二进制",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
+}

@@ -1,28 +1,32 @@
 {
-  "audience": "使用 ChatGPT 处理编程等本地任务，希望让其操作本地文件、终端与浏览器并进行多代理协作的开发者",
+  "is_ai_product": true,
   "category": "Agent 平台与基础设施",
+  "tagline": "把 ChatGPT 接入本地文件和桌面，支持多 Agent 并行与长任务续跑。",
+  "positioning": "跨平台桌面应用，通过 MCP 让 ChatGPT 在授权文件夹里读写文件、跑测试、开终端、操作桌面，并用浏览器扩展对接 ChatGPT 网页界面；配套多 Worker 分工、Goal/Loop 和 Compact & Resume 管理长任务。",
   "features": [
-    "通过 MCP 让 ChatGPT 读写本地文件、运行终端命令并保持终端会话",
-    "浏览器扩展观察并自动化 ChatGPT 网页界面，本地记录对话内容",
-    "支持多个 worker 并行拆分任务，各自保留上下文可继续衔接",
-    "Goal/Loop 跟踪未完成工作，可在任务进行中插入修正指令",
-    "Compact & Resume 将会话与 worker 历史带入新对话继续"
+    "ChatGPT 读写本地文件、跑测试、保持终端会话",
+    "浏览器扩展对接 Chrome/Edge/Brave 中的 ChatGPT 界面",
+    "多 Worker 拆分独立任务并回传结果、保留上下文",
+    "Goal 跟踪未完成工作，Loop 在任务范围内持续执行",
+    "Compact & Resume 把会话与 Worker 历史带入新对话"
   ],
   "highlights": [
-    "项目声明不用于绕过 ChatGPT 使用限制或安全控制，仅用于服务条款允许范围内的工作流",
-    "Windows 安装包未经发布者签名，macOS 版本未签名未经公证，需手动核对发布校验和"
+    "新装默认启用 Core 能力与两个 Worker，Windows 另开桌面权限",
+    "Shell 命令以普通用户权限运行，可按文件夹限定能力",
+    "提供中文等十余种界面语言，MIT 许可"
   ],
-  "is_ai_product": true,
-  "positioning": "独立开源的跨平台桌面应用，通过 MCP 把本地文件、终端和浏览器接入 ChatGPT 网页端，支持多 worker 协作完成编程等任务，非 OpenAI 官方产品。",
+  "audience": "需要在本地项目中用 ChatGPT 执行编码等授权任务的开发者，需具备可创建自定义 MCP 应用的 ChatGPT 账号。",
   "quickstart_cmd": "",
-  "quickstart_note": "",
+  "quickstart_note": "README 仅提供安装包，无命令行安装命令；装好后进 Settings → Setup 按七步向导连接浏览器与 Core。",
   "risks": [
-    "浏览器扩展会观察并自动化 ChatGPT 网页界面且在本地记录对话内容，README 提示这不是公开的 ChatGPT 自动化 API，可能触及 OpenAI 服务条款限制",
-    "Windows 安装包未经发布者签名，macOS 版本未签名未经公证，需用户自行核对发布校验和后安装"
+    "浏览器扩展会观察并自动化 ChatGPT 网页界面，并在本地记录对话内容，OpenAI 条款限制自动化提取数据或输出。",
+    "项目声明不能保证合规或避免账号警告、限制或封禁，使用者需自行承担风险。",
+    "Windows 包未签名、macOS 未签名未公证，需用发布校验和核对安装包。",
+    "Linux AppImage 在禁用非特权用户命名空间时会回退到 --no-sandbox 启动。"
   ],
-  "tagline": "通过 MCP 让 ChatGPT 读写本地文件、运行终端并操作浏览器的跨平台桌面应用",
   "readme_sha": "b641109c6333b9d1a4f667e819db78ee7f1acc91",
-  "generated_at": "2026-10-19",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

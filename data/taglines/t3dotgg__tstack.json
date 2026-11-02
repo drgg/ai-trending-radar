@@ -1,0 +1,7 @@
+{
+ "tagline": "作者日常使用的 Agent 技能集，覆盖提 PR、评审、合并与接管等开发流程。",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
+}

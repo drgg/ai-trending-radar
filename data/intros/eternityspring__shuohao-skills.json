@@ -1,26 +1,27 @@
 {
   "is_ai_product": true,
   "category": "Skills 与写作/设计",
-  "tagline": "面向AI短剧制作的Agent Skills集合，含拆角色、排大纲、出设定、写剧本、切分镜七个技能",
-  "positioning": "面向AI短剧制作全流程的Agent-agnostic技能集合，从小说到可拍摄素材：角色设定、大纲改编、场景道具、剧本、开场站位、分镜，可在Claude Code与Codex等任意支持SKILL.md的Agent中运行。",
+  "tagline": "把小说改编成 AI 短剧可开拍素材的 Agent skill 集",
+  "positioning": "面向 AI 短剧制作的七个自包含 skill，覆盖从大纲、人物、美术设定、剧本、开场走位到分镜的全流程，凡是能读取 SKILL.md 并运行脚本的 Agent 都可以使用，Claude Code 和 Codex 只是其中两个示例。",
   "features": [
-    "novel-outline：将小说改编为短剧大纲，含改编说明、角色表、分集梗概、道具表，14项质量门脚本校验",
-    "novel-characters：依据大纲生成角色圣经，含小传、设计/配音提示词、模型表",
-    "character-refs：独立技能，实际生成角色参考图，可选ComfyUI（Qwen Image）、Codex图像生成或GPT Image 2 API",
-    "novel-script：生成分场剧本与逐角色台词书，自动估算分集时长，前3个节拍设冷开场钩子门槛",
-    "novel-storyboard：生成segment/cut/keyframe分镜，含MiniMax H3提示词对齐，实际生成关键帧图像"
+    "novel-outline 生成五件套大纲，检查 14 项质量门",
+    "novel-characters 生成角色档案、设计提示词与声音提示词",
+    "novel-art 输出场景与叙事道具的美术设定，检查 10 项质量门",
+    "novel-script 写剧本并按时长估算，检查 10 项质量门",
+    "novel-staging 与 novel-storyboard 负责开场走位和分镜"
   ],
   "highlights": [
-    "各技能自带脚本化质量门校验（大纲14项、剧本10项、分镜18项等），为脚本自动检查而非模型自评",
-    "安装脚本以符号链接方式接入Claude Code/Codex技能目录，git pull后无需重新安装即可生效"
+    "质检门由脚本自动检查，分镜 18 项、大纲 14 项",
+    "character-refs 实际生成角色参考图，支持 ComfyUI、codex、GPT Image 2",
+    "五份阶段报告可合并成一个带左侧导航的单页"
   ],
-  "audience": "使用Claude Code、Codex等Agent制作AI短剧的创作者、独立开发者或内容团队",
+  "audience": "用 AI 做短剧的编剧、制作团队，以及希望把小说改编成视频素材的 Agent 用户。",
   "quickstart_cmd": "git clone https://github.com/eternityspring/shuohao-skills.git\ncd shuohao-skills\n./scripts/install.sh",
-  "quickstart_note": "安装脚本自动检测Claude Code与Codex并以符号链接接入技能目录，其他Agent可手动复制或软链SKILL.md目录。",
+  "quickstart_note": "安装脚本检测 Claude Code 与 Codex，并以软链接方式安装，git pull 后立即生效；需要 Node ≥ 18，脚本仅用标准库，无 npm 依赖。",
   "risks": [],
   "readme_sha": "300471bea884446fc9228e3dec2767ad93ff2b99",
-  "generated_at": "2026-10-26",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
   "ai_rule": 2,
-  "model": "claude-sonnet-5"
+  "model": "deepseek-flash"
 }

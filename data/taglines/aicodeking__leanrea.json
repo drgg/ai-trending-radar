@@ -1,6 +1,7 @@
 {
- "tagline": "替代REA的8KB逆向工程Agent技能，无需MCP更快更省",
+ "tagline": "单个 8KB 技能文件替代 REA MCP，教 Agent 用命令行做逆向工程。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

@@ -1,7 +1,7 @@
 {
- "tagline": "收录各品牌设计系统提炼的DESIGN.md文件集合，供AI编程Agent生成风格一致的UI",
+ "tagline": "知名品牌 DESIGN.md 合集，让编码代理生成风格一致的 UI。",
  "is_ai_product": true,
  "ai_rule": 2,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

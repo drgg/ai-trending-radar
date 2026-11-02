@@ -1,6 +1,7 @@
 {
- "tagline": "基于Qwen-Image的NSFW姿势出图Agent技能，含136姿势控制库",
+ "tagline": "给编码 Agent 用的 Qwen-Image 出图技能：提示词配方、LoRA 与 136 姿势控制。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

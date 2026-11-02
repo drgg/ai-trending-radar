@@ -1,0 +1,32 @@
+{
+  "is_ai_product": true,
+  "category": "AI 应用产品",
+  "tagline": "中文 AI 绘画参考图库，含姿势、服装、人像三库与角色合成台",
+  "positioning": "把原作者ギア的三个日文 AI 绘画参考站合并并全量汉化，本地镜像 11,568 张图，另提供网页合成台和 ComfyUI 节点。",
+  "features": [
+    "姿势库 1,439 条，每张素体白模对应一张深度图，可一键互换",
+    "服装库 1,407 条、人像库 1,499 条，元数据全部为中文",
+    "合成台可组合人像、服装、姿势，并支持拖拽、粘贴、URL 附加参考图",
+    "可选直连 5 家图像接口，支持后台跨页生成和 IndexedDB 历史",
+    "ComfyUI 插件提供 4 个节点，内置 4,345 条中文弹窗选图器"
+  ],
+  "highlights": [
+    "同时收录白模与深度图，可直接接入 ControlNet Depth",
+    "无需 Python 依赖即可作为 ComfyUI custom_nodes 安装",
+    "提供 8 个 SKILL.md 技能，让 Agent 通过相对路径检索图片"
+  ],
+  "audience": "用 AI 绘画工具或 ComfyUI 制作角色图的创作者，以及需要姿势、服装、人像参考素材的插画与动画工作者",
+  "quickstart_cmd": "cd /path/to/ComfyUI/custom_nodes\ngit clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git",
+  "quickstart_note": "重启 ComfyUI 后，右键新建节点，选择「AI角色三合一参考图集」，再点选图器；也可以访问在线演示。",
+  "risks": [
+    "图库包含 18+ 素体与内衣、性感穿搭内容，README 要求用户自行开启安全模式来屏蔽",
+    "图片版权归原作者ギア所有，README 禁止提取倒卖或付费分发",
+    "README 声明许可证为 NOASSERTION，协议部分内容在摘录中也不完整",
+    "用于真人换脸或 Deepfake 可能涉及肖像权、隐私权等法律问题"
+  ],
+  "readme_sha": "909cca5d15c384ecb69c2470098602ce8a4b59d6",
+  "generated_at": "2026-11-02",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

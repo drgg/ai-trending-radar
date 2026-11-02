@@ -1,0 +1,29 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "给 Agent 用的照片定位技能，靠 OSM 几何、高程天际线与街景推断拍摄点。",
+  "positioning": "一个标准 Agent Skill（SKILL.md 加 Python 脚本），可装进 Claude Code、Codex、Cursor、Gemini CLI、OpenCode、GitHub Copilot，接收一张照片后输出相机坐标±半径、朝向和一张卫星证据图。",
+  "features": [
+    "无文字、无车牌、无地标时，靠 OSM 几何、高程、卫星瓦片和街景推断",
+    "把桥墩间距当距离尺、影子当方位、山脊线当高程指纹",
+    "二十余个单一用途脚本负责搜索、打分和排序，模型只在排名靠前的少量候选中做判断",
+    "结论需指明本次会话中运行过的命令和产出的文件",
+    "输出带误差半径的坐标、相机朝向、证据图和分级置信度"
+  ],
+  "highlights": [
+    "项目方数据：铁路桥案例定位误差 ±2 m，荒漠案例盲跑距确认点位 87 m",
+    "项目方数据：温哥华樱花案例盲跑 3 m，用时 53 分钟、154 次工具调用",
+    "项目方数据：荒漠盲跑最佳站点 0.224°、次优 0.357°；手机 1° 横滚曾致拟合卡住，后纳入拟合"
+  ],
+  "audience": "使用 Claude Code、Cursor、Codex 等 Agent 做图片地理定位或 OSINT 分析的调查者、记者与地理竞猜玩家。",
+  "quickstart_cmd": "npx skills add Oldcircle/geo-sleuth",
+  "quickstart_note": "按提示选择要装入的 Agent；首次使用先让 Agent 运行 scripts/ 下的 doctor.py 排查环境，再把照片交给它并说“找出这张照片的拍摄地”。",
+  "risks": [
+    "核心功能是用反向图片搜索、街景和卫星影像定位他人照片的拍摄地点，用于现实中的人或敏感设施时可能涉及隐私与个人信息合规问题"
+  ],
+  "readme_sha": "fda15a9e7207d8e7ccbb7738603465d5196959d3",
+  "generated_at": "2026-11-02",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

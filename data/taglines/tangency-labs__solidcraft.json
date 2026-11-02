@@ -1,7 +1,7 @@
 {
- "tagline": "纯Rust开发的开源参数化3D CAD应用，支持桌面/网页，并提供MCP给AI自动化建模",
+ "tagline": "纯 Rust 编写的开源参数化 3D CAD，桌面、网页均可用",
  "is_ai_product": false,
  "ai_rule": 2,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

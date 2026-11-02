@@ -1,7 +1,7 @@
 {
- "tagline": "开源、开箱即用的跨平台AI Agent，帮用户把想法直接变成执行结果",
+ "tagline": "开源即用型 AI Agent，跨设备连接电脑手机并接入自有模型",
  "is_ai_product": true,
  "ai_rule": 2,
- "generated_at": "2026-10-26",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

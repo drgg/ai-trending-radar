@@ -1,7 +1,7 @@
 {
- "tagline": "覆盖技术SEO与AI可读性优化的Claude Code技能合集",
+ "tagline": "Claude Code 的通用 SEO 技能，26 个子技能覆盖技术 SEO 与 AI 搜索优化。",
  "is_ai_product": true,
  "ai_rule": 2,
- "generated_at": "2026-10-26",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

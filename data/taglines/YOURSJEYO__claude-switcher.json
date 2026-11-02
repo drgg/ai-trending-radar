@@ -1,7 +1,7 @@
 {
- "tagline": "审计防泄漏、支持多账号隔离切换的Claude账号环境管理器",
+ "tagline": "Claude 多账号本地环境管理器，启动前审计指纹并防 IP 泄漏，不涉及 AI 核心功能。",
  "is_ai_product": false,
  "ai_rule": 2,
- "generated_at": "2026-10-26",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

@@ -1,7 +1,7 @@
 {
- "tagline": "教AI编程助手写出规范地道Rust代码的Claude Code技能包",
+ "tagline": "教编码 Agent 编写、审查并把 C/C++/Python/Go 代码移植为地道 Rust 的 Agent Skills。",
  "is_ai_product": true,
  "ai_rule": 2,
- "generated_at": "2026-10-26",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

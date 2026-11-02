@@ -1,6 +1,7 @@
 {
- "tagline": "作者自用的一系列 Claude Code 自定义模组",
+ "tagline": "个人自用的 Claude Code 插件合集，含会话性能、上下文与回滚工具",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

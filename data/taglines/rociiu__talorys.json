@@ -1,6 +1,7 @@
 {
- "tagline": "一键部署到自己 Cloudflare 账号的私人 AI 助理，支持聊天、记忆与定时提醒",
+ "tagline": "部署在自己 Cloudflare 账号里的个人 AI 助理，具备聊天、记忆、任务与定时提醒。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

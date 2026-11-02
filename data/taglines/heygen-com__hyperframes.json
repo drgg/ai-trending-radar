@@ -1,7 +1,7 @@
 {
- "tagline": "把HTML/CSS渲染成MP4视频的开源框架，专为AI编码Agent设计，支持MCP与技能包",
+ "tagline": "把 HTML/CSS 与可寻址动画确定性渲染成 MP4，面向编码代理的视频框架。",
  "is_ai_product": true,
  "ai_rule": 2,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

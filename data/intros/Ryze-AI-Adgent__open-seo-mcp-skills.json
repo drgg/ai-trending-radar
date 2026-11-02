@@ -1,27 +1,29 @@
 {
   "is_ai_product": true,
   "category": "开发者工具与集成",
-  "tagline": "为 Claude 提供的免费 SEO MCP 服务器，配套开源 SEO/GEO 技能包",
-  "positioning": "基于 MCP 协议的 SEO 数据连接器，搭配 MIT 协议的 Claude Skills，用用户自己的 Google Search Console、GA4、Google Ads 数据而非估算数据做关键词研究、排名追踪、审计、反链和 AI 可见度分析，DataForSEO 补充竞品与 SERP 数据。",
+  "tagline": "面向 Claude 的开源 SEO 与 GEO 技能包，配免费 SEO MCP 服务",
+  "positioning": "通过 Ryze MCP 连接器把 Claude 接到用户自己的 Search Console、GA4 和广告账号，用真实排名与流量数据执行 SEO 与 AI 可见性分析；技能以 MIT 协议开源。",
   "features": [
-    "提供 seo-audit、keyword-research、rank-tracking 等8个 Claude Skills，覆盖审计、选词、排名、竞品、反链、AI可见度场景",
-    "排名数据来自用户真实 Google Search Console，流量数据来自真实 GA4，而非 SERP 抓取估算",
-    "关键词搜索量取自 Google Ads 关键词规划师，竞品关键词、反链、SERP 数据内置 DataForSEO 接口",
-    "ai-visibility 技能读取 GA4 的 AI 引荐流量报告，识别 ChatGPT、Perplexity、Claude、Gemini 引用的页面",
-    "可选连接已有订阅的 Ahrefs、Semrush 数据源"
+    "seo-audit：检查索引、CTR 异常、衰减页面与快速收益",
+    "keyword-research：从种子词到搜索量、意图和聚类关键词计划",
+    "rank-tracking：对比任意两个周期的排名变化，数据来自 GSC",
+    "competitor-gap / backlink-check：找竞品有而自己没有的关键词与外链",
+    "ai-visibility：从 GA4 的 AI 引荐流量看各 AI 引擎带来的访问与引用页面"
   ],
   "highlights": [
-    "README 称多数“开源 SEO 工具”只是 DataForSEO API 的壳，托管版会在每次调用上加收约28%费用（项目方说法）",
-    "连接器免费接入、技能代码 MIT 开源，数据通过用户自己连接的 GSC/GA4/广告账号获取，不额外加价"
+    "排名取自真实 Search Console 位置，流量取自真实 GA4，而非抓取估算",
+    "插件已打包连接器，在 Claude Code 中可直接安装技能",
+    "技能为 Markdown 文件，也可复制到任意支持 MCP 的客户端"
   ],
-  "audience": "使用 Claude Code/Desktop 的 SEO 从业者和营销开发者，希望基于自身 Google 数据而非估算做排名与内容分析",
+  "audience": "用 Claude 或 Claude Code 做 SEO、内容与增长分析的人，以及想改写或扩展 SEO 技能的作者。",
   "quickstart_cmd": "claude mcp add ryze --transport http https://connector.get-ryze.ai/mcp",
-  "quickstart_note": "添加连接器后需 Google 登录并授权 Search Console/GA4/广告账号，再安装 open-seo-mcp-skills 插件使用",
+  "quickstart_note": "安装插件时这一步可选；之后还需执行 claude plugin marketplace add Ryze-AI-Adgent/open-seo-mcp-skills 并安装插件。",
   "risks": [
-    "需要将 Google Search Console、GA4、Google Ads 等账号数据连接至第三方 Ryze 云端服务，涉及真实业务数据外传"
+    "数据经第三方托管的 get-ryze.ai 连接器转发，需信任其对 Search Console、GA4 与广告账号数据的处理"
   ],
-  "readme_sha": "bfa0b6d1502f6b2c6e50d73047c2f87a8b4443b3",
-  "generated_at": "2026-10-19",
+  "readme_sha": "951fb0334ba91a8355de4be0b7982fe48f6d1e07",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

@@ -1,6 +1,7 @@
 {
- "tagline": "让AI编程Agent像资深工程师一样精简代码的技能插件",
+ "tagline": "让 AI 编码代理像最懒的资深开发者那样，写刚好够用的代码。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

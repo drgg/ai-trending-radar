@@ -1,6 +1,7 @@
 {
- "tagline": "面向Claude Code等编程Agent的工程优化系统：技能、记忆与安全能力",
+ "tagline": "为 Claude Code 等代理提供规划、测试、记忆与安全优化的工程化技能系统。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

@@ -1,6 +1,7 @@
 {
- "tagline": "免费开源AI网关，一个接口接入375家供应商1400+模型，供编程Agent调用",
+ "tagline": "免费 AI 网关，单一端点接入数百家提供商，兼容主流编码代理",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

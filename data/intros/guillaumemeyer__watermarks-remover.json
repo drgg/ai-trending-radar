@@ -1,27 +1,31 @@
 {
-  "audience": "需要清理自有 AI 生成内容中隐藏水印或溯源元数据的开发者、写作者及 Claude Code/Cursor 用户",
-  "category": "Skills 与写作/设计",
+  "is_ai_product": true,
+  "category": "越狱与绕过模型限制",
+  "tagline": "从自有内容中清除多家 AI 厂商的溯源水印与来源标记",
+  "positioning": "一个 Agent 技能加 Python 标准库 HTTP 服务的组合，针对用户自己拥有的文本和文件，剥离不可见 Unicode、统计式文本水印，以及 C2PA、EXIF、XMP 等文件元数据中的 AI 来源信息。",
   "features": [
-    "文本 Layer A：去除隐藏 Unicode、异形空格、双向控制符等标记，用确定性脚本处理",
-    "文本 Layer B：针对统计型水印，依赖 Agent 改写或可选的 rewrite_text.py 钩子",
-    "文件层支持 PNG/JPEG/PDF/DOCX/MP4 等数十种格式的 C2PA/EXIF/XMP/文档属性清理",
-    "可选 PostToolUse 钩子：Claude Code 写文件后自动检测或清除水印（check/clean 模式）",
-    "提供 Claude Code 插件市场、Cursor、Grok 等多宿主一键安装方式"
+    "清除不可见 Unicode 字符、特殊空格、双向控制符和标签字符",
+    "处理统计式文本水印，并提供可选的改写脚本作为挂钩",
+    "剥除 C2PA、EXIF、XMP 和文档属性，覆盖常见图片、文档、音视频格式",
+    "可作为 Agent 技能安装到 Claude Code、Codex、Cursor、Cowork 等宿主",
+    "提供 PostToolUse 钩子，在 Agent 写完文件后自动检查或清理"
   ],
   "highlights": [
-    "项目方称可识别 Claude、Gemini/SynthID-Text、OpenAI 及开源 LLM 的 Kirchenbauer/Gumbel 类水印",
-    "核心脚本仅依赖 Python 3.10+ 标准库，无需额外依赖或 Docker"
+    "技能本身不含代码，通过 HTTP 调用本地服务，Agent 宿主无需安装 Python",
+    "钩子分 check（默认，仅报告）与 clean（就地剥离）两种模式",
+    "安装脚本会按 Agent Skills 打包规范校验技能包，Cowork 上传包限制在 30 MB 以内"
   ],
-  "is_ai_product": true,
-  "positioning": "面向拥有内容版权用户的隐私工具，提供 Agent Skill 与本地 Python 服务，检测并清除文本中的隐藏水印及文件的 C2PA/EXIF/XMP 等溯源信息，可装入 Claude Code、Cursor、Grok 等多种 Agent 宿主。",
+  "audience": "需要处理自有文稿、素材和代码文件的创作者与开发者，尤其是使用 Claude Code、Codex、Cursor 等 Agent 工具的团队。",
   "quickstart_cmd": "python3 install_skill.py --skill remove-ai-marks --target claude-code",
-  "quickstart_note": "安装 Claude Code 个人版 Skill，需额外启动本地服务（make serve）配合使用",
+  "quickstart_note": "安装后需启动 HTTP 服务，默认地址为 http://127.0.0.1:8765，可通过 WATERMARKS_SERVICE_URL 修改。",
   "risks": [
-    "去除 AI 内容的水印与溯源标记（如 C2PA、SynthID）可能涉及规避 AI 内容标识相关法规的风险"
+    "核心用途是移除 AI 生成内容的溯源水印与 C2PA 来源标记，可能与生成式 AI 内容标识相关法规冲突",
+    "部分统计式文本水印的清除通过 Agent 改写实现，效果依赖模型配合，属于尽力而为",
+    "钩子无法改写已发送的聊天消息，只能覆盖 Agent 写入的文件和提交前检查"
   ],
-  "tagline": "Claude Agent Skill + 本地服务，去除文本和文件中的多厂商 AI 水印与溯源标记",
-  "readme_sha": "d644ce7ec731d47e09643ecb130ea66c2d404c8c",
-  "generated_at": "2026-10-05",
+  "readme_sha": "88cd05b7792dd9ea7455f97863e16a672cf66a98",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

@@ -1,7 +1,7 @@
 {
- "tagline": "面向Claude Code/Codex的AI视频技能包，用分镜与运镜模板做产品宣传片",
+ "tagline": "为 Claude Code 和 Codex 打造的可编辑产品宣传片制作技能",
  "is_ai_product": true,
  "ai_rule": 2,
- "generated_at": "2026-10-26",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

@@ -1,7 +1,7 @@
 {
- "tagline": "七位AI商业顾问在Claude Code里围桌吐槽你的决策",
+ "tagline": "在 Claude Code 中让七位 AI 商业顾问围桌辩论你的决策，给出评分结论与 PDF。",
  "is_ai_product": true,
  "ai_rule": 2,
- "generated_at": "2026-10-26",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

@@ -1,6 +1,7 @@
 {
- "tagline": "基于 Claude 技能的 AI 新词雷达，抢先捕捉新模型与产品名称",
+ "tagline": "每日抓取 X、Hugging Face、GitHub 上的新兴 AI 术语，供 SEO 与选题使用，含 MCP。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

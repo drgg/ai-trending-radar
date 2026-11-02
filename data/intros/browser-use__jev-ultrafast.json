@@ -1,27 +1,31 @@
 {
-  "audience": "需要快速浏览器自动化/网页Agent方案的开发者，尤其是browser-use生态用户及关注Agent执行效率的工程师",
+  "is_ai_product": true,
   "category": "Agent 平台与基础设施",
+  "tagline": "用动态索引动作空间操作网页的快速浏览器 Agent",
+  "positioning": "TypeSafe 的 Jev 策略：把页面结构化为带编号的元素表，通过一次请求同时预测操作和点击/输入目标，只有输入文本时才调用小模型生成文字。",
   "features": [
-    "每次观察生成带编号的元素表，模型从CLICK/TYPE_TEXT/SELECT等有限操作中选择",
-    "操作与目标预测合并为一次网络请求，仅TYPE_TEXT操作时才调用小模型生成文本",
-    "默认不依赖截图，用结构化DOM快照驱动决策，截图仅用于本地调试界面",
-    "执行前校验目标元素的页面新鲜度与是否被遮挡，拒绝对失效元素操作",
-    "提供Python库调用方式（Agent类）和本地可视化调试页面（demo inspector）"
+    "每次观察生成编号元素表，操作限于点击、输入、选择、滚动等",
+    "操作与目标在同一个网络往返中一起预测",
+    "默认循环不截屏，只消费结构化页面状态",
+    "执行前校验目标节点、页面新鲜度和遮挡情况",
+    "提供本地 Inspector 查看元素编号、概率与已执行动作"
   ],
   "highlights": [
-    "项目方数据：Google Flights单程航班查询任务7.1秒完成（含模型调用、生成文本、浏览器操作和等待）",
-    "项目方数据：3/3通过，耗时中位数9.45→7.09秒，协议调用1092→101次；仅单任务测试，非通用基准"
+    "项目方数据：苏黎世到伦敦航班搜索 7.1 秒，含模型调用与加载等待",
+    "项目方数据：六次交替运行中任务耗时中位数从 9.450 秒降至 7.092 秒，降幅 25%",
+    "仅限单个任务、单个浏览器配置上的三次重复，非通用可靠性基准"
   ],
-  "is_ai_product": true,
-  "positioning": "browser-use团队发布的实验性网页Agent，用动态索引动作空间（而非截图或固定脚本）驱动浏览器完成单一自然语言目标，定位为可读性强的MVP示例而非通用生产工具",
+  "audience": "需要把自然语言目标自动落到网页操作上的开发者与研究者，熟悉 Python 与浏览器自动化。",
   "quickstart_cmd": "uv run jev",
-  "quickstart_note": "先执行git clone、uv sync并在.env中配置TYPESAFE_API_KEY和TEXT_MODEL_API_KEY，再运行此命令打开本地调试页面",
+  "quickstart_note": "先执行 uv sync 并从 .env.example 复制配置，填入 TYPESAFE_API_KEY 和 TEXT_MODEL_API_KEY，再打开 127.0.0.1:8766。",
   "risks": [
-    "核心功能是自动化操作Google Flights、Wikipedia等第三方网页完成任务，可能违反对方服务条款，存在账号风险"
+    "通过浏览器自动化操作 Google Flights、维基百科等第三方网站，可能违反其服务条款",
+    "示例使用真实 Chrome 用户配置，共享已有登录状态与 Cookie",
+    "调用 TypeSafe 与 OpenRouter 等外部服务会把页面可见文本和输入内容发送出去"
   ],
-  "tagline": "用动态索引动作空间驱动浏览器执行单一自然语言目标的实验性网页Agent",
-  "readme_sha": "fa7d079f9192f8ad47d4016c0d534cfe72207f33",
-  "generated_at": "2026-10-05",
+  "readme_sha": "7d67f18de7a7490423d631a54a6b726f792c1e86",
+  "generated_at": "2026-11-02",
   "prompt_version": 4,
-  "model": "claude-sonnet-5"
+  "ai_rule": 2,
+  "model": "deepseek-flash"
 }

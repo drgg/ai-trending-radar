@@ -1,6 +1,7 @@
 {
- "tagline": "Claude Code学术研究技能包，覆盖研究写作评审修订全流程，面向科研人员",
+ "tagline": "为 Claude Code 提供从选题、写作、评审到定稿的学术研究全流程技能。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

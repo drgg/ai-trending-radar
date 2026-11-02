@@ -1,6 +1,7 @@
 {
- "tagline": "用\"野人话\"式压缩提示词，为编程Agent节省65%token的技能与代理工具",
+ "tagline": "让编程 Agent 用原始人腔调说话，可省约 65% token 的技能与代理。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

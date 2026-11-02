@@ -1,6 +1,7 @@
 {
- "tagline": "AI把文档或主题转换为带图表动画和语音讲解的原生PPT，面向演示制作者",
+ "tagline": "用 AI 把文档或主题生成含原生形状、动画和图表可编辑的 PowerPoint。",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }

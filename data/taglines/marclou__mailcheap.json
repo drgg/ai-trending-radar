@@ -1,7 +1,7 @@
 {
- "tagline": "按发送量计费的开源newsletter工具，可自托管，也支持AI Agent通过MCP发送邮件",
+ "tagline": "按发送量计费的开源邮件通讯应用，支持自托管，并可通过 MCP 供 AI Agent 操作。",
  "is_ai_product": false,
  "ai_rule": 2,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-02",
+ "model": "deepseek-flash"
 }
