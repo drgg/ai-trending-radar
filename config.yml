@@ -4,10 +4,11 @@ window_days: 90          # 只看最近 N 天内创建的仓库
 min_stars: 5000          # 星数门槛（大于）
 
 # 介绍生成
+# backend: deepseek   走 DeepSeek 官方 API 按量计费（需要 DEEPSEEK_API_KEY）
 # backend: claude-cli 走 Claude 订阅（需要 CLAUDE_CODE_OAUTH_TOKEN，消耗 Pro 额度）
 #          api        走 Claude API 按量计费（需要 ANTHROPIC_API_KEY）
-backend: claude-cli
-model: claude-sonnet-5   # 订阅额度有限，推荐 Sonnet；可改为 claude-opus-5
+backend: deepseek        # DEEPSEEK_API_KEY；仍可切回 claude-cli / api
+model: deepseek-flash    # DeepSeek 官方 Chat Completions API，非思考模式
 effort: medium           # 仅 api 模式生效：low / medium / high
 refresh_after_days: 30   # README 有变化且缓存超过 N 天才重新生成介绍
 readme_max_chars: 12000  # 送给模型的 README 摘录长度上限

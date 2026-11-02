@@ -34,14 +34,17 @@ jobs:
       - run: pip install -r requirements.txt
 
       - name: Install Claude Code CLI
-        if: inputs.mode != 'render'
+        if: inputs.mode != 'render' && inputs.mode != 'dry-run'
         run: |
-          npm install -g @anthropic-ai/claude-code
-          claude --version   # 每次装最新版；出问题时对照版本
+          if python -c "import yaml; raise SystemExit(yaml.safe_load(open('config.yml'))['backend'] != 'claude-cli')"; then
+            npm install -g @anthropic-ai/claude-code
+            claude --version
+          fi
 
       - name: Run pipeline
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}   # backend: claude-cli
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}               # backend: api
           NOTIFY_MENTION: ${{ github.repository_owner }}                    # 通知里 @ 仓库主人

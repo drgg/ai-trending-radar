@@ -1,13 +1,13 @@
 # AI Trending Radar
 
-每周一期的刊物：整理 GitHub 近 90 天新建、星数超过 5000 的 AI 项目，用 Claude 为每个项目写中文介绍，**先报本期变化（新上榜 / 涨星 / 移出），完整名录放在后面**。
+每周一期的刊物：整理 GitHub 近 90 天新建、星数超过 5000 的 AI 项目，用 DeepSeek 为每个项目写中文介绍，**先报本期变化（新上榜 / 涨星 / 移出），完整名录放在后面**。
 
 - 网页：<https://drgg.github.io/ai-trending-radar/>
 - 订阅：[RSS](https://drgg.github.io/ai-trending-radar/feed.xml)，或 Watch 本仓库——每期发布时会开一个带「周报」标签的 Issue，上一期的自动关闭
 - 给 AI Agent：[llms.txt](https://drgg.github.io/ai-trending-radar/llms.txt) 列出最新一期、往期和原始数据的地址；[latest.md](https://drgg.github.io/ai-trending-radar/latest.md) 是最新一期的纯文本版。两者都在 render 时从快照生成
 
 ## 流程
-`fetch`（GitHub Search API）→ `summarize`（Claude，按 README sha 缓存）→ `diff`（对比上一个正式期）→ `render`（整站 HTML + RSS + Markdown）→ 部署 Pages → 开 Issue 通知
+`fetch`（GitHub Search API）→ `summarize`（DeepSeek，按模型和 README sha 缓存）→ `diff`（对比上一个正式期）→ `render`（整站 HTML + RSS + Markdown）→ 部署 Pages → 开 Issue 通知
 
 ## 近期趋势（页首）
 模型综合本期主榜变化、短期榜和前 3 个正式期的趋势，写一段 150–250 字的分析和 3–5 条要点；前几期说过的结论只在有新证据时才写。原来的「编者按」并入这里。
@@ -29,13 +29,14 @@
 - 早期快照没有 `issue` 字段，按「周一 = 定时运行」推断
 
 ## 首次配置
-1. 本机运行 `claude setup-token`，复制生成的令牌
-2. Settings → Secrets and variables → Actions → 新建 `CLAUDE_CODE_OAUTH_TOKEN`，粘贴令牌
-   （如改用 API 计费：`config.yml` 中设 `backend: api`，并新建 `ANTHROPIC_API_KEY`）
-3. Settings → Pages → Source 选 **GitHub Actions**
-4. Actions → weekly-report → Run workflow 验证
+1. 在 DeepSeek 平台创建 API Key，确认账户有余额。
+2. Settings → Secrets and variables → Actions → 新建 `DEEPSEEK_API_KEY`。
+3. Settings → Pages → Source 选 **GitHub Actions**。
+4. Actions → weekly-report → Run workflow，mode 选 `issue` 发布一期。
 
-令牌有效期一年，到期后重新生成并更新 Secret。
+默认 `backend: deepseek`、`model: deepseek-flash`。每周一北京时间 9 点自动生成正式周报并部署 GitHub Pages，随后发布 Issue 通知。密钥仅保存在环境变量或 Actions Secret，不能提交到仓库。
+
+DeepSeek 使用 JSON 输出并在本地校验 schema；网络或临时服务错误最多尝试三次。认证、余额或主榜/短期榜生成失败时中止，不用占位介绍覆盖线上内容。切换模型会刷新介绍缓存。原有 `claude-cli`（`CLAUDE_CODE_OAUTH_TOKEN`）与 `api`（`ANTHROPIC_API_KEY`）仍可选。
 
 ## 手动运行（Actions → weekly-report → Run workflow）
 | mode | 做什么 |
@@ -50,7 +51,7 @@
 pip install -r requirements.txt
 python scripts/main.py --render-only  # 用已有快照重渲染整站，改模板后预览用
 python scripts/main.py --dry-run      # 不调用模型
-python scripts/main.py --limit 3      # 需要本机 claude 已登录或设置 CLAUDE_CODE_OAUTH_TOKEN
+python scripts/main.py --limit 3      # 需要设置 DEEPSEEK_API_KEY；完整抓取同时需要 GITHUB_TOKEN 或 gh 登录态
 ```
 
 ## 目录
@@ -60,3 +61,7 @@ python scripts/main.py --limit 3      # 需要本机 claude 已登录或设置 C
 - `site/`：生成的网页（`archive/` 为每期存档，`feed.xml` 为 RSS，`assets/fonts/` 为自托管的标题字体子集）
 - `report.md`：最新一期 Markdown
 - 标题文字改动后运行 `python scripts/fetch_font.py` 重新生成字体子集（Noto Serif SC，OFL 协议）
+
+## 本地模型对比
+
+设置 `DEEPSEEK_API_KEY` 后执行 `python scripts/compare_models.py --snapshot 2026-10-26`，生成主榜和趋势的历史同期对比稿，保存在忽略的 `build/` 下，不发布、不刷新星数；短期榜保留原稿。

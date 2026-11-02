@@ -1,9 +1,12 @@
-"""用 Claude API 为仓库生成中文介绍；按 README sha 缓存，避免重复调用。"""
+"""用 DeepSeek / Claude 为仓库生成中文介绍；按 README sha 缓存。"""
 import json
 import os
 import re
 import shutil
 import subprocess
+import time
+import requests
+from jsonschema import validate, ValidationError
 from datetime import date
 from pathlib import Path
 
@@ -165,6 +168,7 @@ class Summarizer:
         self.dry_run = dry_run
         self.calls = 0
         self._client = None
+        self.usage = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
         INTRO_DIR.mkdir(parents=True, exist_ok=True)
 
     @property
@@ -175,9 +179,54 @@ class Summarizer:
         return self._client
 
     def _ask(self, system, user, schema, max_tokens=8000):
+        if self.cfg.get("backend") == "deepseek":
+            return self._ask_deepseek(system, user, schema, max_tokens)
         if self.cfg.get("backend", "api") == "claude-cli":
             return self._ask_cli(system, user, schema)
         return self._ask_api(system, user, schema, max_tokens)
+
+    def _ask_deepseek(self, system, user, schema, max_tokens):
+        key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
+        if not key:
+            raise AuthError("未设置 DEEPSEEK_API_KEY")
+        payload = {"model": self.cfg["model"], "max_tokens": max_tokens,
+                   "thinking": {"type": "disabled"},
+                   "response_format": {"type": "json_object"},
+                   "messages": [{"role": "system", "content": system +
+                       "\n只输出 JSON 对象，严格遵守以下 JSON Schema：\n" + json.dumps(schema, ensure_ascii=False)},
+                       {"role": "user", "content": user}]}
+        for attempt in range(3):
+            self.calls += 1
+            try:
+                response = requests.post("https://api.deepseek.com/chat/completions",
+                    headers={"Authorization": f"Bearer {key}"}, json=payload, timeout=(15, 180))
+            except requests.RequestException:
+                if attempt == 2:
+                    raise RuntimeError("DeepSeek 网络请求失败（重试 3 次）") from None
+                time.sleep(2 ** attempt)
+                continue
+            if response.status_code in (401, 402, 403):
+                raise AuthError(f"DeepSeek 认证或余额不足（HTTP {response.status_code}）")
+            if response.status_code == 429 or response.status_code >= 500:
+                if attempt < 2:
+                    time.sleep(2 ** attempt)
+                    continue
+            if not response.ok:
+                raise RuntimeError(f"DeepSeek 请求失败（HTTP {response.status_code}）")
+            try:
+                body = response.json()
+                for field in self.usage:
+                    self.usage[field] += body.get("usage", {}).get(field, 0)
+                choice = body["choices"][0]
+                if choice.get("finish_reason") != "stop":
+                    raise ValueError("输出未完整结束")
+                data = json.loads(choice["message"]["content"])
+                validate(data, schema)
+                return data
+            except (ValueError, KeyError, IndexError, TypeError, ValidationError):
+                if attempt == 2:
+                    raise RuntimeError("DeepSeek 连续 3 次未返回符合 schema 的完整 JSON") from None
+        raise RuntimeError("DeepSeek 调用失败")
 
     def _ask_cli(self, system, user, schema):
         """通过 Claude Code 非交互模式调用，走订阅额度（CLAUDE_CODE_OAUTH_TOKEN）。"""
@@ -243,6 +292,8 @@ class Summarizer:
     def _stale(self, cached, repo, today):
         if self.dry_run:  # dry-run 不覆盖已有介绍
             return False
+        if cached.get("model") != self.cfg["model"]:
+            return True
         if cached.get("placeholder") or cached.get("prompt_version", 1) != PROMPT_VERSION:
             return True
         if not cached.get("is_ai_product", True) and cached.get("ai_rule", 1) < AI_RULE_VERSION:
@@ -266,6 +317,8 @@ class Summarizer:
             except AuthError:
                 raise
             except Exception as e:  # 单个失败不影响整期
+                if self.cfg.get("backend") == "deepseek":
+                    raise RuntimeError(f"{repo['full_name']} 的 DeepSeek 介绍生成失败，本期不发布") from e
                 print(f"  ! {repo['full_name']} 介绍生成失败：{e}")
                 if path.exists():
                     return json.loads(path.read_text(encoding="utf-8"))
@@ -362,7 +415,7 @@ class Summarizer:
         if not p.exists():
             return False
         rec = json.loads(p.read_text(encoding="utf-8"))
-        return rec["is_ai_product"] or rec.get("ai_rule", 1) >= AI_RULE_VERSION
+        return rec.get("model") == self.cfg["model"] and (rec["is_ai_product"] or rec.get("ai_rule", 1) >= AI_RULE_VERSION)
 
     def taglines(self, repos, batch=20):
         """每次调用处理一批仓库，返回 {full_name: {"tagline", "is_ai_product"}}。按仓库缓存，写过的不再写。"""
@@ -372,7 +425,7 @@ class Summarizer:
             p = TAGLINE_DIR / (r["full_name"].replace("/", "__") + ".json")
             rec = json.loads(p.read_text(encoding="utf-8")) if p.exists() else None
             # 按旧规则判为「无关」的重判；判为相关的不动
-            if rec and (rec["is_ai_product"] or rec.get("ai_rule", 1) >= AI_RULE_VERSION):
+            if rec and rec.get("model") == self.cfg["model"] and (rec["is_ai_product"] or rec.get("ai_rule", 1) >= AI_RULE_VERSION):
                 out[r["full_name"]] = rec
             else:
                 todo.append(r)
@@ -390,6 +443,8 @@ class Summarizer:
             except AuthError:
                 raise
             except Exception as e:  # 一批失败就用描述兜底、不缓存，下次运行再试
+                if self.cfg.get("backend") == "deepseek":
+                    raise RuntimeError("DeepSeek 一句话生成失败，本期不发布") from e
                 print(f"  ! 一句话定位第 {i // batch + 1} 批失败：{e}")
                 continue
             for item in res:

@@ -82,7 +82,7 @@ def main():
         try:
             intro = summ.intro(repo, today)
         except AuthError as e:
-            sys.exit(f"✗ {e}\n  已中止：本期不写快照、不更新页面。请检查 CLAUDE_CODE_OAUTH_TOKEN。")
+            sys.exit(f"✗ {e}\n  已中止：本期不写快照、不更新页面。请检查所选模型的认证与余额。")
         repo.pop("readme", None)
         if not intro["is_ai_product"]:
             excluded.append({"full_name": repo["full_name"], "html_url": repo["html_url"],
@@ -95,8 +95,10 @@ def main():
     try:
         rising_data = rising.build(cfg, today, entries, summ)
     except AuthError as e:
-        sys.exit(f"✗ {e}\n  已中止：本期不写快照、不更新页面。请检查 CLAUDE_CODE_OAUTH_TOKEN。")
+        sys.exit(f"✗ {e}\n  已中止：本期不写快照、不更新页面。请检查所选模型的认证与余额。")
     except Exception as e:  # 短期榜出错不影响主榜照常出刊
+        if cfg.get("backend") == "deepseek":
+            raise RuntimeError("DeepSeek 短期榜生成失败，本期不发布") from e
         print(f"  ! 短期榜失败，本期不含短期榜：{type(e).__name__}: {e}")
         rising_data = None
 
@@ -117,6 +119,8 @@ def main():
     print("④ 渲染页面…")
     publish(cfg, notify_ok=not args.dry_run)
     print(f"本次模型调用共 {summ.calls} 次")
+    if cfg.get("backend") == "deepseek":
+        print(f"DeepSeek token 用量：{summ.usage}")
 
 
 def publish(cfg, notify_ok):
