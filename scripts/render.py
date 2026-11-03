@@ -1,4 +1,4 @@
-"""把快照渲染成刊物版网页（最新一期 + 全部存档）、RSS 和 Markdown 报告。
+"""把快照渲染成刊物版网页（最新一期 + 全部存档 + 实用分级页）、RSS 和 Markdown 报告。
 
 每次运行都从 data/snapshots/ 重新渲染整站：存档页和往期列表始终用同一套样式，
 对比关系也按 diff.previous_issue() 的规则重算（早期快照里存的 diff 可能是对临时更新比的）。
@@ -19,8 +19,10 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 ARCHIVE = SITE / "archive"
 
-# 衬线标题只用这些字，scripts/fetch_font.py 按它下载字体子集；改了标题文字要重跑那个脚本
-HEADING_GLYPHS = "".join(sorted(set("第期创刊号临时更新本期变化编者按名录往期升星榜新锐与近趋势0123456789· ")))
+# 衬线标题只用这些字，scripts/fetch_font.py 按它下载字体子集；改了标题文字要重跑那个脚本。
+# 后半是分级页的标题和 config.yml guide.tiers 的档名（key + name），改档名也要补字
+HEADING_GLYPHS = "".join(sorted(set("第期创刊号临时更新本期变化编者按名录往期升星榜新锐与近趋势0123456789· "
+                                    "实用分级ABCDE立即可用岗位利器团队基建尝鲜参考风险警示")))
 
 # 兜底长度：模型偶尔超出提示词里的字数上限
 LIMITS = {"tagline": 60, "positioning": 140, "item": 70, "audience": 90, "note": 90}
@@ -189,6 +191,46 @@ def issue_context(snap, snaps, cfg):
     )
 
 
+# ---------- 实用分级页 ----------
+
+# 兜底长度：提示词里应用场景 45 字、准备和理由 40 字
+GUIDE_LIMITS = {"scene": 60, "effort_note": 60, "reason": 60}
+SUSPECT_NOTE = "同一作者有多个项目在同一周各涨 1,000 星以上，疑似刷星；只是统计特征，不等于定论"
+
+
+def practical_view(p):
+    return {"tier": p["tier"], "domain": p["domain"],
+            "scenes": _as_list(p.get("scenes"), 4, GUIDE_LIMITS["scene"]),
+            "effort": p["effort"] if p.get("effort") in ("低", "中", "高") else "中",
+            "effort_note": _clip(p.get("effort_note"), GUIDE_LIMITS["effort_note"]),
+            "reason": _clip(p.get("reason"), GUIDE_LIMITS["reason"])}
+
+
+def guide_context(c, cfg, latest_date):
+    """分级页：主榜条目沿用这一期的上下文（介绍、提示），升星榜头部用快照 guide 字段里的完整条目。"""
+    s, g, gc = c["s"], c["s"]["guide"], cfg["guide"]
+    page = "index.html" if s["date"] == latest_date else f"archive/{s['date']}.html"
+    items = [{**e, "src": "main", "intro_href": f"{page}#{e['full_name']}"}
+             for e in c["ranked"] if e["full_name"] in g["practical"]]
+    for x in copy.deepcopy(g["surge"]):
+        if x["full_name"] in g["practical"]:
+            x["v"] = view(x["intro"])
+            x["notes"] = x["v"]["risks"] + [_absolutize(f, x) for f in x["flags"]]
+            items.append({**x, "src": "surge", "delta": None})
+    sus = set(g.get("suspects", []))
+    for it in items:
+        it["p"] = practical_view(g["practical"][it["full_name"]])
+        if it["full_name"] in sus:
+            it["notes"] = it["notes"] + [SUSPECT_NOTE]
+    # 键名不能叫 items：模板里 t.items 会取到 dict.items 方法
+    tiers = [{**t, "projects": sorted((i for i in items if i["p"]["tier"] == t["key"]), key=lambda i: -i["stars"])}
+             for t in gc["tiers"]]
+    shown = [i for t in tiers for i in t["projects"]]
+    domains = [(d, n) for d in gc["domains"] if (n := sum(1 for i in shown if i["p"]["domain"] == d))]
+    return {**c, "tiers": tiers, "domains": domains, "issue_href": page, "n_items": len(shown),
+            "n_main": sum(i["src"] == "main" for i in shown), "n_surge": sum(i["src"] == "surge" for i in shown)}
+
+
 def title_of(ctx):
     head = f"第 {ctx['no']} 期 · {ctx['s']['date']}" if ctx["official"] else f"临时更新 · {ctx['s']['date']}"
     if not ctx["prev"]:
@@ -208,19 +250,25 @@ def render_site(cfg, snaps=None):
     nav = [{"no": c["no"], "date": c["s"]["date"], "md": c["md"], "cn": c["date_cn"],
             "count": len(c["ranked"]), "official": c["official"]} for c in reversed(ctxs)]
     latest = ctxs[-1]
+    # 分级页只保留一份：用最近一个带 guide 字段的快照（某期分级失败时沿用上一次的，页上写明日期）
+    guide_ctx = next((c for c in reversed(ctxs) if c["s"].get("guide")), None)
     common = dict(nav=nav, latest_date=latest["s"]["date"], site_url=cfg.get("site_url", ""),
-                  repo_url=cfg.get("repo_url", "").rstrip("/"), built=dt.date.today().isoformat())
+                  repo_url=cfg.get("repo_url", "").rstrip("/"), built=dt.date.today().isoformat(),
+                  guide_date=guide_ctx["s"]["date"] if guide_ctx else None)
 
     ARCHIVE.mkdir(parents=True, exist_ok=True)
     for c in ctxs:
         (ARCHIVE / f"{c['s']['date']}.html").write_text(tpl.render(**c, **common, root="../"),
                                                         encoding="utf-8", newline="\n")
     (SITE / "index.html").write_text(tpl.render(**latest, **common, root=""), encoding="utf-8", newline="\n")
+    if guide_ctx:
+        (SITE / "guide.html").write_text(env.get_template("guide.html.j2").render(
+            **guide_context(guide_ctx, cfg, latest["s"]["date"]), **common, root=""), encoding="utf-8", newline="\n")
     _write_feed(cfg, [c for c in ctxs if c["official"]])
     md = _markdown(latest)
     (ROOT / "report.md").write_text(md, encoding="utf-8")
     (SITE / "latest.md").write_text(md, encoding="utf-8", newline="\n")
-    _write_llms(cfg, latest, ctxs)
+    _write_llms(cfg, latest, ctxs, guide_ctx)
     official = [c for c in ctxs if c["official"]]
     return official[-1] if official else None
 
@@ -285,7 +333,7 @@ def _write_feed(cfg, issues):
     ET.ElementTree(feed).write(SITE / "feed.xml", encoding="utf-8", xml_declaration=True)
 
 
-def _write_llms(cfg, latest, ctxs):
+def _write_llms(cfg, latest, ctxs, guide_ctx=None):
     """llms.txt（llmstxt.org 约定）：告诉 AI Agent 这里有什么、从哪读，只列真实存在的文件。"""
     base = cfg.get("site_url", "").rstrip("/") + "/"
     repo = cfg.get("repo_url", "").rstrip("/")
@@ -298,8 +346,11 @@ def _write_llms(cfg, latest, ctxs):
              "## 最新一期", "",
              f"- [网页]({base}): {title_of(latest)}，收录 {len(latest['ranked'])} 个项目",
              f"- [Markdown 版]({base}latest.md): 同一期的纯文本，适合直接交给模型阅读",
-             f"- [Atom 订阅]({base}feed.xml): 最近 20 个正式期，每期附近期趋势、本期变化和升星榜摘要",
-             "", "## 往期", ""]
+             f"- [Atom 订阅]({base}feed.xml): 最近 20 个正式期，每期附近期趋势、本期变化和升星榜摘要"]
+    if guide_ctx:
+        lines.append(f"- [实用分级]({base}guide.html): 主榜和升星榜头部项目按实用性分档，"
+                     f"每个附应用场景和上手门槛（依据 {guide_ctx['s']['date']} 的快照）")
+    lines += ["", "## 往期", ""]
     lines += [f"- [{title_of(c).split('：')[0]}]({base}archive/{c['s']['date']}.html): 收录 {len(c['ranked'])} 个项目"
               for c in reversed(ctxs)]
     if repo:

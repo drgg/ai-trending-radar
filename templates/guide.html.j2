@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% set label = ('第 %d 期' % no) if official else '临时更新' %}
+<title>实用分级 · AI 热门项目周报（{{ s.date }}）</title>
+<meta name="description" content="{{ n_items }} 个 GitHub 热门 AI 项目按实用性分档，每个附应用场景、适合人群和上手门槛。">
+<link rel="alternate" type="application/atom+xml" title="GitHub AI 热门项目周报" href="{{ root }}feed.xml">
+<link rel="preload" href="{{ root }}assets/fonts/serif-heading.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+{% include "_base.css.j2" %}
+
+/* 分档说明 */
+.tier-def{display:grid;grid-template-columns:auto 1fr;gap:8px 24px;margin:0;font-size:14px;line-height:1.6}
+.tier-def dt{font-weight:600;white-space:nowrap}
+.tier-def dt .n{font-weight:400;color:var(--muted);margin-left:8px}
+.tier-def dd{margin:0;color:var(--ink-2)}
+.method{margin-top:16px;font-size:13px;color:var(--muted);line-height:1.7}
+
+/* 领域筛选：只在有 JS 时出现，没有 JS 时全部可见 */
+.filter{display:none;flex-wrap:wrap;gap:8px;margin-top:32px}
+.js .filter{display:flex}
+.filter button{font:13px var(--sans);color:var(--ink-2);background:none;border:1px solid var(--line-strong);border-radius:8px;padding:4px 12px;cursor:pointer}
+.filter button:hover{color:var(--accent);border-color:var(--accent)}
+.filter button[aria-pressed="true"]{color:var(--canvas);background:var(--ink);border-color:var(--ink)}
+.filter button .n{color:inherit;margin-left:4px}
+
+/* 每一档 */
+section.tier .blk-head{margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--line-strong)}
+section.tier.warn .blk-head{border-bottom-color:var(--warn-line)}
+.warn-mark{color:var(--warn-ink)}
+.tier-desc{font-size:14px;color:var(--ink-2);margin:0 0 8px}
+.cat-note{margin:0 0 8px;padding:8px 12px;background:var(--warn-wash);border-left:3px solid var(--warn-line);border-radius:0 8px 8px 0;font-size:14px}
+.g-list{list-style:none;margin:0;padding:0}
+.g-item{padding:24px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+.item-title{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.item-title .nm{font-size:18px;font-weight:600}
+.stars{font-size:14px;color:var(--muted);white-space:nowrap}
+.stars .d{color:var(--up);font-weight:600;margin-left:8px}
+.tagline{font-size:16px;color:var(--ink-2);margin-top:4px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.g-item .f{margin-top:12px}
+.g-item h4{margin:0 0 4px;font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+.g-item li+li{margin-top:4px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:12px 0 0;font-size:14px;line-height:1.6}
+.kv dt{color:var(--muted);font-weight:600;font-size:13px;padding-top:1px}
+.kv dd{margin:0;color:var(--ink-2);min-width:0}
+.more-link{margin-top:12px;font-size:14px}
+
+/* 升星榜头部的完整介绍：周报页没有它们的名录条目，折叠放在这里 */
+details.intro{margin-top:12px}
+details.intro>summary{cursor:pointer;font-size:14px;color:var(--accent)}
+details.intro .detail{margin-top:8px;padding:16px;background:var(--surface);border-radius:8px;font-size:14px;line-height:1.7}
+.detail .meta{font-size:13px;color:var(--muted)}
+.detail .f{margin-top:12px}
+.detail pre{margin:4px 0 0;padding:8px 12px;overflow-x:auto;background:var(--canvas);border:1px solid var(--line);border-radius:8px;font:13px/1.6 var(--mono)}
+
+@media (max-width:640px){
+  .tier-def{grid-template-columns:1fr;row-gap:0}
+  .tier-def dd{margin-bottom:8px}
+  .kv{grid-template-columns:1fr;row-gap:0}
+  .kv dt{padding-top:8px}
+}
+@media print{
+  .filter{display:none!important}
+  .g-item[hidden],section[hidden]{display:block!important}
+  .callout,.notes,.cat-note,details.intro .detail{background:none;border:1px solid var(--line)}
+  a{color:var(--ink)}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add("js")</script>
+
+<header class="mast"><div class="wrap"><div class="mast-in">
+  <div class="eyebrow">AI 热门项目周报</div>
+  <h1>实用分级</h1>
+  <p class="dateline num">{{ date_cn }} · 依据<a href="{{ root }}{{ issue_href }}">{{ label }}</a>的主榜和升星榜{% if s.date != latest_date %}（最新一期没有生成分级，沿用这一期的）{% endif %}</p>
+  <dl class="props num">
+    <dt>收录</dt>
+    <dd>主榜 {{ n_main }} 个{% if n_surge %} + 升星榜头部 {{ n_surge }} 个（升星榜写介绍、但不在主榜的项目）{% endif %}，共 {{ n_items }} 个</dd>
+    <dt>分档</dt>
+    <dd>{% for t in tiers %}<a href="#tier-{{ t.key }}">{{ t.key }} {{ t.name }} {{ t.projects|length }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</dd>
+    <dt>周报</dt>
+    <dd><a href="{{ root }}index.html">回到最新一期 →</a></dd>
+  </dl>
+</div></div></header>
+
+<main class="wrap">
+
+<section class="blk" id="how" aria-label="分档说明">
+  <div class="callout">
+    <dl class="tier-def">
+      {% for t in tiers %}
+      <dt>{% if t.warn %}<span class="warn-mark" aria-hidden="true">⚠ </span>{% endif %}<a class="nm" href="#tier-{{ t.key }}">{{ t.key }} {{ t.name }}</a><span class="n num">{{ t.projects|length }} 个</span></dt>
+      <dd>{{ t.desc }}</dd>
+      {% endfor %}
+    </dl>
+    <p class="method">分档、应用场景和上手说明由 {{ s.model }} 根据每个项目的介绍生成（介绍先由 README 整理），判断时从最后一档往前看、符合就停。门槛「低」是一条命令或一个安装包就能用，「中」还要配 Key、设备或依赖，「高」要部署服务、二次开发或需要专业背景。分档是对多数读者而言的判断，同一个项目对不同的人实用性不同。</p>
+  </div>
+</section>
+
+{% if domains|length > 1 %}
+<div class="filter" role="group" aria-label="按领域筛选">
+  <button type="button" data-filter="" aria-pressed="true">全部<span class="n num">{{ n_items }}</span></button>
+  {% for d, n in domains %}<button type="button" data-filter="{{ d }}" aria-pressed="false">{{ d }}<span class="n num">{{ n }}</span></button>{% endfor %}
+</div>
+{% endif %}
+
+{% for t in tiers if t.projects %}
+<section class="blk tier{% if t.warn %} warn{% endif %}" id="tier-{{ t.key }}" aria-labelledby="h-{{ t.key }}">
+  <div class="blk-head"><h2 id="h-{{ t.key }}">{% if t.warn %}<span class="warn-mark" aria-hidden="true">⚠ </span>{% endif %}{{ t.key }} {{ t.name }}</h2><span class="aside num">{{ t.projects|length }} 个</span></div>
+  {% if t.warn %}<p class="cat-note">{{ t.desc }}</p>{% else %}<p class="tier-desc">{{ t.desc }}</p>{% endif %}
+  <ol class="g-list">
+    {% for e in t.projects %}
+    {% set v = e.v %}{% set p = e.p %}
+    <li class="g-item" id="g-{{ e.full_name }}" data-domain="{{ p.domain }}">
+      <div class="item-title">
+        <a class="nm" href="{{ e.html_url }}">{{ e.full_name }}</a>
+        <span class="stars num">★ {{ '{:,}'.format(e.stars) }}{% if e.src == 'surge' %}<span class="d">+{{ '{:,}'.format(e.last7) }} 近 7 天</span>{% elif e.delta %}<span class="d">+{{ '{:,}'.format(e.delta) }}</span>{% endif %}</span>
+      </div>
+      <p class="tagline">{{ v.tagline }}</p>
+      <p class="tags"><span class="tag cat">{{ p.domain }}</span><span class="tag cat">门槛{{ p.effort }}</span>{% if e.src == 'surge' %}<span class="tag cat">升星榜</span>{% endif %}</p>
+      <div class="f"><h4>应用场景</h4><ul>{% for x in p.scenes %}<li>{{ x }}</li>{% endfor %}</ul></div>
+      <dl class="kv">
+        {% if v.audience %}<dt>适合</dt><dd>{{ v.audience }}</dd>{% endif %}
+        {% if p.effort_note %}<dt>上手</dt><dd>{{ p.effort_note }}</dd>{% endif %}
+        {% if p.reason %}<dt>分档理由</dt><dd>{{ p.reason }}</dd>{% endif %}
+      </dl>
+      {% if e.notes %}<ul class="notes" aria-label="提示">{% for r in e.notes %}<li>{{ r }}</li>{% endfor %}</ul>{% endif %}
+      {% if e.src == 'main' %}
+      <p class="more-link"><a href="{{ root }}{{ e.intro_href }}">完整介绍 →</a></p>
+      {% else %}
+      <details class="intro"><summary>完整介绍</summary>
+        <div class="detail">
+          <p class="meta num">{% if e.homepage %}<a href="{{ e.homepage }}">主页 ↗</a> · {% endif %}{{ e.language or "语言未标注" }} · {{ e.license or "无许可证" }} · 创建 {{ e.created_at }} · 最后推送 {{ e.pushed_at }} · 前 7 天 +{{ '{:,}'.format(e.prev7) }}</p>
+          {% if v.positioning and v.positioning != v.tagline %}<div class="f"><h4>定位</h4><p>{{ v.positioning }}</p></div>{% endif %}
+          {% if v.features %}<div class="f"><h4>能做什么</h4><ul>{% for x in v.features %}<li>{{ x }}</li>{% endfor %}</ul></div>{% endif %}
+          {% if v.highlights %}<div class="f"><h4>亮点</h4><ul>{% for x in v.highlights %}<li>{{ x }}</li>{% endfor %}</ul></div>{% endif %}
+          {% if v.cmd or v.note %}<div class="f"><h4>上手</h4>{% if v.cmd %}<pre><code>{{ v.cmd }}</code></pre>{% endif %}{% if v.note %}<p>{{ v.note }}</p>{% endif %}</div>{% endif %}
+        </div>
+      </details>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endfor %}
+</main>
+
+<footer><div class="wrap"><div class="in">
+  <p>依据 {{ s.date }} 的快照，页内星数均为当日数值。主榜项目的绿色 +N 是{% if prev %}较第 {{ prev.no }} 期（{{ prev.days }} 天）的增量{% else %}较上期的增量{% endif %}，升星榜头部的是近 7 天新增星数。分级和应用场景由 {{ s.model }} 根据介绍生成，性能数字多为项目方自报。</p>
+  <p>分档规则见仓库 <code>config.yml</code> 的 <code>guide</code> 段 · <a href="{{ root }}index.html">周报</a> · <a href="{{ root }}feed.xml">RSS</a> · <a href="{{ repo_url }}">源码</a> · 生成于 {{ built }}</p>
+</div></div></footer>
+
+<script>
+(function(){
+  var items = [].slice.call(document.querySelectorAll(".g-item"));
+  var secs = [].slice.call(document.querySelectorAll("section.tier"));
+  var btns = [].slice.call(document.querySelectorAll(".filter button"));
+  function apply(d){
+    btns.forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.filter === d)); });
+    items.forEach(function(li){ li.hidden = !!d && li.dataset.domain !== d; });
+    secs.forEach(function(s){ s.hidden = !s.querySelector(".g-item:not([hidden])"); });
+  }
+  btns.forEach(function(b){ b.addEventListener("click", function(){ apply(b.dataset.filter); }); });
+  // 跳到某个项目时先清掉筛选，免得目标被藏起来
+  addEventListener("hashchange", function(){
+    var el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (el && el.hidden){ apply(""); el.scrollIntoView(); }
+  });
+})();
+</script>
+</body>
+</html>
