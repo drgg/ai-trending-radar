@@ -1,38 +1,41 @@
 ---
-version: 1
+version: 2
 name: ai-trending-radar-issue
 description: >
   每周一期的技术刊物，不是一张查询表。先报这周变了什么，完整名录退到后面当附录。
-  暖白纸面、衬线标题、无衬线正文，结构借 Notion 的文档页：属性行、标注块、折叠列表。
-  颜色只做三件事：可点击（靛蓝）、增长（绿，永远带 + 号）、提示（琥珀，永远带文字）。
-  不用阴影，关掉 JS 也能读全文、能打印。
+  2026-11 起：冷灰底的「观测记录」，雷达屏幕的字符点阵做刊头，琥珀色只给信号（加速、最值得看），
+  第一屏是一张能读出“谁在加速”的图。另有价值分析页，先给结论，再给逐项证据。
 
-colors:
-  canvas: "#fbfaf8"
-  surface: "#f3f2ee"
-  line: "#e4e2dc"
-  line-strong: "#cfccc4"
-  ink: "#23221f"
-  ink-2: "#4f4d47"
-  muted: "#67655e"
-  accent: "#3350b0"
-  accent-wash: "#eef1fb"
-  up: "#1d7348"
-  warn-wash: "#fbf1e0"
-  warn-line: "#d98a1c"
-  warn-ink: "#7a4a00"
+colors:            # 亮 / 暗
+  bg: "#f5f7f8 / #0e1216"
+  raise: "#e9edef / #1a2026"
+  line: "ink 12% / ink 12%"
+  ink: "#15202a / #e6ebef"
+  ink-2: "#45525e / #a9b4bd"
+  muted: "#5f6b77 / #8d99a4"
+  signal: "#a85400 / #f5a524"     # 唯一强调色：加速、最值得看、焦点
+  up: "#1d7348 / #6fd09f"         # 星数增量，永远带 + 号
+  warn: "#8a4b00 / #e0a85c"       # 风险提示，永远带 ⚠ 和文字
 
 typography:
-  display:
-    fontFamily: "'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', STSong, serif"
-    fontSize: 36px
-    fontWeight: 700
-    lineHeight: 1.25
-  body:
-    fontFamily: "system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif"
-    fontSize: 16px
-    lineHeight: 1.8
+  heading: "ZCOOL XiaoWei 400，自托管子集（scripts/fetch_font.py）"
+  mono: "Geist Mono 400/500，自托管子集，用于数字、日期、读数"
+  body: "system-ui, PingFang SC, Microsoft YaHei, Noto Sans SC, 15px/1.7"
 ---
+
+## 2026-11-05 改版（以本节为准，下文与之冲突的旧规则作废）
+
+为什么改：原版单栏 720px、颜色只用于链接，整页像一份长文档；第一屏只有属性行和长段落，读者看不出这周的主线。
+方向用 unslop 的流程定：先审计，再定性格（冷静、可核对、像值班日志）、世界（雷达观测记录）、一个亮点（加速图 / 价值雷达）和一个标志细节（读数 `前 7 天 → 近 7 天`）。
+
+- **配色**：冷灰中性色 + 一个强调色琥珀（signal）。琥珀只给「加速」「现在值得看」和焦点框，链接不再上色，靠细下划线区分
+- **字体**：标题从 Noto Serif SC 700 换成 ZCOOL XiaoWei 400（只用一档字重，层级靠字号）；数字换 Geist Mono。两款都自托管子集，国内照样稳定
+- **布局**：内容宽 1200px。刊头大期号 + 雷达底纹；第一屏左边趋势要点和「本期最值得看」，右边加速图；之后每个区块左标题右内容
+- **雷达底纹**：唯一的装饰，来源是公有领域的二战雷达屏幕照片（`scripts/make_scope.py`），转成字符点阵、颜色随主题，只画一次不循环。它和刊名对应，不是通用装饰；别处不再加图形
+- **加速图**：升星榜全部项目，横轴前 7 天、纵轴近 7 天，双对数坐标，持平线以上是在加速。加速的点用琥珀，其余用中性灰；标签自动避让，放不下就不标
+- **头像与图标**：项目行前加作者头像（GitHub 提供，懒加载）；分类标题配 Phosphor 双色调图标，颜色跟随文字，不按分类上色
+- **价值分析页**（`analysis.html`）：结论 + 价值雷达 → 前几名逐项分析（为什么有价值 / 保留意见 / 数据 / 项目自设的社交预览图）→ 下一批 → 全部项目的证据表 → 按个人情况再筛。分数规则写在页面上，人工标注与自动推断分开标出
+- 仍然保留：关掉 JS 能读全文（分析页的个人匹配除外）、打印时名录全部展开、所有日期写绝对日期、增量带 + 号、风险带 ⚠ 和文字、≤640px 无横向滚动
 
 # AI 热门项目周报 · 刊物版 设计规格
 

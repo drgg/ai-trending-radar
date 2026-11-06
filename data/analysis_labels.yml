@@ -1,0 +1,530 @@
+# 价值分析页的人工标注（scripts/analysis.py 读取）。有标注的项目以这里为准，没有的按介绍文字的关键词推断，页面上会标出「自动推断」。
+# d 方向（第一个为主方向）：code 编码工作流 / model 模型接入与额度 / design 设计与视觉 / video 视频与内容创作 / web 网页自动化 /
+#   device 手机与设备操作 / platform 自托管 Agent 平台 / infra Agent 基础设施 / growth SEO 与资讯运营 / career 求职准备 /
+#   local 本地推理与硬件 / niche 专项工具
+# form 上手形态；l 门槛 1 装即用 / 2 命令行或依赖 / 3 自托管或二次开发
+# U 可用 0–2、R 风险扣分 0–2：人工判断，依据是周报简介、风险提示和 README，复核于 2026-11-05（第 7 期）
+# req 必须已在用的宿主；hosts 已适配的宿主（cc / codex / cursor / gemini / dsh / chatgpt）；any 标准 Agent Skill；os 说明里写明的系统
+# need 要额外准备的东西；t 经历标签、h 使用习惯标签，见 scripts/analysis.py 的 TAGS 与 HABITS
+AhmadHassan-BTed/Jantt:
+  d:
+  - niche
+  form: 代码库
+  l: 2
+  U: 1
+  R: 1
+  t:
+  - frontend
+  - pm
+Albert-Weasker/niubigeo:
+  d:
+  - growth
+  form: 自托管工具
+  l: 3
+  U: 1
+  R: 1
+  need: 可调用的多个模型
+  t:
+  - seo
+anhao/ai-pose-gallery-zh:
+  d:
+  - video
+  form: 网页与 ComfyUI 节点
+  l: 1
+  U: 1
+  R: 2
+  t:
+  - painting
+ApodexAI/FrontierAgent:
+  d:
+  - code
+  - infra
+  form: 终端 Agent
+  l: 2
+  U: 1
+  R: 0
+  os:
+  - macOS
+  - Linux
+  t:
+  - agentdev
+browser-use/jev-ultrafast:
+  d:
+  - web
+  form: 命令行与代码库
+  l: 2
+  U: 0
+  R: 1
+  t:
+  - scrape
+ccch1mneyyy/dsh-Go:
+  d:
+  - device
+  - code
+  form: 手机应用
+  l: 1
+  U: 1
+  R: 1
+  req:
+  - dsh
+  os:
+  - Android
+  t:
+  - android
+  h:
+  - mobile
+CopilotKit/OpenBot:
+  d:
+  - platform
+  form: 自托管模板
+  l: 3
+  U: 0
+  R: 1
+  need: Docker、Bun 1.4+ 和模型 Key
+  t:
+  - docker
+  - agentdev
+CopilotKit/OpenDots:
+  d:
+  - platform
+  form: 自托管模板
+  l: 3
+  U: 0
+  R: 1
+  need: 自行配置模型和渠道服务
+  t:
+  - agentdev
+CopilotKit/openmuse:
+  d:
+  - platform
+  form: 自托管应用
+  l: 3
+  U: 1
+  R: 1
+  t:
+  - agentdev
+dataelement/dsh-desktop:
+  d:
+  - code
+  form: 桌面应用
+  l: 1
+  U: 1
+  R: 1
+  req:
+  - dsh
+  os:
+  - macOS
+  - Windows
+deeplethe/utopia:
+  d:
+  - infra
+  form: 自托管服务
+  l: 3
+  U: 0
+  R: 1
+  t:
+  - kg
+  - docker
+  - mcp
+deepseek-ai/dsh-superagent-prototype:
+  d:
+  - code
+  form: DSH 插件包（研究原型）
+  l: 3
+  U: 0
+  R: 1
+  req:
+  - dsh
+  t:
+  - agentdev
+Ebony-Vinyl/dsh-our-free-model:
+  d:
+  - model
+  form: DSH 插件
+  l: 1
+  U: 2
+  R: 2
+  req:
+  - dsh
+  h:
+  - models
+elie222/rakazo:
+  d:
+  - platform
+  form: 自托管平台
+  l: 3
+  U: 1
+  R: 1
+  need: 自备模型和计算沙箱
+  t:
+  - docker
+  - agentdev
+eternityspring/shuohao-skills:
+  d:
+  - video
+  form: Agent Skill
+  l: 1
+  U: 2
+  R: 0
+  t:
+  - drama
+  - video
+  any: true
+google/artemis:
+  d:
+  - device
+  form: 命令行与 MCP
+  l: 2
+  U: 1
+  R: 1
+  t:
+  - android
+  - testing
+  - mcp
+google/elephant-goldfish-model:
+  d:
+  - code
+  form: Agent 插件
+  l: 1
+  U: 2
+  R: 0
+  hosts:
+  - cc
+  - codex
+  h:
+  - spec
+guillaumemeyer/watermarks-remover:
+  d:
+  - niche
+  form: Skill 与本地服务
+  l: 1
+  U: 1
+  R: 2
+  any: true
+heydamir/unslop:
+  d:
+  - design
+  form: Agent Skill
+  l: 1
+  U: 2
+  R: 0
+  hosts:
+  - cc
+  - codex
+  t:
+  - frontend
+  - ui
+Hisn00w/ASu-skills:
+  d:
+  - career
+  form: Agent 插件
+  l: 1
+  U: 2
+  R: 1
+  hosts:
+  - codex
+  - cc
+  - cursor
+  t:
+  - career
+Human-Agent-Society/reef:
+  d:
+  - infra
+  form: 研发框架
+  l: 3
+  U: 1
+  R: 0
+  t:
+  - training
+  - agentdev
+Jakeschincariol/replica-skill:
+  d:
+  - niche
+  form: Claude Code 技能包
+  l: 2
+  U: 1
+  R: 2
+  req:
+  - cc
+  t:
+  - reverse
+jev-chat/jev-chat-jarvis:
+  d:
+  - device
+  form: 手机与桌面应用
+  l: 1
+  U: 1
+  R: 2
+  os:
+  - Android
+  - Windows
+  - macOS
+  - iOS
+  t:
+  - android
+jub0t/Concat:
+  d:
+  - video
+  form: 桌面应用
+  l: 2
+  U: 1
+  R: 1
+  t:
+  - video
+  - mcp
+kaankiziltug/logo-design-skill:
+  d:
+  - design
+  form: Agent Skill
+  l: 1
+  U: 2
+  R: 0
+  t:
+  - brand
+  any: true
+KKKKhazix/AIHOT:
+  d:
+  - growth
+  form: 自托管服务
+  l: 3
+  U: 2
+  R: 0
+  need: Docker、Node.js 24 和模型 API Key
+  t:
+  - news
+  - docker
+  - llm
+lemomo-ai/lemo-opuscar:
+  d:
+  - video
+  form: Claude Code 技能包
+  l: 2
+  U: 1
+  R: 0
+  req:
+  - cc
+  need: Node 20+、ffmpeg 7+、Python 3.11+
+  t:
+  - video
+lexmount/moli:
+  d:
+  - web
+  form: 无头浏览器
+  l: 2
+  U: 1
+  R: 1
+  t:
+  - scrape
+Louis-CFM/coucou:
+  d:
+  - code
+  form: 桌面与手机伴侣
+  l: 1
+  U: 2
+  R: 1
+  hosts:
+  - cc
+  - codex
+  - cursor
+  - gemini
+  t:
+  - ios
+  h:
+  - parallel
+  - mobile
+miqdadbadjuber/anti-slop:
+  d:
+  - design
+  form: Agent Skill
+  l: 1
+  U: 2
+  R: 0
+  t:
+  - frontend
+  - ui
+  any: true
+monid-ai/monid:
+  d:
+  - infra
+  form: 工具 API 网关
+  l: 2
+  U: 1
+  R: 0
+  need: Monid 密钥
+  t:
+  - agentdev
+  - mcp
+Oldcircle/geo-sleuth:
+  d:
+  - niche
+  form: Agent Skill
+  l: 1
+  U: 2
+  R: 2
+  t:
+  - osint
+  any: true
+PC2005-cloud/dsh-pet:
+  d:
+  - niche
+  form: DSH 插件
+  l: 1
+  U: 2
+  R: 1
+  req:
+  - dsh
+QingYunA/answer-me-with-html:
+  d:
+  - code
+  form: Agent Skill
+  l: 1
+  U: 2
+  R: 0
+  t:
+  - writing
+  h:
+  - docs
+  any: true
+rddmwmddr/android-ad-cleaner:
+  d:
+  - device
+  form: 桌面客户端与脚本
+  l: 1
+  U: 2
+  R: 1
+  need: 一台能用 adb 连接的安卓手机
+  t:
+  - android
+rehan-remade/universal-modder:
+  d:
+  - niche
+  form: 技能包与命令行
+  l: 2
+  U: 1
+  R: 1
+  need: fal MCP 和你自有的 PC 游戏
+  t:
+  - game
+  - reverse
+  any: true
+Ryze-AI-Adgent/open-seo-mcp-skills:
+  d:
+  - growth
+  form: Skill 与 MCP
+  l: 1
+  U: 2
+  R: 1
+  hosts:
+  - cc
+  need: 自己的 Search Console、GA4 或广告账号
+  t:
+  - seo
+  - mcp
+s1dashu/ip-as-logo-skill:
+  d:
+  - design
+  form: Agent Skill
+  l: 1
+  U: 2
+  R: 1
+  t:
+  - brand
+  any: true
+tamaratran/fast-jev-compaction:
+  d:
+  - code
+  form: Claude Code 插件与代码库
+  l: 1
+  U: 1
+  R: 0
+  req:
+  - cc
+  h:
+  - context
+totec448-spec/chat-on-steroids:
+  d:
+  - code
+  form: 桌面应用与浏览器扩展
+  l: 2
+  U: 1
+  R: 2
+  req:
+  - chatgpt
+  need: 能创建自定义 MCP 应用的 ChatGPT 账号
+  t:
+  - mcp
+  h:
+  - parallel
+wheresryan22/anatomy:
+  d:
+  - design
+  form: Agent Skill
+  l: 1
+  U: 2
+  R: 0
+  t:
+  - writing
+  h:
+  - docs
+  any: true
+XiaoDuoYa/codex-with-chatgpt:
+  d:
+  - code
+  - model
+  form: MCP 连接
+  l: 2
+  U: 1
+  R: 2
+  req:
+  - codex
+  need: ChatGPT Plus 或 Pro 订阅
+  t:
+  - mcp
+  h:
+  - spec
+  - models
+yetone/magpie:
+  d:
+  - model
+  form: 本地网关
+  l: 2
+  U: 2
+  R: 2
+  hosts:
+  - cc
+  - codex
+  - gemini
+  h:
+  - models
+yi1108/printfilm:
+  d:
+  - video
+  form: 自托管服务
+  l: 3
+  U: 1
+  R: 1
+  t:
+  - video
+  - drama
+  - docker
+Zagitta/gpu-unlock:
+  d:
+  - local
+  form: Linux 内核模块
+  l: 3
+  U: 1
+  R: 1
+  os:
+  - Linux
+  need: RTX 20、30 或 40 系显卡
+  t:
+  - training
+zai-org/ZCode:
+  d:
+  - code
+  form: 源码构建
+  l: 3
+  U: 0
+  R: 0
+  t:
+  - agentdev

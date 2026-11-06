@@ -1,0 +1,27 @@
+// 雷达底纹：把 design/assets/radar-scope.json 的 96×96 亮度网格画成字符点阵，颜色取 --scope，随主题重画。
+// 只画一次、不循环；canvas 是装饰，屏幕阅读器忽略。
+(function(){
+  var rows = {{ scope_rows|tojson }};
+  var ch = [" ", " ", ".", ".", "·", ":", ":", "+", "|", "▪"];
+  function draw(cv){
+    var w = cv.clientWidth, dpr = Math.min(2, window.devicePixelRatio || 1);
+    if (!w) return;
+    var step = w / 96 < 3.5 ? 2 : 1, n = 96 / step, cell = w / n;
+    cv.width = Math.round(w * dpr); cv.height = Math.round(w * dpr);
+    var c = cv.getContext("2d"); c.setTransform(dpr, 0, 0, dpr, 0, 0); c.clearRect(0, 0, w, w);
+    c.fillStyle = getComputedStyle(document.documentElement).getPropertyValue("--scope");
+    c.font = "500 " + (cell + 1) + "px ui-monospace,Consolas,monospace"; c.textAlign = "center"; c.textBaseline = "middle";
+    for (var y = 0; y < n; y++) for (var x = 0; x < n; x++){
+      var v = +rows[y * step].charAt(x * step);
+      if (v > 1) c.fillText(ch[v], x * cell + cell / 2, y * cell + cell / 2);
+    }
+  }
+  var cvs = [].slice.call(document.querySelectorAll("canvas.scope"));
+  function all(){ cvs.forEach(draw); }
+  all();
+  try {
+    var ro = new ResizeObserver(all); cvs.forEach(function(c){ ro.observe(c); });
+    new MutationObserver(all).observe(document.documentElement, {attributes: true, attributeFilter: ["data-theme"]});
+    matchMedia("(prefers-color-scheme: dark)").addEventListener("change", all);
+  } catch (e) {}
+})();

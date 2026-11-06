@@ -16,6 +16,7 @@ from pathlib import Path
 
 import yaml
 
+import activity
 import diff
 import fetch
 import notify
@@ -116,6 +117,14 @@ def main():
     (diff.SNAP_DIR / f"{today.isoformat()}.json").write_text(
         json.dumps(snapshot, ensure_ascii=False, indent=1), encoding="utf-8")
 
+    print("③b 维护信号（价值分析页用）…")
+    try:  # GraphQL 批量查，不占 REST 配额；失败时分析页只按最后推送日期估算维护
+        act = activity.collect([e["full_name"] for e in entries], today)
+        activity.save(today.isoformat(), act)
+        print(f"   {len(act['repos'])}/{len(entries)} 个仓库")
+    except Exception as e:
+        print(f"  ! 维护信号采集失败，分析页按最后推送日期估算：{type(e).__name__}: {e}")
+
     print("④ 渲染页面…")
     publish(cfg, notify_ok=not args.dry_run)
     print(f"本次模型调用共 {summ.calls} 次")
@@ -126,7 +135,7 @@ def main():
 def publish(cfg, notify_ok):
     """重渲染整站；最新一期是正式期时写通知文件（工作流据此开 Issue，已发过的会跳过）。"""
     latest_issue = render.render_site(cfg)
-    print("   已写 site/index.html、site/archive/*.html、site/feed.xml、report.md")
+    print("   已写 site/index.html、site/analysis.html、site/archive/*.html、site/feed.xml、report.md")
     if notify_ok and latest_issue:
         print(f"   通知：{notify.write(latest_issue, cfg)}")
 

@@ -6,21 +6,53 @@
 """
 import copy
 import datetime as dt
+import json
 import re
+import string
+from types import SimpleNamespace
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from markupsafe import Markup, escape
 
+import analysis
+import charts
 import diff
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 ARCHIVE = SITE / "archive"
 
-# 衬线标题只用这些字，scripts/fetch_font.py 按它下载字体子集；改了标题文字要重跑那个脚本
-HEADING_GLYPHS = "".join(sorted(set("第期创刊号临时更新本期变化编者按名录往期升星榜新锐与近趋势0123456789· ")))
+# 标题字体（ZCOOL XiaoWei）只含这些字，scripts/fetch_font.py 按它下载子集；改了标题文字要重跑那个脚本。
+# 全部 ASCII 也收进去：分析页的项目名用标题字体。render_site 会检查渲染出的标题有没有用到子集外的字
+HEADING_GLYPHS = "".join(sorted(set(
+    "第期创刊号临时更新本期变化编者按名录往期升星榜新锐与近趋势这一周谁在加速最值得看的个项目价值分析下批全部按你情况再筛遍"
+    "所有有风险先跟踪需了解暂不优" + string.printable.strip() + "，· ")))
+MONO_GLYPHS = "".join(sorted(set(string.printable.strip() + " ·→★−–—…%+")))
+TEMPLATES = ROOT / "templates"
+ICON_DIR = TEMPLATES / "icons"
+SCOPE = ROOT / "design" / "assets" / "radar-scope.json"
+CAT_ICONS = {"编程 Agent 与运行框架": "code", "Agent 平台与基础设施": "graph", "AI 应用产品": "cube", "本地推理与模型": "cpu",
+             "Skills 与写作/设计": "paint-brush", "开发者工具与集成": "wrench", "安全防护与合规": "shield-check",
+             "攻击性安全（仅限授权测试）": "crosshair", "越狱与绕过模型限制": "shield-warning", "其他": "toolbox"}
+
+
+def load_icons():
+    """Phosphor Icons（MIT，templates/icons/LICENSE）双色调 SVG，内联进页面，颜色跟随文字。"""
+    return {p.stem: Markup(p.read_text(encoding="utf-8").replace("<svg ", '<svg class="ic" aria-hidden="true" ', 1))
+            for p in ICON_DIR.glob("*.svg")}
+
+
+def _check_glyphs(html, where):
+    """标题字体用到的文字（h1、h2、加速图标题、分析页前几名的项目名）出现子集外的字时提醒，否则会回退到系统字体。"""
+    parts = re.findall(r"<h[12][^>]*>(.*?)</h[12]>", html, re.S)
+    parts += re.findall(r'<figcaption><b>(.*?)</b>', html)
+    parts += re.findall(r'class="top-pick[^"]*".*?<h3>(.*?)</h3>', html, re.S)
+    text = "".join(re.sub(r"<[^>]+>", "", x) for x in parts)
+    missing = sorted({c for c in text if c not in HEADING_GLYPHS and not c.isspace()})
+    if missing:
+        print(f"   ! {where} 的标题用到了字体子集外的字：{''.join(missing)}；请把它们加进 HEADING_GLYPHS 并运行 scripts/fetch_font.py")
 
 # 兜底长度：模型偶尔超出提示词里的字数上限
 LIMITS = {"tagline": 60, "positioning": 140, "item": 70, "audience": 90, "note": 90}
@@ -186,6 +218,8 @@ def issue_context(snap, snaps, cfg):
         noted=sum(1 for e in ranked if e["notes"]),
         warn=cfg.get("warn_categories") or {},
         rising=rising_view(snap.get("rising"), cfg),
+        accel_svg=charts.accel_chart((snap.get("rising") or {}).get("surge", []),
+                                     lambda x: ("#" + x["full_name"]) if x.get("in_main") else x["html_url"]),
     )
 
 
@@ -202,20 +236,30 @@ def render_site(cfg, snaps=None):
     """从全部快照重渲染整站，返回最新一个正式期的上下文（给通知用，没有正式期时为 None）。"""
     snaps = diff.load_all() if snaps is None else snaps
     ctxs = [issue_context(s, snaps, cfg) for s in snaps]
-    env = Environment(loader=FileSystemLoader(ROOT / "templates"), autoescape=select_autoescape(["html", "j2"]),
+    env = Environment(loader=FileSystemLoader(TEMPLATES), autoescape=select_autoescape(["html", "j2"]),
                       trim_blocks=True, lstrip_blocks=True)
     tpl = env.get_template("index.html.j2")
+    icons = load_icons()
     nav = [{"no": c["no"], "date": c["s"]["date"], "md": c["md"], "cn": c["date_cn"],
             "count": len(c["ranked"]), "official": c["official"]} for c in reversed(ctxs)]
     latest = ctxs[-1]
+    an = analysis.build(latest, cfg, icons)
+    scope_rows = json.loads(SCOPE.read_text(encoding="utf-8"))["rows"]
     common = dict(nav=nav, latest_date=latest["s"]["date"], site_url=cfg.get("site_url", ""),
-                  repo_url=cfg.get("repo_url", "").rstrip("/"), built=dt.date.today().isoformat())
+                  repo_url=cfg.get("repo_url", "").rstrip("/"), built=dt.date.today().isoformat(),
+                  cat_icons={c: icons[n] for c, n in CAT_ICONS.items() if n in icons}, scope_rows=scope_rows,
+                  analysis_tops=analysis.summary(an))
 
     ARCHIVE.mkdir(parents=True, exist_ok=True)
     for c in ctxs:
         (ARCHIVE / f"{c['s']['date']}.html").write_text(tpl.render(**c, **common, root="../"),
                                                         encoding="utf-8", newline="\n")
-    (SITE / "index.html").write_text(tpl.render(**latest, **common, root=""), encoding="utf-8", newline="\n")
+    index_html = tpl.render(**latest, **common, root="")
+    (SITE / "index.html").write_text(index_html, encoding="utf-8", newline="\n")
+    _check_glyphs(index_html, "site/index.html")
+    an_html = env.get_template("analysis.html.j2").render(**latest, **common, A=SimpleNamespace(**an), root="")
+    (SITE / "analysis.html").write_text(an_html, encoding="utf-8", newline="\n")
+    _check_glyphs(an_html, "site/analysis.html")
     _write_feed(cfg, [c for c in ctxs if c["official"]])
     md = _markdown(latest)
     (ROOT / "report.md").write_text(md, encoding="utf-8")
@@ -298,6 +342,7 @@ def _write_llms(cfg, latest, ctxs):
              "## 最新一期", "",
              f"- [网页]({base}): {title_of(latest)}，收录 {len(latest['ranked'])} 个项目",
              f"- [Markdown 版]({base}latest.md): 同一期的纯文本，适合直接交给模型阅读",
+             f"- [价值分析]({base}analysis.html): 用公开规则给本期项目打分（需求、采用、维护、可用、风险），先给最值得看的结论",
              f"- [Atom 订阅]({base}feed.xml): 最近 20 个正式期，每期附近期趋势、本期变化和升星榜摘要",
              "", "## 往期", ""]
     lines += [f"- [{title_of(c).split('：')[0]}]({base}archive/{c['s']['date']}.html): 收录 {len(c['ranked'])} 个项目"

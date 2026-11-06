@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% set label = ('第 %d 期' % no) if official else '临时更新' %}
+<title>{{ label }}项目价值分析 · AI 热门项目周报</title>
+<meta name="description" content="用同一套公开规则评估{{ label }}的 {{ A.items|length }} 个 AI 项目：需求、采用、维护、可用和风险，先给当下最值得看的结论。">
+<link rel="preload" href="{{ root }}assets/fonts/heading.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ root }}assets/fonts/mono.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+{% include '_base.css.j2' %}
+/* 分析页：结论 + 价值雷达 → 前几名逐项分析 → 下一批 → 全部项目的证据表 → 按个人情况再筛 */
+h1{font-size:56px;line-height:1.15}
+.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:32px;align-items:center;padding-block:24px 32px}
+.hero>*{min-width:0}
+.hero p{color:var(--ink-2);margin-top:12px;max-width:60ch}
+.tally{font:13px var(--mono);color:var(--muted);margin-top:16px}
+.radar{position:relative;max-width:840px;margin-inline:auto;width:100%}
+.radar canvas{position:absolute;left:19.76%;top:14.72%;width:60.48%;height:70.56%;display:block}
+.radar svg{position:relative;display:block;width:100%;height:auto}
+.spoke{stroke:var(--line);stroke-width:1}
+.ring{fill:none;stroke:var(--line-2);stroke-width:1;stroke-dasharray:2 5}
+.ring.edge{stroke-dasharray:none}
+.ring-l{font:12px var(--mono);fill:var(--ink-2);paint-order:stroke;stroke:var(--bg);stroke-width:3px}
+.rim{font-size:14px;fill:var(--ink-2)}
+.rim-ic{color:var(--ink-2)}
+.blip circle{stroke:var(--bg);stroke-width:1.5}
+.blip.top circle{fill:var(--signal)}
+.blip.track circle{fill:var(--ink)}
+.blip.risk circle{fill:var(--bg);stroke:var(--warn);stroke-width:2.5}
+.blip.need circle{fill:var(--ink-2)}
+.blip.hold circle{fill:var(--muted)}
+a:hover>.blip circle,a:focus-visible>.blip circle{stroke:var(--signal);stroke-width:3}
+.b-l{font:13px var(--mono);fill:var(--ink);paint-order:stroke;stroke:var(--bg);stroke-width:4px}
+.b-l.top{fill:var(--signal);font-weight:500}
+.sweep{transform-box:fill-box;transform-origin:0% 100%;opacity:0;animation:sweep 2.8s var(--ease) .2s 1 both}
+.sweep path{fill:var(--signal);opacity:.22}
+@keyframes sweep{0%{opacity:1;transform:rotate(0deg)}85%{opacity:1}100%{opacity:0;transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.sweep{animation:none}}
+.keys{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px;color:var(--ink-2);margin-top:20px}
+.keys i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:0}
+.k-top{background:var(--signal)}.k-track{background:var(--ink)}.k-risk{border:2px solid var(--warn)}.k-need{background:var(--ink-2)}.k-hold{background:var(--muted)}
+.mini-dirs{display:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 12px;font-size:13px;color:var(--ink-2);list-style:none;padding:0;margin-top:12px}
+.credit-line{font-size:12px;color:var(--muted);margin-top:8px}
+
+.top-pick{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:40px;padding-block:32px;border-top:1px solid var(--line);scroll-margin-top:8px}
+.top-pick:first-of-type{border-top-color:var(--line-2)}
+.top-pick>*{min-width:0}
+.top-pick h3{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;font:400 26px/1.35 var(--heading)}
+.lead-pick h3{font-size:34px}
+.top-pick h3 a{text-decoration:none;overflow-wrap:anywhere}
+.top-pick h3 a:hover{text-decoration:underline}
+.top-pick h3 .av{width:36px;height:36px;margin:0}
+.top-pick h3 .meta{font:13px var(--mono);color:var(--muted)}
+.tp-use{margin-top:8px;max-width:68ch}
+.tp-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;margin-top:20px}
+.tp-cols>*{min-width:0}
+h4{font-size:13px;font-weight:600;color:var(--muted);margin:0 0 8px}
+.why{list-style:none;padding:0;display:grid;gap:4px;font-size:14px;color:var(--ink-2)}
+.why li{padding-left:16px;position:relative}
+.why li::before{content:"+";position:absolute;left:0;font-family:var(--mono);color:var(--signal)}
+.why.but li::before,.why li.no::before{content:"!";color:var(--warn)}
+.why li.no{color:var(--warn)}
+.tp-side{display:grid;gap:16px;align-content:start}
+.tp-side img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);aspect-ratio:2/1;object-fit:cover;background:var(--raise)}
+.tp-data{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:13px;border-top:1px solid var(--line);padding-top:12px}
+.tp-data dt{color:var(--muted)}
+.tp-data dd{margin:0;text-align:right;font:13px var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tp-data dd.big{font-size:28px;line-height:1;color:var(--signal)}
+.tp-data dd.big small{font-size:13px;color:var(--muted)}
+.cmd{position:relative;margin-top:16px}
+pre{margin:0;padding:10px 64px 10px 12px;background:var(--raise);border-radius:8px;overflow-x:auto;font:13px/1.6 var(--mono);white-space:pre}
+.copy{position:absolute;top:6px;right:6px;font:12px var(--sans);padding:2px 8px;background:var(--bg);color:var(--ink-2);border:1px solid var(--line);border-radius:4px;cursor:pointer;display:none}
+.js .copy{display:block}
+.copy:hover{color:var(--ink)}
+
+section{padding-block:48px 64px;border-top:1px solid var(--line)}
+.brief{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;margin-top:24px}
+.brief>*{min-width:0}
+.brief h3{margin:0 0 4px}
+.brief>div>p{font-size:13px;color:var(--muted)}
+.brief ol{list-style:none;padding:0;margin-top:12px;border-top:1px solid var(--line)}
+.brief li{padding-block:12px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;align-items:baseline}
+.brief li a{font-weight:500;text-decoration:none;overflow-wrap:anywhere}
+.brief li a:hover{text-decoration:underline}
+.brief li p{grid-column:1/-1;font-size:14px;line-height:1.6;color:var(--ink-2)}
+.meta{font:13px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.rule{display:grid;grid-template-columns:96px minmax(0,1fr);gap:6px 16px;margin:16px 0 0;font-size:14px;max-width:860px}
+.rule dt{font-weight:600}.rule dd{margin:0;color:var(--ink-2)}
+.tools{display:grid;grid-template-columns:minmax(0,1fr) 160px 160px 140px;gap:12px;margin-top:24px}
+.tools label{font-size:12px;color:var(--muted);display:grid;gap:4px}
+input[type=search],select,textarea{width:100%;font:14px/1.6 var(--sans);color:var(--ink);background:transparent;border:1px solid var(--line-2);border-radius:8px;padding:8px 10px}
+.head,.row>summary{display:grid;grid-template-columns:minmax(0,1fr) 112px repeat(5,36px) 44px 96px;gap:16px;align-items:baseline}
+.head{font-size:12px;color:var(--muted);padding-block:24px 8px;border-bottom:1px solid var(--line-2)}
+.head .sc{text-align:center}.head .num{text-align:right}
+.row{border-bottom:1px solid var(--line);scroll-margin-top:8px}
+.row>summary{padding-block:12px;cursor:pointer;list-style:none}
+.row>summary::-webkit-details-marker{display:none}
+.row b{font-weight:500;overflow-wrap:anywhere}
+.row>summary:hover b{text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--muted)}
+.row:target>summary b{color:var(--signal)}
+.row small{display:block;font-size:14px;color:var(--ink-2);line-height:1.55;margin-top:2px}
+.row small.v{color:var(--muted)}
+.row .sc{font:13px var(--mono);text-align:center;color:var(--ink-2)}
+.row .sc.bad{color:var(--warn)}
+.row .tot{font:500 15px var(--mono);text-align:right}
+.row .tier{font-size:13px;color:var(--muted)}
+.row .tier.top{color:var(--signal);font-weight:600}
+.row .tier.risk{color:var(--warn)}
+.heat{font:13px var(--mono);text-align:right;white-space:nowrap}
+.heat em{display:block;font-style:normal;color:var(--muted)}
+.heat.up em{color:var(--signal)}
+.auto{font-size:12px;color:var(--muted);border:1px solid var(--line-2);border-radius:4px;padding:0 4px;margin-left:6px;font-weight:400}
+.body{padding:4px 0 24px;max-width:76ch;display:grid;gap:8px;font-size:14px}
+.body h4{margin:8px 0 0}
+.body ul{padding-left:20px}
+.warns,.warns h4{color:var(--warn)}
+.empty{padding-block:24px;color:var(--ink-2)}
+
+.fit-sec>p{color:var(--ink-2);margin:8px 0 24px;max-width:720px}
+.lead{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:48px;align-items:start}
+.lead>*{min-width:0}
+form{display:grid;gap:20px}
+fieldset{border:0;min-width:0;margin:0;padding:0}
+legend{font-size:13px;font-weight:600;margin-bottom:8px;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{position:relative;display:block}
+.chip input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chip span{display:block;padding:4px 10px;font-size:13px;line-height:20px;border:1px solid var(--line);border-radius:6px;color:var(--ink-2)}
+.chip span .ic{margin-right:4px}
+.chip input:hover+span{border-color:var(--line-2)}
+.chip input:checked+span{background:var(--ink);color:var(--on);border-color:var(--ink)}
+.chip input:focus-visible+span{outline:2px solid var(--signal);outline-offset:2px}
+textarea{min-height:112px;resize:vertical;display:block}
+.hint{font-size:12px;color:var(--muted);margin-top:6px}
+.presets{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:13px;color:var(--muted);padding-bottom:16px;margin-bottom:20px;border-bottom:1px solid var(--line)}
+.presets button{all:unset;cursor:pointer;color:var(--ink-2);text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:4px}
+.presets button:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+.presets button[aria-pressed=true]{color:var(--signal)}
+.summary{font-size:14px;color:var(--ink-2);margin-top:6px}
+.picks{list-style:none;padding:0;margin-top:20px;border-top:1px solid var(--line-2)}
+.pick{padding-block:20px;border-bottom:1px solid var(--line)}
+.pick-head{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.pick-head a{font:400 22px/1.4 var(--heading);text-decoration:none;overflow-wrap:anywhere}
+.pick-head a:hover{text-decoration:underline}
+.pick>p{margin-top:4px}
+.pick-tier{font-size:13px;color:var(--muted);margin-top:8px}
+.also{margin-top:20px;font-size:14px;color:var(--ink-2)}
+.nojs{color:var(--ink-2)}
+.js .nojs{display:none}
+
+@media (max-width:960px){
+  .hero{grid-template-columns:minmax(0,1fr);gap:8px}
+  h1{font-size:40px}
+  .top-pick{grid-template-columns:minmax(0,1fr);gap:20px}
+  .tp-side{max-width:520px}
+  .brief,.lead{grid-template-columns:minmax(0,1fr);gap:32px}
+  .tools{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .tools label:first-child{grid-column:1/-1}
+  .head{display:none}
+  .row>summary{grid-template-columns:minmax(0,1fr) auto;gap:4px 12px}
+  .row .name{grid-column:1/-1}
+  .row .sc{display:none}
+  .row .tier{grid-column:1;grid-row:2}
+  .row .tot{grid-column:2;grid-row:2}
+  .row .heat{grid-column:1/-1;grid-row:3;text-align:left}
+  .heat em{display:inline;margin-left:8px}
+}
+@media (max-width:640px){
+  .tp-cols{grid-template-columns:minmax(0,1fr);gap:20px}
+  .lead-pick h3{font-size:28px}
+  .rule{grid-template-columns:72px minmax(0,1fr)}
+  .rim{display:none}
+  .mini-dirs{display:grid}
+  .b-l{font-size:20px;stroke-width:6px}
+  .b-l.minor{display:none}
+  .ring-l{font-size:18px}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add("js")</script>
+{% macro av(owner, size=24) %}<img class="av" src="https://github.com/{{ owner }}.png?size={{ size * 2 }}" alt="" width="{{ size }}" height="{{ size }}" loading="lazy" decoding="async">{% endmacro %}
+{% macro list(xs, cls='') %}<ul class="why {{ cls }}">{% for x in xs %}<li>{{ x }}</li>{% endfor %}</ul>{% endmacro %}
+
+<div class="wrap">
+<header class="top">
+  <b><a href="{{ root }}index.html">AI 热门项目周报</a></b>
+  <nav aria-label="目录"><a href="{{ root }}index.html">← 回到{{ label }}</a><a href="#top">最值得看</a><a href="#evidence">全部分析</a><a href="#fit">按你的情况筛</a></nav>
+</header>
+
+<div class="hero">
+  <div>
+    <h1>{{ label }}最值得看的 {{ A.tops|length }} 个项目</h1>
+    <p>{{ A.items|length }} 个项目按同一套标准评估：需求是否还在涨，有没有人真的在用，还有没有人在维护，能不能试和核实，风险有多大。下面先给结论，每个判断都能在证据表里查到。</p>
+    <p class="tally">{% for k, name in A.tiers.items() %}{{ name }} {{ A.counts[k] }}{% if not loop.last %} · {% endif %}{% endfor %}</p>
+  </div>
+  <figure style="margin:0">
+    <div class="radar"><canvas class="scope" aria-hidden="true"></canvas>{{ A.radar }}</div>
+    <ul class="mini-dirs">{% for k in A.order %}<li>{{ A.dir_icons[k] | safe }} {{ A.dirs[k] }}</li>{% endfor %}</ul>
+    <div class="keys"><span><i class="k-top"></i>现在值得看</span><span><i class="k-track"></i>值得跟踪</span><span><i class="k-risk"></i>先看风险</span><span><i class="k-need"></i>按需了解</span><span><i class="k-hold"></i>暂不优先</span></div>
+    <figcaption class="credit-line">离中心越近价值分越高，点越大周增越高，点一下查看该项目分析。底纹：二战夜间雷达屏幕照片，National Museum of the U.S. Navy，公有领域</figcaption>
+  </figure>
+</div>
+
+<div id="top">
+{% for x in A.tops %}
+<article class="top-pick{% if loop.first %} lead-pick{% endif %}" id="pick-{{ x.id }}">
+  <div>
+    <h3>{{ av(x.owner, 36) }}<a href="{{ x.u }}">{{ x.n.split('/')[1] }}</a><span class="meta">{{ x.owner }}</span></h3>
+    <p class="tp-use">{{ x.pos or x.tag }}</p>
+    <div class="tp-cols">
+      <div><h4>为什么有价值</h4>{{ list(x.why) }}</div>
+      <div><h4>保留意见</h4>{{ list(x.but, 'but') }}</div>
+    </div>
+    {% if x.cmd %}<div class="cmd"><pre><code>{{ x.cmd }}</code></pre><button class="copy" type="button" data-cmd="{{ x.cmd }}">复制</button></div>{% endif %}
+  </div>
+  <div class="tp-side">
+    {% if x.og %}<img src="{{ x.og }}" alt="{{ x.n }} 的社交预览图" loading="lazy" decoding="async" width="640" height="320">{% endif %}
+    <dl class="tp-data">
+      <dt>价值分</dt><dd class="big">{{ x.total }}<small> / 11</small></dd>
+      <dt>周增</dt><dd>{% if x.prev7 is not none %}{{ '{:,}'.format(x.prev7) }} → {{ '{:,}'.format(x.wk) }}{% else %}{{ '{:+,}'.format(x.wk) }}{% endif %}</dd>
+      <dt>星数（{{ A.collected.at[5:] }}）</dt><dd>{{ '{:,}'.format(x.live) }}</dd>
+      <dt>fork 比例</dt><dd>{{ x.ratio }}%</dd>
+      {% if x.commits is not none %}<dt>近 30 天提交</dt><dd>{{ '{:,}'.format(x.commits) }}</dd><dt>提交者</dt><dd>{{ x.authors }}</dd>{% endif %}
+      <dt>许可证</dt><dd>{{ x.license }}</dd>
+    </dl>
+  </div>
+</article>
+{% endfor %}
+</div>
+
+<section id="next">
+  <h2>下一批</h2>
+  <div class="brief">
+    <div><h3>值得跟踪</h3><p>证据不错，但适用面窄、增长在放缓，或者有一项明显短板</p>
+      <ol>{% for x in A.items if x.tier == 'track' %}<li><a href="#{{ x.id }}" data-goto="{{ x.id }}">{{ av(x.owner) }}{{ x.n.split('/')[1] }}</a><span class="meta">{{ x.total }}</span><p>{{ x.v }}</p></li>{% endfor %}</ol></div>
+    <div><h3>有价值，先看风险</h3><p>用途成立，但涉及账号条款、隐私或授权，用之前先读提示</p>
+      <ol>{% for x in A.items if x.tier == 'risk' %}<li><a href="#{{ x.id }}" data-goto="{{ x.id }}">{{ av(x.owner) }}{{ x.n.split('/')[1] }}</a><span class="meta">{{ x.total }}</span><p>{{ x.v }}</p></li>{% else %}<li><p>本期没有。</p></li>{% endfor %}</ol></div>
+  </div>
+</section>
+
+<section id="evidence">
+  <h2>全部 {{ A.items|length }} 个项目的分析</h2>
+  <dl class="rule">
+    <dt>需求 0–3</dt><dd>周增不少于 3,000 / 1,000 / 300 分别得 3 / 2 / 1。优先用近 7 天新增，其次较上期变化，都没有时按采集日折算</dd>
+    <dt>采用 0–3</dt><dd>fork 占星数不少于 10% / 6% / 3% 分别得 3 / 2 / 1。这只是间接信号，收藏模板也算 fork</dd>
+    <dt>维护 0–3</dt><dd>近 30 天提交不少于 50（且提交者不少于 3）/ 10 / 1 分别得 3 / 2 / 1。超过 14 天没有推送，最高 1 分{% if not A.has_activity %}。本期没有提交数据，只按最后推送日期估算{% endif %}</dd>
+    <dt>可用 0–2</dt><dd>门槛低、有可核验结果得 2；能用但有明显限制得 1；原型、模板或功能未完成得 0</dd>
+    <dt>风险 −0–2</dt><dd>涉及账号条款、隐私、授权的核心用途扣 2，有明确但可规避的问题扣 1</dd>
+  </dl>
+  <div class="tools">
+    <label for="q">搜索<input id="q" type="search" placeholder="项目名或用途"></label>
+    <label for="ft">判断<select id="ft"><option value="">全部判断</option>{% for k, name in A.tiers.items() %}<option value="{{ k }}">{{ name }}</option>{% endfor %}</select></label>
+    <label for="fd">方向<select id="fd"><option value="">全部方向</option>{% for k in A.order %}<option value="{{ k }}">{{ A.dirs[k] }}</option>{% endfor %}</select></label>
+    <label for="st">排序<select id="st"><option value="total">价值分</option><option value="wk">周增</option><option value="stars">星数</option></select></label>
+  </div>
+  <div class="head" aria-hidden="true"><span>项目与分析</span><span>判断</span><span class="sc">需求</span><span class="sc">采用</span><span class="sc">维护</span><span class="sc">可用</span><span class="sc">风险</span><span class="num">总分</span><span class="num">星数 / 周增</span></div>
+  <div id="tbl">
+  {% for x in A.items %}
+  <details class="row" id="{{ x.id }}" data-tier="{{ x.tier }}" data-d="{{ x.d|join(' ') }}" data-total="{{ x.total }}" data-wk="{{ x.wk }}" data-stars="{{ x.stars }}" data-q="{{ (x.n ~ ' ' ~ x.tag ~ ' ' ~ x.pos)|lower }}">
+    <summary>
+      <span class="name"><b>{{ av(x.owner) }}{{ x.n }}</b>{% if x.auto %}<span class="auto" title="这个项目还没有人工标注，可用、风险和方向按关键词推断">自动推断</span>{% endif %}<small>{{ x.tag }}</small><small class="v">{{ x.v }}</small></span>
+      <span class="tier {{ x.tier }}">{{ A.tiers[x.tier] }}</span>
+      <span class="sc">{{ x.M }}</span><span class="sc">{{ x.A }}</span><span class="sc">{{ x.K }}</span><span class="sc">{{ x.U }}</span><span class="sc{% if x.R %} bad{% endif %}">{{ ('−%d' % x.R) if x.R else '0' }}</span>
+      <span class="tot">{{ x.total }}</span>
+      <span class="heat{% if x.accel %} up{% endif %}">★ {{ '{:,}'.format(x.stars) }}<em>{{ '{:+,}'.format(x.wk) }}</em></span>
+    </summary>
+    <div class="body">
+      <h4>用途</h4><p>{{ x.pos or x.tag }}</p>
+      {% if x.feat %}<h4>能做什么</h4><ul>{% for f in x.feat %}<li>{{ f }}</li>{% endfor %}</ul>{% endif %}
+      {% if x.aud %}<h4>适合谁</h4><p>{{ x.aud }}</p>{% endif %}
+      <h4>证据</h4>
+      <p class="meta" style="font-family:var(--sans)">方向：{% for k in x.d %}{{ A.dirs[k] }}{% if not loop.last %}、{% endif %}{% endfor %} · 形态：{{ x.form }} · 周增 {{ '{:,}'.format(x.wk) }}（{{ x.src }}）· fork {{ '{:,}'.format(x.forks) }}（{{ x.ratio }}%）{% if x.commits is not none %} · 近 30 天提交 {{ '{:,}'.format(x.commits) }} · 提交者 {{ x.authors }}{% endif %} · 最后推送 {{ x.pushed }}{% if x.issues is not none %} · 未关闭 issue 和 PR {{ '{:,}'.format(x.issues) }}{% endif %} · 许可证 {{ x.license }}</p>
+      {% if x.hi %}<h4>项目方说明</h4><ul>{% for h in x.hi %}<li>{{ h }}</li>{% endfor %}</ul>{% endif %}
+      {% if x.cmd %}<h4>上手</h4><div class="cmd" style="margin-top:0"><pre><code>{{ x.cmd }}</code></pre><button class="copy" type="button" data-cmd="{{ x.cmd }}">复制</button></div>{% if x.note %}<p class="meta" style="font-family:var(--sans)">{{ x.note }}</p>{% endif %}{% endif %}
+      {% if x.risks %}<div class="warns"><h4>{{ x.risks|length }} 条提示</h4><ul>{% for r in x.risks %}<li>{{ r }}</li>{% endfor %}</ul></div>{% endif %}
+      <p><a href="{{ x.u }}">在 GitHub 打开</a> · <a href="{{ root }}index.html#{{ x.n }}">周报里的完整介绍</a></p>
+    </div>
+  </details>
+  {% endfor %}
+  </div>
+  <p class="empty" id="tbl-empty" hidden>没有符合条件的项目。</p>
+</section>
+
+<section class="fit-sec" id="fit">
+  <h2>按你的情况再筛一遍</h2>
+  <p>上面的判断不看个人情况。如果你想知道哪些适合自己，可以在这里填写。结果按公开规则计算，填写内容只留在这个浏览器里。</p>
+  <p class="nojs">这一部分需要开启 JavaScript。</p>
+  <div class="lead">
+    <div>
+      <div class="presets" id="presets"></div>
+      <form id="f" autocomplete="off">
+        <fieldset><legend>在用的 AI 工具</legend><div class="chips" id="c-tools"></div></fieldset>
+        <fieldset><legend>使用习惯</legend><div class="chips" id="c-habits"></div></fieldset>
+        <fieldset><legend>想解决的方向</legend><div class="chips" id="c-goals"></div></fieldset>
+        <div>
+          <label for="exp" style="font-size:13px;font-weight:600;display:block;margin-bottom:8px">项目经历</label>
+          <textarea id="exp" placeholder="粘贴简历片段、README 或一句话描述，比如：用 Python 写过爬虫，做过 Android 自动化测试"></textarea>
+          <p class="hint" id="detected"></p>
+        </div>
+        <fieldset><legend>你的系统</legend><div class="chips" id="c-os"></div></fieldset>
+        <fieldset><legend>能接受的上手程度</legend><div class="chips" id="c-level"></div></fieldset>
+        <fieldset><legend>费用</legend><div class="chips" id="c-pay"></div></fieldset>
+      </form>
+    </div>
+    <div aria-live="polite">
+      <h2 id="r-title"></h2>
+      <p class="summary" id="r-sum"></p>
+      <ol class="picks" id="picks"></ol>
+      <p class="also" id="also"></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>星数、fork、项目介绍和风险提示来自{{ label }}快照（{{ s.date }}）；提交数、提交者和未关闭的 issue 与 PR {% if A.has_activity %}采集于 {{ A.collected.at }}，提交和作者按近 30 天统计{% else %}本期没有采集{% endif %}。介绍由 {{ s.model }} 根据 README 生成，性能数字多为项目方自报。</p>
+  <p>可用、风险两项和方向、门槛、宿主以仓库里的人工标注（<code>data/analysis_labels.yml</code>）为准，标着「自动推断」的项目还没有人工复核。价值分衡量的是当下的公开信号，不代表项目质量的定论，也不预测长期走势。</p>
+  <p>个人匹配规则：目标方向 +4（次要方向 +2），习惯 +3，已适配你的工具 +3，通用 Skill +2，经历命中每项 +2（最多 +4），语言相同 +1，加速 +1，提示不少于 3 条 −1，需额外付费或账号且你选了尽量不花钱 −2。</p>
+  <p>雷达底纹：二战夜间雷达屏幕照片，National Museum of the U.S. Navy，公有领域。头像和社交预览图来自 GitHub，版权归各项目所有。图标：Phosphor Icons（MIT）。字体：ZCOOL XiaoWei、Geist Mono（OFL）。· <a href="{{ repo_url }}">源码</a> · 生成于 {{ built }}</p>
+</footer>
+</div>
+
+<script id="data" type="application/json">{{ A.js|tojson }}</script>
+<script>
+{% include '_scope.js.j2' %}
+(function(){
+var D = JSON.parse(document.getElementById("data").textContent), ITEMS = D.items, DIRS = D.dirs, TN = D.tiers;
+function $(id){ return document.getElementById(id); }
+function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+function fmt(n){ return Number(n).toLocaleString("en-US"); }
+function short(n){ return n.split("/")[1]; }
+
+// ---------- 证据表：筛选与排序（行由服务端渲染，这里只改显隐和顺序） ----------
+var tbl = $("tbl"), rows = [].slice.call(tbl.querySelectorAll("details.row"));
+function renderTable(){
+  var q = $("q").value.trim().toLowerCase(), fd = $("fd").value, ft = $("ft").value, st = $("st").value, shown = 0;
+  rows.slice().sort(function(a, b){ return st === "total" ? (b.dataset.total - a.dataset.total) || (b.dataset.wk - a.dataset.wk) : b.dataset[st] - a.dataset[st]; })
+    .forEach(function(r){
+      var ok = (!fd || r.dataset.d.split(" ").indexOf(fd) >= 0) && (!ft || r.dataset.tier === ft) && (!q || r.dataset.q.indexOf(q) >= 0);
+      r.hidden = !ok; if (ok) shown++; tbl.appendChild(r);
+    });
+  $("tbl-empty").hidden = shown > 0;
+}
+["q", "fd", "ft", "st"].forEach(function(id){ $(id).addEventListener("input", renderTable); });
+function goTo(id){
+  $("q").value = ""; $("fd").value = ""; $("ft").value = ""; renderTable();
+  var r = $(id); if (r){ r.open = true; r.scrollIntoView({block: "center"}); }
+}
+document.addEventListener("click", function(e){
+  var a = e.target.closest && e.target.closest("[data-goto]"); if (a){ e.preventDefault(); goTo(a.getAttribute("data-goto")); return; }
+  var b = e.target.closest && e.target.closest(".copy"); if (!b) return;
+  var done = function(t){ b.textContent = t; setTimeout(function(){ b.textContent = "复制"; }, 1400); };
+  try { navigator.clipboard.writeText(b.dataset.cmd).then(function(){ done("已复制"); }, function(){ done("请手动选中"); }); } catch (x) { done("请手动选中"); }
+});
+function openHash(){ var id = decodeURIComponent(location.hash.slice(1)); if (id && $(id) && $(id).tagName === "DETAILS") goTo(id); }
+addEventListener("hashchange", openHash); openHash();
+
+// ---------- 按个人情况匹配 ----------
+var TOOLS = D.hosts, HABITS = D.habits, TAGS = D.tags, TAGNAME = D.tagname;
+var OSES = {Windows: "Windows", macOS: "macOS", Linux: "Linux"};
+var LEVELS = {1: "只装 Skill 或应用", 2: "能跑命令行、装依赖", 3: "能部署服务、改代码"};
+var PAYS = {save: "尽量不额外付费", ok: "可以付费"};
+var LANGS = {python: ["python"], typescript: ["typescript"], javascript: ["javascript", "node.js"], rust: ["rust"], go: ["golang"], kotlin: ["kotlin"], swift: ["swift"], dart: ["dart", "flutter"]};
+var PRESETS = {
+  "Claude Code 独立开发者": {tools: ["cc"], habits: ["spec"], goals: ["code", "design"], os: "macOS", level: "2", pay: "save", exp: "用 TypeScript 和 React 做独立产品，前端和界面都自己写，偶尔写技术博客"},
+  "做内容的 Mac 用户": {tools: ["cc"], habits: ["docs"], goals: ["video", "design"], os: "macOS", level: "1", pay: "save", exp: "做短视频和小说改编的短剧，也做一些品牌视觉，不写代码"},
+  "Android 测试工程师": {tools: ["cursor", "gemini"], habits: ["spec"], goals: ["device", "web"], os: "Linux", level: "2", pay: "ok", exp: "Android 自动化测试，用 Python 和 Appium 写脚本，熟悉 adb"}
+};
+var LS = "radar-fit-profile";
+function chips(id, map, type, name, icons){
+  $(id).innerHTML = Object.keys(map).map(function(k){ return '<label class="chip"><input id="' + name + "-" + k + '" type="' + type + '" name="' + name + '" value="' + k + '"><span>' + (icons ? icons[k] : "") + esc(map[k]) + "</span></label>"; }).join("");
+}
+function detect(text){
+  var t = (text || "").toLowerCase(), tags = [], langs = [];
+  function hit(w){ return /^[a-z0-9 .+-]+$/.test(w) ? new RegExp("(^|[^a-z0-9])" + w.replace(/[.+]/g, "\\$&") + "($|[^a-z0-9])").test(t) : t.indexOf(w) >= 0; }
+  Object.keys(TAGS).forEach(function(k){ if (TAGS[k].some(hit)) tags.push(k); });
+  Object.keys(LANGS).forEach(function(k){ if (LANGS[k].some(hit)) langs.push(k); });
+  return {tags: tags, langs: langs};
+}
+function score(p, u){
+  var why = [], no = [], s = 0, rel = 0, block = false;
+  if (p.excl) return {score: -1, bucket: 0, why: [], no: ["周报把它归入高风险分类，不主动推荐"]};
+  if (p.req.length && !p.req.some(function(h){ return u.tools.indexOf(h) >= 0; })){ block = true; no.push("需要先在用 " + p.req.map(function(h){ return TOOLS[h]; }).join(" 或 ")); }
+  if (p.os.length && u.os && p.os.indexOf(u.os) < 0){ block = true; no.push("说明里写的是 " + p.os.join("、") + "，不含 " + u.os); }
+  if (p.l > +u.level){ block = true; no.push(p.l === 3 ? "需要部署服务或改代码，超出你选的上手程度" : "需要命令行和依赖，超出你选的上手程度"); }
+  if (u.goals.indexOf(p.d[0]) >= 0){ s += 4; rel++; why.push("对应你想解决的“" + DIRS[p.d[0]] + "”"); }
+  else if (p.d[1] && u.goals.indexOf(p.d[1]) >= 0){ s += 2; rel++; why.push("部分对应“" + DIRS[p.d[1]] + "”"); }
+  p.h.forEach(function(h){ if (u.habits.indexOf(h) >= 0){ s += 3; rel++; why.push("贴合习惯：" + HABITS[h]); } });
+  var hostHit = p.req.concat(p.hosts).filter(function(h){ return u.tools.indexOf(h) >= 0; });
+  if (hostHit.length){ s += 3; why.push("已适配你在用的 " + TOOLS[hostHit[0]]); }
+  else if (p.any && u.tools.length){ s += 2; why.push("标准 Skill，能装进 " + TOOLS[u.tools[0]]); }
+  var ex = p.t.filter(function(t){ return u.tags.indexOf(t) >= 0; });
+  if (ex.length){ s += Math.min(4, ex.length * 2); rel++; why.push("和你的经历相关：" + ex.map(function(t){ return TAGNAME[t]; }).join("、")); }
+  if (p.lang && u.langs.indexOf(p.lang) >= 0){ s += 1; why.push("主要语言是你写过的 " + p.lang); }
+  if (p.accel){ s += 1; why.push("本周在加速：" + fmt(p.prev7) + " → " + fmt(p.wk)); }
+  if (p.risks.length >= 3){ s -= 1; no.push("有 " + p.risks.length + " 条提示，先展开看"); } else if (p.risks.length && !block){ no.push("有 " + p.risks.length + " 条提示"); }
+  if (p.paid){ if (u.pay === "save"){ s -= 2; no.push("要准备：" + (p.need || "API Key 或付费账号") + "，可能产生费用"); } else if (p.need){ no.push("要准备：" + p.need); } }
+  if (p.spam) no.push("作者账号被周报标记为疑似刷星，星数参考价值低");
+  var b = block ? 0 : (s >= 7 && rel > 0 && !p.spam) ? 3 : (s >= 4 && rel > 0) ? 2 : 1;
+  return {score: s, bucket: b, why: why, no: no};
+}
+function readForm(){
+  function all(n){ return [].slice.call(document.querySelectorAll("input[name=" + n + "]:checked")).map(function(i){ return i.value; }); }
+  var u = {tools: all("tools"), habits: all("habits"), goals: all("goals"), os: all("os")[0] || "", level: all("level")[0] || "3", pay: all("pay")[0] || "ok", exp: $("exp").value};
+  var d = detect(u.exp); u.tags = d.tags; u.langs = d.langs; return u;
+}
+function apply(p){
+  [].forEach.call(document.querySelectorAll("#f input"), function(i){ var v = p[i.name]; i.checked = Array.isArray(v) ? v.indexOf(i.value) >= 0 : v === i.value; });
+  $("exp").value = p.exp || "";
+}
+function card(r){
+  var p = r.p;
+  return '<li class="pick"><div class="pick-head"><a href="' + esc(p.u) + '">' + '<img class="av" alt="" width="24" height="24" loading="lazy" src="https://github.com/' + esc(p.owner) + '.png?size=48">' + esc(short(p.n)) + '</a><span class="meta">★ ' + fmt(p.stars) + " · " + esc(p.form) + "</span></div><p>" + esc(p.tag) + '</p><p class="pick-tier">客观判断：' + esc(TN[p.tier]) + " · 价值分 " + p.total + ' · <a href="#' + esc(p.id) + '" data-goto="' + esc(p.id) + '">看分析</a></p><ul class="why">'
+    + r.why.map(function(w){ return "<li>" + esc(w) + "</li>"; }).join("") + r.no.map(function(w){ return '<li class="no">' + esc(w) + "</li>"; }).join("") + "</ul>"
+    + (p.cmd ? '<div class="cmd"><pre><code>' + esc(p.cmd) + '</code></pre><button class="copy" type="button" data-cmd="' + esc(p.cmd) + '">复制</button></div>' : "") + "</li>";
+}
+function render(){
+  var u = readForm();
+  var ranked = ITEMS.map(function(p){ var r = score(p, u); r.p = p; return r; }).sort(function(a, b){ return b.bucket - a.bucket || b.score - a.score || b.p.stars - a.p.stars; });
+  var first = ranked.filter(function(r){ return r.bucket === 3; }), second = ranked.filter(function(r){ return r.bucket === 2; }), blocked = ranked.filter(function(r){ return r.bucket === 0; }).length;
+  var top = first.slice(0, 3);
+  $("r-title").textContent = top.length ? "先试这 " + top.length + " 个" : "还没有足够贴合的项目";
+  $("r-sum").textContent = "先试 " + first.length + " · 可看看 " + second.length + " · 暂不合适 " + blocked + "，共 " + ITEMS.length + " 个";
+  $("picks").innerHTML = top.length ? top.map(card).join("") : '<li class="empty">选一个想解决的方向，或者写几句项目经历，这里就会有结果。</li>';
+  var rest = first.slice(3).concat(second).slice(0, 6);
+  $("also").innerHTML = rest.length ? "接着可以看：" + rest.map(function(r){ return '<a href="#' + esc(r.p.id) + '" data-goto="' + esc(r.p.id) + '">' + esc(short(r.p.n)) + "</a>"; }).join("、") : "";
+  var d = detect(u.exp), names = d.tags.map(function(t){ return TAGNAME[t]; }).concat(d.langs);
+  $("detected").textContent = u.exp.trim() ? (names.length ? "识别到：" + names.join("、") : "没有识别到已知的领域或语言，可以写得再具体一点") : "只做关键词匹配，不会上传";
+  try { localStorage.setItem(LS, JSON.stringify({tools: u.tools, habits: u.habits, goals: u.goals, os: u.os, level: u.level, pay: u.pay, exp: u.exp})); } catch (e) {}
+}
+chips("c-tools", TOOLS, "checkbox", "tools"); chips("c-habits", HABITS, "checkbox", "habits"); chips("c-goals", DIRS, "checkbox", "goals", D.dirIcons);
+chips("c-os", OSES, "radio", "os"); chips("c-level", LEVELS, "radio", "level"); chips("c-pay", PAYS, "radio", "pay");
+$("presets").innerHTML = "<span>示例画像</span>" + Object.keys(PRESETS).map(function(k){ return '<button type="button" aria-pressed="false" data-p="' + esc(k) + '">' + esc(k) + "</button>"; }).join("");
+function mark(k){ [].forEach.call(document.querySelectorAll("#presets button"), function(b){ b.setAttribute("aria-pressed", b.dataset.p === k ? "true" : "false"); }); }
+$("presets").addEventListener("click", function(e){ var k = e.target.dataset && e.target.dataset.p; if (k){ apply(PRESETS[k]); mark(k); render(); } });
+$("f").addEventListener("input", function(){ mark(""); render(); });
+$("f").addEventListener("submit", function(e){ e.preventDefault(); });
+var saved = null; try { saved = JSON.parse(localStorage.getItem(LS)); } catch (e) {}
+if (saved) apply(saved); else { var k0 = Object.keys(PRESETS)[0]; apply(PRESETS[k0]); mark(k0); }
+render();
+})();
+</script>
+</body>
+</html>
