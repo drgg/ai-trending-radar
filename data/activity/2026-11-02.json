@@ -1,0 +1,466 @@
+{
+ "collected_at": "2026-11-05",
+ "since": "2026-10-06",
+ "repos": {
+  "Ebony-Vinyl/dsh-our-free-model": {
+   "stars": 62786,
+   "forks": 1703,
+   "pushed_at": "2026-11-05",
+   "commits30": 608,
+   "authors30": 22,
+   "open_issues": 108,
+   "open_prs": 22,
+   "og_image": null
+  },
+  "yetone/magpie": {
+   "stars": 30729,
+   "forks": 2667,
+   "pushed_at": "2026-11-06",
+   "commits30": 4766,
+   "authors30": 3,
+   "open_issues": 3225,
+   "open_prs": 16,
+   "og_image": null
+  },
+  "guillaumemeyer/watermarks-remover": {
+   "stars": 26441,
+   "forks": 3021,
+   "pushed_at": "2026-11-02",
+   "commits30": 11,
+   "authors30": 9,
+   "open_issues": 16,
+   "open_prs": 30,
+   "og_image": null
+  },
+  "browser-use/jev-ultrafast": {
+   "stars": 24224,
+   "forks": 1860,
+   "pushed_at": "2026-11-03",
+   "commits30": 1,
+   "authors30": 1,
+   "open_issues": 53,
+   "open_prs": 157,
+   "og_image": null
+  },
+  "wheresryan22/anatomy": {
+   "stars": 25330,
+   "forks": 2119,
+   "pushed_at": "2026-10-18",
+   "commits30": 153,
+   "authors30": 12,
+   "open_issues": 16,
+   "open_prs": 56,
+   "og_image": null
+  },
+  "lexmount/moli": {
+   "stars": 22757,
+   "forks": 632,
+   "pushed_at": "2026-11-06",
+   "commits30": 1333,
+   "authors30": 3,
+   "open_issues": 36,
+   "open_prs": 494,
+   "og_image": "https://repository-images.githubusercontent.com/1329849289/f24c9784-1001-41cc-af14-3edecd9e55cc"
+  },
+  "dataelement/dsh-desktop": {
+   "stars": 17448,
+   "forks": 603,
+   "pushed_at": "2026-11-04",
+   "commits30": 127,
+   "authors30": 12,
+   "open_issues": 127,
+   "open_prs": 26,
+   "og_image": "https://repository-images.githubusercontent.com/1333165619/19915413-3edd-4d30-902f-b9996c177462"
+  },
+  "google/artemis": {
+   "stars": 16723,
+   "forks": 1847,
+   "pushed_at": "2026-10-01",
+   "commits30": 0,
+   "authors30": 0,
+   "open_issues": 66,
+   "open_prs": 119,
+   "og_image": null
+  },
+  "Zagitta/gpu-unlock": {
+   "stars": 17336,
+   "forks": 1753,
+   "pushed_at": "2026-10-29",
+   "commits30": 36,
+   "authors30": 9,
+   "open_issues": 67,
+   "open_prs": 54,
+   "og_image": null
+  },
+  "jub0t/Concat": {
+   "stars": 14479,
+   "forks": 1797,
+   "pushed_at": "2026-11-05",
+   "commits30": 529,
+   "authors30": 5,
+   "open_issues": 208,
+   "open_prs": 27,
+   "og_image": "https://repository-images.githubusercontent.com/1346499044/18d8e9c0-66eb-4459-80cf-27c0a4432094"
+  },
+  "lemomo-ai/lemo-opuscar": {
+   "stars": 12760,
+   "forks": 1477,
+   "pushed_at": "2026-10-31",
+   "commits30": 59,
+   "authors30": 4,
+   "open_issues": 5,
+   "open_prs": 12,
+   "og_image": "https://repository-images.githubusercontent.com/1389011744/65496ea9-66d3-4e0c-8615-49f69914284a"
+  },
+  "deepseek-ai/dsh-superagent-prototype": {
+   "stars": 19754,
+   "forks": 2276,
+   "pushed_at": "2026-11-03",
+   "commits30": 1,
+   "authors30": 1,
+   "open_issues": 0,
+   "open_prs": 0,
+   "og_image": null
+  },
+  "CopilotKit/OpenBot": {
+   "stars": 10282,
+   "forks": 1277,
+   "pushed_at": "2026-11-06",
+   "commits30": 197,
+   "authors30": 20,
+   "open_issues": 36,
+   "open_prs": 30,
+   "og_image": null
+  },
+  "google/elephant-goldfish-model": {
+   "stars": 12547,
+   "forks": 907,
+   "pushed_at": "2026-11-05",
+   "commits30": 151,
+   "authors30": 27,
+   "open_issues": 45,
+   "open_prs": 22,
+   "og_image": "https://repository-images.githubusercontent.com/1368596582/bafb1e15-6b0b-4c41-a95d-6183244a44ab"
+  },
+  "rehan-remade/universal-modder": {
+   "stars": 9453,
+   "forks": 1057,
+   "pushed_at": "2026-11-06",
+   "commits30": 264,
+   "authors30": 65,
+   "open_issues": 6,
+   "open_prs": 40,
+   "og_image": null
+  },
+  "KKKKhazix/AIHOT": {
+   "stars": 9654,
+   "forks": 2261,
+   "pushed_at": "2026-11-05",
+   "commits30": 156,
+   "authors30": 13,
+   "open_issues": 0,
+   "open_prs": 0,
+   "og_image": "https://repository-images.githubusercontent.com/1393965829/168bf9e1-1ac8-406f-bfe0-3d8b9f514cb4"
+  },
+  "Albert-Weasker/niubigeo": {
+   "stars": 8934,
+   "forks": 807,
+   "pushed_at": "2026-11-03",
+   "commits30": 23,
+   "authors30": 1,
+   "open_issues": 24,
+   "open_prs": 38,
+   "og_image": null
+  },
+  "deeplethe/utopia": {
+   "stars": 8686,
+   "forks": 1186,
+   "pushed_at": "2026-11-06",
+   "commits30": 134,
+   "authors30": 11,
+   "open_issues": 39,
+   "open_prs": 39,
+   "og_image": null
+  },
+  "Ryze-AI-Adgent/open-seo-mcp-skills": {
+   "stars": 8879,
+   "forks": 398,
+   "pushed_at": "2026-10-27",
+   "commits30": 3,
+   "authors30": 1,
+   "open_issues": 4,
+   "open_prs": 0,
+   "og_image": null
+  },
+  "zai-org/ZCode": {
+   "stars": 8512,
+   "forks": 2648,
+   "pushed_at": "2026-11-04",
+   "commits30": 5,
+   "authors30": 2,
+   "open_issues": 0,
+   "open_prs": 0,
+   "og_image": null
+  },
+  "jev-chat/jev-chat-jarvis": {
+   "stars": 8273,
+   "forks": 1326,
+   "pushed_at": "2026-11-05",
+   "commits30": 18,
+   "authors30": 3,
+   "open_issues": 29,
+   "open_prs": 4,
+   "og_image": null
+  },
+  "miqdadbadjuber/anti-slop": {
+   "stars": 8413,
+   "forks": 566,
+   "pushed_at": "2026-11-05",
+   "commits30": 29,
+   "authors30": 7,
+   "open_issues": 1,
+   "open_prs": 1,
+   "og_image": null
+  },
+  "tamaratran/fast-jev-compaction": {
+   "stars": 7895,
+   "forks": 580,
+   "pushed_at": "2026-09-18",
+   "commits30": 0,
+   "authors30": 0,
+   "open_issues": 48,
+   "open_prs": 76,
+   "og_image": null
+  },
+  "Human-Agent-Society/reef": {
+   "stars": 7803,
+   "forks": 730,
+   "pushed_at": "2026-11-06",
+   "commits30": 280,
+   "authors30": 7,
+   "open_issues": 120,
+   "open_prs": 53,
+   "og_image": "https://repository-images.githubusercontent.com/1351879111/7ea8e76f-1bd7-4f1b-aaba-cdfcdc86a018"
+  },
+  "XiaoDuoYa/codex-with-chatgpt": {
+   "stars": 7669,
+   "forks": 708,
+   "pushed_at": "2026-10-01",
+   "commits30": 0,
+   "authors30": 0,
+   "open_issues": 16,
+   "open_prs": 4,
+   "og_image": null
+  },
+  "yi1108/printfilm": {
+   "stars": 7429,
+   "forks": 816,
+   "pushed_at": "2026-11-06",
+   "commits30": 101,
+   "authors30": 2,
+   "open_issues": 6,
+   "open_prs": 4,
+   "og_image": null
+  },
+  "Jakeschincariol/replica-skill": {
+   "stars": 7809,
+   "forks": 1392,
+   "pushed_at": "2026-10-03",
+   "commits30": 0,
+   "authors30": 0,
+   "open_issues": 10,
+   "open_prs": 9,
+   "og_image": null
+  },
+  "Louis-CFM/coucou": {
+   "stars": 6989,
+   "forks": 1148,
+   "pushed_at": "2026-11-04",
+   "commits30": 862,
+   "authors30": 5,
+   "open_issues": 115,
+   "open_prs": 381,
+   "og_image": "https://repository-images.githubusercontent.com/1391438314/b0bc531a-8a82-4336-ae24-ee11920769df"
+  },
+  "elie222/rakazo": {
+   "stars": 7223,
+   "forks": 1278,
+   "pushed_at": "2026-11-06",
+   "commits30": 1988,
+   "authors30": 19,
+   "open_issues": 90,
+   "open_prs": 62,
+   "og_image": null
+  },
+  "s1dashu/ip-as-logo-skill": {
+   "stars": 6430,
+   "forks": 314,
+   "pushed_at": "2026-10-30",
+   "commits30": 1,
+   "authors30": 1,
+   "open_issues": 7,
+   "open_prs": 0,
+   "og_image": null
+  },
+  "CopilotKit/OpenDots": {
+   "stars": 6435,
+   "forks": 941,
+   "pushed_at": "2026-11-05",
+   "commits30": 30,
+   "authors30": 13,
+   "open_issues": 29,
+   "open_prs": 45,
+   "og_image": null
+  },
+  "Hisn00w/ASu-skills": {
+   "stars": 6246,
+   "forks": 325,
+   "pushed_at": "2026-10-28",
+   "commits30": 17,
+   "authors30": 9,
+   "open_issues": 3,
+   "open_prs": 4,
+   "og_image": null
+  },
+  "monid-ai/monid": {
+   "stars": 6131,
+   "forks": 766,
+   "pushed_at": "2026-11-03",
+   "commits30": 5,
+   "authors30": 4,
+   "open_issues": 28,
+   "open_prs": 142,
+   "og_image": null
+  },
+  "CopilotKit/openmuse": {
+   "stars": 6244,
+   "forks": 913,
+   "pushed_at": "2026-11-05",
+   "commits30": 55,
+   "authors30": 19,
+   "open_issues": 15,
+   "open_prs": 46,
+   "og_image": null
+  },
+  "AhmadHassan-BTed/Jantt": {
+   "stars": 6221,
+   "forks": 18,
+   "pushed_at": "2026-11-03",
+   "commits30": 31,
+   "authors30": 1,
+   "open_issues": 0,
+   "open_prs": 12,
+   "og_image": null
+  },
+  "eternityspring/shuohao-skills": {
+   "stars": 6094,
+   "forks": 851,
+   "pushed_at": "2026-10-26",
+   "commits30": 19,
+   "authors30": 4,
+   "open_issues": 0,
+   "open_prs": 1,
+   "og_image": null
+  },
+  "kaankiziltug/logo-design-skill": {
+   "stars": 6081,
+   "forks": 484,
+   "pushed_at": "2026-11-03",
+   "commits30": 6,
+   "authors30": 2,
+   "open_issues": 3,
+   "open_prs": 2,
+   "og_image": "https://repository-images.githubusercontent.com/1388867993/cb41b962-88da-4adb-be7e-17ee8a1073aa"
+  },
+  "rddmwmddr/android-ad-cleaner": {
+   "stars": 6608,
+   "forks": 597,
+   "pushed_at": "2026-11-06",
+   "commits30": 572,
+   "authors30": 6,
+   "open_issues": 189,
+   "open_prs": 10,
+   "og_image": null
+  },
+  "ApodexAI/FrontierAgent": {
+   "stars": 5432,
+   "forks": 337,
+   "pushed_at": "2026-11-06",
+   "commits30": 33,
+   "authors30": 4,
+   "open_issues": 3,
+   "open_prs": 5,
+   "og_image": null
+  },
+  "Oldcircle/geo-sleuth": {
+   "stars": 6171,
+   "forks": 768,
+   "pushed_at": "2026-11-05",
+   "commits30": 78,
+   "authors30": 14,
+   "open_issues": 8,
+   "open_prs": 17,
+   "og_image": null
+  },
+  "anhao/ai-pose-gallery-zh": {
+   "stars": 6136,
+   "forks": 1556,
+   "pushed_at": "2026-11-04",
+   "commits30": 82,
+   "authors30": 5,
+   "open_issues": 10,
+   "open_prs": 4,
+   "og_image": null
+  },
+  "PC2005-cloud/dsh-pet": {
+   "stars": 5690,
+   "forks": 478,
+   "pushed_at": "2026-11-06",
+   "commits30": 254,
+   "authors30": 5,
+   "open_issues": 3,
+   "open_prs": 1,
+   "og_image": null
+  },
+  "heydamir/unslop": {
+   "stars": 10074,
+   "forks": 536,
+   "pushed_at": "2026-11-01",
+   "commits30": 12,
+   "authors30": 3,
+   "open_issues": 4,
+   "open_prs": 6,
+   "og_image": null
+  },
+  "ccch1mneyyy/dsh-Go": {
+   "stars": 11971,
+   "forks": 545,
+   "pushed_at": "2026-11-06",
+   "commits30": 687,
+   "authors30": 1,
+   "open_issues": 270,
+   "open_prs": 37,
+   "og_image": null
+  },
+  "totec448-spec/chat-on-steroids": {
+   "stars": 5143,
+   "forks": 667,
+   "pushed_at": "2026-11-05",
+   "commits30": 2804,
+   "authors30": 3,
+   "open_issues": 16,
+   "open_prs": 6,
+   "og_image": null
+  },
+  "QingYunA/answer-me-with-html": {
+   "stars": 5562,
+   "forks": 365,
+   "pushed_at": "2026-11-05",
+   "commits30": 223,
+   "authors30": 8,
+   "open_issues": 6,
+   "open_prs": 5,
+   "og_image": null
+  }
+ }
+}

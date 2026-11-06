@@ -5,211 +5,163 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {% set label = ('第 %d 期' % no) if official else '临时更新' %}
 {% set new_names = new|map(attribute='full_name')|list %}
+{% set is_latest = s.date == latest_date %}
 <title>{{ label }} · AI 热门项目周报（{{ s.date }}）</title>
 <meta name="description" content="{{ label }}：{{ win }} 创建、Stars 超过 {{ '{:,}'.format(s.min_stars) }} 的 {{ ranked|length }} 个 AI 项目，先报本期变化。">
 <link rel="alternate" type="application/atom+xml" title="GitHub AI 热门项目周报" href="{{ root }}feed.xml">
-<link rel="preload" href="{{ root }}assets/fonts/serif-heading.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ root }}assets/fonts/heading.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ root }}assets/fonts/mono.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-/* 标题衬线字体自托管：只含标题用到的几十个字（scripts/fetch_font.py），国内也能稳定加载 */
-@font-face{font-family:"Radar Serif";src:url("{{ root }}assets/fonts/serif-heading.woff2") format("woff2");font-weight:700;font-display:swap}
-:root{
-  --canvas:#fbfaf8;--surface:#f3f2ee;--line:#e4e2dc;--line-strong:#cfccc4;
-  --ink:#23221f;--ink-2:#4f4d47;--muted:#67655e;
-  --accent:#3350b0;--accent-wash:#eef1fb;--up:#1d7348;
-  --warn-wash:#fbf1e0;--warn-line:#d98a1c;--warn-ink:#7a4a00;
-  --serif:"Radar Serif","Noto Serif SC","Source Han Serif SC","Songti SC",STSong,serif;
-  --sans:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
-  --mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;
-  color-scheme:light dark;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --canvas:#191918;--surface:#232321;--line:#33322f;--line-strong:#45443f;
-  --ink:#ebeae6;--ink-2:#c4c2bb;--muted:#a3a19a;
-  --accent:#8ea8ff;--accent-wash:#232b45;--up:#6fd09f;
-  --warn-wash:#2f2515;--warn-line:#b8832e;--warn-ink:#f0b862;
-}}
-:root[data-theme="dark"]{
-  --canvas:#191918;--surface:#232321;--line:#33322f;--line-strong:#45443f;
-  --ink:#ebeae6;--ink-2:#c4c2bb;--muted:#a3a19a;
-  --accent:#8ea8ff;--accent-wash:#232b45;--up:#6fd09f;
-  --warn-wash:#2f2515;--warn-line:#b8832e;--warn-ink:#f0b862;
-}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--canvas);color:var(--ink);font:16px/1.8 var(--sans);-webkit-font-smoothing:antialiased}
-/* 正文里的链接不能只靠颜色区分（WCAG 1.4.1）：一律带淡色细下划线；独立成行的项目名不需要 */
-a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;
-  text-decoration-color:color-mix(in srgb,var(--accent) 45%,transparent)}
-a:hover{text-decoration-color:currentColor}
-a.nm,.issues a,.item-title a{text-decoration:none}
-a.nm:hover,.issues a:hover,.item-title a:hover{text-decoration:underline}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
-.num{font-variant-numeric:tabular-nums}
-.wrap{max-width:768px;margin:0 auto;padding:0 24px}
-h1,h2{font-family:var(--serif);font-weight:700;margin:0}
-h2{font-size:24px;line-height:1.35}
-h3{font-size:18px;line-height:1.45;font-weight:600;margin:0}
-p{margin:0}
-ul,ol{margin:0;padding-left:24px}
+{% include '_base.css.j2' %}
+/* 周报：刊头雷达底纹 → 趋势与加速图并排 → 左标题右内容的区块 */
+.mast{position:relative;overflow:hidden;min-height:280px;display:flex;align-items:flex-end;padding-block:48px 32px;border-bottom:1px solid var(--line)}
+.mast canvas{position:absolute;right:-40px;top:50%;width:560px;height:560px;transform:translateY(-50%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 45%);mask-image:linear-gradient(90deg,transparent,#000 45%)}
+.mast>div{position:relative;min-width:0}
+.mast h1{font-size:104px;line-height:1.05}
+.mast h1 small{font-size:40px;margin-left:16px}
+.date{font:14px var(--mono);color:var(--muted);margin-top:8px}
+.tmp-note{margin-top:16px;padding:8px 12px;background:var(--raise);border-radius:8px;font-size:14px;color:var(--ink-2);max-width:640px}
 
-/* 刊头 */
-.mast-in{padding:64px 0 32px;border-bottom:1px solid var(--line)}
-.eyebrow{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.08em}
-.mast h1{font-size:36px;line-height:1.25;margin-top:8px}
-.dateline{font-size:14px;color:var(--ink-2);margin-top:4px}
-.props{margin:24px 0 0;display:grid;grid-template-columns:auto 1fr;column-gap:24px;row-gap:4px;font-size:14px;line-height:1.6}
-.props dt{color:var(--muted);font-weight:600;font-size:13px;padding-top:4px}
-.props dd{margin:0;padding-top:4px}
+.lead{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;padding-block:40px 64px;align-items:start}
+.lead.solo{grid-template-columns:minmax(0,1fr);max-width:760px}
+.lead>*{min-width:0}
+.lead-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.lead-h span{font-size:13px;color:var(--muted)}
+.trends{list-style:none;padding:0;margin-top:16px;border-top:1px solid var(--line)}
+.trends li{padding-block:12px;border-bottom:1px solid var(--line);line-height:1.65}
+.outlook{margin-top:16px;font-size:14px;color:var(--ink-2)}
+.outlook summary{cursor:pointer;color:var(--muted);font-size:13px}
+.outlook p{margin-top:8px}
+.pick-box{margin-top:32px;padding:16px 20px;border:1px solid var(--line-2);border-radius:12px}
+.pick-box h3{font-family:var(--heading);font-weight:400;font-size:20px}
+.pick-box ol{list-style:none;padding:0;margin:8px 0 12px;display:grid;gap:4px}
+.pick-box li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:0 4px;align-items:center}
+.pick-box li a{text-decoration:none;font-weight:500;overflow-wrap:anywhere}
+.pick-box li a:hover{text-decoration:underline}
+.pick-box li span{font:13px var(--mono);color:var(--signal)}
+.pick-box .go{color:var(--signal);font-weight:500}
+.props{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:32px 0 0;font-size:13px}
+.props dt{color:var(--muted)}.props dd{margin:0;color:var(--ink-2)}
+figure{margin:0}
+figure svg{display:block;width:100%;height:auto}
+figcaption{font-size:14px;margin-bottom:12px}
+figcaption b{font-family:var(--heading);font-weight:400;font-size:22px;display:block;line-height:1.4}
+figcaption span{color:var(--muted);font-size:13px}
+.key{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:1px;background:var(--signal-dot)}
+.key.q{background:var(--dot);margin-left:12px}
+.grid{stroke:var(--line);stroke-width:1}
+.par{stroke:var(--muted);stroke-width:1;stroke-dasharray:4 4}
+.tick{font:12px var(--mono);fill:var(--muted)}
+.zone{font:12px var(--sans);fill:var(--muted)}
+.axis{font:12px var(--sans);fill:var(--ink-2)}
+.dot{fill:var(--dot);fill-opacity:.65}
+.dot.hot{fill:var(--signal-dot);fill-opacity:.95}
+a:hover .dot,a:focus-visible .dot{fill-opacity:1;stroke:var(--ink);stroke-width:1.5}
+.lab{font:12.5px var(--mono);fill:var(--ink-2);paint-order:stroke;stroke:var(--bg);stroke-width:3px}
+.lab.on{fill:var(--signal)}
 
-/* 区块 */
-main{padding-bottom:64px}
-section.blk{margin-top:48px}
-.blk-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:16px}
-.blk-head .aside{font-size:14px;color:var(--muted)}
+section.blk{padding-block:48px;border-top:1px solid var(--line);scroll-margin-top:8px}
+.sec{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:32px}
+.sec>*{min-width:0}
+.sec-head p{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.6}
+.sub+.sub,.tier+.tier,.cat-group+.cat-group{margin-top:32px}
+.sub-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;margin-bottom:8px}
+.sub-h span{font:13px var(--mono);color:var(--muted)}
+.empty{font-size:14px;color:var(--ink-2);padding-block:8px}
+.stat-line{font-size:14px;color:var(--ink-2);margin-bottom:24px;max-width:72ch}
+.stat-line b{color:var(--ink);font-weight:600}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:32px}
+.two>*{min-width:0}
+.rows{list-style:none;padding:0;border-top:1px solid var(--line)}
+.r{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 16px;align-items:baseline;padding-block:10px;border-bottom:1px solid var(--line)}
+.r .nm{font-weight:500;overflow-wrap:anywhere;text-decoration:none}
+.r a.nm:hover{text-decoration:underline}
+.r .tl{grid-column:1/-1;color:var(--ink-2);font-size:14px;line-height:1.55;padding-left:32px}
+.r .meta{grid-column:1/-1;font-size:13px;color:var(--muted);padding-left:32px}
+.fig{font:13px var(--mono);text-align:right;white-space:nowrap;color:var(--muted)}
+.fig b{font-weight:500;color:var(--ink)}
+.fig .g,.g{color:var(--up)}
+.read i{font-style:normal;margin-inline:6px}
+.read.up b,.read.up i{color:var(--signal)}
+.tag{display:inline-block;font-size:12px;line-height:18px;padding:0 6px;border-radius:4px;margin-left:8px;white-space:nowrap;vertical-align:1px;box-shadow:inset 0 0 0 1px var(--line-2);color:var(--muted)}
+.tag.accel{color:var(--signal);box-shadow:inset 0 0 0 1px currentColor}
+.tag.new{color:var(--ink);box-shadow:inset 0 0 0 1px currentColor}
+.tag.warn,.warn-n{color:var(--warn)}
+.warn-n{font-size:13px;margin-left:8px;white-space:nowrap}
+.cat{font-size:13px;color:var(--muted)}
+.cat.warn{color:var(--warn)}
+.cat .ic{margin-right:4px}
+.why{font-size:14px;color:var(--ink-2);padding-left:32px;grid-column:1/-1}
+details.more{margin-top:0}
+details.more>summary{cursor:pointer;padding-block:10px;font-size:13px;color:var(--ink-2)}
+details.more>summary:hover{color:var(--ink)}
+.names{list-style:none;padding:0 0 12px;display:flex;flex-wrap:wrap;gap:4px 24px;font-size:14px}
+.names li{overflow-wrap:anywhere}
+.names .s{color:var(--muted);font-family:var(--mono);font-size:13px}
+.names .g{font-family:var(--mono);font-size:13px}
 
-/* 本期变化：标注块 */
-.callout{background:var(--surface);border-radius:12px;padding:24px}
-.callout>*+*{margin-top:32px}
-.sub-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;margin-bottom:12px}
-.sub-head .aside{font-size:13px;color:var(--muted)}
-.callout .empty{font-size:14px;color:var(--ink-2)}
-.new-item{background:var(--accent-wash);border-radius:8px;padding:16px}
-.new-item+.new-item{margin-top:12px}
-.new-more{margin-top:4px;font-size:14px}
-.new-more .warn-n{font-size:13px;color:var(--warn-ink)}
-.tag{display:inline-block;font-size:13px;font-weight:600;line-height:1.5;padding:0 8px;border-radius:4px;white-space:nowrap}
-.tag.new{color:var(--accent);box-shadow:inset 0 0 0 1px currentColor}
-.tag.cat{color:var(--muted);box-shadow:inset 0 0 0 1px var(--line-strong);font-weight:400}
-.item-title{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
-.item-title h3,.item-title .h3{font-size:18px;font-weight:600;overflow-wrap:anywhere}
-.stars{font-size:14px;color:var(--muted);white-space:nowrap}
-.tagline{font-size:16px;color:var(--ink-2);margin-top:4px}
-.gainers,.dropped{list-style:none;padding:0;font-size:16px}
-.gainers li,.dropped li{display:grid;grid-template-columns:1fr auto;gap:0 16px;padding:8px 0;border-top:1px solid var(--line)}
-.gainers li:first-child,.dropped li:first-child{border-top:0;padding-top:0}
-.gainers .nm,.dropped .nm{overflow-wrap:anywhere}
-.gainers .d{color:var(--up);font-weight:600;text-align:right;white-space:nowrap}
-.gainers .now{grid-column:1/-1;font-size:13px;color:var(--muted)}
-.dropped .why{grid-column:1/-1;font-size:14px;color:var(--ink-2)}
-
-/* 近期趋势 */
-.lead{font-size:18px;line-height:1.8;margin:0 0 24px}
-.editorial{padding-left:24px;border-left:3px solid var(--line-strong)}
-.editorial li+li{margin-top:12px}
-.editorial li::marker{color:var(--muted)}
-
-/* 项目详情（新上榜与名录共用） */
-/* 介绍里常有很长的英文标识符或网址，不允许任意处断行会把 320px 页面撑宽（第 4 期实测 397px） */
-.detail{font-size:16px;line-height:1.75;overflow-wrap:anywhere}
-.detail .meta{font-size:13px;color:var(--muted);margin-top:8px}
-.detail .f{margin-top:16px}
-.detail .f h4{margin:0 0 4px;font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.04em}
-.detail li+li{margin-top:4px}
-.cmd{display:flex;background:var(--surface);border:1px solid var(--line);border-radius:8px;margin:4px 0 8px}
-.new-item .cmd{background:var(--canvas)}
-/* min-width:0：弹性子项默认不小于内容宽度，长命令会把 320px 页面撑出横向滚动（第 4 期实测） */
-.cmd pre{margin:0;padding:8px 12px;overflow-x:auto;flex:1;min-width:0;font:14px/1.6 var(--mono)}
-.cmd button{display:none;flex:none;font:13px var(--sans);border:0;border-left:1px solid var(--line);background:none;color:var(--muted);padding:0 12px;cursor:pointer;border-radius:0 8px 8px 0}
-.js .cmd button{display:block}
-.cmd button:hover{color:var(--accent)}
-.notes{list-style:none;margin:16px 0 0;padding:8px 12px;background:var(--warn-wash);border-left:3px solid var(--warn-line);border-radius:0 8px 8px 0;font-size:14px;color:var(--ink)}
-.notes li{padding-left:24px;text-indent:-24px}
-.notes li::before{content:"⚠";display:inline-block;width:24px;text-indent:0;color:var(--warn-ink)}
-.notes li+li{margin-top:4px}
-
-/* 名录：折叠行 */
 .toolbar{display:none;gap:8px;margin-bottom:24px}
 .js .toolbar{display:flex}
-.toolbar button{font:13px var(--sans);color:var(--ink-2);background:none;border:1px solid var(--line-strong);border-radius:8px;padding:4px 12px;cursor:pointer}
-.toolbar button:hover{color:var(--accent);border-color:var(--accent)}
-.cat-group+.cat-group{margin-top:32px}
-.cat-group>h3{font-size:16px;display:flex;align-items:baseline;gap:8px;padding-bottom:8px;border-bottom:1px solid var(--line-strong)}
-.cat-group>h3 .n{font-size:13px;font-weight:400;color:var(--muted)}
-details.row{border-bottom:1px solid var(--line)}
-details.row>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:12px 1fr auto;gap:0 12px;padding:12px 8px;margin:0 -8px;border-radius:8px}
-details.row>summary::-webkit-details-marker{display:none}
-details.row>summary:hover{background:var(--surface)}
-.caret{color:var(--line-strong);font-size:13px;line-height:28px;transition:transform .15s}
-details[open]>summary .caret{transform:rotate(90deg);color:var(--muted)}
-.row .nm{font-weight:600;overflow-wrap:anywhere}
-.row .tl{grid-column:2/-1;font-size:14px;color:var(--ink-2);line-height:1.6}
-.row .right{text-align:right;font-size:14px;color:var(--muted);white-space:nowrap}
-.row .right .d{color:var(--up);font-weight:600;margin-left:8px}
-.row .flags{display:inline-flex;gap:8px;margin-left:8px;vertical-align:1px}
-.row .warn-n{font-size:13px;color:var(--warn-ink)}
-.row .detail{padding:0 0 24px 24px}
-
-.cat-group.warn>h3{border-bottom-color:var(--warn-line)}
-.warn-mark{color:var(--warn-ink)}
+.toolbar button{font:13px var(--sans);color:var(--ink-2);background:none;border:1px solid var(--line-2);border-radius:8px;padding:4px 12px;cursor:pointer}
+.toolbar button:hover{color:var(--ink)}
+.cat-group>h3{display:flex;align-items:center;gap:8px;padding-bottom:8px;border-bottom:1px solid var(--line-2)}
+.cat-group>h3 .ic{color:var(--ink-2)}
+.cat-group>h3 .n{font:400 13px var(--mono);color:var(--muted)}
+.cat-group.warn>h3{border-bottom-color:var(--warn-line);color:var(--warn)}
+.cat-group.warn>h3 .ic{color:var(--warn)}
 .cat-note{margin:8px 0 0;padding:8px 12px;background:var(--warn-wash);border-left:3px solid var(--warn-line);border-radius:0 8px 8px 0;font-size:14px}
-.tag.cat.warn{color:var(--warn-ink);box-shadow:inset 0 0 0 1px var(--warn-line)}
-.tmp-note{margin-top:16px;padding:8px 12px;background:var(--surface);border-radius:8px;font-size:14px;color:var(--ink-2)}
-.issues li.tmp{font-size:14px;color:var(--muted)}
-.issues li.tmp a{color:var(--muted)}
-/* 短期榜 */
-.stat-line{font-size:14px;color:var(--ink-2);margin:0 0 16px}
-.stat-line b{color:var(--ink);font-weight:600}
-.tier-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;margin:24px 0 0;padding-bottom:8px;border-bottom:1px solid var(--line-strong)}
-.tier-head h3{font-size:16px}
-.tier-head .aside{font-size:13px;color:var(--muted)}
-.young-stat{margin-top:12px}
-.tier-sub{font-size:13px;font-weight:600;color:var(--muted);margin:16px 0 0}
-.sub-blk+.sub-blk{margin-top:32px}
-.rk-list{list-style:none;margin:0;padding:0}
-.rk-list li{display:grid;grid-template-columns:1fr auto;gap:0 16px;padding:12px 0;border-bottom:1px solid var(--line)}
-.rk-list .nm{font-weight:600;overflow-wrap:anywhere}
-.rk-list .flags{display:inline-flex;gap:8px;margin-left:8px;vertical-align:1px}
-.rk-list .fig{text-align:right;white-space:nowrap;font-size:14px;color:var(--muted)}
-.rk-list .fig .g{color:var(--up);font-weight:600;font-size:16px}
-.rk-list .tl{grid-column:1/-1;font-size:14px;color:var(--ink-2);line-height:1.6}
-.rk-list .meta{grid-column:1/-1;font-size:13px;color:var(--muted)}
-.tag.accel{color:var(--up);box-shadow:inset 0 0 0 1px currentColor}
-.tag.main{color:var(--muted);box-shadow:inset 0 0 0 1px var(--line-strong);font-weight:400}
-details.more{margin-top:16px}
-details.more>summary{cursor:pointer;font-size:14px;color:var(--ink-2)}
-details.more>summary:hover{color:var(--accent)}
-details.more>.names,details.more>.stat-line{margin-top:12px}
-.names{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 24px;font-size:14px;line-height:1.6}
-.names li{overflow-wrap:anywhere}
-.names .g{color:var(--up)}
-.names .s{color:var(--muted)}
+details.row{border-bottom:1px solid var(--line);scroll-margin-top:8px}
+details.row>summary{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 16px;align-items:baseline;padding-block:10px;list-style:none;cursor:pointer}
+details.row>summary::-webkit-details-marker{display:none}
+details.row>summary:hover .nm{text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--muted)}
+details.row:target>summary .nm{color:var(--signal)}
+details.row .nm{font-weight:500;overflow-wrap:anywhere}
+details.row .tl{grid-column:1/-1;font-size:14px;color:var(--ink-2);line-height:1.55;padding-left:32px}
+.detail{padding:4px 0 24px 32px;max-width:76ch;font-size:14px;line-height:1.75;overflow-wrap:anywhere}
+.detail .meta{font-size:13px;color:var(--muted)}
+.detail .f{margin-top:12px}
+.detail h4{margin:0 0 4px;font-size:13px;font-weight:600;color:var(--muted)}
+.detail ul{padding-left:20px}
+.cmd{display:flex;background:var(--raise);border-radius:8px;margin:4px 0 8px}
+.cmd pre{margin:0;padding:8px 12px;overflow-x:auto;flex:1;min-width:0;font:13px/1.6 var(--mono)}
+.cmd button{display:none;flex:none;font:12px var(--sans);border:0;border-left:1px solid var(--line);background:none;color:var(--muted);padding:0 12px;cursor:pointer}
+.js .cmd button{display:block}
+.cmd button:hover{color:var(--ink)}
+.notes{list-style:none;margin:12px 0 0;padding:8px 12px;background:var(--warn-wash);border-left:3px solid var(--warn-line);border-radius:0 8px 8px 0;font-size:14px}
+.notes li{padding-left:20px;text-indent:-20px}
+.notes li::before{content:"⚠";display:inline-block;width:20px;text-indent:0;color:var(--warn)}
 .excluded{margin-top:24px;font-size:14px;color:var(--muted)}
+.issues{list-style:none;padding:0;border-top:1px solid var(--line)}
+.issues li{display:grid;grid-template-columns:96px 1fr auto;gap:16px;padding-block:8px;border-bottom:1px solid var(--line);font-size:14px}
+.issues .cur{font-weight:600}
+.issues .aside{font:13px var(--mono);color:var(--muted)}
+.issues li.tmp,.issues li.tmp a{color:var(--muted)}
 
-/* 往期 */
-.issues{list-style:none;padding:0;font-size:16px}
-.issues li{display:flex;gap:12px;align-items:baseline;padding:8px 0;border-top:1px solid var(--line)}
-.issues li:first-child{border-top:0}
-.issues .cur{font-weight:600;color:var(--ink)}
-.issues .aside{font-size:13px;color:var(--muted)}
-
-footer .in{border-top:1px solid var(--line);padding:24px 0 48px;font-size:13px;color:var(--muted);line-height:1.7}
-footer code{font:13px var(--mono);overflow-wrap:anywhere}
-
+@media (max-width:960px){
+  .lead{grid-template-columns:minmax(0,1fr);padding-block:32px 48px;gap:32px}
+  .sec{grid-template-columns:minmax(0,1fr);gap:16px}
+  .mast h1{font-size:72px}
+}
 @media (max-width:640px){
-  .wrap{padding:0 16px}
-  .mast-in{padding-top:48px}
-  .mast h1{font-size:28px}
-  .props{grid-template-columns:1fr;row-gap:0}
-  .props dt{padding-top:12px}
-  .props dd{padding-top:0}
-  .callout{padding:16px}
-  details.row>summary{grid-template-columns:12px 1fr}
-  .row .right{grid-column:2;text-align:left}
-  .row .right .d{margin-left:8px}
-  .row .detail{padding-left:0}
+  .mast{min-height:200px;padding-block:32px 24px}
+  .mast canvas{width:360px;height:360px;right:-120px}
+  .mast h1{font-size:56px}
+  .mast h1 small{font-size:28px;margin-left:8px}
+  .two{grid-template-columns:minmax(0,1fr)}
+  .r .tl,.r .meta,.why,details.row .tl{padding-left:0}
+  .detail{padding-left:0}
+  .issues li{grid-template-columns:80px minmax(0,1fr)}
+  .issues li .aside:last-child{display:none}
 }
-@media print{
-  .toolbar,.cmd button{display:none!important}
-  .callout,.new-item,.notes{background:none;border:1px solid var(--line)}
-  details.row>summary:hover{background:none}
-  a{color:var(--ink)}
-}
+@media print{.toolbar,.cmd button{display:none!important}.notes{background:none;border:1px solid var(--line)}}
 </style>
 </head>
 <body>
 <script>document.documentElement.classList.add("js")</script>
 
-{% macro detail(e, show_title=false) %}
+{% macro av(name) %}<img class="av" src="https://github.com/{{ name.split('/')[0] }}.png?size=48" alt="" width="24" height="24" loading="lazy" decoding="async">{% endmacro %}
+
+{% macro detail(e) %}
 {% set v = e.v %}
 <div class="detail">
   <p class="meta num">
@@ -229,194 +181,209 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
 {% endmacro %}
 
 {% macro rrow(x, kind) %}
-<li id="{{ kind[0] }}-{{ x.full_name }}">
-  <span><a class="nm" href="{{ ('#' ~ x.full_name) if x.in_main else x.html_url }}">{{ x.full_name }}</a>{% if x.accel or x.in_main %}<span class="flags">{% if x.accel %}<span class="tag accel">加速</span>{% endif %}{% if x.in_main %}<span class="tag main">主榜</span>{% endif %}</span>{% endif %}</span>
-  <span class="fig num">{% if kind == 'surge' %}<span class="g">+{{ '{:,}'.format(x.last7) }}</span>{% else %}★ {{ '{:,}'.format(x.stars) }}{% endif %}</span>
+<li class="r" id="{{ kind[0] }}-{{ x.full_name }}">
+  <span>{{ av(x.full_name) }}<a class="nm" href="{{ ('#' ~ x.full_name) if x.in_main else x.html_url }}">{{ x.full_name }}</a>{% if x.accel %}<span class="tag accel">加速</span>{% endif %}{% if x.in_main %}<span class="tag">主榜</span>{% endif %}</span>
+  {% if kind == 'surge' %}<span class="fig read{% if x.accel %} up{% endif %}"><span>{{ '{:,}'.format(x.prev7) }}</span><i>→</i><b>{{ '{:,}'.format(x.last7) }}</b></span>
+  {% else %}<span class="fig">★ {{ '{:,}'.format(x.stars) }}</span>{% endif %}
   <span class="tl">{{ x.tagline }}</span>
-  <span class="meta num">{% if kind == 'surge' %}前 7 天 +{{ '{:,}'.format(x.prev7) }} · 现 ★ {{ '{:,}'.format(x.stars) }} · {% elif kind == 'young' and x.last7 is not none %}近 7 天 +{{ '{:,}'.format(x.last7) }} · {% endif %}创建 {{ x.created_at }}（{{ x.age }} 天）</span>
+  <span class="meta num">{% if kind == 'surge' %}现 ★ {{ '{:,}'.format(x.stars) }} · {% elif kind == 'young' and x.last7 is not none %}近 7 天 +{{ '{:,}'.format(x.last7) }} · {% endif %}创建 {{ x.created_at }}（{{ x.age }} 天）</span>
 </li>
 {% endmacro %}
 
-<header class="mast"><div class="wrap"><div class="mast-in">
-  <div class="eyebrow">AI 热门项目周报</div>
-  <h1>{{ label }}{% if official and not prev %} · 创刊号{% endif %}</h1>
-  <p class="dateline num">{{ date_cn }}{% if s.date != latest_date %} · 这是存档，<a href="{{ root }}index.html">看最新一期 →</a>{% endif %}</p>
-  {% if not official %}<p class="tmp-note">这是手动触发的临时更新（例如改了提示词后重新生成介绍），不编期号、不推送通知；变化仍然对比最近一个正式期。</p>{% endif %}
-  <dl class="props num">
-    <dt>收录</dt>
-    <dd>{{ win }} 创建、Stars &gt; {{ '{:,}'.format(s.min_stars) }} 的 AI 项目，共 {{ ranked|length }} 个</dd>
-    <dt>较上期</dt>
-    <dd>{% if prev %}<a href="{{ root }}archive/{{ prev.date }}.html">第 {{ prev.no }} 期（{{ prev.date }}）</a>，相隔 {{ prev.days }} 天{% else %}没有更早的正式期可以对比{% endif %}</dd>
-    {% if prev %}
-    <dt>本期变化</dt>
-    <dd><a href="#changes">新上榜 {{ new|length }} · 移出 {{ dropped|length }} · 涨星前 {{ gainers|length }}</a></dd>
+<div class="wrap">
+<header class="top">
+  <b><a href="{{ root }}index.html">AI 热门项目周报</a></b>
+  <nav aria-label="目录">
+    {% if prev or not official %}<a href="#changes">本期变化</a>{% endif %}{% if rising %}<a href="#surge">升星榜</a><a href="#newcomers">新星与新锐</a>{% endif %}<a href="#index">名录</a><a href="#issues">往期</a><a href="{{ root }}feed.xml">RSS</a>{% if is_latest and analysis_tops is not none %}<a class="go" href="{{ root }}analysis.html">价值分析 →</a>{% endif %}
+  </nav>
+</header>
+
+<div class="mast">
+  <canvas class="scope" aria-hidden="true"></canvas>
+  <div>
+    <h1>{{ label }}{% if official and not prev %}<small>创刊号</small>{% endif %}</h1>
+    <p class="date">{{ s.date }}{% if prev %} · 较第 {{ prev.no }} 期 {{ prev.days }} 天{% endif %}{% if not is_latest %} · 这是存档，<a href="{{ root }}index.html">看最新一期 →</a>{% endif %}</p>
+    {% if not official %}<p class="tmp-note">这是手动触发的临时更新（例如改了提示词后重新生成介绍），不编期号、不推送通知；变化仍然对比最近一个正式期。</p>{% endif %}
+  </div>
+</div>
+
+<div class="lead{% if not accel_svg %} solo{% endif %}" id="outlook">
+  <div>
+    {% if outlook or trends %}
+    <div class="lead-h"><h2>近期趋势</h2><span>由 {{ s.model }} 归纳，点项目名看详情</span></div>
+    {% if trends %}<ul class="trends">{% for t in trends %}<li>{{ t }}</li>{% endfor %}</ul>{% endif %}
+    {% if outlook %}{% if trends %}<details class="outlook"><summary>完整综述</summary><p>{{ outlook }}</p></details>{% else %}<p class="outlook">{{ outlook }}</p>{% endif %}{% endif %}
     {% endif %}
-    {% if rising %}
-    <dt>短期榜</dt>
-    <dd><a href="#surge">升星 {{ rising.surge_n }}</a> · <a href="#newcomers">新星 {{ rising.newborn_n }} · 新锐 {{ rising.young_n }}</a></dd>
+    {% if is_latest and analysis_tops %}
+    <div class="pick-box">
+      <h3>本期最值得看的 {{ analysis_tops|length }} 个项目</h3>
+      <ol>{% for t in analysis_tops %}<li>{{ av(t.n) }}<a href="{{ root }}analysis.html#{{ t.id }}">{{ t.n }}</a><span>价值分 {{ t.total }}</span></li>{% endfor %}</ol>
+      <a class="go" href="{{ root }}analysis.html">看全部 {{ ranked|length }} 个项目的价值分析 →</a>
+    </div>
     {% endif %}
-    <dt>目录</dt>
-    <dd>{% if outlook or trends %}<a href="#outlook">近期趋势</a> · {% endif %}<a href="#changes">本期变化</a> · {% if rising %}<a href="#surge">升星榜</a> · <a href="#newcomers">新星与新锐</a> · {% endif %}<a href="#index">名录</a> · <a href="#issues">往期</a></dd>
-    <dt>订阅</dt>
-    <dd><a href="{{ root }}feed.xml">RSS</a> · 每期发布时在 <a href="{{ repo_url }}/issues?q=label%3A%E5%91%A8%E6%8A%A5">GitHub Issues</a> 推送（Watch 仓库即可收到）</dd>
-  </dl>
-</div></div></header>
+    <dl class="props num">
+      <dt>收录</dt><dd>{{ win }} 创建、Stars &gt; {{ '{:,}'.format(s.min_stars) }} 的 AI 项目，共 {{ ranked|length }} 个</dd>
+      <dt>较上期</dt><dd>{% if prev %}<a href="{{ root }}archive/{{ prev.date }}.html">第 {{ prev.no }} 期（{{ prev.date }}）</a>，相隔 {{ prev.days }} 天{% else %}没有更早的正式期可以对比{% endif %}</dd>
+      {% if prev %}<dt>本期变化</dt><dd><a href="#changes">新上榜 {{ new|length }} · 移出 {{ dropped|length }} · 涨星前 {{ gainers|length }}</a></dd>{% endif %}
+      {% if rising %}<dt>短期榜</dt><dd><a href="#surge">升星 {{ rising.surge_n }}</a> · <a href="#newcomers">新星 {{ rising.newborn_n }} · 新锐 {{ rising.young_n }}</a></dd>{% endif %}
+      <dt>订阅</dt><dd><a href="{{ root }}feed.xml">RSS</a> · 每期发布时在 <a href="{{ repo_url }}/issues?q=label%3A%E5%91%A8%E6%8A%A5">GitHub Issues</a> 推送</dd>
+    </dl>
+  </div>
+  {% if accel_svg %}
+  <figure>
+    <figcaption><b>这一周，谁在加速</b><span><i class="key"></i>加速 {{ rising.surge_accel }} 个<i class="key q"></i>其余 {{ rising.surge_n - rising.surge_accel }} 个 · 纵轴近 7 天、横轴前 7 天新增星数，双对数坐标</span></figcaption>
+    {{ accel_svg }}
+  </figure>
+  {% endif %}
+</div>
 
-<main class="wrap">
-
-{% if outlook or trends %}
-<section class="blk" id="outlook" aria-labelledby="h-outlook">
-  <div class="blk-head"><h2 id="h-outlook">近期趋势</h2><span class="aside">由 {{ s.model }} 综合本期主榜、升星、新星新锐和前几期归纳；点项目名看详情</span></div>
-  {% if outlook %}<p class="lead prose">{{ outlook }}</p>{% endif %}
-  {% if trends %}<ol class="editorial">{% for t in trends %}<li>{{ t }}</li>{% endfor %}</ol>{% endif %}
-</section>
-{% endif %}
-
-<section class="blk" id="changes" aria-labelledby="h-changes">
-  <div class="blk-head"><h2 id="h-changes">本期变化</h2>{% if prev %}<span class="aside num">较第 {{ prev.no }} 期 · {{ prev.md }} 至 {{ s.date[5:] }}，{{ prev.days }} 天</span>{% endif %}</div>
-  <div class="callout">
+<main>
+<section class="blk" id="changes" aria-labelledby="h-changes"><div class="sec">
+  <div class="sec-head"><h2 id="h-changes">本期变化</h2>{% if prev %}<p class="num">较第 {{ prev.no }} 期 · {{ prev.md }} 至 {{ s.date[5:] }}，{{ prev.days }} 天</p>{% endif %}</div>
+  <div>
   {% if not prev %}
-    {% if official %}<p>创刊号没有可对比的上期。从第 2 期起，这一块依次列出新上榜、涨星和移出。本期全部 {{ ranked|length }} 个项目见 <a href="#index">名录</a>。</p>
-    {% else %}<p>这次运行之前还没有正式期，没有可对比的数据。全部 {{ ranked|length }} 个项目见 <a href="#index">名录</a>。</p>{% endif %}
+    {% if official %}<p class="empty">创刊号没有可对比的上期。从第 2 期起，这一块依次列出新上榜、涨星和移出。本期全部 {{ ranked|length }} 个项目见 <a href="#index">名录</a>。</p>
+    {% else %}<p class="empty">这次运行之前还没有正式期，没有可对比的数据。全部 {{ ranked|length }} 个项目见 <a href="#index">名录</a>。</p>{% endif %}
   {% else %}
-    <div>
-      <div class="sub-head"><h3>新上榜</h3><span class="aside num">{{ new|length }} 个</span></div>
-      {% for e in new %}
-      <article class="new-item" aria-labelledby="new-{{ loop.index }}">
-        <div class="item-title">
-          <span class="tag new">新上榜</span>
-          <h3 id="new-{{ loop.index }}"><a href="{{ e.html_url }}">{{ e.full_name }}</a></h3>
-          <span class="stars num">★ {{ '{:,}'.format(e.stars) }}</span>
-          <span class="tag cat{% if e.v.category in warn %} warn{% endif %}">{% if e.v.category in warn %}⚠ {% endif %}{{ e.v.category }}</span>
-        </div>
-        <p class="tagline">{{ e.v.tagline }}</p>
-        <p class="new-more num"><a href="#{{ e.full_name }}">完整介绍 →</a>{% if e.notes %} · <span class="warn-n">⚠ {{ e.notes|length }} 条提示</span>{% endif %}</p>
-      </article>
-      {% else %}
-      <p class="empty">本期没有新上榜的项目。</p>
-      {% endfor %}
-    </div>
-
-    <div>
-      <div class="sub-head"><h3>涨星</h3><span class="aside num">{{ prev.days }} 天内增量前 {{ gainers|length }}</span></div>
-      {% if gainers %}
-      <ol class="gainers num">
-        {% for g in gainers %}
-        <li><a class="nm" href="#{{ g.full_name }}">{{ g.full_name }}</a><span class="d">+{{ '{:,}'.format(g.delta) }}</span>
-            <span class="now">现 {{ '{:,}'.format(g.stars) }} 星{% if g.e %} · {{ g.e.v.tagline }}{% endif %}</span></li>
-        {% endfor %}
+    <div class="sub">
+      <div class="sub-h"><h3>新上榜</h3><span>{{ new|length }}</span></div>
+      {% if new %}
+      <ol class="rows">{% for e in new %}
+        <li class="r">
+          <span>{{ av(e.full_name) }}<a class="nm" href="#{{ e.full_name }}">{{ e.full_name }}</a>{% if e.notes %}<span class="warn-n">⚠ {{ e.notes|length }} 条提示</span>{% endif %}</span>
+          <span class="fig">★ {{ '{:,}'.format(e.stars) }}</span>
+          <span class="tl">{{ e.v.tagline }}</span>
+          <span class="meta"><span class="cat{% if e.v.category in warn %} warn{% endif %}">{{ cat_icons.get(e.v.category, '') }}{{ e.v.category }}</span></span>
+        </li>{% endfor %}
       </ol>
-      {% else %}<p class="empty">没有项目的星数增加。</p>{% endif %}
+      {% else %}<p class="empty">本期没有新上榜的项目。</p>{% endif %}
     </div>
-
-    <div>
-      <div class="sub-head"><h3>移出</h3><span class="aside num">{{ dropped|length }} 个</span></div>
-      {% if dropped %}
-      <ul class="dropped num">
-        {% for x in dropped %}
-        <li><a class="nm" href="https://github.com/{{ x.full_name }}">{{ x.full_name }}</a><span class="stars">★ {{ '{:,}'.format(x.stars) }}</span>
-            <span class="why">{{ x.reason }}，不是热度下降。</span></li>
-        {% endfor %}
-      </ul>
-      {% else %}<p class="empty">本期没有项目移出。</p>{% endif %}
+    <div class="two">
+      <div>
+        <div class="sub-h"><h3>涨星</h3><span>{{ prev.days }} 天内增量前 {{ gainers|length }}</span></div>
+        {% if gainers %}
+        <ol class="rows">{% for g in gainers %}
+          <li class="r"><span>{{ av(g.full_name) }}<a class="nm" href="#{{ g.full_name }}">{{ g.full_name }}</a></span><span class="fig g">+{{ '{:,}'.format(g.delta) }}</span>
+            <span class="meta num">现 ★ {{ '{:,}'.format(g.stars) }}</span></li>{% endfor %}
+        </ol>
+        {% else %}<p class="empty">没有项目的星数增加。</p>{% endif %}
+      </div>
+      <div>
+        <div class="sub-h"><h3>移出</h3><span>{{ dropped|length }}</span></div>
+        {% if dropped %}
+        <ul class="rows">{% for x in dropped %}
+          <li class="r"><span>{{ av(x.full_name) }}<a class="nm" href="https://github.com/{{ x.full_name }}">{{ x.full_name }}</a></span><span class="fig">★ {{ '{:,}'.format(x.stars) }}</span>
+            <span class="why">{{ x.reason }}，不是热度下降。</span></li>{% endfor %}
+        </ul>
+        {% else %}<p class="empty">本期没有项目移出。</p>{% endif %}
+      </div>
     </div>
   {% endif %}
   </div>
-</section>
+</div></section>
 
 {% if rising %}{% set R = rising %}
-<section class="blk" id="surge" aria-labelledby="h-surge">
-  <div class="blk-head"><h2 id="h-surge">升星榜</h2><span class="aside num">近 7 天新增星数 · {{ R.last7 }}，对比前 7 天 {{ R.prev7 }}（UTC 完整自然日）</span></div>
-  <p class="stat-line num">在 {{ '{:,}'.format(R.pool) }} 个近一年创建的 AI 项目里，近 7 天涨星{% for k, v in R.surge_stats %}{{ '，' if not loop.first else ' ' }}{{ k }} 的 <b>{{ v }}</b> 个{% endfor %}。其中 {{ R.surge_accel }} 个在加速（达到前 7 天的 {{ R.rc.accel_ratio }} 倍），{{ R.surge_older }} 个创建已超过 {{ R.window_days }} 天、主榜收不到，{{ R.surge_in_main }} 个已在主榜。下列 {{ R.surge_featured_n }} 个附一句话介绍，其余只列名字。</p>
-  {% for name, note, items in R.surge_groups if items %}
-  <div class="tier-head"><h3>{{ name }}</h3><span class="aside num">{{ note }} · {{ items|length }} 个</span></div>
-  <ol class="rk-list">{% for x in items %}{{ rrow(x, 'surge') }}{% endfor %}</ol>
-  {% endfor %}
-  {% if R.surge_rest %}
-  <details class="more"><summary>其余 {{ R.surge_rest|length }} 个（近 7 天 ≥{{ '{:,}'.format(R.rc.surge_list_min) }}，只列名字）</summary>
-    <ul class="names num">{% for x in R.surge_rest %}<li><a href="{{ ('#' ~ x.full_name) if x.in_main else x.html_url }}">{{ x.full_name }}</a> <span class="g">+{{ '{:,}'.format(x.last7) }}</span></li>{% endfor %}</ul>
-  </details>
-  {% endif %}
-  {% if R.suspects %}
-  <details class="more"><summary>⚠ 疑似刷星 {{ R.suspects|length }} 个，未列入</summary>
-    <p class="stat-line">同一作者有 ≥{{ R.rc.spam_same_owner }} 个项目在同一周各涨 ≥{{ '{:,}'.format(R.rc.spam_min_each) }} 星：{{ R.spam_owners|join('、') }}。只是统计特征，不等于定论。</p>
-    <ul class="names num">{% for x in R.suspects %}<li><a href="{{ x.html_url }}">{{ x.full_name }}</a> <span class="s">+{{ '{:,}'.format(x.last7) }}</span></li>{% endfor %}</ul>
-  </details>
-  {% endif %}
-</section>
-
-<section class="blk" id="newcomers" aria-labelledby="h-new">
-  <div class="blk-head"><h2 id="h-new">新星与新锐</h2><span class="aside num">按创建时间分段、互不重叠；超过 {{ '{:,}'.format(R.main_min) }}★ 的进主榜</span></div>
-  <div class="sub-blk">
-    <div class="tier-head"><h3>新星</h3><span class="aside num">创建于 {{ R.newborn_range }} · ≥{{ R.rc.newborn_min }}★ · {{ R.newborn_n }} 个</span></div>
-    {% if R.newborn_n %}
-    {% for label, items in R.newborn_groups %}
-    <p class="tier-sub num">{{ label }} · {{ items|length }} 个</p>
-    <ol class="rk-list">{% for x in items %}{{ rrow(x, 'newborn') }}{% endfor %}</ol>
+<section class="blk" id="surge" aria-labelledby="h-surge"><div class="sec">
+  <div class="sec-head"><h2 id="h-surge">升星榜</h2><p class="num">每行读数：前 7 天（{{ R.prev7 }}）→ 近 7 天（{{ R.last7 }}）新增星数，UTC 完整自然日</p></div>
+  <div>
+    <p class="stat-line num">在 {{ '{:,}'.format(R.pool) }} 个近一年创建的 AI 项目里，近 7 天涨星{% for k, v in R.surge_stats %}{{ '，' if not loop.first else ' ' }}{{ k }} 的 <b>{{ v }}</b> 个{% endfor %}。其中 {{ R.surge_accel }} 个在加速（达到前 7 天的 {{ R.rc.accel_ratio }} 倍），{{ R.surge_older }} 个创建已超过 {{ R.window_days }} 天、主榜收不到，{{ R.surge_in_main }} 个已在主榜。下列 {{ R.surge_featured_n }} 个附一句话介绍，其余只列名字。</p>
+    {% for name, note, items in R.surge_groups if items %}
+    <div class="tier">
+      <div class="sub-h"><h3>{{ name }}</h3><span>{{ note }} · {{ items|length }}</span></div>
+      <ol class="rows">{% for x in items %}{{ rrow(x, 'surge') }}{% endfor %}</ol>
+    </div>
     {% endfor %}
-    {% else %}<p class="empty">这 7 天里创建的项目还没有超过 {{ R.rc.newborn_min }}★ 的。</p>{% endif %}
-  </div>
-  <div class="sub-blk">
-    <div class="tier-head"><h3>新锐</h3><span class="aside num">创建于 {{ R.young_range }} · ≥{{ '{:,}'.format(R.rc.young_list_min) }}★ · {{ R.young_n }} 个</span></div>
-    <p class="stat-line young-stat num">≥{{ '{:,}'.format(R.rc.young_intro_min) }}★ <b>{{ R.young_featured|length }}</b> 个（附介绍），{{ '{:,}'.format(R.rc.young_list_min) }}–{{ '{:,}'.format(R.rc.young_intro_min - 1) }}★ <b>{{ R.young_rest|length }}</b> 个（只列名字）</p>
-    <ol class="rk-list">{% for x in R.young_featured %}{{ rrow(x, 'young') }}{% endfor %}</ol>
-    {% if R.young_rest %}
-    <details class="more" open><summary>{{ '{:,}'.format(R.rc.young_list_min) }}–{{ '{:,}'.format(R.rc.young_intro_min - 1) }}★ 的 {{ R.young_rest|length }} 个（只列名字）</summary>
-      <ul class="names num">{% for x in R.young_rest %}<li><a href="{{ x.html_url }}">{{ x.full_name }}</a> <span class="s">★ {{ '{:,}'.format(x.stars) }}</span></li>{% endfor %}</ul>
+    {% if R.surge_rest %}
+    <details class="more"><summary>其余 {{ R.surge_rest|length }} 个（近 7 天 ≥{{ '{:,}'.format(R.rc.surge_list_min) }}，只列名字）</summary>
+      <ul class="names">{% for x in R.surge_rest %}<li><a href="{{ ('#' ~ x.full_name) if x.in_main else x.html_url }}">{{ x.full_name }}</a> <span class="g">+{{ '{:,}'.format(x.last7) }}</span></li>{% endfor %}</ul>
+    </details>
+    {% endif %}
+    {% if R.suspects %}
+    <details class="more"><summary>⚠ 疑似刷星 {{ R.suspects|length }} 个，未列入</summary>
+      <p class="stat-line">同一作者有 ≥{{ R.rc.spam_same_owner }} 个项目在同一周各涨 ≥{{ '{:,}'.format(R.rc.spam_min_each) }} 星：{{ R.spam_owners|join('、') }}。只是统计特征，不等于定论。</p>
+      <ul class="names">{% for x in R.suspects %}<li><a href="{{ x.html_url }}">{{ x.full_name }}</a> <span class="s">+{{ '{:,}'.format(x.last7) }}</span></li>{% endfor %}</ul>
     </details>
     {% endif %}
   </div>
-</section>
+</div></section>
+
+<section class="blk" id="newcomers" aria-labelledby="h-new"><div class="sec">
+  <div class="sec-head"><h2 id="h-new">新星与新锐</h2><p class="num">按创建时间分段、互不重叠；超过 {{ '{:,}'.format(R.main_min) }}★ 的进主榜</p></div>
+  <div>
+    <div class="sub">
+      <div class="sub-h"><h3>新星</h3><span>创建于 {{ R.newborn_range }} · ≥{{ R.rc.newborn_min }}★ · {{ R.newborn_n }}</span></div>
+      {% if R.newborn_n %}
+      {% for label, items in R.newborn_groups %}
+      <p class="sub-h"><span>{{ label }} · {{ items|length }}</span></p>
+      <ol class="rows">{% for x in items %}{{ rrow(x, 'newborn') }}{% endfor %}</ol>
+      {% endfor %}
+      {% else %}<p class="empty">这 7 天里创建的项目还没有超过 {{ R.rc.newborn_min }}★ 的。</p>{% endif %}
+    </div>
+    <div class="sub">
+      <div class="sub-h"><h3>新锐</h3><span>创建于 {{ R.young_range }} · ≥{{ '{:,}'.format(R.rc.young_list_min) }}★ · {{ R.young_n }}</span></div>
+      <p class="stat-line num">≥{{ '{:,}'.format(R.rc.young_intro_min) }}★ <b>{{ R.young_featured|length }}</b> 个（附介绍），{{ '{:,}'.format(R.rc.young_list_min) }}–{{ '{:,}'.format(R.rc.young_intro_min - 1) }}★ <b>{{ R.young_rest|length }}</b> 个（只列名字）</p>
+      <ol class="rows">{% for x in R.young_featured %}{{ rrow(x, 'young') }}{% endfor %}</ol>
+      {% if R.young_rest %}
+      <details class="more" open><summary>{{ '{:,}'.format(R.rc.young_list_min) }}–{{ '{:,}'.format(R.rc.young_intro_min - 1) }}★ 的 {{ R.young_rest|length }} 个（只列名字）</summary>
+        <ul class="names">{% for x in R.young_rest %}<li><a href="{{ x.html_url }}">{{ x.full_name }}</a> <span class="s">★ {{ '{:,}'.format(x.stars) }}</span></li>{% endfor %}</ul>
+      </details>
+      {% endif %}
+    </div>
+  </div>
+</div></section>
 {% endif %}
 
-
-<section class="blk" id="index" aria-labelledby="h-index">
-  <div class="blk-head"><h2 id="h-index">名录</h2><span class="aside num">{{ ranked|length }} 个项目 · 按分类 · 分类内按星数{% if prev %} · 绿色 +N 为较第 {{ prev.no }} 期（{{ prev.days }} 天）的增量{% endif %}{% if noted %} · {{ noted }} 个带提示{% endif %}</span></div>
-  <div class="toolbar" role="group" aria-label="名录展开控制">
-    <button type="button" data-all="open">全部展开</button>
-    <button type="button" data-all="close">全部收起</button>
-  </div>
-  {% for cat, es in groups %}
-  <div class="cat-group{% if cat in warn %} warn{% endif %}">
-    <h3>{% if cat in warn %}<span class="warn-mark" aria-hidden="true">⚠</span>{% endif %}{{ cat }}<span class="n num">{{ es|length }}</span></h3>
-    {% if cat in warn %}<p class="cat-note">{{ warn[cat] }}</p>{% endif %}
-    {% for e in es %}
-    <details class="row" id="{{ e.full_name }}">
-      <summary>
-        <span class="caret" aria-hidden="true">▶</span>
-        <span><span class="nm">{{ e.full_name }}</span>{% if e.full_name in new_names or e.notes %}<span class="flags">{% if e.full_name in new_names %}<span class="tag new">新上榜</span>{% endif %}{% if e.notes %}<span class="warn-n">⚠ {{ e.notes|length }} 条提示</span>{% endif %}</span>{% endif %}</span>
-        <span class="right num">★ {{ '{:,}'.format(e.stars) }}{% if e.delta %}<span class="d">+{{ '{:,}'.format(e.delta) }}</span>{% endif %}</span>
-        <span class="tl">{{ e.v.tagline }}</span>
-      </summary>
-      {{ detail(e) }}
-    </details>
+<section class="blk" id="index" aria-labelledby="h-index"><div class="sec">
+  <div class="sec-head"><h2 id="h-index">名录</h2><p class="num">{{ ranked|length }} 个项目 · 按分类、分类内按星数{% if prev %} · +N 为较第 {{ prev.no }} 期（{{ prev.days }} 天）的增量{% endif %}{% if noted %} · {{ noted }} 个带提示{% endif %} · 点一行展开完整介绍</p></div>
+  <div>
+    <div class="toolbar" role="group" aria-label="名录展开控制">
+      <button type="button" data-all="open">全部展开</button>
+      <button type="button" data-all="close">全部收起</button>
+    </div>
+    {% for cat, es in groups %}
+    <div class="cat-group{% if cat in warn %} warn{% endif %}">
+      <h3>{{ cat_icons.get(cat, '') }}{{ cat }}<span class="n">{{ es|length }}</span></h3>
+      {% if cat in warn %}<p class="cat-note">⚠ {{ warn[cat] }}</p>{% endif %}
+      {% for e in es %}
+      <details class="row" id="{{ e.full_name }}">
+        <summary>
+          <span>{{ av(e.full_name) }}<span class="nm">{{ e.full_name }}</span>{% if e.full_name in new_names %}<span class="tag new">新上榜</span>{% endif %}{% if e.notes %}<span class="warn-n">⚠ {{ e.notes|length }} 条提示</span>{% endif %}</span>
+          <span class="fig">{% if e.delta %}<span class="g">+{{ '{:,}'.format(e.delta) }}</span>　{% endif %}★ {{ '{:,}'.format(e.stars) }}</span>
+          <span class="tl">{{ e.v.tagline }}</span>
+        </summary>
+        {{ detail(e) }}
+      </details>
+      {% endfor %}
+    </div>
     {% endfor %}
+    {% if s.excluded %}
+    <p class="excluded">另有 {{ s.excluded|length }} 个项目命中关键词但判定与 AI 无关，未收录：{% for x in s.excluded %}<a href="{{ x.html_url }}">{{ x.full_name }}</a>{% if not loop.last %}、{% endif %}{% endfor %}。</p>
+    {% endif %}
   </div>
-  {% endfor %}
-  {% if s.excluded %}
-  <p class="excluded">另有 {{ s.excluded|length }} 个项目命中关键词但判定与 AI 无关，未收录：{% for x in s.excluded %}<a href="{{ x.html_url }}">{{ x.full_name }}</a>{% if not loop.last %}、{% endif %}{% endfor %}。</p>
-  {% endif %}
-</section>
+</div></section>
 
-<section class="blk" id="issues" aria-labelledby="h-issues">
-  <div class="blk-head"><h2 id="h-issues">往期</h2></div>
+<section class="blk" id="issues" aria-labelledby="h-issues"><div class="sec">
+  <div class="sec-head"><h2 id="h-issues">往期</h2></div>
   <ol class="issues num">
     {% for it in nav %}
     {% set it_label = ('第 %d 期' % it.no) if it.official else '临时更新' %}
-    <li{% if not it.official %} class="tmp"{% endif %}>{% if it.date == s.date %}<span class="cur" aria-current="page">{{ it_label }}</span><span class="aside">本页</span>{% else %}<a href="{{ root }}archive/{{ it.date }}.html">{{ it_label }}</a>{% endif %}
-        <span>{{ it.cn }}</span><span class="aside">{{ it.count }} 个项目</span></li>
+    <li{% if not it.official %} class="tmp"{% endif %}>{% if it.date == s.date %}<span class="cur" aria-current="page">{{ it_label }}</span>{% else %}<a href="{{ root }}archive/{{ it.date }}.html">{{ it_label }}</a>{% endif %}
+        <span>{{ it.cn }}</span><span class="aside">{{ it.count }} 个项目{% if it.date == s.date %} · 本页{% endif %}</span></li>
     {% endfor %}
   </ol>
-</section>
+</div></section>
 </main>
 
-<footer><div class="wrap"><div class="in">
+<footer>
   <p>数据来自 GitHub Search API，快照日期 {{ s.date }}；页内星数均为当日数值。介绍由 {{ s.model }} 根据 README 生成，性能数字多为项目方自报。</p>
   <p>检索式：<code>{{ s.query }}</code></p>
+  <p>刊头底纹：二战夜间雷达屏幕照片，National Museum of the U.S. Navy，公有领域。头像来自 GitHub。图标：Phosphor Icons（MIT）。字体：ZCOOL XiaoWei、Geist Mono（OFL）。</p>
   <p>每周一自动更新 · <a href="{{ root }}feed.xml">RSS</a> · <a href="{{ repo_url }}">源码</a> · 生成于 {{ built }} · 设计规格见仓库 <code>design/issue/DESIGN.md</code></p>
-</div></div></footer>
+</footer>
+</div>
 
 <script>
+{% include '_scope.js.j2' %}
 (function(){
   var rows = [].slice.call(document.querySelectorAll("details.row"));
   function openHash(){
@@ -425,16 +392,13 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
     if (el && el.tagName === "DETAILS"){ el.open = true; el.scrollIntoView(); el.querySelector("summary").focus({preventScroll:true}); }
   }
   addEventListener("hashchange", openHash); openHash();
-
   document.querySelectorAll("[data-all]").forEach(function(b){
     b.addEventListener("click", function(){ var o = b.dataset.all === "open"; rows.forEach(function(r){ r.open = o; }); });
   });
-
   // 打印时名录全部展开，打完还原
   var was = [];
   addEventListener("beforeprint", function(){ was = rows.map(function(r){ return r.open; }); rows.forEach(function(r){ r.open = true; }); });
   addEventListener("afterprint", function(){ rows.forEach(function(r, i){ r.open = was[i]; }); });
-
   document.querySelectorAll("[data-copy]").forEach(function(b){
     b.addEventListener("click", function(){
       var text = b.previousElementSibling.innerText;
@@ -447,7 +411,6 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
       if (navigator.clipboard) navigator.clipboard.writeText(text).then(function(){ flash("已复制"); }, fallback); else fallback();
     });
   });
-
   // 只有真的横向溢出的命令框才进 Tab 顺序
   function markScroll(){
     document.querySelectorAll(".cmd pre").forEach(function(p){
@@ -457,7 +420,7 @@ footer code{font:13px var(--mono);overflow-wrap:anywhere}
     });
   }
   markScroll(); addEventListener("resize", markScroll);
-  document.querySelectorAll("details.row").forEach(function(r){ r.addEventListener("toggle", markScroll); });
+  rows.forEach(function(r){ r.addEventListener("toggle", markScroll); });
 })();
 </script>
 </body>
