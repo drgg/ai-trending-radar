@@ -1,0 +1,27 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "为编码 Agent 跨会话学习仓库经验、削减无效 token 成本的插件。",
+  "positioning": "微软开源的编码 Agent 插件，不改动 Agent 本身的模型与代码，而是从同一仓库的历史会话中学习，削减重复成本。支持 Claude Code、Codex、Copilot CLI、Pi，另实验性支持 opencode、Cursor Agent 等。",
+  "features": [
+    "微技能：跨会话记录仓库的构建步骤、命令拼写等事实，三次确认后写入会话开头",
+    "工具裁剪：连续多轮多会话未使用的工具定义从后续会话中移除，可按需恢复",
+    "失败循环干预：判定卡死时给 Agent 一条重试提示，每轮最多一次",
+    "成本按缓存价格计算，包含插件自身模型调用的开销",
+    "每个机制可单独开关，动作只输出一行提示，失败时不影响原会话"
+  ],
+  "highlights": [
+    "项目方数据：SWE-Bench 上五种 Agent-模型组合平均成本降 18.4–30.9%，30 个仓库×组合单元全部更便宜，Pass@1 有上升",
+    "项目方数据：Web-Bench 成本降 16–21%，两个安全审计基准降 6–20%",
+    "学习结果存于本地 ~/.tokeneconomizer，无需自带 API Key，复用 Agent 自身登录"
+  ],
+  "audience": "频繁在同一代码仓库使用 Claude Code、Codex、Copilot CLI 等编码 Agent，希望降低 token 开销的开发者。",
+  "quickstart_cmd": "git clone https://github.com/microsoft/TokenEconomizer.git\nclaude plugin marketplace add \"$PWD/TokenEconomizer\"\nclaude plugin install tokeneconomizer@tokeneconomizer",
+  "quickstart_note": "需 Python 3.10+ 与对应 Agent；启动后信任文件夹并运行 /tokeneconomizer:status，每台机器执行一次 refresh-catalog。",
+  "risks": [],
+  "readme_sha": "449a089bed377969e540ba61d66931926dfd467d",
+  "generated_at": "2026-11-09",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

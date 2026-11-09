@@ -1,0 +1,7 @@
+{
+ "tagline": "用 C99 在单 CPU 上跑 2.78 万亿参数 Kimi K3 的推理实现",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-09",
+ "model": "deepseek-flash"
+}

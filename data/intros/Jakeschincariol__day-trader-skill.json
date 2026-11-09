@@ -1,0 +1,31 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "11 个 Claude 技能：扫描图表、追踪新闻、择时进出并回放交易结果",
+  "positioning": "面向日内交易的 Claude 技能包，由标准库 Python 工具读取 Yahoo Finance、SEC EDGAR 等免费公开数据，串联扫描、择时、风控、下单到告警的完整流程，默认纸面交易。",
+  "features": [
+    "扫描数千张图表，寻找开盘区间突破、旗形、超卖反弹等形态",
+    "逐根 K 线盯盘，给出等待、触发或过期信号",
+    "入场前设好止损止盈，按预算和单笔最大亏损计算仓位",
+    "时间机器从个股近 60 天 5 分钟线模拟 1 万次后续走势，并回放历史触发记录",
+    "读取财报、突发新闻与国会交易披露文件"
+  ],
+  "highlights": [
+    "所有工具为纯 Python 3.8+ 标准库实现，无需安装依赖",
+    "示例中 TSLA 模拟结果：目标先到 29.4%，止损先到 25.5%，收盘仍未了结 45.1%（项目方数据）",
+    "默认纸面交易，任何订单都需用户在对话中确认后才提交"
+  ],
+  "audience": "使用 Claude Code 或 Claude 桌面端、关注日内交易的个人交易者与开发者",
+  "quickstart_cmd": "/plugin marketplace add Jakeschincariol/day-trader-skill",
+  "quickstart_note": "在 Claude Code 中执行后，再运行 /plugin install day-trader-skill@day-trader-skill 安装；SEC 相关工具需在 config.json 填写姓名和邮箱。",
+  "risks": [
+    "项目方明确警告：时间机器是模拟而非预测，止损只是计划而非保证，快速行情或跳空时可能大幅滑点",
+    "项目方说明 Yahoo Finance 图表接口非官方 API，可能延迟、变更或限流，且扫描基于 1 或 5 分钟 K 线而非逐笔",
+    "项目方提醒多数日内交易者亏损，本软件不构成投资建议"
+  ],
+  "readme_sha": "74984ac15f40c47040aaa8ef1921690508847836",
+  "generated_at": "2026-11-09",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

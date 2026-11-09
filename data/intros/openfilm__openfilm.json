@@ -1,0 +1,29 @@
+{
+  "is_ai_product": true,
+  "category": "AI 应用产品",
+  "tagline": "让编码 Agent 编写 HTML 网页来制作视频，并可在浏览器编辑器里修改的 AI 视频工具",
+  "positioning": "把 Codex、Claude Code 等编码 Agent 变成视频 Agent：影片就是一个 film.html，每个镜头是一个用 frame(t) 绘制任意时刻的网页，Studio 在本地浏览器中编辑，改动会写回文件供 Agent 读取。",
+  "features": [
+    "影片是一个 film.html：像剪辑轨一样编排网页、视频、图片和声音，用 CSS 定样式",
+    "每个镜头是一个网页，用 frame(t) 画出任意时刻，可使用 three.js、WebGL、canvas、SVG、GSAP 等",
+    "Studio 本地编辑器：可改文字、图层、片段位置、裁剪、音量、速度与字幕",
+    "导出 MP4、GIF、音频、字幕、静帧及 Final Cut Pro、Premiere、达芬奇时间线",
+    "影片的生成方式放在技能里，可安装社区技能或用 openfilm skill add 添加"
+  ],
+  "highlights": [
+    "同一 t 必须画出同一画面；look 会把每帧画两次并打乱顺序比对，找出不一致",
+    "制作、编辑、渲染无需账号；内置音乐、音效、配音、贴纸、转场、特效与模板可免费使用",
+    "生成式配音、音乐、图像和视频需在设置中接入自己的服务密钥，或登录 OpenFilm 免密钥使用"
+  ],
+  "audience": "已在使用 Codex、Claude Code 等编码 Agent，希望用网页技术制作并精修视频的开发者与创作者。",
+  "quickstart_cmd": "npx skills add openfilm/openfilm",
+  "quickstart_note": "需 Node 22.2+、ffmpeg、git；首次运行会下载约 100 MB 的无头 Chromium。然后让 Agent 制作影片，并提示词。",
+  "risks": [
+    "未接入自有服务时，可登录 OpenFilm 免密钥生成配音、音乐、图像和视频，相关素材与请求会发送到其服务。"
+  ],
+  "readme_sha": "dc955483684abcd6dc291493a474245ef247c76c",
+  "generated_at": "2026-11-09",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

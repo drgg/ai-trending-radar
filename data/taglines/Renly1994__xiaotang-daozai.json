@@ -1,0 +1,7 @@
+{
+ "tagline": "Rust 打造的 Windows 桌面信息岛，聚合音乐、邮件、日程与 AI 额度",
+ "is_ai_product": false,
+ "ai_rule": 2,
+ "generated_at": "2026-11-09",
+ "model": "deepseek-flash"
+}

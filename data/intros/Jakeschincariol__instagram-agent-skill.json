@@ -1,0 +1,27 @@
+{
+  "is_ai_product": true,
+  "category": "Skills 与写作/设计",
+  "tagline": "13 个 Claude 技能，帮你运营 Instagram 账号",
+  "positioning": "一套面向 Claude 的 Instagram 运营技能包，覆盖 Reels 脚本、爆款研究、文案检查、个人主页评分、一周排期等，并附带 5 个本地 Python 工具。免费、MIT 许可，无需注册或 API Key。",
+  "features": [
+    "用 26 个钩子公式生成 Reels，生成前先给钩子打分",
+    "按各账号自身中位数倍数找出对标领域内的爆款 Reels",
+    "检查标题文案，预览信息流中可见的前 125 个字符",
+    "按 100 分制评分个人主页并给出改写顺序",
+    "去除草稿中的隐形字符、堆砌词汇和模板句式"
+  ],
+  "highlights": [
+    "项目方数据：钩子评分器在故意写差的钩子上 AUC 为 0.83",
+    "项目方数据：区分同一创作者的热门与冷门视频时 AUC 仅 0.56，即接近随机；README 承认无法挑出赢家",
+    "项目方数据：公式分类器最初只识别 8% 的真实钩子，重写后达 49%"
+  ],
+  "audience": "用 Claude 运营 Instagram 账号的创作者、内容团队和社媒运营者。",
+  "quickstart_cmd": "git clone https://github.com/Jakeschincariol/instagram-agent-skill.git\ncp -r instagram-agent-skill/skills/ig-* ~/.claude/skills/",
+  "quickstart_note": "也可作为插件安装；之后花十分钟填写 templates/voice.md，所有技能都会读取这个文件。技能只负责写作，发帖仍由你自己操作。",
+  "risks": [],
+  "readme_sha": "26a4630274fb05cf5e0206d3fbc64bee655d4210",
+  "generated_at": "2026-11-09",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

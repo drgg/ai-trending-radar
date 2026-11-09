@@ -1,0 +1,30 @@
+{
+  "is_ai_product": true,
+  "category": "Skills 与写作/设计",
+  "tagline": "基于 520 万字对照语料研究的去 AI 味改写 skill，先出检测报告再改",
+  "positioning": "先运行脚本并判读语义候选，交付带研究参照、原文例句和改法的检测报告；用户回复后才改写、复测并生成前后对比。",
+  "features": [
+    "三层检测：脚本层、语义层、人审层，命中分 A/B/C/H/X/F 级",
+    "报告附指标显著性、原文例句和具体改法，默认只报告",
+    "六条改写原则：最小改动、信息守恒、不制造参差、结构不动",
+    "改后复测并生成 Markdown 或 HTML 前后对比报告",
+    "内置复算脚本：人机规则命中率、句子同构、译文句式频率"
+  ],
+  "highlights": [
+    "语料为两轮 1,169 篇、约 520 万汉字，约 50 万次语义判断",
+    "区分模型指纹：破折号 Opus δ+0.95，GPT 分号 δ+0.80",
+    "README 称语义层为单模型判断，抽样复核误判 15–30%",
+    "README 称语料涉版权不入库，数字第三方无法直接核验"
+  ],
+  "audience": "想让 AI 生成的中文成稿读起来更自然，且希望改写有据可查、不误伤原意的写作者与编辑。",
+  "quickstart_cmd": "npx skills add larashero3-dotcom/lieflat-less-ai-tone",
+  "quickstart_note": "也可让支持 Agent Skills 的 AI 直接安装仓库内 skill；安装后给一篇成稿。",
+  "risks": [
+    "许可证为 CC BY-NC 4.0 仅限非商业使用，商用需联系作者授权"
+  ],
+  "readme_sha": "ffa232f3e48ee115360ecb55919ee9b30014045c",
+  "generated_at": "2026-11-09",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

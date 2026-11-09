@@ -1,0 +1,7 @@
+{
+ "tagline": "开源 AI 语音工作室，支持声音克隆与听写创作",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-09",
+ "model": "deepseek-flash"
+}

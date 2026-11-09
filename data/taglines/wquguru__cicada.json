@@ -1,0 +1,7 @@
+{
+ "tagline": "跨平台实时字幕、同声传译与 AI 会议纪要工具",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-09",
+ "model": "deepseek-flash"
+}

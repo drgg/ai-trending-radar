@@ -1,0 +1,29 @@
+{
+  "is_ai_product": true,
+  "category": "Skills 与写作/设计",
+  "tagline": "11 个 Claude 技能，覆盖 YouTube 频道从选题到剪辑的各个环节",
+  "positioning": "面向 YouTube 创作者的 Claude 技能包，包含脚本、标题缩略图配对、剪辑决策、留存分析、Shorts 切分等 11 个命令，并配有 6 个零依赖 Python 工具；免费、MIT 许可、无需注册或 API Key。",
+  "features": [
+    "/yt-script 按 21 个钩子公式生成脚本并给钩子打分",
+    "/yt-package 把标题与缩略图作为一组配对做 lint",
+    "/yt-retention 读留存导出，定位观众流失的具体秒数",
+    "/yt-edit 从转录稿生成带时间码的剪辑决策表",
+    "/yt-shorts 从长视频中找出可切分的 Shorts"
+  ],
+  "highlights": [
+    "6 个 Python 工具仅需纯净 Python 3，无第三方依赖",
+    "不自动发布，所有技能都以人工确认收尾",
+    "hookscore.py 项目方数据：基于 74 个真实短视频钩子校准"
+  ],
+  "audience": "希望用 Claude 辅助运营 YouTube 频道的创作者与内容团队，需要本地安装 Claude Code 以使用 Python 工具。",
+  "quickstart_cmd": "git clone https://github.com/Jakeschincariol/youtube-agent-skill.git\ncp -r youtube-agent-skill/skills/yt-* ~/.claude/skills/",
+  "quickstart_note": "也可作为插件安装，或不装 Claude Code 直接粘贴单个 SKILL.md；建议先填写 templates/voice.md。",
+  "risks": [
+    "/yt-viral 仅读取公开列表，但抓取第三方平台数据仍需留意平台服务条款。"
+  ],
+  "readme_sha": "7889414543d8654abff5eb39f2b8365df52d4ae7",
+  "generated_at": "2026-11-09",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

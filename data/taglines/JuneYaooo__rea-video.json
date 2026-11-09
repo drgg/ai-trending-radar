@@ -1,0 +1,7 @@
+{
+ "tagline": "面向 AI Agent 的视频逆向拆解工具，逐镜头判断来源并给出复刻方案",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-09",
+ "model": "deepseek-flash"
+}

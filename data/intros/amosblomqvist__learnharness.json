@@ -1,0 +1,30 @@
+{
+  "is_ai_product": true,
+  "category": "AI 应用产品",
+  "tagline": "用 AI Agent 规划并讲授课程，带你从现有理解学到目标",
+  "positioning": "先测出你在各知识点的理解边界，再生成依赖图并逐步讲授；学习记录以命题和推理链存成知识图谱，跨会话沿用。",
+  "features": [
+    "先测量理解边界，再生成到目标的知识依赖图",
+    "逐步教学：预测、解释、检验，修复混淆后再往下建",
+    "单独练习会话，题目和提示按你的推理调整",
+    "知识图谱以命题和推理链存储，可导入笔记",
+    "桌面端可附 PDF、图片，支持后台调研与可视化讲解"
+  ],
+  "highlights": [
+    "无订阅加价，可用自有 API Key、订阅连接或 OpenAI 兼容端点（含本地模型）",
+    "对话、图谱、设置和 API Key 存本地，学习记录为可查看的纯文本文件",
+    "系统提示词可见可编辑，AGPL-3.0 开源"
+  ],
+  "audience": "想系统学会困难概念、愿意写出推理过程并自带模型 Key 或本地模型的学习者",
+  "quickstart_cmd": "npm run dev",
+  "quickstart_note": "开发运行前需先执行 npm ci；普通用户可从 learnharness.ai 或 GitHub Releases 下载安装包",
+  "risks": [
+    "模型请求、联网调研和听写会把任务所需内容发送给外部服务，本地存储不等于离线处理",
+    "Windows 安装包目前未签名，可能触发未知发布者或 SmartScreen 警告"
+  ],
+  "readme_sha": "a5ca0bddb191b83d745628b81eb0d2f82798e9fb",
+  "generated_at": "2026-11-09",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

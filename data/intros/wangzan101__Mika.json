@@ -1,0 +1,29 @@
+{
+  "is_ai_product": true,
+  "category": "AI 应用产品",
+  "tagline": "安卓端 AI 助手，用一句话让它在后台操作手机应用和网页",
+  "positioning": "运行在手机本地的 AI Agent，在独立的后台屏幕上打开应用、点击输入、滚动浏览，不占用用户当前屏幕；无 Mika 服务器，用户自备模型 API Key 或登录已有账号。",
+  "features": [
+    "在后台屏幕操作任意 App，无需逐应用集成 API",
+    "内置桌面级浏览器，可在当前网页直接下指令",
+    "记住用户偏好，把完成的任务沉淀为技能",
+    "支持定时与条件触发任务，可随时插话或停止",
+    "每会话提供 Linux 沙箱运行 Python、Node 和 shell（arm64）"
+  ],
+  "highlights": [
+    "模型与数据留在本机，Key 和记忆加密存储，对话与运行记录不出设备",
+    "默认 Ask 模式：仅在花钱（下单、支付）前确认，可选切换 Autonomous 模式",
+    "电脑端 AI 工具可通过 CLI + Skill 或 MCP 向 Mika 派发任务"
+  ],
+  "audience": "需要用自然语言自动处理安卓应用操作、网页浏览与定时任务的安卓用户；操作手机应用需 Android 12+，建议 14+。",
+  "quickstart_cmd": "",
+  "quickstart_note": "从 Releases 下载 APK 安装，在设置›模型中选择提供商并填 API Key，操作手机应用还需按向导配对一次无线调试。",
+  "risks": [
+    "自动操作第三方应用和网站可能违反其服务条款，README 明确提示需自行判断并建议重要操作使用 Ask 模式。"
+  ],
+  "readme_sha": "58aaa003b45590a6844eca8c159f18c8cfe33569",
+  "generated_at": "2026-11-09",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

@@ -1,0 +1,32 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "本地优先的桌面工作台，为多个 AI 编程 Agent 提供独立工作区与协作",
+  "positioning": "OpenBot 是一款 Electron 桌面应用，把 Codex、Claude、Grok、OpenCode、Gemini、Cursor、Cline、Kimi、Devin、Copilot 等 CLI Agent 放在同一个本地优先的工作台中，每个 Agent 有自己的工作区、会话和消息队列，并支持 Agent 之间的协作。",
+  "features": [
+    "每个 Agent 有独立工作区、会话、模型与推理设置",
+    "FIFO 消息队列，支持暂停、恢复、取消与崩溃安全持久化",
+    "Agent 之间可互发消息、回复、表情、图片和传输文件",
+    "共享频道聊天，含指定任务负责人与委派、归档、恢复",
+    "内置持久浏览器，Agent 可打开、检查并控制；Computer Use 可选"
+  ],
+  "highlights": [
+    "支持 Codex、Claude、Grok 等十余种 CLI Agent，兼容自定义 OpenAI 接口与 ACP Agent",
+    "自动检测 Ollama、LM Studio 等本地模型服务并可下载管理各家 CLI",
+    "长期对话前自动压缩上下文，避免耗尽模型窗口"
+  ],
+  "audience": "需要同时调度多个 AI 编程 Agent、且接受本地全权限执行的开发者",
+  "quickstart_cmd": "",
+  "quickstart_note": "macOS/Windows/Linux 均从 GitHub Releases 下载安装包；Linux AppImage 首次运行写入桌面文件与图标",
+  "risks": [
+    "Agent 以 danger-full-access 和 approvalPolicy: never 运行，首次同意后无需逐动作确认即可改文件、执行命令、联网和控制浏览器",
+    "首次同意后 Agent 可无确认地操作内嵌浏览器访问第三方网页，可能涉及服务条款风险",
+    "许可证为 NOASSERTION，README 称 OpenBot 不是自由软件，Nix 安装需允许 unfree",
+    "README 警告不要以 --no-sandbox 启动，否则会移除渲染进程与系统的隔离边界"
+  ],
+  "readme_sha": "9a2b9b8e51845df7dd08ef77fef3c2368e624f60",
+  "generated_at": "2026-11-09",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

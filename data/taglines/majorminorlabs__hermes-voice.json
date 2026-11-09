@@ -1,0 +1,7 @@
+{
+ "tagline": "让老 Echo 通过 Home Assistant Assist 与 Hermes Agent 语音对话",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-09",
+ "model": "deepseek-flash"
+}

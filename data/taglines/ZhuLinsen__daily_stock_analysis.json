@@ -1,0 +1,7 @@
+{
+ "tagline": "LLM 驱动的多市场股票智能分析系统，含行情、新闻、看板与自动推送",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-09",
+ "model": "deepseek-flash"
+}

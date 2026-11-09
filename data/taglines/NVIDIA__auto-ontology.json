@@ -1,0 +1,7 @@
+{
+ "tagline": "为企业数据构建语义本体层，为 LLM 与 Agent 提供可信查询上下文",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-09",
+ "model": "deepseek-flash"
+}

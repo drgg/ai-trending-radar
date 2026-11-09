@@ -1,6 +1,7 @@
 {
- "tagline": "AI新闻雷达，自动生成中英文每日简报，面向需要信息聚合的用户",
+ "tagline": "AI 驱动的个性化新闻雷达，每日生成中英双语简报",
  "is_ai_product": true,
- "generated_at": "2026-10-22",
- "model": "claude-sonnet-5"
+ "ai_rule": 2,
+ "generated_at": "2026-11-09",
+ "model": "deepseek-flash"
 }

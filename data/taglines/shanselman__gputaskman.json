@@ -1,0 +1,7 @@
+{
+ "tagline": "跨平台 GPU 任务管理器，按进程看显存与 LLM 模型/KV 缓存",
+ "is_ai_product": false,
+ "ai_rule": 2,
+ "generated_at": "2026-11-09",
+ "model": "deepseek-flash"
+}

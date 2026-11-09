@@ -1,7 +1,7 @@
 {
- "tagline": "预索引代码知识图谱，自动同步代码变更，供各类AI编程Agent减少token消耗",
+ "tagline": "为 AI 编程 Agent 提供本地预索引代码知识图，节省 token 与工具调用",
  "is_ai_product": true,
  "ai_rule": 2,
- "generated_at": "2026-10-26",
- "model": "claude-sonnet-5"
+ "generated_at": "2026-11-09",
+ "model": "deepseek-flash"
 }

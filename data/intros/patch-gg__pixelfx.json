@@ -1,0 +1,27 @@
+{
+  "is_ai_product": true,
+  "category": "Skills 与写作/设计",
+  "tagline": "244 个代码化像素特效，附一个 Claude Code 技能用于自制",
+  "positioning": "一套纯代码实现的像素艺术特效库，按特效分目录存放，可直接在浏览器游戏里调用，也可导出精灵表；附带一个 Claude Code 技能，用于查找、导出和新建特效。",
+  "features": [
+    "21 类共 244 个特效，每个都是一个 JS 文件",
+    "61 个带角色特效和 12 个招式带蓄力、命中、硬直等演出数据",
+    "无依赖，可配合 canvas、Phaser、PixiJS 等使用",
+    "支持导出 PNG 精灵表与 Aseprite 风格 JSON",
+    "特效接受 palette 参数，不改代码即可换色"
+  ],
+  "highlights": [
+    "纯特效按时间参数出帧、循环无接缝，模拟类特效以 120Hz 步进",
+    "所有随机数由 seed 决定，同一帧每次渲染一致",
+    "与 Sprite Fusion 的 VFX 帧结构相同，可共用缓冲区"
+  ],
+  "audience": "做像素风游戏或动画的开发者，以及用 Claude Code 制作特效的美术和独立开发者",
+  "quickstart_cmd": "npm i github:patch-gg/pixelfx",
+  "quickstart_note": "从 GitHub 安装；也可直接复制 src/core 和所需特效文件。",
+  "risks": [],
+  "readme_sha": "0c3824779db873c22a251d19bd9e7ab65c90e244",
+  "generated_at": "2026-11-09",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

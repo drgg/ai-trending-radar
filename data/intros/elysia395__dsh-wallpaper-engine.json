@@ -1,0 +1,27 @@
+{
+  "is_ai_product": false,
+  "category": "其他",
+  "tagline": "把本机 Wallpaper Engine 壁纸搬进 DSH 界面的插件",
+  "positioning": "DSH 对话界面外观插件，读取本机 Wallpaper Engine 的 Scene、Web、视频与图片壁纸并实时渲染，配液态玻璃 UI；不向 agent 注册工具、不注入提示文本。",
+  "features": [
+    "Scene 由内置 MIT 开源引擎 WebWallGL 实时渲染，失败逐级降级",
+    "支持 Web、视频、图片壁纸，可上传自定义图片和视频",
+    "液态玻璃外观，配色、透明度、模糊、边框与字体可调",
+    "吉祥物、会话头像、点击拖尾特效与 3D 视差，可选桌宠联动",
+    "壁纸库支持筛选、隐藏恢复与自动轮播，外观预设可导入导出"
+  ],
+  "highlights": [
+    "设置保存在宿主端，对 agent 零 token 开销",
+    "液态玻璃为独立子包 wallpaper-engine-glass，可单独停用",
+    "Windows、macOS、Linux 同一份源码、同一条安装命令"
+  ],
+  "audience": "使用 DSH 0.2 内核、想给对话界面换壁纸和外观的 Windows/macOS/Linux 用户，需 Node.js >= 22.12.0 与 pnpm。",
+  "quickstart_cmd": "dsh plugin --profile web add dsh-plugin-wallpaper-engine",
+  "quickstart_note": "安装前完全退出 DSH；桌面端把 web 改为 desktop。仅支持 Scene/Web/Video/Picture，Application 类壁纸不支持。",
+  "risks": [],
+  "readme_sha": "f875e912c8069539362c12b4dee0a6102def35c8",
+  "generated_at": "2026-11-09",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

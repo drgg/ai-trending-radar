@@ -1,0 +1,7 @@
+{
+ "tagline": "面向 LLM 的 Python 建模库，用简短代码在 Blender 中构建 3D 对象",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-09",
+ "model": "deepseek-flash"
+}

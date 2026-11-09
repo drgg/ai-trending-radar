@@ -1,0 +1,7 @@
+{
+ "tagline": "Rust 编写的轻量高速无头浏览器，专为 AI Agent 设计",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-09",
+ "model": "deepseek-flash"
+}

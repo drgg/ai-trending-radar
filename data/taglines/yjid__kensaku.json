@@ -1,0 +1,7 @@
+{
+ "tagline": "本地文件启动器，支持全文、OCR 与语义搜索并提供 MCP 接口",
+ "is_ai_product": false,
+ "ai_rule": 2,
+ "generated_at": "2026-11-09",
+ "model": "deepseek-flash"
+}
