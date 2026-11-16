@@ -1,0 +1,7 @@
+{
+ "tagline": "Agent 技能：去除 AI 写作痕迹，并把文本向简化技术英语 STE80 改写",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

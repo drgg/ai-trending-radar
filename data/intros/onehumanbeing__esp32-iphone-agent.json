@@ -1,0 +1,30 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "用 7 美元的 ESP32 板让 AI 模型操控真实 iPhone",
+  "positioning": "iPhone 通过 AirPlay 把屏幕投给 ESP32 板，板子再把画面转发给手机上的 App；App 调用任意 OpenAI 兼容视觉模型做规划，通过 USB HID 模拟鼠标键盘点击屏幕。无需 Mac、开发者账号或越狱。",
+  "features": [
+    "AirPlay 屏幕镜像传到板子，App 解码后送入视觉模型",
+    "板子作标准 USB 鼠标键盘，配合 AssistiveTouch 点击滑动",
+    "任务可在后台运行，中断后从同一步暂停恢复",
+    "每次运行保存在手机，可逐步回放并导出操作轨迹",
+    "可选：提供 MCP 服务器与 Claude Code 插件，供编码 Agent 调用"
+  ],
+  "highlights": [
+    "整个方案只需一台 iPhone 和一块约 7 美元的 Seeed XIAO ESP32S3",
+    "步骤主要耗时在模型，项目方称每步需数秒",
+    "项目方称免费模型线路为共享资源，可能返回 HTTP 503 导致运行卡住"
+  ],
+  "audience": "想让 AI 直接操作 iPhone、又没有 Mac 或开发者环境的人；以及想把手机接入编码 Agent 的开发者。",
+  "quickstart_cmd": "arduino-cli lib install \"NimBLE-Arduino@2.5.1\"",
+  "quickstart_note": "还须安装 ESP32 core 3.3.x，再运行 hardware/flash.sh 烧录；没有 Mac 可在 Chrome/Edge 浏览器中刷固件。",
+  "risks": [
+    "App 通过 USB HID 模拟鼠标键盘自动操作第三方 App 和账号，可能违反其服务条款",
+    "使用免费共享模型线路时，截图和任务内容会发送给外部服务"
+  ],
+  "readme_sha": "22bebb78ea7ec7462ec30a51bd011f0953eb1803",
+  "generated_at": "2026-11-16",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

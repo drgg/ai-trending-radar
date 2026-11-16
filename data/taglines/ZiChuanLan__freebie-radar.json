@@ -1,0 +1,7 @@
+{
+ "tagline": "聚合多源福利信息并用 AI 二次审核过滤的工具，通过 Telegram 推送",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

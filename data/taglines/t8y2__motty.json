@@ -1,0 +1,7 @@
+{
+ "tagline": "原生 Go 桌面应用，集成 SSH、SFTP、端口转发、VNC/RDP 与 AI 助手、MCP。",
+ "is_ai_product": false,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

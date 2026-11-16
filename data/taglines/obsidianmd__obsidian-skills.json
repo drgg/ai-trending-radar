@@ -1,0 +1,7 @@
+{
+ "tagline": "Obsidian 官方 Agent 技能包，教 AI 代理使用 CLI 与 Markdown、Bases 等格式",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

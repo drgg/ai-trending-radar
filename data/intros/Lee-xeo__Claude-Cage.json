@@ -1,0 +1,33 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "为 Claude 定制的本地轻量虚拟机，隔离网络与浏览器指纹",
+  "positioning": "一个桌面程序，用 macOS、Windows 或 Linux 客机隔离运行 Claude Code、Claude Desktop 和浏览器，由 Cage 接管代理与网络出口，统一管理多账号、远程服务器和手机接续。基于 agent-vm 二次开发。",
+  "features": [
+    "客机系统可选 macOS、Windows、Debian 或 Ubuntu",
+    "内置代理管理，导入 Clash/Mihomo 订阅并选节点",
+    "隔离时区、语言等指纹，可选与代理 IP 自动同步",
+    "多 Claude Code 账号查看额度、分配与切换",
+    "Android/iPhone 配对电脑接续对话与工具审批",
+    "SSH 部署或连接 Linux VPS 运行环境"
+  ],
+  "highlights": [
+    "内置网络与隔离检查，关键检查失败时环境保持离线，代理不可用无直连回退",
+    "项目方数据：环境检测结果见 README 截图，社区浏览器检测仅供参考",
+    "主许可 MIT；Mihomo 按 GPL-3.0 独立分发，附 NOTICE 与第三方许可"
+  ],
+  "audience": "需要在本地隔离环境中使用 Claude Code、Claude Desktop，并管理多账号或远程环境的开发者",
+  "quickstart_cmd": "",
+  "quickstart_note": "从项目主页下载对应平台安装包，拖入应用程序后按引导配置自己的代理，再新建终端输入 claude 完成授权",
+  "risks": [
+    "README 称网络检查无法保证账户不受平台限制，项目面向规避封号场景，可能违反 Anthropic 服务条款",
+    "共享项目中的修改和删除直接作用于本机原文件，包括 Git 操作",
+    "同一配置下各项目共用客机系统、工具、账户与文件系统，项目间无独立隔离",
+    "默认公网出站仅支持 IPv4 TCP，UDP、IPv6、ICMP 及局域网直连受限"
+  ],
+  "readme_sha": "116d6e9bc8ad110999421489e15dba3b480848b7",
+  "generated_at": "2026-11-16",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

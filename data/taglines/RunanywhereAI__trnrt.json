@@ -1,0 +1,7 @@
+{
+ "tagline": "面向 AWS Trainium 的开源 LLM 推理引擎，支持百万级上下文和 OpenAI 兼容 API。",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

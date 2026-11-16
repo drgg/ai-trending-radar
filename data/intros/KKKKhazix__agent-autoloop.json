@@ -1,0 +1,29 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "让命令行 Agent 在后台自动接活、遇到拿不准的事再找你拍板的本地调度中台",
+  "positioning": "一个零依赖的本地自动化中台，把定时任务、Webhook 等事件按规则派给 Claude Code、Codex 等命令行 Agent，任务跑完即退出；需要人工决策时通过飞书、桌面通知等推送卡片，你回答后它接回原会话继续。",
+  "features": [
+    "用 rules.json 写清什么事、交给谁、在哪个目录干，不需要写胶水代码",
+    "事件、Agent、通知通道、交付流水线四个方向都可替换，支持第三方插件",
+    "Agent 在最后一条回复里用代码块提问、通知或预约复查",
+    "待决策时进程退出，不占后台进程也不消耗 Token，回答后接回原会话",
+    "内置八套场景模板：早报、Issue 跟进、告警排查、收件箱分诊等"
+  ],
+  "highlights": [
+    "内核零运行时依赖，状态从只追加日志事件溯源，可一条命令查清每轮来龙去脉",
+    "外部文字只作资料放进文件、不拼进提示词，事件里带 cwd/agent 字段会被拒收",
+    "项目方数据：冷启动 88.78 ms，空闲内存 59.94 MB，派活 p99 1.82 ms"
+  ],
+  "audience": "使用 Claude Code、Codex 等命令行 Agent、想让它们在本机后台自动处理重复任务并保留人工确认环节的开发者。",
+  "quickstart_cmd": "curl -fsSL https://raw.githubusercontent.com/KKKKhazix/agent-autoloop/main/install.sh | sh",
+  "quickstart_note": "Windows 用 README 中的 PowerShell 安装脚本；需 Node 24+、Git 和已登录的命令行 Agent，装好运行 agent-autoloop try 试跑。",
+  "risks": [
+    "直接调用本机已登录的模型订阅额度，README 建议高频自动化或对外提供服务时改用 API Key"
+  ],
+  "readme_sha": "15f9193951fddd9e49b4c39a8f9bbf5145634790",
+  "generated_at": "2026-11-16",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

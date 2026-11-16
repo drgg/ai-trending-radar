@@ -1,0 +1,7 @@
+{
+ "tagline": "n8n 出品的开源个人 AI 助手，在自有电脑上浏览网站、代办事务并先问后做",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

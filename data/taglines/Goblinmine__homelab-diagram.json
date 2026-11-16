@@ -1,0 +1,7 @@
+{
+ "tagline": "从 YAML 清单生成 r/homelab 风格网络拓扑图，输出 SVG/PNG。",
+ "is_ai_product": false,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

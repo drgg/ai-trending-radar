@@ -1,0 +1,7 @@
+{
+ "tagline": "用 React/TS 让 AI 编写并 GPU 本地渲染视频、动效、3D 与游戏的引擎",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

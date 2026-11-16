@@ -1,0 +1,7 @@
+{
+ "tagline": "Claude Code 漏洞挖掘技能包，含 82 项技能与红队攻击矩阵",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

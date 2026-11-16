@@ -1,0 +1,7 @@
+{
+ "tagline": "Claude Code 聊天旁的实时可视化面板，展示工具调用与 Agent 步骤",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

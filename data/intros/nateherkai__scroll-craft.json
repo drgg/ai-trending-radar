@@ -1,0 +1,30 @@
+{
+  "is_ai_product": true,
+  "category": "Skills 与写作/设计",
+  "tagline": "为编程 Agent 提供制作高端滚动叙事网站的设计技能包",
+  "positioning": "一个供 Codex、Claude Code 等编程 Agent 读取的 skill，内置设计流程、参考文档、滚动引擎和浏览器校验脚本，同时提供 Claude Code 插件形式安装。",
+  "features": [
+    "八种互斥页面语法，每次构建须有独有招牌交互",
+    "按感受曲线规划段落，只设一个工程化峰值",
+    "排版、间距、配色、景深设有明确设计下限",
+    "无头浏览器逐滚动位检查死滚动、对比度与视频解码",
+    "可用自有素材构建，AI 生成素材需另配 API Key"
+  ],
+  "highlights": [
+    "技能自带指纹门槛：新页面须在 6 个维度中至少 4 项区别于旧页面",
+    "引擎不按项目改动，仅通过 6 个颜色令牌和 2 款字体定制",
+    "收录十个已上线沉浸式网站的制作流程与范例"
+  ],
+  "audience": "使用 Codex、Claude Code 等编程 Agent 构建营销落地页的前端开发者与设计师",
+  "quickstart_cmd": "/plugin marketplace add nateherkai/scroll-craft",
+  "quickstart_note": "Claude Code 中先添加市场，再执行 /plugin install nateherk-design 安装插件；其他 Agent 需手动复制 skill 文件夹",
+  "risks": [
+    "README 自述脚本从未在 macOS 上完成过构建，仅在 Windows 上验证",
+    "AI 生成视频素材会产生实际费用"
+  ],
+  "readme_sha": "19bf0aba561de2448799651157c742e3f4dfa994",
+  "generated_at": "2026-11-16",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

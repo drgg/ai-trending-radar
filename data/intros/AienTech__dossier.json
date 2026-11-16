@@ -1,0 +1,31 @@
+{
+  "is_ai_product": true,
+  "category": "AI 应用产品",
+  "tagline": "自托管的求职与简历工具，用 AI 按每个岗位生成定制简历和求职信。",
+  "positioning": "Dossier 把职业经历集中到一份个人资料里，再据此为每个岗位生成只使用资料中事实的定制简历、求职信和配套邮件，并跟踪每份申请从草稿到拿到 offer 的全过程。它只面向单用户自托管。",
+  "features": [
+    "个人档案涵盖经历、项目、证书、论文等，也可从已有简历导入",
+    "内置 12 套简历主题和主题编辑器，可在服务器端渲染为 PDF",
+    "从 JSearch、Adzuna、FreeHire 搜索岗位，并按个人资料打分匹配",
+    "AI 根据岗位描述匹配个人档案，缺失的要求只标为差距，不会编造",
+    "可选 Job Agent 每天按需运行最多三个已保存的搜索，只准备草稿，不投递"
+  ],
+  "highlights": [
+    "可接入 Ollama 或 LM Studio 的本地模型，资料可不出本机",
+    "可选 MCP 连接器，在 Claude 各客户端或 n8n 中调用，只能存草稿",
+    "项目方数据：2 vCPU / 1 GB 容器内单份简历 PDF 渲染约 0.25 秒"
+  ],
+  "audience": "需要自托管、注重隐私、愿意自己准备模型和数据库的个人求职者。",
+  "quickstart_cmd": "docker compose up -d",
+  "quickstart_note": "需先下载 compose.production.yml，并在 .env 写入 POSTGRES_PASSWORD、DOSSIER_SECRET 和 argon2id: 密码哈希；随后访问 localhost:3000。",
+  "risks": [
+    "可选连接 Gmail 和 Google 日历，会把邮件内容和日历数据交给所配置的 AI 模型处理，README 建议先阅读隐私说明",
+    "用 SQLite 单容器部署时，如果不挂载 /data 卷，升级会删除数据，容器启动时会就此警告",
+    "AGPL-3.0 许可证对修改后对外提供服务的版本有开源要求"
+  ],
+  "readme_sha": "ed6e6775eff755111cdd3689cb53ea87e8dd9180",
+  "generated_at": "2026-11-16",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

@@ -1,0 +1,7 @@
+{
+ "tagline": "研究原型，用于为 AI 推理生成零知识证明，目前不再维护。",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

@@ -1,0 +1,29 @@
+{
+  "is_ai_product": true,
+  "category": "安全防护与合规",
+  "tagline": "对抗 AI 逆向工程代理的软件加固 MCP 服务器与 CLI",
+  "positioning": "BLA 面向软件作者，通过欺骗、耗尽分析预算、诱饵状态机等手段，让 AI 逆向工程代理难以还原发布产物的核心逻辑，覆盖 JS/TS、Electron、WASM、原生二进制、SQLite、GGUF 等格式。",
+  "features": [
+    "一条命令自动发现构建产物并执行审计、保护、验证",
+    "把可识别的分析预算上限设置得极低，触发逆向代理的资源上限",
+    "植入格式合法诱饵与蜜罐 SourceMap，制造互相冲突的假设",
+    "将 JS、WASM、原生附属文件通过运行时摘要互绑，防止剥离",
+    "支持 Vite、Rollup、Webpack、esbuild 打包插件接入"
+  ],
+  "highlights": [
+    "项目方数据：对真实 morluto/rea 实测 12 类格式触发预算或容量错误",
+    "项目方数据：14/14 自带基准目标通过输入输出等价测试",
+    "项目方数据：建模 token 放大 300×–2,800×"
+  ],
+  "audience": "需要保护自有发布产物、防止 AI 逆向代理复刻逻辑的软件作者与安全团队",
+  "quickstart_cmd": "npx bla-agents harden .",
+  "quickstart_note": "需 Node.js ^22.23.4 或 >=24；自动发现 dist/、.asar、.wasm 等构建输出。",
+  "risks": [
+    "仅限保护自有软件；README 声明不得用于第三方产物"
+  ],
+  "readme_sha": "d94eb3273616b769288a10c3fb296a5725148000",
+  "generated_at": "2026-11-16",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

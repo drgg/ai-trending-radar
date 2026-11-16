@@ -1,0 +1,26 @@
+{
+  "is_ai_product": true,
+  "category": "开发者工具与集成",
+  "tagline": "供 AI Agent 构建无头 UI 组件的交互行为库",
+  "positioning": "把键盘导航、焦点、选择、弹窗、拖拽和 ARIA 等交互行为抽象为 Agent 可组合的 primitives，再通过适配器在 React、Vue、Svelte、Solid、Web Components 中渲染。",
+  "features": [
+    "@ui-sdk/core 提供焦点、选择、弹窗、拖拽与 ARIA 行为",
+    "提供 React、Vue、Svelte、Solid、Web Components 五个适配器",
+    "用 definePrimitive 定义组件行为，用 createParts 在各框架渲染",
+    "附带 UI SDK skill，可让 Agent 编写组件行为"
+  ],
+  "highlights": [
+    "基于 behaviors 组合而非固定组件，一套行为跨五个框架复用",
+    "README 称无需手写行为代码，Agent 会完成编写",
+    "Apache-2.0 开源，项目仍处 beta，API 可能变化"
+  ],
+  "audience": "使用 AI Agent 开发前端、需要跨框架无头交互组件的前端与设计系统团队",
+  "quickstart_cmd": "npm install @ui-sdk/react @ui-sdk/core",
+  "quickstart_note": "使用其他框架时把 @ui-sdk/react 换成 @ui-sdk/vue、@ui-sdk/svelte、@ui-sdk/solid 或 @ui-sdk/web",
+  "risks": [],
+  "readme_sha": "6d2d9c76118c93dcd4645ca93021f8d0b18eab22",
+  "generated_at": "2026-11-16",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

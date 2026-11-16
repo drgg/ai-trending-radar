@@ -1,0 +1,7 @@
+{
+ "tagline": "自托管的团队聊天平台，让人和 AI Agent 在频道与私信中协同工作",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

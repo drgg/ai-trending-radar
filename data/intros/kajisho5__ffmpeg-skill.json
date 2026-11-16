@@ -1,0 +1,27 @@
+{
+  "is_ai_product": true,
+  "category": "AI 应用产品",
+  "tagline": "给编码 Agent 用的本地 FFmpeg 剪辑技能，含 42 个工具和 MCP 服务。",
+  "positioning": "把 FFmpeg 封装成 Agent 可读的结构化工具集：先 probe，再无损剪辑，最后校验和看图确认。全本地运行，不需要云端和 API Key。",
+  "features": [
+    "42 个工具覆盖剪切、拼接、字幕、重构图、响度、平台导出",
+    "以 SKILL.md 技能形式接入 Claude Code、Cursor、Codex",
+    "全部工具可作为 MCP 工具调用，默认只暴露核心 12 个",
+    "contract --json 输出机器可读契约，MCP 接口由它派生",
+    "可选本地语音引擎生成字幕，音频不上传"
+  ],
+  "highlights": [
+    "执行后自动 probe、按平台规范 check，并生成联系表检查画面",
+    "模板交付 TikTok、Reels、YouTube 等 7 个视频目的地并输出汇总表",
+    "CI 校验 input_schema 与 CLI 是否漂移（项目方说明）"
+  ],
+  "audience": "用 Claude Code、Cursor、Codex 等编码 Agent 做本地视频剪辑、又不想把素材上传云端的用户。",
+  "quickstart_cmd": "npx ffmpeg-skill",
+  "quickstart_note": "先安装 ffmpeg；Cursor 加 --cursor，Codex 加 --codex，三者都要用 --all。可用 doctor 检查环境。",
+  "risks": [],
+  "readme_sha": "c48bb935a49c45c9059676007ff894363a31cf87",
+  "generated_at": "2026-11-16",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

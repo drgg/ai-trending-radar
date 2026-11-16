@@ -1,0 +1,7 @@
+{
+ "tagline": "面向人与 Agent 的轻量知识库，提供超快索引与高精度检索。",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

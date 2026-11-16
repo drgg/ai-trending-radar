@@ -1,0 +1,7 @@
+{
+ "tagline": "Blender 可视化 AI 工作台，集成对话、视口快照、审批与任务看板",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

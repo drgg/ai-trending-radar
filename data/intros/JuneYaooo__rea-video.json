@@ -1,0 +1,29 @@
+{
+  "is_ai_product": true,
+  "category": "AI 应用产品",
+  "tagline": "逐镜头逆向拆解视频：拍的、AI 生成还是代码做的，以及怎么复刻",
+  "positioning": "为 AI Agent 设计的视频拆解工具，输出面向人的 HTML/PDF 报告和供 Agent 分层读取的 VIDEO.md，覆盖实拍、AI 视频、数字人、3D、代码动效与混合剪辑。",
+  "features": [
+    "逐镜头判断实拍、AI 生成或代码制作，并给出机位、提示词或代码复刻方案",
+    "提取字幕与文字样式并导出 SRT/ASS，标注贴纸、剪辑点和音频构成",
+    "双输出：给人看的 report.html/PDF，给 AI 读取的分层 VIDEO.md",
+    "可选接入 Gemini 或豆包视觉模型，提升判断准确率并生成反推提示词",
+    "可按目标视频模型的时长、多镜头能力批量规划复刻"
+  ],
+  "highlights": [
+    "项目方数据：纯离线工具在原始文件上调参集 98.3%、留出集 99.6%/98.9%",
+    "项目方数据：平台转码后的视频需加视觉模型或 Agent 复核才能回到 99% 以上",
+    "VIDEO.md 为开放格式，可 pip install videomd 后独立校验"
+  ],
+  "audience": "需要拆解参考视频、学习拍摄与动效手法并计划复刻的创作者、短视频团队和 Agent 用户",
+  "quickstart_cmd": "Install https://github.com/JuneYaooo/rea-video, then break down this video: /path/to/video.mp4",
+  "quickstart_note": "在 Claude Code、Codex 等可执行命令的 Agent 中直接说出该指令，需预装 ffmpeg 和 Python 3.10+。",
+  "risks": [
+    "README 提示不要复用他人素材、音乐、角色或肖像，发布时需遵守平台规则与当地 AI 内容标识要求。"
+  ],
+  "readme_sha": "fbf962db04652abf60ccb7cef44918eb32377b38",
+  "generated_at": "2026-11-16",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

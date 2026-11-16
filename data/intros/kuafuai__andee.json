@@ -1,0 +1,33 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "住在 Android 手机或 Mac 上的 AI 助手，像你一样操作任意 App。",
+  "positioning": "一个设备常驻型个人 Agent：在设备本地运行，读取无障碍树和截图来操作任意 App，无需集成或 Root，支持任意 OpenAI 兼容模型，记忆和密码只留在本机。",
+  "features": [
+    "读无障碍树与带标注网格截图，按格子点按，不做坐标计算",
+    "支持任意 OpenAI 兼容模型，英文界面默认 OpenAI、中文默认 DeepSeek",
+    "记忆笔记本仅存本机且可逐条删除，不上传",
+    "自带四种现成场景：盯消息、清订阅、记会议、抢预约",
+    "两台设备扫码配对，可互相派活",
+    "关键操作由调度器拦截，不输支付密码、不做最终确认"
+  ],
+  "highlights": [
+    "安卓与 macOS 共用同一套 Agent 循环，代码开源可查",
+    "第三方 App 无需提供接口，凡能用手指完成的操作它都能做",
+    "检测到微信首个注入点击会破坏窗口，调度器直接拒绝在微信内点按"
+  ],
+  "audience": "希望拥有本地常驻、可审计的手机或 Mac 个人 Agent 的用户，需要自行准备模型与语音 Key。",
+  "quickstart_cmd": "",
+  "quickstart_note": "README 只提供 CodeFlying 在线一键构建与 GitHub Release 安装包，无命令行安装步骤；装后需授予悬浮窗和无障碍权限。",
+  "risks": [
+    "核心功能是自动化操作第三方 App，可能违反其服务条款；README 明确说明在微信内注入点击会导致窗口保护、截图变黑",
+    "README 警告它会代你点按、输入、发消息甚至完成支付，属实验性软件，后果自负",
+    "语音会发送给你选择的语音服务商，对话会发送给你配置的模型服务",
+    "仓库许可证为 NOASSERTION，未声明标准许可证"
+  ],
+  "readme_sha": "2b40619926b6d9047fb83d2100149fba35ac2375",
+  "generated_at": "2026-11-16",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

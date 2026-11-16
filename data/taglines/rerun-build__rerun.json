@@ -1,0 +1,7 @@
+{
+ "tagline": "可自托管的 AI 同事，替你执行工作，采用 AGPL-3.0 许可。",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

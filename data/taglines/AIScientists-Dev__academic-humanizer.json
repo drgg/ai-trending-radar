@@ -1,0 +1,7 @@
+{
+ "tagline": "去除论文与基金申请中的 AI 写作痕迹，供 Claude Code 等代理使用",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

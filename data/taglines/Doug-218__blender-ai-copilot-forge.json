@@ -1,0 +1,7 @@
+{
+ "tagline": "Blender 场景锻造 AI 副驾驶，按步骤生成灯光、材质与父子关系",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

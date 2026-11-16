@@ -1,0 +1,31 @@
+{
+  "is_ai_product": true,
+  "category": "AI 应用产品",
+  "tagline": "桌面端编程 Agent 应用，默认使用 GPT 6 Astra 等前沿模型",
+  "positioning": "面向在自己项目上使用编程 Agent 的开发者，提供 macOS 与 Linux 桌面客户端，按账号内可用模型选择，并集成 Skills、本地 MCP 与 Git 工作流。",
+  "features": [
+    "按对话选择模型与推理强度（low 到 max）",
+    "从设置里的 Library 添加 Skills，所有模型共享",
+    "支持本地 MCP 服务器，如文件系统、git、SQLite、Playwright",
+    "Agent 可克隆、建分支、提交、推送并用 gh 创建和审查 PR",
+    "全权限开关可切换逐次询问与放行全部工具调用"
+  ],
+  "highlights": [
+    "只支持账号内模型，不支持自带第三方 provider 密钥",
+    "写命令每会话询问一次，破坏性命令始终询问",
+    "macOS 与 Linux 多数安装包支持应用内自动更新"
+  ],
+  "audience": "希望在本地桌面环境用前沿模型做编程的开发者，主要在 macOS 与 Linux 上工作。",
+  "quickstart_cmd": "",
+  "quickstart_note": "从 releases 页面下载对应平台安装包；macOS 构建未公证，首次需在隐私与安全性中点“仍要打开”。",
+  "risks": [
+    "许可证为非标准：主仓库为 MIT，但 ee/ 目录另有许可",
+    "桌面端当前依赖 omnirush.ai 账号，且必须登录后才能运行提示",
+    "macOS 构建尚未公证，README 指导用户绕过 Gatekeeper 打开"
+  ],
+  "readme_sha": "76ee16e9318744333f932e9bd993deb5c654f9f3",
+  "generated_at": "2026-11-16",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

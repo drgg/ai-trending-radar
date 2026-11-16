@@ -1,0 +1,7 @@
+{
+ "tagline": "Rust 编写的无头浏览器，面向 AI Agent 与网页抓取，可替代无头 Chrome。",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

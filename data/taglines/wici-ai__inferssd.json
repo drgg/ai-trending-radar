@@ -1,0 +1,7 @@
+{
+ "tagline": "基于 llama.cpp，从 SSD 流式加载 MoE 专家，运行超出内存和显存的模型。",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

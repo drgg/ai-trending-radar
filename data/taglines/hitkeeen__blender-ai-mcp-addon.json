@@ -1,0 +1,7 @@
+{
+ "tagline": "Blender 内置 AI 助手与 MCP 服务器，用对话完成建场景、改材质等操作",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

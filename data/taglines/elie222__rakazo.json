@@ -1,0 +1,7 @@
+{
+ "tagline": "开源 Grok Bot 替代品，可自选模型与沙盒的自托管 AI 代理",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

@@ -1,0 +1,27 @@
+{
+  "is_ai_product": true,
+  "category": "Skills 与写作/设计",
+  "tagline": "Jane Street 的 AI Agent 技能集合，目前提供苏格拉底式导师技能",
+  "positioning": "一组面向 AI Agent 和聊天机器人的技能，每个技能是一个含 SKILL.md 的目录；目前收录 socratic-tutor，把 LLM 变成用苏格拉底法教学的个人导师。",
+  "features": [
+    "每个技能为含 SKILL.md 的目录，内有给 Agent 的指令",
+    "socratic-tutor 依次进行诊断、0-5 级技能地图评估",
+    "每次只问一个问题，配合间隔复习",
+    "教学结束时给出最终测评",
+    "支持通用 SKILL.md 格式的编程 Agent，也支持纯聊天机器人"
+  ],
+  "highlights": [
+    "基于 MIT 许可证开源",
+    "编程 Agent 可复制技能目录后直接调用",
+    "纯聊天机器人则粘贴 SKILL.md 正文到对话或系统提示"
+  ],
+  "audience": "使用支持 SKILL.md 格式编程 Agent 或普通聊天机器人的用户，尤其是想用 LLM 自学的人",
+  "quickstart_cmd": "",
+  "quickstart_note": "README 未提供安装或运行命令：把技能目录复制到 Agent 的 skills 文件夹，或把 SKILL.md 正文粘贴进聊天。",
+  "risks": [],
+  "readme_sha": "171eb3d3fe482f59bc204fb7e897e25a47da0adc",
+  "generated_at": "2026-11-16",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

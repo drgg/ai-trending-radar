@@ -1,0 +1,7 @@
+{
+ "tagline": "Blender AI 实验台，经理、执行、评审三角色 Agent 协作完成场景任务",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

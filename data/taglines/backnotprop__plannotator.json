@@ -1,0 +1,7 @@
+{
+ "tagline": "面向 AI 编程代理的工作区，支持计划、注释、代码审查并向代理一键反馈",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}

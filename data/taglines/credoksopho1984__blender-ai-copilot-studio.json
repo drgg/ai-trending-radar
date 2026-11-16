@@ -1,0 +1,7 @@
+{
+ "tagline": "Blender 的 AI 副驾驶与 MCP 服务器，把自然语言需求执行成场景操作",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-16",
+ "model": "deepseek-flash"
+}
