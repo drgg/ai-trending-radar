@@ -1,0 +1,26 @@
+{
+  "is_ai_product": true,
+  "category": "Skills 与写作/设计",
+  "tagline": "给编码 Agent 用的音效生成工具，用一句话描述即可渲染出音效代码。",
+  "positioning": "earshot 面向 Claude Code 等编码 Agent 及与之协作的人。它从 922 个音效设计中检索需求，并用代码渲染新版音效；目录中没有的，可用录制素材按配方拼出，再由听音模型评估。",
+  "features": [
+    "922 个设计、384 个音效族，309 个由 692 段公共领域录音学习而来",
+    "目录缺失时用 earshot build 按 JSON 配方拼装录音部件",
+    "听音功能可描述音效、判断匹配度、检测录音还是合成",
+    "提供 20 个工具的 MCP 服务、Claude Code 插件与两个 Agent skill",
+    "内置 252 个影片音效银行的代码，以及 99 个配方手册"
+  ],
+  "highlights": [
+    "纯 CPU 运行，基础安装不下载模型，生成音效时无需联网",
+    "仓库不含音频文件，所有音效均由代码按需渲染"
+  ],
+  "audience": "为游戏、界面、影片写代码的 AI Agent 用户及音效设计相关人员。",
+  "quickstart_cmd": "pip install \"earshot @ git+https://github.com/Leonxlnx/earshot\"",
+  "quickstart_note": "需 Python 3.10+，仅合入 CPU；写入 ogg/mp3 等格式需 ffmpeg；PyPI 上的 earshot 是别的项目。",
+  "risks": [],
+  "readme_sha": "708676384a72ebc52e337d96828110f28cefd9a1",
+  "generated_at": "2026-11-23",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

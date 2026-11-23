@@ -1,0 +1,29 @@
+{
+  "is_ai_product": true,
+  "category": "编程 Agent 与运行框架",
+  "tagline": "录制原应用行为，让编程 Agent 分块改写为 Rust 并逐块验证一致",
+  "positioning": "面向 TypeScript/JavaScript、Python、C、Go、Ruby、Java、Kotlin、PHP、C# 应用，先录制原程序行为，再由编码 Agent 或人逐块写 Rust，每块与录制结果比对通过后才切换，最终得到纯 Rust 应用。",
+  "features": [
+    "录制原程序行为，逐块校验 Rust 改写结果",
+    "支持 CLI、HTTP 服务和库，也可只移植慢的热点函数",
+    "生成桥接层，保持原有 API 不变，可随时回退到原实现",
+    "支持 Claude Code、Codex、Cursor 等 Agent 接入",
+    "用 fuzz、bench、gate 检查未覆盖输入、性能与完成度"
+  ],
+  "highlights": [
+    "项目方数据：Prettier 命令行 128.6s 降至 6.9s",
+    "项目方数据：json-server 空闲内存 74MB 降至 3.5MB",
+    "项目方数据：Fuse.js 每查询 91.2ms 降至 2.8ms"
+  ],
+  "audience": "希望把现有应用或性能热点迁移到 Rust、并用编码 Agent 保证行为一致的开发者。",
+  "quickstart_cmd": "cargo install rust-anything",
+  "quickstart_note": "随后运行 rust-anything setup 注册到 Claude Code、Codex 等 Agent；也可用 npm 或预编译二进制安装。",
+  "risks": [
+    "record 与 app record 会用大量生成输入反复执行原代码，涉及写文件、数据库和网络的代码会重复执行，README 要求先在项目副本、测试库上运行并移除生产凭据。"
+  ],
+  "readme_sha": "ae1a354791761f714e07291da6d0e0d8e00e8162",
+  "generated_at": "2026-11-23",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

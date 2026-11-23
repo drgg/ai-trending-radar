@@ -1,0 +1,30 @@
+{
+  "is_ai_product": true,
+  "category": "攻击性安全（仅限授权测试）",
+  "tagline": "自托管、由 LLM 驱动、带证据留痕的自主渗透测试平台",
+  "positioning": "ARTEX 是一个自托管的 LLM 驱动渗透测试平台，由规划器将目标拆分为意图、Worker 调用真实工具执行，结果写入资产图与探索图两张关联图，每条发现都可绑定原始请求响应作证据。",
+  "features": [
+    "规划器拆分目标、Worker 执行意图并写回，形成闭环",
+    "双图架构：全局资产图与每任务探索图，用锚点关联",
+    "记录型 MITM 代理与浏览器扩展采集真实流量作证据",
+    "人工审批门、argv 前缀规则、范围门与 token/轮次预算",
+    "支持自建 Anthropic/OpenAI 兼容端点或本地 Ollama"
+  ],
+  "highlights": [
+    "发现需绑定证据响应与逐字引用才算 verified",
+    "retester 代理可复测漏洞并记录仍可复现/已修复/无法确认",
+    "单 Go 二进制内嵌 Next.js UI，PostgreSQL 存储"
+  ],
+  "audience": "授权范围内做渗透测试与红队评估的安全团队，会自行部署并配置 LLM 端点",
+  "quickstart_cmd": "docker compose up -d --build",
+  "quickstart_note": "先 git clone 并 cp .env.example .env 设置 POSTGRES_PASSWORD，启动后访问 http://localhost:8787，用日志中的 setup token 完成初始化。",
+  "risks": [
+    "攻击性安全工具，仅限在获得明确授权的目标上使用。",
+    "浏览器扩展会采集会话流量并发送到本地 ARTEX 服务。"
+  ],
+  "readme_sha": "c8fb12dfe6ed0d9c15eaadcaec239c45d545aef3",
+  "generated_at": "2026-11-23",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

@@ -1,0 +1,31 @@
+{
+  "is_ai_product": true,
+  "category": "本地推理与模型",
+  "tagline": "Windows 上的实时 GPU 视频增强播放器，集超分、降噪、补帧与采集于一体",
+  "positioning": "把本地视频、采集卡和主机串流统一接入同一套实时 GPU 处理管线，支持超分辨率、降噪、HDR、帧生成和导出。基于 GPL-3.0 开源，需 Windows 11 x64 与 DirectX 12。",
+  "features": [
+    "最多四层独立降噪，各自可设内部分辨率与强度",
+    "可选 SR、RTX Video HDR 与 DLSS/XeSS/FSR 帧生成",
+    "实时预览视频、图片、采集卡、PS5、Xbox 与截屏",
+    "节点模式可连线搭建自定义处理链，支持预设与会话",
+    "导出队列支持剪辑、MP4/MKV 及多音轨和字幕轨"
+  ],
+  "highlights": [
+    "项目方数据：RTX5070 下 4K 抗锯齿 FXAA 约 0.15ms、SMAA/MLAA 约 0.30ms",
+    "项目方数据：最终单面网格美化 1080p 约 0.93ms、4K 约 1.42ms，称耗时随内容与硬件变化",
+    "项目方数据：README 称降噪强度设为 5 时仅做单次推理外推，不能保证所有视频无伪影"
+  ],
+  "audience": "需要为本地视频、采集卡或主机串流做实时画质增强的 Windows 用户，需具备兼容 GPU 与基本配置能力",
+  "quickstart_cmd": "",
+  "quickstart_note": "从 Releases 下载 Setup EXE 或便携 ZIP，运行安装或解压到可写目录后启动 Veyra.exe，并另装对应 GPU 包",
+  "risks": [
+    "Xbox 串流为官方未支持的实验功能，受账号、服务与主机限制",
+    "PS5 串流需经第三方网站获取 Account ID，涉及账号凭据处理",
+    "README 说明项目方从社区代币领取创作者手续费，该代币非官方发行，不构成投资建议"
+  ],
+  "readme_sha": "9bedfbf959b612423dcaae5ac00ee27310d71693",
+  "generated_at": "2026-11-23",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

@@ -1,0 +1,7 @@
+{
+ "tagline": "DeepSeek Harness 的可视化软工作流插件，画布转提示词，用于 LLM 红队与安全研究",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-23",
+ "model": "deepseek-flash"
+}

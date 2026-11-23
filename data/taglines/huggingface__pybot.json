@@ -1,0 +1,7 @@
+{
+ "tagline": "由一群 Agent 用纯规则、无权重无训练写成的 Python 聊天机器人",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-23",
+ "model": "deepseek-flash"
+}

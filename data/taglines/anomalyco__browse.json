@@ -1,0 +1,7 @@
+{
+ "tagline": "MCP 服务加 Chromium 扩展，让 AI 代理操控你的真实浏览器。",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-23",
+ "model": "deepseek-flash"
+}

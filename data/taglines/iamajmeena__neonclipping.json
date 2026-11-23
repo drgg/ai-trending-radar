@@ -1,0 +1,7 @@
+{
+ "tagline": "本地开源剪辑工具，把长视频自动切成带字幕的竖屏片段，配本地 LLM 选题",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-23",
+ "model": "deepseek-flash"
+}

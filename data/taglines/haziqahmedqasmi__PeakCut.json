@@ -1,0 +1,7 @@
+{
+ "tagline": "自托管长视频与直播 AI 自动切片工具，需自备 AI 密钥",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-23",
+ "model": "deepseek-flash"
+}

@@ -1,0 +1,7 @@
+{
+ "tagline": "Blender 里的 AI 助手与 MCP 服务，让模型查看场景、建模、改材质并执行多步流程",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-23",
+ "model": "deepseek-flash"
+}

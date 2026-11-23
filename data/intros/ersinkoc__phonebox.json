@@ -1,0 +1,31 @@
+{
+  "is_ai_product": true,
+  "category": "AI 应用产品",
+  "tagline": "把旧安卓手机变成电脑桌面控制面板和触控面板。",
+  "positioning": "配套安卓全屏应用与桌面代理，通过 USB 或 Wi-Fi 连接，在旧手机上显示电脑状态、AI 编程会话、媒体信息和触控操作，支持 Windows、Linux、macOS，无需 root、账号或云服务。",
+  "features": [
+    "130 个小组件、30 个模板，浏览器可视化编辑器可拖拽布局",
+    "显示 CPU、GPU、内存、磁盘、网络等电脑状态",
+    "查看 Claude、Codex 等 AI 编程会话配额与本地会话详情",
+    "触控宏、快捷键、媒体、麦克风、OBS 与系统控制",
+    "Webhook、Home Assistant 联动与通知自动化"
+  ],
+  "highlights": [
+    "桌面代理监听 127.0.0.1:8765，可选 Wi-Fi 使用 HTTPS 端口 8766 并固定证书",
+    "无遥测、分析或账号；可选组件会访问天气、配额、GitHub 等外部服务",
+    "手机端可回应 Codex、Claude Code、OpenCode 的权限提示（需开启）"
+  ],
+  "audience": "想把闲置安卓手机改造成桌面仪表盘、或想在手机上一键查看 AI 编程会话与电脑状态的 Windows、Linux、macOS 用户。",
+  "quickstart_cmd": "irm https://raw.githubusercontent.com/ersinkoc/phonebox/main/setup.ps1 | iex",
+  "quickstart_note": "Windows PowerShell 命令；Linux/macOS 用 setup.sh。需 Android 5+ 手机，Wi-Fi 配对默认关闭需在设置中开启。",
+  "risks": [
+    "Windows 发布代理尚未签名，SmartScreen 或杀毒软件可能警告或拦截",
+    "USB 调试授权仅应在可信电脑上进行，否则可能被滥用",
+    "社区插件未经项目方审核，可修改 PhoneBox 设置"
+  ],
+  "readme_sha": "202dcd5a121c07993284ba9bc910e65697c2403c",
+  "generated_at": "2026-11-23",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

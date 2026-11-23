@@ -1,0 +1,31 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "让 AI Agent 用 USDC 按次付费调用 x402 API 的非托管客户端",
+  "positioning": "开源的 TypeScript 客户端与 SDK，提供本地钱包、按次付费和消费上限，供终端、MCP 客户端或代码发现并支付 x402 API，默认在 Base 上用 USDC 结算。",
+  "features": [
+    "同时搜索多个 x402 目录并合并结果，标注来源",
+    "签名前应用消费上限，每次付款生成本地收据",
+    "提供 CLI、stdio MCP 服务器和 SDK，共用同一钱包",
+    "可为每个 Agent 分配独立且带上限的账户",
+    "启用 Arc 网络后可跨账户转账，由 vAPI 支付 gas"
+  ],
+  "highlights": [
+    "付款直接发往 API 端点，无支付代理、无服务端签名",
+    "MCP 服务器不提供暴露助记词或私钥的工具",
+    "运行于本机的组件全部开源，采用 Apache-2.0 许可"
+  ],
+  "audience": "需要让 Agent 按次付费调用 API 的开发者，以及使用 Claude Code、Cursor、Codex 等 MCP 客户端的用户。",
+  "quickstart_cmd": "npm i -g vapi-network",
+  "quickstart_note": "需 Node.js 22+；随后运行 vapi setup 创建或恢复钱包，再 vapi fund 充值。",
+  "risks": [
+    "恢复短语只能由用户自行备份，vAPI 无法代为恢复；钱包密钥丢失即无法找回",
+    "客户端会把搜索、充值、云备份等操作发送给托管服务，这些服务的源码不在本仓库，且付款标识会带上 vapi 客户端标记",
+    "实验性的 Railway 部署需要显式导出成员密钥"
+  ],
+  "readme_sha": "f11a0259d0120f88941c2e901354cf5eb3688bb2",
+  "generated_at": "2026-11-23",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

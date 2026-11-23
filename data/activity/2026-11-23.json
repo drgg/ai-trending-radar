@@ -1,0 +1,596 @@
+{
+ "collected_at": "2026-11-23",
+ "since": "2026-10-24",
+ "repos": {
+  "Ebony-Vinyl/dsh-our-free-model": {
+   "stars": 84436,
+   "forks": 2368,
+   "pushed_at": "2026-11-23",
+   "commits30": 324,
+   "authors30": 8,
+   "open_issues": 186,
+   "open_prs": 45,
+   "og_image": null
+  },
+  "yetone/magpie": {
+   "stars": 40246,
+   "forks": 3685,
+   "pushed_at": "2026-11-23",
+   "commits30": 4715,
+   "authors30": 3,
+   "open_issues": 4937,
+   "open_prs": 16,
+   "og_image": null
+  },
+  "ccch1mneyyy/dsh-Go": {
+   "stars": 30441,
+   "forks": 1462,
+   "pushed_at": "2026-11-23",
+   "commits30": 3717,
+   "authors30": 1,
+   "open_issues": 887,
+   "open_prs": 1,
+   "og_image": null
+  },
+  "wheresryan22/anatomy": {
+   "stars": 28780,
+   "forks": 2445,
+   "pushed_at": "2026-10-18",
+   "commits30": 0,
+   "authors30": 0,
+   "open_issues": 17,
+   "open_prs": 61,
+   "og_image": null
+  },
+  "browser-use/jev-ultrafast": {
+   "stars": 24714,
+   "forks": 1896,
+   "pushed_at": "2026-11-11",
+   "commits30": 2,
+   "authors30": 1,
+   "open_issues": 57,
+   "open_prs": 153,
+   "og_image": null
+  },
+  "deepseek-ai/dsh-superagent-prototype": {
+   "stars": 24306,
+   "forks": 3031,
+   "pushed_at": "2026-11-03",
+   "commits30": 1,
+   "authors30": 1,
+   "open_issues": 0,
+   "open_prs": 0,
+   "og_image": null
+  },
+  "google/elephant-goldfish-model": {
+   "stars": 22271,
+   "forks": 1641,
+   "pushed_at": "2026-11-22",
+   "commits30": 207,
+   "authors30": 24,
+   "open_issues": 95,
+   "open_prs": 69,
+   "og_image": "https://repository-images.githubusercontent.com/1368596582/bafb1e15-6b0b-4c41-a95d-6183244a44ab"
+  },
+  "Zagitta/gpu-unlock": {
+   "stars": 20821,
+   "forks": 2183,
+   "pushed_at": "2026-11-18",
+   "commits30": 22,
+   "authors30": 7,
+   "open_issues": 76,
+   "open_prs": 70,
+   "og_image": null
+  },
+  "heydamir/unslop": {
+   "stars": 20469,
+   "forks": 1255,
+   "pushed_at": "2026-11-15",
+   "commits30": 40,
+   "authors30": 10,
+   "open_issues": 3,
+   "open_prs": 9,
+   "og_image": null
+  },
+  "lemomo-ai/lemo-opuscar": {
+   "stars": 20036,
+   "forks": 2557,
+   "pushed_at": "2026-11-23",
+   "commits30": 96,
+   "authors30": 7,
+   "open_issues": 2,
+   "open_prs": 0,
+   "og_image": "https://repository-images.githubusercontent.com/1389011744/04eb4278-1a5c-42b0-8a7e-be7c03f48516"
+  },
+  "jub0t/Concat": {
+   "stars": 19715,
+   "forks": 2410,
+   "pushed_at": "2026-11-23",
+   "commits30": 464,
+   "authors30": 6,
+   "open_issues": 274,
+   "open_prs": 27,
+   "og_image": "https://repository-images.githubusercontent.com/1346499044/18d8e9c0-66eb-4459-80cf-27c0a4432094"
+  },
+  "BaaRai/ARTEX": {
+   "stars": 16692,
+   "forks": 6252,
+   "pushed_at": "2026-11-22",
+   "commits30": 769,
+   "authors30": 15,
+   "open_issues": 17,
+   "open_prs": 22,
+   "og_image": null
+  },
+  "JuneYaooo/rea-video": {
+   "stars": 12393,
+   "forks": 1830,
+   "pushed_at": "2026-11-23",
+   "commits30": 196,
+   "authors30": 13,
+   "open_issues": 7,
+   "open_prs": 2,
+   "og_image": "https://repository-images.githubusercontent.com/1438661890/d788df99-c663-416e-8859-67af82fb3eff"
+  },
+  "KKKKhazix/AIHOT": {
+   "stars": 11259,
+   "forks": 2605,
+   "pushed_at": "2026-11-23",
+   "commits30": 201,
+   "authors30": 8,
+   "open_issues": 0,
+   "open_prs": 0,
+   "og_image": "https://repository-images.githubusercontent.com/1393965829/168bf9e1-1ac8-406f-bfe0-3d8b9f514cb4"
+  },
+  "amosblomqvist/learnharness": {
+   "stars": 11222,
+   "forks": 1460,
+   "pushed_at": "2026-11-21",
+   "commits30": 607,
+   "authors30": 4,
+   "open_issues": 341,
+   "open_prs": 286,
+   "og_image": "https://repository-images.githubusercontent.com/1422597771/a2bbaf72-90cb-4815-a0fb-9f3e41a67183"
+  },
+  "janestreet/agent_skills": {
+   "stars": 10941,
+   "forks": 754,
+   "pushed_at": "2026-11-17",
+   "commits30": 3,
+   "authors30": 2,
+   "open_issues": 0,
+   "open_prs": 0,
+   "og_image": null
+  },
+  "Ryze-AI-Adgent/open-seo-mcp-skills": {
+   "stars": 10644,
+   "forks": 399,
+   "pushed_at": "2026-10-27",
+   "commits30": 1,
+   "authors30": 1,
+   "open_issues": 4,
+   "open_prs": 0,
+   "og_image": null
+  },
+  "Jakeschincariol/replica-skill": {
+   "stars": 10368,
+   "forks": 1906,
+   "pushed_at": "2026-10-03",
+   "commits30": 0,
+   "authors30": 0,
+   "open_issues": 30,
+   "open_prs": 15,
+   "og_image": null
+  },
+  "Albert-Weasker/niubigeo": {
+   "stars": 10087,
+   "forks": 817,
+   "pushed_at": "2026-11-20",
+   "commits30": 7,
+   "authors30": 2,
+   "open_issues": 24,
+   "open_prs": 38,
+   "og_image": null
+  },
+  "kajisho5/ffmpeg-skill": {
+   "stars": 9923,
+   "forks": 876,
+   "pushed_at": "2026-11-23",
+   "commits30": 296,
+   "authors30": 4,
+   "open_issues": 38,
+   "open_prs": 11,
+   "og_image": "https://repository-images.githubusercontent.com/1356077516/f66b5343-33ba-4d7f-b3cc-72c5eab733f0"
+  },
+  "rehan-remade/universal-modder": {
+   "stars": 9841,
+   "forks": 1112,
+   "pushed_at": "2026-11-23",
+   "commits30": 91,
+   "authors30": 67,
+   "open_issues": 2,
+   "open_prs": 25,
+   "og_image": null
+  },
+  "wangzan101/Mika": {
+   "stars": 9704,
+   "forks": 2170,
+   "pushed_at": "2026-11-23",
+   "commits30": 1361,
+   "authors30": 6,
+   "open_issues": 65,
+   "open_prs": 15,
+   "og_image": null
+  },
+  "Jakeschincariol/day-trader-skill": {
+   "stars": 9230,
+   "forks": 2202,
+   "pushed_at": "2026-10-20",
+   "commits30": 0,
+   "authors30": 0,
+   "open_issues": 41,
+   "open_prs": 24,
+   "og_image": null
+  },
+  "openfilm/openfilm": {
+   "stars": 9051,
+   "forks": 914,
+   "pushed_at": "2026-11-23",
+   "commits30": 175,
+   "authors30": 14,
+   "open_issues": 21,
+   "open_prs": 9,
+   "og_image": null
+  },
+  "zai-org/ZCode": {
+   "stars": 8852,
+   "forks": 2767,
+   "pushed_at": "2026-11-23",
+   "commits30": 6,
+   "authors30": 1,
+   "open_issues": 0,
+   "open_prs": 0,
+   "og_image": null
+  },
+  "patch-gg/pixelfx": {
+   "stars": 8810,
+   "forks": 1156,
+   "pushed_at": "2026-11-13",
+   "commits30": 10,
+   "authors30": 2,
+   "open_issues": 7,
+   "open_prs": 9,
+   "og_image": null
+  },
+  "rddmwmddr/android-ad-cleaner": {
+   "stars": 8804,
+   "forks": 772,
+   "pushed_at": "2026-11-21",
+   "commits30": 1904,
+   "authors30": 3,
+   "open_issues": 218,
+   "open_prs": 3,
+   "og_image": null
+  },
+  "jev-chat/jev-chat-jarvis": {
+   "stars": 8491,
+   "forks": 1356,
+   "pushed_at": "2026-11-05",
+   "commits30": 0,
+   "authors30": 0,
+   "open_issues": 29,
+   "open_prs": 4,
+   "og_image": null
+  },
+  "Jakeschincariol/instagram-agent-skill": {
+   "stars": 8411,
+   "forks": 1527,
+   "pushed_at": "2026-09-13",
+   "commits30": 0,
+   "authors30": 0,
+   "open_issues": 54,
+   "open_prs": 19,
+   "og_image": null
+  },
+  "erkamyaman/rust-anything": {
+   "stars": 8231,
+   "forks": 665,
+   "pushed_at": "2026-11-23",
+   "commits30": 374,
+   "authors30": 11,
+   "open_issues": 12,
+   "open_prs": 1,
+   "og_image": "https://repository-images.githubusercontent.com/1459971684/97e0e4fa-ec5b-4f17-9a9b-dca5a153426d"
+  },
+  "tamaratran/fast-jev-compaction": {
+   "stars": 8014,
+   "forks": 591,
+   "pushed_at": "2026-09-18",
+   "commits30": 0,
+   "authors30": 0,
+   "open_issues": 49,
+   "open_prs": 76,
+   "og_image": null
+  },
+  "microsoft/TokenEconomizer": {
+   "stars": 7986,
+   "forks": 563,
+   "pushed_at": "2026-11-20",
+   "commits30": 374,
+   "authors30": 17,
+   "open_issues": 20,
+   "open_prs": 29,
+   "og_image": null
+  },
+  "anhao/ai-pose-gallery-zh": {
+   "stars": 7894,
+   "forks": 2050,
+   "pushed_at": "2026-11-18",
+   "commits30": 89,
+   "authors30": 7,
+   "open_issues": 12,
+   "open_prs": 4,
+   "og_image": null
+  },
+  "Lee-xeo/Claude-Cage": {
+   "stars": 7883,
+   "forks": 908,
+   "pushed_at": "2026-11-23",
+   "commits30": 975,
+   "authors30": 5,
+   "open_issues": 111,
+   "open_prs": 6,
+   "og_image": null
+  },
+  "XiaoDuoYa/codex-with-chatgpt": {
+   "stars": 7727,
+   "forks": 710,
+   "pushed_at": "2026-10-01",
+   "commits30": 0,
+   "authors30": 0,
+   "open_issues": 17,
+   "open_prs": 5,
+   "og_image": null
+  },
+  "Human-Agent-Society/reef": {
+   "stars": 7643,
+   "forks": 733,
+   "pushed_at": "2026-11-23",
+   "commits30": 416,
+   "authors30": 11,
+   "open_issues": 145,
+   "open_prs": 60,
+   "og_image": "https://repository-images.githubusercontent.com/1351879111/7ea8e76f-1bd7-4f1b-aaba-cdfcdc86a018"
+  },
+  "kaankiziltug/logo-design-skill": {
+   "stars": 7544,
+   "forks": 587,
+   "pushed_at": "2026-11-13",
+   "commits30": 7,
+   "authors30": 2,
+   "open_issues": 1,
+   "open_prs": 1,
+   "og_image": "https://repository-images.githubusercontent.com/1388867993/cb41b962-88da-4adb-be7e-17ee8a1073aa"
+  },
+  "Oldcircle/geo-sleuth": {
+   "stars": 7433,
+   "forks": 926,
+   "pushed_at": "2026-11-19",
+   "commits30": 20,
+   "authors30": 12,
+   "open_issues": 7,
+   "open_prs": 19,
+   "og_image": null
+  },
+  "Louis-CFM/coucou": {
+   "stars": 7405,
+   "forks": 1225,
+   "pushed_at": "2026-11-23",
+   "commits30": 363,
+   "authors30": 10,
+   "open_issues": 123,
+   "open_prs": 338,
+   "og_image": "https://repository-images.githubusercontent.com/1391438314/b0bc531a-8a82-4336-ae24-ee11920769df"
+  },
+  "yi1108/printfilm": {
+   "stars": 7183,
+   "forks": 835,
+   "pushed_at": "2026-11-23",
+   "commits30": 145,
+   "authors30": 2,
+   "open_issues": 4,
+   "open_prs": 4,
+   "og_image": null
+  },
+  "Jakeschincariol/youtube-agent-skill": {
+   "stars": 6995,
+   "forks": 1968,
+   "pushed_at": "2026-09-16",
+   "commits30": 0,
+   "authors30": 0,
+   "open_issues": 123,
+   "open_prs": 16,
+   "og_image": null
+  },
+  "mdiri-ai/SoduWork": {
+   "stars": 6883,
+   "forks": 557,
+   "pushed_at": "2026-11-23",
+   "commits30": 1404,
+   "authors30": 6,
+   "open_issues": 132,
+   "open_prs": 193,
+   "og_image": "https://repository-images.githubusercontent.com/1437869585/5541cbb6-36b4-4663-8f15-b1366dbde74b"
+  },
+  "CopilotKit/OpenDots": {
+   "stars": 6729,
+   "forks": 985,
+   "pushed_at": "2026-11-22",
+   "commits30": 10,
+   "authors30": 4,
+   "open_issues": 30,
+   "open_prs": 53,
+   "og_image": null
+  },
+  "QingYunA/answer-me-with-html": {
+   "stars": 6617,
+   "forks": 455,
+   "pushed_at": "2026-11-23",
+   "commits30": 93,
+   "authors30": 14,
+   "open_issues": 8,
+   "open_prs": 2,
+   "og_image": null
+  },
+  "vercel-labs/ui": {
+   "stars": 6603,
+   "forks": 235,
+   "pushed_at": "2026-11-23",
+   "commits30": 719,
+   "authors30": 3,
+   "open_issues": 105,
+   "open_prs": 2,
+   "og_image": null
+  },
+  "CopilotKit/openfuse": {
+   "stars": 6575,
+   "forks": 972,
+   "pushed_at": "2026-11-22",
+   "commits30": 21,
+   "authors30": 10,
+   "open_issues": 15,
+   "open_prs": 53,
+   "og_image": null
+  },
+  "qybaihe/bla": {
+   "stars": 6443,
+   "forks": 797,
+   "pushed_at": "2026-11-22",
+   "commits30": 660,
+   "authors30": 3,
+   "open_issues": 0,
+   "open_prs": 9,
+   "og_image": null
+  },
+  "KKKKhazix/agent-autoloop": {
+   "stars": 6342,
+   "forks": 1178,
+   "pushed_at": "2026-11-23",
+   "commits30": 271,
+   "authors30": 17,
+   "open_issues": 1,
+   "open_prs": 3,
+   "og_image": null
+  },
+  "haydenschmitty/floorplan": {
+   "stars": 6317,
+   "forks": 563,
+   "pushed_at": "2026-11-16",
+   "commits30": 253,
+   "authors30": 9,
+   "open_issues": 33,
+   "open_prs": 39,
+   "og_image": "https://repository-images.githubusercontent.com/1435672472/3d77db05-fafa-4948-8192-baea2c971f0b"
+  },
+  "AhmadHassan-BTed/Jantt": {
+   "stars": 6237,
+   "forks": 23,
+   "pushed_at": "2026-11-23",
+   "commits30": 67,
+   "authors30": 3,
+   "open_issues": 0,
+   "open_prs": 0,
+   "og_image": null
+  },
+  "monid-ai/monid": {
+   "stars": 6219,
+   "forks": 817,
+   "pushed_at": "2026-11-17",
+   "commits30": 2,
+   "authors30": 2,
+   "open_issues": 34,
+   "open_prs": 185,
+   "og_image": null
+  },
+  "kuafuai/andee": {
+   "stars": 6182,
+   "forks": 297,
+   "pushed_at": "2026-11-20",
+   "commits30": 158,
+   "authors30": 7,
+   "open_issues": 15,
+   "open_prs": 9,
+   "og_image": "https://repository-images.githubusercontent.com/1374472673/4b391cf5-2f27-419c-b63e-429027e2f046"
+  },
+  "vAPI-Network/vapi-network": {
+   "stars": 5593,
+   "forks": 190,
+   "pushed_at": "2026-11-20",
+   "commits30": 79,
+   "authors30": 3,
+   "open_issues": 7,
+   "open_prs": 1,
+   "og_image": null
+  },
+  "Leonxlnx/earshot": {
+   "stars": 5581,
+   "forks": 388,
+   "pushed_at": "2026-11-22",
+   "commits30": 149,
+   "authors30": 1,
+   "open_issues": 0,
+   "open_prs": 1,
+   "og_image": null
+  },
+  "Likely7/Veyra-NRVideo": {
+   "stars": 5517,
+   "forks": 377,
+   "pushed_at": "2026-11-22",
+   "commits30": 340,
+   "authors30": 13,
+   "open_issues": 129,
+   "open_prs": 22,
+   "og_image": null
+  },
+  "AienTech/dossier": {
+   "stars": 5382,
+   "forks": 1128,
+   "pushed_at": "2026-11-19",
+   "commits30": 21,
+   "authors30": 2,
+   "open_issues": 22,
+   "open_prs": 7,
+   "og_image": null
+  },
+  "onehumanbeing/esp32-iphone-agent": {
+   "stars": 5250,
+   "forks": 735,
+   "pushed_at": "2026-11-23",
+   "commits30": 269,
+   "authors30": 2,
+   "open_issues": 15,
+   "open_prs": 3,
+   "og_image": null
+  },
+  "ersinkoc/phonebox": {
+   "stars": 5198,
+   "forks": 644,
+   "pushed_at": "2026-11-22",
+   "commits30": 526,
+   "authors30": 23,
+   "open_issues": 7,
+   "open_prs": 7,
+   "og_image": null
+  },
+  "omnirush-ai/omnirush-gui": {
+   "stars": 5095,
+   "forks": 145,
+   "pushed_at": "2026-11-23",
+   "commits30": 420,
+   "authors30": 1,
+   "open_issues": 31,
+   "open_prs": 39,
+   "og_image": null
+  }
+ }
+}

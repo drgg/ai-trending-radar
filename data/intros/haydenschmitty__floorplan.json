@@ -1,0 +1,27 @@
+{
+  "is_ai_product": true,
+  "category": "开发者工具与集成",
+  "tagline": "让 Claude 或 Codex 读取代码库，生成可交互的纯英文架构地图。",
+  "positioning": "面向用 AI 构建应用但不读代码的人：Claude Code 或 Codex 扫描代码后，自动生成可缩放的地图，展示各部件、文件、端点、页面及前后端请求关系，并附带健康检查。",
+  "features": [
+    "按层级缩放查看整体、部件、文件与端点",
+    "用日常英语命名每个部分，悬停解释技术词",
+    "跨仓库匹配前端请求与后端端点",
+    "健康检查：代码内密钥、开放的表规则、可伪造的 webhook",
+    "可选蓝图：从 PRD 规划尚未构建的应用"
+  ],
+  "highlights": [
+    "脚本负责扫描与布局，模型只负责命名和描述",
+    "全部在本机运行，不写依赖，地图可离线使用",
+    "地图保存在 floorplan/ 目录并自我忽略，不入 git"
+  ],
+  "audience": "用 Claude Code 或 Codex 构建应用、希望看懂代码结构与安全隐患的开发者与团队。",
+  "quickstart_cmd": "claude plugin marketplace add haydenschmitty/floorplan",
+  "quickstart_note": "需 Node.js 18+ 与 Claude Code；安装后新开会话，对项目说\"Make me a floorplan of this app\"。",
+  "risks": [],
+  "readme_sha": "bc1b6116407a8594f24a4d00e1441b04529b96c3",
+  "generated_at": "2026-11-23",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

@@ -1,0 +1,7 @@
+{
+ "tagline": "尽可能在最小设备上跑起各类 LLM，聚焦量化与端侧推理",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-23",
+ "model": "deepseek-flash"
+}

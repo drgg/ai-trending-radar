@@ -1,0 +1,7 @@
+{
+ "tagline": "免费开源刺绣软件，将 SVG 转为机器刺绣，可通过 MCP 让 AI 代理设计。",
+ "is_ai_product": false,
+ "ai_rule": 2,
+ "generated_at": "2026-11-23",
+ "model": "deepseek-flash"
+}

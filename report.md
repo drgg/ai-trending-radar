@@ -1,106 +1,99 @@
-# GitHub AI 热门项目周报 · 第 9 期 · 2026-11-16：新上榜 13 · 移出 9
+# GitHub AI 热门项目周报 · 第 10 期 · 2026-11-23：新上榜 8 · 移出 5
 
-- 收录：2026-08-18 至 2026-11-16 创建、Stars > 5,000 的 AI 项目，共 56 个
+- 收录：2026-08-25 至 2026-11-23 创建、Stars > 5,000 的 AI 项目，共 59 个
 
 ## 近期趋势
 
-本期加速最集中的是编码 Agent 的设计与 Web 规范技能：modern-web-guidance 由 +48 升至 +15898、modern-web-guidance-src 由 +21 升至 +6273，两者互为源与技能；ui 由 +1 升至 +5063，Claude-Cage 由 +614 升至 +5269。前几期的反 AI 味设计方向本期只有回落证据：hallmark 由 6047 降至 4545、impeccable 由 6798 降至 4650，unslop 亦由 6995 降至 4730，不再作为升温方向。编码 Agent 的视频与 3D 产出延续上期，rea-video 新上榜 +4496，新星侧集中出现 blender-ai-mcp-addon 与一批 Blender MCP 项目、sand3d。逆向工程延续降温：rea 由 25373 降至 18480；薅额度工具 dsh-our-free-model 由 10880 微降至 10551，同样趋缓。
+本期加速集中在安全测试与软件复刻：ARTEX 由 +2351 升至 +12542，Claude-BugHunter 由 +1300 升至 +11684，security-audit-skill 仍在数千增量，加上新星 sapper-v2，两个以上项目佐证，攻防测试成为方向。rust-anything 新入榜即 +8219，fast-anything 新星 2399，两者都以「Agent 改写为 Rust 并验证行为一致」为路径，延续编码 Agent 的能力边界扩张。编码 Agent 的远程统一控制延续升温：t3code 由 +9058 升至 +11024，orca 由 +6645 升至 +7669。前几期的视频与 3D 产出仍有新证据：openmotion 加速、phonebox 加速，但 rea 由 +18479 降至 +12476、modern-web-guidance 由 +15904 降至 +6671，热度回落一句带过。
 
-- modern-web-guidance（+15898，前 +48）与源仓库 modern-web-guidance-src（+6273，前 +21）同步加速，Web 规范技能成方向
-- ui 由 +1 升至 +5063，Claude-Cage 由 +614 升至 +5269，Agent 侧工具链脱离低位
-- 反 AI 味设计三项本期均回落：impeccable +4650、hallmark +4545、unslop +4730
-- 视频与 3D 产出延续：rea-video 新入榜 +4496，新星 blender-ai-mcp-addon ★1853 及多个 Blender MCP 项目同现
-- 逆向工程延续降温：rea 由 +25373 降至 +18480；dsh-our-free-model 由 +10880 微降至 +10551
+- ARTEX 由 +2351 加速至 +12542，Claude-BugHunter 由 +1300 加速至 +11684，安全测试方向升温。
+- rust-anything 新入榜 +8219，fast-anything 新星 2399，Agent 改写 Rust 并验证一致成为新路径。
+- t3code 由 +9058 升至 +11024，orca 由 +6645 升至 +7669，编码 Agent 远程统一控制延续升温。
+- openmotion 加速至 +5530、phonebox 加速至 +3747，视频与设备复用方向延续。
+- rea 由 +18479 降至 +12476，modern-web-guidance 由 +15904 降至 +6671，前几期热点回落。
 
 ## 本期变化
-较第 8 期（2026-11-09，7 天）：
-- 新上榜：JuneYaooo/rea-video、janestreet/agent_skills、CopilotKit/openfuse、kuafuai/andee、kajisho5/ffmpeg-skill、Lee-xeo/Claude-Cage、qybaihe/bla、KKKKhazix/agent-autoloop、AienTech/dossier、nateherkai/scroll-craft、vercel-labs/ui、omnirush-ai/omnirush-gui、onehumanbeing/esp32-iphone-agent
-- 移出：guillaumemeyer/watermarks-remover（创建于 2026-08-11，已超出 90 天收录窗口）；dataelement/dsh-desktop（创建于 2026-08-13，已超出 90 天收录窗口）；google/artemis（创建于 2026-08-13，已超出 90 天收录窗口）；CopilotKit/OpenBot（创建于 2026-08-17，已超出 90 天收录窗口）；elie222/rakazo（创建于 2026-08-13，已超出 90 天收录窗口）；nightly-labs/openbot（创建于 2026-08-12，已超出 90 天收录窗口）；CopilotKit/openmuse（星数跌破门槛，或被判定与 AI 无关）；Hisn00w/ASu-skills（创建于 2026-08-12，已超出 90 天收录窗口）；PC2005-cloud/dsh-pet（创建于 2026-08-14，已超出 90 天收录窗口）
-- 涨星：Ebony-Vinyl/dsh-our-free-model +9,812、ccch1mneyyy/dsh-Go +7,418、heydamir/unslop +4,697、yetone/magpie +4,587、google/elephant-goldfish-model +4,400
+较第 9 期（2026-11-16，7 天）：
+- 新上榜：BaaRai/ARTEX、erkamyaman/rust-anything、mdiri-ai/SoduWork、haydenschmitty/floorplan、vAPI-Network/vapi-network、Leonxlnx/earshot、Likely7/Veyra-NRVideo、ersinkoc/phonebox
+- 移出：larashero3-dotcom/lieflat-less-ai-tone（创建于 2026-08-20，已超出 90 天收录窗口）；s1dashu/ip-as-logo-skill（创建于 2026-08-18，已超出 90 天收录窗口）；ApodexAI/FrontierAgent（创建于 2026-08-22，已超出 90 天收录窗口）；totec448-spec/chat-on-steroids（创建于 2026-08-22，已超出 90 天收录窗口）；nateherkai/scroll-craft（创建于 2026-08-22，已超出 90 天收录窗口）
+- 涨星：Ebony-Vinyl/dsh-our-free-model +8,024、ccch1mneyyy/dsh-Go +6,298、kajisho5/ffmpeg-skill +3,852、heydamir/unslop +3,564、lemomo-ai/lemo-opuscar +3,118
 
-## 升星榜（近 7 天 11-09 至 11-15，对比前 7 天 11-02 至 11-08）
+## 升星榜（近 7 天 11-16 至 11-22，对比前 7 天 11-09 至 11-15）
 
-测了 864 个近一年创建的 AI 项目：近 7 天涨星 ≥1,000 的 105 个，≥2,000 的 52 个，≥5,000 的 13 个；22 个在加速，66 个创建已超过 90 天，26 个已在主榜。
+测了 868 个近一年创建的 AI 项目：近 7 天涨星 ≥1,000 的 115 个，≥2,000 的 54 个，≥5,000 的 17 个；18 个在加速，69 个创建已超过 90 天，26 个已在主榜。
 
 ### 暴涨（近 7 天 ≥5,000）
-- [morluto/rea](https://github.com/morluto/rea) **+18,480**（前 7 天 +25,373，现 462,603★）：面向 AI Agent 的逆向工程 MCP，覆盖二进制、应用与运行时行为
-- [GoogleChrome/modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance) **+15,898**（前 7 天 +48，现 18,540★）　加速：让编码 Agent 掌握最新 Web 最佳实践的技能包，由 Chrome 等浏览器团队维护。
-- [Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) **+10,551**（前 7 天 +10,880，现 76,410★）　主榜：dsh 插件：免登录、免 Key 接入免费模型并本地转发
-- [pingdotgg/t3code](https://github.com/pingdotgg/t3code) **+9,067**（前 7 天 +14,078，现 61,894★）：在任意电脑或手机上统一控制 Claude Code、Codex 等编码 Agent，支持远程与 Git。
-- [janestreet/agent_skills](https://github.com/janestreet/agent_skills) **+8,402**（前 7 天 +783，现 9,184★）　主榜：Jane Street 的 AI Agent 技能集合，目前提供苏格拉底式导师技能
-- [ccch1mneyyy/dsh-Go](https://github.com/ccch1mneyyy/dsh-Go) **+7,452**（前 7 天 +11,557，现 24,139★）　主榜：DeepSeek Harness 的 Android 客户端，手机本机运行或远程遥控电脑上的 DSH
-- [mattpocock/skills](https://github.com/mattpocock/skills) **+6,781**（前 7 天 +9,706，现 325,417★）：Matt Pocock 的轻量可组合代理技能，帮助编码代理做真实工程而非氛围编程。
-- [stablyai/orca](https://github.com/stablyai/orca) **+6,650**（前 7 天 +6,900，现 126,069★）：在桌面、手机和远程运行环境中编排 Codex、Claude Code 等编码代理。
-- [debpalash/VoiceStudio](https://github.com/debpalash/VoiceStudio) **+6,359**（前 7 天 +7,213，现 111,532★）：本地开源 ElevenLabs 替代，支持克隆、配音、转录与有声书
-- [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) **+6,287**（前 7 天 +10,659，现 73,395★）：把编码代理变成安全审计员，分六阶段产出具可复核机器可读发现。
-- [GoogleChrome/modern-web-guidance-src](https://github.com/GoogleChrome/modern-web-guidance-src) **+6,273**（前 7 天 +21，现 7,504★）　加速：Modern Web Guidance 的源仓库，用于编写、校准和评测 Web 最佳实践技能。
-- [Lee-xeo/Claude-Cage](https://github.com/Lee-xeo/Claude-Cage) **+5,269**（前 7 天 +614，现 5,890★）　加速　主榜：为 Claude 定制的本地轻量虚拟机，隔离网络与浏览器指纹
-- [vercel-labs/ui](https://github.com/vercel-labs/ui) **+5,063**（前 7 天 +1，现 5,064★）　加速　主榜：供 AI Agent 构建无头 UI 组件的交互行为库
+- [BaaRai/ARTEX](https://github.com/BaaRai/ARTEX) **+12,542**（前 7 天 +2,351，现 16,686★）　加速　主榜：自托管、由 LLM 驱动、带证据留痕的自主渗透测试平台
+- [morluto/rea](https://github.com/morluto/rea) **+12,476**（前 7 天 +18,479，现 474,644★）：面向 AI Agent 的逆向工程 MCP，覆盖二进制、应用与运行时行为
+- [elementalsouls/Claude-BugHunter](https://github.com/elementalsouls/Claude-BugHunter) **+11,684**（前 7 天 +1,300，现 18,502★）　加速：Claude Code 漏洞挖掘技能包，含 82 项技能与红队攻击矩阵
+- [pingdotgg/t3code](https://github.com/pingdotgg/t3code) **+11,024**（前 7 天 +9,058，现 72,941★）：在任意电脑或手机上统一控制 Claude Code、Codex 等编码 Agent，支持远程与 Git。
+- [Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) **+8,755**（前 7 天 +10,318，现 84,432★）　主榜：dsh 插件：免登录、免 Key 接入免费模型并本地转发
+- [erkamyaman/rust-anything](https://github.com/erkamyaman/rust-anything) **+8,219**（前 7 天 +0，现 8,230★）　主榜：录制原应用行为，让编程 Agent 分块改写为 Rust 并逐块验证一致
+- [stablyai/orca](https://github.com/stablyai/orca) **+7,669**（前 7 天 +6,645，现 133,574★）：在桌面、手机和远程运行环境中编排 Codex、Claude Code 等编码代理。
+- [GoogleChrome/modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance) **+6,671**（前 7 天 +15,904，现 25,226★）：让编码 Agent 掌握最新 Web 最佳实践的技能包，由 Chrome 等浏览器团队维护。
+- [ccch1mneyyy/dsh-Go](https://github.com/ccch1mneyyy/dsh-Go) **+6,338**（前 7 天 +7,457，现 30,439★）　主榜：DeepSeek Harness 的 Android 客户端，手机本机运行或远程遥控电脑上的 DSH
+- [mdiri-ai/SoduWork](https://github.com/mdiri-ai/SoduWork) **+5,895**（前 7 天 +964，现 6,880★）　加速　主榜：可自托管的团队 AI Agent 编排引擎，多 harness 协作并按验收标准交付
+- [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) **+5,611**（前 7 天 +4,758，现 197,100★）：让 AI 编码代理像最懒的资深开发者那样，写刚好够用的代码。
+- [mattpocock/skills](https://github.com/mattpocock/skills) **+5,602**（前 7 天 +6,765，现 330,830★）：Matt Pocock 的轻量可组合代理技能，帮助编码代理做真实工程而非氛围编程。
+- [nexu-io/openmotion](https://github.com/nexu-io/openmotion) **+5,530**（前 7 天 +544，现 15,517★）　加速：开源代理式动效视频工作室，参考视频一键复刻并导出短视频。
+- [affaan-m/ECC](https://github.com/affaan-m/ECC) **+5,479**（前 7 天 +4,454，现 309,186★）：为 Claude Code 等代理提供规划、测试、记忆与安全优化的工程化技能系统。
+- [debpalash/VoiceStudio](https://github.com/debpalash/VoiceStudio) **+5,326**（前 7 天 +6,354，现 116,738★）：本地开源 ElevenLabs 替代，支持克隆、配音、转录与有声书
+- [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) **+5,286**（前 7 天 +806，现 73,005★）　加速：AI 代理技能：跨 Reddit、X、YouTube 等研究话题并生成有据总结。
+- [google-research/paper-orchestra](https://github.com/google-research/paper-orchestra) **+5,076**（前 7 天 +768，现 6,029★）　加速：多代理框架，将研究素材自动写成可投稿的 LaTeX 论文。
 
 ### 猛涨（近 7 天 2,000–4,999）
-- [h4ckf0r0day/obscura](https://github.com/h4ckf0r0day/obscura) **+4,930**（前 7 天 +905，现 35,732★）　加速：Rust 编写的无头浏览器，面向 AI Agent 与网页抓取，可替代无头 Chrome。
-- [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) **+4,750**（前 7 天 +4,933，现 191,637★）：让 AI 编码代理像最懒的资深开发者那样，写刚好够用的代码。
-- [heydamir/unslop](https://github.com/heydamir/unslop) **+4,730**（前 7 天 +6,995，现 16,905★）　主榜：把 AI 味 UI 改造成有设计感的界面
-- [yetone/magpie](https://github.com/yetone/magpie) **+4,705**（前 7 天 +4,775，现 37,259★）　主榜：本地网关，让任意编程 Agent 用上任意模型与订阅
-- [pbakaus/impeccable](https://github.com/pbakaus/impeccable) **+4,650**（前 7 天 +6,798，现 110,933★）：给编码 Agent 用的设计词汇技能，审查并消除 AI 生成的平庸设计
-- [Nutlope/hallmark](https://github.com/Nutlope/hallmark) **+4,545**（前 7 天 +6,047，现 55,681★）：让 Claude Code、Cursor 等编码代理生成不像 AI 模板的网页设计技能。
-- [vercel-labs/agent-desktop](https://github.com/vercel-labs/agent-desktop) **+4,505**（前 7 天 +12,409，现 24,352★）：基于操作系统无障碍树的桌面上计算机使用工具，让 AI 代理可靠操作应用。
+- [HKUDS/CLI-Anything](https://github.com/HKUDS/CLI-Anything) **+4,336**（前 7 天 +340，现 63,065★）　加速：为各类软件生成 CLI，让 AI 代理直接操控现有软件。
+- [Nutlope/hallmark](https://github.com/Nutlope/hallmark) **+4,093**（前 7 天 +4,548，现 59,721★）：让 Claude Code、Cursor 等编码代理生成不像 AI 模板的网页设计技能。
+- [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) **+4,016**（前 7 天 +4,347，现 120,325★）：给编码代理艺术方向、真实图片和浏览器自检的网页设计技能。
 
-其余 85 个：JuneYaooo/rea-video +4,496、affaan-m/ECC +4,469、google/elephant-goldfish-model +4,409、Leonxlnx/taste-skill +4,352、ZhuLinsen/daily_stock_analysis +4,346、Graphify-Labs/graphify +4,139、addyosmani/agent-skills +3,938、vercel-labs/agent-browser +3,859、tashfeenahmed/freellmapi +3,743、heygen-com/hyperframes +3,689、Alishahryar1/free-claude-code +3,352、nextlevelbuilder/ui-ux-pro-max-skill +3,165、lemomo-ai/lemo-opuscar +3,153、blader/humanizer +2,898、amosblomqvist/learnharness +2,889、alibaba/open-code-review +2,825、multica-ai/andrej-karpathy-skills +2,681、Donchitos/Claude-Code-Game-Studios +2,540、NVIDIA/auto-ontology +2,462、BaaRai/ARTEX +2,353、hugohe3/ppt-master +2,339、AgriciDaniel/claude-seo +2,319、Vincentwei1021/video-shotcraft +2,270、kuafuai/andee +2,239、cheaper-inference/OmniRoute +2,232、openfilm/openfilm +2,224、JuliusBrussee/caveman +2,217、backnotprop/plannotator +2,172、tt-a1i/archify +2,152、OpenMontageInc/OpenMontage +2,074、jub0t/Concat +2,025、CopilotKit/OpenBot +2,002、deepseek-ai/dsh-superagent-prototype +1,981、ifixai-ai/iFixAi +1,909、qybaihe/bla +1,908、paperclipai/paperclip +1,878、Panniantong/Agent-Reach +1,855、hitkeeen/blender-ai-mcp-addon +1,853、Jakeschincariol/day-trader-skill +1,828、n8n-io/nod +1,797、open-jarvis/OpenJarvis +1,783、herdrdev/herdr +1,782、obsidianmd/obsidian-skills +1,751、FrigadeHQ/yogurt +1,716、shinyobjectz/raea +1,698、dataelement/dsh-desktop +1,676、career-ops-hq/career-ops +1,656、VoltAgent/awesome-design-md +1,611、cathrynlavery/diagram-design +1,576、Zagitta/gpu-unlock +1,573、RunanywhereAI/trnrt +1,571、agentes-chat/agentes-chat +1,566、nightly-labs/openbot +1,514、wheresryan22/anatomy +1,481、patch-gg/pixelfx +1,476、modelflare-ai/AnyModelBot +1,437、microsoft/TokenEconomizer +1,424、coreyhaines31/marketingskills +1,405、hypit-ai/hypit +1,405、KKKKhazix/agent-autoloop +1,392、AIScientists-Dev/academic-humanizer +1,389、Thysrael/Horizon +1,375、kaomei/stickman-video-director +1,374、ai-job-search-dev/ai-job-search +1,355、NVIDIA/SkillSpector +1,347、garrytan/gbrain +1,345、haydenschmitty/floorplan +1,292、elementalsouls/Claude-BugHunter +1,287、rohitg00/ai-engineering-from-scratch +1,259、walkinglabs/learn-harness-engineering +1,259、vAPI-Network/vapi-network +1,236、kajisho5/ffmpeg-skill +1,228、Egonex-AI/Understand-Anything +1,215、nexu-io/open-design +1,214、gamedev-skills/awesome-gamedev-agent-skills +1,162、elie222/rakazo +1,142、mromidev/claude-animated-shorts +1,136、DIYgod/pinky +1,124、Jakeschincariol/instagram-agent-skill +1,109、helloHub1212/dsh-windows-mcp +1,098、Ryze-AI-Adgent/open-seo-mcp-skills +1,095、beenuar/AiSOC +1,094、Imbad0202/academic-research-skills +1,075、rddmwmddr/android-ad-cleaner +1,034、anthropics/knowledge-work-plugins +1,011
+其余 95 个：tashfeenahmed/freellmapi +3,929、cloudflare/security-audit-skill +3,921、kajisho5/ffmpeg-skill +3,849、Tencent/LoopForge +3,849、ersinkoc/phonebox +3,747、Graphify-Labs/graphify +3,728、heygen-com/hyperframes +3,709、simplexai-labs/linger +3,640、heydamir/unslop +3,575、alibaba/open-code-review +3,157、lemomo-ai/lemo-opuscar +3,135、cathrynlavery/diagram-design +3,125、yetone/magpie +3,061、JuneYaooo/rea-video +3,032、nextlevelbuilder/ui-ux-pro-max-skill +3,020、blader/humanizer +2,944、Immortal-Protocols/lastbook +2,890、GoogleChrome/modern-web-guidance-src +2,805、bookwjitchieni1986/blender-ai-mcp-addon +2,758、Likely7/Veyra-NRVideo +2,645、google-labs-code/stitch-skills +2,581、XinaTian/MROffice +2,490、backnotprop/plannotator +2,467、EL4CTEO/fast-anything +2,359、open-jarvis/OpenJarvis +2,353、google/elephant-goldfish-model +2,325、Alishahryar1/free-claude-code +2,231、iamajmeena/neonclipping +2,178、hugohe3/ppt-master +2,161、Panniantong/Agent-Reach +2,034、tt-a1i/archify +2,031、ifixai-ai/iFixAi +2,013、sybil-solutions/inference-optimisation-skill +2,006、Lee-xeo/Claude-Cage +2,002、paperclipai/paperclip +1,967、Vincentwei1021/video-shotcraft +1,939、AgriciDaniel/claude-seo +1,934、cheaper-inference/OmniRoute +1,931、vercel-labs/agent-desktop +1,915、shinyobjectz/raea +1,909、nightly-labs/openbot +1,896、addyosmani/agent-skills +1,882、xerj-org/xerj +1,818、JuliusBrussee/caveman +1,812、multica-ai/andrej-karpathy-skills +1,809、jub0t/Concat +1,793、OpenMontageInc/OpenMontage +1,793、vercel-labs/agent-browser +1,768、haydenschmitty/floorplan +1,752、Jakeschincariol/instagram-agent-skill +1,745、Tracer-Cloud/opensre +1,731、janestreet/agent_skills +1,727、atuizz/posewear +1,713、dataelement/dsh-desktop +1,644、amosblomqvist/learnharness +1,590、vercel-labs/ui +1,539、coreyhaines31/marketingskills +1,517、career-ops-hq/career-ops +1,485、EL4CTEO/blender-skills +1,484、ZiChuanLan/freebie-radar +1,427、gamedev-skills/awesome-gamedev-agent-skills +1,403、openfilm/openfilm +1,400、h4ckf0r0day/obscura +1,386、NVIDIA/auto-ontology +1,360、agent-substrate/substrate +1,353、n8n-io/nod +1,350、nexu-io/open-design +1,337、haziqahmedqasmi/PeakCut +1,307、ethanplusai/sellbird +1,299、FrigadeHQ/yogurt +1,289、wheresryan22/anatomy +1,252、RainBowLuoCS/Gamer +1,240、VaneAi888/vane-gpt-image-skills +1,233、ZhuLinsen/daily_stock_analysis +1,233、microsoft/TokenEconomizer +1,222、herdrdev/herdr +1,206、ai-job-search-dev/ai-job-search +1,189、Jakeschincariol/day-trader-skill +1,183、patch-gg/pixelfx +1,174、multica-ai/multica +1,165、hypit-ai/hypit +1,146、Imbad0202/academic-research-skills +1,136、huggingface/pybot +1,126、Zagitta/gpu-unlock +1,101、citrolabs/ego-lite +1,093、FailproofAI/failproofai +1,079、VoltAgent/awesome-design-md +1,068、NVIDIA/SkillSpector +1,067、kaomei/stickman-video-director +1,065、Donchitos/Claude-Code-Game-Studios +1,033、modelflare-ai/AnyModelBot +1,030、beenuar/AiSOC +1,027、mromidev/claude-animated-shorts +1,026、jiwoochris/artex-global +1,022、Egonex-AI/Understand-Anything +1,016
 
-## 新星（创建于 11-09 至 11-15，≥500★）
+## 新星（创建于 11-16 至 11-22，≥500★）
 
-**1,000–1,999★**
-- [hitkeeen/blender-ai-mcp-addon](https://github.com/hitkeeen/blender-ai-mcp-addon) ★ 1,853：Blender 内置 AI 助手与 MCP 服务器，用对话完成建场景、改材质等操作
-- [FrigadeHQ/yogurt](https://github.com/FrigadeHQ/yogurt) ★ 1,716：本地运行、隐私优先的 AI 会议记录与摘要工具，Granola 的开源替代
-- [agentes-chat/agentes-chat](https://github.com/agentes-chat/agentes-chat) ★ 1,566：自托管的团队聊天平台，让人和 AI Agent 在频道与私信中协同工作
+**≥2,000★**
+- [bookwjitchieni1986/blender-ai-mcp-addon](https://github.com/bookwjitchieni1986/blender-ai-mcp-addon) ★ 2,758：Blender 里的 AI 助手与 MCP 服务，让模型查看场景、建模、改材质并执行多步流程
+- [EL4CTEO/fast-anything](https://github.com/EL4CTEO/fast-anything) ★ 2,399：定位 Python/Node/Ruby 热点函数，让编码 Agent 用 Rust 重写并验证行为一致
+- [iamajmeena/neonclipping](https://github.com/iamajmeena/neonclipping) ★ 2,187：本地开源剪辑工具，把长视频自动切成带字幕的竖屏片段，配本地 LLM 选题
+- [sybil-solutions/inference-optimisation-skill](https://github.com/sybil-solutions/inference-optimisation-skill) ★ 2,009：Agent skill for hill-climbing local LLM serving speed (decode, speculative decoding, prefill, KV, startup, TTFT) on any hardware and quantization
 
 **500–999★**
-- [ZiChuanLan/freebie-radar](https://github.com/ZiChuanLan/freebie-radar) ★ 929：聚合多源福利信息并用 AI 二次审核过滤的工具，通过 Telegram 推送
-- [alexeyw/lot-map](https://github.com/alexeyw/lot-map) ★ 901：Claude Code 聊天旁的实时可视化面板，展示工具调用与 Agent 步骤
-- [JDhruv14/line-art-animation](https://github.com/JDhruv14/line-art-animation) ★ 860：Claude 技能与 TS 库，用于生成会行走互动的动态线描 SVG 组件
-- [Dodaios/ste80-humanizer](https://github.com/Dodaios/ste80-humanizer) ★ 707：Agent 技能：去除 AI 写作痕迹，并把文本向简化技术英语 STE80 改写
-- [linknimiball1974/ai-texture-forge](https://github.com/linknimiball1974/ai-texture-forge) ★ 682：Blender 内的 AI 贴图插件，用提示词生成无缝 PBR 材质与投影
-- [Moh4696/cinematic-skill](https://github.com/Moh4696/cinematic-skill) ★ 534：Agent 技能：仅用代码并由旁白驱动，制作连续的纪实短片
-- [credoksopho1984/blender-ai-copilot-studio](https://github.com/credoksopho1984/blender-ai-copilot-studio) ★ 513：Blender 的 AI 副驾驶与 MCP 服务器，把自然语言需求执行成场景操作
-- [racdeufindurch198812/Blender-AI-MCP-Studio](https://github.com/racdeufindurch198812/Blender-AI-MCP-Studio) ★ 511：Blender 内置 AI 助手与 MCP 服务器，逐步审批可撤销的场景编辑
-- [tiobeharxi1987/blender-ai-copilot-flow](https://github.com/tiobeharxi1987/blender-ai-copilot-flow) ★ 510：受控的 Blender AI 工作流：每次编辑都是可审批、可命名的工具调用
-- [zovulrira1974/blender-ai-copilot-assets](https://github.com/zovulrira1974/blender-ai-copilot-assets) ★ 508：Blender 资产型 AI 副驾驶，可在对话中搜索素材库并确认后导入
-- [Doug-218/blender-ai-copilot-forge](https://github.com/Doug-218/blender-ai-copilot-forge) ★ 508：Blender 场景锻造 AI 副驾驶，按步骤生成灯光、材质与父子关系
-- [precygtrucqui1981/blender-ai-copilot-lab](https://github.com/precygtrucqui1981/blender-ai-copilot-lab) ★ 506：Blender AI 实验台，经理、执行、评审三角色 Agent 协作完成场景任务
-- [fumbdendade19718/blender-ai-copilot-desk](https://github.com/fumbdendade19718/blender-ai-copilot-desk) ★ 503：Blender 可视化 AI 工作台，集成对话、视口快照、审批与任务看板
-- [baiblinocun1986/blender-ai-copilot-hub](https://github.com/baiblinocun1986/blender-ai-copilot-hub) ★ 501：Blender 多模型 AI 副驾驶中枢，统一管理各家连接与受控场景工具
+- [pierridotite/mobile-agent-testers](https://github.com/pierridotite/mobile-agent-testers) ★ 954：在 GitHub 免费 runner 上并行跑多个 Claude Code Agent，探索式测试移动 App 并报 Bug
+- [boringmarketer/boring-marketing-skills](https://github.com/boringmarketer/boring-marketing-skills) ★ 801：面向 AI Agent 的 32 个营销技能：调研、定位、文案、SEO、广告与内容
+- [INK-Q/agy-fast](https://github.com/INK-Q/agy-fast) ★ 642：给 Google Antigravity 用的本地 MCP 加速插件，批量合并检索与编辑以省 token 和延迟
+- [danielwh2/sprite-stacking](https://github.com/danielwh2/sprite-stacking) ★ 542：Agent 技能：把四视图像素画堆叠成可旋转的伪 3D 精灵，用于游戏开发
 
-## 新锐（创建于 10-17 至 11-08，≥1,000★）
+## 新锐（创建于 10-24 至 11-15，≥1,000★）
 
-- [haydenschmitty/floorplan](https://github.com/haydenschmitty/floorplan) ★ 4,564：让 Claude/Codex 把代码库画成可交互的白话架构图
-- [aicodeking/leanrea](https://github.com/aicodeking/leanrea) ★ 4,317：单个 8KB 技能文件替代 REA MCP，教 Agent 用命令行做逆向工程。
-- [modelflare-ai/AnyModelBot](https://github.com/modelflare-ai/AnyModelBot) ★ 4,156：本地优先的个人 AI Agent，跨模型并接入微信飞书
-- [t3dotgg/tstack](https://github.com/t3dotgg/tstack) ★ 3,921：作者日常使用的 Agent 技能集，覆盖提 PR、评审、合并与接管等开发流程。
-- [mromidev/claude-animated-shorts](https://github.com/mromidev/claude-animated-shorts) ★ 3,605：Claude 技能：用 three.js 与 Remotion 在本地渲染竖屏动画短片
-- [elvarofficial/teardown](https://github.com/elvarofficial/teardown) ★ 3,595：Claude Code 技能：把任何机器做成可拆解的 3D 模拟器
-- [benjitaylor/skills](https://github.com/benjitaylor/skills) ★ 3,387：面向 AI 编码 Agent 的设计与动效技能合集
-- [paipiange/nvzhuang](https://github.com/paipiange/nvzhuang) ★ 2,861：1407 张 AI 女装图集网站，支持 AI 虚拟试穿换装
-- [alchaincyf/huashu-motion](https://github.com/alchaincyf/huashu-motion) ★ 2,752：给编码 Agent 的技能：直出商业级产品宣传片，自动作曲并支持指画面改。
-- [shinyobjectz/raea](https://github.com/shinyobjectz/raea) ★ 2,592：用 React/TS 让 AI 编写并 GPU 本地渲染视频、动效、3D 与游戏的引擎
-- [sarpstar/cinecode](https://github.com/sarpstar/cinecode) ★ 2,577：AI 编码 Agent 写脚本并用代码构建每一帧，输出成片 MP4
-- [DenisSergeevitch/ex-ussr-kinship-research](https://github.com/DenisSergeevitch/ex-ussr-kinship-research) ★ 2,546：面向 AI Agent 的前苏联家谱研究技能，检索教会簿册、民事与军事档案并标注证据。
-- [caru-ini/stack-diagram](https://github.com/caru-ini/stack-diagram) ★ 2,526：Agent 技能：一句话描述技术栈，生成带官方 logo 的架构图
-- [wquguru/cicada](https://github.com/wquguru/cicada) ★ 2,330：跨平台实时字幕、同声传译与 AI 会议纪要工具
-- [DIYgod/pinky](https://github.com/DIYgod/pinky) ★ 2,248：让 AI Agent 通过 MCP 操作真实手机，并由你在环内审批
-- [Motionsites-AI/claude-skill](https://github.com/Motionsites-AI/claude-skill) ★ 2,136：免费 Claude 技能：让 Claude 做出电影级落地页
-- [N1nEmAn/sapper-v2](https://github.com/N1nEmAn/sapper-v2) ★ 2,124：自主渗透测试多智能体编排框架，指挥官加 Worker 集群协同作战
-- [CopilotKit/OpenDuet](https://github.com/CopilotKit/OpenDuet) ★ 2,071：开源模板：构建主动做事、同时让你随时介入的 AI Agent 应用。
-- [Sandflow-ai/sand3d](https://github.com/Sandflow-ai/sand3d) ★ 2,055：面向 LLM 的 Python 建模库，用简短代码在 Blender 中构建 3D 对象
-- [andyhuo520/digital-human-koubo](https://github.com/andyhuo520/digital-human-koubo) ★ 2,002：给 AI Agent 的一张照片生数字人口播视频技能包
+- [modelflare-ai/AnyModelBot](https://github.com/modelflare-ai/AnyModelBot) ★ 4,980：本地优先的个人 AI Agent，跨模型并接入微信飞书
+- [mromidev/claude-animated-shorts](https://github.com/mromidev/claude-animated-shorts) ★ 4,623：Claude 技能：用 three.js 与 Remotion 在本地渲染竖屏动画短片
+- [t3dotgg/tstack](https://github.com/t3dotgg/tstack) ★ 4,309：作者日常使用的 Agent 技能集，覆盖提 PR、评审、合并与接管等开发流程。
+- [elvarofficial/teardown](https://github.com/elvarofficial/teardown) ★ 4,051：Claude Code 技能：把任何机器做成可拆解的 3D 模拟器
+- [benjitaylor/skills](https://github.com/benjitaylor/skills) ★ 4,022：面向 AI 编码 Agent 的设计与动效技能合集
+- [simplexai-labs/linger](https://github.com/simplexai-labs/linger) ★ 4,018：完全跑在本机的开源个人 Agent，主动记忆办事，数据不出设备
+- [FrigadeHQ/yogurt](https://github.com/FrigadeHQ/yogurt) ★ 3,007：本地运行、隐私优先的 AI 会议记录与摘要工具，Granola 的开源替代
+- [Immortal-Protocols/lastbook](https://github.com/Immortal-Protocols/lastbook) ★ 2,978：离线生存知识库，整合手册、视频、百科、地图与本地问答，供断网时查用
+- [paipiange/nvzhuang](https://github.com/paipiange/nvzhuang) ★ 2,971：1407 张 AI 女装图集网站，支持 AI 虚拟试穿换装
+- [sarpstar/cinecode](https://github.com/sarpstar/cinecode) ★ 2,892：AI 编码 Agent 写脚本并用代码构建每一帧，输出成片 MP4
+- [caru-ini/stack-diagram](https://github.com/caru-ini/stack-diagram) ★ 2,783：Agent 技能：一句话描述技术栈，生成带官方 logo 的架构图
+- [DenisSergeevitch/ex-ussr-kinship-research](https://github.com/DenisSergeevitch/ex-ussr-kinship-research) ★ 2,738：面向 AI Agent 的前苏联家谱研究技能，检索教会簿册、民事与军事档案并标注证据。
+- [DIYgod/pinky](https://github.com/DIYgod/pinky) ★ 2,695：让 AI Agent 通过 MCP 操作真实手机，并由你在环内审批
+- [N1nEmAn/sapper-v2](https://github.com/N1nEmAn/sapper-v2) ★ 2,567：自主渗透测试多智能体编排框架，指挥官加 Worker 集群协同作战
+- [XinaTian/MROffice](https://github.com/XinaTian/MROffice) ★ 2,523：开源 Office 风格在线编辑器合集，内置 Copilot 与 MCP 服务，可让 AI 读写真实文档
+- [wquguru/cicada](https://github.com/wquguru/cicada) ★ 2,471：跨平台实时字幕、同声传译与 AI 会议纪要工具
+- [Motionsites-AI/claude-skill](https://github.com/Motionsites-AI/claude-skill) ★ 2,460：免费 Claude 技能：让 Claude 做出电影级落地页
+- [ZiChuanLan/freebie-radar](https://github.com/ZiChuanLan/freebie-radar) ★ 2,367：聚合多源福利信息并用 AI 二次审核过滤的工具，通过 Telegram 推送
+- [NiazMorshed2007/reanimate](https://github.com/NiazMorshed2007/reanimate) ★ 2,285：Claude Code 技能：逐帧逆向复刻网页动画并对齐验证
+- [Sandflow-ai/sand3d](https://github.com/Sandflow-ai/sand3d) ★ 2,236：面向 LLM 的 Python 建模库，用简短代码在 Blender 中构建 3D 对象
+- [andyhuo520/digital-human-koubo](https://github.com/andyhuo520/digital-human-koubo) ★ 2,082：给 AI Agent 的一张照片生数字人口播视频技能包
+- [ZiChuanLan/agent-purge](https://github.com/ZiChuanLan/agent-purge) ★ 2,064：为多种编码 Agent 统一替换或注入系统提示词，带本地 Web 控制台
 
-1,000–1,999★ 的 21 个：ZiChuanLan/agent-purge ★1,853、jacke-pp/open-yoki ★1,845、daveebbelaar/bama ★1,839、morganlinton/BeautifulRust ★1,827、NiazMorshed2007/reanimate ★1,702、anonnerdfrenzy/survival-llm ★1,670、voyager-so/vork ★1,597、RunanywhereAI/trnrt ★1,584、JosssphZhou/poki ★1,387、aicodeking/pandacode ★1,266、cutetailbud/ff-ruyijs ★1,255、RikiyaT/lm_understand-logs ★1,253、Zleap-AI/SAG-Wiki ★1,242、emanuele-em/kanzo ★1,209、wici-ai/inferssd ★1,189、XiaoyeCodes/code-animation-prompts ★1,147、konlu/story-studio ★1,102、tang1693/KIKUmap ★1,099、rerun-build/rerun ★1,082、anthropics/FlashProve ★1,054、mdiri-ai/SoduWork ★1,001
+1,000–1,999★ 的 29 个：agentes-chat/agentes-chat ★1,964、daveebbelaar/bama ★1,950、jacke-pp/open-yoki ★1,871、JosssphZhou/poki ★1,866、atuizz/posewear ★1,834、haziqahmedqasmi/PeakCut ★1,790、anonnerdfrenzy/survival-llm ★1,724、voyager-so/vork ★1,694、RunanywhereAI/trnrt ★1,659、VaneAi888/vane-gpt-image-skills ★1,457、XiaoyeCodes/code-animation-prompts ★1,436、RainBowLuoCS/Gamer ★1,378、emanuele-em/kanzo ★1,320、RikiyaT/lm_understand-logs ★1,288、konlu/story-studio ★1,232、Minglink/dsh-jailbreak-workflow ★1,218、JDhruv14/line-art-animation ★1,188、kubai087/kubai-icons ★1,174、alexeyw/lot-map ★1,132、rerun-build/rerun ★1,129、huggingface/pybot ★1,128、hyperionaidev/smolmaxxing ★1,111、artemnovitckii/claude-animation-skills ★1,108、Dodaios/ste80-humanizer ★1,092、anthropics/FlashProve ★1,090、jackwener/DSH-Android ★1,035、op7418/dsh-guizang-design ★1,031、wzc520pyfm/gen-ai-pose-image ★1,007、anomalyco/browse ★1,002
 
 ## 名录
 
 ### 编程 Agent 与运行框架
 
-#### [deepseek-ai/dsh-superagent-prototype](https://github.com/deepseek-ai/dsh-superagent-prototype) ⭐ 23,377
+#### [deepseek-ai/dsh-superagent-prototype](https://github.com/deepseek-ai/dsh-superagent-prototype) ⭐ 24,306
 
 > 监听 GitHub 的主动式编码 Agent 研究原型，以 DeepSeek Harness 插件包形式运行
 
@@ -119,7 +112,7 @@
 - ⚠️ 项目方声明这是研究原型，可能存在缺陷，需自行审查和调整后再使用
 - ⚠️ 该原型与同团队论文描述的实现并不一致，论文中部分设计尚未实现
 
-#### [rehan-remade/universal-modder](https://github.com/rehan-remade/universal-modder) ⭐ 9,722
+#### [rehan-remade/universal-modder](https://github.com/rehan-remade/universal-modder) ⭐ 9,841
 
 > 让 Claude 等编程 Agent 为任意 PC 游戏做 Mod 的技能包与工具集
 
@@ -139,7 +132,7 @@
 - ⚠️ 对游戏程序做注入与逆向改动，可能违反部分游戏的用户协议或服务条款
 - ⚠️ 生成的素材来自 fal 等外部付费服务，需自行确认版权与商用授权
 
-#### [zai-org/ZCode](https://github.com/zai-org/ZCode) ⭐ 8,708
+#### [zai-org/ZCode](https://github.com/zai-org/ZCode) ⭐ 8,851
 
 > Z.ai 推出的 AI 编程工作台，含桌面端、Web 端和终端 Agent。
 
@@ -158,27 +151,28 @@
 - **上手**：`pnpm bootstrap` 需先准备 Git、Node.js 24.14.0 和 pnpm 10.33.2，命令在仓库根目录执行。
 - ⚠️ 命令行 Web 模式可用 --no-token 关闭认证，README 说明监听非本机地址时才默认生成令牌，局域网暴露前需自行确认访问控制。
 
-#### [ApodexAI/FrontierAgent](https://github.com/ApodexAI/FrontierAgent) ⭐ 5,440
+#### [erkamyaman/rust-anything](https://github.com/erkamyaman/rust-anything) ⭐ 8,230
 
-> 开源的终端 AI Agent 运行时，提供 ReAct 与 Agent Team 两种工作流。
+> 录制原应用行为，让编程 Agent 分块改写为 Rust 并逐块验证一致
 
-- **定位**：FrontierAgent 是面向长周期研究与文件类任务的 Agent 运行时、终端产品与评测套件。框架、工具、工作流和评测层相互独立，可以分别复用。内置 TUI，在 macOS 和 Linux 上一条命令即可启动，Docker 是可选项。
+- **定位**：面向 TypeScript/JavaScript、Python、C、Go、Ruby、Java、Kotlin、PHP、C# 应用，先录制原程序行为，再由编码 Agent 或人逐块写 Rust，每块与录制结果比对通过后才切换，最终得到纯 Rust 应用。
 - **能做什么**：
-  - ReAct 模式：单 Agent 在有状态沙箱内检索、读写文件、执行命令并迭代。
-  - Agent Team 模式：协调器维护任务板，向并行的子 Agent 分派独立子任务并汇总报告。
-  - 沙箱文件区：/inputs 只读、/workspace 可读写、/outputs 存放持久交付物；失败时默认拒绝。
-  - 变更需审批并显示 diff，全过程本地留痕；支持 /revert 回滚和 --resume 续跑。
-  - 自带 subprocess 评测 runner，支持并发、产物收集与失败用例单独重跑。
+  - 录制原程序行为，逐块校验 Rust 改写结果
+  - 支持 CLI、HTTP 服务和库，也可只移植慢的热点函数
+  - 生成桥接层，保持原有 API 不变，可随时回退到原实现
+  - 支持 Claude Code、Codex、Cursor 等 Agent 接入
+  - 用 fuzz、bench、gate 检查未覆盖输入、性能与完成度
 - **亮点**：
-  - 运行中可键入新指令，指令在下一个安全轮次边界注入，不中断当前运行。
-  - 同一引擎同时驱动 TUI 和用于评测 Apodex 模型的 benchmark runner。
-  - 在 macOS 与 Docker 下 /outputs 映射到宿主机 .apodex/runs/<session-id>/outputs。
-- **适合**：需要长周期研究、仓库分析和文件交付的开发者，以及评测 Agent 工作流的研究人员。
-- **上手**：`uv run frontier-agent --mode react --cwd /path/to/project` 先 git clone、uv sync --python 3.12 --extra dev，并将 .env.example 复制为 .env 填入 OpenAI 兼容端点。
+  - 项目方数据：Prettier 命令行 128.6s 降至 6.9s
+  - 项目方数据：json-server 空闲内存 74MB 降至 3.5MB
+  - 项目方数据：Fuse.js 每查询 91.2ms 降至 2.8ms
+- **适合**：希望把现有应用或性能热点迁移到 Rust、并用编码 Agent 保证行为一致的开发者。
+- **上手**：`cargo install rust-anything` 随后运行 rust-anything setup 注册到 Claude Code、Codex 等 Agent；也可用 npm 或预编译二进制安装。
+- ⚠️ record 与 app record 会用大量生成输入反复执行原代码，涉及写文件、数据库和网络的代码会重复执行，README 要求先在项目副本、测试库上运行并移除生产凭据。
 
 ### Agent 平台与基础设施
 
-#### [Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) ⭐ 76,407
+#### [Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) ⭐ 84,431
 
 > dsh 插件：免登录、免 Key 接入免费模型并本地转发
 
@@ -198,8 +192,9 @@
 - ⚠️ README 警告勿安装 npm 上无 scope 的 dsh-our-free-model，该包由第三方打包且内容与本仓库不一致。
 - ⚠️ 免费车道经第三方公共网关直连上游，请求与数据发往何处需自行评估；Kilo 池上游声明 prompt 可能被记录用于改进服务，README 提示勿发敏感内容。
 - ⚠️ 各账号渠道与 EAC 渠道涉及登录第三方服务账号及 GitHub 授权校验，可能受对应平台服务条款约束。
+- ⚠️ 许可证未声明或非标准，商用前请确认授权
 
-#### [yetone/magpie](https://github.com/yetone/magpie) ⭐ 37,259
+#### [yetone/magpie](https://github.com/yetone/magpie) ⭐ 40,244
 
 > 本地网关，让任意编程 Agent 用上任意模型与订阅
 
@@ -221,7 +216,7 @@
 - ⚠️ 隐私遮蔽默认关闭，开启后仍可能漏检或误判，且模型看不到被遮蔽的原值。
 - ⚠️ 网关监听本地端口，README 未说明是否可安全暴露到公网。
 
-#### [browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast) ⭐ 24,531
+#### [browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast) ⭐ 24,714
 
 > 用动态索引动作空间操作网页的快速浏览器 Agent
 
@@ -242,7 +237,7 @@
 - ⚠️ 示例使用真实 Chrome 用户配置，共享已有登录状态与 Cookie
 - ⚠️ 调用 TypeSafe 与 OpenRouter 等外部服务会把页面可见文本和输入内容发送出去
 
-#### [Jakeschincariol/day-trader-skill](https://github.com/Jakeschincariol/day-trader-skill) ⭐ 8,063
+#### [Jakeschincariol/day-trader-skill](https://github.com/Jakeschincariol/day-trader-skill) ⭐ 9,229
 
 > 11 个 Claude 技能：扫描图表、追踪新闻、择时进出并回放交易结果
 
@@ -262,8 +257,9 @@
 - ⚠️ 项目方明确警告：时间机器是模拟而非预测，止损只是计划而非保证，快速行情或跳空时可能大幅滑点
 - ⚠️ 项目方说明 Yahoo Finance 图表接口非官方 API，可能延迟、变更或限流，且扫描基于 1 或 5 分钟 K 线而非逐笔
 - ⚠️ 项目方提醒多数日内交易者亏损，本软件不构成投资建议
+- ⚠️ 快照当日已 34 天未更新（最后推送 2026-10-20）
 
-#### [tamaratran/fast-jev-compaction](https://github.com/tamaratran/fast-jev-compaction) ⭐ 7,979
+#### [tamaratran/fast-jev-compaction](https://github.com/tamaratran/fast-jev-compaction) ⭐ 8,014
 
 > Claude Code 插件：用 Jev 打分删除过期工具调用，替代有损压缩摘要
 
@@ -280,88 +276,9 @@
   - 删除有概率阈值，结果可被重新运行，但概率不等于可安全删除的证据
 - **适合**：使用 Claude Code 且在意上下文压缩丢失文件路径、报错等细节的开发者，以及需要可嵌入压缩库的工程师。
 - **上手**：`npm install fast-jev-compaction` 需先 export TYPESAFE_API_KEY；插件方式需 Claude Code 2.1.274+ 并开启函数钩子早期访问开关。
-- ⚠️ 快照当日已 59 天未更新（最后推送 2026-09-18）
+- ⚠️ 快照当日已 66 天未更新（最后推送 2026-09-18）
 
-#### [Human-Agent-Society/reef](https://github.com/Human-Agent-Society/reef) ⭐ 7,828
-
-> 让 Agent 从交互反馈中持续自我改进的开源基础设施
-
-- **定位**：把 Agent 推理、反馈、学习与带版本号的发布串成一个持续循环，既能训练模型权重，也能迭代 Agent 的提示词、规则与技能。
-- **能做什么**：
-  - 推理、记录、训练、评估发布四步闭环
-  - 兼容 OpenAI 与 Anthropic 的推理接口，返回回执关联反馈
-  - 支持训练模型权重，或用模型 API 演化 Agent harness
-  - 基于 Git LFS 的产物版本历史与不中断更新交付
-  - 内置 SFT，另有 TTT、SAO、GEPA 等配方与教程
-- **亮点**：
-  - 模型权重与 harness 两种学习面由配方决定
-  - 更新经评估后由推理服务热加载，无需重启
-  - harness 教程用模型 API 跑通完整小循环，无需本地 GPU
-- **适合**：希望让 Agent 从真实使用反馈中持续变强的研发团队，以及做 Agent 强化学习与持续学习的研究者。
-- **上手**：`uv venv && source .venv/bin/activate
-uv pip install reef-infra` 产物与检查点功能需先安装 git-lfs 系统包；源码开发则用 git lfs install 后以 -e 方式安装。
-
-#### [XiaoDuoYa/codex-with-chatgpt](https://github.com/XiaoDuoYa/codex-with-chatgpt) ⭐ 7,717
-
-> 用 ChatGPT 网页版做规划与审查，Codex 负责执行
-
-- **定位**：通过只读 MCP 连接把 ChatGPT 网页版接入 Codex 会话，充当规划与审查角色，代码执行权仍留在 Codex；不使用 API Key，也不做逆向代理。
-- **能做什么**：
-  - 控制面用 Computer Use 传递极小的 [C2C] 状态消息
-  - 数据面经 OAuth 2.1 保护的只读 MCP 工具读取工作区
-  - 默认拒绝 .env、密钥、SSH 等敏感文件，可用 .c2cignore 加规则
-  - ChatGPT 执行后自查 git diff 与测试记录，独立审查
-  - 提供 c2c setup/status/doctor/pair 等 CLI 命令
-- **亮点**：
-  - 服务端不提供写入和 shell 工具，只读是代码层面保证的
-  - 公开地址默认是 Cloudflare 临时隧道 URL，重启即变，可选配置固定域名
-  - Skill 每天自动检查 GitHub 并更新
-- **适合**：已订阅 ChatGPT Plus/Pro、希望减少 API 额度消耗的 Codex 用户，包括不熟悉命令行的小白用户
-- **上手**：`c2c setup` 需先 pnpm install && pnpm build；另需 Node.js ≥ 20、git 和 cloudflared，也可让 Codex 按整段话自动安装
-- ⚠️ 核心机制是用 Computer Use 自动操作 ChatGPT 网页版，可能违反其服务条款或有账号风险
-- ⚠️ 默认公网入口是临时隧道地址，配置不当或令牌泄露会把工作区读取能力暴露出去
-- ⚠️ 快照当日已 46 天未更新（最后推送 2026-10-01）
-
-#### [Louis-CFM/coucou](https://github.com/Louis-CFM/coucou) ⭐ 7,256
-
-> 在 Mac 刘海和手机端实时监控并审批 AI 编程 Agent 会话的桌面伴侣
-
-- **定位**：把 Claude Code、Codex、Cursor、Gemini CLI 等 Agent 的会话状态、文件改动和权限请求收进 Mac 刘海（Windows/Linux 为屏幕顶部），并延伸到 iPhone、Android 的锁屏与小组件上，让你不离开当前工作就能批准或回答问题。
-- **能做什么**：
-  - 刘海内实时展示各 Agent 会话读取、编辑、执行的内容和完整 diff
-  - 在刘海或锁屏直接 Allow / Deny / Always，并回答 AskUserQuestion 选项
-  - 一键跳到会话对应的终端窗口（macOS）
-  - 内置多供应商聊天，可用自己的 API Key 或已有订阅
-  - 附带离线听写、通话转写、邮件、集成和加密货币行情等小组件
-- **亮点**：
-  - 开源 MIT 版本，对标只展示不开放的刘海伴侣应用
-  - iPhone 端用 Live Activity、灵动岛和可操作通知接力审批，每次 Allow 需 Face ID
-  - 无遥测无账号，密钥存系统钥匙串，数据仅发给用户接入的服务
-- **适合**：同时运行多个 AI 编程 Agent、希望随时掌握进度并快速授权的 Mac 开发者，以及想在手机上继续盯会话的人。
-- ⚠️ 通过终端 CLI 订阅登录方式聊天，属于对第三方 AI 服务账号的自动化调用，可能触及服务条款
-- ⚠️ 通话录制需自行告知参与者，否则涉及隐私与当地录音法规
-- ⚠️ 语音助手模式下仅说话内容和相关数据会发送给 Anthropic
-
-#### [Oldcircle/geo-sleuth](https://github.com/Oldcircle/geo-sleuth) ⭐ 7,094
-
-> 给 Agent 用的照片定位技能，靠 OSM 几何、高程天际线与街景推断拍摄点。
-
-- **定位**：一个标准 Agent Skill（SKILL.md 加 Python 脚本），可装进 Claude Code、Codex、Cursor、Gemini CLI、OpenCode、GitHub Copilot，接收一张照片后输出相机坐标±半径、朝向和一张卫星证据图。
-- **能做什么**：
-  - 无文字、无车牌、无地标时，靠 OSM 几何、高程、卫星瓦片和街景推断
-  - 把桥墩间距当距离尺、影子当方位、山脊线当高程指纹
-  - 二十余个单一用途脚本负责搜索、打分和排序，模型只在排名靠前的少量候选中做判断
-  - 结论需指明本次会话中运行过的命令和产出的文件
-  - 输出带误差半径的坐标、相机朝向、证据图和分级置信度
-- **亮点**：
-  - 项目方数据：铁路桥案例定位误差 ±2 m，荒漠案例盲跑距确认点位 87 m
-  - 项目方数据：温哥华樱花案例盲跑 3 m，用时 53 分钟、154 次工具调用
-  - 项目方数据：荒漠盲跑最佳站点 0.224°、次优 0.357°；手机 1° 横滚曾致拟合卡住，后纳入拟合
-- **适合**：使用 Claude Code、Cursor、Codex 等 Agent 做图片地理定位或 OSINT 分析的调查者、记者与地理竞猜玩家。
-- **上手**：`npx skills add Oldcircle/geo-sleuth` 按提示选择要装入的 Agent；首次使用先让 Agent 运行 scripts/ 下的 doctor.py 排查环境，再把照片交给它并说“找出这张照片的拍摄地”。
-- ⚠️ 核心功能是用反向图片搜索、街景和卫星影像定位他人照片的拍摄地点，用于现实中的人或敏感设施时可能涉及隐私与个人信息合规问题
-
-#### [microsoft/TokenEconomizer](https://github.com/microsoft/TokenEconomizer) ⭐ 6,762
+#### [microsoft/TokenEconomizer](https://github.com/microsoft/TokenEconomizer) ⭐ 7,986
 
 > 为编码 Agent 跨会话学习仓库经验、削减无效 token 成本的插件。
 
@@ -381,7 +298,128 @@ uv pip install reef-infra` 产物与检查点功能需先安装 git-lfs 系统�
 claude plugin marketplace add "$PWD/TokenEconomizer"
 claude plugin install tokeneconomizer@tokeneconomizer` 需 Python 3.10+ 与对应 Agent；启动后信任文件夹并运行 /tokeneconomizer:status，每台机器执行一次 refresh-catalog。
 
-#### [CopilotKit/OpenDots](https://github.com/CopilotKit/OpenDots) ⭐ 6,620
+#### [Lee-xeo/Claude-Cage](https://github.com/Lee-xeo/Claude-Cage) ⭐ 7,883
+
+> 为 Claude 定制的本地轻量虚拟机，隔离网络与浏览器指纹
+
+- **定位**：一个桌面程序，用 macOS、Windows 或 Linux 客机隔离运行 Claude Code、Claude Desktop 和浏览器，由 Cage 接管代理与网络出口，统一管理多账号、远程服务器和手机接续。基于 agent-vm 二次开发。
+- **能做什么**：
+  - 客机系统可选 macOS、Windows、Debian 或 Ubuntu
+  - 内置代理管理，导入 Clash/Mihomo 订阅并选节点
+  - 隔离时区、语言等指纹，可选与代理 IP 自动同步
+  - 多 Claude Code 账号查看额度、分配与切换
+  - Android/iPhone 配对电脑接续对话与工具审批
+- **亮点**：
+  - 内置网络与隔离检查，关键检查失败时环境保持离线，代理不可用无直连回退
+  - 项目方数据：环境检测结果见 README 截图，社区浏览器检测仅供参考
+  - 主许可 MIT；Mihomo 按 GPL-3.0 独立分发，附 NOTICE 与第三方许可
+- **适合**：需要在本地隔离环境中使用 Claude Code、Claude Desktop，并管理多账号或远程环境的开发者
+- **上手**：从项目主页下载对应平台安装包，拖入应用程序后按引导配置自己的代理，再新建终端输入 claude 完成授权
+- ⚠️ README 称网络检查无法保证账户不受平台限制，项目面向规避封号场景，可能违反 Anthropic 服务条款
+- ⚠️ 共享项目中的修改和删除直接作用于本机原文件，包括 Git 操作
+- ⚠️ 同一配置下各项目共用客机系统、工具、账户与文件系统，项目间无独立隔离
+- ⚠️ 默认公网出站仅支持 IPv4 TCP，UDP、IPv6、ICMP 及局域网直连受限
+
+#### [XiaoDuoYa/codex-with-chatgpt](https://github.com/XiaoDuoYa/codex-with-chatgpt) ⭐ 7,727
+
+> 用 ChatGPT 网页版做规划与审查，Codex 负责执行
+
+- **定位**：通过只读 MCP 连接把 ChatGPT 网页版接入 Codex 会话，充当规划与审查角色，代码执行权仍留在 Codex；不使用 API Key，也不做逆向代理。
+- **能做什么**：
+  - 控制面用 Computer Use 传递极小的 [C2C] 状态消息
+  - 数据面经 OAuth 2.1 保护的只读 MCP 工具读取工作区
+  - 默认拒绝 .env、密钥、SSH 等敏感文件，可用 .c2cignore 加规则
+  - ChatGPT 执行后自查 git diff 与测试记录，独立审查
+  - 提供 c2c setup/status/doctor/pair 等 CLI 命令
+- **亮点**：
+  - 服务端不提供写入和 shell 工具，只读是代码层面保证的
+  - 公开地址默认是 Cloudflare 临时隧道 URL，重启即变，可选配置固定域名
+  - Skill 每天自动检查 GitHub 并更新
+- **适合**：已订阅 ChatGPT Plus/Pro、希望减少 API 额度消耗的 Codex 用户，包括不熟悉命令行的小白用户
+- **上手**：`c2c setup` 需先 pnpm install && pnpm build；另需 Node.js ≥ 20、git 和 cloudflared，也可让 Codex 按整段话自动安装
+- ⚠️ 核心机制是用 Computer Use 自动操作 ChatGPT 网页版，可能违反其服务条款或有账号风险
+- ⚠️ 默认公网入口是临时隧道地址，配置不当或令牌泄露会把工作区读取能力暴露出去
+- ⚠️ 快照当日已 53 天未更新（最后推送 2026-10-01）
+
+#### [Human-Agent-Society/reef](https://github.com/Human-Agent-Society/reef) ⭐ 7,643
+
+> 让 Agent 从交互反馈中持续自我改进的开源基础设施
+
+- **定位**：把 Agent 推理、反馈、学习与带版本号的发布串成一个持续循环，既能训练模型权重，也能迭代 Agent 的提示词、规则与技能。
+- **能做什么**：
+  - 推理、记录、训练、评估发布四步闭环
+  - 兼容 OpenAI 与 Anthropic 的推理接口，返回回执关联反馈
+  - 支持训练模型权重，或用模型 API 演化 Agent harness
+  - 基于 Git LFS 的产物版本历史与不中断更新交付
+  - 内置 SFT，另有 TTT、SAO、GEPA 等配方与教程
+- **亮点**：
+  - 模型权重与 harness 两种学习面由配方决定
+  - 更新经评估后由推理服务热加载，无需重启
+  - harness 教程用模型 API 跑通完整小循环，无需本地 GPU
+- **适合**：希望让 Agent 从真实使用反馈中持续变强的研发团队，以及做 Agent 强化学习与持续学习的研究者。
+- **上手**：`uv venv && source .venv/bin/activate
+uv pip install reef-infra` 产物与检查点功能需先安装 git-lfs 系统包；源码开发则用 git lfs install 后以 -e 方式安装。
+
+#### [Oldcircle/geo-sleuth](https://github.com/Oldcircle/geo-sleuth) ⭐ 7,433
+
+> 给 Agent 用的照片定位技能，靠 OSM 几何、高程天际线与街景推断拍摄点。
+
+- **定位**：一个标准 Agent Skill（SKILL.md 加 Python 脚本），可装进 Claude Code、Codex、Cursor、Gemini CLI、OpenCode、GitHub Copilot，接收一张照片后输出相机坐标±半径、朝向和一张卫星证据图。
+- **能做什么**：
+  - 无文字、无车牌、无地标时，靠 OSM 几何、高程、卫星瓦片和街景推断
+  - 把桥墩间距当距离尺、影子当方位、山脊线当高程指纹
+  - 二十余个单一用途脚本负责搜索、打分和排序，模型只在排名靠前的少量候选中做判断
+  - 结论需指明本次会话中运行过的命令和产出的文件
+  - 输出带误差半径的坐标、相机朝向、证据图和分级置信度
+- **亮点**：
+  - 项目方数据：铁路桥案例定位误差 ±2 m，荒漠案例盲跑距确认点位 87 m
+  - 项目方数据：温哥华樱花案例盲跑 3 m，用时 53 分钟、154 次工具调用
+  - 项目方数据：荒漠盲跑最佳站点 0.224°、次优 0.357°；手机 1° 横滚曾致拟合卡住，后纳入拟合
+- **适合**：使用 Claude Code、Cursor、Codex 等 Agent 做图片地理定位或 OSINT 分析的调查者、记者与地理竞猜玩家。
+- **上手**：`npx skills add Oldcircle/geo-sleuth` 按提示选择要装入的 Agent；首次使用先让 Agent 运行 scripts/ 下的 doctor.py 排查环境，再把照片交给它并说“找出这张照片的拍摄地”。
+- ⚠️ 核心功能是用反向图片搜索、街景和卫星影像定位他人照片的拍摄地点，用于现实中的人或敏感设施时可能涉及隐私与个人信息合规问题
+
+#### [Louis-CFM/coucou](https://github.com/Louis-CFM/coucou) ⭐ 7,405
+
+> 在 Mac 刘海和手机端实时监控并审批 AI 编程 Agent 会话的桌面伴侣
+
+- **定位**：把 Claude Code、Codex、Cursor、Gemini CLI 等 Agent 的会话状态、文件改动和权限请求收进 Mac 刘海（Windows/Linux 为屏幕顶部），并延伸到 iPhone、Android 的锁屏与小组件上，让你不离开当前工作就能批准或回答问题。
+- **能做什么**：
+  - 刘海内实时展示各 Agent 会话读取、编辑、执行的内容和完整 diff
+  - 在刘海或锁屏直接 Allow / Deny / Always，并回答 AskUserQuestion 选项
+  - 一键跳到会话对应的终端窗口（macOS）
+  - 内置多供应商聊天，可用自己的 API Key 或已有订阅
+  - 附带离线听写、通话转写、邮件、集成和加密货币行情等小组件
+- **亮点**：
+  - 开源 MIT 版本，对标只展示不开放的刘海伴侣应用
+  - iPhone 端用 Live Activity、灵动岛和可操作通知接力审批，每次 Allow 需 Face ID
+  - 无遥测无账号，密钥存系统钥匙串，数据仅发给用户接入的服务
+- **适合**：同时运行多个 AI 编程 Agent、希望随时掌握进度并快速授权的 Mac 开发者，以及想在手机上继续盯会话的人。
+- ⚠️ 通过终端 CLI 订阅登录方式聊天，属于对第三方 AI 服务账号的自动化调用，可能触及服务条款
+- ⚠️ 通话录制需自行告知参与者，否则涉及隐私与当地录音法规
+- ⚠️ 语音助手模式下仅说话内容和相关数据会发送给 Anthropic
+
+#### [mdiri-ai/SoduWork](https://github.com/mdiri-ai/SoduWork) ⭐ 6,879
+
+> 可自托管的团队 AI Agent 编排引擎，多 harness 协作并按验收标准交付
+
+- **定位**：把需求变成带验收标准的工单，分配给人或 Agent，由另一个 harness 用不同模型复核，最终由提出人签收，全程留痕；适合团队统一管理和沉淀 AI 工作方式。
+- **能做什么**：
+  - 一个 harness 执行、另一个模型 harness 按验收标准复核
+  - 支持 Pi、OpenCode、DeepSeek Harness、Qwen Code、Kimi Code、Codex 等运行时，会话中可切换
+  - 成功的对话可保存为插件，供团队复用并持续改进
+  - 插件需审核后授权给团队或个人，可撤销，含角色、用量、成本与审计日志
+  - 支持 Docker 自托管部署，含 Hub、管理控制台与 PostgreSQL
+- **亮点**：
+  - 以验收标准先行、AI 复核、人工签收的流程保证交付可信
+  - 项目方说明：当前为公开测试版，建议在生产使用前先评估
+  - 程序和模型分离，支持 ACP 的程序可通过目录声明接入
+- **适合**：需要统一管理多个 AI Agent 与模型的开发团队、技术负责人和企业内部平台团队
+- **上手**：`sh start.sh --desktop` 需先克隆仓库；Windows 用 .\start.cmd --desktop。首次运行会安装依赖并启动 Hub、管理控制台和桌面客户端。
+- ⚠️ 项目处于公开测试阶段，README 建议在生产使用前先评估
+- ⚠️ 官方在线演示仅供评估，README 明确要求勿上传真实业务数据或敏感信息
+
+#### [CopilotKit/OpenDots](https://github.com/CopilotKit/OpenDots) ⭐ 6,729
 
 > 开源模板：持久在线的 AI 同事，可跨文本、通话和 Slack 工作
 
@@ -407,7 +445,26 @@ npm run dev` 需 Node.js 24；未接服务前可建 Space 和配置 Dot，聊天
 - ⚠️ 启用 Connected apps 后，工具参数与结果会经 Composio 和应用提供商处理，且会操作真实账号
 - ⚠️ 项目会收集使用元数据和安装 ID，需用 COPILOTKIT_TELEMETRY_DISABLED 或 DO_NOT_TRACK 退出
 
-#### [monid-ai/monid](https://github.com/monid-ai/monid) ⭐ 6,205
+#### [KKKKhazix/agent-autoloop](https://github.com/KKKKhazix/agent-autoloop) ⭐ 6,342
+
+> 让命令行 Agent 在后台自动接活、遇到拿不准的事再找你拍板的本地调度中台
+
+- **定位**：一个零依赖的本地自动化中台，把定时任务、Webhook 等事件按规则派给 Claude Code、Codex 等命令行 Agent，任务跑完即退出；需要人工决策时通过飞书、桌面通知等推送卡片，你回答后它接回原会话继续。
+- **能做什么**：
+  - 用 rules.json 写清什么事、交给谁、在哪个目录干，不需要写胶水代码
+  - 事件、Agent、通知通道、交付流水线四个方向都可替换，支持第三方插件
+  - Agent 在最后一条回复里用代码块提问、通知或预约复查
+  - 待决策时进程退出，不占后台进程也不消耗 Token，回答后接回原会话
+  - 内置八套场景模板：早报、Issue 跟进、告警排查、收件箱分诊等
+- **亮点**：
+  - 内核零运行时依赖，状态从只追加日志事件溯源，可一条命令查清每轮来龙去脉
+  - 外部文字只作资料放进文件、不拼进提示词，事件里带 cwd/agent 字段会被拒收
+  - 项目方数据：冷启动 88.78 ms，空闲内存 59.94 MB，派活 p99 1.82 ms
+- **适合**：使用 Claude Code、Codex 等命令行 Agent、想让它们在本机后台自动处理重复任务并保留人工确认环节的开发者。
+- **上手**：`curl -fsSL https://raw.githubusercontent.com/KKKKhazix/agent-autoloop/main/install.sh | sh` Windows 用 README 中的 PowerShell 安装脚本；需 Node 24+、Git 和已登录的命令行 Agent，装好运行 agent-autoloop try…
+- ⚠️ 直接调用本机已登录的模型订阅额度，README 建议高频自动化或对外提供服务时改用 API Key
+
+#### [monid-ai/monid](https://github.com/monid-ai/monid) ⭐ 6,219
 
 > 给 AI Agent 用的一站式工具 API 网关，一个入口接入 2000+ 工具。
 
@@ -427,7 +484,7 @@ npm run dev` 需 Node.js 24；未接服务前可建 Space 和配置 Dot，聊天
 cd monid
 deno task check && deno task test` 需要 Deno 2.x；默认跑类型检查和 188 个离线回放测试。
 
-#### [kuafuai/andee](https://github.com/kuafuai/andee) ⭐ 6,147
+#### [kuafuai/andee](https://github.com/kuafuai/andee) ⭐ 6,182
 
 > 住在 Android 手机或 Mac 上的 AI 助手，像你一样操作任意 App。
 
@@ -450,70 +507,28 @@ deno task check && deno task test` 需要 Deno 2.x；默认跑类型检查和 18
 - ⚠️ 仓库许可证为 NOASSERTION，未声明标准许可证
 - ⚠️ 许可证未声明或非标准，商用前请确认授权
 
-#### [Lee-xeo/Claude-Cage](https://github.com/Lee-xeo/Claude-Cage) ⭐ 5,889
+#### [vAPI-Network/vapi-network](https://github.com/vAPI-Network/vapi-network) ⭐ 5,593
 
-> 为 Claude 定制的本地轻量虚拟机，隔离网络与浏览器指纹
+> 让 AI Agent 用 USDC 按次付费调用 x402 API 的非托管客户端
 
-- **定位**：一个桌面程序，用 macOS、Windows 或 Linux 客机隔离运行 Claude Code、Claude Desktop 和浏览器，由 Cage 接管代理与网络出口，统一管理多账号、远程服务器和手机接续。基于 agent-vm 二次开发。
+- **定位**：开源的 TypeScript 客户端与 SDK，提供本地钱包、按次付费和消费上限，供终端、MCP 客户端或代码发现并支付 x402 API，默认在 Base 上用 USDC 结算。
 - **能做什么**：
-  - 客机系统可选 macOS、Windows、Debian 或 Ubuntu
-  - 内置代理管理，导入 Clash/Mihomo 订阅并选节点
-  - 隔离时区、语言等指纹，可选与代理 IP 自动同步
-  - 多 Claude Code 账号查看额度、分配与切换
-  - Android/iPhone 配对电脑接续对话与工具审批
+  - 同时搜索多个 x402 目录并合并结果，标注来源
+  - 签名前应用消费上限，每次付款生成本地收据
+  - 提供 CLI、stdio MCP 服务器和 SDK，共用同一钱包
+  - 可为每个 Agent 分配独立且带上限的账户
+  - 启用 Arc 网络后可跨账户转账，由 vAPI 支付 gas
 - **亮点**：
-  - 内置网络与隔离检查，关键检查失败时环境保持离线，代理不可用无直连回退
-  - 项目方数据：环境检测结果见 README 截图，社区浏览器检测仅供参考
-  - 主许可 MIT；Mihomo 按 GPL-3.0 独立分发，附 NOTICE 与第三方许可
-- **适合**：需要在本地隔离环境中使用 Claude Code、Claude Desktop，并管理多账号或远程环境的开发者
-- **上手**：从项目主页下载对应平台安装包，拖入应用程序后按引导配置自己的代理，再新建终端输入 claude 完成授权
-- ⚠️ README 称网络检查无法保证账户不受平台限制，项目面向规避封号场景，可能违反 Anthropic 服务条款
-- ⚠️ 共享项目中的修改和删除直接作用于本机原文件，包括 Git 操作
-- ⚠️ 同一配置下各项目共用客机系统、工具、账户与文件系统，项目间无独立隔离
-- ⚠️ 默认公网出站仅支持 IPv4 TCP，UDP、IPv6、ICMP 及局域网直连受限
+  - 付款直接发往 API 端点，无支付代理、无服务端签名
+  - MCP 服务器不提供暴露助记词或私钥的工具
+  - 运行于本机的组件全部开源，采用 Apache-2.0 许可
+- **适合**：需要让 Agent 按次付费调用 API 的开发者，以及使用 Claude Code、Cursor、Codex 等 MCP 客户端的用户。
+- **上手**：`npm i -g vapi-network` 需 Node.js 22+；随后运行 vapi setup 创建或恢复钱包，再 vapi fund 充值。
+- ⚠️ 恢复短语只能由用户自行备份，vAPI 无法代为恢复；钱包密钥丢失即无法找回
+- ⚠️ 客户端会把搜索、充值、云备份等操作发送给托管服务，这些服务的源码不在本仓库，且付款标识会带上 vapi 客户端标记
+- ⚠️ 实验性的 Railway 部署需要显式导出成员密钥
 
-#### [KKKKhazix/agent-autoloop](https://github.com/KKKKhazix/agent-autoloop) ⭐ 5,573
-
-> 让命令行 Agent 在后台自动接活、遇到拿不准的事再找你拍板的本地调度中台
-
-- **定位**：一个零依赖的本地自动化中台，把定时任务、Webhook 等事件按规则派给 Claude Code、Codex 等命令行 Agent，任务跑完即退出；需要人工决策时通过飞书、桌面通知等推送卡片，你回答后它接回原会话继续。
-- **能做什么**：
-  - 用 rules.json 写清什么事、交给谁、在哪个目录干，不需要写胶水代码
-  - 事件、Agent、通知通道、交付流水线四个方向都可替换，支持第三方插件
-  - Agent 在最后一条回复里用代码块提问、通知或预约复查
-  - 待决策时进程退出，不占后台进程也不消耗 Token，回答后接回原会话
-  - 内置八套场景模板：早报、Issue 跟进、告警排查、收件箱分诊等
-- **亮点**：
-  - 内核零运行时依赖，状态从只追加日志事件溯源，可一条命令查清每轮来龙去脉
-  - 外部文字只作资料放进文件、不拼进提示词，事件里带 cwd/agent 字段会被拒收
-  - 项目方数据：冷启动 88.78 ms，空闲内存 59.94 MB，派活 p99 1.82 ms
-- **适合**：使用 Claude Code、Codex 等命令行 Agent、想让它们在本机后台自动处理重复任务并保留人工确认环节的开发者。
-- **上手**：`curl -fsSL https://raw.githubusercontent.com/KKKKhazix/agent-autoloop/main/install.sh | sh` Windows 用 README 中的 PowerShell 安装脚本；需 Node 24+、Git 和已登录的命令行 Agent，装好运行 agent-autoloop try…
-- ⚠️ 直接调用本机已登录的模型订阅额度，README 建议高频自动化或对外提供服务时改用 API Key
-
-#### [totec448-spec/chat-on-steroids](https://github.com/totec448-spec/chat-on-steroids) ⭐ 5,195
-
-> 把 ChatGPT 接入本地文件和桌面，支持多 Agent 并行与长任务续跑。
-
-- **定位**：跨平台桌面应用，通过 MCP 让 ChatGPT 在授权文件夹里读写文件、跑测试、开终端、操作桌面，并用浏览器扩展对接 ChatGPT 网页界面；配套多 Worker 分工、Goal/Loop 和 Compact & Resume 管理长任务。
-- **能做什么**：
-  - ChatGPT 读写本地文件、跑测试、保持终端会话
-  - 浏览器扩展对接 Chrome/Edge/Brave 中的 ChatGPT 界面
-  - 多 Worker 拆分独立任务并回传结果、保留上下文
-  - Goal 跟踪未完成工作，Loop 在任务范围内持续执行
-  - Compact & Resume 把会话与 Worker 历史带入新对话
-- **亮点**：
-  - 新装默认启用 Core 能力与两个 Worker，Windows 另开桌面权限
-  - Shell 命令以普通用户权限运行，可按文件夹限定能力
-  - 提供中文等十余种界面语言，MIT 许可
-- **适合**：需要在本地项目中用 ChatGPT 执行编码等授权任务的开发者，需具备可创建自定义 MCP 应用的 ChatGPT 账号。
-- **上手**：README 仅提供安装包，无命令行安装命令；装好后进 Settings → Setup 按七步向导连接浏览器与 Core。
-- ⚠️ 浏览器扩展会观察并自动化 ChatGPT 网页界面，并在本地记录对话内容，OpenAI 条款限制自动化提取数据或输出。
-- ⚠️ 项目声明不能保证合规或避免账号警告、限制或封禁，使用者需自行承担风险。
-- ⚠️ Windows 包未签名、macOS 未签名未公证，需用发布校验和核对安装包。
-- ⚠️ Linux AppImage 在禁用非特权用户命名空间时会回退到 --no-sandbox 启动。
-
-#### [onehumanbeing/esp32-iphone-agent](https://github.com/onehumanbeing/esp32-iphone-agent) ⭐ 5,010
+#### [onehumanbeing/esp32-iphone-agent](https://github.com/onehumanbeing/esp32-iphone-agent) ⭐ 5,250
 
 > 用 7 美元的 ESP32 板让 AI 模型操控真实 iPhone
 
@@ -535,7 +550,7 @@ deno task check && deno task test` 需要 Deno 2.x；默认跑类型检查和 18
 
 ### AI 应用产品
 
-#### [ccch1mneyyy/dsh-Go](https://github.com/ccch1mneyyy/dsh-Go) ⭐ 24,139
+#### [ccch1mneyyy/dsh-Go](https://github.com/ccch1mneyyy/dsh-Go) ⭐ 30,437
 
 > DeepSeek Harness 的 Android 客户端，手机本机运行或远程遥控电脑上的 DSH
 
@@ -557,7 +572,7 @@ deno task check && deno task test` 需要 Deno 2.x；默认跑类型检查和 18
 - ⚠️ 仅以 APK 侧载为目标，非 Google Play 发布配置，release 本地构建默认用 debug 签名
 - ⚠️ 名称、标识与吉祥物不在 AGPL 授权范围内，另有 ASSETS.md 使用条款
 
-#### [jub0t/Concat](https://github.com/jub0t/Concat) ⭐ 17,932
+#### [jub0t/Concat](https://github.com/jub0t/Concat) ⭐ 19,714
 
 > 免费开源的本地视频编辑器，作为 CapCut 的替代品，带有内置 MCP。
 
@@ -579,7 +594,26 @@ cargo run -p concat` 从源码构建需 Rust 1.93+、FFmpeg 7+ 开发库、cmake
 - ⚠️ Windows 与 macOS 安装包未签名，需手动绕过 SmartScreen 或 quarantine 限制
 - ⚠️ 音色克隆功能涉及他人声音的授权与肖像、声音权合规问题
 
-#### [KKKKhazix/AIHOT](https://github.com/KKKKhazix/AIHOT) ⭐ 10,764
+#### [JuneYaooo/rea-video](https://github.com/JuneYaooo/rea-video) ⭐ 12,390
+
+> 逐镜头逆向拆解视频：拍的、AI 生成还是代码做的，以及怎么复刻
+
+- **定位**：为 AI Agent 设计的视频拆解工具，输出面向人的 HTML/PDF 报告和供 Agent 分层读取的 VIDEO.md，覆盖实拍、AI 视频、数字人、3D、代码动效与混合剪辑。
+- **能做什么**：
+  - 逐镜头判断实拍、AI 生成或代码制作，并给出机位、提示词或代码复刻方案
+  - 提取字幕与文字样式并导出 SRT/ASS，标注贴纸、剪辑点和音频构成
+  - 双输出：给人看的 report.html/PDF，给 AI 读取的分层 VIDEO.md
+  - 可选接入 Gemini 或豆包视觉模型，提升判断准确率并生成反推提示词
+  - 可按目标视频模型的时长、多镜头能力批量规划复刻
+- **亮点**：
+  - 项目方数据：纯离线工具在原始文件上调参集 98.3%、留出集 99.6%/98.9%
+  - 项目方数据：平台转码后的视频需加视觉模型或 Agent 复核才能回到 99% 以上
+  - VIDEO.md 为开放格式，可 pip install videomd 后独立校验
+- **适合**：需要拆解参考视频、学习拍摄与动效手法并计划复刻的创作者、短视频团队和 Agent 用户
+- **上手**：`Install https://github.com/JuneYaooo/rea-video, then break down this video: /path/to/video.mp4` 在 Claude Code、Codex 等可执行命令的 Agent 中直接说出该指令，需预装 ffmpeg 和 Python 3.10+。
+- ⚠️ README 提示不要复用他人素材、音乐、角色或肖像，发布时需遵守平台规则与当地 AI 内容标识要求。
+
+#### [KKKKhazix/AIHOT](https://github.com/KKKKhazix/AIHOT) ⭐ 11,259
 
 > 自托管行业热点站框架：大模型筛选信源、聚簇事件、生成中文日报
 
@@ -598,7 +632,7 @@ cargo run -p concat` 从源码构建需 Rust 1.93+、FFmpeg 7+ 开发库、cmake
 - **上手**：`node scripts/init-env.ts --llm-key <你的模型 API Key>` 需先 clone 仓库并进入目录；随后 docker compose up -d --build，打开 localhost:3000，后台在 /admin。
 - ⚠️ README 要求不要使用 AIHOT 的名字和 Logo，名称与 Logo 不在 MIT 许可范围内。
 
-#### [amosblomqvist/learnharness](https://github.com/amosblomqvist/learnharness) ⭐ 9,634
+#### [amosblomqvist/learnharness](https://github.com/amosblomqvist/learnharness) ⭐ 11,221
 
 > 用 AI Agent 规划并讲授课程，带你从现有理解学到目标
 
@@ -618,26 +652,25 @@ cargo run -p concat` 从源码构建需 Rust 1.93+、FFmpeg 7+ 开发库、cmake
 - ⚠️ 模型请求、联网调研和听写会把任务所需内容发送给外部服务，本地存储不等于离线处理
 - ⚠️ Windows 安装包目前未签名，可能触发未知发布者或 SmartScreen 警告
 
-#### [JuneYaooo/rea-video](https://github.com/JuneYaooo/rea-video) ⭐ 9,372
+#### [kajisho5/ffmpeg-skill](https://github.com/kajisho5/ffmpeg-skill) ⭐ 9,921
 
-> 逐镜头逆向拆解视频：拍的、AI 生成还是代码做的，以及怎么复刻
+> 给编码 Agent 用的本地 FFmpeg 剪辑技能，含 42 个工具和 MCP 服务。
 
-- **定位**：为 AI Agent 设计的视频拆解工具，输出面向人的 HTML/PDF 报告和供 Agent 分层读取的 VIDEO.md，覆盖实拍、AI 视频、数字人、3D、代码动效与混合剪辑。
+- **定位**：把 FFmpeg 封装成 Agent 可读的结构化工具集：先 probe，再无损剪辑，最后校验和看图确认。全本地运行，不需要云端和 API Key。
 - **能做什么**：
-  - 逐镜头判断实拍、AI 生成或代码制作，并给出机位、提示词或代码复刻方案
-  - 提取字幕与文字样式并导出 SRT/ASS，标注贴纸、剪辑点和音频构成
-  - 双输出：给人看的 report.html/PDF，给 AI 读取的分层 VIDEO.md
-  - 可选接入 Gemini 或豆包视觉模型，提升判断准确率并生成反推提示词
-  - 可按目标视频模型的时长、多镜头能力批量规划复刻
+  - 42 个工具覆盖剪切、拼接、字幕、重构图、响度、平台导出
+  - 以 SKILL.md 技能形式接入 Claude Code、Cursor、Codex
+  - 全部工具可作为 MCP 工具调用，默认只暴露核心 12 个
+  - contract --json 输出机器可读契约，MCP 接口由它派生
+  - 可选本地语音引擎生成字幕，音频不上传
 - **亮点**：
-  - 项目方数据：纯离线工具在原始文件上调参集 98.3%、留出集 99.6%/98.9%
-  - 项目方数据：平台转码后的视频需加视觉模型或 Agent 复核才能回到 99% 以上
-  - VIDEO.md 为开放格式，可 pip install videomd 后独立校验
-- **适合**：需要拆解参考视频、学习拍摄与动效手法并计划复刻的创作者、短视频团队和 Agent 用户
-- **上手**：`Install https://github.com/JuneYaooo/rea-video, then break down this video: /path/to/video.mp4` 在 Claude Code、Codex 等可执行命令的 Agent 中直接说出该指令，需预装 ffmpeg 和 Python 3.10+。
-- ⚠️ README 提示不要复用他人素材、音乐、角色或肖像，发布时需遵守平台规则与当地 AI 内容标识要求。
+  - 执行后自动 probe、按平台规范 check，并生成联系表检查画面
+  - 模板交付 TikTok、Reels、YouTube 等 7 个视频目的地并输出汇总表
+  - CI 校验 input_schema 与 CLI 是否漂移（项目方说明）
+- **适合**：用 Claude Code、Cursor、Codex 等编码 Agent 做本地视频剪辑、又不想把素材上传云端的用户。
+- **上手**：`npx ffmpeg-skill` 先安装 ffmpeg；Cursor 加 --cursor，Codex 加 --codex，三者都要用 --all。可用 doctor 检查环境。
 
-#### [wangzan101/Mika](https://github.com/wangzan101/Mika) ⭐ 8,773
+#### [wangzan101/Mika](https://github.com/wangzan101/Mika) ⭐ 9,704
 
 > 安卓端 AI 助手，用一句话让它在后台操作手机应用和网页
 
@@ -656,7 +689,26 @@ cargo run -p concat` 从源码构建需 Rust 1.93+、FFmpeg 7+ 开发库、cmake
 - **上手**：从 Releases 下载 APK 安装，在设置›模型中选择提供商并填 API Key，操作手机应用还需按向导配对一次无线调试。
 - ⚠️ 自动操作第三方应用和网站可能违反其服务条款，README 明确提示需自行判断并建议重要操作使用 Ask 模式。
 
-#### [jev-chat/jev-chat-jarvis](https://github.com/jev-chat/jev-chat-jarvis) ⭐ 8,403
+#### [openfilm/openfilm](https://github.com/openfilm/openfilm) ⭐ 9,051
+
+> 让编码 Agent 编写 HTML 网页来制作视频，并可在浏览器编辑器里修改的 AI 视频工具
+
+- **定位**：把 Codex、Claude Code 等编码 Agent 变成视频 Agent：影片就是一个 film.html，每个镜头是一个用 frame(t) 绘制任意时刻的网页，Studio 在本地浏览器中编辑，改动会写回文件供 Agent 读取。
+- **能做什么**：
+  - 影片是一个 film.html：像剪辑轨一样编排网页、视频、图片和声音，用 CSS 定样式
+  - 每个镜头是一个网页，用 frame(t) 画出任意时刻，可使用 three.js、WebGL、canvas、SVG、GSAP 等
+  - Studio 本地编辑器：可改文字、图层、片段位置、裁剪、音量、速度与字幕
+  - 导出 MP4、GIF、音频、字幕、静帧及 Final Cut Pro、Premiere、达芬奇时间线
+  - 影片的生成方式放在技能里，可安装社区技能或用 openfilm skill add 添加
+- **亮点**：
+  - 同一 t 必须画出同一画面；look 会把每帧画两次并打乱顺序比对，找出不一致
+  - 制作、编辑、渲染无需账号；内置音乐、音效、配音、贴纸、转场、特效与模板可免费使用
+  - 生成式配音、音乐、图像和视频需在设置中接入自己的服务密钥，或登录 OpenFilm 免密钥使用
+- **适合**：已在使用 Codex、Claude Code 等编码 Agent，希望用网页技术制作并精修视频的开发者与创作者。
+- **上手**：`npx skills add openfilm/openfilm` 需 Node 22.2+、ffmpeg、git；首次运行会下载约 100 MB 的无头 Chromium。然后让 Agent 制作影片，并提示词。
+- ⚠️ 未接入自有服务时，可登录 OpenFilm 免密钥生成配音、音乐、图像和视频，相关素材与请求会发送到其服务。
+
+#### [jev-chat/jev-chat-jarvis](https://github.com/jev-chat/jev-chat-jarvis) ⭐ 8,491
 
 > 聊天辅助决策工具：先判断对方意图与风险，再生成可填入的回复
 
@@ -676,45 +728,7 @@ cargo run -p concat` 从源码构建需 Rust 1.93+、FFmpeg 7+ 开发库、cmake
 - ⚠️ 在 QQ、飞书、X、WhatsApp 等第三方应用内使用可能违反其服务条款，账号可能被限制或封禁。
 - ⚠️ Android 版会将聊天文字及用户开启的背景信息发送至用户配置的外部模型服务商。
 
-#### [openfilm/openfilm](https://github.com/openfilm/openfilm) ⭐ 7,644
-
-> 让编码 Agent 编写 HTML 网页来制作视频，并可在浏览器编辑器里修改的 AI 视频工具
-
-- **定位**：把 Codex、Claude Code 等编码 Agent 变成视频 Agent：影片就是一个 film.html，每个镜头是一个用 frame(t) 绘制任意时刻的网页，Studio 在本地浏览器中编辑，改动会写回文件供 Agent 读取。
-- **能做什么**：
-  - 影片是一个 film.html：像剪辑轨一样编排网页、视频、图片和声音，用 CSS 定样式
-  - 每个镜头是一个网页，用 frame(t) 画出任意时刻，可使用 three.js、WebGL、canvas、SVG、GSAP 等
-  - Studio 本地编辑器：可改文字、图层、片段位置、裁剪、音量、速度与字幕
-  - 导出 MP4、GIF、音频、字幕、静帧及 Final Cut Pro、Premiere、达芬奇时间线
-  - 影片的生成方式放在技能里，可安装社区技能或用 openfilm skill add 添加
-- **亮点**：
-  - 同一 t 必须画出同一画面；look 会把每帧画两次并打乱顺序比对，找出不一致
-  - 制作、编辑、渲染无需账号；内置音乐、音效、配音、贴纸、转场、特效与模板可免费使用
-  - 生成式配音、音乐、图像和视频需在设置中接入自己的服务密钥，或登录 OpenFilm 免密钥使用
-- **适合**：已在使用 Codex、Claude Code 等编码 Agent，希望用网页技术制作并精修视频的开发者与创作者。
-- **上手**：`npx skills add openfilm/openfilm` 需 Node 22.2+、ffmpeg、git；首次运行会下载约 100 MB 的无头 Chromium。然后让 Agent 制作影片，并提示词。
-- ⚠️ 未接入自有服务时，可登录 OpenFilm 免密钥生成配音、音乐、图像和视频，相关素材与请求会发送到其服务。
-
-#### [yi1108/printfilm](https://github.com/yi1108/printfilm) ⭐ 7,460
-
-> 把文案做成带画面与配音的 AI 短视频与分集漫剧
-
-- **定位**：自托管的 AI 视频创作平台，分步完成文案、分镜、生图、图生视频和合成，漫剧与短视频共用同一套生成能力。
-- **能做什么**：
-  - AI 短视频分步创作：文案、分镜、生图、镜头视频、合成预览
-  - AI 漫剧从大纲到分集成片，角色与场景资产可复用
-  - 默认 9:16 竖屏、约 60 秒，可选静图加 TTS 配音成片
-  - 每阶段停下等待人工检查，支持单镜预览与重生
-  - 管理后台配置模型路由，可选开启计费
-- **亮点**：
-  - 镜像托管在公开 ACR 命名空间，拉取无需登录
-  - 进程内任务平台，无需单独部署 Celery Worker
-  - 填 ARK_MOCK=true 可在无 Key 时先看界面
-- **适合**：需要批量制作投放短片、漫剧分集的创作者和小团队，以及希望自托管视频生成平台的开发者。
-- **上手**：`docker compose --env-file deploy/.env.docker up -d` 先克隆仓库并把 deploy/.env.docker.example 复制为 deploy/.env.docker，至少修改数据库密码、SECRET_KEY 和 API Key。
-- ⚠️ README 提示生产环境须立刻更换默认密钥，并不要把示例密码直接用于部署。
-
-#### [anhao/ai-pose-gallery-zh](https://github.com/anhao/ai-pose-gallery-zh) ⭐ 7,054
+#### [anhao/ai-pose-gallery-zh](https://github.com/anhao/ai-pose-gallery-zh) ⭐ 7,893
 
 > 中文 AI 绘画参考图库，含姿势、服装、人像三库与角色合成台
 
@@ -738,7 +752,26 @@ git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git` 重启 Comf
 - ⚠️ 用于真人换脸或 Deepfake 可能涉及肖像权、隐私权等法律问题
 - ⚠️ 许可证未声明或非标准，商用前请确认授权
 
-#### [CopilotKit/openfuse](https://github.com/CopilotKit/openfuse) ⭐ 6,496
+#### [yi1108/printfilm](https://github.com/yi1108/printfilm) ⭐ 7,183
+
+> 把文案做成带画面与配音的 AI 短视频与分集漫剧
+
+- **定位**：自托管的 AI 视频创作平台，分步完成文案、分镜、生图、图生视频和合成，漫剧与短视频共用同一套生成能力。
+- **能做什么**：
+  - AI 短视频分步创作：文案、分镜、生图、镜头视频、合成预览
+  - AI 漫剧从大纲到分集成片，角色与场景资产可复用
+  - 默认 9:16 竖屏、约 60 秒，可选静图加 TTS 配音成片
+  - 每阶段停下等待人工检查，支持单镜预览与重生
+  - 管理后台配置模型路由，可选开启计费
+- **亮点**：
+  - 镜像托管在公开 ACR 命名空间，拉取无需登录
+  - 进程内任务平台，无需单独部署 Celery Worker
+  - 填 ARK_MOCK=true 可在无 Key 时先看界面
+- **适合**：需要批量制作投放短片、漫剧分集的创作者和小团队，以及希望自托管视频生成平台的开发者。
+- **上手**：`docker compose --env-file deploy/.env.docker up -d` 先克隆仓库并把 deploy/.env.docker.example 复制为 deploy/.env.docker，至少修改数据库密码、SECRET_KEY 和 API Key。
+- ⚠️ README 提示生产环境须立刻更换默认密钥，并不要把示例密码直接用于部署。
+
+#### [CopilotKit/openfuse](https://github.com/CopilotKit/openfuse) ⭐ 6,575
 
 > 自带浏览器、终端和文件的跨端个人 Agent 应用
 
@@ -759,7 +792,7 @@ git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git` 重启 Comf
 - ⚠️ 默认将模型生成的查询与对话上下文匿名会话 ID 发送给第三方 Parallel 搜索，可设 WEB_SEARCH_ENABLED=false 关闭
 - ⚠️ 仅以共享访问密钥保护单一用户，不是多租户认证系统；README 要求远程部署使用 HTTPS 并限制网络访问
 
-#### [AhmadHassan-BTed/Jantt](https://github.com/AhmadHassan-BTed/Jantt) ⭐ 6,223
+#### [AhmadHassan-BTed/Jantt](https://github.com/AhmadHassan-BTed/Jantt) ⭐ 6,237
 
 > 把声明式 JSON 渲染成可交互甘特图的零依赖 TypeScript 引擎
 
@@ -776,27 +809,9 @@ git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git` 重启 Comf
   - MIT 许可，附带在线 Playground 与完整 Schema 规范文档
 - **适合**：希望让 LLM 生成项目计划的前端与 AI 工程团队，以及需要轻量甘特图的项目管理者
 - **上手**：`npm install @jantt/react @jantt/core` 引入 @jantt/react/dist/index.css 后以 data 传入 { tasks, categories } 即可渲染
-- ⚠️ fork/star 比例异常（21/6223），热度可能有水分
+- ⚠️ fork/star 比例异常（23/6237），热度可能有水分
 
-#### [kajisho5/ffmpeg-skill](https://github.com/kajisho5/ffmpeg-skill) ⭐ 6,069
-
-> 给编码 Agent 用的本地 FFmpeg 剪辑技能，含 42 个工具和 MCP 服务。
-
-- **定位**：把 FFmpeg 封装成 Agent 可读的结构化工具集：先 probe，再无损剪辑，最后校验和看图确认。全本地运行，不需要云端和 API Key。
-- **能做什么**：
-  - 42 个工具覆盖剪切、拼接、字幕、重构图、响度、平台导出
-  - 以 SKILL.md 技能形式接入 Claude Code、Cursor、Codex
-  - 全部工具可作为 MCP 工具调用，默认只暴露核心 12 个
-  - contract --json 输出机器可读契约，MCP 接口由它派生
-  - 可选本地语音引擎生成字幕，音频不上传
-- **亮点**：
-  - 执行后自动 probe、按平台规范 check，并生成联系表检查画面
-  - 模板交付 TikTok、Reels、YouTube 等 7 个视频目的地并输出汇总表
-  - CI 校验 input_schema 与 CLI 是否漂移（项目方说明）
-- **适合**：用 Claude Code、Cursor、Codex 等编码 Agent 做本地视频剪辑、又不想把素材上传云端的用户。
-- **上手**：`npx ffmpeg-skill` 先安装 ffmpeg；Cursor 加 --cursor，Codex 加 --codex，三者都要用 --all。可用 doctor 检查环境。
-
-#### [AienTech/dossier](https://github.com/AienTech/dossier) ⭐ 5,204
+#### [AienTech/dossier](https://github.com/AienTech/dossier) ⭐ 5,382
 
 > 自托管的求职与简历工具，用 AI 按每个岗位生成定制简历和求职信。
 
@@ -817,7 +832,28 @@ git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git` 重启 Comf
 - ⚠️ 用 SQLite 单容器部署时，如果不挂载 /data 卷，升级会删除数据，容器启动时会就此警告
 - ⚠️ AGPL-3.0 许可证对修改后对外提供服务的版本有开源要求
 
-#### [omnirush-ai/omnirush-gui](https://github.com/omnirush-ai/omnirush-gui) ⭐ 5,037
+#### [ersinkoc/phonebox](https://github.com/ersinkoc/phonebox) ⭐ 5,196
+
+> 把旧安卓手机变成电脑桌面控制面板和触控面板。
+
+- **定位**：配套安卓全屏应用与桌面代理，通过 USB 或 Wi-Fi 连接，在旧手机上显示电脑状态、AI 编程会话、媒体信息和触控操作，支持 Windows、Linux、macOS，无需 root、账号或云服务。
+- **能做什么**：
+  - 130 个小组件、30 个模板，浏览器可视化编辑器可拖拽布局
+  - 显示 CPU、GPU、内存、磁盘、网络等电脑状态
+  - 查看 Claude、Codex 等 AI 编程会话配额与本地会话详情
+  - 触控宏、快捷键、媒体、麦克风、OBS 与系统控制
+  - Webhook、Home Assistant 联动与通知自动化
+- **亮点**：
+  - 桌面代理监听 127.0.0.1:8765，可选 Wi-Fi 使用 HTTPS 端口 8766 并固定证书
+  - 无遥测、分析或账号；可选组件会访问天气、配额、GitHub 等外部服务
+  - 手机端可回应 Codex、Claude Code、OpenCode 的权限提示（需开启）
+- **适合**：想把闲置安卓手机改造成桌面仪表盘、或想在手机上一键查看 AI 编程会话与电脑状态的 Windows、Linux、macOS 用户。
+- **上手**：`irm https://raw.githubusercontent.com/ersinkoc/phonebox/main/setup.ps1 | iex` Windows PowerShell 命令；Linux/macOS 用 setup.sh。需 Android 5+ 手机，Wi-Fi 配对默认关闭需在设置中开启。
+- ⚠️ Windows 发布代理尚未签名，SmartScreen 或杀毒软件可能警告或拦截
+- ⚠️ USB 调试授权仅应在可信电脑上进行，否则可能被滥用
+- ⚠️ 社区插件未经项目方审核，可修改 PhoneBox 设置
+
+#### [omnirush-ai/omnirush-gui](https://github.com/omnirush-ai/omnirush-gui) ⭐ 5,095
 
 > 桌面端编程 Agent 应用，默认使用 GPT 6 Astra 等前沿模型
 
@@ -841,7 +877,7 @@ git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git` 重启 Comf
 
 ### 本地推理与模型
 
-#### [Zagitta/gpu-unlock](https://github.com/Zagitta/gpu-unlock) ⭐ 19,763
+#### [Zagitta/gpu-unlock](https://github.com/Zagitta/gpu-unlock) ⭐ 20,821
 
 > 在驱动加载前解锁 GeForce 显卡被限制的 Tensor Core 速率
 
@@ -862,9 +898,30 @@ git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git` 重启 Comf
 - ⚠️ 解锁后显卡功耗与发热上升，笔记本可能因空闲断电而静默失效
 - ⚠️ 许可证未声明或非标准，商用前请确认授权
 
+#### [Likely7/Veyra-NRVideo](https://github.com/Likely7/Veyra-NRVideo) ⭐ 5,516
+
+> Windows 上的实时 GPU 视频增强播放器，集超分、降噪、补帧与采集于一体
+
+- **定位**：把本地视频、采集卡和主机串流统一接入同一套实时 GPU 处理管线，支持超分辨率、降噪、HDR、帧生成和导出。基于 GPL-3.0 开源，需 Windows 11 x64 与 DirectX 12。
+- **能做什么**：
+  - 最多四层独立降噪，各自可设内部分辨率与强度
+  - 可选 SR、RTX Video HDR 与 DLSS/XeSS/FSR 帧生成
+  - 实时预览视频、图片、采集卡、PS5、Xbox 与截屏
+  - 节点模式可连线搭建自定义处理链，支持预设与会话
+  - 导出队列支持剪辑、MP4/MKV 及多音轨和字幕轨
+- **亮点**：
+  - 项目方数据：RTX5070 下 4K 抗锯齿 FXAA 约 0.15ms、SMAA/MLAA 约 0.30ms
+  - 项目方数据：最终单面网格美化 1080p 约 0.93ms、4K 约 1.42ms，称耗时随内容与硬件变化
+  - 项目方数据：README 称降噪强度设为 5 时仅做单次推理外推，不能保证所有视频无伪影
+- **适合**：需要为本地视频、采集卡或主机串流做实时画质增强的 Windows 用户，需具备兼容 GPU 与基本配置能力
+- **上手**：从 Releases 下载 Setup EXE 或便携 ZIP，运行安装或解压到可写目录后启动 Veyra.exe，并另装对应 GPU 包
+- ⚠️ Xbox 串流为官方未支持的实验功能，受账号、服务与主机限制
+- ⚠️ PS5 串流需经第三方网站获取 Account ID，涉及账号凭据处理
+- ⚠️ README 说明项目方从社区代币领取创作者手续费，该代币非官方发行，不构成投资建议
+
 ### Skills 与写作/设计
 
-#### [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) ⭐ 27,553
+#### [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) ⭐ 28,780
 
 > 让 Claude 把技术概念画成可交互的等距 SVG 图解。
 
@@ -881,8 +938,9 @@ git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git` 重启 Comf
   - examples/ 内已提交成品页面，可直接打开查看
 - **适合**：需要为文档、博客或落地页制作技术解说插图的开发者，以及使用 Claude 等编码 Agent 的用户。
 - **上手**：`npx skills add wheresryan22/anatomy -g` 安装时会询问要给哪些 Agent 装上，加 -a claude-code 可跳过；之后在 Claude Code 中输入 /anatomy。
+- ⚠️ 快照当日已 36 天未更新（最后推送 2026-10-18）
 
-#### [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model) ⭐ 19,969
+#### [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model) ⭐ 22,271
 
 > 用 AI Agent 写规格、再由零上下文子代理评审的编码插件
 
@@ -900,7 +958,25 @@ git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git` 重启 Comf
 - **适合**：需要对有设计取舍的功能先写规格再实现的开发者，以及使用 Claude Code、Codex、Antigravity 的编码 Agent 用户。
 - **上手**：`claude plugin marketplace add google/elephant-goldfish-model` 安装后需另执行 claude plugin install egm@egm，并新开会话；Claude Code 中命令要加 /egm: 前缀。
 
-#### [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) ⭐ 16,918
+#### [heydamir/unslop](https://github.com/heydamir/unslop) ⭐ 20,469
+
+> 把 AI 味 UI 改造成有设计感的界面
+
+- **定位**：Claude Code 与 Codex 的 Agent Skill，先找出紫色渐变、光晕、emoji 标签等 AI 风格元素，再从产品出发确定设计方向，按设计师逐轮审查的方式修改界面。
+- **能做什么**：
+  - 审计界面并列出每处 AI 风格元素的位置
+  - 从产品推导性格、世界与标志性细节
+  - 按间距、色彩、图标、文案、字体、布局等顺序逐轮修改
+  - 支持 Next.js、React、Vue、Svelte、Tailwind 及原生 HTML/CSS
+  - 仅凭链接即可处理线上页面，可选生成方形短视频
+- **亮点**：
+  - 先提出设计方向再动手，可提前调整
+  - 界面已足够好时只给小幅优化建议，不推倒重来
+- **适合**：使用 Claude Code 或 Codex 的开发者与设计者，用于整理用 AI 生成的仪表盘、应用和落地页。
+- **上手**：`git clone https://github.com/heydamir/unslop
+mkdir -p ~/.claude/skills && cp -r unslop/skills/unslop ~/.claude/skills/` 安装后在 Claude Code 输入 /unslop 加需求；Codex 用 $unslop，也可手动复制到 ~/.agents/skills/。
+
+#### [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) ⭐ 20,036
 
 > 面向 Claude 的代码短片风格工具箱：66 种现成风格，也可自建
 
@@ -922,25 +998,25 @@ claude plugin install lemo-opuscar@lemolab` 安装后首次使用会把指南、
 - ⚠️ 影片素材的版权和使用责任由使用者自行承担
 - ⚠️ 许可证未声明或非标准，商用前请确认授权
 
-#### [heydamir/unslop](https://github.com/heydamir/unslop) ⭐ 16,905
+#### [janestreet/agent_skills](https://github.com/janestreet/agent_skills) ⭐ 10,940
 
-> 把 AI 味 UI 改造成有设计感的界面
+> Jane Street 的 AI Agent 技能集合，目前提供苏格拉底式导师技能
 
-- **定位**：Claude Code 与 Codex 的 Agent Skill，先找出紫色渐变、光晕、emoji 标签等 AI 风格元素，再从产品出发确定设计方向，按设计师逐轮审查的方式修改界面。
+- **定位**：一组面向 AI Agent 和聊天机器人的技能，每个技能是一个含 SKILL.md 的目录；目前收录 socratic-tutor，把 LLM 变成用苏格拉底法教学的个人导师。
 - **能做什么**：
-  - 审计界面并列出每处 AI 风格元素的位置
-  - 从产品推导性格、世界与标志性细节
-  - 按间距、色彩、图标、文案、字体、布局等顺序逐轮修改
-  - 支持 Next.js、React、Vue、Svelte、Tailwind 及原生 HTML/CSS
-  - 仅凭链接即可处理线上页面，可选生成方形短视频
+  - 每个技能为含 SKILL.md 的目录，内有给 Agent 的指令
+  - socratic-tutor 依次进行诊断、0-5 级技能地图评估
+  - 每次只问一个问题，配合间隔复习
+  - 教学结束时给出最终测评
+  - 支持通用 SKILL.md 格式的编程 Agent，也支持纯聊天机器人
 - **亮点**：
-  - 先提出设计方向再动手，可提前调整
-  - 界面已足够好时只给小幅优化建议，不推倒重来
-- **适合**：使用 Claude Code 或 Codex 的开发者与设计者，用于整理用 AI 生成的仪表盘、应用和落地页。
-- **上手**：`git clone https://github.com/heydamir/unslop
-mkdir -p ~/.claude/skills && cp -r unslop/skills/unslop ~/.claude/skills/` 安装后在 Claude Code 输入 /unslop 加需求；Codex 用 $unslop，也可手动复制到 ~/.agents/skills/。
+  - 基于 MIT 许可证开源
+  - 编程 Agent 可复制技能目录后直接调用
+  - 纯聊天机器人则粘贴 SKILL.md 正文到对话或系统提示
+- **适合**：使用支持 SKILL.md 格式编程 Agent 或普通聊天机器人的用户，尤其是想用 LLM 自学的人
+- **上手**：README 未提供安装或运行命令：把技能目录复制到 Agent 的 skills 文件夹，或把 SKILL.md 正文粘贴进聊天。
 
-#### [Jakeschincariol/replica-skill](https://github.com/Jakeschincariol/replica-skill) ⭐ 9,478
+#### [Jakeschincariol/replica-skill](https://github.com/Jakeschincariol/replica-skill) ⭐ 10,368
 
 > 11 个 Claude 技能，用于反向拆解并重建任意 App
 
@@ -961,47 +1037,9 @@ mkdir -p ~/.claude/skills && cp -r unslop/skills/unslop ~/.claude/skills/` 安�
 - ⚠️ 重建他人 App 的功能与流程可能涉及知识产权或商标纠纷，README 要求先做商标核查并在上线前咨询律师
 - ⚠️ recon 会读取自有账号内容，若账号条款禁止用于做竞品，README 称将只使用公开来源
 - ⚠️ 项目只做清洁室式功能复刻，不复制源码、素材、商标与内容，但 README 也声明不保证得到完全一致的克隆结果
-- ⚠️ 快照当日已 44 天未更新（最后推送 2026-10-03）
+- ⚠️ 快照当日已 51 天未更新（最后推送 2026-10-03）
 
-#### [janestreet/agent_skills](https://github.com/janestreet/agent_skills) ⭐ 9,184
-
-> Jane Street 的 AI Agent 技能集合，目前提供苏格拉底式导师技能
-
-- **定位**：一组面向 AI Agent 和聊天机器人的技能，每个技能是一个含 SKILL.md 的目录；目前收录 socratic-tutor，把 LLM 变成用苏格拉底法教学的个人导师。
-- **能做什么**：
-  - 每个技能为含 SKILL.md 的目录，内有给 Agent 的指令
-  - socratic-tutor 依次进行诊断、0-5 级技能地图评估
-  - 每次只问一个问题，配合间隔复习
-  - 教学结束时给出最终测评
-  - 支持通用 SKILL.md 格式的编程 Agent，也支持纯聊天机器人
-- **亮点**：
-  - 基于 MIT 许可证开源
-  - 编程 Agent 可复制技能目录后直接调用
-  - 纯聊天机器人则粘贴 SKILL.md 正文到对话或系统提示
-- **适合**：使用支持 SKILL.md 格式编程 Agent 或普通聊天机器人的用户，尤其是想用 LLM 自学的人
-- **上手**：README 未提供安装或运行命令：把技能目录复制到 Agent 的 skills 文件夹，或把 SKILL.md 正文粘贴进聊天。
-
-#### [larashero3-dotcom/lieflat-less-ai-tone](https://github.com/larashero3-dotcom/lieflat-less-ai-tone) ⭐ 7,724
-
-> 基于 520 万字对照语料研究的去 AI 味改写 skill，先出检测报告再改
-
-- **定位**：先运行脚本并判读语义候选，交付带研究参照、原文例句和改法的检测报告；用户回复后才改写、复测并生成前后对比。
-- **能做什么**：
-  - 三层检测：脚本层、语义层、人审层，命中分 A/B/C/H/X/F 级
-  - 报告附指标显著性、原文例句和具体改法，默认只报告
-  - 六条改写原则：最小改动、信息守恒、不制造参差、结构不动
-  - 改后复测并生成 Markdown 或 HTML 前后对比报告
-  - 内置复算脚本：人机规则命中率、句子同构、译文句式频率
-- **亮点**：
-  - 语料为两轮 1,169 篇、约 520 万汉字，约 50 万次语义判断
-  - 区分模型指纹：破折号 Opus δ+0.95，GPT 分号 δ+0.80
-  - README 称语义层为单模型判断，抽样复核误判 15–30%
-- **适合**：想让 AI 生成的中文成稿读起来更自然，且希望改写有据可查、不误伤原意的写作者与编辑。
-- **上手**：`npx skills add larashero3-dotcom/lieflat-less-ai-tone` 也可让支持 Agent Skills 的 AI 直接安装仓库内 skill；安装后给一篇成稿。
-- ⚠️ 许可证为 CC BY-NC 4.0 仅限非商业使用，商用需联系作者授权
-- ⚠️ 许可证未声明或非标准，商用前请确认授权
-
-#### [patch-gg/pixelfx](https://github.com/patch-gg/pixelfx) ⭐ 7,639
+#### [patch-gg/pixelfx](https://github.com/patch-gg/pixelfx) ⭐ 8,809
 
 > 244 个代码化像素特效，附一个 Claude Code 技能用于自制
 
@@ -1019,24 +1057,7 @@ mkdir -p ~/.claude/skills && cp -r unslop/skills/unslop ~/.claude/skills/` 安�
 - **适合**：做像素风游戏或动画的开发者，以及用 Claude Code 制作特效的美术和独立开发者
 - **上手**：`npm i github:patch-gg/pixelfx` 从 GitHub 安装；也可直接复制 src/core 和所需特效文件。
 
-#### [kaankiziltug/logo-design-skill](https://github.com/kaankiziltug/logo-design-skill) ⭐ 7,024
-
-> 让 Claude 等 AI 代理做标志设计的 Agent Skill，从需求简报产出可用的 SVG 和品牌规范。
-
-- **定位**：一个按开放 Agent Skills 格式（含 SKILL.md 的文件夹）编写的标志设计技能包，可装入 Claude Code、Gemini CLI、Codex CLI、Cursor、Copilot 等代理，把首份简报一路推进到生产级 SVG 与品牌指南。
-- **能做什么**：
-  - 覆盖从需求调研、概念发想、几何构建、光学修正到色彩、字体、锁定的完整流程
-  - 1,400+ 真实 SVG 标志参考库，可按标志类型、行业、情绪等检索，命令行可查、本地画廊可浏览
-  - 无依赖 Python 工具：审查 SVG、生成测试表、渲染 PNG、导出图标集
-  - 流程固定在检查点停下：先给出概念总览与推荐，用户选定方向后才制作完整套件
-- **亮点**：
-  - 参考库只用于研究构造与行业惯例，README 明确声明不用于复制
-  - 测试含 16px 像素测试、单色、反白、眯眼、镜像与竞品货架对比
-  - README 说明技能在能看图的模型上效果最好，因为它会自行渲染 PNG 再检查
-- **适合**：使用 Claude Code、Gemini CLI、Codex CLI、Cursor 等支持 Agent Skills 的代理，需要做品牌标志与视觉识别设计的开发者、设计师和独立…
-- **上手**：`/plugin marketplace add kaankiziltug/logo-design-skill` 在 Claude Code 中执行后，再运行 /plugin install logo-design@logo-design-skill；其他代理需把 skills/logo-d…
-
-#### [Jakeschincariol/instagram-agent-skill](https://github.com/Jakeschincariol/instagram-agent-skill) ⭐ 6,676
+#### [Jakeschincariol/instagram-agent-skill](https://github.com/Jakeschincariol/instagram-agent-skill) ⭐ 8,411
 
 > 13 个 Claude 技能，帮你运营 Instagram 账号
 
@@ -1054,46 +1075,26 @@ mkdir -p ~/.claude/skills && cp -r unslop/skills/unslop ~/.claude/skills/` 安�
 - **适合**：用 Claude 运营 Instagram 账号的创作者、内容团队和社媒运营者。
 - **上手**：`git clone https://github.com/Jakeschincariol/instagram-agent-skill.git
 cp -r instagram-agent-skill/skills/ig-* ~/.claude/skills/` 也可作为插件安装；之后花十分钟填写 templates/voice.md，所有技能都会读取这个文件。技能只负责写作，发帖仍由你自己操作。
-- ⚠️ 快照当日已 64 天未更新（最后推送 2026-09-13）
+- ⚠️ 快照当日已 71 天未更新（最后推送 2026-09-13）
 
-#### [s1dashu/ip-as-logo-skill](https://github.com/s1dashu/ip-as-logo-skill) ⭐ 6,579
+#### [kaankiziltug/logo-design-skill](https://github.com/kaankiziltug/logo-design-skill) ⭐ 7,544
 
-> 用于生成极简圆润、略微软拟物 IP 吉祥物标志的 Agent Skill
+> 让 Claude 等 AI 代理做标志设计的 Agent Skill，从需求简报产出可用的 SVG 和品牌规范。
 
-- **定位**：遵循开放的 Agent Skills 格式，可用任意兼容的 AI Agent 生成公司可用的极简可爱 IP 吉祥物；它不绑定特定 Agent 产品，唯一指令文档是 SKILL.md。
+- **定位**：一个按开放 Agent Skills 格式（含 SKILL.md 的文件夹）编写的标志设计技能包，可装入 Claude Code、Gemini CLI、Codex CLI、Cursor、Copilot 等代理，把首份简报一路推进到生产级 SVG 与品牌指南。
 - **能做什么**：
-  - 默认用 4–7 个大色块搭出单一主体剪影
-  - 默认三种语义色：两种 IP 主色加一种背景色
-  - 先给三个方向，确认后并发生成六张独立方图
-  - 开放式主题默认选常见动物，按产品属性绑定
-  - IP 多为从左下角探入，画面占比约 85–95%
+  - 覆盖从需求调研、概念发想、几何构建、光学修正到色彩、字体、锁定的完整流程
+  - 1,400+ 真实 SVG 标志参考库，可按标志类型、行业、情绪等检索，命令行可查、本地画廊可浏览
+  - 无依赖 Python 工具：审查 SVG、生成测试表、渲染 PNG、导出图标集
+  - 流程固定在检查点停下：先给出概念总览与推荐，用户选定方向后才制作完整套件
 - **亮点**：
-  - 单文件 Skill，仓库内无脚本、无生成依赖
-  - 生成提示只描述方图角色，不提及 logo、图标用途
-  - 不校验、不拦截、不自动重试，每次只生成一次（项目方描述）
-- **适合**：需要批量生成可爱 IP 吉祥物或品牌角色初稿的设计师、品牌与产品团队，以及使用 Codex 等兼容 Agent 的用户。
-- **上手**：`npx skills@latest add s1dashu/ip-as-logo-skill` 加 --global 可跨项目安装；需 Agent 具备顶级图像模型，否则要开启工具或提供 API Key。
-- ⚠️ AI 生成的角色标志可能涉及版权、商标近似或 AI 内容标识等法规问题，商用前需自行核查。
+  - 参考库只用于研究构造与行业惯例，README 明确声明不用于复制
+  - 测试含 16px 像素测试、单色、反白、眯眼、镜像与竞品货架对比
+  - README 说明技能在能看图的模型上效果最好，因为它会自行渲染 PNG 再检查
+- **适合**：使用 Claude Code、Gemini CLI、Codex CLI、Cursor 等支持 Agent Skills 的代理，需要做品牌标志与视觉识别设计的开发者、设计师和独立…
+- **上手**：`/plugin marketplace add kaankiziltug/logo-design-skill` 在 Claude Code 中执行后，再运行 /plugin install logo-design@logo-design-skill；其他代理需把 skills/logo-d…
 
-#### [QingYunA/answer-me-with-html](https://github.com/QingYunA/answer-me-with-html) ⭐ 6,350
-
-> 让 AI Agent 用一页 HTML 回答复杂问题的技能
-
-- **定位**：一个面向 AI Agent 的技能：模型只写 Markdown 草稿，由随技能附带的 CLI 负责排版、配色和画图，输出单文件 HTML 页面。
-- **能做什么**：
-  - 模型只写 Markdown，CLI 生成版面、CSS 和 SVG 图
-  - 按问题类型给出时序图、流程图、对比表、时间线等页面
-  - 提供 blueprint、shadcn、paper 三种主题，均支持明暗模式
-  - 每页为无外部依赖的单文件 HTML，可离线打开
-  - 草稿出错时 CLI 返回行号和正确示例供修正
-- **亮点**：
-  - 项目方数据：模型输出 token 从 4893 降到 612，约为原来的 1/8
-  - 项目方数据：同样问题耗时从 31 秒降到 12 秒
-  - 项目方数据：账单只降约 15%，因为每轮仍需读取上下文
-- **适合**：常用 Claude Code、Codex、Cursor 等 Agent 做技术解释、方案对比和代码梳理的开发者。
-- **上手**：`npx skills add QingYunA/answer-me-with-html` 需 Node.js 20 以上，安装器会询问装进哪些 Agent；装完无需额外配置。
-
-#### [Jakeschincariol/youtube-agent-skill](https://github.com/Jakeschincariol/youtube-agent-skill) ⭐ 6,071
+#### [Jakeschincariol/youtube-agent-skill](https://github.com/Jakeschincariol/youtube-agent-skill) ⭐ 6,995
 
 > 11 个 Claude 技能，覆盖 YouTube 频道从选题到剪辑的各个环节
 
@@ -1112,32 +1113,46 @@ cp -r instagram-agent-skill/skills/ig-* ~/.claude/skills/` 也可作为插件安
 - **上手**：`git clone https://github.com/Jakeschincariol/youtube-agent-skill.git
 cp -r youtube-agent-skill/skills/yt-* ~/.claude/skills/` 也可作为插件安装，或不装 Claude Code 直接粘贴单个 SKILL.md；建议先填写 templates/voice.md。
 - ⚠️ /yt-viral 仅读取公开列表，但抓取第三方平台数据仍需留意平台服务条款。
-- ⚠️ 快照当日已 61 天未更新（最后推送 2026-09-16）
+- ⚠️ 快照当日已 68 天未更新（最后推送 2026-09-16）
 
-#### [nateherkai/scroll-craft](https://github.com/nateherkai/scroll-craft) ⭐ 5,113
+#### [QingYunA/answer-me-with-html](https://github.com/QingYunA/answer-me-with-html) ⭐ 6,617
 
-> 为编程 Agent 提供制作高端滚动叙事网站的设计技能包
+> 让 AI Agent 用一页 HTML 回答复杂问题的技能
 
-- **定位**：一个供 Codex、Claude Code 等编程 Agent 读取的 skill，内置设计流程、参考文档、滚动引擎和浏览器校验脚本，同时提供 Claude Code 插件形式安装。
+- **定位**：一个面向 AI Agent 的技能：模型只写 Markdown 草稿，由随技能附带的 CLI 负责排版、配色和画图，输出单文件 HTML 页面。
 - **能做什么**：
-  - 八种互斥页面语法，每次构建须有独有招牌交互
-  - 按感受曲线规划段落，只设一个工程化峰值
-  - 排版、间距、配色、景深设有明确设计下限
-  - 无头浏览器逐滚动位检查死滚动、对比度与视频解码
-  - 可用自有素材构建，AI 生成素材需另配 API Key
+  - 模型只写 Markdown，CLI 生成版面、CSS 和 SVG 图
+  - 按问题类型给出时序图、流程图、对比表、时间线等页面
+  - 提供 blueprint、shadcn、paper 三种主题，均支持明暗模式
+  - 每页为无外部依赖的单文件 HTML，可离线打开
+  - 草稿出错时 CLI 返回行号和正确示例供修正
 - **亮点**：
-  - 技能自带指纹门槛：新页面须在 6 个维度中至少 4 项区别于旧页面
-  - 引擎不按项目改动，仅通过 6 个颜色令牌和 2 款字体定制
-  - 收录十个已上线沉浸式网站的制作流程与范例
-- **适合**：使用 Codex、Claude Code 等编程 Agent 构建营销落地页的前端开发者与设计师
-- **上手**：`/plugin marketplace add nateherkai/scroll-craft` Claude Code 中先添加市场，再执行 /plugin install nateherk-design 安装插件；其他 Agent 需手动复制 skill 文件夹
-- ⚠️ README 自述脚本从未在 macOS 上完成过构建，仅在 Windows 上验证
-- ⚠️ AI 生成视频素材会产生实际费用
-- ⚠️ 快照当日已 47 天未更新（最后推送 2026-09-30）
+  - 项目方数据：模型输出 token 从 4893 降到 612，约为原来的 1/8
+  - 项目方数据：同样问题耗时从 31 秒降到 12 秒
+  - 项目方数据：账单只降约 15%，因为每轮仍需读取上下文
+- **适合**：常用 Claude Code、Codex、Cursor 等 Agent 做技术解释、方案对比和代码梳理的开发者。
+- **上手**：`npx skills add QingYunA/answer-me-with-html` 需 Node.js 20 以上，安装器会询问装进哪些 Agent；装完无需额外配置。
+
+#### [Leonxlnx/earshot](https://github.com/Leonxlnx/earshot) ⭐ 5,581
+
+> 给编码 Agent 用的音效生成工具，用一句话描述即可渲染出音效代码。
+
+- **定位**：earshot 面向 Claude Code 等编码 Agent 及与之协作的人。它从 922 个音效设计中检索需求，并用代码渲染新版音效；目录中没有的，可用录制素材按配方拼出，再由听音模型评估。
+- **能做什么**：
+  - 922 个设计、384 个音效族，309 个由 692 段公共领域录音学习而来
+  - 目录缺失时用 earshot build 按 JSON 配方拼装录音部件
+  - 听音功能可描述音效、判断匹配度、检测录音还是合成
+  - 提供 20 个工具的 MCP 服务、Claude Code 插件与两个 Agent skill
+  - 内置 252 个影片音效银行的代码，以及 99 个配方手册
+- **亮点**：
+  - 纯 CPU 运行，基础安装不下载模型，生成音效时无需联网
+  - 仓库不含音频文件，所有音效均由代码按需渲染
+- **适合**：为游戏、界面、影片写代码的 AI Agent 用户及音效设计相关人员。
+- **上手**：`pip install "earshot @ git+https://github.com/Leonxlnx/earshot"` 需 Python 3.10+，仅合入 CPU；写入 ogg/mp3 等格式需 ffmpeg；PyPI 上的 earshot 是别的项目。
 
 ### 开发者工具与集成
 
-#### [Ryze-AI-Adgent/open-seo-mcp-skills](https://github.com/Ryze-AI-Adgent/open-seo-mcp-skills) ⭐ 10,065
+#### [Ryze-AI-Adgent/open-seo-mcp-skills](https://github.com/Ryze-AI-Adgent/open-seo-mcp-skills) ⭐ 10,644
 
 > 面向 Claude 的开源 SEO 与 GEO 技能包，配免费 SEO MCP 服务
 
@@ -1156,7 +1171,7 @@ cp -r youtube-agent-skill/skills/yt-* ~/.claude/skills/` 也可作为插件安�
 - **上手**：`claude mcp add ryze --transport http https://connector.get-ryze.ai/mcp` 安装插件时这一步可选；之后还需执行 claude plugin marketplace add Ryze-AI-Adgent/open-seo-mcp-skills 并安装插件。
 - ⚠️ 数据经第三方托管的 get-ryze.ai 连接器转发，需信任其对 Search Console、GA4 与广告账号数据的处理
 
-#### [rddmwmddr/android-ad-cleaner](https://github.com/rddmwmddr/android-ad-cleaner) ⭐ 8,173
+#### [rddmwmddr/android-ad-cleaner](https://github.com/rddmwmddr/android-ad-cleaner) ⭐ 8,804
 
 > 通过 adb 关闭国产安卓系统广告的脚本与桌面客户端
 
@@ -1176,7 +1191,7 @@ cp -r youtube-agent-skill/skills/yt-* ~/.claude/skills/` 也可作为插件安�
 - ⚠️ 挂起广告组件和关闭系统开关可能影响部分系统功能，README 要求改动前先备份
 - ⚠️ 机型与系统版本不匹配时脚本可能点错入口，README 声明使用后果由使用者自行承担
 
-#### [vercel-labs/ui](https://github.com/vercel-labs/ui) ⭐ 5,064
+#### [vercel-labs/ui](https://github.com/vercel-labs/ui) ⭐ 6,602
 
 > 供 AI Agent 构建无头 UI 组件的交互行为库
 
@@ -1193,9 +1208,27 @@ cp -r youtube-agent-skill/skills/yt-* ~/.claude/skills/` 也可作为插件安�
 - **适合**：使用 AI Agent 开发前端、需要跨框架无头交互组件的前端与设计系统团队
 - **上手**：`npm install @ui-sdk/react @ui-sdk/core` 使用其他框架时把 @ui-sdk/react 换成 @ui-sdk/vue、@ui-sdk/svelte、@ui-sdk/solid 或 @ui-sdk/web
 
+#### [haydenschmitty/floorplan](https://github.com/haydenschmitty/floorplan) ⭐ 6,316
+
+> 让 Claude 或 Codex 读取代码库，生成可交互的纯英文架构地图。
+
+- **定位**：面向用 AI 构建应用但不读代码的人：Claude Code 或 Codex 扫描代码后，自动生成可缩放的地图，展示各部件、文件、端点、页面及前后端请求关系，并附带健康检查。
+- **能做什么**：
+  - 按层级缩放查看整体、部件、文件与端点
+  - 用日常英语命名每个部分，悬停解释技术词
+  - 跨仓库匹配前端请求与后端端点
+  - 健康检查：代码内密钥、开放的表规则、可伪造的 webhook
+  - 可选蓝图：从 PRD 规划尚未构建的应用
+- **亮点**：
+  - 脚本负责扫描与布局，模型只负责命名和描述
+  - 全部在本机运行，不写依赖，地图可离线使用
+  - 地图保存在 floorplan/ 目录并自我忽略，不入 git
+- **适合**：用 Claude Code 或 Codex 构建应用、希望看懂代码结构与安全隐患的开发者与团队。
+- **上手**：`claude plugin marketplace add haydenschmitty/floorplan` 需 Node.js 18+ 与 Claude Code；安装后新开会话，对项目说"Make me a floorplan of this app"。
+
 ### 安全防护与合规
 
-#### [qybaihe/bla](https://github.com/qybaihe/bla) ⭐ 5,838
+#### [qybaihe/bla](https://github.com/qybaihe/bla) ⭐ 6,443
 
 > 对抗 AI 逆向工程代理的软件加固 MCP 服务器与 CLI
 
@@ -1214,9 +1247,33 @@ cp -r youtube-agent-skill/skills/yt-* ~/.claude/skills/` 也可作为插件安�
 - **上手**：`npx bla-agents harden .` 需 Node.js ^22.23.4 或 >=24；自动发现 dist/、.asar、.wasm 等构建输出。
 - ⚠️ 仅限保护自有软件；README 声明不得用于第三方产物
 
+### 攻击性安全（仅限授权测试）
+
+> ⚠️ 渗透测试、漏洞利用、红队等攻击性工具，只能用于自己拥有或获得书面授权的系统，未经授权使用可能违法。
+
+#### [BaaRai/ARTEX](https://github.com/BaaRai/ARTEX) ⭐ 16,684
+
+> 自托管、由 LLM 驱动、带证据留痕的自主渗透测试平台
+
+- **定位**：ARTEX 是一个自托管的 LLM 驱动渗透测试平台，由规划器将目标拆分为意图、Worker 调用真实工具执行，结果写入资产图与探索图两张关联图，每条发现都可绑定原始请求响应作证据。
+- **能做什么**：
+  - 规划器拆分目标、Worker 执行意图并写回，形成闭环
+  - 双图架构：全局资产图与每任务探索图，用锚点关联
+  - 记录型 MITM 代理与浏览器扩展采集真实流量作证据
+  - 人工审批门、argv 前缀规则、范围门与 token/轮次预算
+  - 支持自建 Anthropic/OpenAI 兼容端点或本地 Ollama
+- **亮点**：
+  - 发现需绑定证据响应与逐字引用才算 verified
+  - retester 代理可复测漏洞并记录仍可复现/已修复/无法确认
+  - 单 Go 二进制内嵌 Next.js UI，PostgreSQL 存储
+- **适合**：授权范围内做渗透测试与红队评估的安全团队，会自行部署并配置 LLM 端点
+- **上手**：`docker compose up -d --build` 先 git clone 并 cp .env.example .env 设置 POSTGRES_PASSWORD，启动后访问 http://localhost:8787，用日志中的…
+- ⚠️ 攻击性安全工具，仅限在获得明确授权的目标上使用。
+- ⚠️ 浏览器扩展会采集会话流量并发送到本地 ARTEX 服务。
+
 ### 其他
 
-#### [Albert-Weasker/niubigeo](https://github.com/Albert-Weasker/niubigeo) ⭐ 10,325
+#### [Albert-Weasker/niubigeo](https://github.com/Albert-Weasker/niubigeo) ⭐ 10,087
 
 > 开源自托管的 GEO 研究工具，追踪品牌和多模型在 AI 回答中的可见度
 
@@ -1244,7 +1301,6 @@ npm run server` 需 Node.js 22.13+，在 .env 填 OPENROUTER_API_KEY 后启动�
 ## 已排除（判定与 AI 无关）
 - tangency-labs/solidcraft：一个早期但可用的参数化 CAD 应用，用草图约束和特征时间线建模，同一套命令可在桌面端、浏览器、无头 CLI 和 MCP 服务器上运行。
 - yihui-dev/awesome-opus5-5-videos：收录创作者用 Claude Opus 5.5 让模型以代码形式绘制动画（HTML、Canvas、SVG、Three.js 等）做出的视频，并附上对应提示词或原始发布链接，方便读者复制 prompt 自行尝试。
-- bojieli/ai-infra-book：李博杰所著中文开源书稿，含十二章正文、PDF/EPUB、在线阅读网站、配套计算 CLI 与按章实验，方法是从硬件容量、带宽与算力出发做数量级估算。
 - Mak5er/AirCard：基于 airlift AirTraffic 同步漏洞的 macOS 应用，可替换 Apple Wallet 卡片皮肤和锁屏密码键盘主题，无需越狱。
 - omlahore/RemoveMacAI：一个原生 App 加同款 CLI，用来关掉 Apple Intelligence 及其模型，并关闭系统遥测、个性化广告、弹窗和其他应用的更新器；所有改动先预览，且都可撤销。
 - shader-effects-inc/shaders：把 WebGPU 着色器效果封装成声明式组件，可嵌套、混合和遮罩，同一包内为各前端框架提供一致的 props；另配可视化设计编辑器，可导出代码。

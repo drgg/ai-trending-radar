@@ -1,0 +1,30 @@
+{
+  "is_ai_product": true,
+  "category": "Agent 平台与基础设施",
+  "tagline": "可自托管的团队 AI Agent 编排引擎，多 harness 协作并按验收标准交付",
+  "positioning": "把需求变成带验收标准的工单，分配给人或 Agent，由另一个 harness 用不同模型复核，最终由提出人签收，全程留痕；适合团队统一管理和沉淀 AI 工作方式。",
+  "features": [
+    "一个 harness 执行、另一个模型 harness 按验收标准复核",
+    "支持 Pi、OpenCode、DeepSeek Harness、Qwen Code、Kimi Code、Codex 等运行时，会话中可切换",
+    "成功的对话可保存为插件，供团队复用并持续改进",
+    "插件需审核后授权给团队或个人，可撤销，含角色、用量、成本与审计日志",
+    "支持 Docker 自托管部署，含 Hub、管理控制台与 PostgreSQL"
+  ],
+  "highlights": [
+    "以验收标准先行、AI 复核、人工签收的流程保证交付可信",
+    "项目方说明：当前为公开测试版，建议在生产使用前先评估",
+    "程序和模型分离，支持 ACP 的程序可通过目录声明接入"
+  ],
+  "audience": "需要统一管理多个 AI Agent 与模型的开发团队、技术负责人和企业内部平台团队",
+  "quickstart_cmd": "sh start.sh --desktop",
+  "quickstart_note": "需先克隆仓库；Windows 用 .\\start.cmd --desktop。首次运行会安装依赖并启动 Hub、管理控制台和桌面客户端。",
+  "risks": [
+    "项目处于公开测试阶段，README 建议在生产使用前先评估",
+    "官方在线演示仅供评估，README 明确要求勿上传真实业务数据或敏感信息"
+  ],
+  "readme_sha": "ded31fbb43793030fa2b7be778f385b47994aa5d",
+  "generated_at": "2026-11-23",
+  "prompt_version": 4,
+  "ai_rule": 2,
+  "model": "deepseek-flash"
+}

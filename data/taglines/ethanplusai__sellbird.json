@@ -1,0 +1,7 @@
+{
+ "tagline": "开源外呼平台，用 Claude 或 ChatGPT 找客户、写冷邮件并处理回复。",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-23",
+ "model": "deepseek-flash"
+}

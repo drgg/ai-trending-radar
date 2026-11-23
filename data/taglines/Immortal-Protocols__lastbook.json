@@ -1,0 +1,7 @@
+{
+ "tagline": "离线生存知识库，整合手册、视频、百科、地图与本地问答，供断网时查用",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-23",
+ "model": "deepseek-flash"
+}

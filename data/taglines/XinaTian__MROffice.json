@@ -1,0 +1,7 @@
+{
+ "tagline": "开源 Office 风格在线编辑器合集，内置 Copilot 与 MCP 服务，可让 AI 读写真实文档",
+ "is_ai_product": true,
+ "ai_rule": 2,
+ "generated_at": "2026-11-23",
+ "model": "deepseek-flash"
+}
